@@ -1,0 +1,35 @@
+<div class="content-block choice">
+    <ul class="tabs last">  
+        <li class="general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
+        <li class="other"><a href="{{ url('order_step_2') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> Other information</a></li>
+        <li class="contact current"><div class="noarrow"><span>3</span> Contact information</div></li>
+    </ul>
+    <div class="paramauto">
+        <h1>Тариф</h1>
+        <table>
+            <colgroup><col width="82%"/><col width="16%"/><col width="2%"/><colgroup>
+            <tr>
+                <td><input type="checkbox" /> <span class="text">Рекомендуем цену</span></td><td class="align_center"><span>100</span></td><td>$</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /> <span class="text">Ваша цена</span></td><td class="align_center"><input class="yourcash" type="text" placeholder="0.00"></td><td>$</td>
+            </tr>
+        </table>
+        <h1>Контактная информация</h1>
+        <div class="contactpassenger">
+            <label class="nottravel"><input type="checkbox" /> I am not traveling. I am making this booking on another's behalf.</label>
+            <label><span class="text">Имя пассажира</span> <input type="text" placeholder="не указано"></label>
+            <label><span class="text">Телефон пассажира</span> <input type="text" placeholder="не указано"></label>
+            <label><span class="text">E-mail пассажира</span> <input type="text" placeholder="не указано"></label>
+            <label><span class="text">Skype пассажира</span> <input type="text" placeholder="не указано"></label>
+        </div>
+
+        <a href="#" class="nextbutt bigbutt">Публиковать заявку</a>
+        <a href="#" class="nextbutt bigbutt bluebg">Выбрать водителя</a>
+    </div>
+
+		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}>
+    <div class="clear"></div>
+
+</div>
+

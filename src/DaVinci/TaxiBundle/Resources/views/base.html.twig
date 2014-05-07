@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}TAXI MY PRICE{% endblock %}</title>
+{% block stylesheets %}
+            {% stylesheets 'bundles/davincitaxi/css/styles.css'
+                'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' filter='cssrewrite' %}
+        <link media="all" rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+       <div id="wrapper">
+		<div class="w1">
+{% block header %}
+			<header id="header">
+				<strong class="logo"><a href="{{ url('da_vinci_taxi_homepage') }}">TAXI MY PRICE</a></strong>
+				<nav id="main-nav">
+					<ul>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Help</a></li>
+						<li>
+							<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico01.png') }}" alt="Passenger" width="27" height="27"></a>
+							<a href="#">Profit</a>
+							<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico02.png') }}" alt="Driver" width="27" height="27"></a>
+						</li>
+					</ul>
+				</nav>
+				<div class="float_right">
+					<a href="#" class="signin">Hello, Sign in</a>
+				</div>
+				<div class="typevis"><a class="book" href="#">Book</a><a href="#">Store</a><div class="razd"></div></div>
+			</header>
+
+{% endblock %}
+            
+{% block body %}{% endblock %}
+
+{% block javascripts %}
+        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+
+        <script src="{{ asset('js/plugins/excanvas.min.js') }}"></script>
+
+        {% javascripts
+            '@DaVinciTaxiBundle/Resources/public/js/jquery.js'
+            '@DaVinciTaxiBundle/Resources/public/js/jquery.mousewheel.js'
+            '@DaVinciTaxiBundle/Resources/public/js/jquery-ui-1.10.4.custom.min.js'
+            '@DaVinciTaxiBundle/Resources/public/js/timepicker.js'
+            '@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
+            '@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
+            '@DaVinciTaxiBundle/Resources/public/js/jquery.validate.js'
+            '@DaVinciTaxiBundle/Resources/public/js/all.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{% endblock %}
+        
+        </div>
+	</div>
+{% block footer %}
+     <footer id="footer">
+		<div class="w1">
+			<div class="footer-block">
+				<nav class="add-nav">
+					<ul>
+						<li><a href="#">Info</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+					</ul>
+				</nav>
+				<ul class="social">
+					<li><a class="youtube" href="#" title="youtube">youtube</a></li>
+					<li><a class="twitter" href="#">twitter</a></li>
+					<li><a class="facebook" href="#">facebook</a></li>
+					<li><a class="google" href="#" title="google+">google+</a></li>
+					<li><a class="linkedin" href="#">linkedin</a></li>
+				</ul>
+			</div>
+			<p class="copy">&copy; {{ "now"|date("Y") }}  TaxiMyPrice</p>
+		</div>
+	</footer>
+{% endblock %}
+    </body>
+</html>

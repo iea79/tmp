@@ -1,0 +1,215 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block body %}
+{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+<div id="content">
+    <div class="content-block">
+        <h1>Choose your account type</h1>
+        <ul class="tabs display_none">  
+            <li class="general current"><div class="arrow_box"><span>1</span> General information</div></li>
+            <li class="contact"><div class="noarrow"><span>2</span> Contact information</div></li>
+        </ul>
+        <ul class="tabs display_none threetabs">  
+            <li class="general current"><div class="arrow_box"><span>1</span> General information</div></li>
+            <li class="other"><div class="noarrow"><span>2</span> Other information</div></li>
+            <li class="contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+        </ul>
+
+        <label><span class="text">User type:</span>
+            <select name="usertype" class="styled" id="myselect">
+                <option>Manager</option>
+                <option>Passenger</option>
+                <option>Taxi Driver</option>
+                <option>Taxi Company</option>
+                <option>Independent Driver</option>
+            </select>
+        </label>
+        <div id="manager" class="usertype">
+            <form action="{{ url('manager_step2') }}" method="get">
+                <fieldset>
+                    <label><span class="text">First Name:</span>
+                        <input required type="text" name="firstname" id="firstname"  />
+                    </label>
+                    <label><span class="text">Last Name:</span>
+                        <input type="text" name="lastname" id="lastname" required />
+                    </label>
+                    <label><span class="text">Birthday:</span>
+                        <input  class="dates" type="text" id="datepicker" name="datepicker" required  />
+                    </label>
+                    <label><span class="text">Country:</span>
+                        <input type="text" name="country" id="country" required  />
+                    </label>
+                    <label><span class="text">City:</span>
+                        <input type="text" name="city"   id="city" required />
+                    </label>
+                    <div class="style1">
+                        <label class="medium"><span class="text">Language:</span>
+                            <select name="lang" class="styled" id="lang" required >
+                                <option>выберите язык</option>
+                                <option>russian</option>
+                                <option>english</option>
+                                <option>spanish</option>
+                            </select>
+                        </label>
+                        <label class="mini"><span class="text">Level:</span>
+                            <select name="level" class="styled" id="level" required>
+                                <option>basic</option>
+                                <option>level1</option>
+                                <option>level2</option>
+                                <option>level3</option>
+                            </select>
+                        </label>									
+                    </div>
+                    <div class="addlang">Добавить еще язык</div>
+                    <div  class="nextbutt">		<input class="submit" type="submit" value="Next"/></div>
+
+
+                </fieldset>
+            </form>
+        </div>
+        <div id="passenger" class="usertype">
+            <!--form id="managertype" action="" method="post"-->
+            <form method="get" action="{{ url('da_vinci_taxi_homepage') }}">
+                <fieldset>
+                    <label>
+                        <span class="text">First Name:</span>
+                        <input id="firstname" name="firstname" minlength="2" required type="text">
+                    </label>
+                    <label>
+                        <span class="text">Last Name:</span>
+                        <input id="lastname" name="lastname" required type="text">
+                    </label>
+                    <label>
+                        <span class="text">Create Password:</span>
+                        <input id="password" name="password" required  type="password">
+                    </label>
+                    <label>
+                        <span class="text">E-mail (username):</span>
+                        <input id="cemail" type="email" name="email" required type="text">
+                    </label>
+                    <label>
+                        <span class="text">Phone number:</span>
+                        <input type="text" id="phonenumber" name="phonenumber" required>
+                    </label>
+                    <label>
+                        <span class="text">Skype:</span>
+                        <input type="text" id="skype" name="skype" required type="text">
+                    </label>
+                    <label class="term"><input required  type="checkbox" name="term" id="term"> I agree to the <a href="#">Driver Terms &amp; Conditions</a></label>
+                    <input class="submit btn-red" type="submit" value="Create account"/>
+                </fieldset>
+            </form>
+        </div>
+        <div id="taxidriver" class="usertype">
+            <form action="{{ url('taxidriver_step2') }}" method="get">
+                <fieldset>
+                    <label><span class="text">First Name:</span>
+                        <input required type="text" name="firstname" id="firstname"  />
+                    </label>
+                    <label><span class="text">Last Name:</span>
+                        <input type="text" name="lastname" id="lastname" required />
+                    </label>
+                    <label><span class="text">Birthday:</span>
+                        <input  class="dates" type="text" id="datepicker" name="datepicker" required  />
+                    </label>
+                    <label><span class="text">Country:</span>
+                        <input type="text" name="country" id="country" required  />
+                    </label>
+                    <label><span class="text">City:</span>
+                        <input type="text" name="city"   id="city" required />
+                    </label>
+                    <div class="style1">
+                        <label class="medium"><span class="text">Language:</span>
+                            <select name="lang" class="styled" id="lang" required >
+                                <option>выберите язык</option>
+                                <option>russian</option>
+                                <option>english</option>
+                                <option>spanish</option>
+                            </select>
+                        </label>
+                        <label class="mini"><span class="text">Level:</span>
+                            <select name="level" class="styled" id="level" required>
+                                <option>basic</option>
+                                <option>level1</option>
+                                <option>level2</option>
+                                <option>level3</option>
+                            </select>
+                        </label>									
+                    </div>
+                    <div class="addlang">Добавить еще язык</div>
+                    <div  class="nextbutt">		<input class="submit" type="submit" value="Next"/></div>
+
+
+                </fieldset>
+            </form>
+        </div>
+        <div id="taxicompany" class="usertype">
+            <form action="{{ url('company_step2') }}" method="get">
+                <fieldset>
+                    <label><span class="text">Название организации:</span>
+                        <input type="password" name="createpassword" id="createpassword" required />
+                    </label>
+                    <label><span class="text">Страна:</span>
+                        <input type="text" name="country" id="country" required />
+                    </label>
+                    <label><span class="text">Город:</span>
+                        <input type="text" name="city" id="city" required />
+                    </label>
+                    <label><span class="text">Улица:</span>
+                        <input type="text" id="street" name="street" required />
+                    </label>
+                    <label><span class="text">№ дома:</span>
+                        <input type="text" name="numberhouse"  id="numberhouse"  required/>
+                    </label>
+                    <div  class="nextbutt">		<input class="submit" type="submit" value="Next"/></div>
+
+                </fieldset>
+            </form>
+        </div>
+        <div id="independentdriver" class="usertype">
+            <form action="{{ url('independentdriver_step2') }}" method="get">
+                <fieldset>
+                    <label><span class="text">First Name:</span>
+                        <input required type="text" name="firstname" id="firstname"  />
+                    </label>
+                    <label><span class="text">Last Name:</span>
+                        <input type="text" name="lastname" id="lastname" required />
+                    </label>
+                    <label><span class="text">Birthday:</span>
+                        <input  class="dates" type="text" id="datepicker" name="datepicker" required  />
+                    </label>
+                    <label><span class="text">Country:</span>
+                        <input type="text" name="country" id="country" required  />
+                    </label>
+                    <label><span class="text">City:</span>
+                        <input type="text" name="city"   id="city" required />
+                    </label>
+                    <div class="style1">
+                        <label class="medium"><span class="text">Language:</span>
+                            <select name="lang" class="styled" id="lang" required >
+                                <option>выберите язык</option>
+                                <option>russian</option>
+                                <option>english</option>
+                                <option>spanish</option>
+                            </select>
+                        </label>
+                        <label class="mini"><span class="text">Level:</span>
+                            <select name="level" class="styled" id="level" required>
+                                <option>basic</option>
+                                <option>level1</option>
+                                <option>level2</option>
+                                <option>level3</option>
+                            </select>
+                        </label>									
+                    </div>
+                    <div class="addlang">Добавить еще язык</div>
+                    <div  class="nextbutt">		<input class="submit" type="submit" value="Next"/></div>
+
+
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

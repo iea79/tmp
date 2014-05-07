@@ -1,0 +1,49 @@
+<div class="content-block choice">
+    <ul class="tabs">  
+        <li class="general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
+        <li class="other current"><div class="arrow_box"><span>2</span> Other information</div></li>
+        <li class="contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+    </ul>
+
+    <div class="paramauto">
+        <h1>Автомобиль</h1>
+        <h4>Количество пассажиров</h4>
+        <div class="rightlabels">
+            <label><span>Adult </span> <input id="spinner1" class="spinner" name="spinner" value="0" /></label>
+            <label><span>Kids </span> <input id="spinner2" class="spinner" name="spinner" value="0" /></label>
+            <label><span>Seniors </span> <input id="spinner3" class="spinner" name="spinner" value="0" /></label>
+        </div>
+
+        <h4>Класс автомобиля</h4>
+        <select name="classauto" class="styled">
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+        </select>
+        <div class="checks">
+            <label><input type="checkbox" /> <span class="animals"></span>буду с собакой илил кошкой</label>
+            <label><input type="checkbox" /> <span class="child"></span>наличие детского кресла</label>
+            <label><input type="checkbox" /> <span class="nosmoke"></span>салон для некурящих</label>
+            <label><input type="checkbox" /> <span class="smoke"></span>салон для курящих</label>
+            <label><input type="checkbox" /> <span class="bagage"></span>наличие багажа</label>
+        </div>
+        <h4 class="black">Any additional language?</h4>
+        <select name="additionallang" class="styled">
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+        </select>
+
+        <div class="wishes">
+            <h4>Дополнительные пожелания от вас</h4>
+            <textarea placeholder="Например: если у вас алергия на животных, то вы можете об этом предупредить водителей, которые часто перевозят пассажиров 
+                      с животными - они не станут покупать заявку."></textarea>
+            <div class="style1 helptext">осталось символов 200</div>
+        </div>
+
+        <a href="{{ url('order_step_3') }}" class="nextbutt"><span>Next</span></a>
+    </div>
+
+		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}>
+    <div class="clear"></div>
+</div>

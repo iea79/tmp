@@ -1,0 +1,7 @@
+parameters:
+#    da_vinci_taxi.example.class: DaVinci\TaxiBundle\Example
+
+services:
+#    da_vinci_taxi.example:
+#        class: %da_vinci_taxi.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

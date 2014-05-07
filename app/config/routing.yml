@@ -1,0 +1,4 @@
+da_vinci_taxi:
+    resource: "@DaVinciTaxiBundle/Resources/config/routing.yml"
+    prefix:   /
+

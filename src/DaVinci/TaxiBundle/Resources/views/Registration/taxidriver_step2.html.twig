@@ -1,0 +1,48 @@
+<div id="content">
+	<div class="content-block taxidriver">
+		<form action="{{ url('main_driver') }}" method="get">
+			<fieldset>
+				<ul class="tabs">  
+					<li class="general"><a class="arrow_box" href="{{ url('register') }}"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
+					<li class="contact current"><div class="noarrow"><span>2</span> Contact information</div></li>
+				</ul>
+				<label><span class="text">Create Password:</span>
+					<input type="password" name="createpassword"  id="createpassword" required/>
+				</label>
+				<label><span class="text">E-mail (username):</span>
+					<input type="email" name="email" id="email"  required/>
+				</label>
+				<label><span class="text">Phone Number:</span>
+					<input type="text" name="phonenumber" id="phonenumber" required/>
+				</label>
+				<label><span class="text">Skype:</span>
+					<input type="text" id="skype" name="skype" required/>
+				</label>
+				<label><span class="text">Введите код компании:</span>
+					<input type="text" name="codecompany" id="codecompany"/>
+				</label>
+				<label><span class="text">Сколько лет за рулем:</span>
+					<select class="styled medium" name="experience" id="experience" required>
+						<option>Выберите</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+					</select>
+				</label>
+				<label><span class="text">Немного о себе:</span>
+					<textarea id="aboutself" name="aboutself" placeholder="личные качества, вредные привычки и т.д."></textarea>
+					<div class="style1 helptext">осталось символов 300</div>
+				</label>
+
+				<label><span class="text">Your photo:</span>
+					<div class="file_upload">
+							<div>нажмите, чтобы добавить изображение</div>
+							<input type="file" name="yourphoto" id="yourphoto">
+					</div>								
+
+				</label>
+				<div  class="nextbutt">		<input class="submit" type="submit" value="Next"/></div>
+			</fieldset>
+		</form>
+	</div>
+</div>

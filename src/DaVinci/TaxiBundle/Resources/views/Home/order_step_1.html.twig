@@ -1,0 +1,43 @@
+<div class="content-block choice">
+    <ul class="tabs">  
+        <li class="general current"><div class="arrow_box"><span>1</span> General information</div></li>
+        <li class="other"><div class="arrow_box"><span>2</span> Other information</div></li>
+        <li class="contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+    </ul>
+    <div class="destination">
+        <div class="desticlone">
+            <label><span class="title"><span class="destinationmark">a</span> From:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label>
+            <label><span class="title"><span class="destinationmark">b</span> To:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label>
+        </div>
+        <div class="addlang"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
+        <div class="separator"></div>
+        <div class="fordownblock"><span class="title">Pickup:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker" />
+            <select name="pickupstart" class="styled">
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+            </select>
+            <select name="pickupend" class="styled">
+                <option>05</option>
+                <option>10</option>
+                <option>15</option>
+            </select></div>
+        <label class="fordownblock makereturn"><span class="title"></span><input type="checkbox" /> Make this a return trip</label>
+        <div class="fordownblock"><span class="title">Return:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker0" />
+            <select name="returnstart" class="styled">
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+            </select>
+            <select name="returnend" class="styled">
+                <option>05</option>
+                <option>10</option>
+                <option>15</option>
+            </select>
+        </div>
+        <a href="{{ url('order_step_2') }}" class="nextbutt"><span>Next</span></a>
+    </div>
+
+		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}>
+    <div class="clear"></div>
+</div>

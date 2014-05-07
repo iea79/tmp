@@ -1,0 +1,35 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block body %}
+{% include 'DaVinciTaxiBundle:breadcrumbs.html.twig' %}
+	<div class="cabinet">
+		<div class="title">Личный кабинет компании RuTaxi (владелец Александр Иванов)</div>
+		<table>
+			<tr>
+				<td><span class="labe yourid">Your ID:</span> 76877960596623</td>
+				<td><span class="labe mess">Messages</span></td>
+				<th rowspan="3">
+					<a href="#" class="button green">Take Escro Payment</a>
+					<a href="#" class="button red">Buy Membership</a>
+				</th>
+			</tr>
+			<tr>
+				<td><span class="labe">Balance:</span> $1 235.00</td>
+				<td><a href="#">Unread:</a> 0</td>
+			</tr>
+			<tr>
+				<td><a href="#">Пополнить</a>   <a href="#">Вывести</a>   <a href="#">Выделить </a></td>
+				<td><a href="#">New massage</a></td>
+			</tr>
+		</table>
+	</div>
+	<div id="info">
+		<ol>
+			<li><a href="{{ url('block_profile') }}">Профиль</a></li>
+			<li><a href="{{ url('filter_table') }}">Найти клиентов</a></li>
+			<li><a href="{{ url('order_table') }}">Order History</a></li>
+			<li><a href="{{ url('dispet_table') }}">Диспетчерская</a></li>
+		</ol>
+	</div>
+
+{% endblock %}

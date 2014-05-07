@@ -1,0 +1,14 @@
+<div id="content">
+	<div class="content-block taxicompany">
+		<form action="{{ url('cabinet_company') }}" method="get">
+			<fieldset>
+				<ul class="tabs last threetabs">  
+					<li class="general"><a class="arrow_box" href="{{ url('register') }}"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="General information" /></span> General information</a></li>
+					<li class="other"><a class="arrow_box" href="{{ url('company-step2') }}"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="Other information" /></span> Other information</a></li>
+					<li class="contact current"><div class="noarrow"><span>3</span> Contact information</div></li>
+				</ul>
+				{% include 'DaVinciTaxiBundle::CabinetCompany::block_company_face.html.twig' %}
+			</fieldset>
+		</form>
+	</div>
+</div>

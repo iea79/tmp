@@ -1,0 +1,31 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block body %}
+<div id="content">
+	<div class="content-block banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
+	<div class="tabtaxi">
+		<ul>
+			<li><div class="child">Book a taxi at your price</div><div class="helper"></div></li>
+			<li class="current blue"><div class="parent"><div class="child">Buy the best taxi order</div><div class="helper"></div></div></li>
+		</ul>
+	</div>
+	<div class="content-block choice">
+		<label class="countpassenger"><span class="textup countpassenger">Количество пассажиров:</span>
+		<select name="countpassenger" class="styled">
+			<option>не выбрано</option>
+			<option>1</option>
+			<option>10</option>
+		</select></label>
+		
+		<div class="rightlabels">
+			<label><span class="text textup">Adult </span> <input id="spinner1" class="spinner" name="spinner" value="0" /></label>
+			<label><span class="text textup">Kids </span> <input id="spinner2" class="spinner" name="spinner" value="0" /></label>
+			<label><span class="text textup">Seniors </span> <input id="spinner3" class="spinner" name="spinner" value="0" /></label>
+		</div>
+		
+	</div>
+
+
+	{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+</div>
+{% endblock %}

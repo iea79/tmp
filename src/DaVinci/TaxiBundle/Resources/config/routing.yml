@@ -1,0 +1,52 @@
+da_vinci_taxi_homepage:
+    pattern:  /
+    defaults: { _controller: DaVinciTaxiBundle:Home:index }
+    
+order_step_1:
+    pattern:  /order_step_1
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1 }
+order_step_2:
+    pattern:  /order_step_2
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_2 }
+order_step_3:
+    pattern:  /order_step_3
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_3 }
+main_driver:
+    pattern:  /main_driver
+    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
+
+register:
+    pattern:  /register
+    defaults: { _controller: DaVinciTaxiBundle:Registration:register }
+    
+manager_step2:
+    pattern:  /manager_step2
+    defaults: { _controller: DaVinciTaxiBundle:Registration:manager_step2 }
+taxidriver_step2:
+    pattern:  /taxidriver_step2
+    defaults: { _controller: DaVinciTaxiBundle:Registration:taxidriver_step2 }
+company_step2:
+    pattern:  /company_step2
+    defaults: { _controller: DaVinciTaxiBundle:Registration:company_step2 }
+company_step3:
+    pattern:  /company_step3
+    defaults: { _controller: DaVinciTaxiBundle:Registration:company_step3 }
+independentdriver_step2:
+    pattern:  /independentdriver_step2
+    defaults: { _controller: DaVinciTaxiBundle:Registration:independentdriver_step2 }
+    
+cabinet_company:
+    pattern:  /cabinet_company
+    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:cabinet_company }
+block_profile:
+    pattern:  /block_profile
+    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:block_profile }
+filter_table:
+    pattern:  /filter_table
+    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:filter_table }
+order_table:
+    pattern:  /order_table
+    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:order_table }
+dispet_table:
+    pattern:  /dispet_table
+    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:dispet_table }
