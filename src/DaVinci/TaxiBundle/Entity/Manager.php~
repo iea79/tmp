@@ -1,0 +1,30 @@
+<?php
+namespace DaVinci\TaxiBundle\Entity;
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ */
+class Manager extends User
+{
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TaxiCompany", inversedBy="manager")
+     * @ORM\JoinColumn(name="taxi_company_id", referencedColumnName="id", nullable=false)
+     */
+    private $taxiCompany;
+}

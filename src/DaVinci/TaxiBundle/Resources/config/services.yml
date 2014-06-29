@@ -1,7 +1,40 @@
 parameters:
 #    da_vinci_taxi.example.class: DaVinci\TaxiBundle\Example
 
+# the menu builder service. Can be used for several menus
 services:
-#    da_vinci_taxi.example:
-#        class: %da_vinci_taxi.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    taxi.menu_builder:
+        class: DaVinci\TaxiBundle\Menu\Breadcrumbs
+        arguments: ["@knp_menu.factory"]
+
+    # menu
+    taxi.menu.breadcrumb:
+        class: Knp\Menu\MenuItem
+        factory_service: taxi.menu_builder # the menu builder service above
+        factory_method: createBreadcrumbMenu # the method name to generate the menu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: breadcrumb } # The alias is used in the template
+            
+    phoneemail_user_provider:
+        class: DaVinci\UserBundle\Security\PhoneEmailProvider
+        public: false
+        arguments: [@fos_user.user_manager]
+        
+    custom_user_manager:
+        class: DaVinci\UserBundle\Model\CustomUserManager
+        arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, @fos_user.entity_manager, %fos_user.model.user.class%]
+
+    taxi.registration.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: taxi_user_registration }
+            
+    taxi.registration.form.flow:
+        class: DaVinci\UserBundle\Form\CreateUserFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.form.type ] ]

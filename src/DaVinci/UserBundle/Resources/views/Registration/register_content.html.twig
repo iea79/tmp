@@ -1,0 +1,57 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div class="title">{{ 'Please register'|trans}}</div>
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+
+    	<fieldset>
+		{% if flow.getCurrentStepNumber() == 1 %}
+            <ul class="tabs">  
+                <li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
+                <li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
+            </ul>
+{{ form_errors(form) }}
+
+            <label><span class="text">{{ 'form.firstname'|trans }}:</span>
+                {{ form_widget(form.firstname, { 'attr': {'placeholder': 'form.firstname'|trans} }) }}
+                {{ form_errors(form.firstname) }}
+            </label>
+            <label><span class="text">{{ 'form.lastname'|trans }}:</span>
+                {{ form_widget(form.lastname, { 'attr': {'placeholder': 'form.lastname'|trans} }) }}
+                {{ form_errors(form.lastname) }}
+            </label>
+            <label><span class="text">{{ 'form.gender'|trans }}:</span>
+                {{ form_widget(form.gender, { 'attr' : { 'class' : 'styled medium' } }) }}
+                {{ form_errors(form.gender) }}
+            </label>
+            <label><span class="text">{{ 'form.birthday'|trans }}:</span>
+                {{ form_widget(form.birthday,{'attr':{'style':'display:inline'}})  }}
+                {{ form_errors(form.birthday) }}
+            </label>
+
+        {% endif %}
+            
+        {% if flow.getCurrentStepNumber() == 2 %}    
+            <ul class="tabs">  
+                <li class="general"><a class="arrow_box" href="{{ url('fos_user_security_login') }}"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
+                <li class="contact current"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
+            </ul>
+            <label><span class="text">{{ 'form.email'|trans }}:</span>
+                {{ form_widget(form.email, { 'attr': {'placeholder': 'form.email'|trans} }) }}
+                {{ form_errors(form.email) }}
+            </label>
+            <label><span class="text">{{ 'form.password'|trans }}</span>
+                {{ form_widget(form.plainPassword.first,{'attr':{'pattern':'.{3,}','title':'Minmimum 3 letters or numbers.'|trans,'onchange':'$(\':input:eq(\' + ($(\':input\').index(this) + 1) + \')\').attr(\'pattern\',this.value);'}}) }}
+            </label>
+            <label><span class="text">{{ 'form.password_confirmation'|trans }}</span>
+                {{ form_widget(form.plainPassword.second,{'attr':{'pattern':'.{3,}','title':'Passwords must match.'|trans}}) }}
+            </label>
+            <label class="term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
+
+        {% endif %}
+
+    {{ form_rest(form) }}
+
+    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+		
+	</fieldset>
+    
+</form>

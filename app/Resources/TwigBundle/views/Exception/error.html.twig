@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    {% trans_default_domain 'DaVinciTaxiBundle' %}
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{{ status_text }}</title>
+    </head>
+    <body>
+        <h1>{{ 'Oops! An Error Occurred'|trans }}</h1>
+        <h2>{{ 'error.status'|trans({'%status_code%': status_code,"%status_text%":status_text})}}</h2>
+
+        <div>{{ 'error.text'|trans}}
+            
+        </div>
+    </body>
+</html>

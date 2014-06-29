@@ -1,0 +1,486 @@
+<?php
+namespace DaVinci\TaxiBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=32, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $skype;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $photo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $first_name;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $last_name;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthday;
+
+    /**
+     * @ORM\Column(type="integer", length=2, nullable=true)
+     */
+    private $gender;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="user")
+     */
+    private $address;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="user")
+     */
+    private $userLanguage;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TaxiCompany", mappedBy="user")
+     */
+    private $taxiCompany;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TaxiManager", mappedBy="user")
+     */
+    private $taxiManager;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Driver", mappedBy="user")
+     */
+    private $driver;
+
+    /**
+     * @ORM\OneToMany(targetEntity="IndependentDriver", mappedBy="user")
+     */
+    private $independentDriver;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Currency", inversedBy="user")
+     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
+     */
+    private $currency;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->taxiCompany = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->taxiManager = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->driver = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->independentDriver = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return User
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set skype
+     *
+     * @param string $skype
+     * @return User
+     */
+    public function setSkype($skype)
+    {
+        $this->skype = $skype;
+
+        return $this;
+    }
+
+    /**
+     * Get skype
+     *
+     * @return string 
+     */
+    public function getSkype()
+    {
+        return $this->skype;
+    }
+
+    /**
+     * Set photo
+     *
+     * @param string $photo
+     * @return User
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return string 
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * Set first_name
+     *
+     * @param string $firstName
+     * @return User
+     */
+    public function setFirstName($firstName)
+    {
+        $this->first_name = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get first_name
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * Set last_name
+     *
+     * @param string $lastName
+     * @return User
+     */
+    public function setLastName($lastName)
+    {
+        $this->last_name = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get last_name
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param \DateTime $birthday
+     * @return User
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return \DateTime 
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * Set gender
+     *
+     * @param boolean $gender
+     * @return User
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return boolean 
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * Add userLanguage
+     *
+     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
+     * @return User
+     */
+    public function addUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
+    {
+        $this->userLanguage[] = $userLanguage;
+
+        return $this;
+    }
+
+    /**
+     * Remove userLanguage
+     *
+     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
+     */
+    public function removeUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
+    {
+        $this->userLanguage->removeElement($userLanguage);
+    }
+
+    /**
+     * Get userLanguage
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUserLanguage()
+    {
+        return $this->userLanguage;
+    }
+
+    /**
+     * Add taxiCompany
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany
+     * @return User
+     */
+    public function addTaxiCompany(\DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany)
+    {
+        $this->taxiCompany[] = $taxiCompany;
+
+        return $this;
+    }
+
+    /**
+     * Remove taxiCompany
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany
+     */
+    public function removeTaxiCompany(\DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany)
+    {
+        $this->taxiCompany->removeElement($taxiCompany);
+    }
+
+    /**
+     * Get taxiCompany
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTaxiCompany()
+    {
+        return $this->taxiCompany;
+    }
+
+    /**
+     * Add taxiManager
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager
+     * @return User
+     */
+    public function addTaxiManager(\DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager)
+    {
+        $this->taxiManager[] = $taxiManager;
+
+        return $this;
+    }
+
+    /**
+     * Remove taxiManager
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager
+     */
+    public function removeTaxiManager(\DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager)
+    {
+        $this->taxiManager->removeElement($taxiManager);
+    }
+
+    /**
+     * Get taxiManager
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTaxiManager()
+    {
+        return $this->taxiManager;
+    }
+
+    /**
+     * Add driver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Driver $driver
+     * @return User
+     */
+    public function addDriver(\DaVinci\TaxiBundle\Entity\Driver $driver)
+    {
+        $this->driver[] = $driver;
+
+        return $this;
+    }
+
+    /**
+     * Remove driver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Driver $driver
+     */
+    public function removeDriver(\DaVinci\TaxiBundle\Entity\Driver $driver)
+    {
+        $this->driver->removeElement($driver);
+    }
+
+    /**
+     * Get driver
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDriver()
+    {
+        return $this->driver;
+    }
+
+    /**
+     * Add independentDriver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver
+     * @return User
+     */
+    public function addIndependentDriver(\DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver)
+    {
+        $this->independentDriver[] = $independentDriver;
+
+        return $this;
+    }
+
+    /**
+     * Remove independentDriver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver
+     */
+    public function removeIndependentDriver(\DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver)
+    {
+        $this->independentDriver->removeElement($independentDriver);
+    }
+
+    /**
+     * Get independentDriver
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIndependentDriver()
+    {
+        return $this->independentDriver;
+    }
+
+    /**
+     * Set currency
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Currency $currency
+     * @return User
+     */
+    public function setCurrency(\DaVinci\TaxiBundle\Entity\Currency $currency = null)
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Get currency
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Currency 
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
+    }
+    
+    /**
+     * Sets the email.
+     *
+     * @param string $email
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
+
+        return parent::setEmail($email);
+    }
+
+    /**
+     * Set the canonical email.
+     *
+     * @param string $emailCanonical
+     * @return User
+     */
+    public function setEmailCanonical($emailCanonical)
+    {
+        $this->setUsernameCanonical($emailCanonical);
+
+        return parent::setEmailCanonical($emailCanonical);
+    }
+}

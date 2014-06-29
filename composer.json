@@ -8,23 +8,38 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.x-dev",
+        "symfony/symfony": "2.5.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "sensio/distribution-bundle": "3.0.*@dev",
+        "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/jquery-bundle": "dev-master",
+        "sonata-project/easy-extends-bundle": "dev-master",
+        "sonata-project/datagrid-bundle": "~2.2@dev",
+        "sonata-project/core-bundle": "dev-master",
+        "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/media-bundle": "dev-master",
+        "sonata-project/formatter-bundle": "dev-master",
+        "gregwar/captcha-bundle": "dev-master",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "crunch/user-admin-bundle":"dev-master",
+        "knplabs/knp-menu": "2.0.*@dev",
+        "knplabs/knp-menu-bundle": "2.0.*@dev",
+        "craue/formflow-bundle": "~2.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
     },
     "scripts": {
         "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookInstallAcmeDemoBundle"
+            "SymfonyStandard\\Composer::hookRootPackageInstall"
         ],
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -53,7 +68,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.4-dev"
+            "dev-master": "2.5-dev"
         }
     }
 }

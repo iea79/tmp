@@ -1,0 +1,25 @@
+{% set renderBackButton = flow.getCurrentStepNumber() in (flow.getFirstStepNumber() + 1) .. flow.getLastStepNumber() %}
+
+<style>
+    #buttons { overflow: hidden; }
+    #buttons .nextbutt { float: right; }
+    #insidebuttonwrapper { float:left; }
+</style>
+<div id="buttons">
+    <div id="insidebuttonwrapper">
+{%- if flow.getCurrentStepNumber() == 1 -%}
+        <div  class="nextbutt"><input class="submit" type="submit" value="{{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }}"/></div>
+{%- elseif flow.getCurrentStepNumber() < flow.getLastStepNumber() -%}
+        <div  class="nextbutt twobuttnext"><input class="submit" type="submit" value="{{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }}"/></div>
+{%- else -%}
+        <div  class="nextbutt twobuttnext"><input class="submit" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}"/></div>
+{%- endif -%}
+
+{% if renderBackButton %}
+        <button type="submit" class="nextbutt backbutt" name = "{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
+            <span>{{- 'form.back' | trans({}, 'FOSUserBundle') -}}</span>
+        </button>
+{% endif %}
+
+    </div>
+</div>

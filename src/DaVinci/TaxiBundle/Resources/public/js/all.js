@@ -1,4 +1,11 @@
 ﻿$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
+function setTabswidth (){
+	tu0 = $('#info ol').width();
+	tu1 = $('#info ol li').length;
+	tabswidth = (tu0/tu1)-4;
+	$("#info ol li").css({'width' : tabswidth});
+	$("#info ol li:last-child").css({'width' : tabswidth-1});
+} 
 
 $(function() {
         $( "#spinner1, #spinner2, #spinner3" ).spinner({
@@ -65,7 +72,28 @@ $(function(){
 });
 
 $(document).ready(function() {
+
+
+
+	$("#content .content-block textarea").keyup(function() {
+		if (this.value.length > 300)
+			this.value = this.value.substr(0, 300);
+	});
+
+	$("#content .content-block .wishes textarea").keyup(function() {
+		if (this.value.length > 200)
+			this.value = this.value.substr(0, 200);
+	});
+
+
 	$('#info').tabs({ active: 2});
+	
+	setTabswidth();
+
+	$('.cabinet .content-block li').click(function() {
+		$('.paychek').prependTo(this);	
+	});
+
 	//$("#info").tabs({tabsselect:function(event,ui){alert("Привет");}})
 	//$("#info").tabs({tabsselect:function(event,ui){alert("Привет");}})
 	//или
@@ -106,20 +134,25 @@ $('.d').click(function(){
 	$(".dates").each(function (i) {
 		this.id += i + 1;
 	});
+	$(".styled").each(function (i) {
+		this.id += i + 1;
+		this.name += i + 1;
+	});
 
-
-	
-	
+	$.datepicker.setDefaults({changeYear: true});
 	$("#datepicker, #datepicker0, #datepicker1, #datepicker2, #datepicker3, #datepicker4").datepicker();
 	$("#datepickerstart, #datepickerend").datepicker({
 		dateFormat: 'dd/mm/y' 
 	});
+	
+	
+	$('.ui-datepicker-year').addClass('styled');
 	$('.usertype').hide();
 
-	$('#myselect').change(function() {
+	$('#myselect, #myselect1').change(function() {
 		$('.content-block').attr('class','content-block');
 		$('.usertype').hide();
-		var valopt = $("#myselect option:selected").text();
+		var valopt = $("#myselect option:selected, #myselect1 option:selected").text();
 		var res = valopt.replace(/\s/g, "").toLowerCase();
 		$('.usertype').each(function(){
 			if ($(this).attr('id') == res){
@@ -168,11 +201,29 @@ $('.d').click(function(){
 		$('.imitateoptions').hide();
 		return false;
 	});
-
+	$('#manager .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#manager .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
+	$('#taxidriver .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#taxidriver .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
+	$('#independentdriver .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#independentdriver .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
 
 	
 });
 
 $( window ).resize(function(){
     $( ".file_upload input" ).triggerHandler( "change" );
+	setTabswidth();
 });

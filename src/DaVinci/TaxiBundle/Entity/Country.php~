@@ -1,0 +1,56 @@
+<?php
+namespace DaVinci\TaxiBundle\Entity;
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ */
+class Country
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=128, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type="string", length=2, nullable=true)
+     */
+    private $iso_code_2;
+
+    /**
+     * @ORM\Column(type="string", length=3, nullable=true)
+     */
+    private $iso_code_3;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $address_format;
+
+    /**
+     * @ORM\Column(type="integer", length=1, nullable=true, options={"default":1})
+     */
+    private $postcode_required;
+
+    /**
+     * @ORM\Column(type="integer", length=1, nullable=true, options={"default":1})
+     */
+    private $status;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="country")
+     */
+    private $address;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Zone", mappedBy="country")
+     */
+    private $zone;
+}

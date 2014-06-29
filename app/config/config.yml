@@ -4,18 +4,17 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
-    validation:      { enable_annotations: true }
+    validation:      { enabled: true, enable_annotations: false }
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
@@ -23,6 +22,7 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    default_locale: en
 
 # Twig Configuration
 twig:
@@ -67,3 +67,66 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+
+sonata_admin:
+    title:      TaxiMyPrice.com
+        
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
+
+sonata_block:
+    blocks:
+        #...
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+
+# app/config/security.yml
+security:
+    # [...]
+    acl:
+        connection: default
+        
+doctrine:
+
+    dbal:
+        types:
+            json: Sonata\Doctrine\Types\JsonType
+            
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    ApplicationSonataUserBundle: ~
+                    SonataUserBundle: ~
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: DaVinci\TaxiBundle\Entity\User
+    service:
+            user_manager: custom_user_manager
+    registration:
+        form:
+            type: taxi_user_registration
+            #validation_groups: [DaVinciRegistration]
+            #seted in RegistrationController
+    profile:
+        form:
+            type: taxi_user_profile
+            validation_groups: [DaVinciProfile]
+    
+crunch_user_admin:
+    db_driver:  orm   # or mongodb. couchdb will follow, propel and custom probably not
+    group:      false # whether, or not to use groups
+    
+
+knp_menu:
+    twig:
+        template: DaVinciTaxiBundle:Menu:knp_menu.html.twig

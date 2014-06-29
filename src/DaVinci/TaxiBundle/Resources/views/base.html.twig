@@ -9,10 +9,10 @@
         <link media="all" rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
 {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/davincitaxi/images/favicon.ico') }}" />
     </head>
     <body>
-       <div id="wrapper">
+       <div id="wrapper"  class="{% block theme %}default{% endblock %}">
 		<div class="w1">
 {% block header %}
 			<header id="header">
@@ -29,7 +29,7 @@
 					</ul>
 				</nav>
 				<div class="float_right">
-					<a href="#" class="signin">Hello, Sign in</a>
+					<a href="{{ url('fos_user_security_login') }}" class="signin">Hello, Sign in</a>
 				</div>
 				<div class="typevis"><a class="book" href="#">Book</a><a href="#">Store</a><div class="razd"></div></div>
 			</header>
@@ -40,9 +40,6 @@
 
 {% block javascripts %}
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-
-        <script src="{{ asset('js/plugins/excanvas.min.js') }}"></script>
 
         {% javascripts
             '@DaVinciTaxiBundle/Resources/public/js/jquery.js'
