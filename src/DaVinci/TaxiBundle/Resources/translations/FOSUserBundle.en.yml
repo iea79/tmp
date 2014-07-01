@@ -106,7 +106,7 @@ form:
     lastname: "Last Name"
     gender: "Gender"
     contactinfo: "Contact info"
-    signininfo: "Sing in info"
+    signininfo: "Sign in info"
     gotonextstep: "Go to the next step"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: Back
