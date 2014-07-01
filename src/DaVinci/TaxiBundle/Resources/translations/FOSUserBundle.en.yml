@@ -86,6 +86,7 @@ layout:
     register: Register
     logged_in_as: Logged in as %username%
 
+
 # Form field labels
 form:
     group_name: "Group name"
