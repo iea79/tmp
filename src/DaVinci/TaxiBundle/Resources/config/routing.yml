@@ -50,18 +50,22 @@ independentdriver_step2:
     pattern:  /independentdriver_step2
     defaults: { _controller: DaVinciTaxiBundle:Registration:independentdriver_step2 }
     
-cabinet_company:
-    pattern:  /cabinet_company
-    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:cabinet_company }
+    
+office_choose:    
+    pattern:  /choose-office
+    defaults: { _controller: DaVinciTaxiBundle:Offices:office_choose }
+office_company:
+    pattern:  /office_company
+    defaults: { _controller: DaVinciTaxiBundle:Offices:office_company }
 block_profile:
     pattern:  /block_profile
-    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:block_profile }
+    defaults: { _controller: DaVinciTaxiBundle:Offices:block_profile }
 filter_table:
     pattern:  /filter_table
-    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:filter_table }
+    defaults: { _controller: DaVinciTaxiBundle:Offices:filter_table }
 order_table:
     pattern:  /order_table
-    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:order_table }
+    defaults: { _controller: DaVinciTaxiBundle:Offices:order_table }
 dispet_table:
     pattern:  /dispet_table
-    defaults: { _controller: DaVinciTaxiBundle:CabinetCompany:dispet_table }
+    defaults: { _controller: DaVinciTaxiBundle:Offices:dispet_table }

@@ -34,6 +34,9 @@ class Breadcrumbs {
             case 'fos_user_resetting_request':
                 $menu->addChild('Reset Password')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');;
                 break;
+            case 'office_choose':
+                $menu->addChild('Choose Office')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');;
+                break;
         }
 
         return $menu;
