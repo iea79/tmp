@@ -111,16 +111,14 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 #header:after{
 	content:'';
 	display:table;
-	width:100%;
-	clear:both;
+	width:100%;	clear:both;
 }
 .footer-block,
 #header{
 	background:#528ed3 url(../images/bg-header.png) no-repeat 50% 0;
 	padding:0 9999px;
 	margin:0 -9999px;
-	box-shadow:0 1px 2px rgba(0,0,0,.3);
-	-webkit-box-shadow:0 1px 2px rgba(0,0,0,.3);
+	box-shadow:0 1px 2px rgba(0,0,0,.3);	-webkit-box-shadow:0 1px 2px rgba(0,0,0,.3);
 	position: relative;
 	z-index: 2;
 }
@@ -142,9 +140,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	float:left;
 }
 #main-nav ul{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 #main-nav li{
 	display:inline-block;
@@ -219,9 +215,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	text-decoration: none;
 }
 .lang .drop{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 	position:absolute;
 	width:48px;
 	left:-2px;
@@ -258,9 +252,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 }
 .breadcrubs ul.crunbs{
 	float: left;
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .breadcrubs .crunbs li{
 	display:inline-block;
@@ -280,8 +272,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 .content-block, .banner{
 	padding:0 19px 34px;
 	background:#fff;
-	box-shadow:0 2px 2px rgba(0,0,0,.3);
-	-webkit-box-shadow:0 2px 2px rgba(0,0,0,.3);
+	box-shadow:0 2px 2px rgba(0,0,0,.3);	-webkit-box-shadow:0 2px 2px rgba(0,0,0,.3);
 	border-radius:4px;
 	margin-bottom: 15px;
 }
@@ -662,23 +653,19 @@ span.countpassenger {
 .taxicompany {	background:#fff url(../images/bg-block-about.jpg) no-repeat 100% 70%;}
 .manager {	background:#fff url(../images/bg-block-manager.jpg) no-repeat 100% 100%;}
 .checkboxes{
-	margin:0 0 15px;
-	padding:0;
-	list-style:none;
+	margin:0 0 15px;	padding:0;	list-style:none;
 }
 .checkboxes li{
 	display:inline-block;
 	vertical-align:middle;
 	margin:0 44px 0 0;
 }
-input[type=checkbox]{
-	width:16px;
+input[type=checkbox]{	width:16px;
 	height:16px;
 	margin:0;
 	padding:0;
 	display:inline-block;
-	vertical-align:middle;
-}
+	vertical-align:middle;}
 .style1, .style2 {
 	width: 558px;
 	position: relative;
@@ -697,8 +684,8 @@ label .text {
 }
 .content-block .mini .text{width:51px;}
 .float_left {float: left !important;}
-.box {   display: none; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂСЏС‡РµРј РІСЃРµ Р±Р»РѕРєРё */  }  
-.box.visible {   display: block; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїРѕРєР°Р·С‹РІР°РµРј РЅСѓР¶РЅС‹Р№ Р±Р»РѕРє */  }  
+.box {   display: none; /* по умолчанию прячем все блоки */  }  
+.box.visible {   display: block; /* по умолчанию показываем нужный блок */  }  
 .tabtaxi {
 	position: relative;
 	overflow: hidden;
@@ -1037,19 +1024,15 @@ label .text {
 }
 .main .datepicker input[type="text"]{width: 56px;}
 select,
-textarea, input[type=email], input[type=password], 
-input[type=text], input[type="date"]{
+textarea, input[type=email], input[type=password], input[type=text], input[type="date"]{
 	display:inline-block;
-	vertical-align:middle;
-	border-radius:3px;
+	vertical-align:middle;	border-radius:3px;
 	border:1px solid #8e9099;
 	padding:4px 11px 4px 9px;
 	margin:0 15px 0 0;
 	background:#fff;
 	border-radius:3px;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;
 	/*color: #9b9b9b;*/
 }
 .ui-datepicker .ui-datepicker-title select.ui-datepicker-year {
@@ -1188,8 +1171,7 @@ select option{padding:0 10px;}
 .main .timesent input[type=text]{	margin: 0;}
 .justcheck, .term{padding:8px 0 0;}
 .about .term a {color: #528ed3;}
-.justcheck input, .term input{margin:0 9px 0 0;}
-.btn-red{
+.justcheck input, .term input{margin:0 9px 0 0;}.btn-red{
 	font-size:24px;
 	line-height:51px;
 	background:#ff4d61;
@@ -1198,8 +1180,7 @@ select option{padding:0 10px;}
 	color:#fff;
 	height:51px;
 	padding:0 20px 1px;
-	text-shadow:0 1px rgba(0,0,0,.3);
-}
+	text-shadow:0 1px rgba(0,0,0,.3);}
 a.btn-red{
 	text-align: center;
 	display: block;
@@ -1218,9 +1199,7 @@ a.btn-red{
 	margin:-102px 0 0;
 }
 .footer-block:after{
-	content:'';
-	display:block;
-	clear:both;
+	content:'';	display:block;	clear:both;
 }
 .footer-block{
 	background:#528ed3 url(../images/bg-footer.png) no-repeat 50% 0;
@@ -1228,13 +1207,10 @@ a.btn-red{
 /*	margin-bottom:20px;*/
 }
 .add-nav{
-	padding:0 0 0 129px;
-	float:left;
+	padding:0 0 0 129px;	float:left;
 }
 .add-nav ul{
-	margin:0;
-	padding:0;
-	list-style:none;
+	margin:0;	padding:0;	list-style:none;
 }
 .add-nav li{
 	display:inline-block;
@@ -1266,26 +1242,11 @@ a.btn-red{
 	color: #fff;
 }
 .social{
-	float:right;
-	margin:-7px 0 0;
-	padding:0 86px 0 0;
-	list-style:none;
-}
-.social li{
-	margin:0 5px 0 2px;
-	float:left;
-}
-.social .youtube,
-.social a{
-	text-indent:-9999px;
-	overflow:hidden;
-	display:block;
-	background:url(../images/icons.png) no-repeat;
+	float:right;	margin:-7px 0 0;	padding:0 86px 0 0;	list-style:none;}.social li{	margin:0 5px 0 2px;	float:left;}
+.social .youtube,.social a{	text-indent:-9999px;	overflow:hidden;	display:block;	background:url(../images/icons.png) no-repeat;
 	width:34px;
-	height:32px;
-}
-.social .twitter{background-position:-36px 0;}
-.social .facebook{background-position:-78px 0;}
+	height:32px;}
+.social .twitter{background-position:-36px 0;}.social .facebook{background-position:-78px 0;}
 .social .google{background-position:-119px 0;}
 .social .linkedin{background-position:-161px 0;}
 
@@ -1659,7 +1620,7 @@ span.date {
 	max-height: 64px;
 	line-height: 138%;
 }
-/* РЎС‚РёР»Рё РґР»СЏ jQuery UI Datepicker */
+/* Стили для jQuery UI Datepicker */
 
 /*
  * Timepicker stylesheet
@@ -1863,7 +1824,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 
 /************/
 .register {
-	background: transparent url(../images/registerbg.png) no-repeat center center;
+	background: transparent url(../images/registerbg.jpg) no-repeat center center;
 	background-size: cover;
 }
 .register .content-block {
@@ -1875,19 +1836,19 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	color: #fff;
 	text-align: center;
 	text-transform: uppercase;
-	margin: -11px -9999px 30px -9999px;
+	margin: 20px -9999px 30px -9999px;
     padding: 22px 9999px 18px 9999px;	
 	font-size: 30px;
 }
-
 .register .tabs {   margin: 0 0 30px 0;}
 .register .arrow_box, .register .noarrow {    padding: 10px 0 12px 31px;}
 .register label{	color: #fff;}
 .register .nextbutt {
 	background: #27bf2e;
 	color: #fff;
-	padding: 13px 0 13px 0;
+	padding: 10px 0 16px 0;
 	margin-top: 30px;
+	font-size: 20px;
 }
 .register  input[type=submit]{
 	border: none;
@@ -1895,11 +1856,109 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 }
 .register  input[type=text], .register  input[type=password], .register  input[type=email]{width: 346px;}
 .register form *::-moz-placeholder{color:#9b9b9b;}
+.register .backbutt, .register .nextbutt {height: 24px;}
 
-.register .backbutt {   background: none repeat scroll 0 0 #8c8e96;	}
+
+.register .backbutt {
+	background: none repeat scroll 0 0 #8c8e96;	
+	padding: 13px 0;
+}
 .register .twobuttnext {
 	width: 268px;
 	float: left;
 }
 .register .tabs li a {    color: #3d3d3d;}
 .register .tabs li.current  a {    color: #fff;}
+.passerr {
+	color: #ff4d61;
+	font-size: 13px;
+	margin-left: 196px;
+}
+
+
+
+
+
+.register  .officepagetitle {
+	font-size: 24px;
+	font-weight: normal;
+	text-transform: none;
+	margin-bottom: 48px;
+    padding: 11px 9999px 11px 9999px;
+}
+.register h2 {
+	font-weight: normal;
+	font-size: 30px;
+	margin-bottom: 28px;
+	text-align: center;
+	color: #fff;
+}
+.gobutt {
+	background:  #528ed3;
+	border-radius: 4px;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: inline-block;
+	//display: inline;
+	zoom: 1;
+	padding: 10px;
+	margin-right: 10px;
+	margin-left: 4px;
+}
+.gobutt:hover{	text-decoration: none;}
+.blockoffice {
+	display: inline-block;
+	//display: inline;
+	zoom: 1;
+	width: 281px;
+	margin: 0 14px 25px 13px;
+	padding: 14px 10px 0 10px;
+	border-radius: 4px;
+	background: #fff;
+	text-align: center;
+}
+.officetitle {
+	color: #528ed3;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 13px;
+}
+.officecomment {
+	font-size: 14px;
+	color: #ff4d61;
+	margin-bottom: 16px;
+}
+.blockoffice ul{
+	padding:0;
+	margin: 0 0 32px 0;
+	text-align: left;
+}
+.blockoffice li{
+	list-style: none;
+	background: #f1f1f1 url(../images/officelist.png) no-repeat 10px center;
+	padding:9px 8px 8px 34px;
+	width: 259px;
+	margin: 0 0 0 -10px;
+	text-align: left;
+	font-size: 14px;
+}
+.blockoffice li.odd{	background: transparent url(../images/officelist.png) no-repeat 10px center;}
+.officemore, .trial {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 4px;
+	margin-bottom: 10px;
+}
+.officemore {
+	background:  #528ed3;
+	padding: 8px 20px;
+	font-size: 18px;
+}
+.trial {
+	background: #27bf2e;
+	text-transform: uppercase;
+	padding: 17px 20px 14px 20px;
+	font-size: 24px;
+}
