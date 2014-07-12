@@ -8,23 +8,23 @@
                 <li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
                 <li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
             </ul>
-{{ form_errors(form) }}
+{{ form_errors(form , { 'attr': {'class': 'error'} }) }}
 
             <label><span class="text">{{ 'form.firstname'|trans }}:</span>
                 {{ form_widget(form.firstname, { 'attr': {'placeholder': 'form.firstname'|trans} }) }}
-                {{ form_errors(form.firstname) }}
+                {{ form_errors(form.firstname, { 'attr': {'class': 'error'} }) }}
             </label>
             <label><span class="text">{{ 'form.lastname'|trans }}:</span>
                 {{ form_widget(form.lastname, { 'attr': {'placeholder': 'form.lastname'|trans} }) }}
-                {{ form_errors(form.lastname) }}
+                {{ form_errors(form.lastname, { 'attr': {'class': 'error'} }) }}
             </label>
             <label><span class="text">{{ 'form.gender'|trans }}:</span>
                 {{ form_widget(form.gender, { 'attr' : { 'class' : 'styled medium' } }) }}
-                {{ form_errors(form.gender) }}
+                {{ form_errors(form.gender, { 'attr': {'class': 'error'} }) }}
             </label>
             <label><span class="text">{{ 'form.birthday'|trans }}:</span>
                 {{ form_widget(form.birthday,{'attr':{'style':'display:inline'}})  }}
-                {{ form_errors(form.birthday) }}
+                {{ form_errors(form.birthday, { 'attr': {'class': 'error'} }) }}
             </label>
 
         {% endif %}
@@ -36,7 +36,7 @@
             </ul>
             <label><span class="text">{{ 'form.email'|trans }}:</span>
                 {{ form_widget(form.email, { 'attr': {'placeholder': 'form.email'|trans} }) }}
-                {{ form_errors(form.email) }}
+                {{ form_errors(form.email, { 'attr': {'class': 'error'} }) }}
             </label>
             <label><span class="text">{{ 'form.password'|trans }}</span>
                 {{ form_widget(form.plainPassword.first,{'attr':{'pattern':'.{3,}','title':'Minmimum 3 letters or numbers.'|trans,'onchange':'$(\':input:eq(\' + ($(\':input\').index(this) + 1) + \')\').attr(\'pattern\',this.value);'}}) }}
