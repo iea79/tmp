@@ -1987,14 +1987,19 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 #buttons { overflow: hidden; }
 #buttons .nextbutt { float: right; }
 #insidebuttonwrapper { float:left; }
-.error {
+.errors {
+	margin: 0 25% 0 0;
 	float: right;
 	position: relative;
-	color: orange;
-	border: 1px solid red;
-
+	color: #ff4d61;
 }
 
+.error {
+	margin: 0 25% 0 0;
+	float: right;
+	position: relative;
+	color: #ff4d61;
+}
 
 
 
