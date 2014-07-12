@@ -17,7 +17,9 @@ DaVinci\TaxiBundle\Entity\User:
                 max: 255
                 maxMessage: fos_user.first_name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
-
+            - Regex:
+                pattern: "/^[\w\d\s\p{L}.,-]*$/ui"
+                message: fos_user.first_name.latin
         last_name:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
@@ -28,6 +30,9 @@ DaVinci\TaxiBundle\Entity\User:
                 max: 255
                 maxMessage: fos_user.last_name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
+            - Regex:
+                pattern: "/^[\w\d\s\p{L}.,-]*$/ui"
+                message: fos_user.first_name.latin
         gender:
             - Choice: 
                 choices: [0, 1]

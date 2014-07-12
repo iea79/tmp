@@ -111,14 +111,16 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 #header:after{
 	content:'';
 	display:table;
-	width:100%;	clear:both;
+	width:100%;
+	clear:both;
 }
 .footer-block,
 #header{
 	background:#528ed3 url(../images/bg-header.png) no-repeat 50% 0;
 	padding:0 9999px;
 	margin:0 -9999px;
-	box-shadow:0 1px 2px rgba(0,0,0,.3);	-webkit-box-shadow:0 1px 2px rgba(0,0,0,.3);
+	box-shadow:0 1px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow:0 1px 2px rgba(0,0,0,.3);
 	position: relative;
 	z-index: 2;
 }
@@ -140,7 +142,9 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	float:left;
 }
 #main-nav ul{
-	margin:0;	padding:0;	list-style:none;
+	margin:0;
+	padding:0;
+	list-style:none;
 }
 #main-nav li{
 	display:inline-block;
@@ -215,7 +219,9 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	text-decoration: none;
 }
 .lang .drop{
-	margin:0;	padding:0;	list-style:none;
+	margin:0;
+	padding:0;
+	list-style:none;
 	position:absolute;
 	width:48px;
 	left:-2px;
@@ -252,7 +258,9 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 }
 .breadcrubs ul.crunbs{
 	float: left;
-	margin:0;	padding:0;	list-style:none;
+	margin:0;
+	padding:0;
+	list-style:none;
 }
 .breadcrubs .crunbs li{
 	display:inline-block;
@@ -272,7 +280,8 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 .content-block, .banner{
 	padding:0 19px 34px;
 	background:#fff;
-	box-shadow:0 2px 2px rgba(0,0,0,.3);	-webkit-box-shadow:0 2px 2px rgba(0,0,0,.3);
+	box-shadow:0 2px 2px rgba(0,0,0,.3);
+	-webkit-box-shadow:0 2px 2px rgba(0,0,0,.3);
 	border-radius:4px;
 	margin-bottom: 15px;
 }
@@ -653,19 +662,23 @@ span.countpassenger {
 .taxicompany {	background:#fff url(../images/bg-block-about.jpg) no-repeat 100% 70%;}
 .manager {	background:#fff url(../images/bg-block-manager.jpg) no-repeat 100% 100%;}
 .checkboxes{
-	margin:0 0 15px;	padding:0;	list-style:none;
+	margin:0 0 15px;
+	padding:0;
+	list-style:none;
 }
 .checkboxes li{
 	display:inline-block;
 	vertical-align:middle;
 	margin:0 44px 0 0;
 }
-input[type=checkbox]{	width:16px;
+input[type=checkbox]{
+	width:16px;
 	height:16px;
 	margin:0;
 	padding:0;
 	display:inline-block;
-	vertical-align:middle;}
+	vertical-align:middle;
+}
 .style1, .style2 {
 	width: 558px;
 	position: relative;
@@ -684,8 +697,8 @@ label .text {
 }
 .content-block .mini .text{width:51px;}
 .float_left {float: left !important;}
-.box {   display: none; /* по умолчанию прячем все блоки */  }  
-.box.visible {   display: block; /* по умолчанию показываем нужный блок */  }  
+.box {   display: none; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂСЏС‡РµРј РІСЃРµ Р±Р»РѕРєРё */  }  
+.box.visible {   display: block; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїРѕРєР°Р·С‹РІР°РµРј РЅСѓР¶РЅС‹Р№ Р±Р»РѕРє */  }  
 .tabtaxi {
 	position: relative;
 	overflow: hidden;
@@ -1041,15 +1054,19 @@ label .text {
 }
 .main .datepicker input[type="text"]{width: 56px;}
 select,
-textarea, input[type=email], input[type=password], input[type=text], input[type="date"]{
+textarea, input[type=email], input[type=password], 
+input[type=text], input[type="date"]{
 	display:inline-block;
-	vertical-align:middle;	border-radius:3px;
+	vertical-align:middle;
+	border-radius:3px;
 	border:1px solid #8e9099;
 	padding:4px 11px 4px 9px;
 	margin:0 15px 0 0;
 	background:#fff;
 	border-radius:3px;
-	-moz-box-sizing: border-box;	-webkit-box-sizing: border-box;	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 	/*color: #9b9b9b;*/
 }
 .ui-datepicker .ui-datepicker-title select.ui-datepicker-year {
@@ -1188,7 +1205,8 @@ select option{padding:0 10px;}
 .main .timesent input[type=text]{	margin: 0;}
 .justcheck, .term{padding:8px 0 0;}
 .about .term a {color: #528ed3;}
-.justcheck input, .term input{margin:0 9px 0 0;}.btn-red{
+.justcheck input, .term input{margin:0 9px 0 0;}
+.btn-red{
 	font-size:24px;
 	line-height:51px;
 	background:#ff4d61;
@@ -1197,7 +1215,8 @@ select option{padding:0 10px;}
 	color:#fff;
 	height:51px;
 	padding:0 20px 1px;
-	text-shadow:0 1px rgba(0,0,0,.3);}
+	text-shadow:0 1px rgba(0,0,0,.3);
+}
 a.btn-red{
 	text-align: center;
 	display: block;
@@ -1216,7 +1235,9 @@ a.btn-red{
 	margin:-102px 0 0;
 }
 .footer-block:after{
-	content:'';	display:block;	clear:both;
+	content:'';
+	display:block;
+	clear:both;
 }
 .footer-block{
 	background:#528ed3 url(../images/bg-footer.png) no-repeat 50% 0;
@@ -1224,10 +1245,13 @@ a.btn-red{
 /*	margin-bottom:20px;*/
 }
 .add-nav{
-	padding:0 0 0 129px;	float:left;
+	padding:0 0 0 129px;
+	float:left;
 }
 .add-nav ul{
-	margin:0;	padding:0;	list-style:none;
+	margin:0;
+	padding:0;
+	list-style:none;
 }
 .add-nav li{
 	display:inline-block;
@@ -1259,11 +1283,26 @@ a.btn-red{
 	color: #fff;
 }
 .social{
-	float:right;	margin:-7px 0 0;	padding:0 86px 0 0;	list-style:none;}.social li{	margin:0 5px 0 2px;	float:left;}
-.social .youtube,.social a{	text-indent:-9999px;	overflow:hidden;	display:block;	background:url(../images/icons.png) no-repeat;
+	float:right;
+	margin:-7px 0 0;
+	padding:0 86px 0 0;
+	list-style:none;
+}
+.social li{
+	margin:0 5px 0 2px;
+	float:left;
+}
+.social .youtube,
+.social a{
+	text-indent:-9999px;
+	overflow:hidden;
+	display:block;
+	background:url(../images/icons.png) no-repeat;
 	width:34px;
-	height:32px;}
-.social .twitter{background-position:-36px 0;}.social .facebook{background-position:-78px 0;}
+	height:32px;
+}
+.social .twitter{background-position:-36px 0;}
+.social .facebook{background-position:-78px 0;}
 .social .google{background-position:-119px 0;}
 .social .linkedin{background-position:-161px 0;}
 
@@ -1637,7 +1676,7 @@ span.date {
 	max-height: 64px;
 	line-height: 138%;
 }
-/* Стили для jQuery UI Datepicker */
+/* РЎС‚РёР»Рё РґР»СЏ jQuery UI Datepicker */
 
 /*
  * Timepicker stylesheet

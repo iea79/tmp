@@ -29,9 +29,11 @@ fos_user:
         not_blank: "Please enter first name"
         short: "[-Inf,Inf]The name is too short"
         long: "[-Inf,Inf]The name is too long"
+        latin: English/Latin characters only
     last_name:
         not_blank: "Please enter last name"
         short: "[-Inf,Inf]The last name is too short"
         long: "[-Inf,Inf]The last name is too long"
+        latin: English/Latin characters only
     gender:
         valid: "Choose a valid gender."
