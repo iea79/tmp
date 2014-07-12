@@ -966,19 +966,36 @@ label .text {
 	font-size: 20px;
 }
 .nextbutt:hover {	text-decoration: none;}
+/*.nextbutt {padding: 0 !important;}*/
 .nextbutt span, .nextbutt input{
+/*
+	height: 50px !important;
+	background: transparent url(../images/arrownext.png) no-repeat 100% 12px;
 	padding-right: 22px;
-	background: transparent url(../images/arrownext.png) no-repeat 100% center;
+	background: orange;
+	width: 100%;
+	height: 100%;
+*/
+	padding: 10px 0 16px 0;
 }
-.twobuttnext input {
+/*.nextbutt input:after {
+    content: '333'; 
+}
+  */
+/*.twobuttnext input {
 	background: none;
 	padding-right: 0;
+	
+	width: 100%;
+	height: 100%;
 }
+*/
 .backbutt span{
-	display: inline-block;
+/*	display: inline-block;
 	padding-left: 22px;
 	background: transparent url(../images/arrowback.png) no-repeat 0 center;
 	line-height: 118%;
+*/
 }
 .content-block .nextbutt input[type="submit"] {
 	border: none;
@@ -1853,15 +1870,17 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 .register  input[type=submit]{
 	border: none;
 	color: #fff;
+	border-radius: 4px;
 }
 .register  input[type=text], .register  input[type=password], .register  input[type=email]{width: 346px;}
 .register form *::-moz-placeholder{color:#9b9b9b;}
-.register .backbutt, .register .nextbutt {height: 24px;}
+.register .backbutt, .register .nextbutt {height: 50px;}
 
 
 .register .backbutt {
 	background: none repeat scroll 0 0 #8c8e96;	
-	padding: 13px 0;
+/*	padding: 13px 0;*/
+	padding: 10px 0 16px 0;
 }
 .register .twobuttnext {
 	width: 268px;
@@ -1962,3 +1981,12 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	padding: 17px 20px 14px 20px;
 	font-size: 24px;
 }
+
+
+
+
+
+
+
+
+
