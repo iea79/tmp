@@ -1947,6 +1947,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	margin-bottom: 48px;
     padding: 11px 9999px 11px 9999px;
 }
+.officepagetitle img {margin-left: 15px; margin-right: 5px;}
 .register h2 {
 	font-weight: normal;
 	font-size: 30px;
@@ -1963,6 +1964,8 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	display: inline-block;
 	//display: inline;
 	zoom: 1;
+	font-size: 18px;
+	line-height: 120%;
 	padding: 10px;
 	margin-right: 10px;
 	margin-left: 4px;
@@ -2027,21 +2030,103 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 #buttons .nextbutt { float: right; }
 #insidebuttonwrapper { float:left; }
 .errors {
-	margin: 0 25% 0 0;
+	margin: 0 23% 0 0;
 	float: right;
 	position: relative;
 	color: #ff4d61;
 }
+.errors  li{
+	margin-bottom: 21px;
+	margin-top: 6px;
+}
 
-.error {
+/*.error {
 	margin: 8px 24% 0 0;
 	float: right;
 	position: relative;
 	color: #ff4d61;
+}*/
+/*.greentitle {
+	margin: 10px 0 0 0;
+	color: #27bf2e;
 }
-
-
-
-
+.greentitle span{
+	background: transparent url(../images/return.png) no-repeat 100% 0;
+	padding: 0 50px 10px 0;
+	display: inline-block;
+}
+*/
+.greentitle {
+	margin: 10px 0 0 0;
+	color: #27bf2e;
+	padding: 0 0 0 0;
+	vertical-align: top;
+}
+.backto {
+/*	width: 39px;
+	height: 33px;
+	background: transparent url(../images/return.png) no-repeat 0 0;
+	display: inline-block;*/
+}
+#makechoice {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+	height: 60%;
+	padding:  20% 0;
+	float: left;
+	left: 0;
+	top: 0;
+	background: transparent url(../images/trans.png) repeat 0 0;
+	text-align: center;
+}
+.makechoicecontent {
+	width: 24%;
+	border-radius: 4px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 10px;
+	position: relative;
+}
+.makechoicecontent h2 {
+	color: #ff4d61;
+	font-size: 18px;
+	margin:6px 0 8px 0;
+}
+.makechoicecontent .close {
+	position: absolute;
+	top: 10px;
+	floaT: right;
+	right: 10px;
+	border-radius: 50%;
+	background: #d0d0d0;
+	color: #fff;
+	padding: 1px 6px 3px 6px;
+	line-height: 104%;
+/*	padding: 1px 7px;
+	line-height: 120%;*/
+}
+.makechoicecontent .close:hover {text-decoration: none;}
+.makechoicecontent ul{
+	padding: 0;
+	margin: 0;
+}
+.makechoicecontent li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 24px;
+}
+.makechoicecontent li a {
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	background:  #528ed3;
+	padding: 8px 20px;
+}
+.bloff {display: none;}
+.bloff.active {display: block;}
 
 
