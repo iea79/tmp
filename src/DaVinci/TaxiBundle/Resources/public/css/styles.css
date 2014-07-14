@@ -233,7 +233,10 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	background:#8C8E96;
 	padding:0 5px;
 }
-.lang .drop li{width: 100%;}
+.lang .drop li{
+	width: 100%;
+	padding: 0 2px;
+}
 .lang:hover .drop{top:100%;}
 .lang .drop li{margin:0 0 2px;}
 .lang .opener:after{
@@ -2020,9 +2023,22 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	padding: 17px 20px 14px 20px;
 	font-size: 24px;
 }
+#buttons { overflow: hidden; }
+#buttons .nextbutt { float: right; }
+#insidebuttonwrapper { float:left; }
+.errors {
+	margin: 0 25% 0 0;
+	float: right;
+	position: relative;
+	color: #ff4d61;
+}
 
-
-
+.error {
+	margin: 8px 24% 0 0;
+	float: right;
+	position: relative;
+	color: #ff4d61;
+}
 
 
 

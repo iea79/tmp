@@ -1,10 +1,4 @@
 {% set renderBackButton = flow.getCurrentStepNumber() in (flow.getFirstStepNumber() + 1) .. flow.getLastStepNumber() %}
-
-<style>
-    #buttons { overflow: hidden; }
-    #buttons .nextbutt { float: right; }
-    #insidebuttonwrapper { float:left; }
-</style>
 <div id="buttons">
     <div id="insidebuttonwrapper">
 {%- if flow.getCurrentStepNumber() == 1 -%}
