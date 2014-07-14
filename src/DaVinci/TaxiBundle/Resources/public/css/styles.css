@@ -227,7 +227,10 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	background:#8C8E96;
 	padding:0 5px;
 }
-.lang .drop li{width: 100%;}
+.lang .drop li{
+	width: 100%;
+	padding: 0 2px;
+}
 .lang:hover .drop{top:100%;}
 .lang .drop li{margin:0 0 2px;}
 .lang .opener:after{
@@ -684,8 +687,8 @@ label .text {
 }
 .content-block .mini .text{width:51px;}
 .float_left {float: left !important;}
-.box {   display: none; /* по умолчанию прячем все блоки */  }  
-.box.visible {   display: block; /* по умолчанию показываем нужный блок */  }  
+.box {   display: none; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїСЂСЏС‡РµРј РІСЃРµ Р±Р»РѕРєРё */  }  
+.box.visible {   display: block; /* РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ РїРѕРєР°Р·С‹РІР°РµРј РЅСѓР¶РЅС‹Р№ Р±Р»РѕРє */  }  
 .tabtaxi {
 	position: relative;
 	overflow: hidden;
@@ -1637,7 +1640,7 @@ span.date {
 	max-height: 64px;
 	line-height: 138%;
 }
-/* Стили для jQuery UI Datepicker */
+/* РЎС‚РёР»Рё РґР»СЏ jQuery UI Datepicker */
 
 /*
  * Timepicker stylesheet
@@ -1981,9 +1984,22 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	padding: 17px 20px 14px 20px;
 	font-size: 24px;
 }
+#buttons { overflow: hidden; }
+#buttons .nextbutt { float: right; }
+#insidebuttonwrapper { float:left; }
+.errors {
+	margin: 0 25% 0 0;
+	float: right;
+	position: relative;
+	color: #ff4d61;
+}
 
-
-
+.error {
+	margin: 8px 24% 0 0;
+	float: right;
+	position: relative;
+	color: #ff4d61;
+}
 
 
 
