@@ -1,4 +1,4 @@
-﻿$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
+$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
 function setTabswidth (){
 	tu0 = $('#info ol').width();
 	tu1 = $('#info ol li').length;
