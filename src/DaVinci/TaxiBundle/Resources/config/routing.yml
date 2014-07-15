@@ -2,6 +2,19 @@ da_vinci_taxi_homepage:
     pattern:  /
     defaults: { _controller: DaVinciTaxiBundle:Home:index }
     
+order_step_1:
+    pattern:  /order_step_1
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1 }
+order_step_2:
+    pattern:  /order_step_2
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_2 }
+order_step_3:
+    pattern:  /order_step_3
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_3 }
+main_driver:
+    pattern:  /main_driver
+    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
