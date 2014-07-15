@@ -1,4 +1,4 @@
-DaVinci\UserBundle\Entity\User:
+DaVinci\TaxiBundle\Entity\User:
     properties:
         termsAccepted:
             - NotBlank: 
@@ -17,7 +17,11 @@ DaVinci\UserBundle\Entity\User:
                 max: 255
                 maxMessage: fos_user.first_name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
-
+            - Regex:
+                pattern: "/^[a-z]+$/i"
+                htmlPattern: "^[a-zA-Z]+$"
+                message: fos_user.first_name.latin
+                groups: [ "flow_taxi_user_registration_step1" ]
         last_name:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
@@ -27,6 +31,11 @@ DaVinci\UserBundle\Entity\User:
                 minMessage: fos_user.last_name.short
                 max: 255
                 maxMessage: fos_user.last_name.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+            - Regex:
+                pattern: "/^[a-z]+$/i"
+                htmlPattern: "^[a-zA-Z]+$"
+                message: fos_user.first_name.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
         gender:
             - Choice: 
@@ -51,19 +60,6 @@ FOS\UserBundle\Model\User:
              groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile" ]
 
     properties:
-        email:
-            - NotBlank:
-                message: fos_user.email.blank
-                groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile" ]
-            - Length:
-                min: 2
-                minMessage: fos_user.email.short
-                max: 255
-                maxMessage: fos_user.email.long
-                groups: [ "flow_taxi_user_registration_step2", "ResetPassword" ]
-            - Email:
-                message: fos_user.email.invalid
-                groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile" ]
         plainPassword:
             - NotBlank:
                 message: fos_user.password.blank
