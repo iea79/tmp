@@ -34,6 +34,20 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /change-password
     
+ 
+register_company:
+    pattern: /register-company 
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_company }
+register_independent_driver:
+    pattern: /register-independent-driver
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_independent_driver }
+register_manager:
+    pattern: /register-manager
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_manager }
+register_company_driver:
+    pattern: /register-company-driver
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_company_driver }
+    
     
 office_choose:    
     pattern:  /choose-office
