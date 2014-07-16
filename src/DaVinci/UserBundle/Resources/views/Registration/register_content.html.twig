@@ -30,7 +30,7 @@
             
         {% if flow.getCurrentStepNumber() == 2 %}    
             <ul class="tabs">  
-                <li class="general"><a class="arrow_box" href="{{ url('fos_user_security_login') }}"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
+                <li class="general"><a class="arrow_box" href="#" onclick="document.getElementById('backbutton').click();"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
                 <li class="contact current"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
             </ul>
 {{ form_errors(form) }}

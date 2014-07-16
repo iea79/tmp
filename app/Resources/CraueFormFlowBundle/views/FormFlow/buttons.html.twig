@@ -10,7 +10,7 @@
 {%- endif -%}
 
 {% if renderBackButton %}
-        <button type="submit" class="nextbutt backbutt" name = "{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
+        <button type="submit" class="nextbutt backbutt" id="backbutton" name = "{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
             {{- 'form.back' | trans({}, 'FOSUserBundle') -}}
         </button>
 {% endif %}
