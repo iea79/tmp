@@ -111,3 +111,9 @@ form:
     gotonextstep: "Go to the next step"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: Back
+    
+fos_user:    
+    first_name:
+        latin: English/Latin characters only
+    last_name:
+        latin: English/Latin characters only

@@ -18,8 +18,8 @@ DaVinci\TaxiBundle\Entity\User:
                 maxMessage: fos_user.first_name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
             - Regex:
-                pattern: "/^[a-z]+$/i"
-                htmlPattern: "^[a-zA-Z]+$"
+                pattern: "/^[a-z ]+$/i"
+                htmlPattern: "^[a-zA-Z ]+$"
                 message: fos_user.first_name.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
         last_name:   
@@ -33,8 +33,8 @@ DaVinci\TaxiBundle\Entity\User:
                 maxMessage: fos_user.last_name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
             - Regex:
-                pattern: "/^[a-z]+$/i"
-                htmlPattern: "^[a-zA-Z]+$"
+                pattern: "/^[a-z ]+$/i"
+                htmlPattern: "^[a-zA-Z ]+$"
                 message: fos_user.first_name.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
         gender:

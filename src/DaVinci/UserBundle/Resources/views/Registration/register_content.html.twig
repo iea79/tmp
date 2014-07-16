@@ -39,10 +39,16 @@
 		{{ form_errors(form.email) }}
             </label>
             <label><span class="text">{{ 'form.password'|trans }}</span>
-                {{ form_widget(form.plainPassword.first,{'attr':{'pattern':'.{3,}','title':'Minmimum 3 letters or numbers.'|trans,'onchange':'$(\':input:eq(\' + ($(\':input\').index(this) + 1) + \')\').attr(\'pattern\',this.value);'}}) }}
+                {{ form_widget(form.plainPassword.first,
+                    {'attr':{'pattern':'.{3,}',
+                            'title':'Minmimum 3 letters or numbers.'|trans,
+                            'class': 'passfield'}}) }}
             </label>
             <label><span class="text">{{ 'form.password_confirmation'|trans }}</span>
-                {{ form_widget(form.plainPassword.second,{'attr':{'pattern':'.{3,}','title':'Passwords must match.'|trans}}) }}
+                {{ form_widget(form.plainPassword.second,
+                    {'attr':{'pattern':'.{3,}',
+                            'title':'Passwords must match.'|trans,
+                            'class': 'passfield2'}}) }}
             </label>
             <label class="term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
 
