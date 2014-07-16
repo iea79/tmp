@@ -32,40 +32,38 @@ fos_user_resetting:
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /profile
+    prefix: /change-password
     
-manager_step2:
-    pattern:  /manager_step2
-    defaults: { _controller: DaVinciTaxiBundle:Registration:manager_step2 }
-taxidriver_step2:
-    pattern:  /taxidriver_step2
-    defaults: { _controller: DaVinciTaxiBundle:Registration:taxidriver_step2 }
-company_step2:
-    pattern:  /company_step2
-    defaults: { _controller: DaVinciTaxiBundle:Registration:company_step2 }
-company_step3:
-    pattern:  /company_step3
-    defaults: { _controller: DaVinciTaxiBundle:Registration:company_step3 }
-independentdriver_step2:
-    pattern:  /independentdriver_step2
-    defaults: { _controller: DaVinciTaxiBundle:Registration:independentdriver_step2 }
+ 
+register_company:
+    pattern: /register-company 
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_company }
+register_independent_driver:
+    pattern: /register-independent-driver
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_independent_driver }
+register_manager:
+    pattern: /register-manager
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_manager }
+register_company_driver:
+    pattern: /register-company-driver
+    defaults: { _controller: DaVinciTaxiBundle:Office:register_company_driver }
     
     
 office_choose:    
     pattern:  /choose-office
     defaults: { _controller: DaVinciTaxiBundle:Office:office_choose }
 office_company:
-    pattern:  /office_company
+    pattern:  /office-company
     defaults: { _controller: DaVinciTaxiBundle:Office:office_company }
 block_profile:
-    pattern:  /block_profile
+    pattern:  /block-profile
     defaults: { _controller: DaVinciTaxiBundle:Office:block_profile }
 filter_table:
-    pattern:  /filter_table
+    pattern:  /filter-table
     defaults: { _controller: DaVinciTaxiBundle:Office:filter_table }
 order_table:
-    pattern:  /order_table
+    pattern:  /order-table
     defaults: { _controller: DaVinciTaxiBundle:Office:order_table }
 dispet_table:
-    pattern:  /dispet_table
+    pattern:  /dispet-table
     defaults: { _controller: DaVinciTaxiBundle:Office:dispet_table }

@@ -42,7 +42,7 @@ change_password:
 # Registration
 registration:
     check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
-    confirmed: Congrats %username%, your account is now activated.
+    confirmed: Congratulations %username%, your account is now activated.
     back: Back to the originating page.
     submit: Complete registration
     flash:
@@ -103,11 +103,17 @@ form:
     male: "Male"
     female: "Femail"
     choosegender: "Choose your gender"
-    firstname: "First Name"
-    lastname: "Last Name"
+    first_name: "First Name"
+    last_name: "Last Name"
     gender: "Gender"
     contactinfo: "Contact info"
     signininfo: "Sign in info"
     gotonextstep: "Go to the next step"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: Back
+    
+fos_user:    
+    first_name:
+        latin: English/Latin characters only
+    last_name:
+        latin: English/Latin characters only

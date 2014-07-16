@@ -36,5 +36,23 @@ class OfficeController extends Controller
         return $this->render('DaVinciTaxiBundle:Offices:dispet_table.html.twig');
     }
 
-
+    public function register_companyAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:register_company.html.twig');
+    }
+    
+    public function register_independent_driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:register_independent_driver.html.twig');
+    }
+    
+    public function register_managerAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:register_manager.html.twig');
+    }
+    
+    public function register_company_driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:register_company_driver.html.twig');
+    }   
 }
