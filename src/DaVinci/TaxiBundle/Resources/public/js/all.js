@@ -82,7 +82,7 @@ function setBlockHeight(){
 }
 
 function setAttribute(){
-	$("#makechoice li a").removeClass('active');
+/*	$("#makechoice li a").removeClass('active');
 	$("#makechoice li a").click(function () {
 		$('.bloff').removeClass('active');
 		$(this).addClass('active');
@@ -97,28 +97,28 @@ function setAttribute(){
 		return false;
 
 	});
+	*/
 } 
 
 $(document).ready(function() {
+
+
+	$('.officemore').click(function() {
+		$("#makechoice").removeClass('display_none');	
+	});
+	$('.trial').click(function() {
+		$("#makechoice").removeClass('display_none');	
+	});
 
 	$('#makechoice').children().children('.close').click(function() {
 		$(this).parent().parent().addClass('display_none');	
 	});
 
-/*	$('#makechoice li a').click(function() {
-		if ($(this).attr("href") == $(".bloff").attr("id")) {
-			$(this).addClass('active');
-			$("#makechoice").addClass('display_none');	
-		}
-	});
-*/
-//$("111").insertAfter($("Go to the next step"));
-	$(".backto").click(function () {
+/*	$(".backto").click(function () {
 		$("#makechoice").removeClass('display_none');	
-//$('.bloff').removeClass('active');
 		setAttribute();
 	});
-
+*/
 	setAttribute();
 	$("#content .content-block textarea").keyup(function() {
 		if (this.value.length > 300)

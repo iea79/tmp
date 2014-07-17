@@ -783,6 +783,10 @@ label .text {
 	margin: 0;
 	background: #fff /*url(../images/arrowstep1.jpg) no-repeat 0 0*/;
 }
+.tabs li.full {
+	width: 967px;
+	padding: 10px 0 12px 31px;
+}
 .threetabs li, .choice .tabs li, .about .tabs li{width: 302px;}
 .choice .tabs li a, .about .tabs li a {color: #3C3D45;}
 .threetabs li.current, .choice .tabs li.current, .about .tabs li.current{width: 301px;}
@@ -2029,25 +2033,36 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 #buttons { overflow: hidden; }
 #buttons .nextbutt { float: right; }
 #insidebuttonwrapper { float:left; }
+.register label, .register fieldset {position: relative;}
 .errors {
-	margin: 0 23% 0 0;
-	float: right;
-	position: relative;
 	color: #ff4d61;
+	padding: 0;
+	margin: 0;
+}
+
+fieldset .errors li{list-style: none;
+/*	position: relative;*/
+}
+fieldset  label .errors li{list-style: disc;}
+label .errors{
+	margin: 0 0 21px 0;
+	float: left;
+	top: 0;
+	left: 58%;
+	position: absolute;
 }
 .errors  li{
 	margin-bottom: 21px;
 	margin-top: 6px;
 }
-
 /*.error {
 	margin: 8px 24% 0 0;
 	float: right;
 	position: relative;
 	color: #ff4d61;
 }*/
-/*.greentitle {
-	margin: 10px 0 0 0;
+.greentitle {
+	margin: 24px 0 0 0;
 	color: #27bf2e;
 }
 .greentitle span{
@@ -2055,7 +2070,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	padding: 0 50px 10px 0;
 	display: inline-block;
 }
-*/
+/*
 .greentitle {
 	margin: 10px 0 0 0;
 	color: #27bf2e;
@@ -2063,11 +2078,12 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	vertical-align: top;
 }
 .backto {
-/*	width: 39px;
+	width: 39px;
 	height: 33px;
 	background: transparent url(../images/return.png) no-repeat 0 0;
-	display: inline-block;*/
+	display: inline-block;
 }
+*/
 #makechoice {
 	position: fixed;
 	z-index: 100;
@@ -2126,7 +2142,8 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	background:  #528ed3;
 	padding: 8px 20px;
 }
-.bloff {display: none;}
-.bloff.active {display: block;}
+/*.bloff {display: none;}
+.bloff.active {display: block;}*/
+
 
 

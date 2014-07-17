@@ -1,1 +1,76 @@
+<<<<<<< HEAD
 {# empty Twig template #}
+=======
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block theme 'register' %}
+{% block body %}
+{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+
+
+<div class="title">{{ 'Please complete register for company driver'|trans}}</div>
+<form action="#" method="get">
+	<fieldset>
+		<ul class="tabs">  
+			<li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
+			<li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
+		</ul>
+		<label><span class="text">Country:</span>
+			<select class="styled medium" name="country" id="country" required>
+				<option>Russia</option>
+			</select>
+		</label>
+		<label><span class="text">City:</span>
+			<select class="styled medium" name="city" id="city" required>
+				<option>Moscow</option>
+				<option>St. Petersburg</option>
+			</select>
+		</label>
+		<label><span class="text">Language:</span>
+			<select class="styled medium" name="lang" id="lang" required>
+				<option>Russian</option>
+				<option>English</option>
+			</select>
+		</label>
+		<label><span class="text">Level:</span>
+			<select class="styled medium" name="level" id="level" required>
+				<option>Elementary</option>
+				<option>Elementary</option>
+			</select>
+		</label>
+		<label><span class="text">Add language:</span>
+			<select class="styled medium" name="lang" id="lang" required>
+				<option>Select a language</option>
+				<option>English</option>
+				<option>Russian</option>
+			</select>
+		</label>
+		<label><span class="text">Company code:</span>
+			<input type="text" name="code" id="code" required placeholder="Company code" />
+		</label>
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Go to the next step" class="submit nextbutt">
+			</div>
+		</div>
+		Step2
+		<label><span class="text">Driving experience:</span>
+			<input type="text" name="experience" id="experience" required placeholder="Driving experience" />
+		</label>
+		<label><span class="text">Your photo:</span>
+			<div class="file_upload">
+					<div>Click to add</div>
+					<input type="file" name="yourphoto" id="yourphoto" />
+			</div>								
+		</label>
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt twobuttnext">
+				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" id="backbutton" class="nextbutt backbutt" type="submit">Back</button>
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+
+
+{% endblock %}
+>>>>>>> bitbucket/area_of_buttons

@@ -1,1 +1,61 @@
+<<<<<<< HEAD
 {# empty Twig template #}
+=======
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block theme 'register' %}
+{% block body %}
+{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+
+
+<div class="title">{{ 'Please complete register for company manager'|trans}}</div>
+<form action="#" method="get">
+	<fieldset>
+		<ul class="tabs">  
+			<li class="general full"><span>1</span>{{ 'form.contactinfo'|trans}}</li>
+		</ul>
+		<label><span class="text">Country:</span>
+			<select class="styled medium" name="country" id="country" required>
+				<option>Russia</option>
+			</select>
+		</label>
+		<label><span class="text">City:</span>
+			<select class="styled medium" name="city" id="city" required>
+				<option>Moscow</option>
+				<option>St. Petersburg</option>
+			</select>
+		</label>
+		<label><span class="text">Language:</span>
+			<select class="styled medium" name="lang" id="lang" required>
+				<option>Russian</option>
+				<option>English</option>
+			</select>
+		</label>
+		<label><span class="text">Level:</span>
+			<select class="styled medium" name="level" id="level" required>
+				<option>Elementary</option>
+				<option>Elementary</option>
+			</select>
+		</label>
+		<label><span class="text">Add language:</span>
+			<select class="styled medium" name="lang" id="lang" required>
+				<option>Select a language</option>
+				<option>English</option>
+				<option>Russian</option>
+			</select>
+		</label>
+		<label><span class="text">Company code:</span>
+			<input type="text" name="code" id="code" required placeholder="Company code" />
+		</label>
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt">
+			</div>
+		</div>
+		
+	</fieldset>
+</form>
+
+
+
+{% endblock %}
+>>>>>>> bitbucket/area_of_buttons

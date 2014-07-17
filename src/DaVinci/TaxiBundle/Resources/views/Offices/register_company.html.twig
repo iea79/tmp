@@ -1,1 +1,76 @@
+<<<<<<< HEAD
 {# empty Twig template #}
+=======
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block theme 'register' %}
+{% block body %}
+{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+
+
+<div class="title">{{ 'Please complete register for company owner'|trans}}</div>
+<form action="#" method="get">
+	<fieldset>
+		<ul class="tabs">  
+			<li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
+			<li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
+		</ul>
+		<label><span class="text">Name of company:</span>
+			<input type="text" name="name" id="name" required placeholder="Name of company" />
+		</label>
+		<label><span class="text">Country:</span>
+			<select class="styled medium" name="country" id="country" required>
+				<option>Russia</option>
+			</select>
+		</label>
+		<label><span class="text">City:</span>
+			<select class="styled medium" name="city" id="city" required>
+				<option>Moscow</option>
+				<option>St. Petersburg</option>
+			</select>
+		</label>
+		<label><span class="text">Street:</span>
+			<select class="styled medium" name="street" id="street" required>
+				<option>Main</option>
+				<option>Lenina</option>
+			</select>
+		</label>
+		<label><span class="text">Building:</span>
+			<input type="password" name="building" id="building" required placeholder="Building" />
+		</label>
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Go to the next step" class="submit nextbutt">
+			</div>
+		</div>
+		Step2
+		<label><span class="text">Date:</span>
+			<input  class="dates" type="text" id="datepicker" name="datepicker" required  />
+		</label>
+		<label><span class="text">Place:</span>
+			<input type="text" name="place" id="place" required placeholder="Place" />
+		</label>
+		<label><span class="text">State number:</span>
+			<input type="password" name="statenumber" id="statenumber" required placeholder="State number" />
+		</label>
+		<label><span class="text">Amount of taxi:</span>
+			<input type="text" name="amount" id="amount" required placeholder="Amount of taxi" />
+		</label>
+		<label><span class="text">Logo:</span>
+			<div class="file_upload">
+					<div>Click to add</div>
+					<input type="file" name="logo" id="logo" />
+			</div>								
+		</label>
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt twobuttnext">
+				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" id="backbutton" class="nextbutt backbutt" type="submit">Back</button>
+			</div>
+		</div>
+		
+	</fieldset>
+</form>
+
+
+
+{% endblock %}
+>>>>>>> bitbucket/area_of_buttons

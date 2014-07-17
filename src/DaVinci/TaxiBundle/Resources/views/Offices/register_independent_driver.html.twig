@@ -1,1 +1,70 @@
+<<<<<<< HEAD
 {# empty Twig template #}
+=======
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+
+{% block theme 'register' %}
+{% block body %}
+{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+
+
+<div class="title">{{ 'Please complete register for independent driver'|trans}}</div>
+<form action="#" method="get">
+	<fieldset>
+		<ul class="tabs">  
+			<li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
+			<li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
+		</ul>
+		<label><span class="text">Country:</span>
+			<select class="styled medium" name="country" id="country" required>
+				<option>Russia</option>
+			</select>
+		</label>
+		<label><span class="text">City:</span>
+			<select class="styled medium" name="city" id="city" required>
+				<option>Moscow</option>
+				<option>St. Petersburg</option>
+			</select>
+		</label>
+		<label class="medium"><span class="text">Language:</span>
+			<select name="lang" class="styled" id="lang" required >
+				<option>Language</option>
+				<option>Russian</option>
+				<option>English</option>
+			</select>
+		</label>
+		<label class="mini"><span class="text">Level:</span>
+			<select name="level" class="styled" id="level" required>
+				<option>Level</option>
+				<option>Elementary</option>
+				<option>Pre-Intermediate</option>
+				<option>Intermediate</option>
+				<option>Upper-Intermediate</option>
+				<option>Advanced</option>
+				<option>Proficiency</option>
+			</select>
+		</label>									
+
+		<label class="medium"><span class="text">Add language:</span>
+			<select name="addlang" class="styled" id="addlang" required >
+				<option>Add language</option>
+				<option>Russian</option>
+				<option>English</option>
+			</select>
+		</label>
+
+		<div id="buttons">
+			<div id="insidebuttonwrapper"><input type="submit" value="Go to the next step" class="submit nextbutt">
+			</div>
+		</div>
+	</fieldset>
+</form>
+
+			
+			
+			
+
+
+
+{% endblock %}
+>>>>>>> bitbucket/area_of_buttons
