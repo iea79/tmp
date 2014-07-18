@@ -103,9 +103,9 @@ function setAttribute(){
 $(document).ready(function() {
 
 
-	$('.officemore').click(function() {
+/*	$('.officemore').click(function() {
 		$("#makechoice").removeClass('display_none');	
-	});
+	});*/
 	$('.trial').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});
