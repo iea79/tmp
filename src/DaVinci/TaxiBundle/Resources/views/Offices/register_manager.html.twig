@@ -3,8 +3,7 @@
 {% block theme 'register' %}
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
-
-
+<div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
 <div class="title">{{ 'Please complete register for company manager'|trans}}</div>
 <form action="#" method="get">
 	<fieldset>
@@ -40,6 +39,12 @@
 				<option>English</option>
 				<option>Russian</option>
 			</select>
+		</label>
+		<label><span class="text">Skype:</span>
+			<input type="text" name="skype" id="skype" required placeholder="Skype" />
+		</label>
+		<label><span class="text">Phone number:</span>
+			<input type="text" name="phone" id="phone" required placeholder="Phone number" />
 		</label>
 		<label><span class="text">Company code:</span>
 			<input type="text" name="code" id="code" required placeholder="Company code" />
