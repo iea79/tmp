@@ -2,24 +2,67 @@
 
 namespace DaVinci\UserBundle\Controller;
 
-use \FOS\UserBundle\Controller\RegistrationController as BaseController;
-use FOS\UserBundle\FOSUserEvents;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\Event\GetResponseUserEvent;
-use FOS\UserBundle\Event\UserEvent;
-use FOS\UserBundle\Event\FilterUserResponseEvent;
-use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use FOS\UserBundle\Model\UserInterface;
+use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+
+
 class RegistrationController extends BaseController
 {
-    public function registerAction(Request $request)
+    public function registerAction()
     {
-        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
-        $formFactory = $this->container->get('fos_user.registration.form.factory');
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        if ($user instanceof UserInterface) {
+            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
+            $url = $this->container->get('router')->generate('sonata_user_profile_show');
+
+            return new RedirectResponse($url);
+        }
+
+        $form = $this->container->get('sonata.user.registration.form');
+        $formHandler = $this->container->get('sonata.user.registration.form.handler');
+        $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
+
+        $process = $formHandler->process($confirmationEnabled);
+        if ($process) {
+            $user = $form->getData();
+
+            $authUser = false;
+            if ($confirmationEnabled) {
+                $this->container->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
+                $url = $this->container->get('router')->generate('fos_user_registration_check_email');
+            } else {
+                $authUser = true;
+                $route = $this->container->get('session')->get('sonata_basket_delivery_redirect');
+
+                if (null !== $route) {
+                    $this->container->get('session')->remove('sonata_basket_delivery_redirect');
+                    $url = $this->container->get('router')->generate($route);
+                } else {
+                    $url = $this->container->get('session')->get('sonata_user_redirect_url');
+                }
+            }
+
+            $this->setFlash('fos_user_success', 'registration.flash.user_created');
+
+            $response = new RedirectResponse($url);
+
+            if ($authUser) {
+                $this->authenticateUser($user, $response);
+            }
+
+            return $response;
+        }
+
+        $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
+
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.'.$this->getEngine(), array(
+            'form' => $form->createView(),
+        ));
+        
+        
+        
+        $request =  $this->container->get('request');
+        
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
         $userManager = $this->container->get('fos_user.user_manager');
         /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */

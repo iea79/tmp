@@ -97,7 +97,7 @@ form:
     password_confirmation: "Repeat Password:"
     new_password: "New password"
     new_password_confirmation: "Verification"
-    birthday: "Birthday"
+    dateOfBirth: "Birthday"
     phone: "Phone"
     skype: "Skype"
     male: "Male"

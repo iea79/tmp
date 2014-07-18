@@ -2,7 +2,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use FOS\UserBundle\Model\User as BaseUser;
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
@@ -19,11 +19,6 @@ class User extends BaseUser
     protected $id;
   
     protected $termsAccepted;
-
-    /**
-     * @ORM\Column(type="string", length=32, nullable=true)
-     */
-    private $phone;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -45,15 +40,6 @@ class User extends BaseUser
      */
     private $last_name;
 
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $birthday;
-
-    /**
-     * @ORM\Column(type="integer", length=2, nullable=true)
-     */
-    private $gender;
 
     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="user")
@@ -122,29 +108,6 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string 
-     */
-    public function getPhone()
-    {
-        return $this->phone;
     }
 
     /**
@@ -237,52 +200,6 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
-    }
-
-    /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     * @return User
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Get birthday
-     *
-     * @return \DateTime 
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * Set gender
-     *
-     * @param boolean $gender
-     * @return User
-     */
-    public function setGender($gender)
-    {
-        $this->gender = $gender;
-
-        return $this;
-    }
-
-    /**
-     * Get gender
-     *
-     * @return boolean 
-     */
-    public function getGender()
-    {
-        return $this->gender;
     }
 
     /**

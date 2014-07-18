@@ -5,7 +5,7 @@ namespace DaVinci\UserBundle\Form\Type;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormBuilderInterface;
-use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
+use \Sonata\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class RegistrationFormType extends BaseType {
 
@@ -34,7 +34,7 @@ class RegistrationFormType extends BaseType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
-                        ->add('birthday', 'birthday', array('label' => 'form.birthday', 'translation_domain' => 'FOSUserBundle'));
+                        ->add('dateOfBirth', 'dateOfBirth', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'));
                 break;
             case 2:
                 $builder

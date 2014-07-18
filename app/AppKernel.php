@@ -23,7 +23,7 @@ class AppKernel extends Kernel
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Crunch\Bundle\UserAdminBundle\CrunchUserAdminBundle(), //совместимость fosuserbundle 2 с sonataadmin
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
             new DaVinci\UserBundle\DaVinciUserBundle(),
