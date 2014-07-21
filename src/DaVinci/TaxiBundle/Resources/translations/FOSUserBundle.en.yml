@@ -109,7 +109,11 @@ form:
     contactinfo: "Contact info"
     signininfo: "Sign in info"
     generalinfo: "General info"
+<<<<<<< HEAD
     gotonextstep: "Next step"
+=======
+    gotonextstep: "Go to the next step"
+>>>>>>> e94b8140ae5dfd216ce67fb1d845e11f29327b55
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: Back
     

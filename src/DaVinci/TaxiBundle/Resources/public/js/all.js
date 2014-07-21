@@ -103,6 +103,7 @@ function setAttribute(){
 $(document).ready(function() {
 
 
+<<<<<<< HEAD
 	$('.addphone').click(function() {
 		$('.addphoneareas:last-child').clone().appendTo(".addphoneline");	
 		return false;
@@ -112,6 +113,11 @@ $(document).ready(function() {
 		$('.addlangline select:last-child').removeClass('display_none');	
 		return false;
 	});
+=======
+/*	$('.officemore').click(function() {
+		$("#makechoice").removeClass('display_none');	
+	});*/
+>>>>>>> e94b8140ae5dfd216ce67fb1d845e11f29327b55
 	$('.tcompany').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});
