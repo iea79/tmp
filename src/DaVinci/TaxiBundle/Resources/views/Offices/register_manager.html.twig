@@ -4,11 +4,11 @@
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
 <div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
-<div class="title">{{ 'Please complete register for company manager'|trans}}</div>
+<div class="title">{{ 'Specification to get Taxi Manager Office'|trans}}</div>
 <form action="#" method="get">
 	<fieldset>
 		<ul class="tabs">  
-			<li class="general full"><span>1</span>{{ 'form.contactinfo'|trans}}</li>
+			<li class="general full"><span>1</span>{{ 'form.generalinfo'|trans}}</li>
 		</ul>
 		<label><span class="text">Country:</span>
 			<select class="styled medium" name="country" id="country" required>
@@ -21,31 +21,116 @@
 				<option>St. Petersburg</option>
 			</select>
 		</label>
-		<label><span class="text">Language:</span>
-			<select class="styled medium" name="lang" id="lang" required>
-				<option>Russian</option>
-				<option>English</option>
-			</select>
-		</label>
-		<label><span class="text">Level:</span>
+		<label><span class="text">English:</span>
 			<select class="styled medium" name="level" id="level" required>
-				<option>Elementary</option>
-				<option>Elementary</option>
+					<option>Level</option>
+					<option>No</option>
+					<option>Elementary</option>
+					<option>Pre-Intermediate</option>
+					<option>Intermediate</option>
+					<option>Upper-Intermediate</option>
+					<option>Advanced</option>
+					<option>Proficiency</option>
 			</select>
 		</label>
-		<label><span class="text">Add language:</span>
-			<select class="styled medium" name="lang" id="lang" required>
+
+		<label class="addlangline"><span class="text">Other language:</span>
+			<div class="style1"><div class="style2">
+			<select class="display_none medium" name="lang" required>
 				<option>Select a language</option>
-				<option>English</option>
-				<option>Russian</option>
-			</select>
+				<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
+				<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
+				<option>Asturian</option>	<option>Avar</option>	<option>Awadhi</option>	<option>Azerbaijani</option>	<option>Balochi</option>
+				<option>Bashkir</option>	<option>Basque</option>	<option>Belarusian</option>	<option>Bengali</option>	<option>Berber</option>
+				<option>Bhojpuri</option>	<option>Bosnian</option>	<option>Bulgarian</option>	<option>Burmese</option>	<option>Cantonese</option>
+				<option>Catalan</option>	<option>Cebuano</option>	<option>Chechen</option>	<option>Chewa</option>	<option>Chichewa</option>
+				<option>Chuvash</option><option>Chhattisgarhi</option>	<option>Chinese </option>	<option>Chittagonian</option>	<option>Comorian</option>
+				<option>Creole</option>	<option>Croatian</option>	<option>Czech</option>	<option>Dari</option>	<option>Deccan</option>
+				<option>Dhivehi</option>	<option>Dhundhari</option>	<option>Danish</option>	<option>Dutch</option>	<option>Dzongkha</option>
+				<option>Estonian</option>	<option>Filipino </option>	<option>Finnish</option>	<option>French</option>	<option>Fula</option>
+				<option>Gan</option>	<option>Georgian</option>	<option>German</option>	<option>Greek</option>	<option>Gujarati</option>
+				<option>Haitian Creole</option>	<option>Hakka</option>	<option>Haryanvi</option>	<option>Hausa</option>	<option>Hebrew </option>
+				<option>Hiligaynon</option>	<option>Hindi</option>		<option>Hmong</option>	<option>Hungarian</option>	<option>Icelandic</option>
+				<option>Igbo</option>	<option>Ilokano</option>	<option>Indonesian</option>	<option>Irish </option>	<option>Italian</option>
+				<option>Japanese</option>	<option>Javanese</option>	<option>Jin</option>	<option>Kabardian</option>	<option>Kannada</option>
+				<option>Kazakh</option>	<option>Khmer</option>	<option>Kinyarwanda</option>	<option>Kirundi</option>	<option>Korean</option>
+				<option>Kurdish</option>	<option>Kyrgyz</option>	<option>Lao</option>	<option>Latvian</option>	<option>Lithuanian</option>
+				<option>Macedonian</option>	<option>Madurese</option>	<option>Magahi</option>	<option>Maithili</option>	<option>Malagasy</option>
+				<option>Malay</option>	<option>Malayalam</option>	<option>Maltese </option>	<option>Mandarin</option>	<option>Marathi</option>
+				<option>Marwari</option>	<option>Min Bei</option>	<option>Min Dong</option>	<option>Min Nan</option>	<option>Moldavian</option>
+				<option>Mongolian </option>	<option>Mossi</option>	<option>Myanmar</option>	<option>Ndebele</option>	<option>Nepali</option>
+				<option>Norwegian</option>	<option>Oriya</option>	<option>Oromo</option>	<option>Ossetian</option>	<option>Pashto</option>
+				<option>Persian</option>	<option>Polish</option>	<option>Portuguese</option>	<option>Punjabi</option>	<option>Quechua</option>
+				<option>Romanian</option>	<option>Sango</option>	<option>Saraiki</option>	<option>Sardinian</option>	<option>Scots</option>
+				<option>Sepedi</option>	<option>Serbian</option>	<option>Sesotho</option><option>Setswana</option>	<option>Shona</option>
+				<option>Sindhi</option>	<option>Sindebele</option>	<option>Sinhalese</option>	<option>Slovak</option>	<option>Slovene</option>
+				<option>Somali</option>	<option>Spanish</option>	<option>Sundanese</option>	<option>Swahili</option>	<option>Swati</option>
+				<option>Swedish</option><option>Sylheti</option>	<option>Tagalog</option>	<option>Tajik </option>	<option>Tamil</option>
+				<option>Tatar</option>	<option>Telugu</option>	<option>Thai</option>	<option>Tigrinya</option>	<option>Tsonga</option>
+				<option>Turkish</option>	<option>Turkmen</option>	<option>Ukrainian</option>	<option>Urdu</option>	<option>Uyghur</option>
+				<option>Uzbek</option>	<option>Venda</option>	<option>Vietnamese</option>	<option>Wu</option>	<option>Xhosa</option>	<option>Xiang</option>
+				<option>Yoruba</option>	<option>Zhuang</option><option>Zulu</option>
+			</select></div>
+			<div class="addotherlanguage">Add language</div>
+			</div>
 		</label>
+
 		<label><span class="text">Skype:</span>
 			<input type="text" name="skype" id="skype" required placeholder="Skype" />
 		</label>
-		<label><span class="text">Phone number:</span>
+		<label class="addphoneline"><span class="text">Phone number:</span>
+			<div class="addphoneareas">
+			<select class="styled phonecode" name="phonecode" id="phonecode" required>
+				<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
+				<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
+				<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
+				<option>994 (AZ)</option>	<option>387 (BA)</option>	<option>1 (BB)</option>	<option>32 (BE)</option>		<option>226 (BF)</option>
+				<option>359 (BG)</option>	<option>973 (BH)</option>	<option>257 (BI)</option>	<option>229 (BJ)</option>		<option>1 (BM)</option>
+				<option>673 (BN)</option>	<option>591 (BO)</option>	<option>55 (BR)</option>	<option>1 (BS)</option>		<option>975 (BT)</option>
+				<option>267 (BW)</option>	<option>375 (BY)</option>	<option>501 (BZ)</option>	<option>86 (C2)</option>	<option>1 (CA)</option>
+				<option>243  (CD)</option>	<option>242 (CG)</option>	<option>41 (CH)</option><option>225 (CI)</option>	<option>682 (CK)</option>
+				<option>56 (CL)</option>	<option>237 (CM)</option>	<option>57 (CO)</option>		<option>506 (CR)</option>		<option>238 (CV)</option>
+				<option>357 (CY)</option>		<option>420 (CZ)</option>		<option>49 (DE)</option>		<option>253 (DJ)</option>		<option>45 (DK)</option>
+				<option>1 (DM)</option>		<option>1 (DO)</option>	<option>213 (DZ)</option>	<option>593 (EC)</option>	<option>372 (EE)</option>
+				<option>20 (EG)</option>	<option>291 (ER)</option>	<option>34 (ES)</option>	<option>251 (ET)</option>	<option>358 (FI)</option>
+				<option>679 (FJ)</option>		<option>500 (FK)</option>	<option>691 (FM)</option>	<option>298 (FO)</option>	<option>33 (FR)</option>
+				<option>241 (GA)</option>	<option>44 (GB)</option>	<option>1 (GD)</option>	<option>995 (GE)</option>	<option>594 (GF)</option>
+				<option>350 (GI)</option>	<option>299 (GL)</option>	<option>220 (GM)</option>	<option>224 (GN)</option>	<option>590 (GP)</option>
+				<option>30 (GR)</option>	<option>502 (GT)</option>	<option>245 (GW)</option>	<option>592 (GY)</option>	<option>852 (HK)</option>
+				<option>504 (HN)</option>	<option>385 (HR)</option>	<option>36 (HU)</option>	<option>62 (ID)</option>	<option>353 (IE)</option>
+				<option>972 (IL)</option>	<option>91 (IN)</option>	<option>354 (IS)</option>	<option>39 (IT)</option>	<option>1 (JM)</option>
+				<option>962 (JO)</option>	<option>81 (JP)</option>	<option>254 (KE)</option>	<option>996 (KG)</option>	<option>855 (KH)</option>
+				<option>686 (KI)</option>	<option>269 (KM)</option>	<option>1 (KN)</option>	<option>82 (KR)</option>	<option>965 (KW)</option>
+				<option>1 (KY)</option>	<option>7 (KZ)</option>	<option>856 (LA)</option>	<option>1 (LC)</option>	<option>423 (LI)</option>
+				<option>94 (LK)</option>	<option>266 (LS)</option>	<option>370 (LT)</option><option>352 (LU)</option>	<option>371 (LV)</option>
+				<option>212 (MA)</option>	<option>377 (MC)</option>	<option>373 (MD)</option>	<option>263 (ME)</option>	<option>261 (MG)</option>
+				<option>692 (MH)</option>	<option>389 (MK)</option>	<option>223 (ML)</option>	<option>976 (MN)</option>	<option>596 (MQ)</option>
+				<option>222 (MR)</option>	<option>1 (MS)</option>	<option>356 (MT)</option>	<option>230 (MU)</option>	<option>960 (MV)</option>
+				<option>265 (MW)</option>	<option>52 (MX)</option>	<option>60 (MY)</option>	<option>258 (MZ)</option>	<option>264 (NA)</option>
+				<option>687 (NC)</option>	<option>227 (NE)</option>	<option>672 (NF)</option>	<option>234 (NG)</option>	<option>505 (NI)</option>
+				<option>31 (NL)</option><option>47 (NO)</option>	<option>977 (NP)</option>		<option>674 (NR)</option>	<option>683 (NU)</option>
+				<option>64 (NZ)</option>	<option>968 (OM)</option>	<option>507 (PA)</option>	<option>51 (PE)</option>	<option>689 (PF)</option>
+				<option>675 (PG)</option>	<option>63 (PH)</option><option>48 (PL)</option>	<option>508 (PM)</option>	<option>872 (PN)</option>
+				<option>351 (PT)</option><option>680 (PW)</option>	<option>595 (PY)</option>	<option>974 (QA)</option>	<option>262 (RE)</option>
+				<option>40 (RO)</option>	<option>381 (RS)</option>	<option>250 (RW)</option>	<option>966 (SA)</option>	<option>677 (SB)</option>
+				<option>248 (SC)</option><option>46 (SE)</option>	<option>65 (SG)</option>	<option>290 (SH)</option>	<option>386 (SI)</option>
+				<option>47 (SJ)</option>	<option>421 (SK)</option>	<option>232 (SL)</option>	<option>378 (SM)</option>	<option>221 (SN)</option>
+				<option>252 (SO)</option>	<option>597 (SR)</option>	<option>239 (ST)</option>	<option>503 (SV)</option>	<option>268 (SZ)</option>
+				<option>1 (TC)</option>	<option>235 (TD)</option><option>228 (TG)</option>	<option>66 (TH)</option>	<option>992 (TJ)</option>
+				<option>993 (™)</option>	<option>216 (TN)</option>	<option>676 (TO)</option>	<option>90 (TR)</option>	<option>1 (TT)</option>
+				<option>688 (TV)</option>	<option>886 (TW)</option>	<option>255 (TZ)</option>	<option>380 (UA)</option>	<option>256 (UG)</option>
+				<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
+				<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
+				<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
+			</select>
 			<input type="text" name="phone" id="phone" required placeholder="Phone number" />
+			</div>
 		</label>
+		<div class="wifis">
+			<div class="wicheck"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
+			<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
+			<div class="addphone">Add another phone number:</div>
+		</div>
 		<label><span class="text">Company code:</span>
 			<input type="text" name="code" id="code" required placeholder="Company code" />
 		</label>

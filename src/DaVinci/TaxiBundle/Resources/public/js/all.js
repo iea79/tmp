@@ -103,22 +103,22 @@ function setAttribute(){
 $(document).ready(function() {
 
 
-/*	$('.officemore').click(function() {
-		$("#makechoice").removeClass('display_none');	
-	});*/
-	$('.trial').click(function() {
+	$('.addphone').click(function() {
+		$('.addphoneareas:last-child').clone().appendTo(".addphoneline");	
+		return false;
+	});
+	$('.addotherlanguage').click(function() {
+		$('.addlangline select:last-child').clone().appendTo(".style2");	
+		$('.addlangline select:last-child').removeClass('display_none');	
+		return false;
+	});
+	$('.tcompany').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});
 
 	$('#makechoice').children().children('.close').click(function() {
 		$(this).parent().parent().addClass('display_none');	
 	});
-
-/*	$(".backto").click(function () {
-		$("#makechoice").removeClass('display_none');	
-		setAttribute();
-	});
-*/
 	setAttribute();
 	$("#content .content-block textarea").keyup(function() {
 		if (this.value.length > 300)
@@ -129,50 +129,12 @@ $(document).ready(function() {
 		if (this.value.length > 200)
 			this.value = this.value.substr(0, 200);
 	});
-
-
 	$('#info').tabs({ active: 2});
-	//$('#makechoice').tabs();
-	
 	setTabswidth();
-
 	$('.cabinet .content-block li').click(function() {
 		$('.paychek').prependTo(this);	
 	});
 
-	//$("#info").tabs({tabsselect:function(event,ui){alert("Привет");}})
-	//$("#info").tabs({tabsselect:function(event,ui){alert("Привет");}})
-	//или
-	//$("#info").bind("tabsselect",function(event,ui){alert("Привет");})
-
-	/*$("#info").tabs({
-	    active: 2,
-	    select: function() {
-	      alert("Событие: ");
-	    },
-	    collapsible: true
-	  });*/
-/*
-$("#info").tabs({
-tabs:'.d',
-active:2
-});
-$('.d').click(function(){
-	$("#info").trigger('tabsselect');
-	alert('111');
-});
-*/
-	
-	/*$("#info").tabs({
-	        select: function(event, ui)
-	        {
-				
-				alert('111');
-	        }
-	    });*/
-	/*$('#info').bind('tabsselect', function(event, ui) {
-	      alert("Событие: ");
-	});*/
 	$('.destination .addlang').click(function() {
 		$('.destination .desticlone label:last-child').clone().appendTo(".destination .desticlone");	
 	});
