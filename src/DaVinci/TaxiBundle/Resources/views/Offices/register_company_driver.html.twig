@@ -4,7 +4,7 @@
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
 <div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
-<div class="title">{{ 'Please complete register for company driver'|trans}}</div>
+<div class="title">{{ 'Specification to get Taxi Driver Office'|trans}}</div>
 <form action="#" method="get">
 	<fieldset>
 		<ul class="tabs">  
@@ -57,6 +57,12 @@
 					<div>Click to add</div>
 					<input type="file" name="yourphoto" id="yourphoto" />
 			</div>								
+		</label>
+		<label><span class="text">Skype:</span>
+			<input type="text" name="skype" id="skype" required placeholder="Skype" />
+		</label>
+		<label><span class="text">Phone number:</span>
+			<input type="text" name="phone" id="phone" required placeholder="Phone number" />
 		</label>
 		<div id="buttons">
 			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt twobuttnext">

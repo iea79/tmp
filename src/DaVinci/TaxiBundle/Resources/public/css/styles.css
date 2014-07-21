@@ -104,6 +104,8 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	min-height:100%;
 }
 .w1{
+	position: relative;
+	z-index: 2;
 	margin:0 auto;
 	width:1000px;
 }
@@ -916,6 +918,11 @@ label .text {
 }
 .choice .tabs li.current span{color: #ff4d61;}
 .tabs li.general span {padding: 4px 8px 5px 8px;}
+.tabs li.general.full span {
+	color: #528ed3;
+	background: #fff;
+}
+.tabs li.general.full {color: #fff;}
 .addlang {
 	text-align: center;
 	border: 1px solid #d3d3d3;
@@ -1887,9 +1894,22 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 
 /************/
 .register {
+/*
 	background: transparent url(../images/registerbg.jpg) no-repeat center center;
-	background-size: cover;
+	background-size: cover;*/
 }
+.registerfix {
+	display: none;
+	background: transparent url(../images/registerbg.jpg) no-repeat center center;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	float: left;
+	lefT: 0;
+	top: 0;
+	z-index: 1;
+}
+.register .registerfix {	display: block;}
 .register .content-block {
 	background: none;
 	color: #fff;

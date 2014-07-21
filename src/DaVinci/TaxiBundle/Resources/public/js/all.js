@@ -106,7 +106,7 @@ $(document).ready(function() {
 /*	$('.officemore').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});*/
-	$('.trial').click(function() {
+	$('.tcompany').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});
 
