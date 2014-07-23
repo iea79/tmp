@@ -2,13 +2,13 @@
 
 namespace DaVinci\UserBundle\Controller;
 
-use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+#use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
+class RegistrationController extends BaseController {
 
-class RegistrationController extends BaseController
-{
-    public function registerAction()
-    {
+    public function registerAction() {
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         if ($user instanceof UserInterface) {
@@ -18,12 +18,59 @@ class RegistrationController extends BaseController
             return new RedirectResponse($url);
         }
 
-        $form = $this->container->get('sonata.user.registration.form');
-        $formHandler = $this->container->get('sonata.user.registration.form.handler');
+        //$form = $this->container->get('sonata.user.registration.form');
+        //$formHandler = $this->container->get('sonata.user.registration.form.handler');
+       // $formHandler = $this->container->get('fos_user.registration.form.handler');
+        
+        
+        
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
+        
+        ////// form handler moved here to use craue flow bundle
+        $userManager = $this->container->get('fos_user.user_manager');
+        
+        $user = $userManager->createUser();
 
-        $process = $formHandler->process($confirmationEnabled);
+        $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
+        
+        $flow->bind($user);
+        $form = $flow->createForm();
+
+        $process = false;
+        $request  = $this->container->get('request');
+        if ($request->isMethod('POST')) {
+            //$form->bind($request);
+            if ($flow->isValid($form)) {
+
+                 $flow->saveCurrentStepData($form);
+
+                if ($flow->nextStep()) {
+                    // form for the next step
+                    $form = $flow->createForm();
+                } else {
+                    // flow finished
+                    $flow->reset(); // remove step data from the session
+                    if ($confirmationEnabled) {
+                        $user->setEnabled(false);
+                        if (null === $user->getConfirmationToken()) {
+                            $user->setConfirmationToken($this->container->get('fos_user.util.token_generator')->generateToken());
+                        }
+
+                        $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
+                    } else {
+                        $user->setEnabled(true);
+                    }
+
+                    $userManager->updateUser($user);
+                    
+                    $process = true; 
+                }
+            }
+        }
+
+                            
         if ($process) {
+
             $user = $form->getData();
 
             $authUser = false;
@@ -52,71 +99,14 @@ class RegistrationController extends BaseController
 
             return $response;
         }
-
-        $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
-
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.'.$this->getEngine(), array(
-            'form' => $form->createView(),
-        ));
         
         
-        
-        $request =  $this->container->get('request');
-        
-        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
-        $userManager = $this->container->get('fos_user.user_manager');
-        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
-        $dispatcher = $this->container->get('event_dispatcher');
+        if($flow->getCurrentStep()==$flow->getFirstStepNumber())
+            $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
 
-        $user = $userManager->createUser();
-        $user->setEnabled(true);
-
-        $event = new GetResponseUserEvent($user, $request);
-        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
-
-        if (null !== $event->getResponse()) {
-            return $event->getResponse();
-        }
-
-        $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
-
-        $flow->bind($user);
-
-        $form = $flow->createForm();
-        
-        $data = $request->request->all();
-
-        if ('POST' === $request->getMethod()) {
-
-            if ($flow->isValid($form)) {
-                $flow->saveCurrentStepData($form);
-                
-                if ($flow->nextStep()) {
-                    // form for the next step
-                    $form = $flow->createForm();
-                } else {
-                    $event = new FormEvent($form, $request);
-                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
-
-                    $userManager->updateUser($user);
-
-                    if (null === $response = $event->getResponse()) {
-                        $url = $this->container->get('router')->generate('fos_user_registration_confirmed');
-                        $response = new RedirectResponse($url);
-                    }
-
-                    $flow->reset(); // remove step data from the session
-                    
-                    $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-                    return $response;
-                }
-            }
-        }
-
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.'.$this->getEngine(), array(
-            'form' => $form->createView(),
-            'flow' => $flow,
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.' . $this->getEngine(), array(
+                    'form' => $form->createView(),
+                    'flow' => $flow,
         ));
     }
 
