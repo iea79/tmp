@@ -1036,12 +1036,13 @@ label .text {
 	padding: 16px 0 14px 0;
 	width:542px;
 	text-align: center;
-	background: #528ed3;
-	color: #fff;
 	font-size: 24px;
 	margin-bottom: 16px;
 	text-shadow:0 1px rgba(0,0,0,.3);
-/*	-moz-border-radius: 3px;
+/*
+	background: #528ed3;
+	color: #fff;
+	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-khtml-border-radius:  3px;
 	behavior: url(PIE.htc);*/
@@ -2007,8 +2008,8 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 .register .arrow_box, .register .noarrow {    padding: 10px 0 12px 31px;}
 .register label{	color: #fff;}
 .register .nextbutt {
-	background: #27bf2e;
-	color: #fff;
+/*	background: #27bf2e;
+	color: #fff;*/
 	padding: 10px 0 16px 0;
 	margin-top: 30px;
 	font-size: 20px;
