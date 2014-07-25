@@ -449,7 +449,7 @@ span.countpassenger {
 	margin-right: 3px;
 	padding: 4px 5px;
 }
-.choice .destination .select, .choice .destination select, .choice .destination select.styled  {
+.choice .destination .select, .choice .destination select, .choice .destination select.styled, .choice .destination .uk-width-1-1  {
 	width: 54px;
 	margin-top: 1px;
 	margin-right: 3px;
@@ -972,7 +972,7 @@ label .text {
 	width: 345px;
 	padding-left: 4px;
 }
-.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode {width: 62px;}
+.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {width: 62px;}
 .addphoneareas {
 	/*float: left;
 	cleaR: left;*/
@@ -998,7 +998,7 @@ label .text {
 	margin-right: 12px;
 }
 .register .addphoneareas input[type="text"] {
-	width: 264px;
+	width: 279px;
 	margin-right: 0;
 }
 .addphone {
@@ -1031,22 +1031,18 @@ label .text {
 }
 .taxicompany .term a/*, .independentdriver .term a, .taxidriver .term a */ {color: #528ed3;}
 .nextbutt, .backbutt {
-	border: none;
-	display: block;
-	padding: 16px 0 14px 0;
 	width:542px;
-	text-align: center;
-	font-size: 24px;
-	margin-bottom: 16px;
-	text-shadow:0 1px rgba(0,0,0,.3);
 /*
+	border: none;
+	text-align: center;
+	text-shadow:0 1px rgba(0,0,0,.3);
+	border-radius:3px;
 	background: #528ed3;
 	color: #fff;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-khtml-border-radius:  3px;
 	behavior: url(PIE.htc);*/
-	border-radius:3px;
 	cursor: pointer;
 }
 
@@ -1056,7 +1052,7 @@ label .text {
 } 
 .backbutt, .choice .paramauto .backbutt{
 	width:268px;
-	background: #8c8e96;
+/*	background: #8c8e96;
 	margin-right: 8px; 
 	float: left;
 /*	padding-top: 20px;
@@ -1263,14 +1259,14 @@ height:37px;
 select option{padding:0 10px;}
 .content-block textarea, .content-block input[type=password], 
 .content-block input[type=text], .content-block input[type=email],
-.content-block select.styled, .content-block select{width:345px;}
-.content-block textarea.medium, .content-block input.medium[type="text"], .content-block .medium .select, .content-block .medium select, .content-block .medium select.styled {
+.content-block select.styled, .content-block select, .content-block .uk-width-1-1{width:345px;}
+.content-block textarea.medium, .content-block input.medium[type="text"], .content-block .medium .select, .content-block .medium select, .content-block .medium select.styled, .content-block .medium .uk-width-1-1 {
 /*	width: 179px;*/
 	width: 90px;
 	margin-right: 17px;
 }
-.content-block textarea.mini, .content-block .mini input[type="text"], .content-block .mini .select, .content-block .mini select, .content-block .mini select.styled {   width: 184px;}
-.main .select, .main select, .main select.styled  {
+.content-block textarea.mini, .content-block .mini input[type="text"], .content-block .mini .select, .content-block .mini select, .content-block .mini select.styled, .content-block .mini .uk-width-1-1 {   width: 184px;}
+.main .select, .main select, .main select.styled, .main .uk-width-1-1   {
 	width: 96px;
 	text-align: left;
 	display: inline-block;
@@ -1936,7 +1932,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	background: transparent url(../images/clockmin.png) no-repeat 0 center;
 	padding-left: 23px;
 }
-.cabinet .select, .cabinet select, .cabinet select.styled  {	width: 94px;}
+.cabinet .select, .cabinet select, .cabinet select.styled, .cabinet .uk-width-1-1   {	width: 94px;}
 .cabinet .content-block {padding-top:18px;}
 .cabinet .nextbutt {color: #fff;}
 .cabinet .greenbutt, .greenbutt {
@@ -2132,7 +2128,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	font-size: 24px;
 }
 #buttons { overflow: hidden; }
-#buttons .nextbutt { float: right; }
+.uk-button-group div .nextbutt, #buttons .nextbutt { float: right; }
 #insidebuttonwrapper { float:left; }
 .register label, .register fieldset {position: relative;}
 .errors {

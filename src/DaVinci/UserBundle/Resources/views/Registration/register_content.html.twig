@@ -2,7 +2,7 @@
 <div class="title">{{ 'Please register'|trans}}</div>
 <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 
-    	<fieldset>
+    	<fieldset class="uk-form">
 		{% if flow.getCurrentStepNumber() == 1 %}
             <ul class="tabs">  
                 <li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>

@@ -6,49 +6,46 @@
 <div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
 <div class="title">{{ 'Specification to get Taxi Company Owner Office'|trans}}</div>
 <form action="#" method="get">
-	<fieldset>
-
+   	<fieldset class="uk-form">
 		<ul class="tabs">  
 			<li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
 			<li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 		</ul>
 		<label><span class="text">Name of company:</span>
-			<input type="text" name="name" id="name" required placeholder="Name of company" />
+			<input class="uk-width-1-1" type="text" name="name" id="name" required placeholder="Name of company" />
 		</label>
 		<label><span class="text">Country:</span>
-			<select class="styled medium" name="country" id="country" required>
+			<select class="uk-width-1-1 medium" name="country" id="country" required>
 				<option>Russia</option>
 			</select>
 		</label>
 		<label><span class="text">City:</span>
-			<select class="styled medium" name="city" id="city" required>
+			<select class="uk-width-1-1 medium" name="city" id="city" required>
 				<option>Moscow</option>
 				<option>St. Petersburg</option>
 			</select>
 		</label>
 		<label><span class="text">Street:</span>
-			<select class="styled medium" name="street" id="street" required>
+			<select class="uk-width-1-1 medium" name="street" id="street" required>
 				<option>Main</option>
 				<option>Lenina</option>
 			</select>
 		</label>
 		<label><span class="text">Building:</span>
-			<input type="text" name="building" id="building" required placeholder="Building" />
+			<input class="uk-width-1-1" type="text" name="building" id="building" required placeholder="Building" />
 		</label>
-		<div id="buttons">
-			<div id="insidebuttonwrapper"><input type="submit" value="Next step" class="submit nextbutt">
-			</div>
+		<div class="uk-button-group">
+			<div ><button class="uk-button nextbutt">Next step</button></div>
 		</div>
-		
-		step2
+		<h4>Step2</h4>
 		<label><span class="text">Date:</span>
-			<input  class="dates" type="text" id="datepicker" name="datepicker" required  />
+			<input  class="dates uk-width-1-1" type="text" id="datepicker" name="datepicker" required  />
 		</label>
 		<label><span class="text">Place:</span>
-			<input type="text" name="place" id="place" required placeholder="Place" />
+			<input class="uk-width-1-1" type="text" name="place" id="place" required placeholder="Place" />
 		</label>
 		<label><span class="text">State number:</span>
-			<input type="text" name="statenumber" id="statenumber" required placeholder="State number" />
+			<input class="uk-width-1-1" type="text" name="statenumber" id="statenumber" required placeholder="State number" />
 		</label>
 		<label><span class="text">Amount of taxi:</span>
 			<input type="text" name="amount" id="amount" required placeholder="Amount of taxi" />
@@ -60,11 +57,11 @@
 			</div>								
 		</label>
 		<label><span class="text">Skype:</span>
-			<input type="text" name="skype" id="skype" required placeholder="Skype" />
+			<input class="uk-width-1-1" type="text" name="skype" id="skype" required placeholder="Skype" />
 		</label>
 		<label class="addphoneline"><span class="text">Phone number:</span>
 			<div class="addphoneareas">
-			<select class="styled phonecode" name="phonecode" id="phonecode" required>
+			<select class="uk-width-1-1 phonecode" name="phonecode" id="phonecode" required>
 				<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 				<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 				<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -107,7 +104,7 @@
 				<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 				<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 			</select>
-			<input type="text" name="phone" id="phone" required placeholder="Phone number" />
+			<input class="uk-width-1-1" type="text" name="phone" id="phone" required placeholder="Phone number" />
 			</div>
 		</label>
 		<div class="wifis">
@@ -115,12 +112,12 @@
 			<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
 			<div class="addphone">Add another phone number:</div>
 		</div>
-		<div id="buttons">
-			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt twobuttnext">
-				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" id="backbutton" class="nextbutt backbutt" type="submit">Back</button>
+		<div class="uk-button-group">
+			<div >
+				<button class="uk-button nextbutt twobuttnext">Complete registration</button>
+				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt" type="submit">Back</button>
 			</div>
 		</div>
-
 	</fieldset>
 </form>
 

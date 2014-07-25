@@ -605,10 +605,11 @@ iframe {
 [class*='uk-width'] {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
+/*  width: 35%;*/
 }
 .uk-width-1-1 {
-  width: 100%;
+/*  width: 100%;*/
+  width: 345px;
 }
 .uk-width-1-2,
 .uk-width-2-4,
@@ -2258,22 +2259,33 @@ select.uk-form-width-mini {
   padding-right: 30px !important;
 }
 .uk-button {
-  display: inline-block;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: middle;
   text-decoration: none;
   text-align: center;
   border: none;
+/*
+  display: inline-block;
   line-height: 28px;
   min-height: 30px;
   font-size: 1rem;
-  padding: 0 12px;
+  padding: 0 12px;*/
   background: #27bf2e;
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 6px;
   text-shadow: 0 1px 0 #8e9099;
+
+ 	display: block;
+	padding: 16px 0 14px 0;
+	font-size: 24px;
+	margin-bottom: 16px;
+}
+.uk-button.backbutt {
+	background: #8c8e96;
+	margin-right: 8px; 
+	float: left;
 }
 .uk-button:hover,
 .uk-button:focus {
@@ -2283,10 +2295,17 @@ select.uk-form-width-mini {
   text-decoration: none;
   border-color: rgba(0, 0, 0, 0.16);
 }
+.uk-button.backbutt:hover,
+.uk-button.backbutt:focus {
+  background-color: rgba(140, 142, 150, 0.68);
+}
 .uk-button:active,
 .uk-button.uk-active {
   background-color: rgba(39, 191, 46, 0.4);
-  color: #444444;
+}
+.uk-button.backbutt:active,
+.uk-button.backbutt.uk-active {
+  background-color: rgba(140, 142, 150, 0.4);
 }
 .uk-button-primary {
   background-color: #27bf2e;

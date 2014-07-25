@@ -6,30 +6,30 @@
 <div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
 <div class="title">{{ 'Specification to get Taxi Driver Office'|trans}}</div>
 <form action="#" method="get">
-	<fieldset>
+   	<fieldset class="uk-form">
 		<ul class="tabs">  
 			<li class="general current"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
 			<li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 		</ul>
 		<label><span class="text">Country:</span>
-			<select class="styled medium" name="country" id="country" required>
+			<select class="uk-width-1-1 medium" name="country" id="country" required>
 				<option>Russia</option>
 			</select>
 		</label>
 		<label><span class="text">City:</span>
-			<select class="styled medium" name="city" id="city" required>
+			<select class="uk-width-1-1 medium" name="city" id="city" required>
 				<option>Moscow</option>
 				<option>St. Petersburg</option>
 			</select>
 		</label>
 		<!--label><span class="text">Language:</span>
-			<select class="styled medium" name="lang" id="lang" required>
+			<select class="uk-width-1-1 medium" name="lang" id="lang" required>
 				<option>Russian</option>
 				<option>English</option>
 			</select>
 		</label-->
 		<label><span class="text">English:</span>
-			<select class="styled medium" name="level" id="level" required>
+			<select class="uk-width-1-1 medium" name="level" id="level" required>
 					<option>Level</option>
 					<option>No</option>
 					<option>Elementary</option>
@@ -43,7 +43,7 @@
 
 		<label class="addlangline"><span class="text">Other language:</span>
 			<div class="style1"><div class="style2">
-			<select class="display_none medium" name="lang" required>
+			<select class="display_none uk-width-1-1 medium" name="lang" required>
 				<option>Select a language</option>
 				<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 				<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
@@ -83,15 +83,14 @@
 		</label>
 
 		<label><span class="text">Company code:</span>
-			<input type="text" name="code" id="code" required placeholder="Company code" />
+			<input class="uk-width-1-1" type="text" name="code" id="code" required placeholder="Company code" />
 		</label>
-		<div id="buttons">
-			<div id="insidebuttonwrapper"><input type="submit" value="Next step" class="submit nextbutt">
-			</div>
+		<div class="uk-button-group">
+			<div ><button class="uk-button nextbutt">Next step</button></div>
 		</div>
-		Step2
+		<h4>Step2</h4>
 		<label><span class="text">Driving experience:</span>
-			<select class="styled medium" name="experience" id="experience" required>
+			<select class="uk-width-1-1 medium" name="experience" id="experience" required>
 				<option>&nbsp;</option>
 				<option>less than 4 years</option>
 				<option>more than 4 years</option>
@@ -108,7 +107,7 @@
 		</label>
 		<label class="addphoneline"><span class="text">Phone number:</span>
 			<div class="addphoneareas">
-			<select class="styled phonecode" name="phonecode" id="phonecode" required>
+			<select class="uk-width-1-1 phonecode" name="phonecode" id="phonecode" required>
 				<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 				<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 				<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -151,7 +150,7 @@
 				<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 				<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 			</select>
-			<input type="text" name="phone" id="phone" required placeholder="Phone number" />
+			<input class="uk-width-1-1" type="text" name="phone" id="phone" required placeholder="Phone number" />
 			</div>
 		</label>
 		<div class="wifis">
@@ -159,9 +158,9 @@
 			<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
 			<div class="addphone">Add another phone number:</div>
 		</div>
-		<div id="buttons">
-			<div id="insidebuttonwrapper"><input type="submit" value="Complete registration" class="submit nextbutt twobuttnext">
-				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" id="backbutton" class="nextbutt backbutt" type="submit">Back</button>
+		<div class="uk-button-group">
+			<div><button class="uk-button nextbutt twobuttnext">Complete registration</button>
+				<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt" type="submit">Back</button>
 			</div>
 		</div>
 	</fieldset>
