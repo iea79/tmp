@@ -966,13 +966,13 @@ label .text {
 	float: left;
 	padding: 5px 0;
 }
-.addphoneline .text {padding-bottom: 5%;}
+.addphoneline .text {padding-bottom: 4%;}
 .addlangline .style1, .addphoneareas{
 	display: inline-block;
 	width: 345px;
 	padding-left: 4px;
 }
-.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {width: 62px;}
+.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {width: 102px;}
 .addphoneareas {
 	/*float: left;
 	cleaR: left;*/
@@ -998,7 +998,7 @@ label .text {
 	margin-right: 12px;
 }
 .register .addphoneareas input[type="text"] {
-	width: 279px;
+	width: 239px;
 	margin-right: 0;
 }
 .addphone {
@@ -2128,7 +2128,7 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 	font-size: 24px;
 }
 #buttons { overflow: hidden; }
-.uk-button-group div .nextbutt, #buttons .nextbutt { float: right; }
+.uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext{ float: right; }
 #insidebuttonwrapper { float:left; }
 .register label, .register fieldset {position: relative;}
 .errors {
@@ -2238,4 +2238,6 @@ label .errors{
 	margin-bottom: 10px;
 	background:  #528ed3;
 	padding: 8px 20px;
+}
+.select-primary {
 }

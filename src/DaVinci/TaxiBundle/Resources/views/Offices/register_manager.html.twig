@@ -10,19 +10,19 @@
 		<ul class="tabs">  
 			<li class="general full"><span>1</span>{{ 'form.generalinfo'|trans}}</li>
 		</ul>
-		<label><span class="text">Country:</span>
-			<select class="uk-width-1-1 medium" name="country" id="country" required>
+		<label class="uk-form-controls"><span class="uk-form-label text">Country:</span>
+			<select class="uk-width-1-1" name="country" id="country" required>
 				<option>Russia</option>
 			</select>
 		</label>
-		<label><span class="text">City:</span>
-			<select class="uk-width-1-1 medium" name="city" id="city" required>
+		<label class="uk-form-controls"><span class="uk-form-label text">City:</span>
+			<select class="uk-width-1-1" name="city" id="city" required>
 				<option>Moscow</option>
 				<option>St. Petersburg</option>
 			</select>
 		</label>
-		<label><span class="text">English:</span>
-			<select class="uk-width-1-1 medium" name="level" id="level" required>
+		<label class="uk-form-controls"><span class="uk-form-label text">English:</span>
+			<select class="uk-width-1-1" name="level" id="level" required>
 					<option>Level</option>
 					<option>No</option>
 					<option>Elementary</option>
@@ -34,9 +34,9 @@
 			</select>
 		</label>
 
-		<label class="addlangline"><span class="text">Other language:</span>
+		<label class="addlangline uk-form-controls"><span class="uk-form-label text">Other language:</span>
 			<div class="style1"><div class="style2">
-			<select class="display_none uk-width-1-1 medium" name="lang" required>
+			<select class="display_none uk-width-1-1" name="lang" required>
 				<option>Select a language</option>
 				<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 				<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
@@ -75,12 +75,12 @@
 			</div>
 		</label>
 
-		<label><span class="text">Skype:</span>
-			<input type="text" name="skype" id="skype" required placeholder="Skype" />
+		<label><span class="uk-form-label text">Skype:</span>
+			<input type="text" class="uk-width-1-1" name="skype" id="skype" required placeholder="Skype" />
 		</label>
-		<label class="addphoneline"><span class="text">Phone number:</span>
+		<label class="addphoneline uk-form-controls"><span class="uk-form-label text">Phone number:</span>
 			<div class="addphoneareas">
-			<select class="uk-width-1-1 phonecode" name="phonecode" id="phonecode" required>
+			<select class="phonecode uk-width-1-1" name="phonecode" id="phonecode" required>
 				<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 				<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 				<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -126,12 +126,12 @@
 			<input class="uk-width-1-1" type="text" name="phone" id="phone" required placeholder="Phone number" />
 			</div>
 		</label>
-		<div class="wifis">
-			<div class="wicheck"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
-			<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
+		<div class="wifis uk-form-controls">
+			<div class="wicheck"><input type="checkbox" name="wifi" id="wifi"  /><label class="uk-form-label">wi-fi</label></div>
+			<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label class="uk-form-label">whatsapp</label></div>
 			<div class="addphone">Add another phone number:</div>
 		</div>
-		<label><span class="text">Company code:</span>
+		<label class="uk-form-controls"><span class="uk-form-label text">Company code:</span>
 			<input class="uk-width-1-1" type="text" name="code" id="code" required placeholder="Company code" />
 		</label>
 		<div class="uk-button-group">
