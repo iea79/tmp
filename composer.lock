@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3f9c831d39bf99096c0e8eb36dafd58f",
+    "hash": "b56c4710628daf528b1a34e8a1a6dc06",
     "packages": [
         {
             "name": "craue/formflow-bundle",
@@ -59,56 +59,6 @@
                 "form"
             ],
             "time": "2014-06-13 18:13:06"
-        },
-        {
-            "name": "crunch/user-admin-bundle",
-            "version": "dev-master",
-            "target-dir": "Crunch/Bundle/UserAdminBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/KingCrunch/UserAdminBundle.git",
-                "reference": "dd1eda2031890cf95caf9a0921b45f24c70b454e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/KingCrunch/UserAdminBundle/zipball/dd1eda2031890cf95caf9a0921b45f24c70b454e",
-                "reference": "dd1eda2031890cf95caf9a0921b45f24c70b454e",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofsymfony/user-bundle": "~2.0",
-                "sonata-project/admin-bundle": "~2.2"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.*-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Crunch\\Bundle\\UserAdminBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Krebs",
-                    "email": "krebs.seb@gmail.com",
-                    "homepage": "http://www.kingcrunch.de",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "SonataAdmin integration for use with vanilla-FOSUserBundle models",
-            "homepage": "https://github.com/KingCrunch/UserAdminBundle",
-            "keywords": [
-                "sonata-admin",
-                "user-bundle"
-            ],
-            "time": "2013-11-22 21:08:15"
         },
         {
             "name": "dflydev/markdown",
@@ -901,17 +851,17 @@
         },
         {
             "name": "friendsofsymfony/rest-bundle",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "target-dir": "FOS/RestBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSRestBundle.git",
-                "reference": "d37f4410e6a97e81c720840b56e35c3a44942723"
+                "reference": "e3a28ebf74724a51a31d6142b002c0c9652f71a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/d37f4410e6a97e81c720840b56e35c3a44942723",
-                "reference": "d37f4410e6a97e81c720840b56e35c3a44942723",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSRestBundle/zipball/e3a28ebf74724a51a31d6142b002c0c9652f71a4",
+                "reference": "e3a28ebf74724a51a31d6142b002c0c9652f71a4",
                 "shasum": ""
             },
             "require": {
@@ -976,32 +926,31 @@
             "keywords": [
                 "rest"
             ],
-            "time": "2014-06-04 13:11:41"
+            "time": "2014-07-11 21:09:03"
         },
         {
             "name": "friendsofsymfony/user-bundle",
-            "version": "dev-master",
+            "version": "v1.3.4",
             "target-dir": "FOS/UserBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "ef7ca325929ff102fff521653a2e3b88c7a40361"
+                "reference": "2deeca89551c28ae27c19bad36861d732e69217e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/ef7ca325929ff102fff521653a2e3b88c7a40361",
-                "reference": "ef7ca325929ff102fff521653a2e3b88c7a40361",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/2deeca89551c28ae27c19bad36861d732e69217e",
+                "reference": "2deeca89551c28ae27c19bad36861d732e69217e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/form": "~2.1",
                 "symfony/framework-bundle": "~2.1",
                 "symfony/security-bundle": "~2.1"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "*",
-                "swiftmailer/swiftmailer": ">=4.3, <6.0",
+                "swiftmailer/swiftmailer": "~4.3",
                 "symfony/validator": "~2.1",
                 "symfony/yaml": "~2.1",
                 "twig/twig": "~1.5",
@@ -1045,7 +994,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-07-09 10:33:42"
+            "time": "2014-06-13 14:51:01"
         },
         {
             "name": "gregwar/captcha",
@@ -1682,12 +1631,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "532a4ad323be54da77179022474e873d307e524c"
+                "reference": "ca591b2fd7021c2608c22cfe5ad54eec66c1acee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/532a4ad323be54da77179022474e873d307e524c",
-                "reference": "532a4ad323be54da77179022474e873d307e524c",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/ca591b2fd7021c2608c22cfe5ad54eec66c1acee",
+                "reference": "ca591b2fd7021c2608c22cfe5ad54eec66c1acee",
                 "shasum": ""
             },
             "require": {
@@ -1738,7 +1687,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2014-06-20 09:37:12"
+            "time": "2014-07-18 10:01:56"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -2416,12 +2365,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "b48575855085aed28bbb5022d2895bdd5f795f1c"
+                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/b48575855085aed28bbb5022d2895bdd5f795f1c",
-                "reference": "b48575855085aed28bbb5022d2895bdd5f795f1c",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3945b5794000e22b25e7c66774d8ea63eb919aa5",
+                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5",
                 "shasum": ""
             },
             "require": {
@@ -2487,7 +2436,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-07-14 18:10:24"
+            "time": "2014-07-18 14:00:40"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3020,6 +2969,56 @@
             "time": "2014-06-18 12:35:21"
         },
         {
+            "name": "sonata-project/google-authenticator",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/GoogleAuthenticator.git",
+                "reference": "72f47caddd09d09c0d3c3e046f6b435e0c004cd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/GoogleAuthenticator/zipball/72f47caddd09d09c0d3c3e046f6b435e0c004cd4",
+                "reference": "72f47caddd09d09c0d3c3e046f6b435e0c004cd4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Google\\Authenticator\\": "lib/",
+                    "Google\\Authenticator\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@gmail.com",
+                    "homepage": "http://sonata-project.org/"
+                },
+                {
+                    "name": "Christian Stocker",
+                    "email": "me@chregu.tv"
+                },
+                {
+                    "name": "Andre DeMarre",
+                    "homepage": "http://www.devnetwork.net/viewtopic.php?f=50&t=94989"
+                }
+            ],
+            "description": "Library to integrate Google Authenticator into a PHP project",
+            "homepage": "https://github.com/sonata-project/GoogleAuthenticator",
+            "keywords": [
+                "google authenticator"
+            ],
+            "time": "2014-03-31 09:18:53"
+        },
+        {
             "name": "sonata-project/intl-bundle",
             "version": "dev-master",
             "source": {
@@ -3203,12 +3202,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "163f821277d4656b107e74f8469e516de83ea297"
+                "reference": "88053012a9d2108e18b34456ca55e538ff17de6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/163f821277d4656b107e74f8469e516de83ea297",
-                "reference": "163f821277d4656b107e74f8469e516de83ea297",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/88053012a9d2108e18b34456ca55e538ff17de6a",
+                "reference": "88053012a9d2108e18b34456ca55e538ff17de6a",
                 "shasum": ""
             },
             "require": {
@@ -3280,7 +3279,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-07-05 16:04:11"
+            "time": "2014-07-17 12:36:55"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -3353,6 +3352,78 @@
                 "sonata"
             ],
             "time": "2014-04-17 12:52:34"
+        },
+        {
+            "name": "sonata-project/user-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataUserBundle.git",
+                "reference": "13ede3fed65709c90a652e64912251f56cd46b84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/13ede3fed65709c90a652e64912251f56cd46b84",
+                "reference": "13ede3fed65709c90a652e64912251f56cd46b84",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofsymfony/rest-bundle": "~1.1",
+                "friendsofsymfony/user-bundle": "~1.3",
+                "jms/serializer-bundle": "~0.11",
+                "nelmio/api-doc-bundle": "~2.4",
+                "sonata-project/admin-bundle": "~2.3@dev",
+                "sonata-project/core-bundle": "~2.2",
+                "sonata-project/datagrid-bundle": "~2.2@dev",
+                "sonata-project/doctrine-extensions": "~1.0",
+                "sonata-project/easy-extends-bundle": "~2.1",
+                "sonata-project/google-authenticator": "~1.0",
+                "symfony/console": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/http-foundation": "~2.3",
+                "symfony/security": "~2.3"
+            },
+            "require-dev": {
+                "sonata-project/seo-bundle": "~1.1"
+            },
+            "suggest": {
+                "sonata-project/doctrine-orm-admin-bundle": "~2.3@dev",
+                "sonata-project/seo-bundle": "~1.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\UserBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataUserBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataUserBundle",
+            "homepage": "http://sonata-project.org/bundles/user",
+            "keywords": [
+                "google authenticator",
+                "sonata",
+                "user"
+            ],
+            "time": "2014-07-07 12:43:03"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3968,10 +4039,9 @@
         "sonata-project/media-bundle": 20,
         "sonata-project/formatter-bundle": 20,
         "gregwar/captcha-bundle": 20,
-        "friendsofsymfony/user-bundle": 20,
-        "crunch/user-admin-bundle": 20,
         "knplabs/knp-menu": 20,
-        "knplabs/knp-menu-bundle": 20
+        "knplabs/knp-menu-bundle": 20,
+        "sonata-project/user-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"
