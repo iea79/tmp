@@ -9,13 +9,13 @@
                 <li class="contact"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
             </ul>
 {{ form_errors(form) }}
-            <label><span class="text">{{ 'form.first_name'|trans }}:</span>
-                {{ form_widget(form.first_name, { 'attr': {'placeholder': 'form.first_name'|trans} }) }}
-                {{ form_errors(form.first_name) }}
+            <label><span class="text">{{ 'form.firstname'|trans }}:</span>
+                {{ form_widget(form.firstname, { 'attr': {'placeholder': 'form.firstname'|trans} }) }}
+                {{ form_errors(form.firstname) }}
             </label>
-            <label><span class="text">{{ 'form.last_name'|trans }}:</span>
-                {{ form_widget(form.last_name, { 'attr': {'placeholder': 'form.last_name'|trans} }) }}
-                {{ form_errors(form.last_name) }}
+            <label><span class="text">{{ 'form.lastname'|trans }}:</span>
+                {{ form_widget(form.lastname, { 'attr': {'placeholder': 'form.lastname'|trans} }) }}
+                {{ form_errors(form.lastname) }}
             </label>
             <label><span class="text">{{ 'form.gender'|trans }}:</span>
                 {{ form_widget(form.gender, { 'attr' : { 'class' : 'styled medium' } }) }}

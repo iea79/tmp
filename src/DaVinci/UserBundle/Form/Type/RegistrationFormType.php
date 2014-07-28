@@ -18,10 +18,10 @@ class RegistrationFormType extends BaseType {
         switch ($options['flow_step']) {
             case 1:
                 $builder
-                        ->add('first_name', 'text', array('label' => 'form.first_name', 'translation_domain' => 'FOSUserBundle',
-                            'attr' => array('title' => 'fos_user.first_name.latin', 'pattern' => '^[a-zA-Z ]+$')))
-                        ->add('last_name', 'text', array('label' => 'form.last_name', 'translation_domain' => 'FOSUserBundle',
-                            'attr' => array('title' => 'fos_user.first_name.latin', 'pattern' => '^[a-zA-Z ]+$')))
+                        ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
+                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
+                        ->add('lastname', 'text', array('label' => 'form.lastname', 'translation_domain' => 'FOSUserBundle',
+                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
                         ->add('gender', 'choice', array(
                             'choices' => array(
                                 '1' => 'form.male',

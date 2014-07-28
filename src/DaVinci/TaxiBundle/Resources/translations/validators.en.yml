@@ -25,12 +25,12 @@ fos_user:
         long: "[-Inf,Inf]The name is too long"
     terms:
         not_blank: "You should accept Terms and Conditions"
-    first_name:
+    firstname:
         not_blank: "Please enter first name"
         short: "[-Inf,Inf]The name is too short"
         long: "[-Inf,Inf]The name is too long"
         latin: English/Latin characters only
-    last_name:
+    lastname:
         not_blank: "Please enter last name"
         short: "[-Inf,Inf]The last name is too short"
         long: "[-Inf,Inf]The last name is too long"

@@ -100,7 +100,11 @@ sonata_user:
     class:
         user: DaVinci\TaxiBundle\Entity\User
         group: DaVinci\TaxiBundle\Entity\Group
-        
+    admin:
+        user:
+            class:      DaVinci\UserBundle\Model\UserAdmin
+      
+      
 sonata_block:
     default_contexts: [cms]
     blocks:
