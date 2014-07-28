@@ -102,14 +102,15 @@ form:
     phone: "Phone"
     skype: "Skype"
     male: "Male"
-    female: "Femail"
+    female: "Female"
     choosegender: "Choose your gender"
     firstname: "First Name"
     lastname: "Last Name"
     gender: "Gender"
     contactinfo: "Contact info"
     signininfo: "Sign in info"
-    gotonextstep: "Go to the next step"
+    generalinfo: "General info"
+    gotonextstep: "Next step"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: Back
     

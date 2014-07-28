@@ -5,14 +5,16 @@
         <title>{% block title %}TAXI MY PRICE{% endblock %}</title>
 {% block stylesheets %}
             {% stylesheets 'bundles/davincitaxi/css/styles.css'
+				'bundles/davincitaxi/css/uikit.css'
                 'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' filter='cssrewrite' %}
-        <link media="all" rel="stylesheet" href="{{ asset_url }}" />
+				<link media="all" rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
 {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/davincitaxi/images/favicon.ico') }}" />
     </head>
     <body>
        <div id="wrapper"  class="{% block theme %}default{% endblock %}">
+	   <div class="registerfix"></div>
 		<div class="w1">
 {% block header %}
 			<header id="header">
@@ -45,6 +47,7 @@
             '@DaVinciTaxiBundle/Resources/public/js/jquery.js'
             '@DaVinciTaxiBundle/Resources/public/js/jquery.mousewheel.js'
             '@DaVinciTaxiBundle/Resources/public/js/jquery-ui-1.10.4.custom.min.js'
+            '@DaVinciTaxiBundle/Resources/public/js/uikit.min.js'
             '@DaVinciTaxiBundle/Resources/public/js/timepicker.js'
             '@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
             '@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
@@ -78,5 +81,4 @@
 		</div>
 	</footer>
 {% endblock %}
-    </body>
-</html>
+    </body></html>
