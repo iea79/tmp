@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
             new DaVinci\UserBundle\DaVinciUserBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
+            new Lsw\ApiCallerBundle\LswApiCallerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
