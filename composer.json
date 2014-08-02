@@ -32,7 +32,8 @@
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "craue/formflow-bundle": "~2.0",
         "sonata-project/user-bundle": "dev-master",
-        "leaseweb/api-caller-bundle": "*"
+        "leaseweb/api-caller-bundle": "*",
+        "codeception/codeception": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

@@ -1,17 +1,13 @@
 <?php
 
-namespace DaVinci\TaxiBundle\Tests\Controller;
+namespace DaVinci\TaxiBundle\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class payGnetAPIcallerTest extends WebTestCase
+
+class payGnetAPIcallerTest extends \PHPUnit_Framework_TestCase
 {
-    public function testIndex()
+    public function testRegisterUser()
     {
-        $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
-
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
     }
 }

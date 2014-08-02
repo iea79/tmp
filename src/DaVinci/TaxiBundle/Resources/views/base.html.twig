@@ -31,7 +31,11 @@
 					</ul>
 				</nav>
 				<div class="float_right">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <span class="signin"> Wellcome, {{ app.user.username[:10] }}..</span>
+                    {% else %}
 					<a href="{{ url('fos_user_security_login') }}" class="signin">Hello, Sign in</a>
+                    {% endif %}
 				</div>
 				<div class="typevis"><a class="book" href="#">Book</a><a href="#">Store</a><div class="razd"></div></div>
 			</header>
