@@ -105,7 +105,7 @@ class RegistrationController extends BaseController {
         }
         
         
-        if($flow->getCurrentStep()==$flow->getFirstStepNumber())
+        if($flow->getCurrentStepNumber()==$flow->getFirstStepNumber())
             $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.' . $this->getEngine(), array(
