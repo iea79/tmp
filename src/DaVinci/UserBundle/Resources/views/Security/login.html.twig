@@ -4,16 +4,11 @@
 
 {% block fos_user_content %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
-<div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="{{ 'select the country and order a taxi at your price'|trans}}" /></a></div>
-
-<div class="authorizat">
+<div class="wrapper-content"><div class="content">
     {% if error %}
     <div>{{ error|trans }}</div>
     {% endif %}
-    <form action="{{ path("fos_user_security_check") }}" method="post">
-        <!--table class="authoriz">
-            <tr>
-                <td-->
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="uk-form uk-form-horizontal fos_user_registration_register  authorizat">
         <h3>{{ 'Login or Register'|trans}}</h3>
 
         <form action="{{ path("fos_user_security_check") }}" method="post">
@@ -24,18 +19,14 @@
             <div class="clear"></div>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
             <input class="nextbutt" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-            <!--/td>
-            <th>or</th>
-            <td-->
-            <input type="button" class="float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up" />
-            <!--    <a class="loginfb" href="#"></a>
-                <a class="logintw" href="#"></a>
-            <h3>Sign in with</h3>
-            <p>Don't have an account yet</p--> 
-        </form>
-        <!--/td>
-    </tr>
-</table-->
-</div>
+
+            <input type="button" class="float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up"  />
+			
+
+			<a class="loginfb" href="#"> </a>
+			<a class="logintw" href="#"> </a>
+
+			</form>
+</div></div>
 
 {% endblock fos_user_content %}
