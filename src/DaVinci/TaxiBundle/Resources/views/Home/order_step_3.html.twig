@@ -1,8 +1,8 @@
 <div class="content-block choice">
-    <ul class="tabs uk-tab uk-tab-grid last">  
-        <li class="general uk-width-1-3"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
-        <li class="other uk-width-1-3"><a href="{{ url('order_step_2') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> Other information</a></li>
-        <li class="contact current uk-width-1-3"><div class="noarrow"><span>3</span> Contact information</div></li>
+    <ul class="tabs last">  
+        <li class="general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
+        <li class="other"><a href="{{ url('order_step_2') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> Other information</a></li>
+        <li class="contact current"><div class="noarrow"><span>3</span> Contact information</div></li>
     </ul>
     <div class="paramauto">
         <h1>Тариф</h1>
@@ -24,11 +24,12 @@
             <label><span class="text">Skype пассажира</span> <input type="text" placeholder="не указано"></label>
         </div>
 
-        <a href="#" class="uk-button nextbutt bigbutt">Публиковать заявку</a>
-        <a href="#" class="uk-button nextbutt bigbutt bluebg">Выбрать водителя</a>
+        <a href="#" class="nextbutt bigbutt">Публиковать заявку</a>
+        <a href="#" class="nextbutt bigbutt bluebg">Выбрать водителя</a>
     </div>
 
 		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}>
     <div class="clear"></div>
 
 </div>
+

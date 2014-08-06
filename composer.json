@@ -28,11 +28,12 @@
         "sonata-project/media-bundle": "dev-master",
         "sonata-project/formatter-bundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
-        "crunch/user-admin-bundle":"dev-master",
         "knplabs/knp-menu": "2.0.*@dev",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "craue/formflow-bundle": "~2.0"
+        "craue/formflow-bundle": "~2.0",
+        "sonata-project/user-bundle": "dev-master",
+        "leaseweb/api-caller-bundle": "*",
+        "codeception/codeception": "*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

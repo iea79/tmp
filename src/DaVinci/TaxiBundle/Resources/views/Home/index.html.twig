@@ -1,19 +1,24 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-{% block title %}TAXI MY PRICE{% endblock %}
+
+ {% block title %}
+TAXI MY PRICE
+ {% endblock %}
+
+
 {% block body %}
-<div class="wrapper-content banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
-<div class="wrapper-content">
-<div class="content">
+
+<div id="content">
+	<div class="content-block banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="order taxi" /></a></div>
 	<div class="tabtaxi">
-		<ul class="uk-tab uk-tab-grid">
-			<li class="current red uk-width-1-2"><div class="parent"><div class="child">Book a taxi at your price</div><div class="helper"></div></div></li>
-			<li class="blue uk-width-1-2"><div class="child">Buy the best taxi order</div><div class="helper"></div></li>
+		<ul>
+			<li class="current red"><div class="parent"><div class="child">Book a taxi at your price</div><div class="helper"></div></div></li>
+			<li class="blue"><div class="child">Buy the best taxi order</div><div class="helper"></div></li>
 		</ul>
 	</div>
     {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
 	{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 </div>
-</div>
+
 
 {% endblock %}
 

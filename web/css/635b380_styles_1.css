@@ -4,7 +4,7 @@ body{
 	margin:0;
 	color:#3c3d45;
 	font:16px/20px Arial, Helvetica, sans-serif;
-	background:#e7e7e7 url(../images/bg-page.png);
+	background:#e7e7e7 url(../../bundles/davincitaxi/images/bg-page.png);
 	-webkit-text-size-adjust:100%;
 	-ms-text-size-adjust:none;
 	min-width:1002px;
@@ -118,7 +118,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 }
 .footer-block,
 #header{
-	background:#528ed3 url(../images/bg-header.png) no-repeat 50% 0;
+	background:#528ed3 url(../../bundles/davincitaxi/images/bg-header.png) no-repeat 50% 0;
 	padding:0 9999px;
 	margin:0 -9999px;
 	box-shadow:0 1px 2px rgba(0,0,0,.3);
@@ -127,7 +127,7 @@ nav ul,nav ol{list-style:none;list-style-image:none}
 	z-index: 2;
 }
 .logo{
-	background:url(../images/logo.png) no-repeat;
+	background:url(../../bundles/davincitaxi/images/logo.png) no-repeat;
 	width:107px;
 	height:44px;
 	float:left;
@@ -369,7 +369,7 @@ span.countpassenger {
 	width: 19px;
 	height: 19px;
 	display: inline-block;
-	background-image: url(../images/iconschecks.png);
+	background-image: url(../../bundles/davincitaxi/images/iconschecks.png);
 	background-position: center 0;
 	position: relative;
 	top: 6px;
@@ -440,7 +440,7 @@ span.countpassenger {
 .content-block .destination input[type="text"]{
 	width: 299px;
 	margin-right: 0;
-	background: transparent url(../images/compas.png) no-repeat 99% center;
+	background: transparent url(../../bundles/davincitaxi/images/compas.png) no-repeat 99% center;
 }
 .content-block .destination input[type="checkbox"]{	margin: -4px 5px 0 3px;}
 .destination #datepicker, .destination #datepicker0 {
@@ -461,7 +461,7 @@ span.countpassenger {
 }
 .destinationmark {
 	display: inline-block;
-	background: transparent url(../images/destinationmark.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/destinationmark.png) no-repeat 0 0;
 	width: 16px;
 	height: 22px;
 	text-align: center;
@@ -486,9 +486,9 @@ span.countpassenger {
 	padding: 1px 33px 0 27px;
 	margin: 0 ;
 }
-.disloc li.timer{	background: transparent url(../images/stopwatch.png) no-repeat 0 center;}
-.disloc li.way{	background: transparent url(../images/guide.png) no-repeat 0 center;}
-.disloc li.cash{	background: transparent url(../images/calculator.png) no-repeat 0 center;}
+.disloc li.timer{	background: transparent url(../../bundles/davincitaxi/images/stopwatch.png) no-repeat 0 center;}
+.disloc li.way{	background: transparent url(../../bundles/davincitaxi/images/guide.png) no-repeat 0 center;}
+.disloc li.cash{	background: transparent url(../../bundles/davincitaxi/images/calculator.png) no-repeat 0 center;}
 
 .main{
 	padding:0;
@@ -541,7 +541,7 @@ span.countpassenger {
 	border-radius:5px;
 	color: #fff;
 	line-height: 120%;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 }
 .main span {
 	text-align: left;
@@ -555,13 +555,13 @@ span.countpassenger {
 }
 .filter {
 	cursor: pointer;
-	background: transparent url(../images/filters.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/filters.png) no-repeat 0 0;
 	width: 20px;
 	height: 11px;
 }
 .imitateselect {
 	min-width: 27px;
-	background: transparent url(../images/select.png) no-repeat 100% center;
+	background: transparent url(../../bundles/davincitaxi/images/select.png) no-repeat 100% center;
 	padding-right: 12px;
 	position: relative;
 }
@@ -595,10 +595,10 @@ span.countpassenger {
 	width: 27px;
 	height: 27px;
 }
-.tip1 {	background: transparent url(../images/ico01.png) no-repeat center center;}
-.tip2 {	background: transparent url(../images/ico03.png) no-repeat center center;}
+.tip1 {	background: transparent url(../../bundles/davincitaxi/images/ico01.png) no-repeat center center;}
+.tip2 {	background: transparent url(../../bundles/davincitaxi/images/ico03.png) no-repeat center center;}
 .thumbs {
-	background: transparent url(../images/thumbs1.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/thumbs1.png) no-repeat 0 0;
 	height: 20px;
 	width: 18px;
 	margin: 0 auto;
@@ -613,15 +613,15 @@ span.countpassenger {
 .trust3 {width: 60px;}
 .trust-1 {
 	width: 20px;
-	background: transparent url(../images/thumbs1.png) no-repeat 100% 0;
+	background: transparent url(../../bundles/davincitaxi/images/thumbs1.png) no-repeat 100% 0;
 }
 .trust-2 {
 	width: 39px;
-	background: transparent url(../images/thumbs1.png) no-repeat 100% 0;
+	background: transparent url(../../bundles/davincitaxi/images/thumbs1.png) no-repeat 100% 0;
 }
 .trust-3 {
 	width: 60px;
-	background: transparent url(../images/thumbs1.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/thumbs1.png) no-repeat 0 0;
 }
 .basket {
 	cursor: pointer;
@@ -636,7 +636,7 @@ span.countpassenger {
 }
 .basket span{
 	font-size: 17px;
-	background: transparent url(../images/basket.png) no-repeat 5px 0;
+	background: transparent url(../../bundles/davincitaxi/images/basket.png) no-repeat 5px 0;
 	color: #fff;
 	padding: 0 10px 0 38px;
 }
@@ -649,7 +649,7 @@ span.countpassenger {
 	display: inline-block;
 	//display: inline;
 	zoom: 1;
-	background:transparent url(../images/delete.png) no-repeat 0 0;
+	background:transparent url(../../bundles/davincitaxi/images/delete.png) no-repeat 0 0;
 	text-indent: -999px;
 	color: #fff;
 	width: 18px;
@@ -662,10 +662,10 @@ span.countpassenger {
 	border-radius:5px;
 }
 /*.passenger, .driver, .about {padding-top: 0;}*/
-.passenger{	background:#fff url(../images/bg-block.jpg) no-repeat 95% 100%;}
-.independentdriver, .taxidriver {	background:#fff url(../images/bg-block-driver.jpg) no-repeat 100% 100%;}
-.taxicompany {	background:#fff url(../images/bg-block-about.jpg) no-repeat 100% 70%;}
-.manager {	background:#fff url(../images/bg-block-manager.jpg) no-repeat 100% 100%;}
+.passenger{	background:#fff url(../../bundles/davincitaxi/images/bg-block.jpg) no-repeat 95% 100%;}
+.independentdriver, .taxidriver {	background:#fff url(../../bundles/davincitaxi/images/bg-block-driver.jpg) no-repeat 100% 100%;}
+.taxicompany {	background:#fff url(../../bundles/davincitaxi/images/bg-block-about.jpg) no-repeat 100% 70%;}
+.manager {	background:#fff url(../../bundles/davincitaxi/images/bg-block-manager.jpg) no-repeat 100% 100%;}
 .checkboxes{
 	margin:0 0 15px;
 	padding:0;
@@ -717,7 +717,7 @@ label .text {
 	-webkit-border-radius: 5px 5px 0 0;
 	-khtml-border-radius:5px 5px 0 0;
 	border-radius:5px 5px 0 0;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 	float: left;
 	width: 497px;
 	height: 64px;
@@ -732,17 +732,17 @@ label .text {
 	position: relative;
 }
 .tabtaxi li.blue.current{
-	background: #fff url(../images/shashechkablue.png) no-repeat 0 0;
+	background: #fff url(../../bundles/davincitaxi/images/shashechkablue.png) no-repeat 0 0;
 	color: #528ed3;
 	float: right;
 }
 /*.tabtaxi li.blue.current.float_left{	float: left;}*/
 .tabtaxi li.red.current{
-	background: #fff url(../images/shashechkared.png) no-repeat 0 0;
+	background: #fff url(../../bundles/davincitaxi/images/shashechkared.png) no-repeat 0 0;
 	color: #ff4d61;
 }
-.tabtaxi li.blue.current div.parent{	background: transparent url(../images/arrowblue.png) no-repeat center 0;}
-.tabtaxi li.red.current div.parent{	background: transparent url(../images/arrowred.png) no-repeat center 0;}
+.tabtaxi li.blue.current div.parent{	background: transparent url(../../bundles/davincitaxi/images/arrowblue.png) no-repeat center 0;}
+.tabtaxi li.red.current div.parent{	background: transparent url(../../bundles/davincitaxi/images/arrowred.png) no-repeat center 0;}
 .tabtaxi li.blue{
 	background: #528ed3;
 	float: right;
@@ -783,7 +783,7 @@ label .text {
 	text-align: center;
 	padding: 0 31px 0 0;
 	margin: 0;
-	background: #fff /*url(../images/arrowstep1.jpg) no-repeat 0 0*/;
+	background: #fff /*url(../../bundles/davincitaxi/images/arrowstep1.jpg) no-repeat 0 0*/;
 }
 .tabs li.full {
 	width: 967px;
@@ -810,17 +810,17 @@ label .text {
 .tabs li.current a{	color: #fff;}
 .noarrow {padding: 14px 0 15px 31px;}
 /*
-.tabs li.general.current{background: #528ed3 url(../images/arrowstep1.png) no-repeat 100% center;}
-.about .tabs li.general{background: #fff url(../images/arrowmiddle.png) no-repeat 100% center;}
+.tabs li.general.current{background: #528ed3 url(../../bundles/davincitaxi/images/arrowstep1.png) no-repeat 100% center;}
+.about .tabs li.general{background: #fff url(../../bundles/davincitaxi/images/arrowmiddle.png) no-repeat 100% center;}
 .tabs li.contact.current{
-	background: #528ed3 url(../images/arrowstep2.png) no-repeat 0 center;
+	background: #528ed3 url(../../bundles/davincitaxi/images/arrowstep2.png) no-repeat 0 center;
 	float: right;
 }
-.choice .tabs li.general.current{background: #ff4d61 url(../images/arrowstep1.png) no-repeat 100% center;}
-.choice .tabs li.contact.current{	background: #ff4d61 url(../images/arrowstep2.png) no-repeat 0 center;}
-.choice .tabs li.other.current{	background: #ff4d61 url(../images/arrowstep1.png) no-repeat 100% center;}
-.choice .tabs li.general{background: #fff url(../images/arrowstep3.png) no-repeat 100% center;}
-.choice .tabs li.other, .choice .tabs li.general.complete{background: #fff url(../images/arrowredmiddle.png) no-repeat 100% center;}
+.choice .tabs li.general.current{background: #ff4d61 url(../../bundles/davincitaxi/images/arrowstep1.png) no-repeat 100% center;}
+.choice .tabs li.contact.current{	background: #ff4d61 url(../../bundles/davincitaxi/images/arrowstep2.png) no-repeat 0 center;}
+.choice .tabs li.other.current{	background: #ff4d61 url(../../bundles/davincitaxi/images/arrowstep1.png) no-repeat 100% center;}
+.choice .tabs li.general{background: #fff url(../../bundles/davincitaxi/images/arrowstep3.png) no-repeat 100% center;}
+.choice .tabs li.other, .choice .tabs li.general.complete{background: #fff url(../../bundles/davincitaxi/images/arrowredmiddle.png) no-repeat 100% center;}
 .choice .tabs.last li.other{background: none;}
 */
 
@@ -909,7 +909,7 @@ label .text {
 	-webkit-border-radius: 50%;
 	-khtml-border-radius:  50%;
 	border-radius:50%;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 }
 .choice .tabs li span{background: #ff4d61;}
 .tabs li.current span{
@@ -936,7 +936,7 @@ label .text {
 	-webkit-border-radius: 5px;
 	-khtml-border-radius:  5px;
 	border-radius:5px;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 	cursor: pointer;
 }
 .addotherlanguage {
@@ -960,7 +960,7 @@ label .text {
 	-khtml-border-radius:  5px;
 	border-radius:5px;
     padding: 8px 10px;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 }
 .addphoneline .text, .addlangline .text {
 	float: left;
@@ -1042,7 +1042,7 @@ label .text {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	-khtml-border-radius:  3px;
-	behavior: url(PIE.htc);*/
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);*/
 	cursor: pointer;
 }
 
@@ -1074,7 +1074,7 @@ label .text {
 .nextbutt span, .nextbutt input{
 /*
 	height: 50px !important;
-	background: transparent url(../images/arrownext.png) no-repeat 100% 12px;
+	background: transparent url(../../bundles/davincitaxi/images/arrownext.png) no-repeat 100% 12px;
 	padding-right: 22px;
 	background: orange;
 	width: 100%;
@@ -1097,7 +1097,7 @@ label .text {
 .backbutt span{
 /*	display: inline-block;
 	padding-left: 22px;
-	background: transparent url(../images/arrowback.png) no-repeat 0 center;
+	background: transparent url(../../bundles/davincitaxi/images/arrowback.png) no-repeat 0 center;
 	line-height: 118%;
 */
 }
@@ -1116,14 +1116,14 @@ label .text {
 }
 #datepicker, #datepicker0, #datepicker1, #datepicker2, #datepicker3, #datepicker4, .content-block input[type="date"]{
 	width: 132px;
-	background: #fff url(../images/calendar.png) no-repeat 96% 35%;
+	background: #fff url(../../bundles/davincitaxi/images/calendar.png) no-repeat 96% 35%;
 }
 #datepickerstart, #datepickerend {}
 .time {
 	border: 1px solid #8E9099;
     border-radius: 3px;
 	width: 87px;
-	background: #fff url(../images/clock.png) no-repeat 99% 35%;
+	background: #fff url(../../bundles/davincitaxi/images/clock.png) no-repeat 99% 35%;
 	padding: 3px 11px 3px 4px;
 	text-align: left;
 	margin: 0 8px 0 4px;
@@ -1135,7 +1135,7 @@ label .text {
 	margin: 0 3px 0 8px;
 	padding: 3px 11px 3px 4px;
 	text-align: left;
-	background: #fff url(../images/calendar.png) no-repeat 99% 35%;
+	background: #fff url(../../bundles/davincitaxi/images/calendar.png) no-repeat 99% 35%;
 }
 .main .time input[type="text"], .main .datepicker input[type="text"]{
 	background: none;
@@ -1206,7 +1206,7 @@ height:37px;
 	-khtml-border-radius:  5px;
 	border-radius:5px;
     padding: 4px 10px;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 }
 @media only screen and ( max-width: 500px ){  /* example */
     .file_upload > div{
@@ -1229,17 +1229,17 @@ height:37px;
 	width: 19px;
 	height: 25px;
 	padding: 0 5px 0 0;
-	background: url(../images/checkbox.png) no-repeat;
+	background: url(../../bundles/davincitaxi/images/checkbox.png) no-repeat;
 	display: block;
 	clear: left;
 	float: left;
 }
-.radio {	background: url(../images/radio.png) no-repeat;}
+.radio {	background: url(../../bundles/davincitaxi/images/radio.png) no-repeat;}
 .select {
 	position: absolute;
 	width: 345px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
 	height: 29px;
-	background: #fff url(../images/select.png) no-repeat 96% center;
+	background: #fff url(../../bundles/davincitaxi/images/select.png) no-repeat 96% center;
 	overflow: hidden;
 
 	display:inline-block;
@@ -1290,7 +1290,7 @@ select option{padding:0 10px;}
 	width:240px;
 	margin: 0px 9px 0 7px;
 	padding: 5px 11px 5px 3px;
-	background: #e8e8e8 url(../images/compas.png) no-repeat 99% center;
+	background: #e8e8e8 url(../../bundles/davincitaxi/images/compas.png) no-repeat 99% center;
 	color: #3C3D45;
 }
 .main .timesent input[type=text]{	margin: 0;}
@@ -1331,7 +1331,7 @@ a.btn-red{
 	clear:both;
 }
 .footer-block{
-	background:#528ed3 url(../images/bg-footer.png) no-repeat 50% 0;
+	background:#528ed3 url(../../bundles/davincitaxi/images/bg-footer.png) no-repeat 50% 0;
 	padding:15px 9999px 8px;
 /*	margin-bottom:20px;*/
 }
@@ -1388,7 +1388,7 @@ a.btn-red{
 	text-indent:-9999px;
 	overflow:hidden;
 	display:block;
-	background:url(../images/icons.png) no-repeat;
+	background:url(../../bundles/davincitaxi/images/icons.png) no-repeat;
 	width:34px;
 	height:32px;
 }
@@ -1432,7 +1432,7 @@ a.btn-red{
 	-webkit-border-radius: 5px 5px 0 0;
 	-khtml-border-radius:5px 5px 0 0;
 	border-radius:5px 5px 0 0;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 	padding: 23px 0 21px 0;
 }
 #info ol li.ui-tabs-active a, #info ol li a:hover, #info ol li a:active{
@@ -1463,11 +1463,11 @@ a.btn-red{
 	font-weight: bold;
 }
 .cabinet span.yourid {
-	background: transparent url(../images/yourid.png) no-repeat 0 center;
+	background: transparent url(../../bundles/davincitaxi/images/yourid.png) no-repeat 0 center;
 	padding-left: 23px;
 }
 .cabinet span.mess {
-	background: transparent url(../images/mess.png) no-repeat 0 center;
+	background: transparent url(../../bundles/davincitaxi/images/mess.png) no-repeat 0 center;
 	padding-left: 23px;
 }
 .cabinet a{	color:#528ED3;}
@@ -1490,7 +1490,7 @@ a.btn-red{
 	-webkit-border-radius: 5px ;
 	-khtml-border-radius:5px ;
 	border-radius:5px;
-	behavior: url(PIE.htc);
+	behavior: url(../../bundles/davincitaxi/css/PIE.htc);
 	padding: 20px 10px;
 	width: 176px;
 	text-shadow:0 1px rgba(0,0,0,.3);
@@ -1525,7 +1525,7 @@ a.btn-red{
 	top: 9px;
 	left: 40%;
 	right: 40%;
-	background: transparent url(../images/bookstore.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/bookstore.png) no-repeat 0 0;
 }
 .typevis a {
 	padding: 15px 0 13px 0;
@@ -1538,7 +1538,7 @@ a.btn-red{
 .status {
 	width: 31px;
 	height: 31px;
-	background: transparent url(../images/status.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/status.png) no-repeat 0 0;
 	margin: 0 auto;
 }
 .column_left_profile  {
@@ -1586,10 +1586,10 @@ a.btn-red{
 	padding-left: 18px;
 	margin-right: 16px;
 }
-.carplace {	background: transparent url(../images/iconsdri.png) no-repeat 0 0;}
-.carbagage {	background: transparent url(../images/iconsdri.png) no-repeat 0 -20px;}
+.carplace {	background: transparent url(../../bundles/davincitaxi/images/iconsdri.png) no-repeat 0 0;}
+.carbagage {	background: transparent url(../../bundles/davincitaxi/images/iconsdri.png) no-repeat 0 -20px;}
 .cardoor{
-	background: transparent url(../images/iconsdri.png) no-repeat 0 -37px;
+	background: transparent url(../../bundles/davincitaxi/images/iconsdri.png) no-repeat 0 -37px;
 	margin-right: 0;
 }
 .avatar {
@@ -1602,7 +1602,7 @@ a.btn-red{
 }
 .avatar .photo{
 	min-height: 180px;
-	background: transparent url(../images/phptpapparat.png) no-repeat center center;
+	background: transparent url(../../bundles/davincitaxi/images/phptpapparat.png) no-repeat center center;
 	border-bottom: 6px solid #ebebeb;
 }
 .avatar .button{
@@ -1677,7 +1677,7 @@ a.btn-red{
 .yourdrivers .icons a, .infoprofile li  .icons a{
 	display: block;
 	float: left;
-	background-image: url(../images/icon.png);
+	background-image: url(../../bundles/davincitaxi/images/icon.png);
 	width: 18px;
 	height:18px;
 	/*margin-lefT: 5px;*/
@@ -1696,7 +1696,7 @@ a.btn-red{
 	margin: 4px 0 7px 0;
 	display: inline-block;
 	padding-right: 28px;
-	background: transparent url(../images/icon.png) no-repeat 100% 0;
+	background: transparent url(../../bundles/davincitaxi/images/icon.png) no-repeat 100% 0;
 }
 .infoprofile dl {
 	position: relative;
@@ -1760,9 +1760,9 @@ span.date {
 	margin-right: 12px;
 	position: relative;
 	top: 2px;
-	background: transparent url(../images/sostoyanie.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/sostoyanie.png) no-repeat 0 0;
 }
-.negative {	background: transparent url(../images/sostoyanie.png) no-repeat 0 100%;}
+.negative {	background: transparent url(../../bundles/davincitaxi/images/sostoyanie.png) no-repeat 0 100%;}
 .clentreview {
 	max-height: 64px;
 	line-height: 138%;
@@ -1919,17 +1919,17 @@ a.loginfb, a.logintw {
 	text-decoration: none;
 	margin-top: 6px;
 }
-a.loginfb {	background: transparent url(../images/fbc.png) no-repeat 0 0;}
-a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
+a.loginfb {	background: transparent url(../../bundles/davincitaxi/images/fbc.png) no-repeat 0 0;}
+a.logintw {	background: transparent url(../../bundles/davincitaxi/images/googlec.png) no-repeat 0 0;}
 
 /*.loginfb a:hover, .logintw a:hover{	text-decoration: none;}
-.loginfb {	background: #3f5ca0 url(../images/bgfb.png) repeat-x 0 0;}
-.logintw {	background: #389fca url(../images/bgtw.png) repeat-x 0 0;}
-.loginfb a{	background: transparent url(../images/socialicons.png) no-repeat 8px 5px;}
-.logintw a{	background: transparent url(../images/socialicons.png) no-repeat 7px -35px;}*/
+.loginfb {	background: #3f5ca0 url(../../bundles/davincitaxi/images/bgfb.png) repeat-x 0 0;}
+.logintw {	background: #389fca url(../../bundles/davincitaxi/images/bgtw.png) repeat-x 0 0;}
+.loginfb a{	background: transparent url(../../bundles/davincitaxi/images/socialicons.png) no-repeat 8px 5px;}
+.logintw a{	background: transparent url(../../bundles/davincitaxi/images/socialicons.png) no-repeat 7px -35px;}*/
 
 .cabinet span.times {
-	background: transparent url(../images/clockmin.png) no-repeat 0 center;
+	background: transparent url(../../bundles/davincitaxi/images/clockmin.png) no-repeat 0 center;
 	padding-left: 23px;
 }
 .cabinet .select, .cabinet select, .cabinet select.styled, .cabinet .uk-width-1-1   {	width: 94px;}
@@ -1955,12 +1955,12 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 }
 .cabinet .content-block .paychek{
 	position: absolute;
-	background: transparent url(../images/paycheckbg.png) repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/paycheckbg.png) repeat 0 0;
 }
 .cabinet .content-block .paychek div{
 	width: 127px;
 	height: 79px;
-	background: transparent url(../images/paycheck.png) no-repeat center center;
+	background: transparent url(../../bundles/davincitaxi/images/paycheck.png) no-repeat center center;
 }
 
 
@@ -1972,12 +1972,12 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 /************/
 .register {
 /*
-	background: transparent url(../images/registerbg.jpg) no-repeat center center;
+	background: transparent url(../../bundles/davincitaxi/images/registerbg.jpg) no-repeat center center;
 	background-size: cover;*/
 }
 .registerfix {
 	display: none;
-	background: transparent url(../images/registerbg.jpg) no-repeat center center;
+	background: transparent url(../../bundles/davincitaxi/images/registerbg.jpg) no-repeat center center;
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -2101,14 +2101,14 @@ a.logintw {	background: transparent url(../images/googlec.png) no-repeat 0 0;}
 }
 .blockoffice li{
 	list-style: none;
-	background: #f1f1f1 url(../images/officelist.png) no-repeat 10px center;
+	background: #f1f1f1 url(../../bundles/davincitaxi/images/officelist.png) no-repeat 10px center;
 	padding:9px 8px 8px 34px;
 	width: 259px;
 	margin: 0 0 0 -10px;
 	text-align: left;
 	font-size: 14px;
 }
-.blockoffice li.odd{	background: transparent url(../images/officelist.png) no-repeat 10px center;}
+.blockoffice li.odd{	background: transparent url(../../bundles/davincitaxi/images/officelist.png) no-repeat 10px center;}
 .officemore, .trial {
 	display: block;
 	text-decoration: none;
@@ -2163,7 +2163,7 @@ label .errors{
 	color: #27bf2e;
 }
 .greentitle span{
-	background: transparent url(../images/return.png) no-repeat 100% 0;
+	background: transparent url(../../bundles/davincitaxi/images/return.png) no-repeat 100% 0;
 	padding: 0 50px 10px 0;
 	display: inline-block;
 }
@@ -2177,7 +2177,7 @@ label .errors{
 .backto {
 	width: 39px;
 	height: 33px;
-	background: transparent url(../images/return.png) no-repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/return.png) no-repeat 0 0;
 	display: inline-block;
 }
 */
@@ -2190,7 +2190,7 @@ label .errors{
 	float: left;
 	left: 0;
 	top: 0;
-	background: transparent url(../images/trans.png) repeat 0 0;
+	background: transparent url(../../bundles/davincitaxi/images/trans.png) repeat 0 0;
 	text-align: center;
 }
 .makechoicecontent {

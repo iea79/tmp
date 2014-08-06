@@ -7,35 +7,35 @@ DaVinci\TaxiBundle\Entity\User:
             - 'True': 
                 groups: [ "flow_taxi_user_registration_step2"]
                 message: fos_user.terms.not_blank
-        first_name:   
+        firstname:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
-                message: fos_user.first_name.not_blank
+                message: fos_user.firstname.not_blank
             - Length:
                 min: 1
-                minMessage: fos_user.first_name.short
+                minMessage: fos_user.firstname.short
                 max: 255
-                maxMessage: fos_user.first_name.long
+                maxMessage: fos_user.firstname.long
                 groups: [ "flow_taxi_user_registration_step1" ]
             - Regex:
                 pattern: "/^[a-z ]+$/i"
                 htmlPattern: "^[a-zA-Z ]+$"
-                message: fos_user.first_name.latin
+                message: fos_user.firstname.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
-        last_name:   
+        lastname:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
-                message: fos_user.first_name.not_blank
+                message: fos_user.firstname.not_blank
             - Length:
                 min: 1
-                minMessage: fos_user.last_name.short
+                minMessage: fos_user.lastname.short
                 max: 255
-                maxMessage: fos_user.last_name.long
+                maxMessage: fos_user.lastname.long
                 groups: [ "flow_taxi_user_registration_step1" ]
             - Regex:
                 pattern: "/^[a-z ]+$/i"
                 htmlPattern: "^[a-zA-Z ]+$"
-                message: fos_user.first_name.latin
+                message: fos_user.firstname.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
         gender:
             - Choice: 
@@ -65,7 +65,7 @@ FOS\UserBundle\Model\User:
                 message: fos_user.password.blank
                 groups: [ "flow_taxi_user_registration_step2", "ResetPassword", "ChangePassword" ]
             - Length:
-                min: 3
+                min: 6
                 minMessage: fos_user.password.blank
                 groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile", "ResetPassword", "ChangePassword"]
 

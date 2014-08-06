@@ -55,8 +55,16 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
-
+        types:
+           json: Sonata\Doctrine\Types\JsonType
     orm:
+       # entity_managers:
+        #    default:
+        #        mappings:
+        #            DaVinciUserBundle: ~
+         #           SonataUserBundle: ~
+         #           FOSUserBundle: ~   
+
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
@@ -70,63 +78,82 @@ swiftmailer:
 
 
 sonata_admin:
-    title:      TaxiMyPrice.com
+    title:      ' '
+    title_logo: bundles/davincitaxi/images/logo.png
+    security:
+        handler: sonata.admin.security.handler.acl
+     # acl security information
+        information:
+            GUEST:    [VIEW, LIST]
+            STAFF:    [EDIT, LIST, CREATE]
+            EDITOR:   [OPERATOR, EXPORT]
+            ADMIN:    [MASTER]
+        # permissions not related to an object instance and also to be available when objects do not exist
+        # the DELETE admin permission means the user is allowed to batch delete objects
+        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+        # permission related to the objects
+        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]        
         
+sonata_user:
+    security_acl: true
+    manager_type: orm # can be orm or mongodb
+    class:
+        user: DaVinci\TaxiBundle\Entity\User
+        group: DaVinci\TaxiBundle\Entity\Group
+    admin:
+        user:
+            class:      DaVinci\UserBundle\Model\UserAdmin
+      
+      
 sonata_block:
     default_contexts: [cms]
     blocks:
-        # Enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
-        # Your other blocks
 
-sonata_block:
-    blocks:
-        #...
-        sonata.user.block.menu:    # used to display the menu in profile pages
-        sonata.user.block.account: # used to display menu option (login option)
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
 
-# app/config/security.yml
-security:
-    # [...]
-    acl:
-        connection: default
-        
-doctrine:
-
-    dbal:
-        types:
-            json: Sonata\Doctrine\Types\JsonType
+        sonata.block.service.text:
+        sonata.user.block.menu:
+        # Some specific block from the SonataMediaBundle
+        sonata.media.block.media:
+        sonata.media.block.gallery:
+        sonata.media.block.feature_media:
             
-doctrine:
-    orm:
-        entity_managers:
-            default:
-                mappings:
-                    ApplicationSonataUserBundle: ~
-                    SonataUserBundle: ~
-
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: DaVinci\TaxiBundle\Entity\User
+    group:
+        group_class:  DaVinci\TaxiBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
     service:
             user_manager: custom_user_manager
     registration:
         form:
             type: taxi_user_registration
+            #handler: taxi.registration.form.handler
             #validation_groups: [DaVinciRegistration]
             #seted in RegistrationController
+        confirmation: 
+            enabled: true 
     profile:
         form:
             type: taxi_user_profile
             validation_groups: [DaVinciProfile]
-    
-crunch_user_admin:
-    db_driver:  orm   # or mongodb. couchdb will follow, propel and custom probably not
-    group:      false # whether, or not to use groups
-    
 
 knp_menu:
     twig:
         template: DaVinciTaxiBundle:Menu:knp_menu.html.twig
+
+parameters:
+    api_caller.options:
+        timeout: 10  # maximum transport + execution duration of the call in sec.
+        ssl_verifypeer: false  # to stop cURL from verifying the peer's certificate.
+        useragent: "TaxiMyPrice Caller"  # contents of the "User-Agent: " header.
+        followlocation: true  # to follow any "Location: " header that the server sends.
+        sslversion: 3  # set to 3 to avoid any bugs that relate to automatic version selection.
+        fresh_connect: false  # set to true to force full reconnect every call.

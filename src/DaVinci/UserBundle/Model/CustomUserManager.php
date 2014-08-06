@@ -2,7 +2,7 @@
 
 namespace DaVinci\UserBundle\Model;
 
-use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
+use Sonata\UserBundle\Entity\UserManager as BaseUserManager;
 
 class CustomUserManager extends BaseUserManager
 {

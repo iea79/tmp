@@ -5,7 +5,8 @@ namespace DaVinci\UserBundle\Form\Type;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormBuilderInterface;
-use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use \Sonata\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
 class RegistrationFormType extends BaseType {
 
@@ -14,17 +15,13 @@ class RegistrationFormType extends BaseType {
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
-
-
         switch ($options['flow_step']) {
             case 1:
                 $builder
-                        ->add('first_name', 'text', 
-                                array('label' => 'form.first_name', 'translation_domain' => 'FOSUserBundle',  
-                                    'attr' => array( 'title'=>'fos_user.first_name.latin', 'pattern' => '^[a-zA-Z ]+$')))
-                        ->add('last_name', 'text', 
-                                array('label' => 'form.last_name', 'translation_domain' => 'FOSUserBundle', 
-                                    'attr' => array( 'title'=> 'fos_user.first_name.latin', 'pattern' => '^[a-zA-Z ]+$')))
+                        ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
+                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
+                        ->add('lastname', 'text', array('label' => 'form.lastname', 'translation_domain' => 'FOSUserBundle',
+                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
                         ->add('gender', 'choice', array(
                             'choices' => array(
                                 '1' => 'form.male',
@@ -34,7 +31,7 @@ class RegistrationFormType extends BaseType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
-                        ->add('birthday', 'birthday', array('label' => 'form.birthday', 'translation_domain' => 'FOSUserBundle'));
+                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'));
                 break;
             case 2:
                 $builder
@@ -45,16 +42,20 @@ class RegistrationFormType extends BaseType {
                             'first_options' => array('label' => 'form.password'),
                             'second_options' => array('label' => 'form.password_confirmation'),
                             'invalid_message' => 'fos_user.password.mismatch',
-                            ))
+                        ))
                         ->add(
-                               'terms',
-                               'checkbox',
-                               array('property_path' => 'termsAccepted')
-                           );
+                                'terms', 'checkbox', array('property_path' => 'termsAccepted')
+                );
                 break;
         }
     }
-
+    
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'DaVinci\TaxiBundle\Entity\User',
+        ));
+    }
     /**
      * @return string
      */

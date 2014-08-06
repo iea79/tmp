@@ -2,7 +2,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use FOS\UserBundle\Model\User as BaseUser;
+use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
@@ -18,12 +18,16 @@ class User extends BaseUser
      */
     protected $id;
   
-    protected $termsAccepted;
-
     /**
-     * @ORM\Column(type="string", length=32, nullable=true)
+     * @ORM\ManyToMany(targetEntity="DaVinci\TaxiBundle\Entity\Group")
+     * @ORM\JoinTable(name="fos_user_user_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
      */
-    private $phone;
+    protected $groups;
+    
+    protected $termsAccepted;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -34,26 +38,6 @@ class User extends BaseUser
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $photo;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $first_name;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $last_name;
-
-    /**
-     * @ORM\Column(type="date", nullable=true)
-     */
-    private $birthday;
-
-    /**
-     * @ORM\Column(type="integer", length=2, nullable=true)
-     */
-    private $gender;
 
     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="user")
@@ -125,29 +109,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set phone
-     *
-     * @param string $phone
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string 
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
      * Set skype
      *
      * @param string $skype
@@ -191,98 +152,6 @@ class User extends BaseUser
     public function getPhoto()
     {
         return $this->photo;
-    }
-
-    /**
-     * Set first_name
-     *
-     * @param string $firstName
-     * @return User
-     */
-    public function setFirstName($firstName)
-    {
-        $this->first_name = $firstName;
-
-        return $this;
-    }
-
-    /**
-     * Get first_name
-     *
-     * @return string 
-     */
-    public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    /**
-     * Set last_name
-     *
-     * @param string $lastName
-     * @return User
-     */
-    public function setLastName($lastName)
-    {
-        $this->last_name = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get last_name
-     *
-     * @return string 
-     */
-    public function getLastName()
-    {
-        return $this->last_name;
-    }
-
-    /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     * @return User
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Get birthday
-     *
-     * @return \DateTime 
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
-    }
-
-    /**
-     * Set gender
-     *
-     * @param boolean $gender
-     * @return User
-     */
-    public function setGender($gender)
-    {
-        $this->gender = $gender;
-
-        return $this;
-    }
-
-    /**
-     * Get gender
-     *
-     * @return boolean 
-     */
-    public function getGender()
-    {
-        return $this->gender;
     }
 
     /**

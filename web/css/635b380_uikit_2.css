@@ -2456,8 +2456,8 @@ select.uk-form-width-mini {
 }
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff") format("woff"), url("../fonts/fontawesome-webfont.ttf") format("truetype");
+  src: url("../../bundles/davincitaxi/fonts/fontawesome-webfont.eot");
+  src: url("../../bundles/davincitaxi/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("../../bundles/davincitaxi/fonts/fontawesome-webfont.woff") format("woff"), url("../../bundles/davincitaxi/fonts/fontawesome-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

@@ -44,7 +44,12 @@
      });
     $(".passfield").passField({
         showWarn: false,
-        acceptRate: 0.3,
+        acceptRate: 0.6,
+        pattern: "abcd12",
+        length: { 
+                min: 6,
+                max: null
+            },
         events: { generated: function(pass) {add2PassPattern(pass);} } 
     });
     </script>
