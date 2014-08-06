@@ -1,8 +1,8 @@
 <div class="content-block choice">
-    <ul class="tabs">  
-        <li class="general current"><div class="arrow_box"><span>1</span> General information</div></li>
-        <li class="other"><div class="arrow_box"><span>2</span> Other information</div></li>
-        <li class="contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+    <ul class="tabs uk-tab uk-tab-grid">  
+        <li class="general current uk-width-1-3"><div class="arrow_box"><span>1</span> General information</div></li>
+        <li class="other uk-width-1-3"><div class="arrow_box"><span>2</span> Other information</div></li>
+        <li class="contact uk-width-1-3"><div class="noarrow"><span>3</span> Contact information</div></li>
     </ul>
     <div class="destination">
         <div class="desticlone">
@@ -35,7 +35,7 @@
                 <option>15</option>
             </select>
         </div>
-        <a href="{{ url('order_step_2') }}" class="nextbutt"><span>Next</span></a>
+        <a href="{{ url('order_step_2') }}" class="uk-button nextbutt"><span>Next</span></a>
     </div>
 
 		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}

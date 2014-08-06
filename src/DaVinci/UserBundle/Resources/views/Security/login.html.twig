@@ -18,9 +18,9 @@
             <input type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
             <div class="clear"></div>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
-            <input class="nextbutt" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            <input class="uk-button nextbutt" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
 
-            <input type="button" class="float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up"  />
+            <input type="button" class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up"  />
 			
 
 			<a class="loginfb" href="#"> </a>
