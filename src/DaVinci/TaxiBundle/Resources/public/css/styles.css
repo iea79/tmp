@@ -46,7 +46,7 @@
 	/*position: relative;
 	overflow: hidden;*/
 }
-.wrapper-content > .content {
+.wrapper-content > .content, .wrapper-content > .footer-block > .content {
 	width: 1000px;
 	height: 100%;
 	margin: 0 auto;
@@ -55,8 +55,6 @@
 .wrapper-content > .footer-block > .content {
 	width: 100%;
 	max-width: 1000px;
-	height: 100%;
-	margin: 0 auto;
 }
 
 .sending-form {width: 100%;}
@@ -1636,6 +1634,191 @@ span.countpassenger {
     line-height: 24px;
     margin: 0 0 12px 2px;
     padding: 18px 0 5px;
+}
+.main table {
+    border-collapse: separate;
+    border-radius: 4px;
+    border-spacing: 0;
+    width: 100%;
+	margin: 0 auto;
+}
+.main th, .main td {
+    border: 1px solid #d0d0d0;
+    padding: 9px 7px;
+    vertical-align: middle;
+	width: 12%;
+}
+.main th {
+    background: none repeat scroll 0 0 #528ed3;
+    color: #fff;
+    padding: 7px 5px;
+}
+.main th:first-child {
+    border-radius: 4px 0 0;
+}
+.main th:last-child {
+    border-radius: 0 4px 0 0;
+}
+.main td {
+    text-align: center;
+}
+.filters td {
+    background: none repeat scroll 0 0 #e8e8e8;
+    font-size: 14px;
+    padding: 3px 0 4px 2px;
+}
+.countnumber {
+    background: none repeat scroll 0 0 #528ed3;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 120%;
+    padding: 2px 7px;
+}
+.main span {
+    display: inline-block;
+    text-align: left;
+}
+.month {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.filter {
+    background: url("../images/filters.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    height: 11px;
+    width: 20px;
+}
+.imitateselect {
+    background: url("../images/select.png") no-repeat scroll 100% center transparent;
+    min-width: 27px;
+    padding-right: 12px;
+    position: relative;
+}
+.grayinput .imitateselect {
+    text-align: center;
+    width: 52px;
+}
+.filters .imitateselect {
+    margin: 0 6px;
+    top: 3px;
+}
+.main .imitateoptions {
+    background: none repeat scroll 0 0 #fff;
+    display: none;
+    float: left;
+    left: -9px;
+    padding-top: 10px;
+    position: absolute;
+    text-align: center;
+    top: -43%;
+    width: 80px;
+}
+.tips {
+    height: 27px;
+    width: 27px;
+}
+.tip1 {
+    background: url("../images/ico01.png") no-repeat scroll center center transparent;
+}
+.tip2 {
+    background: url("../images/ico03.png") no-repeat scroll center center transparent;
+}
+.thumbs {
+    background: url("../images/thumbs1.png") no-repeat scroll 0 0 transparent;
+    height: 20px;
+    margin: 0 auto;
+    width: 18px;
+}
+.main .trusts {
+    margin: 2px 0;
+    text-align: center;
+    width: 100%;
+}
+.trust1 {
+    width: 18px;
+}
+.trust2 {
+    width: 39px;
+}
+.trust3 {
+    width: 60px;
+}
+.trust-1 {
+    background: url("../images/thumbs1.png") no-repeat scroll 100% 0 transparent;
+    width: 20px;
+}
+.trust-2 {
+    background: url("../images/thumbs1.png") no-repeat scroll 100% 0 transparent;
+    width: 39px;
+}
+.trust-3 {
+    background: url("../images/thumbs1.png") no-repeat scroll 0 0 transparent;
+    width: 60px;
+}
+.basket {
+    background: none repeat scroll 0 0 #27bf2e;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    padding: 9px 5px 7px;
+}
+.basket span {
+    background: url("../images/basket.png") no-repeat scroll 5px 0 transparent;
+    color: #fff;
+    font-size: 17px;
+    padding: 0 10px 0 38px;
+}
+.instruct .basket {
+    padding: 9px 20px 7px;
+}
+.pink {
+    background: none repeat scroll 0 0 #ff4d61;
+}
+.green {
+    background: none repeat scroll 0 0 #27bf2e;
+}
+.orange {
+    background: none repeat scroll 0 0 #ff7b4d;
+}
+.yellow {
+    background: none repeat scroll 0 0 #ffb400;
+}
+.delete {
+    background: url("../images/delete.png") no-repeat scroll 0 0 transparent;
+    color: #fff;
+    display: inline-block;
+    height: 18px;
+    position: relative;
+    text-indent: -999px;
+    top: 5px;
+    width: 18px;
+}
+.spinner {
+    border-radius: 5px;
+    width: 23px;
+}
+.passenger {
+    background: url("../images/bg-block.jpg") no-repeat scroll 95% 100% #fff;
+}
+.independentdriver, .taxidriver {
+    background: url("../images/bg-block-driver.jpg") no-repeat scroll 100% 100% #fff;
+}
+.taxicompany {
+    background: url("../images/bg-block-about.jpg") no-repeat scroll 100% 70% #fff;
+}
+.manager {
+    background: url("../images/bg-block-manager.jpg") no-repeat scroll 100% 100% #fff;
+}
+.checkboxes {
+    list-style: none outside none;
+    margin: 0 0 15px;
+    padding: 0;
+}
+.checkboxes li {
+    display: inline-block;
+    margin: 0 44px 0 0;
+    vertical-align: middle;
 }
 input[type="checkbox"] {
     display: inline-block;
