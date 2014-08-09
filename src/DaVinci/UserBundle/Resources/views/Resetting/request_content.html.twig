@@ -1,9 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
-
-<div class="authorizat">
-    <h3>{{ 'resetting.email.subject'|trans }}</h3>
-    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+<div class="wrapper-content"><div class="content">
+    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="authorizat uk-form-horizontal fos_user_resetting_request">
+		<h3>{{ 'resetting.email.subject'|trans }}</h3>
         <div>
         {% if invalid_username is defined %}
             <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
@@ -12,7 +10,7 @@
         </div>
         <div class="clear"></div>
         <div>
-            <input type="submit" class="nextbutt  btn-red" value="{{ 'resetting.request.submit'|trans }}" />
+            <input type="submit" class="uk-button  nextbutt  btn-red" value="{{ 'resetting.request.submit'|trans }}" />
         </div>
     </form>
-</div>
+</div></div>

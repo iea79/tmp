@@ -4,30 +4,33 @@
 
 {% block fos_user_content %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
-<div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="{{ 'select the country and order a taxi at your price'|trans}}" /></a></div>
 
-<div class="authorizat">
+<div class="wrapper-content"><div class="content">
     {% if error %}
     <div>{{ error|trans }}</div>
     {% endif %}
-    <form action="{{ path("fos_user_security_check") }}" method="post">
+    <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post">
         <!--table class="authoriz">
             <tr>
                 <td-->
         <h3>{{ 'Login or Register'|trans}}</h3>
 
-        <form action="{{ path("fos_user_security_check") }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
             <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" />
             <input type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
             <div class="clear"></div>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
-            <input class="nextbutt" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+			
+			<button class="uk-button nextbutt" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
+            
+			<!--input class="uk-button nextbutt" type="submit" id="_submit" name="_submit" value="" /-->
             <!--/td>
             <th>or</th>
             <td-->
-            <input type="button" class="float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up" />
+			<button class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';">Sign Up</button>
+
+            <!--input type="button" class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up" /-->
             <!--    <a class="loginfb" href="#"></a>
                 <a class="logintw" href="#"></a>
             <h3>Sign in with</h3>
@@ -37,5 +40,5 @@
     </tr>
 </table-->
 </div>
-
+</div>
 {% endblock fos_user_content %}
