@@ -1812,6 +1812,7 @@ html:not(.uk-touch) .uk-nav-offcanvas ul a:hover {
     color: #528ed3;
 }*/
 .tabs li.general.full {
+	width: 100%;
     color: #fff;
 }
 
@@ -2382,8 +2383,14 @@ select.uk-form-width-mini {
 	margin-right: 8px; 
 	float: left;
 }
-.uk-button.nextbutt.backbutt:hover, .uk-button.nextbutt.backbutt:focus {background: #8c8e96;}
-.uk-button.nextbutt.backbutt:active{background: #8c8e96;}
+.uk-button.nextbutt.backbutt:hover, .uk-button.nextbutt.backbutt:focus {
+	background: #8c8e96;
+	opacity: 0,6;
+}
+.uk-button.nextbutt.backbutt:active{
+	opacity: 0,4;
+	background: #8c8e96;
+}
 .uk-button:hover,
 .uk-button:focus {
   background-color: rgba(39, 191, 46, 0.68);
@@ -4696,7 +4703,38 @@ a.uk-thumbnail:focus {
 	background: #fff;
 	border-radius: 6px;
 }
-
+#header .signin .uk-button, #header .signin .uk-button-success{
+	color:#ff4d61;
+	padding:13px 18px 13px 21px;
+	border-radius: 0;
+	margin:0 2px 0 0;
+	font-size:15px;
+	background: #fff;
+/*	line-height:48px;*/
+	display:inline-block;
+	vertical-align:top;
+	box-shadow: none;
+	text-transform: none;
+}
+#header .signin .uk-button:hover {
+	color:#ff4d61;
+	background: #fff;
+}
+#header .signin .uk-button-success {	color: #444;}
+#header .signin .uk-nav-dropdown li a {
+	text-align: left;
+	display: block;
+	box-shadow: none;
+	border: none;
+	padding: 5px 10px 5px 30px;
+	border-radius: 6px;
+	color: #444;
+}
+#header .signin .uk-nav-dropdown li a:hover {
+	color: #528ed3 ;
+	background: #fff;
+	text-decoration: none;
+}
 .uk-open > .uk-dropdown {
   display: block;
   -webkit-animation: uk-fade 0.2s ease-in-out;
@@ -6237,23 +6275,19 @@ span.countpassenger {
     padding: 8px 10px;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     vertical-align: middle;
-    width: 345px;
+    width: 330px;
 }
 .addphoneline .text, .addlangline .text {
     float: left;
     padding: 5px 0;
 }
-.addphoneline .text {
-    padding-bottom: 4%;
-}
+.addphoneline .text {   padding-bottom: 4%;}
 .addlangline .style1, .addphoneareas {
     display: inline-block;
     padding-left: 4px;
     width: 345px;
 }
-.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {
-    width: 102px;
-}
+.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {   width: 102px;}
 .addphoneareas {
     margin-bottom: 12px;
     margin-right: 280px;
@@ -6272,9 +6306,10 @@ span.countpassenger {
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
-    width: 239px;
+    width: 196px;
 }
 .addphone {
+	cursor: pointer;
     color: #528ed3;
     display: inline-block;
 }
@@ -6302,3 +6337,208 @@ span.countpassenger {
     margin-bottom: -3px;
     top: -6px;
 }
+.officepagetitle, .register .officepagetitle {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 48px;
+    padding: 11px 0;
+    text-transform: none;
+}
+.officepagetitle img {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+.officepagetitle h2, .register h2 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 28px;
+    text-align: center;
+}
+.gobutt {
+    background: none repeat scroll 0 0 #528ed3;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 120%;
+    margin-left: 4px;
+    margin-right: 10px;
+    padding: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.gobutt:hover {   text-decoration: none;}
+.blockoffice {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0 14px 25px 13px;
+    padding: 14px 10px 0;
+    text-align: center;
+    width: 281px;
+}
+.officetitle {
+    color: #528ed3;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+.officecomment {
+    color: #ff4d61;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+.blockoffice ul {
+    margin: 0 0 32px;
+    padding: 0;
+    text-align: left;
+}
+.blockoffice li {
+    background: url("../images/officelist.png") no-repeat scroll 10px center #f1f1f1;
+    font-size: 14px;
+    list-style: none outside none;
+    margin: 0 0 0 -10px;
+    padding: 9px 8px 8px 34px;
+    text-align: left;
+    width: 259px;
+}
+.blockoffice li.odd {
+    background: url("../images/officelist.png") no-repeat scroll 10px center transparent;
+}
+.officemore, .trial {
+    border-radius: 4px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+.officemore {
+    background: none repeat scroll 0 0 #528ed3;
+    font-size: 18px;
+    padding: 8px 20px;
+}
+.trial {
+    background: none repeat scroll 0 0 #27bf2e;
+    font-size: 24px;
+    padding: 17px 20px 14px;
+    text-transform: uppercase;
+}
+.style1, .style2 {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    width: 558px;
+}
+.uk-form-horizontal .addphoneline .uk-form-controls {margin-left: 12px;}
+.uk-form-horizontal .uk-form-controls.style1 {margin-left: 10px;}
+.uk-form-horizontal .uk-form-controls.file_upload {margin-left: 15px;}
+/*.uk-form-horizontal .uk-form-controls .addphoneareas {margin-left: 15px;}*/
+.style1 label, .style2 label {   margin: 0 0 9px;}
+
+
+#buttons {
+    overflow: hidden;
+}
+.uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {
+    float: right;
+}
+#insidebuttonwrapper {
+    float: left;
+}
+.register label, .register fieldset {
+    position: relative;
+}
+.errors {
+    color: #ff4d61;
+    margin: 0;
+    padding: 0;
+}
+fieldset .errors li {
+    list-style: none outside none;
+}
+fieldset label .errors li {
+    list-style: disc outside none;
+}
+label .errors {
+    float: left;
+    left: 58%;
+    margin: 0 0 21px;
+    position: absolute;
+    top: 0;
+}
+.errors li {
+    margin-bottom: 21px;
+    margin-top: 6px;
+}
+.greentitle {
+    color: #27bf2e;
+    margin: 24px 0 0;
+}
+.greentitle span {
+    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;
+    display: inline-block;
+    padding: 0 50px 10px 0;
+}
+#makechoice {
+    background: url("../images/trans.png") repeat scroll 0 0 transparent;
+    float: left;
+    height: 60%;
+    left: 0;
+    padding: 20% 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.makechoicecontent {
+    background: none repeat scroll 0 0 #fff;
+    border-radius: 4px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    width: 24%;
+}
+.makechoicecontent h2 {
+    color: #ff4d61;
+    font-size: 18px;
+    margin: 6px 0 8px;
+}
+.makechoicecontent .close {
+    background: none repeat scroll 0 0 #d0d0d0;
+    border-radius: 50%;
+    color: #fff;
+    float: right;
+    line-height: 104%;
+    padding: 1px 6px 3px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.makechoicecontent .close:hover {
+    text-decoration: none;
+}
+.makechoicecontent ul {
+    margin: 0;
+    padding: 0;
+}
+.makechoicecontent li {
+    font-size: 24px;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.makechoicecontent li a {
+	display: block;
+	margin-bottom: 12px;
+    padding: 8px 20px;
+    background: none repeat scroll 0 0 #528ed3;
+    border-radius: 4px;
+    color: #fff;
+}
+.makechoicecontent li a:hover {
+	text-decoration: none;
+	opacity: 0.6
+}
+.makechoicecontent li a:active {	opacity: 0.4}
