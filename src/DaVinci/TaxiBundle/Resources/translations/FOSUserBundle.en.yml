@@ -110,9 +110,9 @@ form:
     contactinfo: "Contact info"
     signininfo: "Sign in info"
     generalinfo: "General info"
-    gotonextstep: "Next step"
+    gotonextstep: "Next step >"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
-    back: Back
+    back: < Back
     
 fos_user:    
     firstname:

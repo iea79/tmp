@@ -6,11 +6,11 @@
         {% if invalid_username is defined %}
             <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
         {% endif %}
-            <input type="text" id="username" name="username" placeholder="{{ 'resetting.request.username'|trans }}" required="required" />
+            <input class="uk-width-1-1" type="text" id="username" name="username" placeholder="{{ 'resetting.request.username'|trans }}" required="required" />
         </div>
         <div class="clear"></div>
         <div>
-            <input type="submit" class="uk-button  nextbutt  btn-red" value="{{ 'resetting.request.submit'|trans }}" />
+            <input type="submit" class="uk-button  nextbutt  btn-red uk-width-1-1" value="{{ 'resetting.request.submit'|trans }}" />
         </div>
     </form>
 </div></div>
