@@ -98,7 +98,7 @@ class RegistrationController extends BaseController {
             }
 
             //send to paygnet
-            $this->get('paygnet')->registerUser($user->getEmail(),$user->getId());
+            $this->container->get('paygnet')->registerUser($user->getEmail(),$user->getId());
         
         
             return $response;

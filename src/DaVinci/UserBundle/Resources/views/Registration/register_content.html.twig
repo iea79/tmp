@@ -54,6 +54,7 @@
 								'title':'Minmimum 3 letters or numbers.'|trans,
 								'class': 'uk-width-3-5 passfield'
 								}}) }}</div>
+                    {{ form_errors(form.plainPassword.first) }}
 				</label>
 				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.password_confirmation'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.second,
@@ -61,6 +62,7 @@
 								'title':'Passwords must match.'|trans,
 								'class': 'uk-width-3-5 passfield2'
 								}}) }}</div>
+                    {{ form_errors(form.plainPassword.second) }}
 				</label>
 
 
