@@ -19,3 +19,10 @@ fos_user_group:
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
+    
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
