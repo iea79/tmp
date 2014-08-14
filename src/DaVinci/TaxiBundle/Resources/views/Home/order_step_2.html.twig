@@ -42,8 +42,10 @@
             <div class="style1 helptext">осталось символов 200</div>
         </div>
 
-        <a href="{{ url('order_step_3') }}" class="uk-button nextbutt uk-width-1-2 twon"><span>Next ></span></a>
-        <a href="{{ url('order_step_1') }}" class="uk-button nextbutt backbutt uk-width-1-2"><span>< Back</span></a>
+		<div class="uk-button-group uk-width-1-1">
+			<a href="{{ url('order_step_3') }}" class="uk-button nextbutt twobuttnext uk-width-2-6  float_right"><span>Next ></span></a>
+			<a href="{{ url('order_step_1') }}" class="uk-button nextbutt backbutt uk-width-2-6 float_left"><span>< Back</span></a>
+		</div>
     </div>
 
 		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
