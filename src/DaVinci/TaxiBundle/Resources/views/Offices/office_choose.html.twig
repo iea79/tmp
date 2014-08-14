@@ -1,10 +1,8 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-
 {% block theme 'register' %}
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
 
-<div class="banner"><a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" /></a></div>
 <div id="makechoice" class="display_none">
 	<div class="makechoicecontent">
 		<a href="#" class="close">x</a>
@@ -16,7 +14,7 @@
 		</ul>
 	</div>
 </div>
-<div class="title officepagetitle">
+<div class="wrapper-content title officepagetitle">
 
 {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': '#'}  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
 <div class="greentitle"><span>{% trans %}Need money: choose professional office!{% endtrans %}</span></div>

@@ -206,29 +206,6 @@ span.countpassenger {
     top: -10px;
     width: 16px;
 }
-.disloc ul {
-    font-size: 15px;
-    margin: 0;
-    overflow: hidden;
-    padding: 0 0 6px 4px;
-    position: relative;
-}
-.disloc li {
-    float: left;
-    list-style: none outside none;
-    margin: 0;
-    min-height: 21px;
-    padding: 1px 33px 0 27px;
-}
-.disloc li.timer {
-    background: url("../images/stopwatch.png") no-repeat scroll 0 center transparent;
-}
-.disloc li.way {
-    background: url("../images/guide.png") no-repeat scroll 0 center transparent;
-}
-.disloc li.cash {
-    background: url("../images/calculator.png") no-repeat scroll 0 center transparent;
-}
 .main {
     background: none repeat scroll 0 0 #fff;
     border-radius: 4px;
@@ -472,104 +449,13 @@ label .text {
 .choice .tabs li.current span {
     color: #ff4d61;
 }
-.tabs li.general span {
+/*.tabs li.general span {
     padding: 4px 8px 5px;
 }
 .tabs li.general.full span {
     background: none repeat scroll 0 0 #fff;
     color: #528ed3;
-}
-.tabs li.general.full {
-    color: #fff;
-}
-.addlang {
-    background: none repeat scroll 0 0 #e8e8e8;
-    border: 1px solid #d3d3d3;
-    border-radius: 5px;
-    color: #3c3d45;
-    cursor: pointer;
-    font-weight: bold;
-    margin-bottom: 21px;
-    padding: 4px 0 3px;
-    text-align: center;
-    width: 540px;
-}
-.addotherlanguage {
-    background: none repeat scroll 0 0 #528ed3;
-    border-radius: 5px;
-    box-sizing: border-box;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    padding: 8px 10px;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    vertical-align: middle;
-    width: 345px;
-}
-.addphoneline .text, .addlangline .text {
-    float: left;
-    padding: 5px 0;
-}
-.addphoneline .text {
-    padding-bottom: 4%;
-}
-.addlangline .style1, .addphoneareas {
-    display: inline-block;
-    padding-left: 4px;
-    width: 345px;
-}
-.addphoneline .styled, .addphoneline select, .addphoneline .select, .phonecode, .addphoneline .uk-width-1-1 {
-    width: 102px;
-}
-.addphoneareas {
-    margin-bottom: 12px;
-    margin-right: 280px;
-}
-.wifis {
-    margin-bottom: 12px;
-    padding-left: 195px;
-}
-.wifis label {
-    display: inline-block;
-    margin: 0 0 0 4px;
-}
-.wicheck {
-    display: inline-block;
-    margin-right: 12px;
-}
-.register .addphoneareas input[type="text"] {
-    margin-right: 0;
-    width: 239px;
-}
-.addphone {
-    color: #528ed3;
-    display: inline-block;
-}
-.addlangline select {
-    margin-bottom: 12px;
-    width: 345px;
-}
-.addlangline ul {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-}
-.addlangline li {
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-.destination .addlang {
-    font-size: 14px;
-    margin-bottom: 22px;
-    padding: 4px 0 0;
-    width: 100%;
-}
-.addlang .destinationmark {
-    margin-bottom: -3px;
-    top: -6px;
-}
+}*/
 .taxicompany .term a {
     color: #528ed3;
 }
@@ -597,12 +483,13 @@ label .text {
     font-size: 20px;
     width: 100%;
 }
-.nextbutt:hover {
-    text-decoration: none;
+.nextbutt:hover {   text-decoration: none;}
+.nextbutt span, .nextbutt input {   padding: 10px 0 16px;}
+.choice .backbutt {  
+	float: left;
+	background: none repeat scroll 0 0 #8c8e96;
 }
-.nextbutt span, .nextbutt input {
-    padding: 10px 0 16px;
-}
+
 .backbutt span {
 }
 .content-block .nextbutt input[type="submit"] {
@@ -633,24 +520,6 @@ label .text {
     text-align: left;
     width: 87px;
 }
-.datepicker {
-    background: url("../images/calendar.png") no-repeat scroll 99% 35% #fff;
-    border: 1px solid #8e9099;
-    border-radius: 3px;
-    margin: 0 3px 0 8px;
-    padding: 3px 11px 3px 4px;
-    text-align: left;
-    width: 128px;
-}
-.main .time input[type="text"], .main .datepicker input[type="text"] {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: medium none;
-    padding: 0;
-    width: 37px;
-}
-.main .datepicker input[type="text"] {
-    width: 56px;
-}
 select, textarea, input[type="email"], input[type="password"], input[type="text"], input[type="date"] {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #8e9099;
@@ -680,46 +549,6 @@ input[type="file"] {
 }
 .bold {
     font-weight: bold;
-}
-.file_upload {
-    border-radius: 3px;
-    box-sizing: border-box;
-    color: #fff;
-    display: inline-block;
-    font-size: 1em;
-    height: 37px;
-    line-height: 2em;
-    overflow: hidden;
-    position: relative;
-    vertical-align: middle;
-    width: 345px;
-}
-.file_upload > div {
-    background: none repeat scroll 0 0 #528ed3;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: bold;
-    height: 29px;
-    padding: 4px 10px;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    width: 325px;
-}
-@media only screen and (max-width: 500px) {
-.file_upload > div {
-    display: none;
-}
-.file_upload > button {
-    width: 100%;
-}
-}
-.file_upload input[type="file"] {
-    cursor: pointer;
-    height: 37px;
-    left: 0;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    width: 345px;
 }
 .checkbox, .radio {
     background: url("../images/checkbox.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1506,9 +1335,6 @@ a.logintw {
     border-radius: 4px;
     color: #fff;
 }
-.register input[type="text"], .register input[type="password"], .register input[type="email"] {
-    width: 346px;
-}
 .register form *::-moz-placeholder {
     color: #9b9b9b;
 }
@@ -1534,377 +1360,7 @@ a.logintw {
     font-size: 13px;
     margin-left: 196px;
 }
-.register .officepagetitle {
-    font-size: 24px;
-    font-weight: normal;
-    margin-bottom: 48px;
-    padding: 11px 9999px;
-    text-transform: none;
-}
-.officepagetitle img {
-    margin-left: 15px;
-    margin-right: 5px;
-}
-.register h2 {
-    color: #fff;
-    font-size: 30px;
-    font-weight: normal;
-    margin-bottom: 28px;
-    text-align: center;
-}
-.gobutt {
-    background: none repeat scroll 0 0 #528ed3;
-    border-radius: 4px;
-    color: #fff;
-    display: inline-block;
-    font-size: 18px;
-    line-height: 120%;
-    margin-left: 4px;
-    margin-right: 10px;
-    padding: 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.gobutt:hover {
-    text-decoration: none;
-}
-.blockoffice {
-    background: none repeat scroll 0 0 #fff;
-    border-radius: 4px;
-    display: inline-block;
-    margin: 0 14px 25px 13px;
-    padding: 14px 10px 0;
-    text-align: center;
-    width: 281px;
-}
-.officetitle {
-    color: #528ed3;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 13px;
-}
-.officecomment {
-    color: #ff4d61;
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-.blockoffice ul {
-    margin: 0 0 32px;
-    padding: 0;
-    text-align: left;
-}
-.blockoffice li {
-    background: url("../images/officelist.png") no-repeat scroll 10px center #f1f1f1;
-    font-size: 14px;
-    list-style: none outside none;
-    margin: 0 0 0 -10px;
-    padding: 9px 8px 8px 34px;
-    text-align: left;
-    width: 259px;
-}
-.blockoffice li.odd {
-    background: url("../images/officelist.png") no-repeat scroll 10px center transparent;
-}
-.officemore, .trial {
-    border-radius: 4px;
-    color: #fff;
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-}
-.officemore {
-    background: none repeat scroll 0 0 #528ed3;
-    font-size: 18px;
-    padding: 8px 20px;
-}
-.trial {
-    background: none repeat scroll 0 0 #27bf2e;
-    font-size: 24px;
-    padding: 17px 20px 14px;
-    text-transform: uppercase;
-}
-#buttons {
-    overflow: hidden;
-}
-.uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {
-    float: right;
-}
-#insidebuttonwrapper {
-    float: left;
-}
-.register label, .register fieldset {
-    position: relative;
-}
-.errors {
-    color: #ff4d61;
-    margin: 0;
-    padding: 0;
-}
-fieldset .errors li {
-    list-style: none outside none;
-}
-fieldset label .errors li {
-    list-style: disc outside none;
-}
-label .errors {
-    float: left;
-    left: 58%;
-    margin: 0 0 21px;
-    position: absolute;
-    top: 0;
-}
-.errors li {
-    margin-bottom: 21px;
-    margin-top: 6px;
-}
-.greentitle {
-    color: #27bf2e;
-    margin: 24px 0 0;
-}
-.greentitle span {
-    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;
-    display: inline-block;
-    padding: 0 50px 10px 0;
-}
-#makechoice {
-    background: url("../images/trans.png") repeat scroll 0 0 transparent;
-    float: left;
-    height: 60%;
-    left: 0;
-    padding: 20% 0;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-}
-.makechoicecontent {
-    background: none repeat scroll 0 0 #fff;
-    border-radius: 4px;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
-    width: 24%;
-}
-.makechoicecontent h2 {
-    color: #ff4d61;
-    font-size: 18px;
-    margin: 6px 0 8px;
-}
-.makechoicecontent .close {
-    background: none repeat scroll 0 0 #d0d0d0;
-    border-radius: 50%;
-    color: #fff;
-    float: right;
-    line-height: 104%;
-    padding: 1px 6px 3px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.makechoicecontent .close:hover {
-    text-decoration: none;
-}
-.makechoicecontent ul {
-    margin: 0;
-    padding: 0;
-}
-.makechoicecontent li {
-    font-size: 24px;
-    list-style: none outside none;
-    margin: 0;
-    padding: 0;
-}
-.makechoicecontent li a {
-    background: none repeat scroll 0 0 #528ed3;
-    border-radius: 4px;
-    color: #fff;
-    display: block;
-    margin-bottom: 10px;
-    padding: 8px 20px;
-    text-decoration: none;
-}.main table {
-    border-collapse: separate;
-    border-radius: 4px;
-    border-spacing: 0;
-    width: 100%;
-	margin: 0 auto;
-}
-.main th, .main td {
-    border: 1px solid #d0d0d0;
-    padding: 9px 7px;
-    vertical-align: middle;
-	width: 12%;
-}
-.main th {
-    background: none repeat scroll 0 0 #528ed3;
-    color: #fff;
-    padding: 7px 5px;
-}
-.main th:first-child {
-    border-radius: 4px 0 0;
-}
-.main th:last-child {
-    border-radius: 0 4px 0 0;
-}
-.main td {
-    text-align: center;
-}
-.filters td {
-    background: none repeat scroll 0 0 #e8e8e8;
-    font-size: 14px;
-    padding: 3px 0 4px 2px;
-}
-.countnumber {
-    background: none repeat scroll 0 0 #528ed3;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 14px;
-    line-height: 120%;
-    padding: 2px 7px;
-}
-.main span {
-    display: inline-block;
-    text-align: left;
-}
-.month {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-.filter {
-    background: url("../images/filters.png") no-repeat scroll 0 0 transparent;
-    cursor: pointer;
-    height: 11px;
-    width: 20px;
-}
-.imitateselect {
-    background: url("../images/select.png") no-repeat scroll 100% center transparent;
-    min-width: 27px;
-    padding-right: 12px;
-    position: relative;
-}
-.grayinput .imitateselect {
-    text-align: center;
-    width: 52px;
-}
-.filters .imitateselect {
-    margin: 0 6px;
-    top: 3px;
-}
-.main .imitateoptions {
-    background: none repeat scroll 0 0 #fff;
-    display: none;
-    float: left;
-    left: -9px;
-    padding-top: 10px;
-    position: absolute;
-    text-align: center;
-    top: -43%;
-    width: 80px;
-}
-.tips {
-    height: 27px;
-    width: 27px;
-}
-.tip1 {
-    background: url("../images/ico01.png") no-repeat scroll center center transparent;
-}
-.tip2 {
-    background: url("../images/ico03.png") no-repeat scroll center center transparent;
-}
-.thumbs {
-    background: url("../images/thumbs1.png") no-repeat scroll 0 0 transparent;
-    height: 20px;
-    margin: 0 auto;
-    width: 18px;
-}
-.main .trusts {
-    margin: 2px 0;
-    text-align: center;
-    width: 100%;
-}
-.trust1 {
-    width: 18px;
-}
-.trust2 {
-    width: 39px;
-}
-.trust3 {
-    width: 60px;
-}
-.trust-1 {
-    background: url("../images/thumbs1.png") no-repeat scroll 100% 0 transparent;
-    width: 20px;
-}
-.trust-2 {
-    background: url("../images/thumbs1.png") no-repeat scroll 100% 0 transparent;
-    width: 39px;
-}
-.trust-3 {
-    background: url("../images/thumbs1.png") no-repeat scroll 0 0 transparent;
-    width: 60px;
-}
-.basket {
-    background: none repeat scroll 0 0 #27bf2e;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    padding: 9px 5px 7px;
-}
-.basket span {
-    background: url("../images/basket.png") no-repeat scroll 5px 0 transparent;
-    color: #fff;
-    font-size: 17px;
-    padding: 0 10px 0 38px;
-}
-.instruct .basket {
-    padding: 9px 20px 7px;
-}
-.pink {
-    background: none repeat scroll 0 0 #ff4d61;
-}
-.green {
-    background: none repeat scroll 0 0 #27bf2e;
-}
-.orange {
-    background: none repeat scroll 0 0 #ff7b4d;
-}
-.yellow {
-    background: none repeat scroll 0 0 #ffb400;
-}
-.delete {
-    background: url("../images/delete.png") no-repeat scroll 0 0 transparent;
-    color: #fff;
-    display: inline-block;
-    height: 18px;
-    position: relative;
-    text-indent: -999px;
-    top: 5px;
-    width: 18px;
-}
-.spinner {
-    border-radius: 5px;
-    width: 23px;
-}
-.passenger {
-    background: url("../images/bg-block.jpg") no-repeat scroll 95% 100% #fff;
-}
-.independentdriver, .taxidriver {
-    background: url("../images/bg-block-driver.jpg") no-repeat scroll 100% 100% #fff;
-}
-.taxicompany {
-    background: url("../images/bg-block-about.jpg") no-repeat scroll 100% 70% #fff;
-}
-.manager {
-    background: url("../images/bg-block-manager.jpg") no-repeat scroll 100% 100% #fff;
-}
-.checkboxes {
-    list-style: none outside none;
-    margin: 0 0 15px;
-    padding: 0;
-}
-.checkboxes li {
-    display: inline-block;
-    margin: 0 44px 0 0;
-    vertical-align: middle;
-}
+#buttons {   overflow: hidden;}
+.uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {   float: right;}
+#insidebuttonwrapper {   float: left;}
+.register label, .register fieldset {   position: relative;}

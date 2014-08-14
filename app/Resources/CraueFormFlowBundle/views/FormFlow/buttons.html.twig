@@ -1,19 +1,21 @@
 {% set renderBackButton = flow.getCurrentStepNumber() in (flow.getFirstStepNumber() + 1) .. flow.getLastStepNumber() %}
 <div id="buttons">
-    <div id="insidebuttonwrapper" class="uk-button-group">
+    <div id="insidebuttonwrapper" class="uk-button-group uk-width-4-5">
 {%- if flow.getCurrentStepNumber() == 1 -%}
-        <button class="uk-button submit nextbutt"> {{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }} </button>
+        <button class="uk-button nextbutt uk-width-1-1"> {{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }} </button>
 {%- elseif flow.getCurrentStepNumber() < flow.getLastStepNumber() -%}
-        <button class="uk-button submit nextbutt twobuttnext">{{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }}</button>
+        <button class="uk-button nextbutt uk-width-2-6  float_right">{{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }}</button>
 {%- else -%}
-        <button class="uk-button submit nextbutt twobuttnext">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</button>
+        <button class="uk-button nextbutt uk-width-2-6  float_right">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</button>
 {%- endif -%}
 
 {% if renderBackButton %}
-        <button type="submit" class="uk-button nextbutt backbutt" id="backbutton" name = "{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
+        <button type="submit" class="uk-button nextbutt backbutt uk-width-2-6 float_left" id="backbutton" name = "{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">
             {{- 'form.back' | trans({}, 'FOSUserBundle') -}}
         </button>
 {% endif %}
 
     </div>
 </div>
+
+

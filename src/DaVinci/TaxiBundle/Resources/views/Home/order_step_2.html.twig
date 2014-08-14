@@ -1,8 +1,9 @@
+<div class="wrapper-content"><div id="content" class="content">
 <div class="content-block choice">
-    <ul class="tabs">  
-        <li class="general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
-        <li class="other current"><div class="arrow_box"><span>2</span> Other information</div></li>
-        <li class="contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+	<ul class="tabs uk-tab uk-tab-grid ">
+        <li class="uk-width-1-3 general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
+        <li class="uk-width-1-3 other current"><div class="arrow_box"><span>2</span> Other information</div></li>
+        <li class="uk-width-1-3 contact"><div class="noarrow"><span>3</span> Contact information</div></li>
     </ul>
 
     <div class="paramauto">
@@ -15,7 +16,7 @@
         </div>
 
         <h4>Класс автомобиля</h4>
-        <select name="classauto" class="styled">
+        <select name="classauto">
             <option>11</option>
             <option>12</option>
             <option>13</option>
@@ -28,7 +29,7 @@
             <label><input type="checkbox" /> <span class="bagage"></span>наличие багажа</label>
         </div>
         <h4 class="black">Any additional language?</h4>
-        <select name="additionallang" class="styled">
+        <select name="additionallang">
             <option>11</option>
             <option>12</option>
             <option>13</option>
@@ -41,9 +42,13 @@
             <div class="style1 helptext">осталось символов 200</div>
         </div>
 
-        <a href="{{ url('order_step_3') }}" class="nextbutt"><span>Next</span></a>
+		<div class="uk-button-group uk-width-1-1">
+			<a href="{{ url('order_step_3') }}" class="uk-button nextbutt twobuttnext uk-width-2-6  float_right"><span>Next ></span></a>
+			<a href="{{ url('order_step_1') }}" class="uk-button nextbutt backbutt uk-width-2-6 float_left"><span>< Back</span></a>
+		</div>
     </div>
 
-		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}>
+		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
     <div class="clear"></div>
 </div>
+</div></div>
