@@ -57,7 +57,7 @@ class payGnetAPIcaller
         $response = $this->apiCaller->call(new HttpPostJson($this->getOperationURL(self::REGISTER_USER), $parameters));
         
         //ok?
-        if($response->getStatusCode() == 200)
+       // if($response->getStatusCode() == 200)
         {
             //echo $response->getBody();  
         }
