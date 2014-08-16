@@ -6,13 +6,36 @@
         <li class="uk-width-1-3 contact"><div class="noarrow"><span>3</span> Contact information</div></li>
     </ul>
     <div class="destination">
-        <div class="desticlone">
-            <label><span class="title"><span class="destinationmark">a</span> From:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label>
-            <label><span class="title"><span class="destinationmark">b</span> To:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label>
+
+		<div class="desticlone">
+			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">a</span> From:</span></span>
+				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"  /></div>
+			</label>
+            <!--label><span class="title"><span class="destinationmark">a</span> From:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label-->
+			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">b</span> To:</span></span>
+				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"   /></div>
+			</label>
+            <!--label><span class="title"><span class="destinationmark">b</span> To:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label-->
         </div>
-        <div class="addlang"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
+        <div class="addlang uk-width-1-1"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
         <div class="separator"></div>
-        <div class="fordownblock"><span class="title">Pickup:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker" />
+
+		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Pickup:</span></span>
+			<div class="uk-form-controls uk-width-8-10">
+				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker"  />
+				<select name="pickupstart" class="uk-width-1-4">
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+				</select>
+				<select name="pickupend" class="uk-width-1-4">
+					<option>05</option>
+					<option>10</option>
+					<option>15</option>
+				</select>
+			</div>
+		</label>
+        <!--div class="fordownblock"><span class="title">Pickup:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker" />
             <select name="pickupstart">
                 <option>11</option>
                 <option>12</option>
@@ -22,21 +45,28 @@
                 <option>05</option>
                 <option>10</option>
                 <option>15</option>
-            </select></div>
-        <label class="fordownblock makereturn"><span class="title"></span><input type="checkbox" /> Make this a return trip</label>
-        <div class="fordownblock"><span class="title">Return:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker0" />
-            <select name="returnstart">
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-            </select>
-            <select name="returnend">
-                <option>05</option>
-                <option>10</option>
-                <option>15</option>
-            </select>
-        </div>
-        <a href="{{ url('order_step_2') }}" class="uk-button nextbutt"><span>Next ></span></a>
+            </select></div-->
+        <label class="fordownblock makereturn uk-form-row "><span class="uk-form-label uk-width-1-5  title"></span><input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span></label>
+
+		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Return:</span></span>
+			<div class="uk-form-controls uk-width-8-10">
+				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
+				<select name="pickupstart" class="uk-width-1-4">
+					<option>11</option>
+					<option>12</option>
+					<option>13</option>
+				</select>
+				<select name="pickupend" class="uk-width-1-4">
+					<option>05</option>
+					<option>10</option>
+					<option>15</option>
+				</select>
+			</div>
+		</label>
+
+        
+
+		<div class="uk-button-group uk-width-1-1"><a href="{{ url('order_step_2') }}" class="uk-button nextbutt">Next > </a></div>
 		<!--button class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';">Sign Up</button-->
     </div>
 
