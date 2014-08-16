@@ -30,11 +30,7 @@ class CreateUserFlow extends FormFlow {
             array(
                 'label' => 'form.signininfo',
                 'type' => $this->formType,
-            ),
-            array(
-                'label' => 'form.generalinfo',
-                'type' => $this->formType,
-            ),
+            )
         );
     }
 }

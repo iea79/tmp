@@ -65,8 +65,8 @@ FOS\UserBundle\Model\User:
                 message: fos_user.password.blank
                 groups: [ "flow_taxi_user_registration_step2", "ResetPassword", "ChangePassword" ]
             - Length:
-                min: 6
-                minMessage: fos_user.password.blank
+                min: 3
+                minMessage: fos_user.password.short
                 groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile", "ResetPassword", "ChangePassword"]
 
 FOS\UserBundle\Model\Group:
