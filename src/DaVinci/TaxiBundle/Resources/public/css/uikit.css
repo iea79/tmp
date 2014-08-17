@@ -6476,8 +6476,8 @@ fieldset label .errors li {
 }
 label .errors {
     float: left;
-    left: 58%;
-    margin: 0 0 21px;
+    left: 74%;
+/*    margin: 0 0 21px;*/
     position: absolute;
     top: 0;
 }
