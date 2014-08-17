@@ -1,6 +1,6 @@
 {% set renderBackButton = flow.getCurrentStepNumber() in (flow.getFirstStepNumber() + 1) .. flow.getLastStepNumber() %}
 <div id="buttons">
-    <div id="insidebuttonwrapper" class="uk-button-group uk-width-4-5">
+    <div id="insidebuttonwrapper" class="uk-button-group uk-width-1-1">
 {%- if flow.getCurrentStepNumber() == 1 -%}
         <button class="uk-button nextbutt uk-width-1-1"> {{ 'form.gotonextstep'|trans({}, 'FOSUserBundle') }} </button>
 {%- elseif flow.getCurrentStepNumber() < flow.getLastStepNumber() -%}

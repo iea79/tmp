@@ -4,31 +4,31 @@
 	<form class="uk-form uk-form-horizontal fos_user_registration_register"  action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 		<fieldset>
 			{% if flow.getCurrentStepNumber() == 1 %}
-				<ul class="tabs uk-tab uk-tab-grid">  
+				<!--ul class="tabs uk-tab uk-tab-grid">  
 					<li class="general current uk-width-1-2"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
 					<li class="contact uk-width-1-2"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
-				</ul>
+				</ul-->
 				{{ form_errors(form) }}
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.firstname'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'placeholder': 'form.firstname'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.firstname) }}
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.lastname'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.lastname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'placeholder': 'form.lastname'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.lastname) }}
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.gender'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.gender'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.gender,
 						{'attr':{'placeholder': 'form.gender'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.gender) }}
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.dateOfBirth'|trans }}:</span>
-					<div class="uk-form-controls">{{ form_widget(form.dateOfBirth,
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.dateOfBirth'|trans }}:</span>
+					<div class="uk-form-controls birthes">{{ form_widget(form.dateOfBirth,
 						{'attr':{'placeholder': 'form.dateOfBirth'|trans,
 								'style': 'display:inline',
 								'class': 'uk-width-3-5'}}) }}</div>
@@ -37,18 +37,18 @@
 			{% endif %}
 				
 			{% if flow.getCurrentStepNumber() == 2 %}    
-				<ul class="tabs uk-tab uk-tab-grid">  
+				<!--ul class="tabs uk-tab uk-tab-grid">  
 					<li class="general uk-width-1-2"><a class="arrow_box" href="#" onclick="document.getElementById('backbutton').click();"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
 					<li class="contact uk-width-1-2 current"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
-				</ul>
+				</ul-->
 				{{ form_errors(form) }}
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.email'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.email'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'placeholder': 'form.email'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.email) }}
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.password'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.first,
 						{'attr':{'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
@@ -56,7 +56,7 @@
 								}}) }}</div>
                     {{ form_errors(form.plainPassword.first) }}
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 text">{{ 'form.password_confirmation'|trans }}:</span>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password_confirmation'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.second,
 						{'attr':{'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
