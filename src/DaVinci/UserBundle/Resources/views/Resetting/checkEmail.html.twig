@@ -3,7 +3,17 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-<p>
-{{ 'resetting.check_email'|trans({'%email%': email}) }}
-</p>
+	<div class="wrapper-content"><div class="content register checkmail">
+		<div class="uk-width-3-5 float_left">
+			<h4>Please check your email and your address! </h4>
+			<p>{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+		</div>
+		<div class="float_right uk-width-2-5">
+			<p><a href="#">Didn't get your verification email?</a></p>
+			<p><a href="#">Used the wrong email address?</a></p>
+		</div>
+		<div class="clear"></div>
+		<div class="usedemail"> You have used email: {{ 'resetting.check_email'|trans({'%email%'}) }} </div>
+
+	</div></div>
 {% endblock %}

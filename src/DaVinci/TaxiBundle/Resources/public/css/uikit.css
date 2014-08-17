@@ -650,8 +650,10 @@ iframe {
 .uk-width-2-10 {
   width: 20%;
 }
-.uk-width-2-5,
 .uk-width-4-10 {
+  width: 37%;
+}
+.uk-width-2-5{
   width: 40%;
 }
 .uk-width-3-5,
@@ -2296,15 +2298,16 @@ select.uk-form-width-mini {
   margin-bottom: 5px;
   font-weight: bold;
 }
-.register   .uk-form-horizontal .uk-form-label {
+/*.register   .uk-form-horizontal .uk-form-label {
 	color: #fff;
 	font-weight: normal;
-  }
+ }*/
 @media (max-width: 959px) {
   .uk-form-horizontal .uk-form-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+    float: left;
   }
 }
 @media (min-width: 960px) {
@@ -5488,7 +5491,7 @@ a.uk-thumbnail:focus {
     page-break-after: avoid;
   }
 }
-.register .title {
+/*.register .title {
     background: none repeat scroll 0 0 #3d3d3d;
     color: #fff;
     font-size: 30px;
@@ -5496,7 +5499,7 @@ a.uk-thumbnail:focus {
     padding: 22px 0 18px;
     text-align: center;
     text-transform: uppercase;
-}
+}*/
 .choice {
 	padding: 0 0 9px 0;
     border-radius: 4px;
