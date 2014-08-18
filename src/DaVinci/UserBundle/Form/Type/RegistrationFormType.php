@@ -31,21 +31,18 @@ class RegistrationFormType extends BaseType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
-                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'));
-                break;
-            case 2:
-                $builder
-                        ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'))
+                                            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                         ->add('plainPassword', 'repeated', array(
                             'type' => 'password',
                             'options' => array('translation_domain' => 'FOSUserBundle'),
                             'first_options' => array('label' => 'form.password'),
                             'second_options' => array('label' => 'form.password_confirmation'),
                             'invalid_message' => 'fos_user.password.mismatch',
-                        ))
-                        ->add(
-                                'terms', 'checkbox', array('property_path' => 'termsAccepted')
-                );
+                        ));
+                break;
+            case 2:
+                       $builder->add('terms', 'checkbox', array('property_path' => 'termsAccepted'));
                 break;
         }
     }
