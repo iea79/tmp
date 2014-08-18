@@ -1,6 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="wrapper-content title">{{ 'Please register'|trans}}</div>
-<div class="wrapper-content"><div class="content register">
+<div class="wrapper-content title">{{ 'Create an account'|trans}}</div>
+<div class="wrapper-content"><div class="content uk-width-1-2">
 	<form class="uk-form uk-form-horizontal fos_user_registration_register"  action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 		<fieldset>
 			{% if flow.getCurrentStepNumber() == 1 %}
@@ -14,14 +14,21 @@
 						{'attr':{'placeholder': 'form.firstname'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.firstname) }}
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+					</div>
 				</label>
+				
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.lastname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'placeholder': 'form.lastname'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.lastname) }}
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+					</div>
 				</label>
-				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.gender'|trans }}:</span>
+				<!--label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.gender'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.gender,
 						{'attr':{'placeholder': 'form.gender'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
@@ -41,12 +48,14 @@
 					<li class="general uk-width-1-2"><a class="arrow_box" href="#" onclick="document.getElementById('backbutton').click();"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
 					<li class="contact uk-width-1-2 current"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 				</ul-->
-				{{ form_errors(form) }}
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.email'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'placeholder': 'form.email'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.email) }}
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+					</div>
 				</label>
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.first,
@@ -55,6 +64,9 @@
 								'class': 'uk-width-3-5 passfield'
 								}}) }}</div>
                     {{ form_errors(form.plainPassword.first) }}
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+					</div>
 				</label>
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password_confirmation'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.second,
@@ -63,16 +75,22 @@
 								'class': 'uk-width-3-5 passfield2'
 								}}) }}</div>
                     {{ form_errors(form.plainPassword.second) }}
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+					</div>
 				</label>
 
 
-				<label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
+				<!--label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label-->
 
 			{% endif %}
 
 		{{ form_rest(form) }}
 
-		{% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+			<div class="uk-button-group uk-width-1-1">
+				<button class="uk-button nextbutt uk-width-1-1">Create Account</button>
+			</div>
+		<!--{% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}-->
 			
 		</fieldset>
 		
