@@ -41,10 +41,8 @@
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.dateOfBirth) }}
 				</label>
-			{% endif %}
-				
-			{% if flow.getCurrentStepNumber() == 2 %}    
-				<!--ul class="tabs uk-tab uk-tab-grid">  
+                
+                <!--ul class="tabs uk-tab uk-tab-grid">  
 					<li class="general uk-width-1-2"><a class="arrow_box" href="#" onclick="document.getElementById('backbutton').click();"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="ok" /></span>{{ 'form.contactinfo'|trans}}</a></li>
 					<li class="contact uk-width-1-2 current"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 				</ul-->
@@ -79,7 +77,11 @@
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 					</div>
 				</label>
+			{% endif %}
+				
+			{% if flow.getCurrentStepNumber() == 2 %}    
 
+                <!-- тут будет выводиться информация, пока что добавь просто верстку -->
 
 				<!--label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label-->
 
