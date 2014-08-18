@@ -723,12 +723,14 @@ label .text {
 /*.title, */.register .title{
 /*	background: #3d3d3d;
 	color: #fff;
-	text-transform: uppercase;*/
+	text-transform: uppercase;
+    padding: 22px 0 18px 0;	
+	*/
 	background: #fff;
 	color: #3d3d3d;
 	text-align: center;
-	margin: 20px 0 30px 0;
-    padding: 22px 0 18px 0;	
+	margin: 10px 0 15px 0;
+    padding: 12px 0 8px 0;	
 	font-size: 30px;
 	position: relative;
 	line-height: 120%;
@@ -911,6 +913,13 @@ select option {    padding: 0 10px;}
 .main .timesent input[type="text"] {    margin: 0;}
 .justcheck, .term {    padding: 8px 0 0;}
 .term a {    color: #ff4d61;}
+.wrapper-content > .content.register.checkmail {
+	width: 960px;
+}
+.wrapper-content > .content.register.checkmail .float_left{
+    background: url("../images/checkmail.png") no-repeat 0 center #fff;
+	padding-left: 120px;
+}
 .checkmail a, .about .term a {    color: #528ed3;}
 .checkmail .float_right {text-align: right;}
 .justcheck input, .term input {    margin: 0 9px 0 0;}
@@ -1600,3 +1609,9 @@ a.logintw {
 .gobutt:hover {
     text-decoration: none;
 }*/
+.wrapper-content > .content.usedemail {
+	padding: 20px 20px 20px 140px;
+	background: #f4f4f4;
+	width: 840px;
+}
+.wrapper-content > .content.usedemail a{color: #ff4d61;}
