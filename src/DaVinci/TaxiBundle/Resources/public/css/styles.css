@@ -55,7 +55,7 @@
 	width: 100%;
 	max-width: 1000px;
 }
-.wrapper-content > .content.register {
+.wrapper-content > .content.register, .wrapper-content > .content.uk-width-1-2{
 	padding: 20px;
 	width: 50%;
 /*	border-radius: 6px;*/
@@ -201,6 +201,7 @@
 	
     #header .uk-navbar-toggle,
     #header table td:last-child {display: table-cell;}
+	.wrapper-content > .content.uk-width-1-2{width: 100%;}
 }
 
 #offcanvas-nav .uk-search.in-offcanvas .uk-dropdown-search {width: 112.5%; left: -15px; background: #333; color: #fff;}
@@ -208,7 +209,10 @@
 #offcanvas-nav .uk-open div {background: #404040;}
 #offcanvas-nav .uk-nav-offcanvas > li > a:hover {background: #454545;}
 /*#offcanvas-nav .offcanvas-footer {display: none;}*/
-@media (max-width: 480px) {#offcanvas-nav .offcanvas-footer {display: list-item;}}
+@media (max-width: 480px) {
+	#offcanvas-nav .offcanvas-footer {display: list-item;}
+	.wrapper-content > .content.uk-width-1-2{width: 100%;}
+}
 
 
 #blocks .uk-grid-width-1-4 > li {margin-top: 20px; text-align: left;}
@@ -527,7 +531,8 @@
 }
 .breadcrubs .crunbs  li:first-child:before{display:none;}
 .breadcrubs .crunbs  a{text-decoration: underline;color: #fff;}
-.banner{
+.wrapper-content.banner {padding: 0;}
+.banner > .content{
 	position: relative;
 	/*z-index: 2;*/
 	text-align: center;
@@ -705,7 +710,7 @@ label .text {
 	vertical-align:middle;
 }
 .registerfix {
-    background: url("../images/registerbg.jpg") no-repeat scroll center center transparent;
+    background: #f5f5f5/*url("../images/registerbg.jpg") no-repeat scroll center center transparent*/;
     display: none;
     float: left;
     height: 100%;
@@ -723,13 +728,13 @@ label .text {
 /*.title, */.register .title{
 /*	background: #3d3d3d;
 	color: #fff;
-	text-transform: uppercase;
     padding: 22px 0 18px 0;	
+	margin: 10px 0 15px 0;
 	*/
+	text-transform: uppercase;
 	background: #fff;
 	color: #3d3d3d;
 	text-align: center;
-	margin: 10px 0 15px 0;
     padding: 12px 0 8px 0;	
 	font-size: 30px;
 	position: relative;
@@ -1615,3 +1620,48 @@ a.logintw {
 	width: 840px;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
+.questiontooltip {
+	position: absolute;
+	float: right;
+	right: -26px;
+	top: 6px;
+}
+.questiontooltip a{
+/*	display: block;
+	width: 15px;
+	height:15px;*/
+}
+.questiontooltip a span.que{
+	display: block;
+	width: 18px;
+	height:17px;
+	text-align: center;
+	background: #528ed3 ;
+	color: #fff;
+	border-radius: 50%;
+	padding-top: 1px;
+	font-size: 14px;
+	vertical-align: middle;
+	line-height: 16px;
+}
+.questiontooltip a:hover {
+	background		: #ffffff;	/*необходимо для IE6*/
+	text-decoration	: none;
+}
+.questiontooltip a span.tooltip {
+	display			: none; 
+	padding			: 2px 3px; 
+	margin-left		: 8px; 
+	width			: 130px;
+	float: left;
+	left: 20px;
+	top: 0;
+	position: relative;
+}
+.questiontooltip a:hover span.tooltip {
+	display			: inline; 
+	position		: absolute; 
+	background		: #ffffff; 
+	border			: 1px solid #cccccc; 
+	color			: #6c6c6c;
+}

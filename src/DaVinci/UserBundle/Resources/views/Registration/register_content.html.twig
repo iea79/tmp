@@ -28,6 +28,9 @@
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 					</div>
 				</label>
+
+
+
 				<!--label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.gender'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.gender,
 						{'attr':{'placeholder': 'form.gender'|trans,
@@ -57,7 +60,8 @@
 				</label>
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.first,
-						{'attr':{'pattern':'.{3,}',
+						{'attr':{'placeholder': 'form.password'|trans,
+								'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
 								'class': 'uk-width-3-5 passfield'
 								}}) }}</div>
@@ -68,7 +72,8 @@
 				</label>
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password_confirmation'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.plainPassword.second,
-						{'attr':{'pattern':'.{3,}',
+						{'attr':{'placeholder': 'form.password_confirmation'|trans,
+								'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
 								'class': 'uk-width-3-5 passfield2'
 								}}) }}</div>
@@ -77,21 +82,41 @@
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 					</div>
 				</label>
+				<div class="uk-button-group uk-width-1-1">
+					<button class="uk-button nextbutt uk-width-1-1">Create Account</button>
+				</div>
 			{% endif %}
 				
-			{% if flow.getCurrentStepNumber() == 2 %}    
+			{% if flow.getCurrentStepNumber() == 2 %}  
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
+					<div class="uk-form-label"><span class="text">Boris</span></div>
+				</label>
+				
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.lastname'|trans }}:</span>
+					<div class="uk-form-label">Ivanov</div>
+				</label>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.email'|trans }}:</span>
+					<div class="uk-form-label">1@mail.ru</div>
+				</label>
+				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password'|trans }}:</span>
+					<div class="uk-form-label">123456</div>
+				</label>
+
+
+				<label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
+
+				<div class="uk-button-group uk-width-1-1">
+					<button class="uk-button nextbutt twobuttnext uk-width-2-6  float_right">Finish</button>
+					<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-2-6 float_left" type="submit">< Edit</button>
+				</div>
 
                 <!-- тут будет выводиться информация, пока что добавь просто верстку -->
 
-				<!--label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label-->
 
 			{% endif %}
 
 		{{ form_rest(form) }}
 
-			<div class="uk-button-group uk-width-1-1">
-				<button class="uk-button nextbutt uk-width-1-1">Create Account</button>
-			</div>
 		<!--{% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}-->
 			
 		</fieldset>

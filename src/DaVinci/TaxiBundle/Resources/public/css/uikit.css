@@ -2389,7 +2389,7 @@ select.uk-form-width-mini {
 }
 .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
-	margin-right: 8px; 
+/*	margin-right: 8px; */
 	float: left;
 }
 .uk-button.nextbutt.backbutt:hover, .uk-button.nextbutt.backbutt:focus {
