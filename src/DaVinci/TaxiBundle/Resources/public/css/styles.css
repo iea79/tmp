@@ -55,9 +55,13 @@
 	width: 100%;
 	max-width: 1000px;
 }
-.wrapper-content > .content.register, .wrapper-content > .content.uk-width-1-2{
+.wrapper-content > .content.register{
+	padding: 20px 42px 20px 20px;
+	width: 40%;
+}
+.wrapper-content > .content.uk-width-2-5{
 	padding: 20px;
-	width: 50%;
+	width: 40%;
 /*	border-radius: 6px;*/
 }
 
@@ -1095,6 +1099,7 @@ a.btn-red {
     font-size: 16px;
     padding: 18px 10px;
 }
+.pinktext {color: #ff4d61;}
 .red {
     background: none repeat scroll 0 0 #ff4d61;
 }
@@ -1446,7 +1451,7 @@ span.date {
     padding-bottom: 38px;
     position: relative;
     text-align: center;
-    width: 398px;
+/*    width: 398px;*/
 }
 .authorizat h3, .authoriz h3 {
     color: #ff4d61;

@@ -656,9 +656,11 @@ iframe {
 .uk-width-2-5{
   width: 40%;
 }
-.uk-width-3-5,
-.uk-width-6-10 {
+.uk-width-3-5 {
   width: 60%;
+}
+.uk-width-6-10 {
+  width: 56%;
 }
 .uk-width-4-5,
 .uk-width-8-10 {
@@ -2336,7 +2338,7 @@ select.uk-form-width-mini {
     padding-bottom: 38px;
     position: relative;
     text-align: center;
-    width: 398px;
+/*    width: 398px;*/
 }
 
 .uk-form-icon {
@@ -5599,7 +5601,7 @@ a.uk-thumbnail:focus {
     padding-bottom: 38px;
     position: relative;
     text-align: center;
-    width: 398px;
+/*    width: 398px;*/
 }
 .uk-form-horizontal.authorizat p, .authoriz p {
     font-size: 14px;
@@ -6316,8 +6318,10 @@ span.countpassenger {
 }
 .wicheck {
     display: inline-block;
-    margin-right: 12px;
+    margin-right: 42px;
 }
+.wicheck .questiontooltip {	top: 2px;}
+
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
 /*    width: 196px;*/

@@ -1,30 +1,41 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-
 {% block theme 'register' %}
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
-<div class="wrapper-content title">{{ 'Specification to get Taxi Manager Office'|trans}}</div>
+<div class="wrapper-content title">{{ 'Taxi Company: Manager Office'|trans}}</div>
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
 			<!--ul class="tabs uk-tab uk-tab-grid">  
-				<li class="general full uk-width-1-1"><span>1</span>{{ 'form.generalinfo'|trans}}</li>
+				<li class="general current uk-width-1-2"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
+				<li class="contact uk-width-1-2"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 			</ul-->
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company driver:</span>
+				<div class="uk-form-label pinktext">Boris Ivanov</div>
+			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
 				<select class="uk-width-3-5" name="country" id="country" required>
 					<option>Russia</option>
 				</select>
 				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
-				<div class="uk-form-controls">
-				<select class="uk-width-3-5" name="city" id="city" required>
-					<option>Moscow</option>
-					<option>St. Petersburg</option>
-				</select>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 				</div>
 			</label>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
+				<div class="uk-form-controls"><input type="checkbox" name="cc" id="cc"  /> <input class="uk-width-6-10" type="text" name="code" id="code" required placeholder="Company code" /></div>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
+			</label>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
+				<div class="uk-form-controls"><input type="checkbox" name="cn" id="cn"  /> <input class="uk-width-6-10" type="text" name="Choose by name" id="code" required placeholder="Choose by name" /></div>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
+			</label>
+
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
 				<div class="uk-form-controls">
 				<select class="uk-width-3-5" name="english" id="english" required>
@@ -38,7 +49,11 @@
 						<option>Proficiency</option>
 				</select>
 				</div>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
 			</label>
+
 			<label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
 				<div class="uk-form-controls style1 uk-width-3-5"><div class="style2">
 					<select class="display_none uk-width-1-1" name="lang" required>
@@ -78,12 +93,22 @@
 					</select></div>
 					<div class="uk-width-1-1 addotherlanguage">Add language</div>
 				</div>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
 			</label>
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
 				<div class="uk-form-controls"><input class="uk-width-3-5" type="text" name="skype" id="skype" required placeholder="Skype" /></div>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
 			</label>
+
 			<label class="addphoneline uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
+				<div class="questiontooltip">
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+				</div>
 				<div class="uk-form-controls addphoneareas uk-width-3-5">
 					<select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
@@ -131,20 +156,28 @@
 					<input class="uk-width-3-5 float_right" type="text" name="phone" id="phone" required placeholder="Phone number" />
 				</div>
 			</label>
-			<div class="wifis uk-form-row"><span class="uk-form-label uk-width-2-5 text"> </span>
+			<div class="wifis uk-form-row"><span class="uk-form-label uk-width-2-5 text">Mark if you have </span>
 				<div class="uk-form-controls uk-width-1-1">
-					<div class="wicheck"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
-					<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
-					<div class="addphone">Add another phone number:</div>
+					<div class="wicheck"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+						</div>
+					</label></div>
+					<div class="wicheck"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
+						</div>
+					</label></div>
 				</div>
 			</div>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
-				<div class="uk-form-controls"><input class="uk-width-3-5" type="text" name="code" id="code" required placeholder="Company code" /></div>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
+				<div class="uk-form-controls addphone">Add another phone number</div>
+				
 			</label>
+
 			<div class="uk-button-group uk-width-1-1">
-				<button class="uk-button submit nextbutt uk-width-1-1">Complete registration</button>
+				<button class="uk-button submit nextbutt uk-width-1-1">Create Office</button>
 			</div>
-			
 		</fieldset>
 	</form>
 </div></div>
