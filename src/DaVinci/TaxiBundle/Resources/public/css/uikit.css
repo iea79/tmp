@@ -660,7 +660,7 @@ iframe {
   width: 60%;
 }
 .uk-width-6-10 {
-  width: 56%;
+  width: 52%;
 }
 .uk-width-4-5,
 .uk-width-8-10 {
@@ -6476,14 +6476,16 @@ fieldset .errors li {
     list-style: none outside none;
 }
 fieldset label .errors li {
-    list-style: disc outside none;
+/*    list-style: disc outside none;*/
+    list-style: none;
 }
 label .errors {
     float: left;
-    left: 74%;
+    left: 42%;
 /*    margin: 0 0 21px;*/
     position: absolute;
-    top: 0;
+    top: 21px;
+	font-size: 0.7em;
 }
 .errors li {
     margin-bottom: 21px;
@@ -6502,8 +6504,9 @@ label .errors {
     background: url("../images/trans.png") repeat scroll 0 0 transparent;
     float: left;
     height: 60%;
+	
     left: 0;
-    padding: 20% 0;
+    padding: 10% 0;
     position: fixed;
     text-align: center;
     top: 0;
@@ -6560,3 +6563,8 @@ label .errors {
 	opacity: 0.6
 }
 .makechoicecontent li a:active {	opacity: 0.4}
+
+.uk-form-controls {
+	position: relative;
+	white-space: nowrap;
+}

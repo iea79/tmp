@@ -1626,10 +1626,13 @@ a.logintw {
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .questiontooltip {
+	z-index: 4;
 	position: absolute;
 	float: right;
 	right: -26px;
 	top: 6px;
+/*	position: relative;
+	float: right;*/
 }
 .questiontooltip a{
 /*	display: block;
@@ -1648,6 +1651,9 @@ a.logintw {
 	font-size: 14px;
 	vertical-align: middle;
 	line-height: 16px;
+/*	float: right;
+	position: relative;
+	top: 4px;*/
 }
 .questiontooltip a:hover {
 	background		: #ffffff;	/*необходимо для IE6*/
@@ -1657,11 +1663,14 @@ a.logintw {
 	display			: none; 
 	padding			: 2px 3px; 
 	margin-left		: 8px; 
-	width			: 130px;
+	width			: 76px;
+	height: 54px;
 	float: left;
 	left: 20px;
 	top: 0;
 	position: relative;
+	font-size: 0.7em;
+	white-space: normal;
 }
 .questiontooltip a:hover span.tooltip {
 	display			: inline; 

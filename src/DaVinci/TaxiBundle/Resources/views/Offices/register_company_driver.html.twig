@@ -24,13 +24,18 @@
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
-				<div class="uk-form-controls"><input type="checkbox" name="cc" id="cc"  /> <input class="uk-width-6-10" type="text" name="code" id="code" required placeholder="Company code" /></div>
+				<div class="uk-form-controls"><input type="radio" name="cc" id="cc"  /> <input class="uk-width-6-10 float_right" type="text" name="code" id="code" required placeholder="Company code" /></div>
 				<div class="questiontooltip">
 					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
-				<div class="uk-form-controls"><input type="checkbox" name="cn" id="cn"  /> <input class="uk-width-6-10" type="text" name="Choose by name" id="code" required placeholder="Choose by name" /></div>
+				<div class="uk-form-controls"><input type="radio" name="cc" id="cn"  /> 
+					<select class="uk-width-6-10 float_right"  name="Choose by name" id="choose" required>
+							<option>Choose by name</option>
+							<option>Choose by name 2</option>
+					</select>
+				</div>
 				<div class="questiontooltip">
 					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 				</div>

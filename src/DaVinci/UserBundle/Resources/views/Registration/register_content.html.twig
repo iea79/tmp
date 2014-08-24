@@ -9,11 +9,14 @@
 					<li class="contact uk-width-1-2"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
 				</ul-->
 				{{ form_errors(form) }}
+				<!--ul class="errors"><li>Please enter first name</li></ul-->
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'placeholder': 'form.firstname'|trans,
 								'class': 'uk-width-3-5'}}) }}</div>
 					{{ form_errors(form.firstname) }}
+					<!--ul class="errors"><li>Please enter first name</li></ul-->
+					
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
 					</div>
