@@ -554,6 +554,9 @@ iframe {
   .uk-grid-width-small-1-10 > * {
     width: 10%;
   }
+.whicheck-1 {width: 28%;}
+.whicheck-2 {width: 42%;}
+
 }
 @media (min-width: 768px) {
   .uk-grid-width-medium-1-2 > * {
@@ -574,6 +577,8 @@ iframe {
   .uk-grid-width-medium-1-10 > * {
     width: 10%;
   }
+.whicheck-1 {width: 28%;}
+.whicheck-2 {width: 42%;}
 }
 @media (min-width: 960px) {
   .uk-grid-width-large-1-2 > * {
@@ -636,9 +641,11 @@ iframe {
 .uk-width-2-6 {
   width: 49%;
 }
-.uk-width-2-3,
-.uk-width-4-6 {
+.uk-width-2-3 {
   width: 66.666%;
+}
+.uk-width-4-6 {
+  width: 53%;
 }
 .uk-width-1-4 {
   width: 25%;
@@ -646,9 +653,11 @@ iframe {
 .uk-width-3-4 {
   width: 75%;
 }
-.uk-width-1-5,
-.uk-width-2-10 {
+.uk-width-1-5 {
   width: 20%;
+}
+.uk-width-2-10 {
+  width: 16%;
 }
 .uk-width-4-10 {
   width: 37%;
@@ -656,9 +665,11 @@ iframe {
 .uk-width-2-5{
   width: 40%;
 }
-.uk-width-3-5,
-.uk-width-6-10 {
+.uk-width-3-5 {
   width: 60%;
+}
+.uk-width-6-10 {
+  width: 43%;
 }
 .uk-width-4-5,
 .uk-width-8-10 {
@@ -2336,7 +2347,7 @@ select.uk-form-width-mini {
     padding-bottom: 38px;
     position: relative;
     text-align: center;
-    width: 398px;
+/*    width: 398px;*/
 }
 
 .uk-form-icon {
@@ -2389,7 +2400,7 @@ select.uk-form-width-mini {
 }
 .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
-	margin-right: 8px; 
+/*	margin-right: 8px; */
 	float: left;
 }
 .uk-button.nextbutt.backbutt:hover, .uk-button.nextbutt.backbutt:focus {
@@ -5599,7 +5610,7 @@ a.uk-thumbnail:focus {
     padding-bottom: 38px;
     position: relative;
     text-align: center;
-    width: 398px;
+/*    width: 398px;*/
 }
 .uk-form-horizontal.authorizat p, .authoriz p {
     font-size: 14px;
@@ -6290,7 +6301,7 @@ span.countpassenger {
 /*    float: left;*/
     padding: 5px 0;
 }
-.addphoneline .text {   padding-bottom: 4%;}
+.addphoneline .text {   padding-bottom: 5%;}
 .addlangline .style1, .addphoneareas {
 /*    display: inline-block;
     padding-left: 4px;
@@ -6315,9 +6326,17 @@ span.countpassenger {
     margin: 0 0 0 4px;
 }
 .wicheck {
-    display: inline-block;
-    margin-right: 12px;
+	position: relative;
+	float: left;
+/*    display: inline-block;*/
 }
+.wicheck .questiontooltip {
+	top: -2px;
+/*    margin-right: 42px;*/
+	right: 12px;
+
+}
+
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
 /*    width: 196px;*/
@@ -6472,14 +6491,16 @@ fieldset .errors li {
     list-style: none outside none;
 }
 fieldset label .errors li {
-    list-style: disc outside none;
+/*    list-style: disc outside none;*/
+    list-style: none;
 }
 label .errors {
     float: left;
-    left: 74%;
+    left: 42%;
 /*    margin: 0 0 21px;*/
     position: absolute;
-    top: 0;
+    top: 21px;
+	font-size: 0.7em;
 }
 .errors li {
     margin-bottom: 21px;
@@ -6498,8 +6519,9 @@ label .errors {
     background: url("../images/trans.png") repeat scroll 0 0 transparent;
     float: left;
     height: 60%;
+	
     left: 0;
-    padding: 20% 0;
+    padding: 10% 0;
     position: fixed;
     text-align: center;
     top: 0;
@@ -6556,3 +6578,8 @@ label .errors {
 	opacity: 0.6
 }
 .makechoicecontent li a:active {	opacity: 0.4}
+
+.uk-form-controls {
+	position: relative;
+	white-space: nowrap;
+}

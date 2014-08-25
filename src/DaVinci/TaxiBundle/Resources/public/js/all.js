@@ -101,10 +101,25 @@ function setAttribute(){
 } 
 
 $(document).ready(function() {
+	$('.rowcity').hide();	
+	$('.rowstreet').hide();	
+	$('.rowbuild').hide();	
+	
+	$('#country').change(function() {
+		$('.rowcity').show();	
+	});
 
+	$('#city').change(function() {
+		$('.rowstreet').show();	
+	});
+	
+	$('#street').change(function() {
+		$('.rowbuild').show();	
+	});
 
 	$('.addphone').click(function() {
 		$('.addphoneareas:last-child').clone().appendTo(".addphoneline");	
+		$('.addphone').addClass('display_none');	
 		return false;
 	});
 	$('.addotherlanguage').click(function() {
