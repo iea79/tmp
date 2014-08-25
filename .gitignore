@@ -10,7 +10,7 @@
 /vendor/
 /bin/
 /composer.phar
-composer.lock
+/composer.lock
 /web/css/
 /web/js/
 /web/.htpasswd
