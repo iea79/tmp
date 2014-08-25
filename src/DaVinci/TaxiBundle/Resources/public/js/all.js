@@ -119,6 +119,7 @@ $(document).ready(function() {
 
 	$('.addphone').click(function() {
 		$('.addphoneareas:last-child').clone().appendTo(".addphoneline");	
+		$('.addphone').addClass('display_none');	
 		return false;
 	});
 	$('.addotherlanguage').click(function() {

@@ -56,11 +56,11 @@
 	max-width: 1000px;
 }
 .wrapper-content > .content.register{
-	padding: 20px 42px 20px 20px;
+	padding: 12px;
 	width: 40%;
 }
 .wrapper-content > .content.uk-width-2-5{
-	padding: 20px;
+	padding: 12px;
 	width: 40%;
 /*	border-radius: 6px;*/
 }
@@ -1627,12 +1627,12 @@ a.logintw {
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .questiontooltip {
 	z-index: 4;
-	position: absolute;
+	/*position: absolute;
 	float: right;
 	right: -26px;
-	top: 6px;
-/*	position: relative;
-	float: right;*/
+	top: 6px;*/
+	position: relative;
+	float: right;
 }
 .questiontooltip a{
 /*	display: block;
@@ -1651,9 +1651,10 @@ a.logintw {
 	font-size: 14px;
 	vertical-align: middle;
 	line-height: 16px;
-/*	float: right;
+	float: right;
 	position: relative;
-	top: 4px;*/
+	top: 4px;
+	z-index: 0;
 }
 .questiontooltip a:hover {
 	background		: #ffffff;	/*необходимо для IE6*/
@@ -1665,12 +1666,13 @@ a.logintw {
 	margin-left		: 8px; 
 	width			: 76px;
 	height: 54px;
-	float: left;
-	left: 20px;
+	float: right;
+	right: 20px;
 	top: 0;
 	position: relative;
 	font-size: 0.7em;
 	white-space: normal;
+	z-index: 4;
 }
 .questiontooltip a:hover span.tooltip {
 	display			: inline; 
@@ -1679,3 +1681,4 @@ a.logintw {
 	border			: 1px solid #cccccc; 
 	color			: #6c6c6c;
 }
+.numcars {margin-right: 12px;}
