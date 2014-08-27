@@ -88,6 +88,16 @@ class User extends BaseUser
         $this->independentDriver = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    public function setFirstname($firstname)
+    {
+        $this->firstname = ucwords(strtolower($firstname));
+    }
+
+    public function setLastname($lastname)
+    {
+        $this->lastname = ucwords(strtolower($lastname));
+    }
+    
     public function getTermsAccepted()
     {
         return $this->termsAccepted;

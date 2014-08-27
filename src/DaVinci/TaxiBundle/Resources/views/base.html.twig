@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8" />
 		<meta name="viewport" content="widht=device-width, initial-scale=1.0" />
-        <title>{% block title %}TAXI MY PRICE{% endblock %}</title>
+        {{ sonata_seo_title() }}
+        {{ sonata_seo_metadatas() }}
 			{% block stylesheets %}
 				{% stylesheets 'bundles/davincitaxi/css/uikit.css'
 					'bundles/davincitaxi/css/addons/uikit.addons.css'

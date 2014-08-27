@@ -113,6 +113,9 @@ form:
     gotonextstep: "Next step >"
     iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
     back: < Back
+    create_account: "Create Account"
+    finish: Finish
+    edit: Edit
     
 fos_user:    
     firstname:

@@ -21,8 +21,9 @@ class RegistrationFormType extends BaseType {
                         ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
                             'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
                         ->add('lastname', 'text', array('label' => 'form.lastname', 'translation_domain' => 'FOSUserBundle',
-                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
-                        ->add('gender', 'choice', array(
+                            'attr' => array('title' => 'fos_user.lastname.latin', 'pattern' => '^[a-zA-Z ]+$')))
+                       /* //now it will be filled in profile
+                        * ->add('gender', 'choice', array(
                             'choices' => array(
                                 '1' => 'form.male',
                                 '0' => 'form.female'
@@ -31,8 +32,8 @@ class RegistrationFormType extends BaseType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
-                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'))
-                                            ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'))*/
+                        ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                         ->add('plainPassword', 'repeated', array(
                             'type' => 'password',
                             'options' => array('translation_domain' => 'FOSUserBundle'),
@@ -50,7 +51,7 @@ class RegistrationFormType extends BaseType {
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'DaVinci\TaxiBundle\Entity\User',
+            'data_class' => 'DaVinci\TaxiBundle\Entity\User'
         ));
     }
     /**

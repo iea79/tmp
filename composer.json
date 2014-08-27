@@ -21,7 +21,7 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "jackalope/jackalope": "1.1.*@dev",
-        "jackalope/jackalope-doctrine-dbal": "1.1.*@dev",
+        "jackalope/jackalope-doctrine-dbal": "1.2.*@dev",
         "sonata-project/doctrine-phpcr-admin-bundle": "dev-master",
         "sonata-project/admin-bundle": "2.2.12",
         "sonata-project/doctrine-orm-admin-bundle": "2.2.*@dev",
@@ -38,7 +38,8 @@
         "sonata-project/user-bundle": "2.2.*@dev",
         "leaseweb/api-caller-bundle": "*",
         "codeception/codeception": "*",
-        "symfony-cmf/symfony-cmf": "1.1.0"
+        "symfony-cmf/symfony-cmf": "1.1.0",
+        "sonata-project/seo-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

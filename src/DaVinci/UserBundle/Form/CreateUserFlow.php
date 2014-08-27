@@ -1,4 +1,5 @@
 <?php
+
 namespace DaVinci\UserBundle\Form;
 
 use Craue\FormFlowBundle\Form\FormFlow;

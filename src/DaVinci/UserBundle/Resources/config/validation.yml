@@ -25,7 +25,7 @@ DaVinci\TaxiBundle\Entity\User:
         lastname:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
-                message: fos_user.firstname.not_blank
+                message: fos_user.lastname.not_blank
             - Length:
                 min: 1
                 minMessage: fos_user.lastname.short
@@ -35,13 +35,13 @@ DaVinci\TaxiBundle\Entity\User:
             - Regex:
                 pattern: "/^[a-z ]+$/i"
                 htmlPattern: "^[a-zA-Z ]+$"
-                message: fos_user.firstname.latin
+                message: fos_user.lastname.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
-        gender:
-            - Choice: 
-                choices: [0, 1]
-                message:  fos_user.gender.valid
-                groups: [ "flow_taxi_user_registration_step1" ]
+       # gender:
+       #     - Choice: 
+       #         choices: [0, 1]
+       #         message:  fos_user.gender.valid
+       #         groups: [ "flow_taxi_user_registration_step1" ]
 
             
 # Note: We still want to validate the email

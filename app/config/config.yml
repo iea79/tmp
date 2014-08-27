@@ -95,7 +95,8 @@ sonata_admin:
         admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
         # permission related to the objects
         object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]        
-        
+
+                
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
@@ -164,8 +165,7 @@ sonata_doctrine_phpcr_admin:
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ReferenceBlock
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ActionBlock
         Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ReferenceBlock:
-            valid_children: 
-                - all
+            valid_children: []
         # ...
         
 fos_user:
@@ -204,15 +204,17 @@ parameters:
         fresh_connect: false  # set to true to force full reconnect every call.
 
 
+
+sonata_seo:
+    page:
+        title: Taxi My Price
+        metas:
+            name:
+                keywords: "taxi, your price, cheap, advance booking, book, exchange, travel, tourism"
+                description: "Taxi my price"
 #cmf_core:
+#    multilang:
+#        locales: %locales%
 #    persistence:
 #        phpcr:
 #            enabled: true
-#cmf_routing:
-    # ...
-#    dynamic:
-        # ...
-#        persistence:
-#            phpcr:
-                # ...
-#                use_sonata_admin: false

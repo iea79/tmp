@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
             new DaVinci\UserBundle\DaVinciUserBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
