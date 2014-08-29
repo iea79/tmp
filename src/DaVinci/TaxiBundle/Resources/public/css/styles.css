@@ -1626,13 +1626,14 @@ a.logintw {
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .questiontooltip {
-	z-index: 4;
 	/*position: absolute;
+	z-index: 4;
 	float: right;
 	right: -26px;
 	top: 6px;*/
 	position: relative;
 	float: right;
+	text-align: left;
 }
 .questiontooltip a{
 /*	display: block;
@@ -1651,7 +1652,8 @@ a.logintw {
 	font-size: 14px;
 	vertical-align: middle;
 	line-height: 16px;
-	float: right;
+/*	float: right;*/
+	margin-lefT: 4px;
 	position: relative;
 	top: 4px;
 	z-index: 0;
@@ -1682,3 +1684,7 @@ a.logintw {
 	color			: #6c6c6c;
 }
 .numcars {margin-right: 12px;}
+.register .uk-form input[type="radio"] {
+	position: relative;
+	top: 3px;
+}

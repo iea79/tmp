@@ -629,6 +629,8 @@ iframe {
   width: 100%;
 /*  width: 345px;*/
 }
+.whicheck-1 {width: 16%;}
+.whicheck-2 {width: 24%;}
 .uk-width-1-2,
 .uk-width-2-4,
 .uk-width-3-6,
@@ -669,9 +671,11 @@ iframe {
   width: 60%;
 }
 .uk-width-6-10 {
-  width: 43%;
+  width: 46%;
 }
-.uk-width-4-5,
+.uk-width-4-5{
+  width: 95%;
+}
 .uk-width-8-10 {
   width: 80%;
 }
@@ -697,6 +701,9 @@ iframe {
   .uk-width-small-1-1 {
     width: 100%;
   }
+.uk-width-6-10 {
+  width: 42%;
+}
   .uk-width-small-1-2,
   .uk-width-small-2-4,
   .uk-width-small-3-6,
@@ -753,6 +760,9 @@ iframe {
   }
 }
 @media (min-width: 768px) {
+.uk-width-6-10 {
+  width: 43%;
+}
   .uk-width-medium-1-1 {
     width: 100%;
   }

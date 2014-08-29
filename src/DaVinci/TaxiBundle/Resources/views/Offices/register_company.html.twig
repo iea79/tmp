@@ -7,10 +7,6 @@
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset class="uk-width-1-1">
-			<!--ul class="tabs uk-tab uk-tab-grid">  
-				<li class="general current uk-width-1-2"><div class="arrow_box"><span>1</span>{{ 'form.contactinfo'|trans}}</div></li>
-				<li class="contact uk-width-1-2"><div class="noarrow"><span>2</span>{{ 'form.signininfo'|trans}}</div></li>
-			</ul-->
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
 				<div class="uk-form-label pinktext">Boris Ivanov</div>
 			</label>
@@ -22,6 +18,28 @@
 					</div>
 				</div>
 			</label>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
+				<div class="uk-form-controls">
+					<select class="float_left numcars" name="numberscars1" id="numberscars1" required>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+					</select>
+					<select class="float_left numcars" name="numberscars2" id="numberscars2" required>
+						<option>10</option>
+						<option>15</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40+</option>
+					</select>
+					<div class="questiontooltip float_left">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Enter Name of organization</span></a>
+					</div>
+				</div>
+			</label>
+			
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-2  float_left" name="country" id="country" required>
@@ -67,28 +85,6 @@
 					</div>
 				</div>
 			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
-				<div class="uk-form-controls">
-					<select class="float_left numcars" name="numberscars" id="numberscars" required>
-						<option>5</option>
-						<option>6</option>
-					</select>
-					<div class="questiontooltip float_left">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Enter Name of organization</span></a>
-					</div>
-				</div>
-			</label>
-			<!--label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.address'|trans }}:</span>
-				<div class="uk-form-controls">
-				<select class="uk-width-3-5" name="address" id="address" required>
-					<option>Main</option>
-					<option>Lenina</option>
-				</select>
-				</div>
-				<div class="questiontooltip">
-					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
-				</div>
-			</label-->
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
 				<div class="uk-form-controls">
 					<input class="uk-width-1-2  float_left" type="text" name="skype" id="skype" required placeholder="Skype" />
@@ -166,13 +162,10 @@
 			</div>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
 				<div class="uk-form-controls addphone">Add another phone number</div>
-				<!--div class="questiontooltip">
-					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Add mobile number</span></a>
-				</div-->
 			</label>
 
-			<div class="uk-button-group uk-width-1-1">
-				<button class="uk-button submit nextbutt uk-width-1-1">Create Office</button>
+			<div class="uk-button-group uk-width-4-5">
+				<button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>
 			</div>
 
 		</fieldset>

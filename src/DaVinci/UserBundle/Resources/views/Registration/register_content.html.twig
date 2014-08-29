@@ -8,10 +8,10 @@
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'placeholder': 'form.firstname'|trans,
-								'class': 'uk-width-3-5'}}) }}</div>
+								'class': 'uk-width-1-2 float_left'}}) }}</div>
 					{{ form_errors(form.firstname) }}
 					
-					<div class="questiontooltip">
+					<div class="uk-width-1-10 questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Some tooltip that should be changet on qtip2 :).'|trans }}</span></a>
 					</div>
 				</label>
@@ -19,9 +19,9 @@
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.lastname'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'placeholder': 'form.lastname'|trans,
-								'class': 'uk-width-3-5'}}) }}</div>
+								'class': 'uk-width-1-2 float_left'}}) }}</div>
 					{{ form_errors(form.lastname) }}
-					<div class="questiontooltip">
+					<div class="uk-width-1-10 questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip"{{ 'Some tooltip that should be changet on qtip2 :).'|trans }}</span></a>
 					</div>
 				</label>
@@ -29,9 +29,9 @@
 				<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.email'|trans }}:</span>
 					<div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'placeholder': 'form.email'|trans,
-								'class': 'uk-width-3-5'}}) }}</div>
+								'class': 'uk-width-1-2 float_left'}}) }}</div>
 					{{ form_errors(form.email) }}
-					<div class="questiontooltip">
+					<div class="uk-width-1-10 questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Some tooltip that should be changet on qtip2 :).'|trans }}</span></a>
 					</div>
 				</label>
@@ -40,10 +40,10 @@
 						{'attr':{'placeholder': 'form.password'|trans,
 								'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
-								'class': 'uk-width-3-5 passfield'
+								'class': 'uk-width-1-2 float_left passfield'
 								}}) }}</div>
                     {{ form_errors(form.plainPassword.first) }}
-					<div class="questiontooltip">
+					<div class="uk-width-1-10 questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Some tooltip that should be changet on qtip2 :).'|trans }}</span></a>
 					</div>
 				</label>
@@ -52,15 +52,15 @@
 						{'attr':{'placeholder': 'form.password_confirmation'|trans,
 								'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
-								'class': 'uk-width-3-5 passfield2'
+								'class': 'uk-width-1-2 float_left passfield2'
 								}}) }}</div>
                     {{ form_errors(form.plainPassword.second) }}
-					<div class="questiontooltip">
+					<div class="uk-width-1-10 questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Some tooltip that should be changet on qtip2 :).'|trans }}</span></a>
 					</div>
 				</label>
-				<div class="uk-button-group uk-width-1-1">
-					<button class="uk-button nextbutt uk-width-1-1">{{ 'form.create_account'|trans }}</button>
+				<div class="uk-button-group uk-width-4-5">
+					<button class="uk-button nextbutt uk-width-4-5">{{ 'form.create_account'|trans }}</button>
 				</div>
 			{% endif %}
 				
@@ -82,7 +82,7 @@
 
 				<label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
 
-				<div class="uk-button-group uk-width-1-1">
+				<div class="uk-button-group uk-width-4-5">
 					<button class="uk-button nextbutt twobuttnext uk-width-2-6  float_right">{{ 'form.finish'|trans }}</button>
 					<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-2-6 float_left" type="submit">< {{ 'form.edit'|trans }}</button>
 				</div>
