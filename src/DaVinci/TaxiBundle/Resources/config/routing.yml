@@ -29,7 +29,7 @@ fos_user_register:
 fos_user_registration_check_email:
     pattern: /check-email
     defaults: { _controller: FOSUserBundle:Registration:checkEmail }
-    methods:  [POST]
+    methods:  [GET,POST]
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"

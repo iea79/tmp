@@ -5,6 +5,7 @@ namespace DaVinci\UserBundle\Controller;
 #use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class RegistrationController extends BaseController {
 
@@ -15,19 +16,34 @@ class RegistrationController extends BaseController {
     public function checkEmailAction()
     {
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
-        var_dump($email);exit;
+       
+        $new_email=$email;
+        
+        $request = $this->container->get('request');
+        if(!$email) {
+            $post_data = $request->request->all();
+            if(isset($post_data['form']))
+            {
+                $email = $post_data['form']['old_email'];
+                $new_email = $post_data['form']['email'];
+            }
+        }
+
         $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
-        $user = $this->container->get('fos_user.user_manager')->findUserByEmail('awefawe@fwefw.we');
+        $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
+        
         $form = $this->container->get('form.factory')->createBuilder('form',$user)
+                ->add('old_email','hidden', array("mapped" => false, 'data' => $email))
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                 ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();
 
-        $request = $this->container->get('request');
+        $cloned = clone $form;
+        
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -35,7 +51,10 @@ class RegistrationController extends BaseController {
 
             $this->container->get('fos_user.user_manager')->updateUser($user);
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
-            $this->container->get('session')->getFlashBag()->set('change_email_message', 'registration.email_changed');
+            
+            $form = $cloned;
+            $form->add('old_email','hidden', array("mapped" => false, 'data' => $new_email))
+                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle','data'=>$new_email));
         }
         
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.'.$this->getEngine(), array(

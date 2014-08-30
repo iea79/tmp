@@ -300,7 +300,13 @@
 #login .uk-form .uk-form-icon {width: 100%;}
 
 
+.fos_user_registration_register .uk-form-password {
+display: inline;
+}
 
+.fos_user_registration_register .uk-form-password-toggle {
+margin-top: 8px;
+}
 
 
 .align_center {text-align: center;}

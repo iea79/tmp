@@ -57,17 +57,17 @@ FOS\UserBundle\Model\User:
              fields: email
              errorPath: email 
              message: fos_user.email.already_used
-             groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile" ]
+             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile" ]
 
     properties:
         plainPassword:
             - NotBlank:
                 message: fos_user.password.blank
-                groups: [ "flow_taxi_user_registration_step2", "ResetPassword", "ChangePassword" ]
+                groups: [ "flow_taxi_user_registration_step1", "ResetPassword", "ChangePassword" ]
             - Length:
                 min: 3
                 minMessage: fos_user.password.short
-                groups: [ "flow_taxi_user_registration_step2", "DaVinciProfile", "ResetPassword", "ChangePassword"]
+                groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile", "ResetPassword", "ChangePassword"]
 
 FOS\UserBundle\Model\Group:
     properties:

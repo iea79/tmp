@@ -46,7 +46,7 @@
 						{'attr':{'placeholder': 'form.password'|trans,
 								'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
-								'class': 'float_left passfield',
+								'class': 'uk-width-1-2 float_left passfield',
                                  'tabindex':'4'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
@@ -63,7 +63,7 @@
 						{'attr':{'placeholder': 'form.password_confirmation'|trans,
 								'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
-								'class': 'float_left passfield2',
+								'class': 'uk-width-1-2 float_left passfield2',
                                  'tabindex':'5'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
@@ -81,6 +81,7 @@
 			{% endif %}
 
 			{% if flow.getCurrentStepNumber() == 2 %}  
+                {{ form_errors(form) }}
                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
                     <div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</span></div>
                 </label>
