@@ -9,7 +9,7 @@
 				<p>A comfirmation email has been sent to you, it may take a few minutes. </p>
 				<p>Follow the directions in the email to comfirm and complete your accout. </p>
 			</div>
-			<div class="float_right uk-width-1-4">
+			<div class="float_right uk-width-1-4" id="resend_email">
 				<div><a href="#">Didn't get your verification email?</a></div>
 				<div><a href="#">Used the wrong email address?</a></div>
 			</div>
@@ -17,10 +17,17 @@
 
 		</div>
 		<div class="content usedemail">
-		<!--You have used email: <a href="#">afterburn2014@gmail.com</a--> 
 		{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}
 		</div>
-
+        {% for flashMessage in app.session.flashbag.get('change_email_message') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div id = "change_email_block" style="display:none">
+            {{ form(form) }}
+        </div>
 	</div>
 
 {% endblock fos_user_content %}

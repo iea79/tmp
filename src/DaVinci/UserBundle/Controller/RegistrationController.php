@@ -8,6 +8,56 @@ use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 class RegistrationController extends BaseController {
 
+    
+    /**
+     * Tell the user to check his email provider
+     */
+    public function checkEmailAction()
+    {
+        $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
+        $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
+        $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
+
+        if (null === $user) {
+            throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
+        }
+
+        $form = $this->createFormBuilder($user)
+        ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+        ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+        ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            // perform some action, such as saving the task to the database
+
+            $this->container->get('fos_user.user_manager')->updateUser($user);
+            $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
+            $this->container->get('session')->getFlashBag()->set('change_email_message', 'registration.email_changed');
+        }
+        
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.'.$this->getEngine(), array(
+            'user' => $user,
+        ));
+    }
+
+    
+    public function change_emailAciton()
+    {
+        
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $new_email  = $request->get('new_email');
+            
+            $user = $this->get('fos_user.user_manager')->findUserByEmail($new_email);
+            
+            $user->setEmail($new_email);
+
+            $this->container->get('fos_user.user_manager')->updateUser($user);
+        }
+    }
+    
     public function registerAction() {
         $user = $this->container->get('security.context')->getToken()->getUser();
 

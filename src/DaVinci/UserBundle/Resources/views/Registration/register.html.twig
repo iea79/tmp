@@ -20,37 +20,3 @@
         {% endif %}
     {% endspaceless %}
 {% endblock form_errors %}
-
-{% block stylesheets %}
-    {{parent()}}    
-    {% stylesheets 'bundles/davincitaxi/css/passfield.min.css' filter='cssrewrite' %}
-        <link media="all" rel="stylesheet" href="{{ asset_url }}" />
-    {% endstylesheets %}
-{% endblock %}
-    
-{% block javascripts %}
-    {{parent()}}    
-
-    {% javascripts '@DaVinciTaxiBundle/Resources/public/js/passfield.min.js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-    <script>
-     function add2PassPattern(text)
-     {
-         $('.passfield2').attr('pattern',text);
-     }
-     $(".passfield").change(function(){
-        add2PassPattern(this.value);
-     });
-    $(".passfield").passField({
-        showWarn: false,
-        acceptRate: 0.6,
-        pattern: "abcd12",
-        length: { 
-                min: 6,
-                max: null
-            },
-        events: { generated: function(pass) {add2PassPattern(pass);} } 
-    });
-    </script>
-{% endblock %}

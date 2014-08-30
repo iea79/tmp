@@ -43,6 +43,7 @@ change_password:
 # Registration
 registration:
     check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
+    email_changed: Email changed to %email% and varification email has been sent again.
     confirmed: Congratulations %username%, your account is now activated.
     back: Back to the originating page.
     submit: Complete registration

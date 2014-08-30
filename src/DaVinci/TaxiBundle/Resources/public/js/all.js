@@ -7,13 +7,13 @@ function setTabswidth (){
 	$("#info ol li:last-child").css({'width' : tabswidth-1});
 } 
 
-$(function() {
+//$(function() {
         $( "#spinner1, #spinner2, #spinner3" ).spinner({
             step: 1,
             numberFormat: "n",
 			min: 0,
         });
-});
+//});
 $(function () {
 	$('#timestart, #timeend').timepicker({
 		showPeriodLabels: false, // показывать обозначения am и pm
@@ -249,4 +249,20 @@ $(document).ready(function() {
 $( window ).resize(function(){
     $( ".file_upload input" ).triggerHandler( "change" );
 	setTabswidth();
+});
+
+
+//register page/////////////////////////////
+     function add2PassPattern(text)
+     {
+        $('.passfield2').attr('pattern',text);
+     }
+     $(".passfield").change(function(){
+        add2PassPattern(this.value);
+     });
+     
+//check Email js////////////////////////
+$('#resend_email a').click(function(e){
+    e.preventDefault();
+    $('#change_email_block').show();
 });
