@@ -1,14 +1,15 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <div class="wrapper-content title">{{ 'Create an account'|trans}}</div>
 <div class="wrapper-content"><div class="content uk-width-2-5">
-        <form class="uk-form uk-form-horizontal fos_user_registration_register"  action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+        <form class="uk-form uk-form-horizontal fos_user_registration_register" name="register" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
             <fieldset>
 			{% if flow.getCurrentStepNumber() == 1 %}
 				{{ form_errors(form) }}
                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.firstname'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'placeholder': 'form.firstname'|trans,
-								'class': 'uk-width-1-2 float_left'}}) }}</div>
+								'class': 'uk-width-1-2 float_left',
+                                 'tabindex':'1','autofocus':''}}) }}</div>
 					{{ form_errors(form.firstname) }}
 
                     <div class="questiontooltip">
@@ -19,7 +20,8 @@
                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.lastname'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'placeholder': 'form.lastname'|trans,
-								'class': 'uk-width-1-2 float_left'}}) }}</div>
+								'class': 'uk-width-1-2 float_left',
+                                 'tabindex':'2'}}) }}</div>
 					{{ form_errors(form.lastname) }}
 
                     <div class="questiontooltip">
@@ -30,7 +32,8 @@
                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.email'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'placeholder': 'form.email'|trans,
-								'class': 'uk-width-1-2 float_left'}}) }}</div>
+								'class': 'uk-width-1-2 float_left',
+                                 'tabindex':'3'}}) }}</div>
 					{{ form_errors(form.email) }}
 
                     <div class="questiontooltip">
@@ -43,7 +46,8 @@
 						{'attr':{'placeholder': 'form.password'|trans,
 								'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
-								'class': 'uk-width-1-2 float_left passfield'
+								'class': 'uk-width-1-2 float_left passfield',
+                                 'tabindex':'4'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                     </div>
@@ -59,7 +63,8 @@
 						{'attr':{'placeholder': 'form.password_confirmation'|trans,
 								'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
-								'class': 'uk-width-1-2 float_left passfield2'
+								'class': 'uk-width-1-2 float_left passfield2',
+                                 'tabindex':'5'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                     </div>
@@ -71,7 +76,7 @@
                     </div>
                 </label>
                 <div class="uk-button-group uk-width-4-5">
-                    <button class="uk-button nextbutt uk-width-4-5">{{ 'form.create_account'|trans }}</button>
+                    <button class="uk-button nextbutt uk-width-4-5" tabindex="6">{{ 'form.create_account'|trans }}</button>
                 </div>
 			{% endif %}
 
@@ -109,4 +114,5 @@
             </fieldset>
 
         </form>
+
     </div></div>
