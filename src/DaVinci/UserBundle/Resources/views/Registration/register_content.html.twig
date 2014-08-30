@@ -46,7 +46,7 @@
 						{'attr':{'placeholder': 'form.password'|trans,
 								'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
-								'class': 'uk-width-1-2 float_left passfield',
+								'class': 'float_left passfield',
                                  'tabindex':'4'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
@@ -63,7 +63,7 @@
 						{'attr':{'placeholder': 'form.password_confirmation'|trans,
 								'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
-								'class': 'uk-width-1-2 float_left passfield2',
+								'class': 'float_left passfield2',
                                  'tabindex':'5'
 								}}) }}
                         <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
@@ -92,7 +92,7 @@
                     <div class="uk-form-label">{{ flow.formData.email }}</div>
                 </label>
                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.password'|trans }}:</span>
-                    <div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:this.innerHTML = '{{ flow.formData.plainPassword }}';
+                    <div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:if(this.innerHTML == '{{ flow.formData.plainPassword }}') this.innerHTML = '{{ 'click to show'|trans }}'; else this.innerHTML = '{{ flow.formData.plainPassword }}';
                             return false;">{{ 'click to show'|trans }}</a></div>
                 </label>
 

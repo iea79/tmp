@@ -17,7 +17,7 @@
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-            <input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" />
+            <input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" autofocus/>
             <input class="uk-width-1-1" type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
             <div class="clear"></div>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>

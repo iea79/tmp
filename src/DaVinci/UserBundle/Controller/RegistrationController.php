@@ -15,18 +15,19 @@ class RegistrationController extends BaseController {
     public function checkEmailAction()
     {
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
+        var_dump($email);exit;
         $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
-        $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
+        $user = $this->container->get('fos_user.user_manager')->findUserByEmail('awefawe@fwefw.we');
 
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
+        $form = $this->container->get('form.factory')->createBuilder('form',$user)
+                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+                ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                ->getForm();
 
-        $form = $this->createFormBuilder($user)
-        ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-        ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
-        ->getForm();
-
+        $request = $this->container->get('request');
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -39,23 +40,8 @@ class RegistrationController extends BaseController {
         
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.'.$this->getEngine(), array(
             'user' => $user,
+            'form' => $form->createView(),
         ));
-    }
-
-    
-    public function change_emailAciton()
-    {
-        
-        $request = $this->get('request');
-        if ($request->getMethod() == 'POST') {
-            $new_email  = $request->get('new_email');
-            
-            $user = $this->get('fos_user.user_manager')->findUserByEmail($new_email);
-            
-            $user->setEmail($new_email);
-
-            $this->container->get('fos_user.user_manager')->updateUser($user);
-        }
     }
     
     public function registerAction() {
