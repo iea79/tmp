@@ -57,6 +57,11 @@ register_company_driver:
 office_choose:    
     pattern:  /choose-office
     defaults: { _controller: DaVinciTaxiBundle:Office:office_choose }
+
+office_passenger:
+    pattern:  /office-passenger
+    defaults: { _controller: DaVinciTaxiBundle:Office:office_passenger }
+    
 office_company:
     pattern:  /office-company
     defaults: { _controller: DaVinciTaxiBundle:Office:office_company }

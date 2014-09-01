@@ -15,6 +15,11 @@ class OfficeController extends Controller
     {
         return $this->render('DaVinciTaxiBundle:Offices:office_company.html.twig');
     }
+       
+    public function office_passengerAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:office_passenger.html.twig');
+    }
     
     public function block_profileAction()
     {
