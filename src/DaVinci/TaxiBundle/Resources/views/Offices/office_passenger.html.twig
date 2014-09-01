@@ -2,6 +2,412 @@
 
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+<!------------------------------------------------cabinet passenger--------------------------------------->
+<div class="wrapper-content">
+	<div class="content client-account">
+		<div class="uk-grid uk-grid-small uk-width-large-7-10 uk-width-medium-9-10 uk-width-small-7-10">
+			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
+				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>My profile</button>
+			</div>
+			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
+				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1"><i class="mp-icon-zoom"></i>Find driver</button>
+			</div>
+			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
+				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>Messages</button>
+			</div>
+			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
+				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>Buy Membership</button>
+			</div>
+		</div>
+		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
+			<div class="uk-panel">
+				<dl class="clientid">
+				<img class="clientphoto" src="bundles/davincitaxi/images/clientphoto.png" alt="" width="75" height="79" />
+					<dt>My ID: </dt><dd class="data"> 76877960596623</dd><br />
+					<dt>Name: </dt><dd class="data"> Boris Ivanov</dd><br />
+					<dt>Status: </dt> <dd class="data"> passenger</dd>
+				</dl>
+			</div>
+			<div class="uk-panel clientid">
+				<dl>
+					<dt class="">My balance: </dt><dd id="balance" class="data"> $0.00</dd><br />
+					<dt><a href="">$Add</a></dt><br />
+					<dt><a href="">$Withdraw</a></dt><br />
+					<dt><a href="">$Transfer</a></dt>
+				</dl>
+			</div>
+			<div class="uk-panel clientid">
+				<dl>
+					<dt>Membership: </dt><dd id="status" class="data"> Gold</dd><br />
+					<dt>Left time: </dt><dd class="data"> 11 oct 14</dd><br />
+					<dt><a href="">Extend</a></dt>
+				</dl>
+			</div>
+		</div>
+    <div class="shadow-main">
+           <div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
+	           <div class="uk-panel uk-width-1-2 uk-active">
+				    <button class="uk-width-1-1">Open orders <i class="mp-icon-taxi"></i> (8)</button>
+			   </div>
+			   <div class="uk-panel uk-width-1-2">
+				    <button class="uk-width-1-1">Order history</button>
+				</div>
+			</div>
+<!------------------------------------------------ Начало списка водителей    и заказов--------------------------------------->
+            <ul id="tab-content" class="uk-switcher">
+                    <li class="uk-active">
+                            <div class="whitebg">
+                                    <div class="message"><span>Attention! </span>Choose driver by yourself!</div>
+                                    <div class="table-container"><!-- slider -->
 
+                                    <table class="uk-table"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
+                                            <thead>
+                                            <tr>
+                                                    <th>#</th><th>TMP ID</th><th>My orders</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                    <td>1</td><td>0223240234</td>
+                                                    <td>
+                                                                    <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                                    <div class="uk-panel uk-panel-box uk-hidden" id="toggle1">
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <span class="proffesion">taxi driver</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">yes</button>
+                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
+                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
+                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
+                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
+                                                                                    </p>
+                                                                                    <div class="call-driver">
+                                                                                            <span>Contacts: </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">Skype + Phone</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <span class="proffesion">taxi driver</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">yes</button>
+                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
+                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
+                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
+                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
+                                                                                    </p>
+                                                                                    <div class="call-driver">
+                                                                                            <span>Contacts: </span>
+                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                    </div>
+                                  </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>2</td><td>0223240235</td>
+                                                            <td><p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle2'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                                    <div class="uk-panel uk-panel-box uk-hidden" id="toggle2">
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <span class="proffesion">taxi driver</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">yes</button>
+                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
+                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
+                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
+                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
+                                                                                    </p>
+                                                                                    <div class="call-driver">
+                                                                                            <span>Contacts: </span>
+                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <span class="proffesion">taxi driver</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">yes</button>
+                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
+                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
+                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
+                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
+                                                                                    </p>
+                                                                                    <div class="call-driver">
+                                                                                            <span>Contacts: </span>
+                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                    </div>
+                                                            </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>3</td>
+                                                    <td>0223240236</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle3'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>4</td><td>0223240237</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle4'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>5</td><td>0223240238</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle5'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>6</td><td>0223240239</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle6'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>7</td><td>0223240230</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle7'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>8</td><td>0223240233</td>
+                                                    <td>
+                                                            <p >
+                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <button data-uk-toggle="{target:'#toggle8'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    </p>
+                                                    </td>
+                                            </tr>
+                                            </tbody>
+                                    </table>
+                          </div><!-- slider -->
+                   
+                            </div>
+                    </li>
+                    <li>
+                            <div class="whitebg">
+                                    <div class="message"><span>Attention!</span>Choose driver by yourself!</div>
+                                    <table class="uk-table responsive"><!--<colgroup><col width="40" /> <col width="117" /> <col width="154" /><col width="242" /><col width="97" /><col width="124" />  <col width="116" /> <col width="106" /> </colgroup>-->
+                                                <tbody>
+                                                    <thead>
+                                                            <tr>
+                                                                    <th>#</th><th>TMP ID<a href="">?</a></th><th><span class="filter"></span>Date and time<a href="">?</a></th><th>Route<a href="">?</a></th><th><span class="filter"></span>Price<a href="">?</a></th><th><span class="filter"></span>Status<a href="">?</a></th><th><span class="filter"></span>Left time<a href="">?</a></th><th>Edit<a href="">?</a></th>
+                                                            </tr>
+                                                    </thead>
+                                                    <tr>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">mar</span> 14<span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>68:45:32</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>pending</td><td>68:45:32</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-blue">48:12:21</span></td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-green">26:55:03</span></td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-red">13:55:03</span></td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>canceled</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit mp-icon-blue">
+																			</a>
+                                                                            <a class="mp-icon-closed mp-icon-red">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                            </tbody>
+                                    </table>
+                                    </div>
+                    </li>
+            </ul>
+	</div>
+	</div>
+</div>
+<!------------------------------------------------Table Конец--------------------------------------->
 
 {% endblock %}
