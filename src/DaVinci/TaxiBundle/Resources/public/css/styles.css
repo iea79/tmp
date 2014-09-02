@@ -1694,3 +1694,729 @@ a.logintw {
 	position: relative;
 	top: 3px;
 }
+/*========================Иконки - Евгений начло=======================*/
+@font-face {
+	font-family: 'icontaxi';
+	src:url('../fonts/icontaxi.eot?eio7im');
+	src:url('../fonts/icontaxi.eot?#iefixeio7im') format('embedded-opentype'),
+		url('../fonts/icontaxi.woff?eio7im') format('woff'),
+		url('../fonts/icontaxi.ttf?eio7im') format('truetype'),
+		url('../fonts/icontaxi.svg?eio7im#icontaxi') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="mp-icon-"], [class*=" mp-icon-"] {
+	font-family: 'icontaxi';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.mp-icon-point-a:before {
+	content: "\e60b";
+}
+.mp-icon-point-b:before {
+	content: "\e60c";
+}
+.mp-icon-message:before {
+	content: "\e604";
+}
+.mp-icon-door:before {
+	content: "\e606";
+}
+.mp-icon-logout:before {
+	content: "\e60a";
+}
+.mp-icon-closed:before {
+	content: "\e609";
+}
+.mp-icon-edit:before {
+	content: "\e608";
+}
+.mp-icon-circle:before {
+	content: "\e607";
+}
+.mp-icon-bug:before {
+	content: "\e605";
+}
+.mp-icon-person:before {
+	content: "\e603";
+}
+.mp-icon-taxi:before {
+	content: "\e602";
+}
+.mp-icon-good:before {
+	content: "\e601";
+}
+.mp-icon-zoom:before {
+	content: "\e600";
+}
+.mp-icon-red {
+	color:#ff4d61 !important;
+}
+.mp-icon-blue {
+	color:#528ed3 !important;
+}
+.mp-icon-gray {
+	color:d0d0d0 !important;
+}
+.icon-messages-n {
+	background:url('../images/messages-n.png') transparent no-repeat scroll left center;
+	width:14px;
+	height:14px;
+	color:#fff;
+	font-size:11px;
+	left:8px;
+	top:-9px;
+	position:relative;
+	display: inline-block;
+	line-height: 130%;
+	text-align: center;
+}
+.client-account .uk-close:after {
+  display: block;
+  content: "\e609" !important;
+  font-family: icontaxi;
+  font-size: 18px;
+}
+#other i {
+	color:#ff4d61
+}
+/*========================Иконки - Евгений конец=======================*/
+/*========================Офис пасажира - Евгений=======================*/
+
+.client-account .clientphoto {
+        border-radius: 5px;
+        float: left;
+        margin: 0 10px 10px 0;
+        max-width:60px;
+}
+.client-account .clientid {
+        color: #3c3d45;
+        font-size: 14px;
+        line-height:20px;
+}
+.client-account .clientid dl {
+        font-size: 14px;
+        font-weight:normal;
+}
+.client-account dl {
+        margin:0em 0;
+}
+.client-account .clientid dt,dd {
+		display:inline;
+        margin:0 !important;
+        font-size: 14px;
+}
+.client-account .clientid dl a{
+        font-size: 14px;
+        line-height:16px;
+        font-weight:normal;
+		color: #528ed3;
+}
+
+.client-account .clientid dd[id="balance"] {
+	color:#ff4d61;
+	font-size:16px;
+}
+.client-account .clientid dd[id="status"] {
+	color:#ff4d61;
+	font-size:16px;
+}
+/*------------------button---------------------------*/
+.client-account .uk-button.uk-button-profile {
+    padding:0;
+    min-width:160px;
+    line-height: 38px;
+    margin-bottom:5px;
+    border-radius:4px;
+    font-size:16px;
+}
+.client-account .uk-button.uk-button-profile:hover {
+	text-decoration:none;
+}
+.client-account .uk-button {
+	border-radius:4px;
+}
+.client-account .uk-button.uk-button-profile i {
+	padding-right:2%;
+}
+.client-account .profile .uk-button {
+	line-height:54px;
+	font-size:24px;
+}
+.client-account .profile .uk-button.button-skype {
+	line-height:30px;
+	font-size:16px;
+}
+.client-account .button-skype {
+	line-height:30px;
+}
+/*------------------tabs---------------------------*/
+.client-account .main {
+    margin:1px 0 0px 0;
+    box-shadow:none;
+    z-index:1000;
+    border-radius:0 0 4px 4px;
+}
+.client-account .button-swicher {
+	display:block;
+}
+	.client-account .button-swicher.uk-grid.uk-grid-small > * {
+		padding-left:0px;
+	}
+	.client-account .button-swicher.uk-grid.uk-grid-small {
+		margin-left: 0px;
+	}
+	.client-account .button-swicher .uk-panel {
+		padding-left:0px;
+		padding-right:5px;
+		border:0;
+	}
+	.client-account .button-swicher .uk-panel:last-child {
+		padding-left:5px;
+		padding-right:0px;
+	}
+.client-account .button-swicher .uk-panel button {
+    border: 0;
+    color: #fff;
+    background: #528ed3;
+    border-radius: 4px 4px 0 0;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
+    font-size:20px;
+    font-weight:bold;
+    height:65px;
+    text-align:center;
+    outline:none;
+}
+.client-account .button-swicher .uk-panel button:active,
+.client-account .button-swicher .uk-panel button:hover,
+.client-account .button-swichera .uk-panel button:focus {
+  outline: none;
+  border:0;
+  text-decoration:underline;
+}
+.client-account .button-swicher .uk-panel.uk-active button {
+    background-color: #fff;
+    color: #528ed3;
+    text-shadow:none;
+}
+/*------------------table-----------------------------*/
+.shadow-main {
+    -webkit-box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:        -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:             -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
+}
+.client-account .whitebg {
+    background:#fff;
+    position:relative;
+}
+.column_right_profile, .whitebg .yourdrivers {
+    float:none;
+}
+.client-account .uk-table {
+	margin-bottom:0px
+}
+.client-account .uk-table button,
+.client-account .uk-table a,
+.client-account .uk-table {
+	font-size:16px;
+}
+.client-account .uk-table thead th {
+    font-weight:normal;
+    background:#f5f5f5;
+    color:#3c3d45;
+    position:relative;
+}
+.client-account .uk-table a {
+    color: #528ed3;
+}
+.client-account .uk-table tr {
+    border-top:#d0d0d0 1px solid;
+    border-bottom:#d0d0d0 1px solid;
+}
+.client-account .uk-table td {
+    text-align:center;
+    line-height:20px;
+    vertical-align:top;
+    border-left:#d0d0d0 1px solid;
+    border-right:#d0d0d0 1px solid;
+    border-bottom:#d0d0d0 1px solid;
+    padding:10px;
+}
+/*  ===============================стили выпадающего блока со списком водителей==============================Alla   */
+.uk-table .uk-panel-box {
+    background:#fff;
+    border-radius:0;
+    border:none;
+    padding:0;
+    margin: 10px -10px;
+}
+.uk-table tr td:first-child, .uk-table tr td:nth-child(2){
+    padding:10px;
+}
+.whitebg .uk-table td p {
+    overflow:hidden;
+    margin:0;
+}
+.whitebg .uk-table td p button {
+    background-color:#528ed3;
+    float:right;
+    
+}
+
+.whitebg .uk-table td p button:hover, .whitebg .uk-table td p button:focus {
+    background-color:#35b3ee;
+}
+.whitebg .uk-table td p .active-gray {
+    background-color:#ebebeb!important;
+    padding:0 10px;
+    
+}
+.driver-over {
+    border-top: 1px solid #d0d0d0;
+    padding:12px;
+    font-size:16px;
+    display: inline-block;
+}
+.driver-top  {
+    overflow:hidden;
+}
+.driver-top div {
+    float:left;
+    width:33.3%;
+}
+.driver-top  img{
+    float:left;
+    margin-right:5%;
+    
+}
+.driver-top .driver-photo {
+    width:48px;
+    height:53px;
+}
+.driver-top .drive-car {
+    width:99px;
+    height:55px;
+}
+.driver-top .y-no {
+    text-align:right;
+    padding-top: 1px;
+}
+.driver-top .y-no  button {
+    width:100px;
+    text-transform:uppercase;
+}
+    .profile .name {
+   	 color:#528ed3;
+    }
+    .profile .proffesion {
+   	 font-size:14px;
+   	 color:#8d8f98;
+    }
+    .profile {
+   	 line-height: 18px;
+    }
+    .profile .uk-icon-smile-o{
+   	 color:#27bf2e;
+    }
+    .profile .uk-icon-frown-o {
+   	 color:#ff4d61;
+    }    
+    .profile .feedback_ok {
+   	 margin-right:25px;
+    }
+    .vehicle .name {
+   	 color:#3c3d45;
+    }
+    .vehicle {
+   	 line-height:25px;
+    }
+    .vehicle i {
+   	 color:#ff4d61;
+   	 margin-left:10px;
+    }
+    .y-no button:first-child{
+   	 background-color:#ff4d61;
+   	 
+    }
+    .y-no button:first-child:focus, .y-no button:first-child:hover {
+   	 background-color:#c91032;
+    }
+    .y-no button:last-child {
+   	 background-color:#8d8f98;
+    }
+    .y-no button:last-child:focus, .y-no button:last-child:hover {
+   	 background-color:#adafa8;
+    }
+    td .driver-over p.about {
+   	 margin:5px 0;
+   	 padding:0;
+   	 line-height:20px;
+    }
+    .call-driver {
+   	 float:left;
+   	 padding:20px 0;
+   	 border-top: 1px solid #d0d0d0;
+    }
+    .call-driver span {
+   	 line-height:30px;
+   	 margin-right:10px;
+   	 font-weight:bold;
+   	 float:left;
+    }
+    
+/* ===========================================конец списка заказов и водителей Alla============================================= */
+.client-account .uk-table td:nth-child(3),
+.client-account .uk-table th:nth-child(3) {
+    text-align:left;
+    vertical-align:middle;
+}
+.client-account .uk-table.main td,
+.client-account .uk-table.main th,
+.client-account .uk-table.main td:nth-child(3),
+.client-account .uk-table.main th:nth-child(3) {
+    text-align:center;
+    vertical-align:middle;
+    position:relative;
+}
+.client-account .uk-table th {
+    text-align:center;
+    border-left:#d0d0d0 1px solid;
+    border-right:#d0d0d0 1px solid;
+}
+.client-account .uk-table .uk-grid {
+    padding:0 15px 0 15px;
+    border-top:1px #d0d0d0 solid;
+    margin-left:-15px;
+    margin-right:-15px;
+    margin-top:15px;
+}
+.client-account .driverlist-button {
+    float:right;
+    line-height:30px !important;
+}
+.client-account .uk-table .uk-button {
+    color:#fff;
+    line-height:38px;
+    min-width: 130px;
+    margin-top:5px;
+}
+.client-account .uk-table .uk-button.driverlist {
+	margin-top:0px;
+}
+.client-account .uk-table th a {
+	line-height:12px;
+	width:12px;
+	background:#b9b9ba;
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	position:absolute;
+	top:0px;
+	right:0px;
+}
+.client-account .uk-table th:first-child {
+	width:4%;
+}
+.client-account .uk-table th:nth-child(2) {
+	width:10%;
+}
+/*----------Скролл таблицы-----------*/
+.client-account .table-container
+{
+  width: 100%;
+  overflow-y: auto;
+  _overflow: auto;
+  margin: 0 0 1em;
+}
+.client-account .table-container::-webkit-scrollbar
+{
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+}
+
+.client-account .table-container::-webkit-scrollbar-thumb
+{
+  border-radius: 8px;
+  border: 3px solid #fff;
+  background-color: rgba(0, 0, 0, .3);
+}
+.client-account .table-container-outer {
+	position: relative; 
+}
+/*===============================   адаптация   ===============================================*/
+@media only screen and (max-width:650px) {
+   	 .whitebg .uk-table td {
+   		 font-size:14px;
+   	 }
+   	 .whitebg .uk-table td p {
+   		 text-align:center;
+   		 padding:0 10px;
+   	 }
+   	 .whitebg .uk-table td p button {
+   		 float:none;
+   	 }
+   	 .driver-top img {
+   		 float:none;
+   		 display:block;
+   	 }
+   	 td .driver-over p.about {
+   		 text-align:left;
+   		 padding:0;
+   	 }
+   	 .profile .feedback_ok {
+   	 margin-right:10px;
+   	 }
+   	 .vehicle i.uk-icon-male {
+   		 margin-left:0;
+   	 }
+   	 .driver-top .y-no button {
+   		 width:70px;
+   		 margin-bottom:10px;
+   	 }
+   	 .driver-top div.y-no {
+   		 width:25%;
+   	 }
+   	 .driver-top div.profile {
+   		 width:35%;
+   	 }
+   	 .driver-top div.vehicle {
+   		 width:40%;
+   	 }
+    }
+    
+@media only screen and (max-width:480px) {
+    .whitebg .uk-table td p button  {
+   	 padding:0 10px;
+   	 font-size:14px;
+    }
+    .driver-top .y-no button {
+   		 width:70px;
+   		 margin-bottom:0;
+   	 }
+   	 .driver-top div.y-no {
+   		 float:none;
+   		 clear:both;
+   		 width:100%;
+   		 
+   		 
+   	 }
+   	 .profile .name, .vehicle ,name {
+   		 font-size:14px;
+   	 }
+   	 .profile, .vehicle {
+   		 font-size:12px;
+   	 }
+   	 
+   	 .driver-top div.profile {
+   		 width:50%;
+   	 }
+   	 .driver-top div.vehicle {
+   		 width:50%;
+   	 }
+}
+@media only screen and (max-width:360px) {
+    .whitebg .uk-table td p button  {
+   	 width:80px;
+   	 overflow:hidden;
+   	 text-overflow:ellipsis;
+   	 white-space:nowrap;
+    }
+    .uk-table tr td:nth-child(2) {
+   	 word-wrap:break-word;
+    }
+    .driver-top div.profile {
+   		 width:100%;
+   		 float:none;
+   	 }
+   	 .driver-top div.vehicle {
+   		 width:100%;
+   		 float:none;
+   	 }
+    }
+/*---------------------------------------Pop-up---------------------------------------------*/
+.pop-up {
+    /*display:block;*/
+}
+.client-account .uk-modal-dialog {
+	width: 690px !important;
+}
+.popup-head {
+	width: 100%;
+	margin-left: -20px;
+	margin-top: -20px !important;
+	margin-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #EBEBEB;
+	line-height: 40px;
+	font-size:18px;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+.popup-head.red,
+.popup-head.red i {
+    color:#ff4d61;
+    font-weight:normal;
+}
+.popup-head.inbox {
+	margin-left: 0px;
+	margin-top: 30px !important;
+	margin-bottom: 10px;
+	padding-right: 0px;
+	line-height: 30px;
+	font-size:16px;
+	font-weight:bold;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align:center;
+	width: 95%;
+}
+.popup-head.inbox i {
+	color: #0091ca;
+	padding-left:5px;
+}
+.pop-up dl {
+    display:inline-block;
+    margin:0;
+}
+dl[id="about-driver"] dd {
+	font-size:14px;
+}
+.pop-up dt {
+    color:#8d8f98;
+    font-size:16px;
+    font-weight:normal;
+    display:inline-block;
+    margin-top:10px;
+}
+.pop-up dd {
+    color:#3c3d45;
+    display:inline-block;
+    font-size:16px;
+    margin:0;
+}
+.pop-up dd[id="myid"] {
+    font-size:14px;
+}
+.pop-up dt[id="myid"] {
+    font-size:14px;
+}
+.pop-up.route dt {
+    margin:5px 0 5px 0;
+    width: 40%;
+	text-align: left;
+}
+.pop-up .profile input[type="text"],
+.pop-up .profile select {
+	border: 1px solid #d5d3dc;
+	color:#3d3d3d;
+	width:100%;
+	padding:2px 5px 2px 5px;
+	margin:0;
+}
+.pop-up .profile select[id="region"] {
+	width:35%;
+	display:inline;
+}
+.pop-up .profile input[id="fone"] {
+	width:63%;
+}
+.pop-up .profile select[id="day"] {
+	width:22%;
+	display:inline;
+}
+.pop-up .profile select[id="month"] {
+	width:44%;
+	display:inline;
+}
+.pop-up .profile select[id="year"] {
+	width:31%;
+	display:inline;
+}
+.pop-up .profile dt {
+	width:33%;
+	vertical-align:top;
+	margin-top:0px;
+	margin-bottom:12px;
+}
+.pop-up .profile dd {
+	width:65%;
+}
+.pop-up dt[id="moretext"] {
+	vertical-align:top;
+}
+.pop-up dd[id="moretext"] {
+	padding-top: 0px;
+}
+.pop-up h5 {
+    display: inline-block;
+    margin: 4px 0 7px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+}
+i[id="quest"] {
+	margin-left:40px;
+	color: #0091ca;
+	font-size:18px;
+}
+.uk-modal {
+    z-index:10000;
+}
+.pop-up .yourdrivers .icons a, .infoprofile li .icons a {
+	margin-right: 8px;
+}
+.pop-up .title {
+    font-size:20px;
+    font-weight:bold;
+    color:#ff4d61;
+}
+.pop-up span.date {
+    font-weight:bold;
+    color:#3c3d45;
+}
+.pop-up .yourdrivers a {
+	margin-right: 9px;
+	margin-top:12px;
+	color:#528ed3;
+	font-weight:normal;
+	font-size:18px;
+}
+.pop-up .yourdrivers a:hover {
+	color:#4b81bf;
+	text-decoration:none;
+}
+/* ---------------------------------Table Responsive----------------------------------- */
+table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; }
+
+/* Mobile */
+@media only screen and (max-width: 760px) {
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 25%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable { margin-left: 25%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive th:last-child, table.responsive td:last-child, table.responsive td:last-child, table.responsive.pinned td { display: none; }
+}
+
+/*========================Офис пасажира - Евгений=======================*/
