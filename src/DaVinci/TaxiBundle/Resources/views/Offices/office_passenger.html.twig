@@ -22,7 +22,7 @@
 		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
 			<div class="uk-panel">
 				<dl class="clientid">
-				<img class="clientphoto" src="bundles/davincitaxi/images/clientphoto.png" alt="" width="75" height="79" />
+				<img class="clientphoto" src="../public/images/clientphoto.png" alt="" width="75" height="79" />
 					<dt>My ID: </dt><dd class="data"> 76877960596623</dd><br />
 					<dt>Name: </dt><dd class="data"> Boris Ivanov</dd><br />
 					<dt>Status: </dt> <dd class="data"> passenger</dd>
@@ -43,8 +43,12 @@
 					<dt><a href="">Extend</a></dt>
 				</dl>
 			</div>
+
+
+
 		</div>
     <div class="shadow-main">
+<!------------------------------------------------ swicher table------------------------------------------------>
            <div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
 	           <div class="uk-panel uk-width-1-2 uk-active">
 				    <button class="uk-width-1-1">Open orders <i class="mp-icon-taxi"></i> (8)</button>
@@ -53,7 +57,6 @@
 				    <button class="uk-width-1-1">Order history</button>
 				</div>
 			</div>
-<!------------------------------------------------ Начало списка водителей    и заказов--------------------------------------->
             <ul id="tab-content" class="uk-switcher">
                     <li class="uk-active">
                             <div class="whitebg">
@@ -71,20 +74,20 @@
                                                     <td>1</td><td>0223240234</td>
                                                     <td>
                                                                     <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                                     <div class="uk-panel uk-panel-box uk-hidden" id="toggle1">
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">РђР»РµРєСЃР°РЅРґСЂ РРІР°РЅРѕРІ<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -94,10 +97,7 @@
                                                                                             </div>
                                                                                     </div>
                                                                                     <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
-                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
-                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
-                                                                                    </p>
+                                                                                    <p class="about"><strong>About driver:</strong>Р›РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°: Р°РЅР°Р»РёС‚РёС‡РµСЃРєРѕРµ РјС‹С€Р»РµРЅРёРµ, СѓРјРµРЅРёРµ Р±С‹СЃС‚СЂРѕ РѕСЂРёРµРЅС‚РёСЂРѕРІР°С‚СЊСЃСЏ РІ СЃР»РѕР¶РёРІС€РµР№СЃСЏ СЃРёС‚СѓР°С†РёРё Рё СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РїСЂРёРЅРёРјР°С‚СЊ СЂРµС€РµРЅРёСЏ, Р±С‹СЃС‚СЂР°СЏ РѕР±СѓС‡Р°РµРјРѕСЃС‚СЊ, РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ, С†РµР»РµСѓСЃС‚СЂРµРјР»РµРЅРЅРѕСЃС‚СЊ, РЅР°СЃС‚РѕР№С‡РёРІРѕСЃС‚СЊ Рё СЃС‚СЂРµРјР»РµРЅРёРµ Рє РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРјСѓ СЂРѕСЃС‚Сѓ.</p>
                                                                                     <div class="call-driver">
                                                                                             <span>Contacts: </span>
                                                                                             <a class="uk-button uk-button-primary button-skype driverlist-button">Skype + Phone</a>
@@ -108,13 +108,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">РђР»РµРєСЃР°РЅРґСЂ РРІР°РЅРѕРІ<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -124,13 +124,10 @@
                                                                                             </div>
                                                                                     </div>
                                                                                     <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
-                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
-                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
-                                                                                    </p>
+                                                                                    <p class="about"><strong>About driver:</strong>Р›РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°: Р°РЅР°Р»РёС‚РёС‡РµСЃРєРѕРµ РјС‹С€Р»РµРЅРёРµ, СѓРјРµРЅРёРµ Р±С‹СЃС‚СЂРѕ РѕСЂРёРµРЅС‚РёСЂРѕРІР°С‚СЊСЃСЏ РІ СЃР»РѕР¶РёРІС€РµР№СЃСЏ СЃРёС‚СѓР°С†РёРё Рё СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РїСЂРёРЅРёРјР°С‚СЊ СЂРµС€РµРЅРёСЏ, Р±С‹СЃС‚СЂР°СЏ РѕР±СѓС‡Р°РµРјРѕСЃС‚СЊ, РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ, С†РµР»РµСѓСЃС‚СЂРµРјР»РµРЅРЅРѕСЃС‚СЊ, РЅР°СЃС‚РѕР№С‡РёРІРѕСЃС‚СЊ Рё СЃС‚СЂРµРјР»РµРЅРёРµ Рє РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРјСѓ СЂРѕСЃС‚Сѓ.</p>
                                                                                     <div class="call-driver">
                                                                                             <span>Contacts: </span>
-                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                            <button class="uk-button uk-button-primary driverlist-button">Skype + Phone</button>
                                                                                     </div>
                                                                                    
                                                                             </div>
@@ -141,20 +138,20 @@
                                             <tr>
                                                     <td>2</td><td>0223240235</td>
                                                             <td><p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle2'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                                     <div class="uk-panel uk-panel-box uk-hidden" id="toggle2">
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">РђР»РµРєСЃР°РЅРґСЂ РРІР°РЅРѕРІ<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -164,10 +161,7 @@
                                                                                             </div>
                                                                                     </div>
                                                                                     <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
-                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
-                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
-                                                                                    </p>
+                                                                                    <p class="about"><strong>About driver:</strong>Р›РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°: Р°РЅР°Р»РёС‚РёС‡РµСЃРєРѕРµ РјС‹С€Р»РµРЅРёРµ, СѓРјРµРЅРёРµ Р±С‹СЃС‚СЂРѕ РѕСЂРёРµРЅС‚РёСЂРѕРІР°С‚СЊСЃСЏ РІ СЃР»РѕР¶РёРІС€РµР№СЃСЏ СЃРёС‚СѓР°С†РёРё Рё СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РїСЂРёРЅРёРјР°С‚СЊ СЂРµС€РµРЅРёСЏ, Р±С‹СЃС‚СЂР°СЏ РѕР±СѓС‡Р°РµРјРѕСЃС‚СЊ, РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ, С†РµР»РµСѓСЃС‚СЂРµРјР»РµРЅРЅРѕСЃС‚СЊ, РЅР°СЃС‚РѕР№С‡РёРІРѕСЃС‚СЊ Рё СЃС‚СЂРµРјР»РµРЅРёРµ Рє РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРјСѓ СЂРѕСЃС‚Сѓ.</p>
                                                                                     <div class="call-driver">
                                                                                             <span>Contacts: </span>
                                                                                             <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
@@ -178,13 +172,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр иванов</a></span><br/>
+                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">РђР»РµРєСЃР°РЅРґСЂ РРІР°РЅРѕРІ<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -194,10 +188,9 @@
                                                                                             </div>
                                                                                     </div>
                                                                                     <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong> Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся
-                                                                                            ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность,
-                                                                                            целеустремленность, настойчивость и стремление к профессиональному росту.
-                                                                                    </p>
+                                                                                    <p class="about"><strong>About driver:</strong>
+										    	Р›РёС‡РЅС‹Рµ РєР°С‡РµСЃС‚РІР°: Р°РЅР°Р»РёС‚РёС‡РµСЃРєРѕРµ РјС‹С€Р»РµРЅРёРµ, СѓРјРµРЅРёРµ Р±С‹СЃС‚СЂРѕ РѕСЂРёРµРЅС‚РёСЂРѕРІР°С‚СЊСЃСЏ РІ СЃР»РѕР¶РёРІС€РµР№СЃСЏ СЃРёС‚СѓР°С†РёРё Рё СЃР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅРѕ РїСЂРёРЅРёРјР°С‚СЊ СЂРµС€РµРЅРёСЏ, Р±С‹СЃС‚СЂР°СЏ РѕР±СѓС‡Р°РµРјРѕСЃС‚СЊ, РѕС‚РІРµС‚СЃС‚РІРµРЅРЅРѕСЃС‚СЊ, С†РµР»РµСѓСЃС‚СЂРµРјР»РµРЅРЅРѕСЃС‚СЊ, РЅР°СЃС‚РѕР№С‡РёРІРѕСЃС‚СЊ Рё СЃС‚СЂРµРјР»РµРЅРёРµ Рє РїСЂРѕС„РµСЃСЃРёРѕРЅР°Р»СЊРЅРѕРјСѓ СЂРѕСЃС‚Сѓ.
+										    </p>
                                                                                     <div class="call-driver">
                                                                                             <span>Contacts: </span>
                                                                                             <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
@@ -213,7 +206,7 @@
                                                     <td>0223240236</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle3'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -222,7 +215,7 @@
                                                     <td>4</td><td>0223240237</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle4'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -231,7 +224,7 @@
                                                     <td>5</td><td>0223240238</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle5'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -240,7 +233,7 @@
                                                     <td>6</td><td>0223240239</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle6'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -249,7 +242,7 @@
                                                     <td>7</td><td>0223240230</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle7'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -258,7 +251,7 @@
                                                     <td>8</td><td>0223240233</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA)  <i class="uk-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
+                                                                            <a data-uk-modal="{target:'#route'}">Р”Р°Р»Р»Р°СЃ (USA) <i class="uk-icon-arrow-right"></i>  РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</a>
                                                                             <button data-uk-toggle="{target:'#toggle8'}" class="uk-button driverlist">Drivers list: 3</button>
                                                                     </p>
                                                     </td>
@@ -280,7 +273,7 @@
                                                             </tr>
                                                     </thead>
                                                     <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">mar</span> 14<span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>68:45:32</td>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">mar</span> 14<span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>open</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -291,7 +284,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>pending</td><td>68:45:32</td>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>pending</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -302,7 +295,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-blue">48:12:21</span></td>
+                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-blue">48:12:21</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -313,7 +306,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-green">26:55:03</span></td>
+                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-green">26:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -324,7 +317,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-red">13:55:03</span></td>
+                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-red">13:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -335,7 +328,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>canceled</td><td>00:00:00</td>
+                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>canceled</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -346,7 +339,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>00:00:00</td>
+                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>open</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -357,7 +350,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -368,7 +361,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -379,7 +372,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -390,7 +383,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
+                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Р”Р°Р»Р»Р°СЃ (USA) -</span><span> РћРєР»Р°С…РѕРјР°-СЃРёС‚Рё (USA)</span></td><td>$783.85</td><td>all happy</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit mp-icon-blue">
@@ -406,8 +399,8 @@
                     </li>
             </ul>
 	</div>
+<!------------------------------------------------Table --------------------------------------->
 	</div>
 </div>
-<!------------------------------------------------Table Конец--------------------------------------->
 
 {% endblock %}
