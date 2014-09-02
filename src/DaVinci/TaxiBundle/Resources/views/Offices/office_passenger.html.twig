@@ -3,7 +3,8 @@
 {% block body %}
 {% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
 <!------------------------------------------------cabinet passenger--------------------------------------->
-<div class="wrapper-content">
+<div class="wrapper">
+	<div class="wrapper-content">
 	<div class="content client-account">
 		<div class="uk-grid uk-grid-small uk-width-large-7-10 uk-width-medium-9-10 uk-width-small-7-10">
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
@@ -22,7 +23,7 @@
 		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
 			<div class="uk-panel">
 				<dl class="clientid">
-				<img class="clientphoto" src="../public/images/clientphoto.png" alt="" width="75" height="79" />
+				<img class="clientphoto" src="{{ asset('bundles/davincitaxi/images/clientphoto.png') }}" alt="" width="75" height="79" />
 					<dt>My ID: </dt><dd class="data"> 76877960596623</dd><br />
 					<dt>Name: </dt><dd class="data"> Boris Ivanov</dd><br />
 					<dt>Status: </dt> <dd class="data"> passenger</dd>
@@ -81,13 +82,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -108,13 +109,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -145,13 +146,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -172,13 +173,13 @@
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
-                                                                                                    <img src="../public/images/driverphoto.png" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
                                                                                                     <span class="proffesion">taxi driver</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
-                                                                                                    <img src="../public/images/focus.png" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">Ford Focus</span><br/>
                                                                                                     <i class="mp-icon-person"></i> 5 <i class="mp-icon-door"></i> 5 <i class="mp-icon-bug"></i> 5
                                                                                             </div>
@@ -399,12 +400,14 @@
                     </li>
             </ul>
 	</div>
+	</div>
+</div>
 <!------------------------------------------------Table --------------------------------------->
 <!------------------------------------------------profile--------------------------------------------->
             <div id="Profile" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
 	                    <a class="uk-modal-close uk-close"></a>
-                    <div class="popup-head">Begin you profile<i id="quest" class="uk-icon-question-circle"></i></div>
+		                    <div class="popup-head">Begin you profile<i id="quest" class="uk-icon-question-circle"></i></div>
 						<div class="pop-up uk-grid uk-grid-small">
 							<div class="driversreviews">
 							<div class="avatar">
@@ -465,8 +468,97 @@
 						</div>
                     </div>
             </div>
-	
-	</div>
+<!------------------------------------------------rout--------------------------------------------->
+            <div id="route" class="uk-modal client-account">
+                    <div class="uk-modal-dialog">
+                        <a class="uk-modal-close uk-close"></a>
+                            <div class="pop-up route uk-grid uk-grid-small uk-width-1-1">
+                                    <div>
+			                              <div class="yourdrivers">
+			                                    <a href="#" class="mp-icon-edit"></a>
+			                              </div>
+                                          <h5>USA: Даллас - USA: Оклахома-сити</h5>
+                                            <dl class="uk-width-1-1">
+                                                    <dt>Order ID:</dt><dd>211212121221</dd><br />
+                                                    <dt><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> From:</span></dt><dd>Russia, Moscow, Lenina street, building # 12</dd><br />
+                                                    <dt><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> To:</span></dt><dd>Ukraine, Lvov, Knazevskaja street, building # 173</dd><br />
+                                                    <dt>Pickup:</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd><br />
+                                                    <dt>Return:</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd><br />
+                                                    <dt>Passengers:</dt><dd>Adults(2), Kids(1), Seniors(0)</dd><br />
+                                                    <dt>Vehicle class:</dt><dd>Economy</dd><br />
+                                                    <dt>Language:</dt><dd>Russian</dd><br />
+                                                    <dt>Car special requests:</dt><dd>Child seat (0 - 12 months), wi-fi connection</dd><br />
+                                                    <dt class="requirement">Special requirement of passenger: </dt>
+                                                    <dd>To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
+							                            72 hours prior to departure. A medical clearance is only valid for the flight(s) and date(s) specified in
+							                            the MEDIF. Granted medical clearance is only valid in normal circumstances. If a serious deterioration of
+							                            the medical condition took place in between the time of medical clearance and the actual flight, a new
+							                            clearance must be requested.</dd><br />
+                                                    <dt>Passenger's price:</dt><dd>$260</dd><br />
+                                                    <dt>Tips:</dt><dd>$10</dd><br />
+                                                    <img src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">
+                                            </dl>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+<!------------------------------------------------about-driver--------------------------------------------->
+            <div id="about-driver" class="uk-modal client-account">
+                    <div class="uk-modal-dialog">
+                        <a class="uk-modal-close uk-close"></a>
+                    <div class="popup-head red"><i class="icon-taxi"></i>Independent driver</div>
+						<div class="pop-up uk-grid uk-grid-small">
+							<div class="driversreviews">
+								<div class="avatar">
+									<div class="photo">
+										<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" width="161" height="180px"></div>
+								</div>
+							</div>
+							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
+								<h5>About driver</h5><i id="quest" class="uk-icon-question-circle"></i><br />
+								<dl id="about-driver" class="uk-width-1-1 uk-margin-bottom">
+									<dt id="myid">My ID:</dt><dd id="myid">2112121212</dd><br />
+									<dt>First Name:</dt><dd>Boris</dd><br />
+									<dt>Last Name:</dt><dd>Ivanov</dd><br />
+									<dt>Country:</dt><dd>Russia</dd><br />
+									<dt>City:</dt><dd>Mosckow</dd><br />
+									<dt>English:</dt><dd>beginner</dd><br />
+									<dt>Other language:</dt><dd>russian</dd><br />
+									<dt>Driving Experience:</dt><dd>4+ years</dd><br />
+									<dt>Birthday:</dt><dd>11 Oct 1988</dd><br />
+									<dt>Gender:</dt><dd>male</dd><br />
+									<dt id="moretext">About me:</dt><dd id="moretext">The goal of the about:me page is to give you a 
+										more interesting view of statistics about your 
+										browser usage. The current version includes 
+										graphs that illustrate trends in your browsing.</dd><br />
+						                    <div class="popup-head inbox">About car <i class="uk-icon-question-circle"></i></div>
+									<dt>Brand:</dt><dd>Ford</dd><br />
+									<dt>Model:</dt><dd>Focus</dd><br />
+									<dt>Year:</dt><dd>2006</dd><br />
+									<dt>Color:</dt><dd>black</dd><br />
+									<dt>Number plate:</dt><dd>AB 666 777</dd><br />
+									<dt>Class:</dt><dd>bussines</dd><br />
+									<dt>Other:</dt><dd>
+									<div id="other">
+										<i class="mp-icon-person"></i> 4 <i class="mp-icon-door uk-margin-left"></i> 4 <i class="mp-icon-bug uk-margin-left"></i> 4 
+									</div>
+									</dd><br />
+									<dt id="moretext">Short description:</dt><dd id="moretext">The goal of the about:me page is to give you a 
+										more interesting view of statistics about your 
+										browser usage. The current version includes 
+										graphs that illustrate trends in your browsing.</dd><br />
+						                    <div class="popup-head inbox">Insurance <i class="uk-icon-question-circle"></i></div>
+									<dt id="moretext">Driver promises:</dt><dd id="moretext">The goal of the about:me page is to give you a 
+										more interesting view of statistics about your 
+										browser usage. The current version includes 
+										graphs that illustrate trends in your browsing.</dd><br /><br />
+									<dd>It will be great, if you have an international insurance.</dd><br /><br />
+									<dt>Driver:</dt><dd><a class="uk-button uk-button-primary button-skype">Skype + Phone</a></dd><br />
+								</dl>
+							</div>
+						</div>
+                    </div>
+            </div>
+<!------------------------------------------------pop-up конец--------------------------------------->
 </div>
-
 {% endblock %}
