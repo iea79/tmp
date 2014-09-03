@@ -5,10 +5,10 @@
 # to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
 DirectoryIndex app.php
 
-AuthType Basic   
-AuthName "Private zone. Only for administrator!" 
-AuthUserFile  /var/www/taximyprice/web/.htpasswd   
-require valid-user
+#AuthType Basic   
+#AuthName "Private zone. Only for administrator!" 
+#AuthUserFile  /var/www/taximyprice/web/.htpasswd   
+#require valid-user
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
