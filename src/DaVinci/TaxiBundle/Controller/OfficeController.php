@@ -20,6 +20,11 @@ class OfficeController extends Controller
     {
         return $this->render('DaVinciTaxiBundle:Offices:office_passenger.html.twig');
     }
+        
+    public function office_driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Offices:office_driver.html.twig');
+    }
     
     public function block_profileAction()
     {
