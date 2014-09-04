@@ -15,6 +15,7 @@ class RegistrationController extends BaseController {
      */
     public function checkEmailAction()
     {
+        //some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
        
         $new_email=$email;

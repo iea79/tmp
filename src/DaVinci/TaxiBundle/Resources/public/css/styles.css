@@ -555,7 +555,7 @@ margin-top: 8px;
 }
 
 #footer{
-	position: absolute;
+	position:relative;
 	bottom: 0;
 	overflow:hidden;
 	float: left;
@@ -1745,7 +1745,7 @@ a.logintw {
 	content: "\e607";
 }
 .mp-icon-bug:before {
-	content: "\e605";
+	content: "\e60f";
 }
 .mp-icon-person:before {
 	content: "\e603";
@@ -1759,14 +1759,26 @@ a.logintw {
 .mp-icon-zoom:before {
 	content: "\e600";
 }
+.mp-icon-star:before {
+	content: "\e60d";
+}
+.mp-icon-arrow-right:before {
+	content: "\e60e";
+}
+.mp-icon-gift:before {
+	content: "\e605";
+}
 .mp-icon-red {
 	color:#ff4d61 !important;
 }
 .mp-icon-blue {
 	color:#528ed3 !important;
 }
+.mp-icon-green {
+	color: #27bf2e !important;
+}
 .mp-icon-gray {
-	color:d0d0d0 !important;
+	color: #d0d0d0 !important;
 }
 .icon-messages-n {
 	background:url('../images/messages-n.png') transparent no-repeat scroll left center;
@@ -1939,6 +1951,9 @@ a.logintw {
 .client-account .uk-table a {
     color: #528ed3;
 }
+.client-account .uk-table a:hover {
+	text-decoration:none;
+}
 .client-account .uk-table tr {
     border-top:#d0d0d0 1px solid;
     border-bottom:#d0d0d0 1px solid;
@@ -1951,6 +1966,9 @@ a.logintw {
     border-right:#d0d0d0 1px solid;
     border-bottom:#d0d0d0 1px solid;
     padding:10px;
+}
+.client-account .allorder td {
+	vertical-align:middle;
 }
 /*  ===============================стили выпадающего блока со списком водителей==============================Alla   */
 .uk-table .uk-panel-box {
@@ -2040,6 +2058,9 @@ a.logintw {
     .vehicle {
    	 line-height:25px;
     }
+    .vehicle span {
+   	 color: #3c3d45;
+    }
     .vehicle i {
    	 color:#ff4d61;
    	 margin-left:10px;
@@ -2061,6 +2082,7 @@ a.logintw {
    	 margin:5px 0;
    	 padding:0;
    	 line-height:20px;
+   	 color: #3c3d45;
     }
     .call-driver {
    	 float:left;
@@ -2072,6 +2094,7 @@ a.logintw {
    	 margin-right:10px;
    	 font-weight:bold;
    	 float:left;
+   	 color: #3c3d45;
     }
     
 /* ===========================================конец списка заказов и водителей Alla============================================= */
@@ -2173,6 +2196,7 @@ a.logintw {
    	 td .driver-over p.about {
    		 text-align:left;
    		 padding:0;
+   		 color: #3c3d45;
    	 }
    	 .profile .feedback_ok {
    	 margin-right:10px;
@@ -2244,7 +2268,6 @@ a.logintw {
    		 float:none;
    	 }
     }
-/*---------------------------------------Pop-up---------------------------------------------*/
 .pop-up {
     /*display:block;*/
 }
