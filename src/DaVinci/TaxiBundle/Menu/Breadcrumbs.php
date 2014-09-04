@@ -17,7 +17,7 @@ class Breadcrumbs {
     }
 
     public function createBreadcrumbMenu(Request $request) {
-        $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'crunbs'));
+        $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'breadcroms'));
 
         $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
 

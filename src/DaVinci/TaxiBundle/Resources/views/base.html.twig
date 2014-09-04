@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
 		<meta name="viewport" content="widht=device-width, initial-scale=1.0" />
         {{ sonata_seo_title() }}
         {{ sonata_seo_metadatas() }}
@@ -16,51 +17,98 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/davincitaxi/images/favicon.ico') }}" />
     </head>
     <body class="{% block theme %}default{% endblock %}">
-	   <div class="registerfix"></div>
-       <div class="wrapper" >
-			<div class="wrapper-in">
-				{% block header %}
-					<header id="header" class="wrapper-content"><div class="content">
-						<table>
-							<tr>
-								<td><strong class="logo"><a href="{{ url('da_vinci_taxi_homepage') }}">TAXI MY PRICE</a></strong></td>
-								<td>
-								</td>
-								<td>
-									<nav id="main-nav">
-										<ul class="uk-subnav uk-subnav-pill">
-											<li><a href="#">About</a></li>
-											<li><a href="#">Help</a></li>
-											<li>
-												<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico01.png') }}" alt="Passenger" width="27" height="27"></a>
-												<a href="#">Profit</a>
-												<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico02.png') }}" alt="Driver" width="27" height="27"></a>
-											</li>
-										</ul>
-									</nav>
-								</td>
-								<td><div class="typevis"><a class="book" href="#">Book</a><a href="#">Store</a><div class="razd"></div></div></td>
-								<td class="lastvis">
-									{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-										<span class="signin"> Wellcome, {{ app.user.username[:10] }}..</span>
-									{% else %}
-										<ul class="uk-subnav uk-subnav-pill uk-button-group signin">
-											<li data-uk-dropdown="{mode:'click'}" class="">
-												<span class="uk-button uk-button-link">Hello, Sign in <i class="uk-icon-caret-down"></i></span>
-												<div class="uk-dropdown uk-dropdown-medium">
+	{% block header %}
+	   <header  class="header-wrapper">
+			<div class="header-top">
+				<div class="header-top-in">
+					<div class="logo">
+						<a href="{{ url('da_vinci_taxi_homepage') }}">
+							<img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="Taxi My Price" />
+						</a>
+					</div>
+					<nav class="topmenu-left">
+						<ul class="uk-subnav uk-subnav-pill">
+							<li><a href="#" class="text-item">{{ 'About'|trans }}</a></li>
+								<li><a href="#" class="text-item">{{ 'Help'|trans }}</a></li>
+								<li class="nest">
+									<a href="#" class="uk-button-danger figur-item"><i class="uk-icon-male"></i></a>
+									<span>{{ 'Profit'|trans }}</span>
+									<a href="#" class="uk-button-primary figur-item"><i class="uk-icon-automobile"></i></a>
+								</li>
+						</ul>
+					</nav>
+					<div class="topmenu-right">
+						<div class="book-store">
+							<a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
+							<a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
+							<div class="thumb">
+								<i class="uk-icon-thumbs-up"></i>
+							</div>
+						</div>
+						<div data-uk-dropdown="" class="uk-button-dropdown">
+							{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+										<button class="uk-button  uk-button-link autorized">
+												<span class="caption">My account</span> <i class="uk-icon-caret-down uk-margin-small-left"></i><br/><span class="ownship">passenger</span>
+										</button>
+										<div class="uk-dropdown uk-dropdown-width-3 shadow-main">
+												<div class="myaccount-drop">
 													<ul class="uk-nav uk-nav-dropdown">
-														<li><a href="{{ url('fos_user_registration_register') }}" class="uk-button uk-button-link">Register</a></li>
-														<li><a class="uk-button uk-button-success" href="{{ url('fos_user_security_login') }}">Log in</a></li>
+														<li class="uk-nav-header">My account</li>
+														<li><a href=""><i class="uk-icon-male"></i> My profile</a></li>
+														<li><a href=""><i class="uk-icon-envelope"></i> Messages</a></li>
+														<li><a href=""><i class="uk-icon-sign-out"></i> Log Out</a></li>
 													</ul>
 												</div>
-											</li>
-										</ul>
+												<div class="myoffice-drop">
+													<ul class="uk-nav uk-nav-dropdown">
+														<li class="uk-nav-header">My office</li>
+														<li><span>Passenger<br /> Independent driver</span></li>
+													</ul>
+													<button class="uk-button uk-button-success" data-uk-modal="{target:'#Profile'}">Get new office</button>
+												</div>
+												<div class="myid-drop">
+													<div class="myid-drop-top">
+														<div class="img">
+															<img src="images/camera-menu.png" alt="" />
+														</div>
+														<ul class="uk-nav uk-nav-dropdown">
+														<li>
+															<div class="clientid">My ID: <span class="data">76877960596623</span></div>
+														</li>
+														<li>
+															<div class="clientid">Name: <span class="data">Boris Ivanov</span></div>
+														</li>
+														<li>
+															<div class="clientid">My balance: <span class="data">$0.00</span></div>
+														</li>
+													</div>
+													<ul class="uk-grid  menu-bord">
+														<li><a href="">$Add</a></li>
+														<li><a href="">$Withdraw</a></li>
+														<li><a href="">$Transfer</a></li>
+													</ul>
+												</div>
+											</div>
+									{% else %}
+										<button class="uk-button  uk-button-link nonautorized">
+												{{ 'Hello, Sign in'|trans }}
+												
+											</button>
 									{% endif %}
-								</td>
-								<td><a href="javascript://" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a><strong></strong></td>
-							</tr>
-						</table>
-					</div></header>
+						</div>
+						<a href="javascript://" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a>
+							
+					</div>
+				</div>
+			</div>
+			<div class="header-bottom">
+				<nav class="header-bottom-in">
+					{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
+				</nav>
+			</div>
+		</header>
+<div class="main-content">
+	
 				{% endblock %}
 				{% block body %}{% endblock %}
 				{% block javascripts %}
@@ -80,65 +128,41 @@
 						{% endjavascripts %}
 				{% endblock %}
 
-
+</div>
 
 				<div id="offcanvas-nav" class="uk-offcanvas">
-					<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
-						<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:false}">
-							<li class="uk-nav-header offcanvas-footer">Index</li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Help</a></li>
-							<li>
-								<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico01.png') }}" alt="Passenger" width="27" height="27"></a>
-								<a href="#">Profit</a>
-								<a href="#"><img src="{{ asset('bundles/davincitaxi/images/ico02.png') }}" alt="Driver" width="27" height="27"></a>
-							</li>
-							<li><a class="book" href="#">Book</a></li>
-							<li><a href="#">Store</a></li>
-							<li class="uk-nav-header offcanvas-footer">Footer</li>
-							<!--li class="offcanvas-footer"><a href="#">Info</a></li-->
-							<li class="offcanvas-footer"><a href="#">Privacy Policy</a></li>
-							<li class="offcanvas-footer">
-								<a href="#"><i class="uk-icon-youtube-play"></i> YouTube</a>
-								<a href="#"><i class="uk-icon-twitter"></i> Twitter</a>
-								<a href="#"><i class="uk-icon-facebook-square"></i> Facebook</a>
-								<a href="#"><i class="uk-icon-vk"></i> VK</a>
-								<a href="#"><i class="uk-icon-instagram"></i> Instagram</a>
-							</li>
-							<!--li class="offcanvas-footer"><a class="youtube" href="#" title="youtube">youtube</a></li>
-							<li class="offcanvas-footer"><a class="twitter" href="#">twitter</a></li>
-							<li class="offcanvas-footer"><a class="facebook" href="#">facebook</a></li>
-							<li class="offcanvas-footer"><a class="google" href="#" title="google+">google+</a></li>
-							<li class="offcanvas-footer"><a class="linkedin" href="#">linkedin</a></li-->
-						</ul>
-					</div>
+					
 				</div>
 			
-			</div>
-			{% block footer %}
-				 <footer id="footer" class="wrapper-content">
-					<div class="footer-block">
-						<div class="content">
-							<nav class="add-nav uk-grid">
-								<ul class="uk-subnav uk-subnav-pill uk-list">
-									<!--li><a href="#">Info</a></li-->
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</nav>
+			
 
-							<ul class="uk-subnav uk-subnav-pill social uk-list">
-								<li><a class="youtube" href="#" title="youtube">youtube</a></li>
-								<li><a class="twitter" href="#">twitter</a></li>
-								<li><a class="facebook" href="#">facebook</a></li>
-								<li><a class="google" href="#" title="google+">google+</a></li>
-								<li><a class="linkedin" href="#">linkedin</a></li>
-							</ul>
-							<div class="clear"></div>
-						</div>
-					</div>
-					<div class="copy"><p class="w1 content">&copy; {{ "now"|date("Y") }}  TaxiMyPrice</p></div>
-					<div class="clear"></div>
-				</footer>
-			{% endblock %}
+			{% block footer %}
+<footer>
+	<div class="footer-top">
+		<div class="footer-in">
+			<nav class="add-nav">
+				<ul class="uk-subnav uk-subnav-pill uk-list">
+					<li><a href="#">{{ 'Privacy policy'|trans }}</a></li>
+					<li><a href="#">{{ 'Blog'|trans }}</a></li>
+				</ul>
+			</nav>
+
+			<ul class="uk-subnav uk-subnav-pill social uk-list">
+								
+				<li><a class="twitter" href="#"><i class="uk-icon-twitter"></i></a></li>
+				<li><a class="facebook" href="#"><i class="uk-icon-facebook"></i></a></li>
+				<li><a class="google" href="#" title="google+"><i class="uk-icon-google-plus"></i></a></li>
+				<li><a class="linkedin" href="#"><i class="uk-icon-linkedin"></i></a></li>
+			</ul>
+			<div class="clear"></div>
 		</div>
-    </body></html>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; {{ "now"|date("Y") }}  TaxiMyPrice</p>
+	</div>
+					
+</footer>
+			{% endblock %}
+		
+</body>
+</html>
