@@ -18,23 +18,25 @@ class Breadcrumbs {
 
     public function createBreadcrumbMenu(Request $request) {
         $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'breadcroms'));
-
-        $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
-
+        
         // create the menu according to the route
         switch ($request->get('_route')) {
             case 'fos_user_registration_register':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Registration')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 // setCurrent is use to add a "current" css class
                 ;
                 break;
             case 'fos_user_security_login':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Login')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');;
                 break;
             case 'fos_user_resetting_request':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Reset Password')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');;
                 break;
             case 'office_choose':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Choose Office')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');;
                 break;
         }
