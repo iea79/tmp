@@ -10,8 +10,7 @@
 				{% stylesheets 'bundles/davincitaxi/css/uikit.css'
 					'bundles/davincitaxi/css/addons/uikit.addons.css'
 					'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' filter='cssrewrite' 
-					'bundles/davincitaxi/css/styles.css' 
-					'bundles/davincitaxi/css/lena.css' %}
+					'bundles/davincitaxi/css/styles.css' %}
         <link media="all" rel="stylesheet" href="{{ asset_url }}" />
 				{% endstylesheets %}
 			{% endblock %}
@@ -19,6 +18,7 @@
     </head>
     <body class="{% block theme %}default{% endblock %}">
 	{% block header %}
+	<div class="wrap-content">
         <header  class="header-wrapper">
             <div class="header-top">
                 <div class="header-top-in">
@@ -43,7 +43,7 @@
                             <a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
                             <a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
                             <div class="thumb">
-                                <i class="uk-icon-thumbs-up"></i>
+                                <i class="mp-icon-good"></i>
                             </div>
                         </div>
                         <div data-uk-dropdown="" class="uk-button-dropdown">
@@ -97,9 +97,10 @@
                             </button>
 									{% endif %}
                         </div>
-                        <a href="javascript://" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a>
+                        
 
                     </div>
+					<a href="javascript://" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a>
                 </div>
             </div>
             {% block breadcrumbs %}
@@ -146,12 +147,52 @@
         </div>
 
         <div id="offcanvas-nav" class="uk-offcanvas">
-
+			<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
+               <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:false}">
+				<li><a href="index.html"class="uk-button">{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
+																Log In <i class="uk-icon-sign-in"></i>
+														{% else %} 
+														Sing Up
+														{% endif %}
+					</a></li>
+                <li><a href="index.html">Home <i class="uk-icon-home"></i></a></li>
+                <li class="uk-parent"><a href="#">Your passanger</a>
+					<ul class="uk-nav-sub">
+                        <li><a href="">Book</a></li>
+                        <li><a href="">Profit</a></li>
+                        <li><a href="">Help</a></li>
+                       
+                    </ul>
+				</li>
+                <li class="uk-parent"><a href="#">Your driver</a>
+					<ul class="uk-nav-sub">
+                        <li><a href="">TMP market</a></li>
+                        <li><a href="">Profit</a></li>
+                        <li><a href="">Help</a></li>                   
+                        
+                    </ul>
+				</li>
+				<li class="uk-parent"><a href="#">Store</a>
+					<ul class="uk-nav-sub">
+                        <li><a href="">For passanger</a></li>
+                        <li><a href="">For driver</a></li>
+                        <li><a href="">General</a></li>
+                        <li><a href="">Help</a></li>                   
+                        
+                    </ul>
+				</li>
+                <li class="uk-active"><a href="">About TMP</a></li>
+                <li class="uk-active"><a href="">TMP agreements</a></li>
+                <li class="uk-active"><a href="">Media</a></li>
+                <li class="uk-active"><a href="">Log out <i class="mp-icon-logout"></i></a></li>
+               </ul>
+			</div>
         </div>
 
 
 
 			{% block footer %}
+	</div>
         <footer>
             <div class="footer-top">
                 <div class="footer-in">

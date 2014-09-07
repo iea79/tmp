@@ -15,8 +15,9 @@
 }
 
 
-body {
+body, html {
 	background-color:#f5f5f5;
+	height:100%; /* ====  it is important part to have a footer in the bottom of page =================*/
 }
 /*======================================== our icons styles ==================================*/
 .mp-icon-point-a:before {
@@ -87,7 +88,7 @@ body {
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
-	line-height: 1;
+	/*line-height: 1;*/
 
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
@@ -168,7 +169,7 @@ body {
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .book-store {
 				display:inline-block;
-				margin-right:-31px;
+				margin-right:-34px;
 				
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .book-store a {
@@ -180,13 +181,14 @@ body {
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .book-store .thumb {
 				background-color: #fff;
-				border-radius: 14px;
+				border-radius: 18px;
 				color: #528ed3;
 				display: inline-block;
-				font-size: 24px;
-				padding: 3px;
+				font-size: 23px;
+				padding: 1px 3px;
 				position: relative;
 				right: 108px;
+				top:3px;
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .nonautorized {
 				color:#ff4d61;
@@ -360,16 +362,117 @@ body {
 								color:#fff;
 							}
 /*==============================  off canvas menu ===============================*/
-.uk-navbar-toggle {
+.header-top-in .uk-navbar-toggle {
 	display:none;
+	color:#528ed3;
+	float:right;
+	margin: 0 20px 0 0;
 }
 /*-------------------------------------  content --------------------------------*/
+.wrap-content {   /* ===== important to keep a footer in the bottom of page  =================*/
+	min-height:100%;
+	height:auto!important;
+	}
 .main-content {
 	max-width:1000px;
 	margin:0 auto;
 	background-color:#f5f5f5;
-	padding:14px 0 22px 0;
+	padding:15px 0 155px 0;
+	
 }
+/*===================================    home ===========================================*/
+.home {
+	margin-top:20px;
+}
+	.home .tabtaxi {
+		font-size:20px;
+		overflow:hidden;
+	}
+		.home .tabtaxi  .red  a {
+			background: url('../images/shashki-red-left.png') left no-repeat, url('../images/arrowred.png') top center no-repeat, url('../images/shashki-red-right.png') right no-repeat  #fff;
+			color:#ff4d61;
+		}
+		.home .tabtaxi .blue a {
+			background-color:#528ed3;
+			color:#fff;
+		}
+		.home .tabtaxi ul li .child {
+			padding:8px 12px;
+			border-radius: 4px 4px 0 0;
+			font-weight: bold;
+			height: 58px;
+			text-align: center;
+		}
+			.home .tabtaxi ul li .child span {
+				vertical-align:middle;
+				display:table-cell;
+				height:58px;
+				width:500px;
+				
+			}
+	.home .steps-1-2-3 {
+		background-color:#fff;
+		padding:15px 0 0 0;
+	}
+		.home .steps-1-2-3 .chois {
+			border-top:1px solid #ff4d61;
+			border-bottom:1px solid #ff4d61;
+			height:60px;
+			overflow:hidden;
+		}
+			.home .steps-1-2-3 .chois li {
+				height:60px;
+				text-align:center;
+			}
+				.home .steps-1-2-3 .chois li a {
+					color:#3c3d45;
+					font-size:18px;
+					padding:0 5px 0 0;
+					margin:0;
+				}
+					.home .steps-1-2-3 .chois li a:hover {
+						text-decoration:underline;
+						background:inherit;
+					}
+					.home .steps-1-2-3 .chois li a .on {
+						background:#ff4d61;
+						font-size:22px;
+						width:24px;
+						padding:2px 1px;
+						border-radius:15px;
+						color:#fff;
+						display:inline-block;
+					}
+					.home .steps-1-2-3 .chois li a .arrow_box {
+						vertical-align:middle;
+						display:table-cell;
+						height:58px;
+						width:300px;
+					}
+			.home .steps-1-2-3 .chois .first {
+				background: url('../images/arrowstep1.png') right no-repeat #fff;
+			}
+			.home .steps-1-2-3 .chois .second {
+				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
+			}
+			.home .steps-1-2-3 .chois .active {
+				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
+			}
+			.home .steps-1-2-3 .chois .last {
+				background:#ff4d61!important;
+			}
+				.home .steps-1-2-3 .chois .active  a {
+					color:#fff;
+					cursor:default;
+				}
+						.home .steps-1-2-3 .chois .active  a :hover {
+							text-decoration:none!important;
+						}
+
+					.home .steps-1-2-3 .chois .active  a .on {
+						color:#ff4d61;
+						background-color:#fff;
+					}
 /*=======
 office passengers and driver
 ========*/
@@ -804,6 +907,10 @@ office passengers and driver
     }
 /*====================================== end of offices ============================================*/
 /*------------------------------------- footer   --------------------------------*/
+footer {
+	height:135px;
+	margin-top:-135px;
+}
 .footer-top {
 	width:100%;
 	background-color:#528ed3;
@@ -951,6 +1058,15 @@ office passengers and driver
    		 width:100%;
    		 float:none;
    	 }
+		.home .steps-1-2-3 .chois li:not(.active)  a .hide {
+			display:none;
+		}
+		.home .steps-1-2-3 .chois li:not(.active) {
+			width:15%;
+		}
+		.home .steps-1-2-3 .chois .active {
+			width:70%;
+		}
     }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
@@ -1111,6 +1227,35 @@ table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; }
 
 /* Mobile */
+/*===  for top menu   ======*/
+ @media only screen and (max-width: 800px) {
+	
+	.header-wrapper .header-top .header-top-in .logo {
+		display:none;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu-left {
+		padding-left:4%;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu-right .book-store a {
+		padding:14px;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu-right .book-store .thumb {
+		right:96px;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.header-wrapper .header-top .header-top-in .logo, .header-top-in .uk-navbar-toggle {
+		display:block;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu-left ul.uk-subnav,  .header-wrapper .header-top .header-top-in .topmenu-right {
+		display:none;
+	}
+		
+			.header-wrapper .header-top .header-top-in .topmenu-left {
+				width:93px;
+				height:32px;
+			}
+}
 @media only screen and (max-width: 760px) {
 	
 	table.responsive { margin-bottom: 0; }

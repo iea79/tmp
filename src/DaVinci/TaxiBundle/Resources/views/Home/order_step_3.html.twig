@@ -1,9 +1,24 @@
-<div class="wrapper-content"><div id="content" class="content">
-<div class="content-block choice">
-	<ul class="tabs uk-tab uk-tab-grid last">
-        <li class="uk-width-1-3 general"><a href="{{ url('order_step_1') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> General information</a></li>
-        <li class="uk-width-1-3 other"><a href="{{ url('order_step_2') }}" class="arrow_box"><span><img src="{{ asset('bundles/davincitaxi/images/kr.png') }}" alt="" /></span> Other information</a></li>
-        <li class="uk-width-1-3 contact current"><div class="noarrow"><span>3</span> Contact information</div></li>
+
+
+	<ul class="tabs uk-tab  chois">
+        <li class="uk-width-1-3  second">
+			<a href="#">
+				<div class="arrow_box"><span class="on">1</span><span class="hide"> General information</span>
+				</div>
+			</a>
+		</li>
+        <li class="uk-width-1-3 other first">
+			<a href="#">
+				<div class="arrow_box"><span class="on">2</span><span class="hide"> Other information</span>
+				</div>
+			</a>
+		</li>
+        <li class="uk-width-1-3 active last">
+			<a href="#">
+				<div class="arrow_box"><span class="on">3</span><span class="hide"> Contact information</span>
+				</div>
+			</a>
+		</li>
     </ul>
     <div class="paramauto">
         <h1>Тариф</h1>
@@ -34,6 +49,6 @@
 		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
     <div class="clear"></div>
 
-</div>
 
-</div></div>
+
+
