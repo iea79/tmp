@@ -1,11 +1,9 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 
 {% block body %}
-{% include 'DaVinciTaxiBundle::breadcrumbs.html.twig' %}
 <!------------------------------------------------cabinet passenger--------------------------------------->
-<div class="wrapper">
-	<div class="wrapper-content">
-	<div class="content client-account">
+<div class="main-content">
+	<div class="client-account uk-container-center">
 		<div class="uk-grid uk-grid-small uk-width-large-7-10 uk-width-medium-9-10 uk-width-small-7-10">
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
 				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>My profile</button>
@@ -22,14 +20,19 @@
 		</div>
 		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
 			<div class="uk-panel">
-				<dl class="clientid">
-				<img class="clientphoto" src="{{ asset('bundles/davincitaxi/images/clientphoto.png') }}" alt="" width="75" height="79" />
+				<div class="clientid">
+					<div class="clientphoto">
+						<img src="{{ asset('bundles/davincitaxi/images/clientphoto-new.png') }}" alt="" width="75" height="79" />
+					</div>
+				<dl>
 					<dt>My ID: </dt><dd class="data"> 76877960596623</dd><br />
 					<dt>Name: </dt><dd class="data"> Boris Ivanov</dd><br />
 					<dt>Status: </dt> <dd class="data"> passenger</dd>
 				</dl>
 			</div>
-			<div class="uk-panel clientid">
+			</div>
+			<div class="uk-panel">
+				<div class="clientid">
 				<dl>
 					<dt class="">My balance: </dt><dd id="balance" class="data"> $0.00</dd><br />
 					<dt><a href="">$Add</a></dt><br />
@@ -37,16 +40,16 @@
 					<dt><a href="">$Transfer</a></dt>
 				</dl>
 			</div>
-			<div class="uk-panel clientid">
+			</div>
+			<div class="uk-panel">
+				<div class="clientid">
 				<dl>
 					<dt>Membership: </dt><dd id="status" class="data"> Gold</dd><br />
 					<dt>Left time: </dt><dd class="data"> 11 oct 14</dd><br />
 					<dt><a href="">Extend</a></dt>
 				</dl>
 			</div>
-
-
-
+			</div>
 		</div>
     <div class="shadow-main">
 <!------------------------------------------------ swicher table------------------------------------------------>
@@ -277,9 +280,9 @@
                                                             <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">mar</span> 14<span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -288,9 +291,9 @@
                                                             <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>pending</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -299,9 +302,9 @@
                                                             <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-blue">48:12:21</span></td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-gray">
+																			<a class="mp-icon-edit uk-text-warning">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-gray">
+                                                                            <a class="mp-icon-closed uk-text-warning">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -310,9 +313,9 @@
                                                             <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-green">26:55:03</span></td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-gray">
+																			<a class="mp-icon-edit uk-text-warning">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-gray">
+                                                                            <a class="mp-icon-closed uk-text-warning">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -321,20 +324,20 @@
                                                             <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-red">13:55:03</span></td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-gray">
+																			<a class="mp-icon-edit uk-text-warning">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-gray">
+                                                                            <a class="mp-icon-closed uk-text-warning">
 																			</a>
                                                                     </div>
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><span><i class="mp-icon-taxi mp-icon-blue"></i></span></td><td>00:00:00</td>
+                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><span><i class="mp-icon-taxi uk-text-primary"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -343,53 +346,53 @@
                                                             <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi mp-icon-blue"></i><br /><span class="mp-icon-red"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star mp-icon-gray"></i></span></td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-																			<a class="mp-icon-edit mp-icon-blue">
-																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi mp-icon-blue"><br /><span class="mp-icon-red"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star mp-icon-gray"></i></span></i></td><td>00:00:00</td>
+                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi mp-icon-blue"></i><br /><span class="mp-icon-red"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star mp-icon-gray"></i></span></td><td>00:00:00</td>
+                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></i></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi mp-icon-blue"></i><br /><span class="mp-icon-red"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star mp-icon-gray"></i></span></td><td>00:00:00</td>
+                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
-																			<a class="mp-icon-edit mp-icon-blue">
+																			<a class="mp-icon-edit uk-text-primary">
 																			</a>
-                                                                            <a class="mp-icon-closed mp-icon-red">
+                                                                            <a class="mp-icon-closed uk-text-danger">
+																			</a>
+                                                                    </div>
+                                                            </td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>
+                                                                    <div>
+																			<a class="mp-icon-edit uk-text-primary">
+																			</a>
+                                                                            <a class="mp-icon-closed uk-text-danger">
 																			</a>
                                                                     </div>
                                                             </td>
@@ -402,7 +405,7 @@
 	</div>
 	</div>
 </div>
-<!------------------------------------------------Table --------------------------------------->
+<!------------------------------------------------pop-up --------------------------------------->
 <!------------------------------------------------profile--------------------------------------------->
             <div id="Profile" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
@@ -558,7 +561,6 @@
 							</div>
 						</div>
                     </div>
-            </div>
 <!------------------------------------------------pop-up конец--------------------------------------->
 </div>
 {% endblock %}
