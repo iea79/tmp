@@ -132,9 +132,27 @@
 #blocks .uk-grid li button {width: 84%; font-size: 16px; border-right: 1px solid #4685C4;}
 #blocks .uk-grid li .uk-button-primary {background: #5A96D1;}
 #blocks .uk-grid li .uk-button-primary:hover {background: #6AA0D5;}
-@media (max-width: 1017px) {#blocks .uk-grid-width-1-4 > li {width: 33.33%;}}
-@media (max-width: 767px) {#blocks .uk-grid-width-1-4 > li {width: 50%;}}
-@media (max-width: 480px) {#blocks .uk-grid-width-1-4 li {width: 100%;}}
+@media (max-width: 1017px) {
+	#blocks .uk-grid-width-1-4 > li {width: 33.33%;}
+	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+}
+@media (max-width: 767px) {
+	#blocks .uk-grid-width-1-4 > li {width: 50%;}
+	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+}
+@media (max-width: 480px) {
+	#blocks .uk-grid-width-1-4 li {width: 100%;}
+	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+}
 
 #interesting .uk-panel-teaser img {width: 100%;}
 #interesting .uk-panel-box {background: #EC5045; color: #fff; text-align: left;}
@@ -389,7 +407,7 @@ select, textarea, input[type="email"], input[type="password"], input[type="text"
     border-radius: 3px;
     box-sizing: border-box;
     display: inline-block;
-    margin: 0 15px 0 0;
+    margin: 0;
     padding: 4px 11px 4px 9px;
     vertical-align: middle;
 }
@@ -436,7 +454,8 @@ input[type="file"] {
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 /*    width: 308px;*/
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) {}
+
 .file_upload > div {
     display: none;
 }
@@ -1101,9 +1120,9 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 
 
 .questiontooltip {
-	width: 10%;
+	width: 9%;
 	position: relative;
-	float: right;
+	float: left;
 	text-align: left;
 }
 .addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}
@@ -1827,16 +1846,22 @@ span.countpassenger {
     padding: 5px 0;
 }
 .addphoneline .text {   padding-bottom: 8%;}
-.phonecode {float: left;}
+.phonecode {
+	float: left;
+	margin-right: 9px;
+}
 .register .uk-form-horizontal  .addphoneareas {
-	width: 50%;
+	width: 60%;
 	float: left;
     margin-bottom: 12px;
+}
+.register .uk-form-horizontal  .addphoneareas select{
+    margin-right: 9px;
 }
 .wifis {    margin-bottom: 12px;}
 .wifis label {
     display: inline-block;
-    margin: 0 0 0 4px;
+    margin: 0 15px 0 4px;
 }
 .wicheck {
 	position: relative;
@@ -1846,7 +1871,10 @@ span.countpassenger {
 	top: -2px;
 	right: 12px;
 }
-.whicheck-1 {width: 26%;margin-right: 15px;}
+.whicheck-1 {
+	width: 30%;
+	margin-right: 15px;
+}
 .whicheck-2 {width: 44%;}
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
 .addphone {
@@ -2116,6 +2144,7 @@ footer .footer-top .footer-in .add-nav ul li {border: none;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 83%;}
 
 .register .uk-form-horizontal .uk-width-4-5 {width: 95%;}
-.register .uk-form-horizontal .uk-width-4-6 {width: 53%;}
-.register .uk-form-horizontal .uk-width-4-10 {width: 39%;}
+.register .uk-form-horizontal .uk-width-4-6 {width: 46%;}
+.register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
+.register .uk-form-horizontal .uk-width-7-10 {width: 88%;}
