@@ -1,26 +1,41 @@
-<div class="wrapper-content"><div id="content" class="content">
-<div class="content-block choice">
-	<ul class="tabs uk-tab uk-tab-grid">
-        <li class="uk-width-1-3 general current"><div class="arrow_box"><span>1</span> General information</div></li>
-        <li class="uk-width-1-3 other"><div class="arrow_box"><span>2</span> Other information</div></li>
-        <li class="uk-width-1-3 contact"><div class="noarrow"><span>3</span> Contact information</div></li>
+
+
+	<ul class="tabs uk-tab  chois">
+        <li class="uk-width-1-3 active ">
+			<a href="#">
+				<div class="arrow_box"><span class="on">1</span><span class="hide"> General information</span>
+				</div>
+			</a>
+		</li>
+        <li class="uk-width-1-3 other second">
+			<a href="#">
+				<div class="arrow_box"><span class="on">2</span><span class="hide"> Other information</span>
+				</div>
+			</a>
+		</li>
+        <li class="uk-width-1-3 contact">
+			<a href="#">
+				<div class="arrow_box"><span class="on">3</span><span class="hide"> Contact information</span>
+				</div>
+			</a>
+		</li>
     </ul>
     <div class="destination">
 
-		<div class="desticlone">
-			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">a</span> From:</span></span>
+		
+			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">a</span> From:</span></span></label>
 				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"  /></div>
-			</label>
-            <!--label><span class="title"><span class="destinationmark">a</span> From:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label-->
-			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">b</span> To:</span></span>
+			
+            
+			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">b</span> To:</span></span></label>
 				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"   /></div>
-			</label>
-            <!--label><span class="title"><span class="destinationmark">b</span> To:</span> <input placeholder="Enter postcode, Venue or Place" type="text"  /></label-->
-        </div>
+			
+            
+     
         <div class="addlang uk-width-1-1"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
-        <div class="separator"></div>
+        <hr/>
 
-		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Pickup:</span></span>
+		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Pickup:</span></span></label>
 			<div class="uk-form-controls uk-width-8-10">
 				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker"  />
 				<select name="pickupstart" class="uk-width-1-4">
@@ -34,21 +49,11 @@
 					<option>15</option>
 				</select>
 			</div>
-		</label>
-        <!--div class="fordownblock"><span class="title">Pickup:</span> <input type="text" placeholder="mm/dd/yy" id="datepicker" />
-            <select name="pickupstart">
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-            </select>
-            <select name="pickupend">
-                <option>05</option>
-                <option>10</option>
-                <option>15</option>
-            </select></div-->
+		
+       
         <label class="fordownblock makereturn uk-form-row "><span class="uk-form-label uk-width-1-5  title"></span><input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span></label>
 
-		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Return:</span></span>
+		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Return:</span></span></label>
 			<div class="uk-form-controls uk-width-8-10">
 				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
 				<select name="pickupstart" class="uk-width-1-4">
@@ -62,15 +67,15 @@
 					<option>15</option>
 				</select>
 			</div>
-		</label>
+		
 
         
 
 		<div class="uk-button-group uk-width-1-1"><a href="{{ url('order_step_2') }}" class="uk-button nextbutt">Next > </a></div>
-		<!--button class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';">Sign Up</button-->
+		
     </div>
 
 		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
     <div class="clear"></div>
-</div>
-</div></div>
+
+
