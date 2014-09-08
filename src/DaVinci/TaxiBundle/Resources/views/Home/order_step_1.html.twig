@@ -22,53 +22,88 @@
     </ul>
     <div class="destination">
 
-		
-			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">a</span> From:</span></span></label>
-				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"  /></div>
-			
-            
-			<label class="uk-form-row"><span class="uk-form-label uk-width-1-5 title"><span class="destinationmark">b</span> To:</span></span></label>
-				<div class="uk-form-controls uk-width-8-10"><input class="uk-width-1-1" placeholder="Enter postcode, Venue or Place" type="text"   /></div>
-			
+	<div class="form-block-wrap">	
+		<div class="labels">	
+			<label><i class="mp-icon-point-a"></i> From:</label>
+		</div>
+		<div class="inputs">
+				<div class="uk-form-icon">
+					<i class="uk-icon-calendar"></i>
+					<input class="uk-width-1-1 date-pick" placeholder="Enter postcode, Venue or Place" type="text"  />
+				</div>
+		</div>
+	</div>
+	<div class="form-block-wrap">		
+         <div class="labels">   
+			<label><i class="mp-icon-point-b"></i> To:</label>
+		</div>
+		<div class="inputs">
+				<div class="uk-form-icon">
+					<i class="uk-icon-calendar"></i>
+					<input class="uk-width-1-1 date-pick" placeholder="Enter postcode, Venue or Place" type="text"   />
+				</div>
+		</div>
+	</div>
+		<div class="clr"></div>	
             
      
         <div class="addlang uk-width-1-1"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
         <hr/>
-
-		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Pickup:</span></span></label>
+	<div class="form-block-wrap">
+		<div class="labels">
+			<label>Pickup:</label>
+		</div>
+		<div class="inputs">
 			<div class="uk-form-controls uk-width-8-10">
-				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker"  />
-				<select name="pickupstart" class="uk-width-1-4">
+				<input class="uk-width-1-4 date-pick"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
+				<span class="over">
+				<select name="pickupstart" class="styled">
 					<option>11</option>
 					<option>12</option>
 					<option>13</option>
 				</select>
-				<select name="pickupend" class="uk-width-1-4">
+				<i class="uk-icon-sort-down"></i>
+				</span>
+				<span class="over">
+				<select name="pickupend" class="styled">
 					<option>05</option>
 					<option>10</option>
 					<option>15</option>
 				</select>
+				<i class="uk-icon-sort-down"></i>
+				</span>
 			</div>
-		
+		</div>
+	</div>
+		<div class="clr"></div>	
        
-        <label class="fordownblock makereturn uk-form-row "><span class="uk-form-label uk-width-1-5  title"></span><input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span></label>
-
-		<label class="uk-form-row fordownblock"><span class="uk-form-label uk-width-1-5 title">Return:</span></span></label>
+       <input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span>
+	<div class="form-block-wrap">
+		<div class="labels">
+			<label>Return:</label>
+		</div>
+		<div class="inputs">
 			<div class="uk-form-controls uk-width-8-10">
-				<input class="uk-width-1-4"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
-				<select name="pickupstart" class="uk-width-1-4">
+				<input class="uk-width-1-4 date-pick"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
+				<span class="over">
+				<select name="pickupstart" class="styled">
 					<option>11</option>
 					<option>12</option>
 					<option>13</option>
 				</select>
-				<select name="pickupend" class="uk-width-1-4">
+				<i class="uk-icon-sort-down"></i>
+				</span>
+				<span class="over">
+				<select name="pickupend" class="styled">
 					<option>05</option>
 					<option>10</option>
 					<option>15</option>
 				</select>
+				<i class="uk-icon-sort-down"></i>
+				</span>
 			</div>
-		
-
+		</div>
+	</div>
         
 
 		<div class="uk-button-group uk-width-1-1"><a href="{{ url('order_step_2') }}" class="uk-button nextbutt">Next > </a></div>
