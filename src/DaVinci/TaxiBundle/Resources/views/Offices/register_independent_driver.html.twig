@@ -102,11 +102,8 @@
 				</div>
 			</label>
 			<label class="addphoneline uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
-				<div class="questiontooltip">
-					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
-				</div>
 				<div class="uk-form-controls addphoneareas">
-					<select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
+					<div class="float_left uk-width-1-1"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -149,28 +146,31 @@
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select>
-					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required placeholder="Phone number" />
+					<input class="uk-width-4-6 float_left" type="text" name="phone" id="phone" required placeholder="Phone number" /></div>
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					</div>
 				</div>
 			</label>
 			<div class="wifis uk-form-row"><span class="uk-form-label uk-width-2-5 text">Mark if you have </span>
 				<div class="uk-form-controls">
 					<div class="wicheck whicheck-1">
-						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
-						</div>
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+						</div>
 					</div>
 					<div class="wicheck whicheck-2">
-						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Вот такая подсказочка получилась :).</span></a>
-						</div>
 						<div class="float_left"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile messaging app</span></a>
+						</div>
 					</div>
 				</div>
 			</div>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
-				<div class="uk-form-controls addphone">Add another phone number</div>
-				
+				<div class="uk-form-controls addphone">Add another phone number
+				</div>
 			</label>
 
 			<div class="uk-button-group uk-width-4-5">
