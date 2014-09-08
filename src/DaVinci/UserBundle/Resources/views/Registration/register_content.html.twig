@@ -7,8 +7,7 @@
 				{{ form_errors(form) }}
                 <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.firstname'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.firstname,
-						{'attr':{'placeholder': 'form.firstname'|trans,
-								'class': 'uk-width-1-1 float_left',
+						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
                     <div class="questiontooltip">
                         <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real First Name (George, Barbara etc.)'|trans }}</span></a>
@@ -20,8 +19,7 @@
 
                 <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.lastname'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.lastname,
-						{'attr':{'placeholder': 'form.lastname'|trans,
-								'class': 'uk-width-1-1 float_left',
+						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
                     <div class="questiontooltip">
                         <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real First Name (George, Barbara etc.)'|trans }}</span></a>
@@ -33,8 +31,7 @@
 
                 <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.email'|trans }}:</span>
                     <div class="uk-form-controls">{{ form_widget(form.email,
-						{'attr':{'placeholder': 'form.email'|trans,
-								'class': 'uk-width-1-1 float_left',
+						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
                     <div class="questiontooltip">
                         <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'You will get confirmation letter to complete registration.'|trans }}</span></a>
@@ -46,8 +43,7 @@
                 <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password'|trans }}:</span>
                     <div class="uk-form-controls uk-form-password">
                         {{ form_widget(form.plainPassword.first,
-						{'attr':{'placeholder': 'form.password'|trans,
-								'pattern':'.{3,}',
+						{'attr':{'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
 								'class': 'uk-width-1-1 float_left passfield',
                                  'tabindex':'4'
@@ -63,8 +59,7 @@
                 </label>
                 <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:</span>
                     <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second,
-						{'attr':{'placeholder': 'form.password_confirmation'|trans,
-								'pattern':'.{3,}',
+						{'attr':{'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
 								'class': 'uk-width-1-1 float_left passfield2',
                                  'tabindex':'5'
@@ -104,8 +99,8 @@
                 <label class="uk-form-row term">{{ form_widget(form.terms) }}{{ 'form.iagreetotem'|trans({'%url%': '#'})|raw }}</label>
 
                 <div class="uk-button-group uk-width-4-5">
-                    <button class="uk-button nextbutt twobuttnext uk-width-2-6  float_right">{{ 'form.finish'|trans }}</button>
-                    <button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-2-6 float_left" type="submit">< {{ 'form.edit'|trans }}</button>
+                    <button class="uk-button nextbutt twobuttnext uk-width-4-10  float_right">{{ 'form.finish'|trans }}</button>
+                    <button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-4-10 float_left" type="submit">< {{ 'form.edit'|trans }}</button>
                 </div>
 
 
