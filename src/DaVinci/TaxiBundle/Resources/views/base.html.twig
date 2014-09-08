@@ -10,8 +10,8 @@
 				{% stylesheets 'bundles/davincitaxi/css/uikit.css'
 					'bundles/davincitaxi/css/addons/uikit.addons.css'
 					'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' filter='cssrewrite' 
-					'bundles/davincitaxi/css/lena.css'
-					'bundles/davincitaxi/css/styles.css' %}
+					'bundles/davincitaxi/css/styles.css' 
+                    'bundles/davincitaxi/css/lena.css' %}
         <link media="all" rel="stylesheet" href="{{ asset_url }}" />
 				{% endstylesheets %}
 			{% endblock %}
@@ -25,7 +25,7 @@
                 <div class="header-top-in">
                     <div class="logo">
                         <a href="{{ url('da_vinci_taxi_homepage') }}">
-                            <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="Taxi My Price" />
+                            <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}" />
                         </a>
                     </div>
                     <nav class="topmenu-left">
@@ -47,8 +47,9 @@
                                 <i class="mp-icon-good"></i>
                             </div>
                         </div>
-                        <div data-uk-dropdown="" class="uk-button-dropdown">
+
 							{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                                <div data-uk-dropdown="" class="uk-button-dropdown">
                             <button class="uk-button  uk-button-link autorized">
                                 <span class="caption">My account</span> <i class="uk-icon-caret-down uk-margin-small-left"></i><br/><span class="ownship">passenger</span>
                             </button>
@@ -91,13 +92,13 @@
                                     </ul>
                                 </div>
                             </div>
+                                                    </div>
 									{% else %}
                             <button class="uk-button  uk-button-link nonautorized">
-												{{ 'Hello, Sign in'|trans }}
-
+                                <a href="{{ url('fos_user_security_login') }}" class="uk-button uk-button-link">{{ 'Hello, Sign in'|trans }}</a>
                             </button>
 									{% endif %}
-                        </div>
+
                         
 
                     </div>
@@ -150,9 +151,9 @@
 			<div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
                <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:false}">
 				<li><a href="index.html"class="uk-button">{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
-																Log In <i class="uk-icon-sign-in"></i>
+																{{ 'Log In'|trans}} <i class="uk-icon-sign-in"></i>
 														{% else %} 
-														Sing Up
+														{{ 'Sing Up'|trans}}
 														{% endif %}
 					</a></li>
                 <li><a href="index.html">Home <i class="uk-icon-home"></i></a></li>
