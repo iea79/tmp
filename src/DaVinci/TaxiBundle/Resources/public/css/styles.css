@@ -16,7 +16,7 @@
 }
 /*====================  border-radius for buttons, dropdowns, modals  ===============*/
 .uk-button {
-	border-radius:3px;
+	border-radius:6px;
 }
 .uk-dropdown {
 	border-radius:4px;
@@ -72,6 +72,9 @@ body, html {
 }
 .mp-icon-point-b:before {
 	content: "\e60c";
+}
+.mp-icon-point-plus:before {
+ content: "\e61b";
 }
 .mp-icon-edit:before {
 	content: "\e608";
