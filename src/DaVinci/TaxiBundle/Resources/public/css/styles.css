@@ -636,6 +636,9 @@ office passengers and driver
 	border: 1px #8e9099 solid;
 	height:28px;
 }
+.client-account input[type="checkbox"] {
+	height:20px;
+}
 .client-account .uk-table .month {
     color:#3c3d45;
     font-weight:bold;
@@ -662,12 +665,13 @@ office passengers and driver
         width: 100%;
 }
 .client-account dl {
-        margin:0em 0;
+        margin:1em 0;
 }
 .client-account .clientid dl {
         font-size: 14px;
         font-weight:normal;
         display:table;
+        margin:0;
 }
 .client-account .clientid dl a{
         font-size: 14px;
@@ -696,15 +700,11 @@ office passengers and driver
     padding:0;
     min-width:160px;
     line-height: 38px;
-    margin-bottom:5px;
-    border-radius:4px;
+    margin-bottom:5px !important;
     font-size:16px;
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
-}
-.client-account .uk-button {
-	border-radius:4px;
 }
 .client-account .uk-button-profile i {
 	padding-right:2%;
@@ -841,6 +841,7 @@ office passengers and driver
 .client-account .message dd {
 	float:left;
 	line-height:28px;
+	margin-bottom: 5px;
 }
 .client-account select.chosen {
 	padding:2px;
@@ -1293,6 +1294,7 @@ footer {
 }
 .popup-head.inbox {
 	margin-left: 0px;
+	margin-bottom:0px;
 	padding-right: 0px;
 	font-size:16px;
 	font-weight:bold;
@@ -1300,14 +1302,14 @@ footer {
 	border-radius: 5px;
 	text-align:center;
 	width: 97%;
-	display: table;
+	display:inline-block;
 }
 .popup-head.inbox i {
 	color: #0091ca;
 	padding-left:5px;
 }
 .pop-up dl {
-    display:block;
+    display:inline-block;
 }
 dl.about-driver dd {
 	font-size:14px;
@@ -1316,13 +1318,11 @@ dl.about-driver dd {
     color:#8d8f98;
     font-size:16px;
     font-weight:normal;
-    display:table-caption;
     float:left;
     margin-bottom:4px;
 }
 .pop-up dd {
     color:#3c3d45;
-    display:table-caption;
     font-size:16px;
     margin-bottom:4px;
 }
@@ -1372,6 +1372,10 @@ dl.about-driver dd {
 	width:22%;
 	display:inline;
 }
+.pop-up .profile select.classauto {
+	width:55%;
+	display:inline;
+}
 .pop-up .profile select.month {
 	width:44%;
 	display:inline;
@@ -1391,6 +1395,10 @@ dl.about-driver dd {
 .pop-up .profile dd.fullsize {
 	width:100%;
 	margin:10px 0;
+}
+.pop-up .profile dt.fullsize {
+	width:100%;
+	margin:0;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
@@ -1437,6 +1445,15 @@ i.quest {
 	color:#4b81bf;
 	text-decoration:none;
 }
+.pop-up .profile a {
+	font-size:14px;
+	text-decoration: underline;
+	margin-bottom: 5px;
+}
+.pop-up .profile a:hover {
+	text-decoration:none;
+}
+
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
 	border:4px #ebebeb solid;

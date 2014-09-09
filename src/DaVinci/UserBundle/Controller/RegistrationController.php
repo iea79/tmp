@@ -19,18 +19,14 @@ class RegistrationController extends BaseController {
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
        
         $new_email=$email;
-        
         $request = $this->container->get('request');
-        if(!$email) {
-            $post_data = $request->request->all();
-            if(isset($post_data['form']))
-            {
-                $email = $post_data['form']['old_email'];
-                $new_email = $post_data['form']['email'];
-            }
-        }
+        $post_data = $request->request->all();
+        if(isset($post_data['form']))
+            $new_email = $post_data['form']['email'];
+        
 
-        $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
+
+        //$this->container->get('session')->remove('fos_user_send_confirmation_email/email');
         $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
@@ -38,12 +34,9 @@ class RegistrationController extends BaseController {
         }
         
         $form = $this->container->get('form.factory')->createBuilder('form',$user)
-                ->add('old_email','hidden', array("mapped" => false, 'data' => $email))
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                 ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();
-
-        $cloned = clone $form;
         
         $form->handleRequest($request);
 
@@ -52,10 +45,12 @@ class RegistrationController extends BaseController {
 
             $this->container->get('fos_user.user_manager')->updateUser($user);
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
+            $this->container->get('session')->set('fos_user_send_confirmation_email/email',$new_email);
             
-            $form = $cloned;
-            $form->add('old_email','hidden', array("mapped" => false, 'data' => $new_email))
-                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle','data'=>$new_email));
+            $form = $this->container->get('form.factory')->createBuilder('form',$user)
+                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle','data'=>$new_email))
+                ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                ->getForm();
         }
         
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.'.$this->getEngine(), array(
