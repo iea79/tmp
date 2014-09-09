@@ -547,7 +547,14 @@ office passengers and driver
   font-family: icontaxi;
   font-size: 18px;
 }
-
+.client-account input,
+.client-account select,
+.client-account .uk-form input,
+.client-account .uk-form select {
+	border-radius:4px;
+	border: 1px #8e9099 solid;
+	height:28px;
+}
 .client-account .uk-table .month {
     color:#3c3d45;
     font-weight:bold;
@@ -604,7 +611,7 @@ office passengers and driver
 	font-size:16px;
 }
 /*=====================office button==============================*/
-.client-account .uk-button.uk-button-profile {
+.client-account .uk-button-profile {
     padding:0;
     min-width:160px;
     line-height: 38px;
@@ -642,9 +649,9 @@ office passengers and driver
 .client-account .button-swicher {
 	display:block;
     border-radius:0 0 4px 4px;
+	margin-left: 0px;
 }
-	.client-account .button-swicher.uk-grid.uk-grid-small {
-		margin-left: 0px;
+	.client-account .uk-grid-small {
 	}
 	.client-account .button-swicher .uk-panel {
 		padding-left:2px;
@@ -693,12 +700,13 @@ office passengers and driver
     background:#fff;
     position:relative;
 }
-.column_right_profile, .whitebg .yourdrivers {
-    float:none;
-}
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
+}
+.client-account .uk-table input,
+.client-account .uk-table select {
+	padding: 2px 5px;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
@@ -709,6 +717,12 @@ office passengers and driver
     font-weight:normal;
     background:#f5f5f5;
     color:#3c3d45;
+    position:relative;
+}
+.client-account .blue-thead tr th {
+    font-weight:bold;
+    background:#528ed3;
+    color:#fff;
     position:relative;
 }
 .client-account .uk-table a {
@@ -728,11 +742,17 @@ office passengers and driver
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
     border-bottom:#d0d0d0 1px solid;
-    padding:10px;
+}
+.client-account .uk-badge {
+	border-radius:3px;
+	padding:2px 6px;
+	font-size:14px;
+	font-weight:normal;
 }
 .client-account .message {
 	display: table;
 	vertical-align:middle;
+	padding:20px;
 	padding-left: 30px;
 	font-size:16px;
 }
@@ -748,17 +768,36 @@ office passengers and driver
 	color:#8e9099;
 }
 .client-account .message input[type="number"] {
-	border-radius:4px;
-	border: 1px #8e9099 solid;
-	padding: 2px;
 	width: 50px;
 	margin: 0 10px;
 	color:#8e9099;
+	text-align:center;
 }
 .client-account .allorder th,
 .client-account .allorder td {
 	vertical-align:middle;
 	text-align:center !important;
+	padding-left:2px;
+	padding-right:2px;
+}
+.client-account .allorder th input,
+.client-account .allorder th select {
+	font-size:14px;
+}
+.client-account .allorder th[class="datetime"] {
+	width: 160px !important;
+}
+.client-account .allorder th[class="time"] {
+	width: 120px !important;
+}
+.client-account .allorder th[class="route"] {
+	width: 230px !important;
+}
+.client-account .allorder th select[class="trust"] {
+	width: 80px;
+	border:0;
+	background:transparent;
+	color:black;
 }
 .client-account .uk-table td:nth-child(3),
 .client-account .uk-table th:nth-child(3) {
@@ -778,6 +817,9 @@ office passengers and driver
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
 }
+.client-account .driverlist {
+	margin-top:0px;
+}
 .client-account .driverlist-button {
     float:right;
     line-height:30px !important;
@@ -787,10 +829,7 @@ office passengers and driver
     line-height:38px;
     margin-top:5px;
 }
-.client-account .uk-table .uk-button.driverlist {
-	margin-top:0px;
-}
-.client-account .uk-table th a {
+.client-account .uk-table th a.help {
 	line-height:12px;
 	width:12px;
 	background:#b9b9ba;
@@ -801,11 +840,28 @@ office passengers and driver
 	top:0px;
 	right:0px;
 }
+.client-account .uk-table th a.sort {
+	font-size:14px;
+	margin-top:0px;
+}
+.client-account .uk-table th a.sort i:first-child {
+	color:#3c3d45 !important;
+}
+.client-account .uk-table th a.sort i:last-child {
+	margin-left:-3px;
+}
 .client-account .uk-table th:first-child {
 	width:4%;
 }
 .client-account .uk-table th:nth-child(2) {
 	width:10%;
+}
+.client-account .allorder th {
+	width:0;
+	padding:5px 2px;
+}
+.client-account .allorder th:nth-child(2) {
+	width:0;
 }
 /*================scroll table====================*/
 .client-account .table-container
@@ -829,14 +885,14 @@ office passengers and driver
   background-color: rgba(0, 0, 0, .3);
 }
 /*================style dropdown block (driver list) Alla=================*/
-.uk-table .uk-panel-box {
+.client-account .uk-table .uk-panel-box {
     background:#fff;
     border-radius:0;
     border:none;
     padding:0;
-    margin: 10px -10px;
+    margin: 10px -8px;
 }
-.uk-table tr td:first-child, .uk-table tr td:nth-child(2){
+.client-account .uk-table tr td:first-child, .uk-table tr td:nth-child(2){
     padding:10px;
 }
 .whitebg .uk-table td p {
@@ -1107,15 +1163,6 @@ footer {
    		 width:100%;
    		 float:none;
    	 }
-		.home .steps-1-2-3 .chois li:not(.active)  a .hide {
-			display:none;
-		}
-		.home .steps-1-2-3 .chois li:not(.active) {
-			width:15%;
-		}
-		.home .steps-1-2-3 .chois .active {
-			width:70%;
-		}
     }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
@@ -1145,92 +1192,109 @@ footer {
 }
 .popup-head.inbox {
 	margin-left: 0px;
-	margin-top: 30px !important;
-	margin-bottom: 10px;
 	padding-right: 0px;
-	line-height: 30px;
 	font-size:16px;
 	font-weight:bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	text-align:center;
-	width: 95%;
+	width: 97%;
+	display: table;
 }
 .popup-head.inbox i {
 	color: #0091ca;
 	padding-left:5px;
 }
 .pop-up dl {
-    display:inline-block;
-    margin:0;
+    display:block;
 }
-dl[id="about-driver"] dd {
+dl.about-driver dd {
 	font-size:14px;
 }
 .pop-up dt {
     color:#8d8f98;
     font-size:16px;
     font-weight:normal;
-    display:inline-block;
-    margin-top:10px;
+    display:table-caption;
+    float:left;
+    margin-bottom:4px;
 }
 .pop-up dd {
     color:#3c3d45;
-    display:inline-block;
+    display:table-caption;
     font-size:16px;
-    margin:0;
+    margin-bottom:4px;
 }
-.pop-up dd[id="myid"] {
+.pop-up dd.myid {
     font-size:14px;
 }
-.pop-up dt[id="myid"] {
+.pop-up dt.myid {
     font-size:14px;
 }
 .pop-up.route dt {
-    margin:5px 0 5px 0;
+	margin-bottom:5px;
     width: 40%;
 	text-align: left;
 }
-.pop-up .profile input[type="text"],
-.pop-up .profile select {
+.pop-up.route dd {
+	margin-bottom:5px;
+	width:59%;
+}
+.pop-up.route dt.fullsize,
+.pop-up.route dd.fullsize {
+	width:100%;
+	margin-left:0;
+}
+.pop-up.route dt.big {
+	line-height:25px;
+}
+.pop-up.route dd.big {
+	line-height:25px;
+	margin-bottom: 8px;
+}
+.pop-up input[type="text"],
+.pop-up select {
 	border: 1px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
 	padding:2px 5px 2px 5px;
-	margin:0;
+	margin: 1px 0;
 }
-.pop-up .profile select[id="region"] {
+.pop-up .profile select.region {
 	width:35%;
 	display:inline;
 }
-.pop-up .profile input[id="fone"] {
-	width:63%;
+.pop-up .profile input.fone {
+	width:63.5%;
 }
-.pop-up .profile select[id="day"] {
+.pop-up .profile select.day {
 	width:22%;
 	display:inline;
 }
-.pop-up .profile select[id="month"] {
+.pop-up .profile select.month {
 	width:44%;
 	display:inline;
 }
-.pop-up .profile select[id="year"] {
-	width:31%;
+.pop-up .profile select.year {
+	width:31.1%;
 	display:inline;
 }
 .pop-up .profile dt {
 	width:33%;
 	vertical-align:top;
 	margin-top:0px;
-	margin-bottom:12px;
 }
 .pop-up .profile dd {
 	width:65%;
 }
-.pop-up dt[id="moretext"] {
+.pop-up .profile dd.fullsize {
+	width:100%;
+	margin:10px 0;
+}
+.pop-up dt.moretext {
 	vertical-align:top;
 }
-.pop-up dd[id="moretext"] {
+.pop-up dd.moretext {
 	padding-top: 0px;
 }
 .pop-up h5 {
@@ -1240,7 +1304,7 @@ dl[id="about-driver"] dd {
     font-size:16px;
     font-weight:bold;
 }
-i[id="quest"] {
+i.quest {
 	margin-left:40px;
 	color: #0091ca;
 	font-size:18px;
@@ -1261,15 +1325,32 @@ i[id="quest"] {
     color:#3c3d45;
 }
 .pop-up .yourdrivers a {
-	margin-right: 9px;
-	margin-top:12px;
+	margin-right: 4px;
+	margin-top:6px;
 	color:#528ed3;
 	font-weight:normal;
 	font-size:18px;
+	float:right;
 }
 .pop-up .yourdrivers a:hover {
 	color:#4b81bf;
 	text-decoration:none;
+}
+/*=========================Client foto====================*/
+.pop-up .clientreviews {
+	border:4px #ebebeb solid;
+	border-radius:4px;
+	margin-right:10px;
+}
+.pop-up .clientreviews .photo {
+	background:url('../images/phptpapparat.png') #fff no-repeat scroll center center;
+	width:160px;
+	height:160px;
+	border-bottom:4px #ebebeb solid;
+}
+.pop-up .clientreviews .button-add {
+	width:100%;
+	line-height:34px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 table th { font-weight: bold; }
