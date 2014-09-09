@@ -1,8 +1,8 @@
-label{
+.register label{
 	display:block;
 	margin:0 0 12px;
 }
-label .text {
+.register  label .text {
 /*	width:191px;*/
 	display:inline-block;
 	vertical-align:middle;
@@ -36,7 +36,7 @@ label .text {
 	position: relative;
 	line-height: 120%;
 }
-select, textarea, input[type="email"], input[type="password"], input[type="text"], input[type="date"] {
+.register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #8e9099;
     border-radius: 3px;
@@ -46,46 +46,55 @@ select, textarea, input[type="email"], input[type="password"], input[type="text"
     padding: 4px 11px 4px 9px;
     vertical-align: middle;
 }
-.btn-red {
-    background: none repeat scroll 0 0 #ff4d61;
+.wrapper-content .register .uk-button.btn-red {
+    background: none repeat scroll 0 0 #ff3148;
     border: 0 none;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 24px;
-    height: 51px;
-    line-height: 51px;
-    padding: 0 20px 1px;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
-a.btn-red {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    width: 500px;
-}
-.btn-red:hover {    background: none repeat scroll 0 0 #ff3148;}
+.wrapper-content .register .uk-button.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
+/*.btn-red:hover {    background: none repeat scroll 0 0 #ff94a0;}*/
 @media (max-width: 1017px) {
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
 @media (max-width: 767px) {
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
 @media (max-width: 480px) {
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 7px;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
 .wrapper-content .register .uk-button {
     font-size: 20px;
+    padding: 10px 10px 16px 10px;
+
+	
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: middle;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  background: #27bf2e;
+  color: #fff;
+/*
     margin-top: 30px;
-    padding: 10px 0 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  text-shadow: 0 1px 0 #8e9099;
+
+ 	display: block;
+	padding: 16px 0 14px 0;
+	margin-bottom: 16px;
+	*/
+
 }
 .wrapper-content .register input[type="submit"] {
     border: medium none;
@@ -95,6 +104,7 @@ a.btn-red {
 .wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
 .register .uk-form-horizontal .uk-form-label {
+	float: left;
 	color: #3c3d45;
 	width: 40%;
 }
@@ -109,7 +119,7 @@ a.btn-red {
 	float: left;
 	text-align: left;
 }
-.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}
+/*.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}*/
 .questiontooltip a span.que{
 	display: block;
 	width: 18px;
@@ -155,7 +165,7 @@ a.btn-red {
 .numcars {margin-right: 12px;}
 .register .uk-form input[type="radio"] {
 	position: relative;
-	top: 3px;
+	top: 7px;
 }
 .authorizat .uk-h3, .authoriz .uk-h3, .authorizat h3, .authoriz h3 {
     color: #ff4d61;
@@ -164,23 +174,6 @@ a.btn-red {
 /*.register .uk-width-1-2{
   width: 47%;
 }*/
-.wrapper-content .register .uk-button {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: middle;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  background: #27bf2e;
-  color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
-  text-shadow: 0 1px 0 #8e9099;
-
- 	display: block;
-	padding: 16px 0 14px 0;
-	margin-bottom: 16px;
-}
 .wrapper-content .register .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
 	float: left;
@@ -216,6 +209,7 @@ a.btn-red {
     width: 540px;
 }
 .addotherlanguage {
+	width: 100%;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 5px;
     box-sizing: border-box;
@@ -228,10 +222,10 @@ a.btn-red {
     vertical-align: middle;
 }
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
-.addphoneline .text {   padding-bottom: 8%;}
+.addphoneline .text {   padding-bottom: 4%;}
 .phonecode {
 	float: left;
-	margin-right: 9px;
+	margin-right: 10px;
 }
 .register .uk-form-horizontal  .addphoneareas {
 	width: 60%;
@@ -239,7 +233,7 @@ a.btn-red {
     margin-bottom: 12px;
 }
 .register .uk-form-horizontal  .addphoneareas select{
-    margin-right: 9px;
+    margin-right: 10px;
 }
 .wifis {    margin-bottom: 12px;}
 .wifis label {
@@ -280,16 +274,6 @@ a.btn-red {
     margin: 0;
     padding: 0;
 }
-/*.destination .addlang {
-    font-size: 14px;
-    margin-bottom: 22px;
-    padding: 4px 0 0;
-    width: 100%;
-}
-.addlang .destinationmark {
-    margin-bottom: -3px;
-    top: -6px;
-}*/
 .officepagetitle, .register .officepagetitle {
 	text-align: center;
     font-size: 24px;
@@ -378,57 +362,26 @@ a.btn-red {
     padding: 17px 20px 14px;
     text-transform: uppercase;
 }
-#makechoice {
-    background: url("../images/trans.png") repeat scroll 0 0 transparent;
-    float: left;
-    height: 60%;
-	
-    left: 0;
-    padding: 10% 0;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-    z-index: 10;
+.register #makechoice .uk-modal-dialog {
+	width: 28%;
+	margin: 25% auto;
 }
-.makechoicecontent {
-    background: none repeat scroll 0 0 #fff;
-    border-radius: 4px;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
-    width: 24%;
-}
-.makechoicecontent h2 {
+#makechoice h2 {
     color: #ff4d61;
     font-size: 18px;
     margin: 6px 0 8px;
 }
-.makechoicecontent .close {
-    background: none repeat scroll 0 0 #d0d0d0;
-    border-radius: 50%;
-    color: #fff;
-    float: right;
-    line-height: 104%;
-    padding: 1px 6px 3px;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.makechoicecontent .close:hover {
-    text-decoration: none;
-}
-.makechoicecontent ul {
+#makechoice ul {
     margin: 0;
     padding: 0;
 }
-.makechoicecontent li {
+#makechoice li {
     font-size: 24px;
     list-style: none outside none;
     margin: 0;
     padding: 0;
 }
-.makechoicecontent li a {
+#makechoice li a {
 	display: block;
 	margin-bottom: 12px;
     padding: 8px 20px;
@@ -436,27 +389,27 @@ a.btn-red {
     border-radius: 4px;
     color: #fff;
 }
-.makechoicecontent li a:hover {
+#makechoice li a:hover {
 	text-decoration: none;
 	opacity: 0.6
 }
-.makechoicecontent li a:active {	opacity: 0.4}
+#makechoice li a:active {	opacity: 0.4}
 
-.uk-form-controls {
+.register .uk-form-controls {
 	position: relative;
 	white-space: nowrap;
 }
-.makechoicecontent ul {
+#makechoice ul {
     margin: 0;
     padding: 0;
 }
-.makechoicecontent li {
+#makechoice li {
     font-size: 24px;
     list-style: none outside none;
     margin: 0;
     padding: 0;
 }
-.makechoicecontent li a {
+#makechoice li a {
 	display: block;
 	margin-bottom: 12px;
     padding: 8px 20px;
@@ -464,24 +417,25 @@ a.btn-red {
     border-radius: 4px;
     color: #fff;
 }
-.makechoicecontent li a:hover {
+#makechoice li a:hover {
 	text-decoration: none;
 	opacity: 0.6
 }
-.makechoicecontent li a:active {	opacity: 0.4}
+#makechoice li a:active {	opacity: 0.4}
 
 
 .register .uk-form-horizontal  .style1 {
 	float: left;
 	width: 50%;
 }
-.register .uk-form-horizontal  .style1 .uk-width-1-1{	width: 100%;}
-.style1, .style2 {
+/*.register .uk-form-horizontal  .style1 .uk-width-1-1{	width: 100%;}*/
+.register  .style1, .register  .style2 {
     margin: 0;
     overflow: hidden;
     position: relative;
 }
-.style1 label, .style2 label {   margin: 0 0 9px;}
+.register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
+.register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 /*
 #buttons {    overflow: hidden;}
@@ -519,19 +473,119 @@ label .errors {
 	position: relative;
 	white-space: nowrap;
 }
+.authorizat {
+    margin: 0 auto;
+    overflow: hidden;
+/*
+    width: 398px;
+    padding-bottom: 38px;*/
+    position: relative;
+    text-align: center;
+}
+.authorizat h3, .authoriz h3 {
+    color: #ff4d61;
+    margin-bottom: 8px;
+}
+.authorizat p, .authoriz p {
+    font-size: 14px;
+    margin-bottom: 19px;
+    margin-top: 7px;
+}
+.authorizat a, .authoriz a {    color: #528ed3;}
+.authorizat input[type="text"], .authorizat input[type="password"], .authorizat .nextbutt, .authoriz input[type="text"], .authoriz input[type="password"], .authoriz .nextbutt {    margin-bottom: 16px;}
+.authorizat input[type="text"], .authorizat input[type="password"] {
+    border: 1px solid #8e9099;
+    border-radius: 3px;
+    box-sizing: border-box;
+/*    clear: left;
+    float: left;
+    margin-right: 0;*/
+    padding: 4px 11px 4px 9px;
+    text-align: left;
+}
+/*.authorizat .nextbutt, .authorizat .backbutt {
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 51px;
+    margin-bottom: 14px;
+    margin-top: 5px;
+    padding: 0 20px 1px;
+}*/
+div.loginfb, div.logintw {
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 12px;
+    width: 100%;
+}
+div.loginfb a, div.logintw a {
+    color: #fff;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+a.loginfb, a.logintw {
+    display: block;
+    float: left;
+    height: 52px;
+    margin-left: 13px;
+    margin-top: 6px;
+    text-decoration: none;
+    width: 52px;
+}
+a.loginfb {    background: url("../images/fbc.png") no-repeat scroll 0 0 transparent;}
+a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 transparent;}
 .register .uk-form-password-toggle {right: 46px;}
 /*footer .footer-top .footer-in .add-nav ul li {border: none;}*/
 .wrapper-content .register {
-	width: 40%;
+/*	min-width: 560px;
+	width: 40%;*/
+	
+	max-width: 560px;
+	min-width: 40%;
+
+
 	margin: 0 auto;
 	background: #fff;
 	padding: 10px;
 }
-.register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 83%;}
+.wrapper-content .register form{
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+}
+.wrapper-content .register .authorizat{
+	text-align: center;
+}
+.wrapper-content > .content.checkmail .float_left{
+}
+.checkmail a, .about .term a {    color: #528ed3;}
+.checkmail .float_right {text-align: right;}
 
-.register .uk-form-horizontal .uk-width-4-5 {width: 95%;}
+.checkmail {
+	text-align: left;
+    background: url("../images/checkmail.png") no-repeat 20px center #fff;
+	padding: 20px 20px 20px 140px;
+	min-width: 560px;
+	width:80%;
+	
+	margin: 0 auto;
+}
+.wrapper-content > .content.usedemail {
+	padding: 20px 20px 20px 140px;
+	margin: 0 auto;
+	background: #8d8f98;
+	min-width: 560px;
+	width:80%;
+}
+.wrapper-content > .content.usedemail a{color: #ff4d61;}
+
+.register .uk-form-horizontal input[type="checkbox"] {margin-right: 12px;}
+
+.register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 91%;}
+
+.register .uk-form-horizontal .uk-width-4-5 {width: 97%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 46%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
-.register .uk-form-horizontal .uk-width-7-10 {width: 88%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 88%;}

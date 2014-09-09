@@ -2,17 +2,6 @@
 {% block theme 'register' %}
 {% block body %}
 
-<div id="makechoice" class="display_none">
-	<div class="makechoicecontent">
-		<a href="#" class="close">x</a>
-		<h2>{% trans %}Make your choice{% endtrans %}</h2>
-		<ul>
-			<li>{% trans  with {'%url%': 'register-company'}  %}<a href="%url%">Taxi company owner</a>{% endtrans %}</li>
-			<li>{% trans  with {'%url%': 'register-manager'}  %}<a href="%url%">Taxi company manager</a>{% endtrans %}</li>
-			<li>{% trans  with {'%url%': 'register-company-driver'}  %}<a href="%url%">Taxi company driver</a>{% endtrans %}</li>
-		</ul>
-	</div>
-</div>
 <div class="wrapper-content title officepagetitle">
 
 {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': '#'}  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
@@ -29,8 +18,20 @@
 	        <li>{% trans %}Promotion for international passengers{% endtrans %}</li>
 	    </ul>
 	    <a class="officemore" href="#">{% trans %}More{% endtrans %}</a>
-	    <a class="trial tcompany" href="#">{% trans %}Free Trial{% endtrans %}</a>
+		<a class="trial tcompany" href="#makechoice" data-uk-modal>{% trans %}Free Trial{% endtrans %}</a>
 	</div>
+
+<div id="makechoice" class="uk-modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+		<h2>{% trans %}Make your choice{% endtrans %}</h2>
+		<ul>
+			<li>{% trans  with {'%url%': 'register-company'}  %}<a href="%url%">Taxi company owner</a>{% endtrans %}</li>
+			<li>{% trans  with {'%url%': 'register-manager'}  %}<a href="%url%">Taxi company manager</a>{% endtrans %}</li>
+			<li>{% trans  with {'%url%': 'register-company-driver'}  %}<a href="%url%">Taxi company driver</a>{% endtrans %}</li>
+		</ul>
+    </div>
+</div>
 
 	<div class="blockoffice">
 	    <div class="officetitle">{% trans %}Independent Driver{% endtrans %}</div>
