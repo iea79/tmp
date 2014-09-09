@@ -196,6 +196,9 @@ body, html {
 			.header-wrapper .header-top .header-top-in  .topmenu-right .nonautorized {
 				color:#ff4d61;
 			}
+				.header-wrapper .header-top .header-top-in  .topmenu-right .nonautorized a {
+					color:#ff4d61;
+				}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .autorized {
 				color:#3c3d45;
 				line-height:0.5;
@@ -223,6 +226,8 @@ body, html {
 				background-color:#ebebeb;
 				box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
 				margin:15px 0 0 0;
+				width:600px;
+				right:0;
 			}
 				.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown div {
 					float:left;
@@ -247,6 +252,9 @@ body, html {
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord {
 						margin:15px 0 0 0;
+					}
+						.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li{
+						padding-left:25px;
 					}
 							.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a:hover {
 								color:#fff;
@@ -497,30 +505,19 @@ body, html {
 		height: 27px;
 		vertical-align: bottom;
 	}
-	.destination  .inputs .over {
-		position:relative;
-		display:inline-block;
-		width:53px;
-		height: 27px;
+	.destination  .inputs .uk-button {
+		min-height:25px;
+		line-height:25px;
 	}
-		.destination  .inputs .over .uk-icon-sort-down {
-		position:absolute;
-		right:8px;
-		top:2px;
-	}
-	.destination  .inputs .over .select {
+	
+		
+	.destination  .inputs  .select {
 		background-color:#fff;
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		display: inline-block;
-		height: 27px;
-		margin: 0 15px 0 0;
-		overflow: hidden;
-		padding: 4px 10px;
-		position: absolute;
-		vertical-align: middle;
-		width:52px;
+		
+		
 	}
 /*=======
 office passengers and driver
