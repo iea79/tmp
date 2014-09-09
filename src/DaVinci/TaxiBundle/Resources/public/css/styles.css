@@ -546,18 +546,31 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						background-color:#fff;
 					}
 /*==========================  styles of booking steps  in homepage =================================*/
+.destination {
+	margin:40px 0 20px 0;
+}
+	.destination .form-block-wrap {
+		margin:0 0 10px 0;
+		overflow:hidden;
+	}
 	.destination .labels {
-		width:35%;
+		width:30%;
 		float:left;
 		font-size:20px;
 		color:#ff4d61;
 		padding:0;
 	}
+		.destination .labels label {
+			margin-left:20px;
+		}
 	.destination  .inputs {
-		width:65%;
+		width:70%;
 		float:right;
 		color:#9b9b9b;
 		font-size:16px;
+	}
+	.destination  .inputs .date-input {
+		max-width:91px;
 	}
 	.destination  .inputs .date-pick {
 		border: 1px solid #8e9099;
@@ -566,6 +579,16 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		height: 27px;
 		vertical-align: bottom;
 	}
+	.destination  .inputs .uk-form-icon {
+		width:95%;
+	}
+	.destination  .inputs .uk-form-icon .flex-input {
+		width:100%;
+		padding:1px 30px 1px 5px!important;
+	}
+		.destination  .inputs .uk-form-icon  i {
+			right:0;
+		}
 	.destination  .inputs .uk-button {
 		min-height:25px;
 		line-height:25px;
@@ -1221,6 +1244,26 @@ footer {
    		 width:100%;
    		 float:none;
    	 }
+	 /*======   adaptive view on this size from home page? do not remove, please! ===================*/
+	 .home .steps-1-2-3 .chois li:not(.active)  a .hide {
+
+			display:none;
+
+		}
+
+		.home .steps-1-2-3 .chois li:not(.active) {
+
+			width:15%;
+
+	}
+
+		.home .steps-1-2-3 .chois .active {
+
+			width:70%;
+
+		}
+
+
     }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
