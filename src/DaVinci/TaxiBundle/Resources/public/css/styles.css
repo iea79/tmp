@@ -549,8 +549,21 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .destination {
 	margin:40px 0 20px 0;
 }
+	.destination .nav-over {
+		padding:0 20px;
+	}
+		
+		.destination .nav-over  hr {
+			color:#ff4d61;
+			background-color:#ff4d61;
+			border:none;
+			height:1px;
+		}
+		.destination .nav-over .uk-button {
+			margin:10px 0;
+		}
 	.destination .form-block-wrap {
-		margin:0 0 10px 0;
+		margin:0 20px 10px 0;
 		overflow:hidden;
 	}
 	.destination .labels {
@@ -572,6 +585,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.destination  .inputs .date-input {
 		max-width:91px;
 	}
+	.destination  .inputs .check-box {
+		margin-top:5px;
+	}
 	.destination  .inputs .date-pick {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
@@ -580,7 +596,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		vertical-align: bottom;
 	}
 	.destination  .inputs .uk-form-icon {
-		width:95%;
+		width:100%;
+		
 	}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
@@ -593,6 +610,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		min-height:25px;
 		line-height:25px;
 	}
+		.destination .nav-over .add-another {
+			color:#3c3d45;
+			font-weight:bold;
+		}
+		.destination .nav-over .nextbutt {
+			margin-top:30px;
+		}
+			.destination .nav-over .add-another span {
+				font-size:24px;
+			}
+		.destination .nav-over div a {
+			color:#fff;
+			font-size:24px;
+		}
 	
 		
 	.destination  .inputs  .select {
@@ -1263,6 +1294,18 @@ footer {
 			width:70%;
 
 		}
+		.destination .labels  {
+			width:100%;
+			float:none;
+		}
+		.destination  .inputs {
+			width:100%;
+			float:none;
+		}
+			.destination .add-another {
+				line-height:1.3;
+				padding:0 0 5px 0;
+			}
 
 
     }

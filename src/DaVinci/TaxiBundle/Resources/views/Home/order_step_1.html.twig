@@ -45,10 +45,11 @@
 		</div>
 	</div>
 		<div class="clr"></div>	
-            
+        <div class="nav-over">    
      
-        <div class=" uk-width-1-1"><span class="destinationmark">+</span> Добавить еще пункт назначения</div>
-        <hr/>
+			<div class="uk-button-large uk-button uk-width-1-1 add-another"><span class="mp-icon-point-b uk-text-danger"></span>&nbsp; Добавить еще пункт назначения</div>
+			<hr />
+		</div>
 	<div class="form-block-wrap">
 		<div class="labels">
 			<label>Pickup:</label>
@@ -78,11 +79,16 @@
                         </select>
                 </div>
 			</div>
+			<div class="check-box">
+			<input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span>
+			</div>
 		</div>
+		
 	</div>
 		<div class="clr"></div>	
        
-       <input type="checkbox" /><span class="uk-form-controls"> Make this a return trip </span>
+			
+	   
 	<div class="form-block-wrap">
 		<div class="labels">
 			<label>Return:</label>
@@ -114,8 +120,10 @@
 		</div>
 	</div>
         
-
-		<div class="uk-button-group uk-width-1-1"><a href="{{ url('order_step_2') }}" class="uk-button nextbutt">Next > </a></div>
+	<div class="nav-over">
+		<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt"><a href="{{ url('order_step_2') }}" >Next > </a></div>
+		<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-primary"><a href="{{ url('order_step_2') }}" >Find a driver </a></div>
+	</div>
 		
     </div>
 
