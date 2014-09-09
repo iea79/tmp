@@ -141,6 +141,23 @@ body, html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+    /* Icon in form ============= */
+.uk-form-icon > [class*='mp-icon-'] {
+	position: absolute;
+	top: 40%;
+	width: 30px;
+	margin-top: -7px;
+	color: #8d8f98;
+	text-align: center;
+	pointer-events: none;
+}
+.uk-form-icon-flip > [class*='mp-icon-'] {
+	right: 0;
+}
+input[class^="mp-icon-"], input[class*=" mp-icon-"] {
+	float:right;
+	margin-left:5px;
+}
 /*======================================== end of font ===============================*/
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper {
