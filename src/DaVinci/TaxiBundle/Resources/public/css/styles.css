@@ -2,6 +2,17 @@
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
+  color: #ffffff;
+}
+.uk-button-warning:hover,
+.uk-button-warning:focus {
+  background-color: #9b9da7;
+  color: #ffffff;
+}
+.uk-button-warning:active,
+.uk-button-warning.uk-active {
+  background-color: #7e8088;
+  color: #ffffff;
 }
 /*====================  border-radius for buttons, dropdowns, modals  ===============*/
 .uk-button {
@@ -23,6 +34,39 @@ body, html {
 		clear:both;
 	}
 /*======================================== our icons styles ==================================*/
+.mp-icon-pet:before {
+	content: "\e61a";
+}
+.mp-icon-child-seat:before {
+	content: "\e618";
+}
+.mp-icon-direction:before {
+	content: "\e619";
+}
+.mp-icon-door:before {
+	content: "\e606";
+}
+.mp-icon-trust-invert:before {
+	content: "\e614";
+}
+.mp-icon-trust:before {
+	content: "\e615";
+}
+.mp-icon-basket:before {
+	content: "\e613";
+}
+.mp-icon-gift:before {
+	content: "\e605";
+}
+.mp-icon-nord-star:before {
+	content: "\e612";
+}
+.mp-icon-calendar:before {
+	content: "\e610";
+}
+.mp-icon-clock:before {
+	content: "\e611";
+}
 .mp-icon-point-a:before {
 	content: "\e60b";
 }
@@ -41,9 +85,6 @@ body, html {
 .mp-icon-closed:before {
 	content: "\e609";
 }
-.mp-icon-door:before {
-	content: "\e606";
-}
 .mp-icon-logout:before {
 	content: "\e60a";
 }
@@ -59,14 +100,17 @@ body, html {
 .mp-icon-zoom:before {
 	content: "\e600";
 }
-.mp-icon-gift:before {
-	content: "\e605";
-}
 .mp-icon-star:before {
 	content: "\e60d";
 }
 .mp-icon-bug:before {
 	content: "\e60f";
+}
+.mp-icon-arrow-down:before {
+	content: "\e616";
+}
+.mp-icon-arrow-up:before {
+	content: "\e617";
 }
 .mp-icon-arrow-right:before {
 	content: "\e60e";
