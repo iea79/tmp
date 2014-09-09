@@ -101,6 +101,7 @@ function setAttribute(){
 } 
 
 $(document).ready(function() {
+
 	$('.rowcity').hide();	
 	$('.rowstreet').hide();	
 	$('.rowbuild').hide();	
@@ -128,13 +129,14 @@ $(document).ready(function() {
 		$('.addlangline select:last-child').removeClass('display_none');	
 		return false;
 	});
-	$('.tcompany').click(function() {
+/*	$('.tcompany').click(function() {
 		$("#makechoice").removeClass('display_none');	
 	});
 
 	$('#makechoice').children().children('.close').click(function() {
 		$(this).parent().parent().addClass('display_none');	
 	});
+	*/
 	setAttribute();
 	$("#content .content-block textarea").keyup(function() {
 		if (this.value.length > 300)

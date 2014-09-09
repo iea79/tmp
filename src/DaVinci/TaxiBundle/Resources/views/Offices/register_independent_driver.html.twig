@@ -11,12 +11,38 @@
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1 float_left" name="country" id="country" required>
-						<option>Russia</option>
+					<select class="uk-width-1-1  float_left" name="country" id="country" required>
+						<option value="Russia" >Russia</option>
+						<option value="England">England</option>
 					</select>
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Region/State, City</span></a>
 					</div>
+				</div>
+			</label>
+			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
+				<div class="uk-form-controls">
+					<select class="uk-width-1-1  float_left" name="city" id="city" required>
+						<option>Moscow</option>
+						<option>S-pb</option>
+					</select>
+				</div>
+			</label>
+			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.street'|trans }}:</span>
+				<div class="uk-form-controls">
+					<select class="uk-width-1-1  float_left" name="street" id="street" required>
+						<option>Street</option>
+						<option>Prospect</option>
+					</select>
+				</div>
+			</label>
+			<label class="uk-form-row rowbuild"><span class="uk-form-label uk-width-2-5 text">{{ 'form.build'|trans }}:</span>
+				<div class="uk-form-controls">
+					<select class="uk-width-1-1  float_left" name="build" id="build" required>
+						<option>10</option>
+						<option>12</option>
+						<option>14</option>
+					</select>
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
@@ -38,8 +64,8 @@
 			</label>
 
 			<label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
-				<div class="uk-form-controls style1 float_left"><div class="style2">
-					<select class="uk-width-1-1 display_none" name="lang" required>
+				<div class="uk-form-controls"><div class="uk-width-1-1 style1"><div class="style2">
+					<select class="display_none" name="lang" required>
 						<option>Select a language</option>
 						<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 						<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
@@ -74,13 +100,13 @@
 						<option>Uzbek</option>	<option>Venda</option>	<option>Vietnamese</option>	<option>Wu</option>	<option>Xhosa</option>	<option>Xiang</option>
 						<option>Yoruba</option>	<option>Zhuang</option><option>Zulu</option>
 					</select></div>
-					<div class="uk-width-1-1  addotherlanguage">Add language</div>
+					<div class="addotherlanguage">Add language</div>
 				</div>
 				<div class="questiontooltip">
-					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
+					<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Yes/No</span></a>
+				</div>
 				</div>
 			</label>
-
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1 float_left" name="experience" id="experience" required>
@@ -95,7 +121,7 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required placeholder="Skype" />
+					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
 					</div>
@@ -146,7 +172,7 @@
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select>
-					<input class="uk-width-4-6 float_left" type="text" name="phone" id="phone" required placeholder="Phone number" /></div>
+					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  /></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
 					</div>
