@@ -54,9 +54,12 @@ register_company_driver:
     defaults: { _controller: DaVinciTaxiBundle:Office:register_company_driver }
     
     
-office_choose:    
+#overwrite fosuser confirm email to choose-office 
+fos_user_registration_confirmed:
     pattern:  /choose-office
     defaults: { _controller: DaVinciTaxiBundle:Office:office_choose }
+    methods: GET
+    
 office_passenger:
     pattern:  /office-passenger
     defaults: { _controller: DaVinciTaxiBundle:Office:office_passenger }

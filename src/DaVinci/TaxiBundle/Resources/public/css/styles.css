@@ -2,10 +2,21 @@
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
+  color: #ffffff;
+}
+.uk-button-warning:hover,
+.uk-button-warning:focus {
+  background-color: #9b9da7;
+  color: #ffffff;
+}
+.uk-button-warning:active,
+.uk-button-warning.uk-active {
+  background-color: #7e8088;
+  color: #ffffff;
 }
 /*====================  border-radius for buttons, dropdowns, modals  ===============*/
 .uk-button {
-	border-radius:3px;
+	border-radius:6px;
 }
 .uk-dropdown {
 	border-radius:4px;
@@ -23,11 +34,47 @@ body, html {
 		clear:both;
 	}
 /*======================================== our icons styles ==================================*/
+.mp-icon-pet:before {
+	content: "\e61a";
+}
+.mp-icon-child-seat:before {
+	content: "\e618";
+}
+.mp-icon-direction:before {
+	content: "\e619";
+}
+.mp-icon-door:before {
+	content: "\e606";
+}
+.mp-icon-trust-invert:before {
+	content: "\e614";
+}
+.mp-icon-trust:before {
+	content: "\e615";
+}
+.mp-icon-basket:before {
+	content: "\e613";
+}
+.mp-icon-gift:before {
+	content: "\e605";
+}
+.mp-icon-nord-star:before {
+	content: "\e612";
+}
+.mp-icon-calendar:before {
+	content: "\e610";
+}
+.mp-icon-clock:before {
+	content: "\e611";
+}
 .mp-icon-point-a:before {
 	content: "\e60b";
 }
 .mp-icon-point-b:before {
 	content: "\e60c";
+}
+.mp-icon-point-plus:before {
+ content: "\e61b";
 }
 .mp-icon-edit:before {
 	content: "\e608";
@@ -40,9 +87,6 @@ body, html {
 }
 .mp-icon-closed:before {
 	content: "\e609";
-}
-.mp-icon-door:before {
-	content: "\e606";
 }
 .mp-icon-logout:before {
 	content: "\e60a";
@@ -59,14 +103,17 @@ body, html {
 .mp-icon-zoom:before {
 	content: "\e600";
 }
-.mp-icon-gift:before {
-	content: "\e605";
-}
 .mp-icon-star:before {
 	content: "\e60d";
 }
 .mp-icon-bug:before {
 	content: "\e60f";
+}
+.mp-icon-arrow-down:before {
+	content: "\e616";
+}
+.mp-icon-arrow-up:before {
+	content: "\e617";
 }
 .mp-icon-arrow-right:before {
 	content: "\e60e";
@@ -96,6 +143,23 @@ body, html {
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+    /* Icon in form ============= */
+.uk-form-icon > [class*='mp-icon-'] {
+	position: absolute;
+	top: 40%;
+	width: 30px;
+	margin-top: -7px;
+	color: #8d8f98;
+	text-align: center;
+	pointer-events: none;
+}
+.uk-form-icon-flip > [class*='mp-icon-'] {
+	right: 0;
+}
+input[class^="mp-icon-"], input[class*=" mp-icon-"] {
+	float:right;
+	margin-left:5px;
 }
 /*======================================== end of font ===============================*/
 /*-------------------------------------  header --------------------------------- */
@@ -196,6 +260,9 @@ body, html {
 			.header-wrapper .header-top .header-top-in  .topmenu-right .nonautorized {
 				color:#ff4d61;
 			}
+				.header-wrapper .header-top .header-top-in  .topmenu-right .nonautorized a {
+					color:#ff4d61;
+				}
 			.header-wrapper .header-top .header-top-in  .topmenu-right .autorized {
 				color:#3c3d45;
 				line-height:0.5;
@@ -223,6 +290,8 @@ body, html {
 				background-color:#ebebeb;
 				box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
 				margin:15px 0 0 0;
+				width:600px;
+				right:0;
 			}
 				.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown div {
 					float:left;
@@ -247,6 +316,9 @@ body, html {
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord {
 						margin:15px 0 0 0;
+					}
+						.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li{
+						padding-left:25px;
 					}
 							.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a:hover {
 								color:#fff;
@@ -477,18 +549,47 @@ body, html {
 						background-color:#fff;
 					}
 /*==========================  styles of booking steps  in homepage =================================*/
+.destination {
+	margin:40px 0 20px 0;
+}
+	.destination .nav-over {
+		padding:0 20px;
+	}
+		
+		.destination .nav-over  hr {
+			color:#ff4d61;
+			background-color:#ff4d61;
+			border:none;
+			height:1px;
+		}
+		.destination .nav-over .uk-button {
+			margin:10px 0;
+		}
+	.destination .form-block-wrap {
+		margin:0 20px 10px 0;
+		overflow:hidden;
+	}
 	.destination .labels {
-		width:35%;
+		width:30%;
 		float:left;
 		font-size:20px;
 		color:#ff4d61;
 		padding:0;
 	}
+		.destination .labels label {
+			margin-left:20px;
+		}
 	.destination  .inputs {
-		width:65%;
+		width:70%;
 		float:right;
 		color:#9b9b9b;
 		font-size:16px;
+	}
+	.destination  .inputs .date-input {
+		max-width:91px;
+	}
+	.destination  .inputs .check-box {
+		margin-top:5px;
 	}
 	.destination  .inputs .date-pick {
 		border: 1px solid #8e9099;
@@ -497,30 +598,44 @@ body, html {
 		height: 27px;
 		vertical-align: bottom;
 	}
-	.destination  .inputs .over {
-		position:relative;
-		display:inline-block;
-		width:53px;
-		height: 27px;
+	.destination  .inputs .uk-form-icon {
+		width:100%;
+		
 	}
-		.destination  .inputs .over .uk-icon-sort-down {
-		position:absolute;
-		right:8px;
-		top:2px;
+	.destination  .inputs .uk-form-icon .flex-input {
+		width:100%;
+		padding:1px 30px 1px 5px!important;
 	}
-	.destination  .inputs .over .select {
+		.destination  .inputs .uk-form-icon  i {
+			right:0;
+		}
+	.destination  .inputs .uk-button {
+		min-height:25px;
+		line-height:25px;
+	}
+		.destination .nav-over .add-another {
+			color:#3c3d45;
+			font-weight:bold;
+		}
+		.destination .nav-over .nextbutt {
+			margin-top:30px;
+		}
+			.destination .nav-over .add-another span {
+				font-size:24px;
+			}
+		.destination .nav-over div a {
+			color:#fff;
+			font-size:24px;
+		}
+	
+		
+	.destination  .inputs  .select {
 		background-color:#fff;
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		display: inline-block;
-		height: 27px;
-		margin: 0 15px 0 0;
-		overflow: hidden;
-		padding: 4px 10px;
-		position: absolute;
-		vertical-align: middle;
-		width:52px;
+		
+		
 	}
 /*=======
 office passengers and driver
@@ -547,7 +662,17 @@ office passengers and driver
   font-family: icontaxi;
   font-size: 18px;
 }
-
+.client-account input,
+.client-account select,
+.client-account .uk-form input,
+.client-account .uk-form select {
+	border-radius:4px;
+	border: 1px #8e9099 solid;
+	height:28px;
+}
+.client-account input[type="checkbox"] {
+	height:20px;
+}
 .client-account .uk-table .month {
     color:#3c3d45;
     font-weight:bold;
@@ -574,12 +699,13 @@ office passengers and driver
         width: 100%;
 }
 .client-account dl {
-        margin:0em 0;
+        margin:1em 0;
 }
 .client-account .clientid dl {
         font-size: 14px;
         font-weight:normal;
         display:table;
+        margin:0;
 }
 .client-account .clientid dl a{
         font-size: 14px;
@@ -604,19 +730,15 @@ office passengers and driver
 	font-size:16px;
 }
 /*=====================office button==============================*/
-.client-account .uk-button.uk-button-profile {
+.client-account .uk-button-profile {
     padding:0;
     min-width:160px;
     line-height: 38px;
-    margin-bottom:5px;
-    border-radius:4px;
+    margin-bottom:5px !important;
     font-size:16px;
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
-}
-.client-account .uk-button {
-	border-radius:4px;
 }
 .client-account .uk-button-profile i {
 	padding-right:2%;
@@ -642,9 +764,9 @@ office passengers and driver
 .client-account .button-swicher {
 	display:block;
     border-radius:0 0 4px 4px;
+	margin-left: 0px;
 }
-	.client-account .button-swicher.uk-grid.uk-grid-small {
-		margin-left: 0px;
+	.client-account .uk-grid-small {
 	}
 	.client-account .button-swicher .uk-panel {
 		padding-left:2px;
@@ -693,12 +815,13 @@ office passengers and driver
     background:#fff;
     position:relative;
 }
-.column_right_profile, .whitebg .yourdrivers {
-    float:none;
-}
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
+}
+.client-account .uk-table input,
+.client-account .uk-table select {
+	padding: 2px 5px;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
@@ -709,6 +832,12 @@ office passengers and driver
     font-weight:normal;
     background:#f5f5f5;
     color:#3c3d45;
+    position:relative;
+}
+.client-account .blue-thead tr th {
+    font-weight:bold;
+    background:#528ed3;
+    color:#fff;
     position:relative;
 }
 .client-account .uk-table a {
@@ -728,11 +857,17 @@ office passengers and driver
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
     border-bottom:#d0d0d0 1px solid;
-    padding:10px;
+}
+.client-account .uk-badge {
+	border-radius:3px;
+	padding:2px 6px;
+	font-size:14px;
+	font-weight:normal;
 }
 .client-account .message {
 	display: table;
 	vertical-align:middle;
+	padding:20px;
 	padding-left: 30px;
 	font-size:16px;
 }
@@ -740,6 +875,7 @@ office passengers and driver
 .client-account .message dd {
 	float:left;
 	line-height:28px;
+	margin-bottom: 5px;
 }
 .client-account select.chosen {
 	padding:2px;
@@ -748,17 +884,36 @@ office passengers and driver
 	color:#8e9099;
 }
 .client-account .message input[type="number"] {
-	border-radius:4px;
-	border: 1px #8e9099 solid;
-	padding: 2px;
 	width: 50px;
 	margin: 0 10px;
 	color:#8e9099;
+	text-align:center;
 }
 .client-account .allorder th,
 .client-account .allorder td {
 	vertical-align:middle;
 	text-align:center !important;
+	padding-left:2px;
+	padding-right:2px;
+}
+.client-account .allorder th input,
+.client-account .allorder th select {
+	font-size:14px;
+}
+.client-account .allorder th[class="datetime"] {
+	width: 160px !important;
+}
+.client-account .allorder th[class="time"] {
+	width: 120px !important;
+}
+.client-account .allorder th[class="route"] {
+	width: 230px !important;
+}
+.client-account .allorder th select[class="trust"] {
+	width: 80px;
+	border:0;
+	background:transparent;
+	color:black;
 }
 .client-account .uk-table td:nth-child(3),
 .client-account .uk-table th:nth-child(3) {
@@ -778,6 +933,9 @@ office passengers and driver
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
 }
+.client-account .driverlist {
+	margin-top:0px;
+}
 .client-account .driverlist-button {
     float:right;
     line-height:30px !important;
@@ -787,10 +945,7 @@ office passengers and driver
     line-height:38px;
     margin-top:5px;
 }
-.client-account .uk-table .uk-button.driverlist {
-	margin-top:0px;
-}
-.client-account .uk-table th a {
+.client-account .uk-table th a.help {
 	line-height:12px;
 	width:12px;
 	background:#b9b9ba;
@@ -801,11 +956,28 @@ office passengers and driver
 	top:0px;
 	right:0px;
 }
+.client-account .uk-table th a.sort {
+	font-size:14px;
+	margin-top:0px;
+}
+.client-account .uk-table th a.sort i:first-child {
+	color:#3c3d45 !important;
+}
+.client-account .uk-table th a.sort i:last-child {
+	margin-left:-3px;
+}
 .client-account .uk-table th:first-child {
 	width:4%;
 }
 .client-account .uk-table th:nth-child(2) {
 	width:10%;
+}
+.client-account .allorder th {
+	width:0;
+	padding:5px 2px;
+}
+.client-account .allorder th:nth-child(2) {
+	width:0;
 }
 /*================scroll table====================*/
 .client-account .table-container
@@ -829,14 +1001,14 @@ office passengers and driver
   background-color: rgba(0, 0, 0, .3);
 }
 /*================style dropdown block (driver list) Alla=================*/
-.uk-table .uk-panel-box {
+.client-account .uk-table .uk-panel-box {
     background:#fff;
     border-radius:0;
     border:none;
     padding:0;
-    margin: 10px -10px;
+    margin: 10px -8px;
 }
-.uk-table tr td:first-child, .uk-table tr td:nth-child(2){
+.client-account .uk-table tr td:first-child, .uk-table tr td:nth-child(2){
     padding:10px;
 }
 .whitebg .uk-table td p {
@@ -1107,15 +1279,38 @@ footer {
    		 width:100%;
    		 float:none;
    	 }
-		.home .steps-1-2-3 .chois li:not(.active)  a .hide {
+	 /*======   adaptive view on this size from home page? do not remove, please! ===================*/
+	 .home .steps-1-2-3 .chois li:not(.active)  a .hide {
+
 			display:none;
+
 		}
+
 		.home .steps-1-2-3 .chois li:not(.active) {
+
 			width:15%;
-		}
+
+	}
+
 		.home .steps-1-2-3 .chois .active {
+
 			width:70%;
+
 		}
+		.destination .labels  {
+			width:100%;
+			float:none;
+		}
+		.destination  .inputs {
+			width:100%;
+			float:none;
+		}
+			.destination .add-another {
+				line-height:1.3;
+				padding:0 0 5px 0;
+			}
+
+
     }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
@@ -1145,16 +1340,15 @@ footer {
 }
 .popup-head.inbox {
 	margin-left: 0px;
-	margin-top: 30px !important;
-	margin-bottom: 10px;
+	margin-bottom:0px;
 	padding-right: 0px;
-	line-height: 30px;
 	font-size:16px;
 	font-weight:bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	text-align:center;
-	width: 95%;
+	width: 97%;
+	display:inline-block;
 }
 .popup-head.inbox i {
 	color: #0091ca;
@@ -1162,75 +1356,100 @@ footer {
 }
 .pop-up dl {
     display:inline-block;
-    margin:0;
 }
-dl[id="about-driver"] dd {
+dl.about-driver dd {
 	font-size:14px;
 }
 .pop-up dt {
     color:#8d8f98;
     font-size:16px;
     font-weight:normal;
-    display:inline-block;
-    margin-top:10px;
+    float:left;
+    margin-bottom:4px;
 }
 .pop-up dd {
     color:#3c3d45;
-    display:inline-block;
     font-size:16px;
-    margin:0;
+    margin-bottom:4px;
 }
-.pop-up dd[id="myid"] {
+.pop-up dd.myid {
     font-size:14px;
 }
-.pop-up dt[id="myid"] {
+.pop-up dt.myid {
     font-size:14px;
 }
 .pop-up.route dt {
-    margin:5px 0 5px 0;
+	margin-bottom:5px;
     width: 40%;
 	text-align: left;
 }
-.pop-up .profile input[type="text"],
-.pop-up .profile select {
+.pop-up.route dd {
+	margin-bottom:5px;
+	width:59%;
+}
+.pop-up.route dt.fullsize,
+.pop-up.route dd.fullsize {
+	width:100%;
+	margin-left:0;
+}
+.pop-up.route dt.big {
+	line-height:25px;
+}
+.pop-up.route dd.big {
+	line-height:25px;
+	margin-bottom: 8px;
+}
+.pop-up input[type="text"],
+.pop-up select {
 	border: 1px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
 	padding:2px 5px 2px 5px;
-	margin:0;
+	margin: 1px 0;
 }
-.pop-up .profile select[id="region"] {
+.pop-up .profile select.region {
 	width:35%;
 	display:inline;
 }
-.pop-up .profile input[id="fone"] {
-	width:63%;
+.pop-up .profile input.fone {
+	width:63.5%;
 }
-.pop-up .profile select[id="day"] {
+.pop-up .profile select.day {
 	width:22%;
 	display:inline;
 }
-.pop-up .profile select[id="month"] {
+.pop-up .profile select.classauto {
+	width:55%;
+	display:inline;
+}
+.pop-up .profile select.month {
 	width:44%;
 	display:inline;
 }
-.pop-up .profile select[id="year"] {
-	width:31%;
+.pop-up .profile select.year {
+	width:31.1%;
 	display:inline;
 }
 .pop-up .profile dt {
 	width:33%;
 	vertical-align:top;
 	margin-top:0px;
-	margin-bottom:12px;
 }
 .pop-up .profile dd {
 	width:65%;
 }
-.pop-up dt[id="moretext"] {
+.pop-up .profile dd.fullsize {
+	width:100%;
+	margin:10px 0;
+}
+.pop-up .profile dt.fullsize {
+	width:100%;
+	margin:0;
+}
+.pop-up dt.moretext {
 	vertical-align:top;
 }
-.pop-up dd[id="moretext"] {
+.pop-up dd.moretext {
 	padding-top: 0px;
 }
 .pop-up h5 {
@@ -1240,7 +1459,7 @@ dl[id="about-driver"] dd {
     font-size:16px;
     font-weight:bold;
 }
-i[id="quest"] {
+i.quest {
 	margin-left:40px;
 	color: #0091ca;
 	font-size:18px;
@@ -1261,15 +1480,41 @@ i[id="quest"] {
     color:#3c3d45;
 }
 .pop-up .yourdrivers a {
-	margin-right: 9px;
-	margin-top:12px;
+	margin-right: 4px;
+	margin-top:6px;
 	color:#528ed3;
 	font-weight:normal;
 	font-size:18px;
+	float:right;
 }
 .pop-up .yourdrivers a:hover {
 	color:#4b81bf;
 	text-decoration:none;
+}
+.pop-up .profile a {
+	font-size:14px;
+	text-decoration: underline;
+	margin-bottom: 5px;
+}
+.pop-up .profile a:hover {
+	text-decoration:none;
+}
+
+/*=========================Client foto====================*/
+.pop-up .clientreviews {
+	border:4px #ebebeb solid;
+	border-radius:4px;
+	margin-right:10px;
+}
+.pop-up .clientreviews .photo {
+	background:url('../images/phptpapparat.png') #fff no-repeat scroll center center;
+	width:160px;
+	height:160px;
+	border-bottom:4px #ebebeb solid;
+}
+.pop-up .clientreviews .button-add {
+	width:100%;
+	line-height:34px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 table th { font-weight: bold; }
