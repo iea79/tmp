@@ -6,16 +6,16 @@
 	<div class="client-account uk-container-center">
 		<div class="uk-grid uk-grid-small uk-width-large-7-10 uk-width-medium-9-10 uk-width-small-7-10">
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
-				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>My profile</button>
+				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
 			</div>
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>Messages</button>
+				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
 			</div>
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>Buy Membership</button>
+				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
 			</div>
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>Gift Card</button>
+				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
 			</div>
 		</div>
 		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
@@ -25,28 +25,28 @@
 						<img src="{{ asset('bundles/davincitaxi/images/clientphoto-new.png') }}" alt="" width="75" height="79" />
 					</div>
 				<dl>
-					<dt>My ID: </dt><dd class="data"> 76877960596623</dd><br />
-					<dt>Name: </dt><dd class="data"> Boris Ivanov</dd><br />
-					<dt>Status: </dt> <dd class="data"> passenger</dd>
+					<dt>{{ 'My ID:'|trans }} </dt><dd class="data"> {{ '76877960596623'|trans }}</dd><br />
+					<dt>{{ 'Name:'|trans }} </dt><dd class="data"> {{ 'Boris Ivanov'|trans }}</dd><br />
+					<dt>{{ 'Status:'|trans }} </dt> <dd class="data"> {{ 'passenger'|trans }}</dd>
 				</dl>
 			</div>
 			</div>
 			<div class="uk-panel">
 				<div class="clientid">
 				<dl>
-					<dt class="">My balance: </dt><dd id="balance" class="data"> $0.00</dd><br />
-					<dt><a href="">$Add</a></dt><br />
-					<dt><a href="">$Withdraw</a></dt><br />
-					<dt><a href="">$Transfer</a></dt>
+					<dt class="">{{ 'My balance:'|trans }} </dt><dd id="balance" class="data"> $0.00</dd><br />
+					<dt><a href="">{{ '$Add'|trans }}</a></dt><br />
+					<dt><a href="">{{ '$Withdraw'|trans }}</a></dt><br />
+					<dt><a href="">{{ '$Transfer'|trans }}</a></dt>
 				</dl>
 			</div>
 			</div>
 			<div class="uk-panel">
 				<div class="clientid">
 				<dl>
-					<dt>Membership: </dt><dd id="status" class="data"> Gold</dd><br />
-					<dt>Left time: </dt><dd class="data"> 11 oct 14</dd><br />
-					<dt><a href="">Extend</a></dt>
+					<dt>{{ 'Membership:'|trans }} </dt><dd id="status" class="data"> {{ 'Gold'|trans }}</dd><br />
+					<dt>{{ 'Left time:'|trans }} </dt><dd class="data"> {{ '11 oct 14'|trans }}</dd><br />
+					<dt><a href="">{{ 'Extend'|trans }}</a></dt>
 				</dl>
 			</div>
 			</div>
@@ -55,22 +55,22 @@
 <!------------------------------------------------ swicher table------------------------------------------------>
            <div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
 	           <div class="uk-panel uk-width-1-2 uk-active">
-				    <button class="uk-width-1-1">Open orders <i class="mp-icon-taxi"></i> (8)</button>
+				    <button class="uk-width-1-1">{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> (8)</button>
 			   </div>
 			   <div class="uk-panel uk-width-1-2">
-				    <button class="uk-width-1-1">All orders</button>
+				    <button class="uk-width-1-1">{{ 'All orders'|trans }}</button>
 				</div>
 			</div>
             <ul id="tab-content" class="uk-switcher">
                     <li class="uk-active">
                             <div class="whitebg">
-                                    <div class="message"><span>Attention! </span>Choose driver by yourself!</div>
+                                    <div class="message"><span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}</div>
                                     <div class="table-container"><!-- slider -->
 
                                     <table class="uk-table"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
                                             <thead>
                                             <tr>
-                                                    <th>#</th><th>TMP ID</th><th>My orders</th>
+                                                    <th>#</th><th>{{ 'TMP ID'|trans }}</th><th>{{ 'My orders'|trans }}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -78,33 +78,33 @@
                                                     <td>1</td><td>0223240234</td>
                                                     <td>
                                                                     <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                                     <div class="uk-panel uk-panel-box uk-hidden" id="toggle1">
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
-                                                                                                    <span class="proffesion">taxi driver</span><br/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
-                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
                                                                                                     <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
-                                                                                                    <button type="button" class="uk-button">yes</button>
-                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
                                                                                             </div>
                                                                                     </div>
-                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong>Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.</p>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
                                                                                     <div class="call-driver">
-                                                                                            <span>Contacts: </span>
-                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">Skype + Phone</a>
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
                                                                                    
                                                                             </div>
@@ -113,25 +113,25 @@
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
-                                                                                                    <span class="proffesion">taxi driver</span><br/>
-                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
-                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
                                                                                                     <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
-                                                                                                    <button type="button" class="uk-button">yes</button>
-                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
                                                                                             </div>
                                                                                     </div>
-                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong>Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.</p>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
                                                                                     <div class="call-driver">
-                                                                                            <span>Contacts: </span>
-                                                                                            <button class="uk-button uk-button-primary driverlist-button">Skype + Phone</button>
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
                                                                                    
                                                                             </div>
@@ -140,35 +140,36 @@
                                   </td>
                                             </tr>
                                             <tr>
-                                                    <td>2</td><td>0223240235</td>
-                                                            <td><p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle2'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                    <td>2</td><td>0223240234</td>
+                                                    <td>
+                                                                    <p >
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                                     <div class="uk-panel uk-panel-box uk-hidden" id="toggle2">
                                                                             <div class="driver-over">
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
-                                                                                                    <span class="proffesion">taxi driver</span><br/>
-                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
-                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
                                                                                                     <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
-                                                                                                    <button type="button" class="uk-button">yes</button>
-                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
                                                                                             </div>
                                                                                     </div>
-                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong>Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.</p>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
                                                                                     <div class="call-driver">
-                                                                                            <span>Contacts: </span>
-                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
                                                                                    
                                                                             </div>
@@ -177,27 +178,25 @@
                                                                                     <div class="driver-top">
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
-                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">Александр Иванов<a></span><br/>
-                                                                                                    <span class="proffesion">taxi driver</span><br/>
-                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234 </span><span class="feedback_bad"><i class="uk-icon-frown-o"></i> 0</span>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
-                                                                                                    <span class="name">Ford Focus</span><br/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
                                                                                                     <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
-                                                                                                    <button type="button" class="uk-button">yes</button>
-                                                                                                    <button type="button" class="uk-button">no</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
                                                                                             </div>
                                                                                     </div>
-                                                                                    <p class="about"><strong>Languages:</strong> ru, de, en</p>
-                                                                                    <p class="about"><strong>About driver:</strong>
-										    	Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.
-										    </p>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
                                                                                     <div class="call-driver">
-                                                                                            <span>Contacts: </span>
-                                                                                            <a class="uk-button uk-button-primary driverlist-button">Skype + Phone</a>
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
                                                                                    
                                                                             </div>
@@ -206,12 +205,11 @@
                                                             </td>
                                             </tr>
                                             <tr>
-                                                    <td>3</td>
-                                                    <td>0223240236</td>
+                                                    <td>3</td><td>0223240234</td>
                                                     <td>
-                                                            <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle3'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                    <p >
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -219,8 +217,8 @@
                                                     <td>4</td><td>0223240237</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle4'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -228,8 +226,8 @@
                                                     <td>5</td><td>0223240238</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle5'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -237,8 +235,8 @@
                                                     <td>6</td><td>0223240239</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle6'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -246,8 +244,8 @@
                                                     <td>7</td><td>0223240230</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle7'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -255,8 +253,8 @@
                                                     <td>8</td><td>0223240233</td>
                                                     <td>
                                                             <p >
-                                                                            <a data-uk-modal="{target:'#route'}">Даллас (USA) <i class="mp-icon-arrow-right"></i>  Оклахома-сити (USA)</a>
-                                                                            <button data-uk-toggle="{target:'#toggle8'}" class="uk-button driverlist">Drivers list: 3</button>
+                                                                            <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
+                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                     </td>
                                             </tr>
@@ -268,16 +266,16 @@
                     </li>
                     <li>
                             <div class="whitebg">
-                                    <div class="message"><span>Attention!</span>Choose driver by yourself!</div>
+                                    <div class="message"><span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}</div>
                                     <table class="uk-table responsive allorder"><!--<colgroup><col width="40" /> <col width="117" /> <col width="154" /><col width="242" /><col width="97" /><col width="124" />  <col width="116" /> <col width="106" /> </colgroup>-->
                                                 <tbody>
                                                     <thead>
                                                             <tr>
-                                                                    <th>#</th><th>TMP ID<a href="">?</a></th><th><span class="filter"></span>Date and time<a href="">?</a></th><th>Route<a href="">?</a></th><th><span class="filter"></span>Price<a href="">?</a></th><th><span class="filter"></span>Status<a href="">?</a></th><th><span class="filter"></span>Left time<a href="">?</a></th><th>Edit<a href="">?</a></th>
+                                                                    <th>#</th><th>{{ 'TMP ID'|trans }}<a class="help" href="">?</a></th><th><span class="filter"></span>{{ 'Date and time'|trans }}<a class="help" href="">?</a></th><th>{{ 'Route'|trans }}<a class="help" href="">?</a></th><th><span class="filter"></span>{{ 'Price'|trans }}<a class="help" href="">?</a></th><th><span class="filter"></span>{{ 'Status'|trans }}<a class="help" href="">?</a></th><th><span class="filter"></span>{{ 'Left time'|trans }}<a class="help" href="">?</a></th><th>{{ 'Edit'|trans }}<a class="help" href="">?</a></th>
                                                             </tr>
                                                     </thead>
                                                     <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">mar</span> 14<span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>68:45:32</td>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14<span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -288,7 +286,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>pending</td><td>68:45:32</td>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -299,7 +297,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-blue">48:12:21</span></td>
+                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-blue">48:12:21</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -310,7 +308,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-green">26:55:03</span></td>
+                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-green">26:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -321,7 +319,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>closed</td><td><span class="text-red">13:55:03</span></td>
+                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-red">13:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -332,7 +330,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><span><i class="mp-icon-taxi uk-text-primary"></i></span></td><td>00:00:00</td>
+                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><span><i class="mp-icon-taxi uk-text-primary"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -343,7 +341,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td>open</td><td>00:00:00</td>
+                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -354,7 +352,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -365,7 +363,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></i></td><td>00:00:00</td>
+                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></i></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -376,7 +374,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -387,7 +385,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">mar</span> 14 <span class="timehere"> 18:00</span></td><td><span>Даллас (USA) -</span><span> Оклахома-сити (USA)</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -</span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -405,49 +403,51 @@
 	</div>
 	</div>
 </div>
-<!------------------------------------------------pop-up --------------------------------------->
+<!------------------------------------------------Table --------------------------------------->
 <!------------------------------------------------profile--------------------------------------------->
             <div id="Profile" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
 	                    <a class="uk-modal-close uk-close"></a>
-		                    <div class="popup-head">Begin you profile<i id="quest" class="uk-icon-question-circle"></i></div>
+		                    <div class="popup-head">{{ 'Begin you profile'|trans }}<i class="uk-icon-question-circle quest"></i></div>
 						<div class="pop-up uk-grid uk-grid-small">
-							<div class="driversreviews">
-							<div class="avatar">
+							<div>
+								<div class="clientreviews">
 									<div class="photo"></div>
-									<div class="button">Add Your Photo</div>
+									<a class="button-add uk-button uk-button-primary">{{ 'Add Your Photo'|trans }}</a>
 								</div>
 							</div>
 							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
-								<h5>Personal information</h5><br />
+								<h5>{{ 'Personal information'|trans }}</h5><br />
 								<dl class="uk-width-1-1 uk-margin-bottom">
-									<dt id="myid">My ID:</dt><dd id="myid">2112121212</dd><br />
-									<dt>First Name:</dt><dd><input type="text" name="name" id="name" required value="Boris" /></dd><br />
-									<dt>Last Name:</dt><dd><input type="text" name="name" id="name" required value="Ivanov" /></dd><br />
-									<dt>E-mail:</dt><dd><input type="text" name="name" id="name" required value="borisivanov@gmail.com" /></dd><br />
-									<dt>Skype:</dt><dd><input type="text" name="name" id="name" required value="didikidgsdg" /></dd><br />
-									<dt>Mobile:</dt><dd>
-											<select name="region" id="region" class="uk-width-1-3" required><option>(US)+1</option></select>
-											<input id="fone" class="uk-width-2-3" type="text" name="name" id="name" required value="866 55 55 55 55" />
+										<div class="uk-margin">
+											<dt class="myid">My ID:</dt><dd class="myid">2112121212</dd><br />
+										</div>
+									<dt>{{ 'First Name:'|trans }}</dt><dd><input type="text" name="fname" value="Boris" /></dd><br />
+									<dt>{{ 'Last Name:'|trans }}</dt><dd><input type="text" name="lname" value="Ivanov" /></dd><br />
+									<dt>{{ 'E-mail:'|trans }}</dt><dd><input type="text" name="email" value="borisivanov@gmail.com" /></dd><br />
+									<dt>{{ 'Skype:'|trans }}</dt><dd><input type="text" name="skype" value="didikidgsdg" /></dd><br />
+									<dt>{{ 'Mobile:'|trans }}</dt><dd>
+											<select name="region" class="uk-width-1-3 region" ><option>(US)+1</option></select>
+											<input class="uk-width-2-3 fone" type="text" name="name" id="name" value="866 55 55 55 55" />
 										</dd><br />
-									<dt>Country:</dt><dd><select name="country" id="country" required><option>Russia</option></select></dd><br />
-									<dt>City:</dt><dd><select name="city" id="city" required><option>Mosckow</option></select></dd><br />
-									<dt>Birthday:</dt><dd>
-											<select name="day" id="day" required>
+									<dt>{{ 'Country:'|trans }}</dt><dd><select name="country" class="country"><option>{{ 'Russia'|trans }}</option></select></dd><br />
+									<dt>{{ 'City:'|trans }}</dt><dd><select name="city" class="city"><option>{{ 'Mosckow'|trans }}</option></select></dd><br />
+									<dt>{{ 'Birthday:'|trans }}</dt><dd>
+											<select name="day" class="day">
 												<option>1</option>
 												<option>2</option>
 												<option>3</option>
 												<option>4</option>
 												<option>5</option>
 											</select>
-											<select name="month" id="month" required>
-												<option>January</option>
-												<option>February</option>
-												<option>Marth</option>
-												<option>April</option>
-												<option>May</option>
+											<select name="month" class="month" required>
+												<option>{{ 'January'|trans }}</option>
+												<option>{{ 'February'|trans }}</option>
+												<option>{{ 'Marth'|trans }}</option>
+												<option>{{ 'April'|trans }}</option>
+												<option>{{ 'May'|trans }}</option>
 											</select>
-											<select name="year" id="year" required>
+											<select name="year" class="year" required>
 												<option>1989</option>
 												<option>1990</option>
 												<option>1991</option>
@@ -456,19 +456,20 @@
 												<option>1994</option>
 											</select>
 										</dd><br />
-									<dt>Gender:</dt><dd><select name="country" id="gender" required><option>male</option><option>female</option></select></dd>
+									<dt>{{ 'Gender:'|trans }}</dt><dd><select name="gender" required><option>{{ 'male'|trans }}</option><option>{{ 'female'|trans }}</option></select></dd>
 								</dl>
-								<div class="uk-grid uk-grid-small uk-margin">
-									<div class="uk-panel uk-width-1-2">
-										<button class="uk-button uk-button-success uk-width-1-1">Save</button>
-									</div>
-									<div class="uk-panel uk-width-1-2">
-										<button class="uk-button uk-button-warning uk-width-1-1">Cancel</button>
-									</div>
+								<div class="uk-margin">
+									<div class="uk-grid uk-grid-small">
+										<div class="uk-panel uk-width-1-2">
+											<button class="uk-button uk-button-success uk-width-1-1">{{ 'Save'|trans }}</button>
+										</div>
+										<div class="uk-panel uk-width-1-2">
+											<button class="uk-button uk-button-warning uk-width-1-1">{{ 'Cancel'|trans }}</button>
+										</div>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
                     </div>
             </div>
 <!------------------------------------------------rout--------------------------------------------->
@@ -480,28 +481,30 @@
 			                              <div class="yourdrivers">
 			                                    <a href="#" class="mp-icon-edit"></a>
 			                              </div>
-                                          <h5>USA: Даллас - USA: Оклахома-сити</h5>
+                                          <h5>{{ 'USA: Даллас'|trans }} - {{ 'USA: Оклахома-сити'|trans }}</h5>
                                             <dl class="uk-width-1-1">
-                                                    <dt>Order ID:</dt><dd>211212121221</dd><br />
-                                                    <dt><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> From:</span></dt><dd>Russia, Moscow, Lenina street, building # 12</dd><br />
-                                                    <dt><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> To:</span></dt><dd>Ukraine, Lvov, Knazevskaja street, building # 173</dd><br />
-                                                    <dt>Pickup:</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd><br />
-                                                    <dt>Return:</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd><br />
-                                                    <dt>Passengers:</dt><dd>Adults(2), Kids(1), Seniors(0)</dd><br />
-                                                    <dt>Vehicle class:</dt><dd>Economy</dd><br />
-                                                    <dt>Language:</dt><dd>Russian</dd><br />
-                                                    <dt>Car special requests:</dt><dd>Child seat (0 - 12 months), wi-fi connection</dd><br />
-                                                    <dt class="requirement">Special requirement of passenger: </dt>
-                                                    <dd>To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
+	                                                    <div class="uk-margin">
+		                                                    <dt class="myid">{{ 'Order ID:'|trans }}</dt><dd class="myid">211212121221</dd>
+	                                                    </div><br />
+                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> {{ 'From:'|trans }}</span></dt><dd class="big">{{ 'Russia'|trans }}, {{ 'Moscow'|trans }}, {{ 'Lenina street'|trans }}, {{ 'building'|trans }} # 12</dd><br />
+                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> {{ 'To:'|trans }}</span></dt><dd class="big">{{ 'Ukraine'|trans }}, {{ 'Lvov'|trans }}, {{ 'Knazevskaja street'|trans }}, {{ 'building'|trans }} # 173</dd><br />
+                                                    <dt>{{ 'Pickup:'|trans }}</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd><br />
+                                                    <dt>{{ 'Return:'|trans }}</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd><br />
+                                                    <dt>{{ 'Passengers:'|trans }}</dt><dd>{{ 'Adults'|trans }}(2), {{ 'Kids'|trans }}(1), {{ 'Seniors'|trans }}(0)</dd><br />
+                                                    <dt>{{ 'Vehicle class:'|trans }}</dt><dd>{{ 'Economy'|trans }}</dd><br />
+                                                    <dt>{{ 'Language:'|trans }}</dt><dd>{{ 'Russian'|trans }}</dd><br />
+                                                    <dt>{{ 'Car special requests:'|trans }}</dt><dd>{{ 'Child seat'|trans }} (0 - 12 {{ 'months'|trans }}), wi-fi {{ 'connection'|trans }}</dd><br />
+                                                    <dt class="fullsize">{{ 'Special requirement of passenger:'|trans }} </dt><br>
+                                                    <dd class="fullsize">{{ 'To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
 							                            72 hours prior to departure. A medical clearance is only valid for the flight(s) and date(s) specified in
 							                            the MEDIF. Granted medical clearance is only valid in normal circumstances. If a serious deterioration of
 							                            the medical condition took place in between the time of medical clearance and the actual flight, a new
-							                            clearance must be requested.</dd><br />
-                                                    <dt>Passenger's price:</dt><dd>$260</dd><br />
-                                                    <dt>Tips:</dt><dd>$10</dd><br />
-                                                    <img class="uk-width-1-1" src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">
+							                            clearance must be requested.'|trans }}</dd><br />
+                                                    <dt>{{ 'Passenger\'s price:'|trans }}</dt><dd>$260</dd><br />
+                                                    <dt>{{ 'Tips:'|trans }}</dt><dd>$10</dd><br />
                                             </dl>
                                     </div>
+                                <img class="uk-width-1-1 uk-margin-top" src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">
                             </div>
                     </div>
             </div>
@@ -509,58 +512,61 @@
             <div id="about-driver" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
                         <a class="uk-modal-close uk-close"></a>
-                    <div class="popup-head red"><i class="icon-taxi"></i>Independent driver</div>
+                    <div class="popup-head red"><i class="mp-icon-taxi uk-margin-small-right"></i>{{ 'Independent driver'|trans }}</div>
 						<div class="pop-up uk-grid uk-grid-small">
-							<div class="driversreviews">
-								<div class="avatar">
+							<div>
+								<div class="clientreviews">
 									<div class="photo">
-										<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" width="161" height="180px"></div>
+										<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" width="161" height="180px">
+									</div>
+									<a class="button-add uk-button uk-button-primary">Add Your Photo</a>
 								</div>
 							</div>
 							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
-								<h5>About driver</h5><i id="quest" class="uk-icon-question-circle"></i><br />
-								<dl id="about-driver" class="uk-width-1-1 uk-margin-bottom">
-									<dt id="myid">My ID:</dt><dd id="myid">2112121212</dd><br />
-									<dt>First Name:</dt><dd>Boris</dd><br />
-									<dt>Last Name:</dt><dd>Ivanov</dd><br />
-									<dt>Country:</dt><dd>Russia</dd><br />
-									<dt>City:</dt><dd>Mosckow</dd><br />
-									<dt>English:</dt><dd>beginner</dd><br />
-									<dt>Other language:</dt><dd>russian</dd><br />
-									<dt>Driving Experience:</dt><dd>4+ years</dd><br />
-									<dt>Birthday:</dt><dd>11 Oct 1988</dd><br />
-									<dt>Gender:</dt><dd>male</dd><br />
-									<dt id="moretext">About me:</dt><dd id="moretext">The goal of the about:me page is to give you a 
-										more interesting view of statistics about your 
-										browser usage. The current version includes 
-										graphs that illustrate trends in your browsing.</dd><br />
-						                    <div class="popup-head inbox">About car <i class="uk-icon-question-circle"></i></div>
-									<dt>Brand:</dt><dd>Ford</dd><br />
-									<dt>Model:</dt><dd>Focus</dd><br />
-									<dt>Year:</dt><dd>2006</dd><br />
-									<dt>Color:</dt><dd>black</dd><br />
-									<dt>Number plate:</dt><dd>AB 666 777</dd><br />
-									<dt>Class:</dt><dd>bussines</dd><br />
-									<dt>Other:</dt><dd>
-									<div id="other">
-										<i class="mp-icon-person"></i> 4 <i class="mp-icon-door uk-margin-left"></i> 4 <i class="mp-icon-bug uk-margin-left"></i> 4 
+								<h5>{{ 'About driver'|trans }}</h5><i class="uk-icon-question-circle quest"></i><br />
+								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+									<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
+									<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
+									<dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
+									<dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
+									<dt>{{ 'City:'|trans }}</dt><dd>{{ 'Mosckow'|trans }}</dd><br />
+									<dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
+									<dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
+									<dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
+									<dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
+									<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
+									<dt id="moretext">{{ 'About me:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+								</dl>
+						                    <div class="popup-head inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></div>
+								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+									<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
+									<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
+									<dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
+									<dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
+									<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
+									<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
+									<dt>{{ 'Other:'|trans }}</dt><dd>
+									<div>
+										<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span>
 									</div>
 									</dd><br />
-									<dt id="moretext">Short description:</dt><dd id="moretext">The goal of the about:me page is to give you a 
+									<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
 										more interesting view of statistics about your 
 										browser usage. The current version includes 
-										graphs that illustrate trends in your browsing.</dd><br />
-						                    <div class="popup-head inbox">Insurance <i class="uk-icon-question-circle"></i></div>
-									<dt id="moretext">Driver promises:</dt><dd id="moretext">The goal of the about:me page is to give you a 
+										graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+								</dl>
+						                    <div class="popup-head inbox">{{ 'Insurance'|trans }} <i class="uk-icon-question-circle"></i></div>
+								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+									<dt id="moretext">{{ 'Driver promises:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a 
 										more interesting view of statistics about your 
 										browser usage. The current version includes 
-										graphs that illustrate trends in your browsing.</dd><br /><br />
-									<dd>It will be great, if you have an international insurance.</dd><br /><br />
-									<dt>Driver:</dt><dd><a class="uk-button uk-button-primary button-skype">Skype + Phone</a></dd><br />
+										graphs that illustrate trends in your browsing.'|trans }}</dd><br /><br />
+									<dd class="fullsize">{{ 'It will be great, if you have an international insurance.'|trans }}</dd><br /><br />
+									<dt>{{ 'Driver:'|trans }}</dt><dd><a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a></dd>
 								</dl>
 							</div>
 						</div>
-                    </div>
-<!------------------------------------------------pop-up конец--------------------------------------->
+            </div>
+<!------------------------------------------------pop-up end--------------------------------------->
 </div>
 {% endblock %}
