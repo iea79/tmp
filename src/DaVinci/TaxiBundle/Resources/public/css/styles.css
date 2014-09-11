@@ -287,7 +287,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				vertical-align:top;
 				border:1px solid #d0d0d0;
 				border-radius:8px;
-				background-color:#ebebeb;
+				background-color:#fff;
 				box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
 				margin:15px 0 0 0;
 				width:600px;
@@ -339,11 +339,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 								background-color:#fff;
 								border-radius:6px;
 								text-align:center;
+								border:1px solid #d0d0d0;
 								
 						}	
 							.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop-top .img img {
-								width:42px;
-								margin-top:12px;
+								width:59px;
+								height:58px;
 							}
 							.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown .myid-drop-top .uk-nav {
 								margin:0 0 0 15px;
@@ -548,7 +549,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						color:#ff4d61;
 						background-color:#fff;
 					}
-/*==========================  styles of booking steps  in homepage =================================*/
+/*==========================  styles of booking step 1  in homepage =================================*/
 .destination {
 	margin:40px 0 20px 0;
 }
@@ -556,7 +557,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding:0 20px;
 	}
 		
-		.destination .nav-over  hr {
+		.destination   hr {
 			color:#ff4d61;
 			background-color:#ff4d61;
 			border:none;
@@ -628,8 +629,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:24px;
 		}
 	
-		
-	.destination  .inputs  .select {
+	/*========  it is relatively global, because styles all select in the homepage, what consists from 3 pages  ========*/	
+	.home  .select {
 		background-color:#fff;
 		border: 1px solid #8e9099;
 		border-radius: 3px;
@@ -637,6 +638,166 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		
 		
 	}
+	
+/*==========================  styles of booking step 2  in homepage =================================*/
+.order-details-over {
+}
+	.order-details-over h1 {
+		font-size:20px;
+		color:#ff4d61;
+		margin:5px 0 5px 20px;
+	}
+	.order-details {
+		float:none;
+		margin:0 20px;
+		border-top:1px solid #ff4d61;
+	}
+	.order-details-over .order-details h4 {
+		font-size:16px;
+		color:#ff4d61;
+	}
+	.order-details-over .spinner {
+		width:52px;
+		display:inline-block;
+		border: 1px solid #8e9099;
+		border-radius:4px;
+		position:relative;
+		height:25px;
+		
+	}
+		.order-details-over .spinner input {
+			width:50px;
+			border:none;
+			padding:0 0 0 5px;
+		}
+			.order-details-over .spinner a {
+				position:absolute;
+				right:10px;
+				height:5px;
+				font-size:12px;
+			}
+			-over .spinner a.up {
+				top:3px;
+			}
+			.order-details-over .spinner a.down {
+				bottom:12px;
+			}
+				.order-details-over .spinner a span {
+					position:absolute;
+					top:0;
+				}
+	.rightlabels .spin-1 {
+		float:left;
+	}
+	.rightlabels .spin-3 {
+		float:right;
+	}
+	.rightlabels .spin-2 {
+		width:100px;
+		margin:0 auto;
+	}
+	.rightlabels label {
+		font-size:16px;
+	}
+	.order-details-over .select {
+		max-width:273px;
+		min-height:25px;
+		line-height:25px;
+		width:100%;
+		text-align:left;
+		position:relative;
+		color:#9b9b9b;
+		font-size:16px;
+	}
+	.order-details .spec-request {
+		min-height:30px;
+		line-height:30px;
+		font-size:16px;
+		font-weight:bold;
+		margin:20px 0 15px 0;
+	}
+		.order-details .spec-request span {
+			font-size:20px;
+			color:#528ed3;
+		}
+		.order-details-over .select i {
+			position:absolute;
+			right:7px;
+			top:4px;
+		}
+		
+	.order-details .checks {
+		width:100%;
+	}
+		.order-details .checks label  {
+			margin-left:10px;
+			font-size:16px;
+		}
+		
+		.order-details textarea {
+			width:100%;
+			color:#9b9b9b;
+			border: 1px solid #8e9099;
+			border-radius:4px;
+			font-size:14px;
+		}
+		.order-details .helptext {
+			color:#9b9b9b;
+			font-size:14px;
+		}
+		.order-details .uk-button-group {
+			margin:20px 0 0 0;
+		}
+		.order-details .uk-button-group a {
+			min-height:40px;
+			line-height:40px;
+			width:49%;
+			font-size:24px;
+		}
+/*==========================  styles of booking step 2  in homepage =================================*/
+	.order-details .checks td{
+		padding:10px 0;
+		
+	}
+	.order-details  input[type="text"] {
+		padding:0 0 0 15px;
+		border-radius:4px;
+		border: 1px solid #8e9099;
+		height:27px;
+		color:#9b9b9b;
+		font-size:14px;
+	}
+	.order-details .checks .recommend {
+		font-size:18px;
+	}
+	.order-details .overinput {
+		position:relative;
+	}
+		.order-details .overinput .dollar {
+			position:absolute;
+			left:5px;
+			top:0px;
+			color:#9b9b9b;
+		}
+		.order-details .contactpassenger  .nottravel{
+			margin:20px 0;
+		}
+		
+		.order-details .contactpassenger .left  {
+			float:left;
+			width:40%;
+			
+		}
+		.order-details .contactpassenger .right {
+			float:right;
+			width:60%;
+		}
+		.order-details .contactpassenger .pers-data {
+			padding:5px 0;
+			overflow:hidden;
+		}
+	
+	
 /*=======
 office passengers and driver
 ========*/

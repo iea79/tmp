@@ -3,7 +3,7 @@
 	<ul class="tabs uk-tab  chois">
         <li class="uk-width-1-3  first">
 			<a href="#">
-				<div class="arrow_box"><span class="on">1</span><span class="hide"> General information</span>
+				<div class="arrow_box"><span class="on"><i class="uk-icon-check"></i></span><span class="hide"> General information</span>
 				</div>
 			</a>
 		</li>
@@ -21,45 +21,127 @@
 		</li>
     </ul>
 
-    <div class="paramauto">
-        <h1>Автомобиль</h1>
-        <h4>Количество пассажиров</h4>
-        <div class="rightlabels">
-            <label><span>Adult </span> <input id="spinner1" class="spinner" name="spinner" value="0" /></label>
-            <label><span>Kids </span> <input id="spinner2" class="spinner" name="spinner" value="0" /></label>
-            <label><span>Seniors </span> <input id="spinner3" class="spinner" name="spinner" value="0" /></label>
-        </div>
+    <div class="order-details-over">
+        <h1 class="labels">Vehicle</h1>
+		<div class="order-details">
+		<form name="order-details" method="post" action="#" >
+			<h4>Passengers</h4>
+			<div class="rightlabels">
+				<div class="spin-1">
+					<label>Adult</label>
+					<div data-trigger="spinner" id="spin-1" class="spinner">
+					  <input type="text" value="1" data-rule="quantity">
+					  <a href="javascript:;" data-spin="up" class="up"><span class="uk-icon-sort-up"></span></a>
+					  <a href="javascript:;" data-spin="down" class="down"><span class="uk-icon-sort-down"></span></a>
+					</div>
+				</div>
+				
+				<div class="spin-3">
+					<label>Seniors </label>
+					<div data-trigger="spinner" id="spin-3" class="spinner">
+					  <input type="text" value="1" data-rule="quantity">
+					  <a href="javascript:;" data-spin="up" class="up"><span class="uk-icon-sort-up"></span></a>
+					  <a href="javascript:;" data-spin="down" class="down"><span class="uk-icon-sort-down"></span></a>
+					</div>
+				</div>
+				<div class="spin-2">
+					<label>Kids</label>
+					<div data-trigger="spinner" id="spin-2" class="spinner">
+					  <input type="text" value="1" data-rule="quantity">
+					  <a href="javascript:;" data-spin="up" class="up"><span class="uk-icon-sort-up"></span></a>
+					  <a href="javascript:;" data-spin="down" class="down"><span class="uk-icon-sort-down"></span></a>
+					</div>
+				</div>
+			</div>
 
-        <h4>Класс автомобиля</h4>
-        <select name="classauto">
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-        </select>
-        <div class="checks">
-            <label><input type="checkbox" /> <span class="animals"></span>буду с собакой илил кошкой</label>
-            <label><input type="checkbox" /> <span class="child"></span>наличие детского кресла</label>
-            <label><input type="checkbox" /> <span class="nosmoke"></span>салон для некурящих</label>
-            <label><input type="checkbox" /> <span class="smoke"></span>салон для курящих</label>
-            <label><input type="checkbox" /> <span class="bagage"></span>наличие багажа</label>
-        </div>
-        <h4 class="black">Any additional language?</h4>
-        <select name="additionallang">
-            <option>11</option>
-            <option>12</option>
-            <option>13</option>
-        </select>
+			<h4>Class</h4>
+			<div class="uk-button uk-form-select select" data-uk-form-select="">
+                    <span>not choosen</span>
+                    <i class="uk-icon-caret-down"></i>
+                        <select>
+                            <option value="1">not choosen</option>
+                            <option value="2">not choosen</option>
+                            <option value="3">not choosen</option>
+                            <option value="4">not choosen</option>
+                        </select>
+             </div>
+			 <div class="uk-button-large uk-button uk-width-1-1 spec-request">Car special requests <span class="uk-icon-question-circle "></span></div>
+			<table class="checks">
+				<tr>
+					<td class="left">
+						<input type="checkbox" /><label>child seat</label>
+					</td>
+					<td class="right">
+						<div class="uk-button uk-form-select select" data-uk-form-select="">
+							<span>11</span>
+							<i class="uk-icon-caret-down"></i>
+								<select>
+									<option value="1">12</option>
+									<option value="2">13</option>
+									<option value="3">14</option>
+									<option value="4">15</option>
+								</select>
+							</div>
+					</td>
+				</tr>
+				<tr>
+					<td >
+						<input type="checkbox" /><label>pat's cages</label>
+					</td>
+					<td >
+						<div class="uk-button uk-form-select select" data-uk-form-select="">
+							<span>11</span>
+							<i class="uk-icon-caret-down"></i>
+								<select>
+									<option value="1">12</option>
+									<option value="2">13</option>
+									<option value="3">14</option>
+									<option value="4">15</option>
+								</select>
+							</div>
+					</td>
+				</tr>
+				 <tr>
+					<td class="left">
+						<input type="checkbox" /><label>bicycle rack</label>
+					</td>
+					<td class="right">
+						<input type="checkbox" /><label>place for strollers</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="left">
+						<input type="checkbox" /><label>luggage rack</label>
+					</td>
+					<td class="right">
+						<input type="checkbox" /><label>place for wheelchairs</label>
+					</td>
+				</tr>
+				<tr>
+					<td class="left">
+						<input type="checkbox" /><label>ski rack</label>
+					</td>
+					<td class="right">
+						<input type="checkbox" /><label>wi-fi connection</label>
+					</td>
+				</tr>
+				
+			</table>
+			
+			
+			
 
-        <div class="wishes">
-            <h4>Дополнительные пожелания от вас</h4>
-            <textarea placeholder="Например: если у вас алергия на животных, то вы можете об этом предупредить водителей, которые часто перевозят пассажиров 
-                      с животными - они не станут покупать заявку."></textarea>
-            <div class="style1 helptext">осталось символов 200</div>
-        </div>
+			<div class="wishes">
+				<h4>Special recuirement</h4>
+				<textarea placeholder="Например: если у вас алергия на животных, то вы можете об этом предупредить водителей, которые часто перевозят пассажиров  с животными - они не станут покупать заявку."></textarea>
+				<div class=" helptext">осталось символов 200</div>
+			</div>
 
-		<div class="uk-button-group uk-width-1-1">
-			<a href="{{ url('order_step_3') }}" class="uk-button nextbutt twobuttnext uk-width-2-6  float_right"><span>Next ></span></a>
-			<a href="{{ url('order_step_1') }}" class="uk-button nextbutt backbutt uk-width-2-6 float_left"><span>< Back</span></a>
+			<div class="uk-button-group uk-width-1-1">
+				<a href="{{ url('order_step_3') }}" class="uk-button uk-button-danger     float_right"><span>Next ></span></a>
+				<a href="{{ url('order_step_1') }}" class="uk-button uk-button-warning   float_left"><span>< Back</span></a>
+			</div>
+			</form>
 		</div>
     </div>
 
