@@ -509,6 +509,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a:hover {
 						text-decoration:underline;
 						background:inherit;
+						border:none;
 					}
 					.home .steps-1-2-3 .chois li a .on {
 						background:#ff4d61;
@@ -665,33 +666,28 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details-over .spinner {
 		width:52px;
 		display:inline-block;
-		/*border: 1px solid #8e9099;
-		border-radius:4px; */
 		position:relative;
 		height:25px;
+		margin-left:5px;
 		
 	}
 		.order-details-over .spinner input {
-			width:50px;
-			border:none;
-			padding:0 0 0 5px;
+			width:52px;
+			
 		}
-			.order-details-over .spinner a {
-				position:relative;
-				height:5px;
+		.order-details-over .spinner .arrows {
+			width:12px;
+			position:absolute;
+			top:0;
+			left:35px;
+		}
+			.order-details-over .spinner .arrows a {
+				display:block;
+				line-height:13px;
+				font-size:11px;
+				color:#9b9b9b;
 			}
-			.order-details-over .spinner a.up {
-				top:-26px;
-				left:37px;
-			}
-			.order-details-over .spinner a.down {
-				bottom:22px;
-				left:25px;
-			}
-				/*.order-details-over .spinner a span {
-					position:absolute;
-					top:0;
-				} */
+		
 	.rightlabels .spin-1 {
 		float:left;
 	}
@@ -761,7 +757,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			width:49%;
 			font-size:24px;
 		}
-/*==========================  styles of booking step 2  in homepage =================================*/
+/*==========================  styles of booking step 3  in homepage =================================*/
 	 .padding-top {
 		padding-top:15px;
 	}
@@ -1499,6 +1495,16 @@ footer {
 	.home .tabtaxi {
 		font-size:16px;
 	}
+	.form-block-wrap {
+		padding:0 20px;
+	}
+		.destination .labels {
+			margin-bottom:8px;
+		}
+		.destination .labels label {
+			margin-left:0;
+			font-size:18px;
+		}
 
 
     }
