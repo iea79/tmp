@@ -8,7 +8,7 @@
 		<fieldset>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
 				<div class="uk-form-controls">
-					<div class="uk-form-label pinktext">Boris Ivanov</div>
+					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
 					</div>
@@ -25,19 +25,14 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="float_left numcars" name="numberscars1" id="numberscars1" required>
-						<option>5</option>
-						<option>6</option>
-						<option>7</option>
-						<option>8</option>
-						<option>9</option>
-					</select>
-					<select class="float_left numcars" name="numberscars2" id="numberscars2" required>
-						<option>10</option>
-						<option>15</option>
-						<option>20</option>
-						<option>30</option>
-						<option>40+</option>
+					<select class="uk-width-1-1  float_left" name="country" id="country" required>
+						<option value="">4</option>
+						<option value="">5</option>
+						<option value="">6</option>
+						<option value="">7</option>
+						<option value="">8</option>
+						<option value="">9</option>
+						<option value="">10</option>
 					</select>
 					<div class="questiontooltip float_left">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Taxi Company starts from 5+ cars</span></a>
@@ -60,7 +55,7 @@
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="city" id="city" required>
 						<option>Moscow</option>
-						<option>S-pb</option>
+						<option>St. Petersburg</option>
 					</select>
 				</div>
 			</label>
@@ -90,9 +85,13 @@
 				</div>
 			</label>
 
-			<label class="addphoneline uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
+			<label class="addphoneline uk-form-row">
+				<div class="twolabels uk-width-2-5">
+					<span class="uk-form-label  text">{{ 'form.phone_number'|trans }}:</span>
+					<span class="uk-form-label text">Mark if you have </span>
+				</div>
 				<div class="uk-form-controls addphoneareas">
-					<div class="float_left uk-width-1-1"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
+					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -135,14 +134,8 @@
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select>
-					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  /></div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-					</div>
-				</div>
-			</label>
-			<div class="wifis uk-form-row"><span class="uk-form-label uk-width-2-5 text">Mark if you have </span>
-				<div class="uk-form-controls">
+					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
+					
 					<div class="wicheck whicheck-1">
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
 						<div class="questiontooltip">
@@ -155,13 +148,13 @@
 							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile messaging app</span></a>
 						</div>
 					</div>
-				</div>
-			</div>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
-				<div class="uk-form-controls addphone">Add mobile number
+					</div>
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					</div>
+					<div class="uk-form-controls addphone">Add mobile number</div>
 				</div>
 			</label>
-
 			<div class="uk-button-group uk-width-4-5">
 				<button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>
 			</div>
