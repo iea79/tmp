@@ -36,11 +36,10 @@ register_company_driver:
     
     
 #overwrite fosuser confirm email to choose-office 
-fos_user_registration_confirmed:
-    pattern:  /choose-office
-    defaults: { _controller: DaVinciUserBundle:Office:office_choose }
-    methods: GET
-    
+DaVinciUserBundle:
+  resource: "@DaVinciUserBundle/Controller"
+  type: annotation
+  
 office_passenger:
     pattern:  /office-passenger
     defaults: { _controller: DaVinciUserBundle:Office:office_passenger }
