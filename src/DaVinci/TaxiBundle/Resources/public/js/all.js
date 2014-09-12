@@ -1,4 +1,4 @@
-﻿$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
+$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
 function setTabswidth (){
 	tu0 = $('#info ol').width();
 	tu1 = $('#info ol li').length;
@@ -16,20 +16,20 @@ function setTabswidth (){
 //});
 $(function () {
 	$('#timestart, #timeend').timepicker({
-		showPeriodLabels: false, // Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ am Ð¸ pm
-		hourText: 'Ð§Ð°ÑÑ‹', // Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ° Ñ‡Ð°ÑÐ¾Ð²
-		minuteText: 'ÐœÐ¸Ð½ÑƒÑ‚Ñ‹', // Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð·Ð°Ð³Ð¾Ð»Ð¾Ð²ÐºÐ° Ð¼Ð¸Ð½ÑƒÑ‚
-		showMinutes: true, // Ð¿Ð¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð±Ð»Ð¾Ðº Ñ Ð¼Ð¸Ð½ÑƒÑ‚Ð°Ð¼Ð¸
-		rows: 4, // ÑÐºÐ¾Ð»ÑŒÐºÐ¾ Ñ€ÑÐ´Ð¾Ð² Ñ‡Ð°ÑÐ¾Ð² Ð¸ Ð¼Ð¸Ð½ÑƒÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ
-		timeSeparator: ':', // Ñ€Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ñ‡Ð°ÑÐ¾Ð² Ð¸ Ð¼Ð¸Ð½ÑƒÑ‚
+		showPeriodLabels: false, // показывать обозначения am и pm
+		hourText: 'Часы', // название заголовка часов
+		minuteText: 'Минуты', // название заголовка минут
+		showMinutes: true, // показывать блок с минутами
+		rows: 4, // сколько рядов часов и минут выводить
+		timeSeparator: ':', // разделитель часов и минут
 		hours: {
-			starts: 0, // Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Ñ‡Ð°ÑÐ¾Ð²
-			ends: 23 // Ð¾Ñ‚ - Ð´Ð¾
+			starts: 0, // настройка часов
+			ends: 23 // от - до
 		},
 		minutes: {
-			starts: 0, // Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° Ð¼Ð¸Ð½ÑƒÑ‚
-			ends: 55, // Ð¾Ñ‚ - Ð´Ð¾
-			interval: 5 // Ð¸Ð½Ñ‚ÐµÑ€Ð²Ð°Ð» Ð¼ÐµÐ¶Ð´Ñƒ Ð¼Ð¸Ð½ÑƒÑ‚Ð°Ð¼Ð¸
+			starts: 0, // настройка минут
+			ends: 55, // от - до
+			interval: 5 // интервал между минутами
 		},
 	});
 });
@@ -64,7 +64,7 @@ $(function(){
 
         if( lbl.is( ":visible" ) ){
             lbl.text( file_name );
-            btn.text( "Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ" );
+            btn.text( "Выбрать" );
         }else
             btn.text( file_name );
     }).change();

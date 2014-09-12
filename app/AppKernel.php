@@ -30,10 +30,10 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
-            new DaVinci\UserBundle\DaVinciUserBundle(),
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new Lsw\ApiCallerBundle\LswApiCallerBundle(),
+            new DaVinci\UserBundle\DaVinciUserBundle(),
+            new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
