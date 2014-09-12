@@ -165,4 +165,23 @@ class RegistrationController extends BaseController {
         ));
     }
 
+    public function register_companyAction()
+    {
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_company.html.twig');
+    }
+    
+    public function register_independent_driverAction()
+    {
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_independent_driver.html.twig');
+    }
+    
+    public function register_managerAction()
+    {
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_manager.html.twig');
+    }
+    
+    public function register_company_driverAction()
+    {
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_company_driver.html.twig');
+    }   
 }
