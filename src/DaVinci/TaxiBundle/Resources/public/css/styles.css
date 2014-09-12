@@ -1430,6 +1430,32 @@ footer {
    	 .driver-top div.vehicle {
    		 width:50%;
    	 }
+	 .rightlabels label {
+		display:block;
+	 }
+	 .rightlabels .spinner {
+		margin-left:0;
+	 }
+	 .rightlabels .spin-2 {
+		width:52px;
+	 }
+	 .footer-in .add-nav {
+		margin:3px 0 4px 2%!important;
+	 }
+	 .footer-top .footer-in .add-nav ul li a {
+		font-size:14px;
+		padding:6px 5px;
+		
+	 }
+	 .footer-top .footer-in .social {
+		
+		margin: 8px 3% 8px 0;
+	 }
+	  .footer-top .footer-in .social li a {
+		font-size:20px;
+		padding:2px 7px;
+		
+	  }
 }
 @media only screen and (max-width:360px) {
     .whitebg .uk-table td p button  {
@@ -1505,9 +1531,18 @@ footer {
 			margin-left:0;
 			font-size:18px;
 		}
+		.footer-top {
+			display:none;
+		}
 
 
     }
+@media only screen and (max-width:240px) {
+	 .order-details-over .order-details {
+		margin:0 5px;
+	 }
+	
+}
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
 .pop-up {
