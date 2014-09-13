@@ -1,0 +1,3 @@
+#disable security areas for dev
+sensio_framework_extra:
+            security: { annotations: false }
