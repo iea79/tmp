@@ -62,6 +62,9 @@ class RegistrationController extends BaseController {
         ));
     }
     
+    /**
+    * fosuser register standard route /register
+    */
     public function registerAction() {
         $user = $this->container->get('security.context')->getToken()->getUser();
 
@@ -169,6 +172,7 @@ class RegistrationController extends BaseController {
     }
 
     /**
+    * @Route("/register-company-driver", name="register_company_driver") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_companyAction()
@@ -265,6 +269,7 @@ class RegistrationController extends BaseController {
     }
         
     /**
+    * @Route("/register-independent-driver", name="register_independent_driver") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_independent_driverAction()
@@ -273,6 +278,7 @@ class RegistrationController extends BaseController {
     }
     
     /**
+    * @Route("/register-manager", name="register_manager") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_managerAction()
@@ -281,6 +287,7 @@ class RegistrationController extends BaseController {
     }
     
     /**
+    * @Route("/register-company", name="register_company") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_company_driverAction()
