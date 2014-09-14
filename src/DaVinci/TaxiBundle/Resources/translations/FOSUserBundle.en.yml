@@ -117,6 +117,13 @@ form:
     finish: Finish
     edit: Edit
     
+    #registration
+    register.company: "Taxi Company: Manager Offie"
+    register.check: "Please check all details"
+    register.independent: "Independent Driver: Professional Offie"
+    register.company: "Taxi Company: Business Offie"
+    register.companydriver: "Taxi Company: Driver Offie"
+    
 fos_user:    
     firstname:
         latin: English/Latin characters only
