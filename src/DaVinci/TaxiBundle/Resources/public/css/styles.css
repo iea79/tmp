@@ -34,6 +34,9 @@ body, html {
 		clear:both;
 	}
 /*======================================== our icons styles ==================================*/
+.mp-icon-cab:before {
+	content: "\e61e";
+}
 .mp-icon-calculate:before {
 	content: "\e61d";
 }
@@ -1659,7 +1662,7 @@ dl.about-driver dd {
 	display:inline;
 }
 .pop-up .profile input.fone {
-	width:63%;
+	width:62%;
 	float:right;
 }
 .pop-up .profile select.day {
@@ -1671,7 +1674,7 @@ dl.about-driver dd {
 	display:inline;
 }
 .pop-up .profile select.month {
-	width:44%;
+	width:43%;
 	display:inline;
 }
 .pop-up .profile select.year {
@@ -1680,12 +1683,12 @@ dl.about-driver dd {
 	float:right;
 }
 .pop-up .profile dt {
-	width:33%;
+	width:43%;
 	vertical-align:top;
 	margin-top:0px;
 }
 .pop-up .profile dd {
-	width:65%;
+	width:55%;
 }
 .pop-up .profile dd.fullsize {
 	width:100%;
