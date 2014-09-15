@@ -37,7 +37,7 @@
 					<dt class="">{{ 'My balance:'|trans }} </dt><dd id="balance" class="data"> $0.00</dd><br />
 					<dt><a href="">{{ '$Add'|trans }}</a></dt><br />
 					<dt><a href="">{{ '$Withdraw'|trans }}</a></dt><br />
-					<dt><a href="">{{ '$Transfer'|trans }}</a></dt>
+					<dt><a href="">{{ '$Transfer'|trans }}</a></dt> 
 				</dl>
 			</div>
 			</div>
@@ -87,13 +87,13 @@
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
-                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-danger"></i></span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
                                                                                                     <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -102,7 +102,7 @@
                                                                                     </div>
                                                                                     <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
                                                                                     <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
-                                                                                    <div class="call-driver">
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
                                                                                             <span>{{ 'Contacts:'|trans }} </span>
                                                                                             <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
@@ -114,13 +114,13 @@
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
-                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-danger"></i></span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
                                                                                                     <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -129,7 +129,34 @@
                                                                                     </div>
                                                                                     <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
                                                                                     <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
-                                                                                    <div class="call-driver">
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-danger"></i></span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
                                                                                             <span>{{ 'Contacts:'|trans }} </span>
                                                                                             <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
@@ -144,7 +171,7 @@
                                                     <td>
                                                                     <p >
                                                                             <a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
-                                                                            <button data-uk-toggle="{target:'#toggle1'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
+                                                                            <button data-uk-toggle="{target:'#toggle2'}" class="uk-button driverlist">{{ 'Drivers list: 3'|trans }}</button>
                                                                     </p>
                                                                     <div class="uk-panel uk-panel-box uk-hidden" id="toggle2">
                                                                             <div class="driver-over">
@@ -152,13 +179,13 @@
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
-                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-warning"></i></span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
                                                                                                     <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -167,7 +194,7 @@
                                                                                     </div>
                                                                                     <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
                                                                                     <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
-                                                                                    <div class="call-driver">
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
                                                                                             <span>{{ 'Contacts:'|trans }} </span>
                                                                                             <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
@@ -179,13 +206,13 @@
                                                                                             <div class="profile">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
                                                                                                     <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
-                                                                                                    <span class="proffesion">{{ 'taxi driver'|trans }}</span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-warning"></i></span><br/>
                                                                                                     <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
                                                                                             </div>
                                                                                             <div class="vehicle">
                                                                                                     <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
                                                                                                     <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
                                                                                             </div>
                                                                                             <div class="y-no">
                                                                                                     <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -194,7 +221,34 @@
                                                                                     </div>
                                                                                     <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
                                                                                     <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
-                                                                                    <div class="call-driver">
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
+                                                                                            <span>{{ 'Contacts:'|trans }} </span>
+                                                                                            <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
+                                                                                    </div>
+                                                                                   
+                                                                            </div>
+                                                                            <div class="clr"></div>
+                                                                            <div class="driver-over">
+                                                                                    <div class="driver-top">
+                                                                                            <div class="profile">
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48px" height="53px" alt="profile photo" class="driver-photo"/>
+                                                                                                    <span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ 'Александр Иванов'|trans }}<a></span><br/>
+                                                                                                    <span class="proffesion">{{ 'independent driver'|trans }}<i class="mp-icon-taxi uk-margin-small-left uk-text-danger"></i></span><br/>
+                                                                                                    <span class="feedback_ok"><i class="uk-icon-smile-o"></i> 1234</span><span class="feedback_bad"> <i class="uk-icon-frown-o"></i> 0</span>
+                                                                                            </div>
+                                                                                            <div class="vehicle">
+                                                                                                    <img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
+                                                                                                    <span class="name">{{ 'Ford Focus'|trans }}</span><br/>
+                                                                                                    <i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span>
+                                                                                            </div>
+                                                                                            <div class="y-no">
+                                                                                                    <button type="button" class="uk-button">{{ 'yes'|trans }}</button>
+                                                                                                    <button type="button" class="uk-button">{{ 'no'|trans }}</button>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+                                                                                    <p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ 'Личные качества: аналитическое мышление, умение быстро ориентироваться в сложившейся ситуации и самостоятельно принимать решения, быстрая обучаемость, ответственность, целеустремленность, настойчивость и стремление к профессиональному росту.'|trans }}</p>
+                                                                                    <div class="call-driver uk-width-1-2 wk-width-small-1-1">
                                                                                             <span>{{ 'Contacts:'|trans }} </span>
                                                                                             <a class="uk-button uk-button-primary button-skype driverlist-button">{{ 'Skype + Phone'|trans }}</a>
                                                                                     </div>
@@ -408,7 +462,7 @@
             <div id="Profile" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
 	                    <a class="uk-modal-close uk-close"></a>
-		                    <div class="popup-head">{{ 'Begin you profile'|trans }}<i class="uk-icon-question-circle quest"></i></div>
+		                    <div class="popup-head">{{ 'Begin you profile'|trans }}</div>
 						<div class="pop-up uk-grid uk-grid-small">
 							<div>
 								<div class="clientreviews">
@@ -417,7 +471,7 @@
 								</div>
 							</div>
 							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
-								<h5>{{ 'Personal information'|trans }}</h5><br />
+								<h5>{{ 'Personal information'|trans }}<i class="uk-icon-question-circle quest"></i></h5><br />
 								<dl class="uk-width-1-1 uk-margin-bottom">
 										<div class="uk-margin">
 											<dt class="myid">My ID:</dt><dd class="myid">2112121212</dd><br />
@@ -537,7 +591,8 @@
 									<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
 									<dt id="moretext">{{ 'About me:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans }}</dd><br />
 								</dl>
-						                    <div class="popup-head inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></div>
+						        <button  data-uk-toggle="{target:'#toggle3'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></button>
+								<div class="uk-hidden" id="toggle3">
 								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
 									<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
 									<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
@@ -555,7 +610,9 @@
 										browser usage. The current version includes 
 										graphs that illustrate trends in your browsing.'|trans }}</dd><br />
 								</dl>
-						                    <div class="popup-head inbox">{{ 'Insurance'|trans }} <i class="uk-icon-question-circle"></i></div>
+								</div>
+						        <button  data-uk-toggle="{target:'#toggle4'}" class="popup-head uk-button uk-button-warning inbox">{{ 'Insurance'|trans }} <i class="uk-icon-question-circle"></i></button>
+								<div class="uk-hidden" id="toggle4">
 								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
 									<dt id="moretext">{{ 'Driver promises:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a 
 										more interesting view of statistics about your 
@@ -564,6 +621,7 @@
 									<dd class="fullsize">{{ 'It will be great, if you have an international insurance.'|trans }}</dd><br /><br />
 									<dt>{{ 'Driver:'|trans }}</dt><dd><a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a></dd>
 								</dl>
+								</div>
 							</div>
 						</div>
             </div>
