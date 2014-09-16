@@ -1,7 +1,13 @@
+#main page etc
 da_vinci_taxi:
     resource: "@DaVinciTaxiBundle/Resources/config/routing.yml"
     prefix:   /
+    
+# offices, registrations
+userbundle:
+    resource: '@DaVinciUserBundle/Resources/config/routing.yml'
 
+#admin panel
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin

@@ -52,6 +52,15 @@ body, html {
 		  zoom: 1; /* ie 6/7 */
 		}
 /*======================================== our icons styles ==================================*/
+.mp-icon-cab:before {
+	content: "\e61e";
+}
+.mp-icon-calculate:before {
+	content: "\e61d";
+}
+.mp-icon-timer:before {
+	content: "\e61c";
+}
 .mp-icon-pet:before {
 	content: "\e61a";
 }
@@ -1147,6 +1156,7 @@ office passengers and driver
 }
 .client-account .button-skype {
 	line-height:30px;
+	float:left !important;
 }
 /*=======================office tabs============================*/
 .client-account .main {
@@ -1510,11 +1520,12 @@ office passengers and driver
     }
     .call-driver {
    	 float:left;
-   	 padding:20px 0;
+	 margin-top:15px;
+   	 padding:15px 0;
    	 border-top: 1px solid #d0d0d0;
     }
     .call-driver span {
-   	 line-height:30px;
+   	 line-height:37px;
    	 margin-right:10px;
    	 font-weight:bold;
    	 float:left;
@@ -1829,10 +1840,16 @@ footer {
 	padding-left: 20px;
 	padding-right: 20px;
 	background-color: #EBEBEB;
+	color:#3c3d45;
 	line-height: 40px;
 	font-size:18px;
 	-webkit-border-radius: 5px 5px 0 0;
 	border-radius: 5px 5px 0 0;
+}
+.popup-head:hover,
+.popup-head:focus {
+	background-color: #EBEBEB;
+	color:#3c3d45;
 }
 .popup-head.red,
 .popup-head.red i {
@@ -1842,14 +1859,16 @@ footer {
 .popup-head.inbox {
 	margin-left: 0px;
 	margin-bottom:10px;
+	margin-top: 0px !important;
 	padding-right: 0px;
-	font-size:16px;
+	font-size:16px !important;
 	font-weight:bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	text-align:center;
-	width: 97%;
+	width: 100%;
 	display:inline-block;
+	line-height:40px !important;
 }
 .popup-head.inbox i {
 	color: #0091ca;
@@ -1906,14 +1925,15 @@ dl.about-driver dd {
 	color:#3d3d3d;
 	width:100%;
 	padding:2px 5px 2px 5px;
-	margin: 1px 0;
+	margin: 4px 0;
 }
 .pop-up .profile select.region {
 	width:35%;
 	display:inline;
 }
 .pop-up .profile input.fone {
-	width:63.5%;
+	width:62%;
+	float:right;
 }
 .pop-up .profile select.day {
 	width:22%;
@@ -1924,20 +1944,21 @@ dl.about-driver dd {
 	display:inline;
 }
 .pop-up .profile select.month {
-	width:44%;
+	width:43%;
 	display:inline;
 }
 .pop-up .profile select.year {
-	width:31.1%;
+	width:30%;
 	display:inline;
+	float:right;
 }
 .pop-up .profile dt {
-	width:33%;
+	width:43%;
 	vertical-align:top;
 	margin-top:0px;
 }
 .pop-up .profile dd {
-	width:65%;
+	width:55%;
 }
 .pop-up .profile dd.fullsize {
 	width:100%;
@@ -1946,6 +1967,13 @@ dl.about-driver dd {
 .pop-up .profile dt.fullsize {
 	width:100%;
 	margin:0;
+}
+.pop-up .profile .button-add-lang {
+	line-height: 34px;
+	font-size: 16px;
+	text-align: left;
+	margin-top: 4px;
+	cursor: pointer;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
@@ -1961,7 +1989,7 @@ dl.about-driver dd {
     font-weight:bold;
 }
 i.quest {
-	margin-left:40px;
+	margin-left:10px;
 	color: #0091ca;
 	font-size:18px;
 }
@@ -2000,7 +2028,6 @@ i.quest {
 .pop-up .profile a:hover {
 	text-decoration:none;
 }
-
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
 	border:4px #ebebeb solid;

@@ -241,18 +241,23 @@
     margin: 0 15px 0 4px;
 }
 .wicheck {
+	margin-top: 12px;
 	position: relative;
 	float: left;
 }
 .wicheck .questiontooltip {
 	top: -2px;
-	right: 12px;
+	right: -5px;
 }
 .whicheck-1 {
 	width: 30%;
 	margin-right: 15px;
 }
 .whicheck-2 {width: 44%;}
+.register .wicheck  label {display: inline-block;}
+.twolabels  {float: left;}
+.twolabels .text {	clear: left;}
+.register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
 .addphone {
 	cursor: pointer;
