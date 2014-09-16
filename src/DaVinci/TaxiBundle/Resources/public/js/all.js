@@ -147,7 +147,7 @@ $(document).ready(function() {
 		if (this.value.length > 200)
 			this.value = this.value.substr(0, 200);
 	});
-	$('#info').tabs({ active: 2});
+	/*$('#info').tabs({ active: 2}); */
 	setTabswidth();
 	$('.cabinet .content-block li').click(function() {
 		$('.paychek').prependTo(this);	
@@ -165,11 +165,11 @@ $(document).ready(function() {
 		this.name += i + 1;
 	});
 
-	$.datepicker.setDefaults({changeYear: true});
-	$("#datepicker, #datepicker0, #datepicker1, #datepicker2, #datepicker3, #datepicker4").datepicker();
-	$("#datepickerstart, #datepickerend").datepicker({
+/*	$.datepicker.setDefaults({changeYear: true}); */
+/*$("#datepicker, #datepicker0, #datepicker1, #datepicker2, #datepicker3, #datepicker4").datepicker(); */
+/*	$("#datepickerstart, #datepickerend").datepicker({
 		dateFormat: 'dd/mm/y' 
-	});
+	}); */
 	
 	
 	$('.ui-datepicker-year').addClass('styled');
@@ -269,7 +269,12 @@ $('#resend_email a').click(function(e){
     e.preventDefault();
     $('#change_email_block').show();
 });
+
+
+
 //Table Responsive/////////////////////
+
+
 $(document).ready(function() {
   var switched = false;
   var updateTables = function() {

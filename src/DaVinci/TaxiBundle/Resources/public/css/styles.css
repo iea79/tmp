@@ -24,15 +24,33 @@
 .uk-modal-dialog {
 	border-radius:8px;
 }
+.uk-text-dark {
+	color:#3d3d3d;
+}
 
 
 body, html {
 	background-color:#f5f5f5;
 	height:100%; /* ====  it is important part to have a footer in the bottom of page =================*/
 }
+/*===========================  fantastic thind to clear up all floated containers, just add the name of the class to ypur container, hwat contents float elements ===========================*/
 	.clr {
 		clear:both;
 	}
+	
+.clearfix:before,
+		.clearfix:after {
+		  content: "";
+		  display: table;
+		}
+		 
+		.clearfix:after {
+		  clear: both;
+		}
+		 
+		.clearfix {
+		  zoom: 1; /* ie 6/7 */
+		}
 /*======================================== our icons styles ==================================*/
 .mp-icon-pet:before {
 	content: "\e61a";
@@ -175,6 +193,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			margin:0 auto;
 			height:48px;
 			background:#fff;
+			
 		}
 		.header-wrapper .header-top .header-top-in .logo {
 			float:left;
@@ -377,12 +396,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			/* ====================  the bottom part of header with breadcroms and languages ============================ */
 			.header-wrapper .header-bottom {
 				background-color:#8d8f98;
+				box-shadow: inset 0 1px 0px 1px #6d6f76;
 			}
 				.header-wrapper .header-bottom .header-bottom-in {
 					max-width:1000px;
 					margin:0 auto;
 					color:#fff;
 					height:30px;
+					
 				}
 /*====================================  breadcrombs ==============================================================*/
 					.header-wrapper .header-bottom .header-bottom-in .breadcroms {
@@ -465,7 +486,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		overflow:hidden;
 	}
 		.home .tabtaxi  .red  a {
-			background: url('../images/shashki-red-left.png') left no-repeat, url('../images/arrowred.png') top center no-repeat, url('../images/shashki-red-right.png') right no-repeat  #fff;
+			background: url('../images/shashki-red-left.png')top left no-repeat, url('../images/arrowred.png') top center no-repeat, url('../images/shashki-red-right.png')top right no-repeat  #fff;
 			color:#ff4d61;
 		}
 		.home .tabtaxi .blue a {
@@ -479,6 +500,19 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			height: 58px;
 			text-align: center;
 		}
+		
+		.home .tabtaxi .red-drive  a{
+			color:#fff;
+			background-color:#ff4d61;
+		}
+		
+		.home .tabtaxi .blue-drive  a{
+			background: url('../images/blue-tabs-left.png') left no-repeat,  url('../images/blue-tabs-right.png') right no-repeat  #fff;
+			color:#528ed3;
+			}
+		
+		
+		
 			.home .tabtaxi ul li .child span {
 				vertical-align:middle;
 				display:table-cell;
@@ -488,7 +522,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:15px 0 0 0;
+		padding:15px 0;
+		box-shadow: 0 1px 1px 0px #b4b4b4;
+		overflow:hidden;
+		border-radius:6px;
 	}
 		.home .steps-1-2-3 .chois {
 			border-top:1px solid #ff4d61;
@@ -586,6 +623,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		float:right;
 		color:#9b9b9b;
 		font-size:16px;
+		padding:1px 0;
 	}
 	.destination  .inputs .date-input {
 		max-width:91px;
@@ -618,9 +656,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.destination .nav-over .add-another {
 			color:#3c3d45;
 			font-weight:bold;
+			min-height:27px;
+			line-height:27px;
+			border:1px solid #d3d3d3;
 		}
 		.destination .nav-over .nextbutt {
 			margin-top:30px;
+			padding-top:4px;
 		}
 			.destination .nav-over .add-another span {
 				font-size:24px;
@@ -659,11 +701,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin:0 20px;
 		border-top:1px solid #ff4d61;
 	}
+	.order-details .checks  td{
+		padding:5px 0;
+	}
 	.order-details-over .order-details h4 {
 		font-size:16px;
 		color:#ff4d61;
 	}
-	.order-details-over .spinner {
+	.order-details-over .spinner, .driv-over .spinner {
 		width:52px;
 		display:inline-block;
 		position:relative;
@@ -671,17 +716,17 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin-left:5px;
 		
 	}
-		.order-details-over .spinner input {
+		.order-details-over .spinner input, .driv-over .spinner input {
 			width:52px;
 			
 		}
-		.order-details-over .spinner .arrows {
+		.order-details-over .spinner .arrows, .driv-over .spinner  .arrows{
 			width:12px;
 			position:absolute;
 			top:0;
 			left:35px;
 		}
-			.order-details-over .spinner .arrows a {
+			.order-details-over .spinner .arrows a, .driv-over .spinner  .arrows a {
 				display:block;
 				line-height:13px;
 				font-size:11px;
@@ -693,6 +738,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.rightlabels .spin-3 {
 		float:right;
+		text-align:right;
 	}
 	.rightlabels .spin-2 {
 		width:100px;
@@ -701,7 +747,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.rightlabels label {
 		font-size:16px;
 	}
-	.order-details-over .select {
+	.order-details-over .select, .home .driv-over  .leftlabels .select {
 		max-width:273px;
 		min-height:25px;
 		line-height:25px;
@@ -711,6 +757,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		color:#9b9b9b;
 		font-size:16px;
 	}
+		.home .driv-over  .leftlabels .select  {
+			width:50%!important;
+		}
 	.order-details .spec-request {
 		min-height:30px;
 		line-height:30px;
@@ -722,7 +771,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:20px;
 			color:#528ed3;
 		}
-		.order-details-over .select i {
+		.order-details-over .select i, .home .driv-over  .leftlabels .select i{
 			position:absolute;
 			right:7px;
 			top:4px;
@@ -743,6 +792,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			border-radius:4px;
 			font-size:14px;
 			padding:5px;
+			min-height:90px;
 		}
 		.order-details .helptext {
 			color:#9b9b9b;
@@ -762,7 +812,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding-top:15px;
 	}
 	
-	.order-details  input[type="text"] {
+	.order-details  input[type="text"], .driv-over  input[type="text"] {
 		padding:0 0 0 15px;
 		border-radius:4px;
 		border: 1px solid #8e9099;
@@ -805,8 +855,182 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:5px 0;
 			overflow:hidden;
 		}
+/*======================================   driver's page ====================================*/
+.home .driv-over {
+	width:100%;
+	background-color:#fff;
+	overflow:hidden;
+	padding:15px 0;
+	border-radius:6px;
+	box-shadow: 0 1px 1px 0px #b4b4b4;
+}
+	.home .driv-over  .leftlabels{
+		float:left;
+		width:50%
+	}
+		.home .driv-over  .leftlabels h4 {
+			float:left;
+			margin:0 0 0 20px;
+			color:#528ed3;
+		}
+		.home .driv-over  .leftlabels .select {
+			float:right;
+			margin:0 10px 0 0;
+		}
+	.home .driv-over .rightlabels {
+		float:right;
+		width:50%;
+	}
+	.home .driv-over .rightlabels .rightlabels-in {
+		margin:0 10px 0 20px;
+	}
+	.home .driv-over .rightlabels .rightlabels-in .spin-1, .home .driv-over .rightlabels .rightlabels-in .spin-2, .home .driv-over .rightlabels .rightlabels-in .spin-3 {
+		width:30%;
+	}
+	.home .driv-over .rightlabels .rightlabels-in .spinner {
+		width:26%!important;
+		min-width:35px;
+	}
+		.home .driv-over .rightlabels .rightlabels-in .spinner input {
+			width:100%!important;
+			padding:0 0 0 15%;
+		}
+		.home .driv-over .rightlabels .rightlabels-in .arrows {
+			right:0!important;
+			left:auto!important;
+		}
+/*===================================  map styles ==============================================================*/
+	.disloc-in {
+		margin:18px 20px 0 20px;
+	}
+		.disloc-in ul {
+			padding:0;
+			margin:0 0 2px 0;
+			
+		}
+		
+		.disloc-in ul  li{
+			list-style:none;
+			float:left;
+			font-size:16px;
+			margin:0 10px 0 0;
+		}
+			.disloc-in ul  li i {
+				font-size:20px;
+				margin:0 5px 0 0;
+			}
+		.disloc-in .map-container {
+		position: relative;
+		padding-bottom: 85%;
+		padding-top: 80px;
+		height: 0;
+		overflow: hidden;
+		}
+
+			.disloc-in .map-container iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 5px;
+			}	
+/*===========================  table styles in home  ==================================*/
+.table-over {
+	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
-	
+}
+	.table-over .serv {
+		width:100%;
+		border-collapse: separate;
+		border-spacing:1px;
+		background-color:#d0d0d0;
+		border-radius:6px 6px 0 0;
+		overflow:hidden;
+	}
+		.table-over .serv th {
+			color:#fff;
+			background:#528ed3;
+			font-size:16px;
+			font-weight:bold;
+			text-align:center;
+			padding:5px 2px;
+		}
+		.table-over .serv td {
+			background:#fff;
+			padding:8px 2px;
+			text-align:center;
+		}
+		.table-over .serv .under-head td {
+			background-color:#f5f5f5;
+		}
+			 .table-over .serv .under-head input{
+			height:27px;
+		}
+		.table-over .serv .under-head .mp-icon-taxi {
+			font-size:22px;
+		}
+		.table-over .serv .under-head select, .table-over .serv .under-head .select {
+			min-height:25px;
+			line-height:25px;
+		}
+		.table-over .serv .under-head .select {
+			padding:0 7%;
+			}
+		
+		.table-over .serv  .ov-lt {
+			display:inline-block;
+			margin:0 auto; 
+			white-space:nowrap;
+		}
+		.table-over .serv .short-cont {
+			min-width:115px;
+		}
+		.table-over .serv .fixed-column {
+			min-width:97px;
+		
+		}
+		.table-over .serv .under-head input{ 
+			border-radius:4px;
+			border:1px solid #8e9099;
+			padding:0 20px 0 5px!important;
+			width:100%;
+		}
+		.table-over .serv .under-head .uk-form-icon {
+			display:block;
+			margin:0 8px;
+		}
+			.table-over .serv .under-head .mp-icon-nord-star {
+				right:2px;
+				width:20px;
+			}
+			.table-over .serv .under-head .uk-icon-calendar {
+				right:2px;
+				width:20px;
+			}
+
+		.table-over .serv  .arr {
+			border:none;
+			padding:1px 3px;
+			font-size:12px;
+			
+		}
+		.table-over .serv .aligment {
+			float:left;
+			height:27px;
+		}
+		.table-over .serv .blue-bg {
+			width:20px;
+			height:20px;
+			border-radius:4px;
+			background-color:#528ed3;
+			color:#fff;
+			display:inline-block;
+		}
+		.table-over .serv .mp-icon-trust, .table-over .serv .mp-icon-trust-invert {
+			font-size:20px;
+		}
+		
 /*=======
 office passengers and driver
 ========*/
@@ -1305,6 +1529,7 @@ footer {
 .footer-top {
 	width:100%;
 	background-color:#528ed3;
+	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
 }
 	.footer-top .footer-in {
@@ -1312,6 +1537,7 @@ footer {
 		margin:0 auto;
 		background: url(../images/shashki-foot-left.png) no-repeat scroll left top, url(../images/shashki-right.png) right top no-repeat #fff;
 		overflow:hidden;
+		
 	}
 		.footer-top .footer-in .add-nav {
 			float:left;
@@ -1493,6 +1719,21 @@ footer {
 			width:70%;
 
 		}
+		
+		
+		.header-wrapper .header-top .header-top-in .topmenu-left {
+			display:none;
+			}
+			.header-top-in {
+				background:#528ed3!important;
+			}
+		.header-top-in .uk-navbar-toggle{
+			margin:0!important;
+			position:absolute;
+			right:0;
+			color:#fff;
+		}
+	
 		.destination .labels  {
 			width:100%;
 			float:none;
@@ -1534,13 +1775,42 @@ footer {
 		.footer-top {
 			display:none;
 		}
+		.home .driv-over  .leftlabels h4 {
+			font-size:14px;
+			margin:0 0 0 5px;
+		}
+		.home .driv-over .rightlabels .rightlabels-in {
+			margin:0 5px;
+		}
+		.home .driv-over .leftlabels .select {
+			font-size:14px;
+			padding-left:2px;
+			padding-right:15px;
+			
+		}
+			.home .driv-over .leftlabels .select span {
+				text-overflow:clip;
+				white-space:nowrap;
+				
+			}
 
 
     }
-@media only screen and (max-width:240px) {
+@media only screen and (max-width:260px) {
 	 .order-details-over .order-details {
 		margin:0 5px;
 	 }
+.home .driv-over .leftlabels  {
+	padding:0 5px;
+}
+.home .driv-over .leftlabels h4 {
+	float:none;
+	margin-left:0;
+}
+.home .driv-over .leftlabels  .select{
+	float:none;
+	width:90%!important;
+}
 	
 }
 /*============end style dropdown block (driver list) Alla=============*/
@@ -1748,11 +2018,12 @@ i.quest {
 	line-height:34px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
-table th { font-weight: bold; }
-table td, table th { padding: 9px 10px; text-align: left; }
+/*table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; } */
 
 /* Mobile */
 /*===  for top menu   ======*/
+
  @media only screen and (max-width: 800px) {
 	
 	.header-wrapper .header-top .header-top-in .logo {
@@ -1766,6 +2037,16 @@ table td, table th { padding: 9px 10px; text-align: left; }
 	}
 	.header-wrapper .header-top .header-top-in .topmenu-right .book-store .thumb {
 		right:96px;
+	}
+	.home .driv-over  .leftlabels, .home .driv-over .rightlabels {
+		float:none;
+		width:100%;
+		clear:both;
+		overflow:hidden;
+		}
+	.home .driv-over .rightlabels {
+		padding:10px 0 2px 0;
+		
 	}
 }
 @media only screen and (max-width: 685px) {
@@ -1795,17 +2076,45 @@ table td, table th { padding: 9px 10px; text-align: left; }
 				height:32px;
 			}
 }
+@media only screen and (min-width:761px) {
+.home .destination {
+	float:left;
+	width:50%;
+}
+.home .order-details-over {
+	float:left;
+	width:50%;
+}
+.home .disloc {
+	float:right;
+	width:50%;
+}
+	.home .disloc .disloc-in {
+		margin-left:10px;
+	}
+	
+	.destination .form-block-wrap {
+		margin-right:10px;
+	}
+	
+	.destination .nav-over {
+		padding-right:10px;
+	}
+}
 @media only screen and (max-width: 760px) {
 	
 	table.responsive { margin-bottom: 0; }
 	
-	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 25%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 20%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
 	.pinned table { border-right: none; border-left: none; width: 100%; }
 	.pinned table th, .pinned table td { white-space: nowrap; }
 	.pinned td:last-child { border-bottom: 0; }
 	
 	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
-	div.table-wrapper div.scrollable { margin-left: 25%; }
+	div.table-wrapper div.scrollable { margin-left: 20%; }
+	div.table-wrapper div.scrollable .daterange {
+		min-width:200px;
+	}
 	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
 	
 	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
