@@ -1877,7 +1877,7 @@ footer {
 .pop-up dl {
     display:inline-block;
 }
-dl.about-driver dd {
+.about-driver dd {
 	font-size:14px;
 }
 .pop-up dt {
@@ -1898,9 +1898,14 @@ dl.about-driver dd {
 .pop-up dt.myid {
     font-size:14px;
 }
+.pop-up .addphone {
+	float:left;
+	margin-top: 5px;
+	font-size: 14px;
+}
 .pop-up.route dt {
 	margin-bottom:5px;
-    width: 40%;
+    width: 39%;
 	text-align: left;
 }
 .pop-up.route dd {
@@ -1969,11 +1974,10 @@ dl.about-driver dd {
 	margin:0;
 }
 .pop-up .profile .button-add-lang {
-	line-height: 34px;
+	line-height: 14px;
 	font-size: 16px;
 	text-align: left;
-	margin-top: 4px;
-	cursor: pointer;
+	float:left;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
