@@ -34,7 +34,7 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cc"  /> <input class="uk-width-1-1  float_right" type="text" name="code" id="code" required  /></div>
+					<div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cc"  /> <input class="uk-width-4-7  float_right" type="text" name="code" id="code" required  /></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Ask Taxi Company Owner</span></a>
 					</div>
@@ -42,7 +42,7 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
 				<div class="uk-form-controls"><div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cn"  /> 
-					<select class="uk-width-1-1 float_right"  name="Choose by name" id="choose" required>
+					<select class="uk-width-4-7 float_right"  name="Choose by name" id="choose" required>
 							<option>Choose by name</option>
 							<option>Choose by name 2</option>
 					</select></div>
@@ -188,10 +188,12 @@
 						</div>
 					</div>
 					</div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					<div class="uk-form-controls addphone">
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+						</div>
+						Add mobile number
 					</div>
-					<div class="uk-form-controls addphone">Add mobile number</div>
 				</div>
 			</label>
 
@@ -222,12 +224,7 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div class="uk-form-label  uk-width-1-1  float_left">Code #2</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label  uk-width-1-1  float_left">Name #2</div>
+					<div class="uk-form-label  uk-width-1-1  float_left">Code #2, Name #2</div>
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
@@ -248,13 +245,12 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">wi-fi</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">Mobile internet</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">whatsapp</div>
 					</div>
 			</label>
 			<div class="uk-button-group uk-width-4-5">
-				<button class="uk-button submit nextbutt uk-width-4-5">Complete register</button>
+				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
+				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
+				<div class="clear"></div>
 			</div>
 		</fieldset>
 	</form>
