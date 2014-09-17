@@ -1,16 +1,18 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
 {% block body %}
-<div class="wrapper-content title">{{ 'Taxi Company: Manager Office'|trans}}</div>
+<div class="wrapper-content title">
+	{{ 'Taxi Company: Manager Office'|trans}}
+	<div class="questiontooltip">
+		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
+	</div>
+</div>
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company driver:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
-					</div>
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
