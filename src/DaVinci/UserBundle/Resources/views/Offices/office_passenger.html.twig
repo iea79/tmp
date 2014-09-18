@@ -8,8 +8,8 @@
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
 				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
 			</div>
-			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-2 uk-width-small-1-2">
+				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
 			</div>
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
 				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
@@ -17,36 +17,36 @@
 			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
 				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
 			</div>
+			<div class="uk-panel uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-2">
+				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+			</div>
 		</div>
-		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
-			<div class="uk-panel">
+		<div class="uk-grid uk-grid-small uk-margin">
+		<div class="uk-grid uk-grid-small uk-margin">
+			<div class="uk-panel uk-margin-right">
 				<div class="clientid">
-					<div class="clientphoto">
-						<img src="{{ asset('bundles/davincitaxi/images/clientphoto-new.png') }}" alt="" width="75" height="79" />
-					</div>
-				<dl>
-					<dt>{{ 'My ID:'|trans }} </dt><dd class="data"> {{ '76877960596623'|trans }}</dd><br />
-					<dt>{{ 'Name:'|trans }} </dt><dd class="data"> {{ 'Boris Ivanov'|trans }}</dd><br />
-					<dt>{{ 'Status:'|trans }} </dt> <dd class="data"> {{ 'passenger'|trans }}</dd>
-				</dl>
+					<dl>
+						<dt>{{'My ID:'|trans}}</dt><dd class="data">  76877960596623 </dd><br />
+						<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
+						<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
+					</dl>
+				</div>
 			</div>
-			</div>
-			<div class="uk-panel">
+			<div class="uk-panel uk-margin-right">
 				<div class="clientid">
-				<dl>
-					<dt class="">{{ 'My balance:'|trans }} </dt><dd id="balance" class="data"> $0.00</dd><br />
-					<dt><a href="">{{ '$Add'|trans }}</a></dt><br />
-					<dt><a href="">{{ '$Withdraw'|trans }}</a></dt><br />
-					<dt><a href="">{{ '$Transfer'|trans }}</a></dt> 
-				</dl>
-			</div>
+					<dl>
+						<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
+						<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
+						<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
+					</dl>
+				</div>
 			</div>
 			<div class="uk-panel">
 				<div class="clientid">
 				<dl>
-					<dt>{{ 'Membership:'|trans }} </dt><dd id="status" class="data"> {{ 'Gold'|trans }}</dd><br />
-					<dt>{{ 'Left time:'|trans }} </dt><dd class="data"> {{ '11 oct 14'|trans }}</dd><br />
-					<dt><a href="">{{ 'Extend'|trans }}</a></dt>
+					<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
+					<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
+					<dt><a href=""> {{'Extend Membership'|trans}}</a></dt>
 				</dl>
 			</div>
 			</div>
