@@ -103,21 +103,32 @@
 }
 .wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
-.register .uk-form-horizontal .uk-form-label {
+.register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
 	float: left;
 	color: #3c3d45;
-	width: 40%;
+	width: 35%;
 }
 .register .uk-form-horizontal .uk-form-controls {
 	margin-lefT: 0;
 	floaT: left;
-	width: 60%;
+	width: 62%;
 }
 .questiontooltip {
-	width: 9%;
+	width: 5%;
 	position: relative;
 	float: left;
 	text-align: left;
+	margin-left: 6px;
+}
+.title .questiontooltip {
+	position: relative;
+	display: inline-block;
+	top: -10px;
+	font-size: 11px;
+	width: auto;
+	float: none;
+	line-height: 120%;
+	text-transform: none;
 }
 /*.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}*/
 .questiontooltip a span.que{
@@ -147,6 +158,7 @@
 	margin-left		: 8px; 
 	width			: 76px;
 	height: 54px;
+	height: auto;
 	float: right;
 	right: 20px;
 	top: 0;
@@ -255,7 +267,6 @@
 }
 .whicheck-2 {width: 44%;}
 .register .wicheck  label {display: inline-block;}
-.twolabels  {float: left;}
 .twolabels .text {	clear: left;}
 .register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
@@ -264,6 +275,13 @@
     color: #528ed3;
     display: inline-block;
 }
+.addphone .questiontooltip {
+	width: 14%;
+	position: relative;
+	top: -3px;
+	margin-left: -4px;
+}
+
 .addlangline select {
 	float: left;
 	clear: left;
@@ -545,13 +563,13 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 /*	min-width: 560px;
 	width: 40%;*/
 	
-	max-width: 560px;
+	max-width: 597px;
 	min-width: 40%;
 
 
 	margin: 0 auto;
 	background: #fff;
-	padding: 10px;
+	padding: 10px 2px 10px 18px;
 }
 .wrapper-content .register form{
 	width: 100%;
@@ -587,10 +605,12 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 12px;}
 
 .register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 91%;}
 
+/*.register .uk-form-horizontal .uk-form-label.uk-width-2-5 {width: 33%;}*/
 .register .uk-form-horizontal .uk-width-4-5 {width: 97%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 46%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 88%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
+.register .uk-form-horizontal .addphoneareas .uk-width-1-1 {width: 94%;}
+.register .uk-form-horizontal .uk-width-4-7 {width: 93%;}
