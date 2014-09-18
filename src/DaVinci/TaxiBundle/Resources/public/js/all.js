@@ -114,11 +114,12 @@ $(document).ready(function() {
 		return false;
 	});
 });
-
+/*
 $( window ).resize(function(){
     $( ".file_upload input" ).triggerHandler( "change" );
 	setTabswidth();
 });
+*/
 //register page/////////////////////////////
      function add2PassPattern(text)
      {
