@@ -171,6 +171,10 @@ body, html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+/*=================   iconed select  ===========================*/
+.iconed-drop {
+	font-family: 'icontaxi', FontAwesome;
+}
     /* Icon in form ============= */
 .uk-form-icon > [class*='mp-icon-'] {
 	position: absolute;
@@ -972,6 +976,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.table-over .serv .under-head td {
 			background-color:#f5f5f5;
+			vertical-align:top;
 		}
 			 .table-over .serv .under-head input{
 			height:27px;
@@ -984,8 +989,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			line-height:25px;
 		}
 		.table-over .serv .under-head .select {
-			padding:0 7%;
+			padding:0 3px;
+			display:inline-flex;
 			}
+		.table-over .serv .under-head .select span {
+			display:inline-block;
+			margin-right:9px;
+			overflow:hidden;
+		}
+		.table-over .serv .under-head .select i {
+			position:absolute;
+			width:8px;
+			top:4px;
+			right:2px;
+		}
 		
 		.table-over .serv  .ov-lt {
 			display:inline-block;
@@ -996,7 +1013,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			min-width:115px;
 		}
 		.table-over .serv .fixed-column {
-			min-width:97px;
+			min-width:90%;
 		
 		}
 		.table-over .serv .under-head input{ 
@@ -1008,6 +1025,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.table-over .serv .under-head .uk-form-icon {
 			display:block;
 			margin:0 8px;
+		}
+		.table-over .serv .under-head .sort {
+			font-size:14px;
+			margin-top:0px;
+		}
+		.table-over .sort i:last-child {
+			margin-left:-7px;
 		}
 			.table-over .serv .under-head .mp-icon-nord-star {
 				right:2px;
@@ -1024,9 +1048,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:12px;
 			
 		}
+		.table-over .serv .ov-trust {
+			display:inline-block;
+		}
 		.table-over .serv .aligment {
 			float:left;
 			height:27px;
+		}
+		.table-over .serv .cancell-filters {
+			border:none;
+			padding-right:0;
+			width:20%;
+		}
+		.table-over .serv  .bascket-opt {
+			width:80%;
 		}
 		.table-over .serv .blue-bg {
 			width:20px;
@@ -1364,7 +1399,7 @@ office passengers and driver
 	font-size:14px;
 	margin-top:0px;
 }
-.client-account .uk-table th a.sort i:first-child {
+ .client-account .uk-table th a.sort i:first-child {
 	color:#3c3d45 !important;
 }
 .client-account .uk-table th a.sort i:last-child {
