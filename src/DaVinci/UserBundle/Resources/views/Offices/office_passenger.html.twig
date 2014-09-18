@@ -463,7 +463,7 @@
 	                    <a class="uk-modal-close uk-close"></a>
 		                    <div class="popup-head">{{ 'Begin you profile'|trans }}</div>
 						<div class="pop-up uk-grid uk-grid-small">
-							<div>
+							<div class="uk-width-1-2 uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-3">
 								<div class="clientreviews">
 									<div class="photo"></div>
 									<a class="button-add uk-button uk-button-primary">{{ 'Add Your Photo'|trans }}</a>
@@ -630,18 +630,68 @@
             <div id="about-driver" class="uk-modal client-account">
                     <div class="uk-modal-dialog">
                         <a class="uk-modal-close uk-close"></a>
-                    <div class="popup-head red"><i class="mp-icon-taxi uk-margin-small-right"></i>{{ 'Independent driver'|trans }}</div>
+                    <div class="popup-head uk-text-danger"><i class="mp-icon-taxi uk-margin-small-right"></i>{{ 'Independent driver'|trans }}</div>
 						<div class="pop-up uk-grid uk-grid-small">
-							<div>
-								<div class="clientreviews">
-									<div class="photo">
-										<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" width="161" height="180px">
+							<div class="uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1">
+								<div class="uk-grid uk-grid-small">
+									<div class="uk-width-large-1-1 uk-width-medium-1-1 uk-width-small-1-4 uk-margin-small-bottom">
+										<div class="clientreviews">
+											<div class="photo">
+												<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
+											</div>
+											<div class="rate">
+												<p>{{'Rate this driver'|trans}}</p>
+												<p>
+													<a><i class="mp-icon-star uk-text-danger uk-icon-medium"></i></a>
+													<a><i class="mp-icon-star uk-text-danger uk-icon-medium"></i></a>
+													<a><i class="mp-icon-star uk-text-danger uk-icon-medium"></i></a>
+													<a><i class="mp-icon-star uk-text-danger uk-icon-medium"></i></a>
+													<a><i class="mp-icon-star uk-text-warning uk-icon-medium"></i></a>
+												</p>
+												<p class="uk-margin-top"><i class="mp-icon-person uk-icon-small uk-text-warning uk-margin-small-right"></i>217</p>
+											</div>
+										</div>
+										<div class="">
+											<a class="uk-button uk-button-success button-add">Write a review</a>
+										</div>
 									</div>
-									<a class="button-add uk-button uk-button-primary">Add Your Photo</a>
+									<div class="uk-width-large-1-1 uk-width-medium-1-1 uk-width-small-3-4 uk-margin-small-bottom">
+										<div class="uk-grid uk-grid-small uk-margin-small">
+											<div class="uk-width-1-1 uk-margin-small">
+												<div class="uk-width-1-1 uk-text-primary">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+												<div class="uk-width-1-1 rate-review">
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-warning"></i></a>
+													/ 09.01.2014
+												</div>
+												<div class="uk-width-1-1 uk-text-small">
+													{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+												</div>
+											</div>
+											<div class="uk-width-1-1 uk-margin-small">
+												<div class="uk-width-1-1 uk-text-primary">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+												<div class="uk-width-1-1 rate-review">
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-icon-small uk-text-warning"></i></a>
+													/ 09.01.2014
+												</div>
+												<div class="uk-width-1-1 uk-text-small">
+													{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+												</div>
+											</div>
+										</div>
+									<div class="uk-width-1-1"><a class="uk-button button-add">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
 								</div>
 							</div>
-							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
-								<h5>{{ 'About driver'|trans }}</h5><i class="uk-icon-question-circle quest"></i><br />
+							</div>
+							<div class="profile uk-width-large-3-4 uk-width-medium-3-4 uk-width-small-1-1">
+								<button class="popup-head uk-button uk-button-warning inbox">{{ 'About driver'|trans }}<i class="uk-icon-question-circle"></button>
 								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
 									<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
 									<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
@@ -657,37 +707,38 @@
 								</dl>
 						        <button  data-uk-toggle="{target:'#toggle3'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></button>
 								<div class="uk-hidden" id="toggle3">
-								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
-									<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
-									<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
-									<dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
-									<dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
-									<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
-									<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
-									<dt>{{ 'Other:'|trans }}</dt><dd>
-									<div>
-										<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span>
-									</div>
-									</dd><br />
-									<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
-										more interesting view of statistics about your 
-										browser usage. The current version includes 
-										graphs that illustrate trends in your browsing.'|trans }}</dd><br />
-								</dl>
+									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+										<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
+										<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
+										<dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
+										<dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
+										<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
+										<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
+										<dt>{{ 'Other:'|trans }}</dt><dd>
+											<div>
+												<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span>
+											</div>
+										</dd><br />
+										<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
+											more interesting view of statistics about your 
+											browser usage. The current version includes 
+											graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+									</dl>
 								</div>
 						        <button  data-uk-toggle="{target:'#toggle4'}" class="popup-head uk-button uk-button-warning inbox">{{ 'Insurance'|trans }} <i class="uk-icon-question-circle"></i></button>
 								<div class="uk-hidden" id="toggle4">
-								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
-									<dt id="moretext">{{ 'Driver promises:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a 
-										more interesting view of statistics about your 
-										browser usage. The current version includes 
-										graphs that illustrate trends in your browsing.'|trans }}</dd><br /><br />
-									<dd class="fullsize">{{ 'It will be great, if you have an international insurance.'|trans }}</dd><br /><br />
-									<dt>{{ 'Driver:'|trans }}</dt><dd><a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a></dd>
-								</dl>
+									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+										<dt id="moretext">{{ 'Driver promises:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a 
+											more interesting view of statistics about your 
+											browser usage. The current version includes 
+											graphs that illustrate trends in your browsing.'|trans }}</dd><br /><br />
+										<dd class="fullsize">{{ 'It will be great, if you have an international insurance.'|trans }}</dd><br /><br />
+										<dt>{{ 'Driver:'|trans }}</dt><dd><a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a></dd>
+									</dl>
 								</div>
 							</div>
 						</div>
+					</div>
             </div>
 <!------------------------------------------------pop-up end--------------------------------------->
 </div>
