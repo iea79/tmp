@@ -21,37 +21,33 @@
 				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
 			</div>
 		</div>
-		<div id="clientaccount" class="uk-grid uk-grid-small uk-margin">
-			<div class="uk-panel">
+		<div class="uk-grid uk-grid-small uk-margin">
+			<div class="uk-panel uk-margin-right">
 				<div class="clientid">
-					<div class="clientphoto">
-						<img src="{{ asset('bundles/davincitaxi/images/clientphoto-new.png') }}" alt="" width="75" height="79" />
-					</div>
-				<dl>
-					<dt>{{'My ID:'|trans}} </dt><dd class="data"> 76877960596623</dd><br />
-					<dt>{{'Name:'|trans}} </dt><dd class="data"> {{'Boris Ivanov'|trans}}</dd><br />
-					<dt>{{'Status:'|trans}} </dt> <dd class="data">{{'Independent driver'|trans}}</dd>
-				</dl>
+					<dl>
+						<dt>{{'My ID:'|trans}}</dt><dd class="data">  76877960596623 </dd><br />
+						<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
+						<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
+					</dl>
+				</div>
+			</div>
+			<div class="uk-panel uk-margin-right">
+				<div class="clientid">
+					<dl>
+						<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
+						<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
+						<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
+					</dl>
 				</div>
 			</div>
 			<div class="uk-panel">
 				<div class="clientid">
 				<dl>
-					<dt class="">{{'My balance:'|trans}} </dt><dd id="balance" class="data"> $0.00</dd><br />
-					<dt><a href="">${{'Add'|trans}}</a></dt><br />
-					<dt><a href="">${{'Withdraw'|trans}}</a></dt><br />
-					<dt><a href="">${{'Transfer'|trans}}</a></dt>
+					<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
+					<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
+					<dt><a href=""> {{'Extend Membership'|trans}}</a></dt>
 				</dl>
-				</div>
 			</div>
-			<div class="uk-panel">
-				<div class="clientid">
-				<dl>
-					<dt>{{'Membership:'|trans}} </dt><dd id="status" class="data"> {{'Gold'|trans}}</dd><br />
-					<dt>{{'Left time:'|trans}} </dt><dd class="data"> 11 {{'oct'|trans}} 14</dd><br />
-					<dt><a href="">{{'Extend'|trans}}</a></dt>
-				</dl>
-				</div>
 			</div>
 		</div>
     <div class="shadow-main">
@@ -332,7 +328,7 @@
                                                             </tr>
                                                     </thead>
                                                     <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14<span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14<span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -343,7 +339,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -354,7 +350,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-blue">48:12:21</span></td>
+                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-blue">48:12:21</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -365,7 +361,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-green">26:55:03</span></td>
+                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-green">26:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -376,7 +372,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-red">13:55:03</span></td>
+                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-red">13:55:03</span></td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-warning">
@@ -387,7 +383,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><span><i class="mp-icon-taxi uk-text-primary"></i></span></td><td>00:00:00</td>
+                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><span><i class="mp-icon-taxi uk-text-primary"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -398,7 +394,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>00:00:00</td>
+                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -409,7 +405,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -420,7 +416,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></i></td><td>00:00:00</td>
+                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></i></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -431,7 +427,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
@@ -442,7 +438,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><span>{{ 'Даллас (USA)'|trans }} -<br></span><span> {{ 'Оклахома-сити (USA)'|trans }}</span></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
+                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><i class="mp-icon-taxi uk-text-primary"></i><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
                                                             <td>
                                                                     <div>
 																			<a class="mp-icon-edit uk-text-primary">
