@@ -20,7 +20,7 @@ class TaxiManager
     private $taxiCompany;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="taxiManager")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="taxiManager")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

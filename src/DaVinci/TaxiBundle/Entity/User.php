@@ -50,22 +50,22 @@ class User extends BaseUser
     private $userLanguage;
 
     /**
-     * @ORM\OneToMany(targetEntity="TaxiCompany", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="TaxiCompany", mappedBy="user")
      */
     private $taxiCompany;
 
     /**
-     * @ORM\OneToMany(targetEntity="TaxiManager", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="TaxiManager", mappedBy="user")
      */
     private $taxiManager;
 
     /**
-     * @ORM\OneToMany(targetEntity="Driver", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Driver", mappedBy="user")
      */
     private $driver;
 
     /**
-     * @ORM\OneToMany(targetEntity="IndependentDriver", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="IndependentDriver", mappedBy="user")
      */
     private $independentDriver;
 
@@ -82,10 +82,6 @@ class User extends BaseUser
         parent::__construct();
         
         $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->taxiCompany = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->taxiManager = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->driver = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->independentDriver = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     public function setFirstname($firstname)
@@ -197,137 +193,6 @@ class User extends BaseUser
         return $this->userLanguage;
     }
 
-    /**
-     * Add taxiCompany
-     *
-     * @param \DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany
-     * @return User
-     */
-    public function addTaxiCompany(\DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany)
-    {
-        $this->taxiCompany[] = $taxiCompany;
-
-        return $this;
-    }
-
-    /**
-     * Remove taxiCompany
-     *
-     * @param \DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany
-     */
-    public function removeTaxiCompany(\DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany)
-    {
-        $this->taxiCompany->removeElement($taxiCompany);
-    }
-
-    /**
-     * Get taxiCompany
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTaxiCompany()
-    {
-        return $this->taxiCompany;
-    }
-
-    /**
-     * Add taxiManager
-     *
-     * @param \DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager
-     * @return User
-     */
-    public function addTaxiManager(\DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager)
-    {
-        $this->taxiManager[] = $taxiManager;
-
-        return $this;
-    }
-
-    /**
-     * Remove taxiManager
-     *
-     * @param \DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager
-     */
-    public function removeTaxiManager(\DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager)
-    {
-        $this->taxiManager->removeElement($taxiManager);
-    }
-
-    /**
-     * Get taxiManager
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTaxiManager()
-    {
-        return $this->taxiManager;
-    }
-
-    /**
-     * Add driver
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Driver $driver
-     * @return User
-     */
-    public function addDriver(\DaVinci\TaxiBundle\Entity\Driver $driver)
-    {
-        $this->driver[] = $driver;
-
-        return $this;
-    }
-
-    /**
-     * Remove driver
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Driver $driver
-     */
-    public function removeDriver(\DaVinci\TaxiBundle\Entity\Driver $driver)
-    {
-        $this->driver->removeElement($driver);
-    }
-
-    /**
-     * Get driver
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDriver()
-    {
-        return $this->driver;
-    }
-
-    /**
-     * Add independentDriver
-     *
-     * @param \DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver
-     * @return User
-     */
-    public function addIndependentDriver(\DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver)
-    {
-        $this->independentDriver[] = $independentDriver;
-
-        return $this;
-    }
-
-    /**
-     * Remove independentDriver
-     *
-     * @param \DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver
-     */
-    public function removeIndependentDriver(\DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver)
-    {
-        $this->independentDriver->removeElement($independentDriver);
-    }
-
-    /**
-     * Get independentDriver
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getIndependentDriver()
-    {
-        return $this->independentDriver;
-    }
 
     /**
      * Set currency
@@ -409,5 +274,97 @@ class User extends BaseUser
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * Set taxiCompany
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany
+     * @return User
+     */
+    public function setTaxiCompany(\DaVinci\TaxiBundle\Entity\TaxiCompany $taxiCompany = null)
+    {
+        $this->taxiCompany = $taxiCompany;
+
+        return $this;
+    }
+
+    /**
+     * Get taxiCompany
+     *
+     * @return \DaVinci\TaxiBundle\Entity\TaxiCompany 
+     */
+    public function getTaxiCompany()
+    {
+        return $this->taxiCompany;
+    }
+
+    /**
+     * Set taxiManager
+     *
+     * @param \DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager
+     * @return User
+     */
+    public function setTaxiManager(\DaVinci\TaxiBundle\Entity\TaxiManager $taxiManager = null)
+    {
+        $this->taxiManager = $taxiManager;
+
+        return $this;
+    }
+
+    /**
+     * Get taxiManager
+     *
+     * @return \DaVinci\TaxiBundle\Entity\TaxiManager 
+     */
+    public function getTaxiManager()
+    {
+        return $this->taxiManager;
+    }
+
+    /**
+     * Set driver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Driver $driver
+     * @return User
+     */
+    public function setDriver(\DaVinci\TaxiBundle\Entity\Driver $driver = null)
+    {
+        $this->driver = $driver;
+
+        return $this;
+    }
+
+    /**
+     * Get driver
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Driver 
+     */
+    public function getDriver()
+    {
+        return $this->driver;
+    }
+
+    /**
+     * Set independentDriver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver
+     * @return User
+     */
+    public function setIndependentDriver(\DaVinci\TaxiBundle\Entity\IndependentDriver $independentDriver = null)
+    {
+        $this->independentDriver = $independentDriver;
+
+        return $this;
+    }
+
+    /**
+     * Get independentDriver
+     *
+     * @return \DaVinci\TaxiBundle\Entity\IndependentDriver 
+     */
+    public function getIndependentDriver()
+    {
+        return $this->independentDriver;
     }
 }

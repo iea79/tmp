@@ -58,7 +58,7 @@ class RegistrationFormType extends BaseType {
      * @return string
      */
     public function getName() {
-        return 'taxi_user_registration';
+        return 'taxi_company_registration';
     }
 
 }

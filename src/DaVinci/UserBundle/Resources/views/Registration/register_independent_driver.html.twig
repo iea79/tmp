@@ -1,3 +1,4 @@
+{% trans_default_domain 'FOSUserBundle' %}
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
 {% block body %}
@@ -5,11 +6,11 @@
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Independent driver:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Independent driver:'|trans}}</span>
 				<div class="uk-form-controls">
-					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
+					<div class="uk-form-label pinktext uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{% trans %}Help you to make more money again and again from international passengers{% endtrans %}</span></a>
 					</div>
 				</div>
 			</label>
@@ -36,17 +37,17 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1 float_left" name="english" id="english" required>
-							<option>Level</option>
-							<option>No</option>
-							<option>Elementary</option>
-							<option>Pre-Intermediate</option>
-							<option>Intermediate</option>
-							<option>Upper-Intermediate</option>
-							<option>Advanced</option>
-							<option>Proficiency</option>
+							<option>{{ 'Level'|trans}}</option>
+							<option>{{ 'No'|trans}}</option>
+							<option>{{ 'Elementary'|trans}}</option>
+							<option>{{ 'Pre-Intermediate'|trans}}</option>
+							<option>{{ 'Intermediate'|trans}}</option>
+							<option>{{ 'Upper-Intermediate'|trans}}</option>
+							<option>{{ 'Advanced'|trans}}</option>
+							<option>{{ 'Proficiency'|trans}}</option>
 					</select>
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Select an option'|trans}}:</span></a>
 					</div>
 				</div>
 			</label>
@@ -99,11 +100,11 @@
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1 float_left" name="experience" id="experience" required>
 						<option>&nbsp;</option>
-						<option>less than 4 years</option>
-						<option>more than 4 years</option>
+						<option>{{ 'less than 4 years'|trans}}</option>
+						<option>{{ 'more than 4 years'|trans}}</option>
 					</select>
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Select an option'|trans}}</span></a>
 					</div>
 				</div>
 			</label>
@@ -111,14 +112,14 @@
 				<div class="uk-form-controls">
 					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Write legitimate skype name</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">>{{ 'Write legitimate skype name'|trans}}</span></a>
 					</div>
 				</div>
 			</label>
 			<label class="addphoneline uk-form-row">
 				<div class="twolabels uk-width-2-5">
 					<span class="uk-form-label  text">{{ 'form.phone_number'|trans }}:</span>
-					<span class="uk-form-label text">Mark if you have </span>
+					<span class="uk-form-label text">{{ 'Mark if you have'|trans}} </span>
 				</div>
 				<div class="uk-form-controls addphoneareas">
 					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
@@ -167,27 +168,27 @@
 					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
 					
 					<div class="wicheck whicheck-1">
-						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
+						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>Wi-Fi</label></div>
 						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile internet'|trans}}</span></a>
 						</div>
 					</div>
 					<div class="wicheck whicheck-2">
-						<div class="float_left"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
+						<div class="float_left"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>WhatsApp</label></div>
 						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile messaging app</span></a>
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans}}</span></a>
 						</div>
 					</div>
 					</div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
 					</div>
-					<div class="uk-form-controls addphone">Add mobile number</div>
+					<div class="uk-form-controls addphone">{{ 'Add mobile number'|trans}}</div>
 				</div>
 			</label>
 
 			<div class="uk-button-group uk-width-4-5">
-				<button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>
+				<button class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
 			</div>
 		</fieldset>
 	</form>

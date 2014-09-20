@@ -18,6 +18,9 @@ class RegistrationCompanyDriverFormType extends BaseType {
         switch ($options['flow_step']) {
             case 1:
                 $builder
+                    
+                    
+                    
                         ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
                             'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
                         ->add('lastname', 'text', array('label' => 'form.lastname', 'translation_domain' => 'FOSUserBundle',
@@ -43,7 +46,7 @@ class RegistrationCompanyDriverFormType extends BaseType {
                         ));
                 break;
             case 2:
-                       $builder->add('terms', 'checkbox', array('property_path' => 'termsAccepted'));
+                       
                 break;
         }
     }
@@ -58,7 +61,7 @@ class RegistrationCompanyDriverFormType extends BaseType {
      * @return string
      */
     public function getName() {
-        return 'taxi_user_registration';
+        return 'taxi_company_driver_registration';
     }
 
 }

@@ -25,7 +25,7 @@ class IndependentDriver
     private $experience;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="independentDriver")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="independentDriver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

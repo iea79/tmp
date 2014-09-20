@@ -172,7 +172,7 @@ class RegistrationController extends BaseController {
     }
 
     /**
-    * @Route("/register-company-driver", name="register_company_driver") 
+    * @Route("/register-company", name="register_company_driver") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_companyAction()
@@ -287,7 +287,7 @@ class RegistrationController extends BaseController {
     }
     
     /**
-    * @Route("/register-company", name="register_company") 
+    * @Route("/register-company-driver", name="register_company") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_company_driverAction()

@@ -20,8 +20,7 @@ class UserLanguage
     private $level;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Language", inversedBy="userLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
+     * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $language;
 
@@ -67,10 +66,10 @@ class UserLanguage
     /**
      * Set language
      *
-     * @param \DaVinci\TaxiBundle\Entity\Language $language
+     * @param string $language
      * @return UserLanguage
      */
-    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language $language = null)
+    public function setLanguage($language)
     {
         $this->language = $language;
 
@@ -80,7 +79,7 @@ class UserLanguage
     /**
      * Get language
      *
-     * @return \DaVinci\TaxiBundle\Entity\Language 
+     * @return string 
      */
     public function getLanguage()
     {

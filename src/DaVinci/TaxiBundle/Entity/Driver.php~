@@ -31,7 +31,7 @@ class Driver
     private $taxiCompany;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="driver")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="driver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
