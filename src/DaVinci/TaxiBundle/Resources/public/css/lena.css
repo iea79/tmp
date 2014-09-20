@@ -113,6 +113,12 @@
 	floaT: left;
 	width: 62%;
 }
+.addphoneareas  .questiontooltip {
+	float: right;
+	position: relative;
+	position: absolute;
+	right: 0;
+}
 .questiontooltip {
 	width: 5%;
 	position: relative;
@@ -240,7 +246,7 @@
 	margin-right: 10px;
 }
 .register .uk-form-horizontal  .addphoneareas {
-	width: 60%;
+/*	width: 60%;*/
 	float: left;
     margin-bottom: 12px;
 }
@@ -262,10 +268,10 @@
 	right: -5px;
 }
 .whicheck-1 {
-	width: 30%;
-	margin-right: 15px;
+	width: 16%;
+	margin-right: 50px;
 }
-.whicheck-2 {width: 44%;}
+.whicheck-2 {width: 27%;}
 .register .wicheck  label {display: inline-block;}
 .twolabels .text {	clear: left;}
 .register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
@@ -612,5 +618,5 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 .register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
-.register .uk-form-horizontal .addphoneareas .uk-width-1-1 {width: 94%;}
+/*.register .uk-form-horizontal .addphoneareas .uk-width-1-1 {width: 94%;}*/
 .register .uk-form-horizontal .uk-width-4-7 {width: 93%;}
