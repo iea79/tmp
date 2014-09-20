@@ -1,74 +1,163 @@
-﻿<div class="content-block main">
-	<table><colgroup><col width="57" /> <col width="156" /> <col width="156" /><col width="167" /><col width="86" /><col width="68" /><col width="164" /> <col width="115" /> </colgroup>
-		<thead>
-		<tr>
-			<th>Tip</th><th colspan="2">Date and time sent</th><th>Route</th><th>Trust</th><th>Pay</th><th>Price</th><th>Buy</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr class="filters">
-			<td>
-				<span class="imitateselect">
-					<span class="disop tips tip2" ></span>
-					<!--span class="imitateoptions">
-						<span class="tips tip2" ></span>
-						<span class="tips tip1" ></span>
-					</span-->
-				</span>
-			</td>
-			<!--td class="timesent"><div class="datepicker"><input type="text" class="dates" id="datepickerstart" />-<input class="dates" type="text" id="datepickerend" /></div></td>
-			<td class="timesent"><div class="time"><input class="dates" type="text" id="timestart" />-<input type="text" class="dates" id="timeend" /></div></td-->
-			<td colspan="2" class="timesent"><div class="datepicker"><input type="text" class="dates" id="datepickerstart" />-<input class="dates" type="text" id="datepickerend" /></div>
-				<div class="time"><input class="dates" type="text" id="timestart" />-<input type="text" class="dates" id="timeend" /></div></td>
-			<td class="cities"><input type="text" placeholder="например, Москва, Россия"></td>
-			<td class="grayinput">
-				<span class="imitateselect">
-					<span class="disop thumbs trust1" ></span>
-					<span class="imitateoptions">
-						<span class="trusts"><span class="thumbs trust1" ></span></span>
-						<span class="trusts"><span class="thumbs trust2" ></span></span>
-						<span class="trusts"><span class="thumbs trust3" ></span></span>
-						<span class="trusts"><span class="thumbs trust-1" ></span></span>
-						<span class="trusts"><span class="thumbs trust-1" ></span></span>
-						<span class="trusts"><span class="thumbs trust-3" ></span></span>
-					</span>
-				</span>
-			</td>
-			<td><span class="filter"></span></td>
-			<td>
-				<span class="filter"></span>
-				<select name="price">
-					<option>130-800</option>
-					<option>800-1200</option>
-					<option>1300-1400</option>
-				</select> $
-			</td>
-			<td>
-				<select name="buy">
-					<option>any</option>
-					<option>many</option>
-					<option>any</option>
-					<option>many</option>
-				</select>
-				<span class="delete"></span>
-			</td>
-		</tr>
-		<tr>
-			<td><span class="countnumber">1</span></td><td class="timesent">02 <span class="month">mar</span> 14</td><td class="timesent">18:45</td><td>USA: Даллас -
-USA: Оклахома-сити</td><td><span class="thumbs trust1"></span></td><td class="bold blue">escro</td><td>$783.85</td><td><span class=" orange basket"><span>basket</span></span></td>
-		</tr>
-		<tr>
-			<td><span class="countnumber">1</span></td><td class="timesent">02 <span class="month">mar</span> 14</td><td class="timesent">18:45</td><td>USA: Даллас -
-USA: Оклахома-сити</td><td><span class="thumbs trust-3"></span></td><td class="bold">cash</td><td>$783.85</td><td><span class="yellow basket"><span>basket</span></span></td>
-		</tr>
-		<tr>
-			<td><span class="countnumber">1</span></td><td class="timesent">02 <span class="month">mar</span> 14</td><td class="timesent">18:45</td><td>USA: Даллас -
-USA: Оклахома-сити</td><td><span class="thumbs trust2"></span></td><td class="bold blue">escro</td><td>$783.85</td><td><span class="pink basket"><span>basket</span></span></td>
-		</tr>
-		<tr>
-			<td><span class="countnumber">1</span></td><td class="timesent">02 <span class="month">mar</span> 14</td><td class="timesent">18:45</td><td>USA: Даллас -
-USA: Оклахома-сити</td><td><span class="thumbs trust-1"></span></td><td class="bold blue">escro</td><td>$783.85</td><td><span class="basket"><span>basket</span></span></td>
-		</tr>
-		</tbody>
-	</table>
-</div>
+﻿	<div class="table-over">
+		<table class="serv responsive" cellspacing="1">
+			<tr>
+				<th class="tab-h1">Tip	</th>
+				<th class="daterange">Date/Time</th>
+				<th>Route</th>
+				<th>Trust</th>
+				<th>PM</th>
+				<th>Price</th>
+				<th>Status</th>
+				<th class="tab-h2">Buy</th>
+			</tr>
+			<tr class="under-head">
+				<td >
+				<div data-uk-dropdown="{mode:'click'}" class="uk-button-dropdown car">
+                                    
+					<button class="uk-button-link">
+						<i class="mp-icon-taxi"></i>
+						<i class="uk-icon-caret-down uk-text-dark"></i>
+					</button>
+					<div class="uk-dropdown" style="">
+					<ul class="uk-nav uk-nav-navbar">
+						<li>
+							<a href="#">Item</a>
+						</li>
+						<li>
+							<a href="#">Another item</a>
+						</li>
+											
+					</ul>
+					</div>
+				</div>
+				</td>
+				<td class="daterange">
+					<div class="uk-form-icon">
+						<input id="datepicker" type="text"  maxlength="23" value="" placeholder="08/18/2014-09/20/2014">
+						<i class="uk-icon-calendar"></i>
+					</div>
+				</td>
+				<td>
+					<div class="uk-form-icon">
+						<input type="text" name="destination"  placeholder="for example, Moscow, Russia" />
+						<i class="mp-icon-nord-star"></i>
+					</div>
+				</td>
+				<td>
+					<div class="ov-trust">
+					<div class="uk-button uk-form-select select" data-uk-form-select="">
+						<span class="iconed-drop uk-text-primary">&#58900;</span>
+						<i class="uk-icon-caret-down"></i>
+						<select class="iconed-drop uk-text-primary">
+							<option value="1">&#58901;</option>
+							<option value="1">&#58901; &#58901;</option>
+							<option value="1">&#58901; &#58901; &#58901;</option>
+							<option value="1">&#58900;</option>
+									
+						</select>
+					</div>
+					</div>
+				</div>
+				</td>
+				<td>
+				<button href="#" class="sort uk-button-link arr">
+					<i class="mp-icon-arrow-down"></i>
+					<i class="mp-icon-arrow-up uk-text-dark"></i>
+				</button>
+				</td>
+				<td>
+					<div class="ov-lt short-cont">
+					<button href="#"  class="sort uk-button-link aligment arr">
+						<i class="mp-icon-arrow-down"></i>
+						<i class="mp-icon-arrow-up uk-text-dark"></i>
+					</button>
+				<div class="uk-button uk-form-select select aligment fit-in" data-uk-form-select="">
+                    <span>$10-$20</span>
+                     <i class="uk-icon-caret-down"></i>
+                        <select>
+                            <option value="1">$10-$20</option>
+                            <option value="2">$20-$30</option>
+                            <option value="3">$30-$40</option>
+                            <option value="4">$40-$50</option>
+                        </select>
+                </div>
+					
+				</div>
+				</td>
+				<td>
+					
+						<div class="uk-button uk-form-select select " data-uk-form-select="">
+                    <span>All</span>
+                     <i class="uk-icon-caret-down"></i>
+                        <select >
+                            <option value="1">Opeb</option>
+                            <option value="2">Close</option>
+                            <option value="3">Cancel</option>
+                            <option value="4">All</option>
+                        </select>
+                </div>
+						
+				</td>
+				<td>
+					<div class="ov-lt fixed-column">
+						
+				<div class="uk-button uk-form-select select aligment bascket-opt" data-uk-form-select="">
+                    <span>Other</span>
+                     <i class="uk-icon-caret-down"></i>
+                        <select>
+                            <option value="1">This month</option>
+                            <option value="2">This week</option>
+                            <option value="3">Others</option>
+                            <option value="4">Last month</option>
+                        </select>
+                </div>
+						<button class="cancell-filters uk-button-link  aligment" >	
+					
+						<i class="mp-icon-closed uk-text-danger"></i>
+						</button>
+					</div>
+				</td>
+			</tr>
+	
+			<tr class="table-cont">
+				<td><span class="blue-bg">1</span></td>
+				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
+				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><i class="mp-icon-trust uk-text-primary"></i></td>
+				<td><span class="escro">escro</span></td>
+				<td>$783.85</td>
+				<td>open</td>
+				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+			</tr>
+			<tr class="table-cont">
+				<td><span class="blue-bg">2</span></td>
+				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
+				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
+				<td><span class="escro">escro</span></td>
+				<td>$783.85</td>
+				<td>open</td>
+				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+			</tr>
+			<tr class="table-cont">
+				<td><span class="blue-bg">3</span></td>
+				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
+				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
+				<td><span class="escro">escro</span></td>
+				<td>$783.85</td>
+				<td>open</td>
+				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+			</tr>
+			<tr class="table-cont">
+				<td><span class="blue-bg">4</span></td>
+				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
+				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><i class="mp-icon-trust-invert uk-text-primary"></i></td>
+				<td><span class="escro">escro</span></td>
+				<td>$783.85</td>
+				<td>open</td>
+				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+			</tr>
+		</table>
+	</div>

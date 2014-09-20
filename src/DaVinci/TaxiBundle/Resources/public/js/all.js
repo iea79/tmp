@@ -90,10 +90,10 @@ $(document).ready(function() {
 			this.value = this.value.substr(0, 200);
 	});
 
-
 	$('.destination .addlang').click(function() {
 		$('.destination .desticlone label:last-child').clone().appendTo(".destination .desticlone");	
 	});
+
 	
 	$('#manager .addlang').click(function() {
 		$('.style1').last().addClass('style13');
@@ -113,16 +113,13 @@ $(document).ready(function() {
 		$('.style2').removeClass('style1');
 		return false;
 	});
-
-	
 });
-
+/*
 $( window ).resize(function(){
     $( ".file_upload input" ).triggerHandler( "change" );
 	setTabswidth();
 });
-
-
+*/
 //register page/////////////////////////////
      function add2PassPattern(text)
      {
@@ -137,7 +134,10 @@ $('#resend_email a').click(function(e){
     e.preventDefault();
     $('#change_email_block').show();
 });
+
 //Table Responsive/////////////////////
+
+
 $(document).ready(function() {
   var switched = false;
   var updateTables = function() {

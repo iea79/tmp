@@ -11,7 +11,8 @@
 					'bundles/davincitaxi/css/addons/uikit.addons.css'
 					'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' filter='cssrewrite' 
 					'bundles/davincitaxi/css/styles.css' 
-                    'bundles/davincitaxi/css/lena.css'
+					'bundles/davincitaxi/css/lena.css' 
+                    
                      %}
 
         <link media="all" rel="stylesheet" href="{{ asset_url }}" />
@@ -134,15 +135,17 @@
             <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 						{% javascripts
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.js'
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.spinner.min.js'
-							
 							'@DaVinciTaxiBundle/Resources/public/js/uikit.min.js'
-                            '@DaVinciTaxiBundle/Resources/public/js/addons/form-password.min.js'
+							'@DaVinciTaxiBundle/Resources/public/js/addons/form-select.js'
+							'@DaVinciTaxiBundle/Resources/public/js/addons/form-password.min.js'
 							'@DaVinciTaxiBundle/Resources/public/js/timepicker.js'
+							'@DaVinciTaxiBundle/Resources/public/js/jquery.spinner.min.js'
+							'@DaVinciTaxiBundle/Resources/public/js/jquery.validate.js'
 							'@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.validate.js'
-							'@DaVinciTaxiBundle/Resources/public/js/all.js' %}
+							'@DaVinciTaxiBundle/Resources/public/js/all.js'
+							
+							 %}
             <script src="{{ asset_url }}"></script>
 						{% endjavascripts %}
 				{% endblock %}

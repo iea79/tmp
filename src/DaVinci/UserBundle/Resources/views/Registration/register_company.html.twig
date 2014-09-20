@@ -2,16 +2,18 @@
 
 {% block theme 'register' %}
 {% block body %}
-<div class="wrapper-content title">{{ 'Taxi Company: Business Office'|trans}}</div>
+<div class="wrapper-content title">
+	{{ 'Taxi Company: Business Office'|trans}}
+	<div class="questiontooltip">
+		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
+	</div>
+</div>
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
-					</div>
 				</div>
 
 			</label>
@@ -26,13 +28,16 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="country" id="country" required>
-						<option value="">4</option>
 						<option value="">5</option>
 						<option value="">6</option>
-						<option value="">7</option>
+						<option value="">7 </option>
 						<option value="">8</option>
 						<option value="">9</option>
 						<option value="">10</option>
+						<option value="">15</option>
+						<option value="">20</option>
+						<option value="">30</option>
+						<option value="">40+</option>
 					</select>
 					<div class="questiontooltip float_left">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Taxi Company starts from 5+ cars</span></a>
@@ -43,8 +48,8 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="country" id="country" required>
+						<option value=""></option>
 						<option value="Russia" >Russia</option>
-						<option value="England">England</option>
 					</select>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Region/State, City</span></a>
@@ -149,10 +154,12 @@
 						</div>
 					</div>
 					</div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					<div class="uk-form-controls addphone">
+						<div class="questiontooltip">
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+						</div>
+						Add mobile number
 					</div>
-					<div class="uk-form-controls addphone">Add mobile number</div>
 				</div>
 			</label>
 			<div class="uk-button-group uk-width-4-5">
@@ -169,9 +176,6 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
-					</div>
 				</div>
 
 			</label>
@@ -191,17 +195,17 @@
 					<div class="uk-form-label uk-width-1-1  float_left">Ebgland</div>
 				</div>
 			</label>
-			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label uk-width-1-1  float_left">Moscow</div>
 				</div>
 			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.street'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.street'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label uk-width-1-1  float_left">Moscoskaya</div>
 				</div>
 			</label>
-			<label class="uk-form-row rowbuild"><span class="uk-form-label uk-width-2-5 text">{{ 'form.build'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.build'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label uk-width-1-1  float_left">18</div>
 				</div>
@@ -215,13 +219,12 @@
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">wi-fi</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">Mobile internet</div>
-					<div class="uk-form-label  uk-width-1-1  float_left">whatsapp</div>
 					</div>
 			</label>
 			<div class="uk-button-group uk-width-4-5">
-				<button class="uk-button submit nextbutt uk-width-4-5">Complete register</button>
+				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
+				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
+				<div class="clear"></div>
 			</div>
 
 		</fieldset>
