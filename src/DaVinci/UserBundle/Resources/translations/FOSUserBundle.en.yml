@@ -117,6 +117,7 @@ form:
     finish: Finish
     edit: Edit
     
+
     #registration
     register.company: "Taxi Company: Manager Offie"
     register.check: "Please check all details"
@@ -133,6 +134,13 @@ form:
     skype: "Skype"
     phone_number: "Phone number"
     
+    #company
+    name_company: "Name of company"
+    company_country: "Country of registration"
+    company_city: "City of registration"
+    company_address: "Address of registration"
+    number_cars: "Number of cars"
+    phone_number: "Phone number"
     
 fos_user:    
     firstname:

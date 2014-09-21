@@ -172,12 +172,13 @@ class RegistrationController extends BaseController {
     }
 
     /**
-    * @Route("/register-company", name="register_company_driver") 
+    * @Route("/register-company", name="register_company") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_companyAction()
     {
-        
+               return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_company.html.twig');
+ 
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
         
         ////// form handler moved here to use craue flow bundle
@@ -287,7 +288,7 @@ class RegistrationController extends BaseController {
     }
     
     /**
-    * @Route("/register-company-driver", name="register_company") 
+    * @Route("/register-company-driver", name="register_company_driver") 
     * @Security("has_role('ROLE_USER')")
     */
     public function register_company_driverAction()

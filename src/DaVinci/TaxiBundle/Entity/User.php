@@ -6,6 +6,11 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+
+/**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
  */
@@ -40,9 +45,10 @@ class User extends BaseUser
     private $photo;
 
     /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
+     * @Assert\Valid()
      */
-    private $address;
+    private $addresses;
     
     /**
      * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="user")
@@ -81,6 +87,7 @@ class User extends BaseUser
     {
         parent::__construct();
         
+        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -244,38 +251,28 @@ class User extends BaseUser
     }
 
     /**
-     * Add address
+     * set addresses
      *
-     * @param \DaVinci\TaxiBundle\Entity\Address $address
-     * @return User
+     * @return \SMTC\MainBundle\Entity\Profile
      */
-    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
     {
-        $this->address[] = $address;
-
-        return $this;
+        $this->addresses = $addresses;
+        foreach ($addresses as $address) {
+            $address->setUser($this);
+        }
     }
 
     /**
-     * Remove address
+     * Get addresses
      *
-     * @param \DaVinci\TaxiBundle\Entity\Address $address
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    public function getAddresses()
     {
-        $this->address->removeElement($address);
+        return $this->addresses;
     }
-
-    /**
-     * Get address
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
+    
     /**
      * Set taxiCompany
      *

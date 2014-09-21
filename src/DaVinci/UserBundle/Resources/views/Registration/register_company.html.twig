@@ -1,11 +1,16 @@
+{% trans_default_domain 'FOSUserBundle' %}
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-
 {% block theme 'register' %}
 {% block body %}
 <div class="wrapper-content title">
 	{{ 'Taxi Company: Business Office'|trans}}
 	<div class="questiontooltip">
-		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Help you to make more money again and again from international passengers</span></a>
+		<a class="tooltip" href="#">
+            <span class="que">?</span>
+            <span class="tooltip">
+                {% trans %}Help you to make more money again and again from international passengers{% endtrans %}
+            </span>
+        </a>
 	</div>
 </div>
 <div class="wrapper-content"><div class="content register">
@@ -21,13 +26,17 @@
 				<div class="uk-form-controls">
 					<input class="uk-width-1-1  float_left" type="text" name="name" id="name" required  />
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Enter Name of organization</span></a>
+						<a class="tooltip" href="#">
+                            <span class="que">?</span>
+                            <span class="tooltip">{% trans %}Enter Name of organization{% endtrans %}</span>
+                        </a>
 					</div>
 				</div>
 			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="country" id="country" required>
+						<option value=""></option>
 						<option value="">5</option>
 						<option value="">6</option>
 						<option value="">7 </option>
@@ -40,12 +49,27 @@
 						<option value="">40+</option>
 					</select>
 					<div class="questiontooltip float_left">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Taxi Company starts from 5+ cars</span></a>
+						<a class="tooltip" href="#">
+                            <span class="que">?</span>
+                            <span class="tooltip">{% trans %}Taxi Company starts from 5+ cars{% endtrans %}</span>
+                        </a>
 					</div>
 				</div>
 			</label>
 			
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+				<div class="uk-form-controls">
+
+                    
+					<div class="questiontooltip">
+						<a class="tooltip" href="#">
+                            <span class="que">?</span>
+                            <span class="tooltip">{% trans %}Region/State, City{% endtrans %}</span>
+                        </a>
+					</div>
+				</div>
+			</label>
+					<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_country'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="country" id="country" required>
 						<option value=""></option>
@@ -56,7 +80,7 @@
 					</div>
 				</div>
 			</label>
-			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
+			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="city" id="city" required>
 						<option>Moscow</option>
@@ -64,7 +88,7 @@
 					</select>
 				</div>
 			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.street'|trans }}:</span>
+			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="street" id="street" required>
 						<option>Street</option>
@@ -72,30 +96,30 @@
 					</select>
 				</div>
 			</label>
-			<label class="uk-form-row rowbuild"><span class="uk-form-label uk-width-2-5 text">{{ 'form.build'|trans }}:</span>
-				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="build" id="build" required>
-						<option>10</option>
-						<option>12</option>
-						<option>14</option>
-					</select>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
+                        
+                        
+                        
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
 				<div class="uk-form-controls">
 					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Write legitimate skype name</span></a>
+						<a class="tooltip" href="#">
+                            <span class="que">?</span>
+                            <span class="tooltip">{% trans %}Write legitimate skype name{% endtrans %}</span>
+                        </a>
 					</div>
 				</div>
 			</label>
 
 			<label class="addphoneline uk-form-row">
 				<div class="twolabels uk-width-2-5">
-					<span class="uk-form-label  text">{{ 'form.phone_number'|trans }}:</span>
+					<span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
 					<span class="uk-form-label text">Mark if you have </span>
 				</div>
 				<div class="uk-form-controls addphoneareas">
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					</div>
 					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
@@ -140,25 +164,24 @@
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select>
 					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
-					
 					<div class="wicheck whicheck-1">
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
 						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+							<a class="tooltip" href="#">
+                                <span class="que">?</span>
+                                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
+                            </a>
 						</div>
 					</div>
 					<div class="wicheck whicheck-2">
 						<div class="float_left"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
 						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile messaging app</span></a>
+							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
 						</div>
 					</div>
 					</div>
 					<div class="uk-form-controls addphone">
-						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-						</div>
-						Add mobile number
+						{{'Add mobile number'|trans }}
 					</div>
 				</div>
 			</label>
@@ -173,7 +196,7 @@
 	
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
 				</div>
@@ -216,7 +239,7 @@
 				</div>
 			</label>
 
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.phone_number'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
 					</div>

@@ -2,6 +2,12 @@
 namespace DaVinci\TaxiBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
+
+/**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+
 /**
  * @ORM\Entity
  */

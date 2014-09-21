@@ -6,6 +6,10 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+/**
  * @ORM\Entity
  * @ORM\Table(name="fos_group")
  */
