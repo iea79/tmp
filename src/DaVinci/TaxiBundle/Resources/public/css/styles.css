@@ -1232,10 +1232,10 @@ office passengers and driver
 	margin-bottom:0px;
 	margin-top:0px;
 }
-.client-account .uk-table input,
+/*.client-account .uk-table input,
 .client-account .uk-table select {
 	padding: 2px 5px;
-}
+}*/
 .client-account .uk-table button,
 .client-account .uk-table a,
 .client-account .uk-table {
@@ -1365,7 +1365,6 @@ office passengers and driver
 .uk-table th .questiontooltip {
 	width:20px;
 	float:none;
-	margin:0 3px;
 	display: -moz-inline-box;
 	display: -webkit-inline-box;
     display: inline-block;
@@ -1373,16 +1372,15 @@ office passengers and driver
 }
 .uk-table th .questiontooltip a span.que{
 	top:1px;
+	margin:0;
 }
-.client-account .uk-table th a.sort {
-	font-size:14px;
-	margin-top:0px;
-}
-.client-account .uk-table th a.sort i:first-child {
+.uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
+	font-size:14px;
 }
-.client-account .uk-table th a.sort i:last-child {
-	margin-left:-3px;
+.uk-table th .sort i:last-child {
+	margin-left:-5px;
+	font-size:14px;
 }
 .client-account .uk-table th:first-child {
 	width:4%;
@@ -1950,11 +1948,11 @@ dl.about-driver dd {
 	margin: 4px 0;
 }
 .pop-up .profile select.region {
-	width:35%;
+	width:40%;
 	display:inline;
 }
 .pop-up .profile input.fone {
-	width:62%;
+	width:58%;
 	float:right;
 }
 .pop-up .profile select.day {
