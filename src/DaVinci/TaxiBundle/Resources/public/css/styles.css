@@ -1364,8 +1364,12 @@ office passengers and driver
 }
 .uk-table th .questiontooltip {
 	width:20px;
-	float:right;
+	float:none;
 	margin:0 3px;
+	display: -moz-inline-box;
+	display: -webkit-inline-box;
+    display: inline-block;
+    vertical-align: top;
 }
 .uk-table th .questiontooltip a span.que{
 	top:1px;
