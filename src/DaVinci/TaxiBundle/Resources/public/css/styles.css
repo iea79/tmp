@@ -673,6 +673,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			min-height:27px;
 			line-height:27px;
 			border:1px solid #d3d3d3;
+			cursor:pointer;
 		}
 		.destination .nav-over .nextbutt {
 			margin-top:30px;
