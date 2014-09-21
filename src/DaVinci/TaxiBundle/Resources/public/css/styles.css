@@ -650,6 +650,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		box-sizing: border-box;
 		height: 27px;
 		vertical-align: bottom;
+		padding-left:5px;
 	}
 	.destination  .inputs .uk-form-icon {
 		width:100%;
