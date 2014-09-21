@@ -3,11 +3,13 @@ parameters:
 
 # the menu builder service. Can be used for several menus
 services:
+    
+#menu---------------------------------------------------------------------------
     taxi.menu_builder:
         class: DaVinci\TaxiBundle\Menu\Breadcrumbs
         arguments: ["@knp_menu.factory"]
 
-    # menu
+
     taxi.menu.breadcrumb:
         class: Knp\Menu\MenuItem
         factory_service: taxi.menu_builder # the menu builder service above
@@ -17,34 +19,86 @@ services:
         tags:
             - { name: knp_menu.menu, alias: breadcrumb } # The alias is used in the template
             
-    phoneemail_user_provider:
-        class: DaVinci\UserBundle\Security\PhoneEmailProvider
-        public: false
-        arguments: [@fos_user.user_manager]
-        
-    custom_user_manager:
-        class: DaVinci\UserBundle\Model\CustomUserManager
-        arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, @fos_user.entity_manager, %fos_user.model.user.class%]
 
+#registration services----------------------------------------------------------
+
+# passenger
     taxi.registration.form.type:
         class: DaVinci\UserBundle\Form\Type\RegistrationFormType
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: taxi_user_registration }
-            
     taxi.registration.form.flow:
         class: DaVinci\UserBundle\Form\CreateUserFlow
         parent: craue.form.flow
         scope: request
         calls:
              - [ setFormType, [ @taxi.registration.form.type ] ]
-             
-  #  taxi.registration.form.handler:
-  #      class: DaVinci\UserBundle\Form\Handler\RegistrationFormHandler
-  #      arguments: ["@fos_user.registration.form", "@request", "@fos_user.user_manager", "@fos_user.mailer", "@fos_user.util.token_generator"]
-  #      scope: request
-  #      public: false
+ 
+# company driver
+    taxi.registration.company.driver.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationCompanyDriverFormType
+        tags:
+            - { name: form.type, alias: taxi_company_driver_registration }
+    
+    taxi.registration.company.driver.form.flow:
+        class: DaVinci\UserBundle\Form\CreateCompanyDriverFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.company.driver.form.type ] ]       
+# company
+    taxi.registration.company.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationCompanyFormType
+        tags:
+            - { name: form.type, alias: taxi_company_registration }
+    
+    taxi.registration.company.form.flow:
+        class: DaVinci\UserBundle\Form\CreateCompanyFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.company.form.type ] ]     
+
+# independent driver
+    taxi.registration.independent.driver.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationIndependentDriverFormType
+        tags:
+            - { name: form.type, alias: taxi_independent_driver_registration }
+    
+    taxi.registration.independent.driver.form.flow:
+        class: DaVinci\UserBundle\Form\CreateIndependentDriverFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.independent.driver.form.type ] ]    
+
+ # manager
+    taxi.registration.manager.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationMagnagerFormType
+        tags:
+            - { name: form.type, alias: taxi_manager_registration }
+    
+    taxi.registration.manager.form.flow:
+        class: DaVinci\UserBundle\Form\CreateManagerFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.manager.form.type ] ]    
+ 
+#login with email or phone
+    phoneemail_user_provider:
+        class: DaVinci\UserBundle\Security\PhoneEmailProvider
+        public: false
+        arguments: [@fos_user.user_manager] 
+        
+    custom_user_manager:
+        class: DaVinci\UserBundle\Model\CustomUserManager
+        arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, @fos_user.entity_manager, %fos_user.model.user.class%]
+       
+
   
+  #PaymentGlobalNetwork---------------------------------------------------------
     paygnet:
       class:     DaVinci\TaxiBundle\payGnetAPIcaller
       arguments: ["@api_caller"]
