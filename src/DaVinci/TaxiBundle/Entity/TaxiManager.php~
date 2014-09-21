@@ -20,7 +20,7 @@ class TaxiManager
     private $taxiCompany;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="taxiManager")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="taxiManager")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
@@ -69,28 +69,5 @@ class TaxiManager
     public function getTaxiCompany()
     {
         return $this->taxiCompany;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \DaVinci\TaxiBundle\Entity\User $user
-     * @return TaxiManager
-     */
-    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \DaVinci\TaxiBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 }

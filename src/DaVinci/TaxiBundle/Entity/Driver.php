@@ -3,6 +3,11 @@ namespace DaVinci\TaxiBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+
+/**
  * @ORM\Entity
  */
 class Driver
@@ -31,7 +36,7 @@ class Driver
     private $taxiCompany;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="driver")
+     * @ORM\OneToOne(targetEntity="User", inversedBy="driver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
