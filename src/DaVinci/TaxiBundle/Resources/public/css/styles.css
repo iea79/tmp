@@ -1060,6 +1060,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding-right:0;
 			width:20%;
 		}
+		.table-over .serv .cancell-filters:hover {
+			text-decoration:none;
+		}
 		.table-over .serv  .bascket-opt {
 			width:80%;
 		}
@@ -2130,6 +2133,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 		padding:10px 0 2px 0;
 		
 	}
+	.home .steps-1-2-3 .chois li a {
+		font-size:14px;
+	}
 }
 @media only screen and (max-width: 685px) {
 	.order-details .left-spec {
@@ -2144,6 +2150,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 			display:inline-block;
 			width:40%;
 		}
+	.home .steps-1-2-3 .chois li a	.exclude {
+		display:none;
+	}
 }
 @media only screen and (max-width: 600px) {
 	.header-wrapper .header-top .header-top-in .logo, .header-top-in .uk-navbar-toggle {
