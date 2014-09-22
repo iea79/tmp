@@ -1,0 +1,32 @@
+# 
+# more information can be found here http://sonata-project.org/bundles/news
+#
+sonata_news:
+    title:        TaxiMyPrice blog
+    link:         http://taximyprice.com/
+    description:  TaxiMyPrice news
+    salt:         'rgerg4g34t34t35hynmui9786'
+
+    # permalink_generator: sonata.news.permalink.category # /party/new-year
+    permalink_generator: sonata.news.permalink.date # /2011/12/31/new-year
+
+    # comment options
+    comment:
+        notification:
+            emails:   [icevita@taximyprice.com, icevita@gmail.com]
+            from:     no-reply@taximyprice.com
+            template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
+            
+
+
+# Enable Doctrine to map the provided entities
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                #metadata_cache_driver: apc
+                #query_cache_driver: apc
+                #result_cache_driver: apc
+                mappings:
+                    ApplicationSonataNewsBundle: ~
+                    SonataNewsBundle: ~

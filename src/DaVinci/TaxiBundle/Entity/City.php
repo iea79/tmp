@@ -9,7 +9,8 @@ use Doctrine\ORM\Mapping AS ORM;
 
 /**
  * DaVinci\TaxiBundle\Entity\City
- *
+ * 
+ * @ORM\Entity
  * @ORM\Table(name="main_city")
  */
 class City
