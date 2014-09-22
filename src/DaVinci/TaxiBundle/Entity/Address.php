@@ -39,7 +39,7 @@ class Address
     private $postcode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="address")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;

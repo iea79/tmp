@@ -250,10 +250,33 @@ class User extends BaseUser
         return parent::setEmailCanonical($emailCanonical);
     }
 
+    
+    /**
+     * Add address
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $address
+     * @return User
+     */
+    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    {
+        $this->addresses[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $address
+     */
+    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    {
+        $this->addresses->removeElement($address);
+    }
+    
     /**
      * set addresses
      *
-     * @return \SMTC\MainBundle\Entity\Profile
      */
     public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
     {
