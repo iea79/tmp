@@ -520,7 +520,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		
 		.home .tabtaxi .blue-drive  a{
-			background: url('../images/blue-tabs-left.png') left no-repeat,  url('../images/blue-tabs-right.png') right no-repeat  #fff;
+			background: url('../images/blue-tabs-left.png') left no-repeat,  url('../images/arrowblue.png') center top no-repeat, url('../images/blue-tabs-right.png') right no-repeat  #fff;
 			color:#528ed3;
 			}
 		
