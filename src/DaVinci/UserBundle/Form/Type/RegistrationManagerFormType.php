@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use \Sonata\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
-class RegistrationFormType extends BaseType {
+class RegistrationManagerFormType extends BaseType {
 
     /**
      * @param FormBuilderInterface $builder
