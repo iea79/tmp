@@ -1,26 +1,4 @@
 
-
-	<ul class="tabs uk-tab  chois">
-        <li class="uk-width-1-3  first">
-			<a href="#">
-				<div class="arrow_box"><span class="on"><i class="uk-icon-check"></i></span><span class="hide"> Choose a route</span>
-				</div>
-			</a>
-		</li>
-        <li class="uk-width-1-3 other active">
-			<a href="#">
-				<div class="arrow_box"><span class="on">2</span><span class="hide"> Choose the <span class="exclude">type of </span>vehicle</span>
-				</div>
-			</a>
-		</li>
-        <li class="uk-width-1-3 contact">
-			<a href="#">
-				<div class="arrow_box"><span class="on">3</span><span class="hide"> Start a trip</span>
-				</div>
-			</a>
-		</li>
-    </ul>
-
     <div class="order-details-over">
         <h1 class="labels">Vehicle</h1>
 		<div class="order-details">
@@ -144,8 +122,8 @@
 
 			<div class="uk-button-group uk-width-1-1">
 				
-				<a href="{{ url('order_step_1') }}" class="uk-button uk-button-warning   float_left"><span>< Back</span></a>
-				<a href="{{ url('order_step_3') }}" class="uk-button uk-button-danger     float_right"><span>Next ></span></a>
+				<a href="#" data-uk-switcher-item="previous" class="uk-button uk-button-warning   float_left"><span>< Back</span></a>
+				<a href="#"  data-uk-switcher-item="next" class="uk-button uk-button-danger     float_right"><span>Next ></span></a>
 			</div>
 			</form>
 		</div>
