@@ -82,7 +82,7 @@
                                                 <div class="clientid">My ID: <span class="data">76877960596623</span></div>
                                             </li>
                                             <li>
-                                                <div class="clientid">Name: <span class="data">Boris Ivanov</span></div>
+                                                <div class="clientid">Name: <span class="data">{{ app.user.firstname }} {{ app.user.lastname }}</span></div>
                                             </li>
                                             <li>
                                                 <div class="clientid">My balance: <span class="data">$0.00</span></div>
@@ -117,8 +117,7 @@
                             <a href="#" class="uk-button uk-button-link">Rus <i class="uk-icon-caret-down"></i></a>
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav uk-nav-dropdown">
-                                    <li><a class="" href="#">Rus</a></li>
-                                    <li><a class="" href="#">Eng</a></li>
+                                   <li><a class="" href="#">Eng</a></li>
                                 </ul>
                             </div>
                         </li>

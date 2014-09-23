@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use \Sonata\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
-class RegistrationFormType extends BaseType {
+class RegistrationCompanyFormType extends BaseType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -18,32 +18,29 @@ class RegistrationFormType extends BaseType {
         switch ($options['flow_step']) {
             case 1:
                 $builder
-                        ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
-                            'attr' => array('title' => 'fos_user.firstname.latin', 'pattern' => '^[a-zA-Z ]+$')))
-                        ->add('lastname', 'text', array('label' => 'form.lastname', 'translation_domain' => 'FOSUserBundle',
-                            'attr' => array('title' => 'fos_user.lastname.latin', 'pattern' => '^[a-zA-Z ]+$')))
-                       /* //now it will be filled in profile
-                        * ->add('gender', 'choice', array(
-                            'choices' => array(
-                                '1' => 'form.male',
-                                '0' => 'form.female'
-                            ),
-                            'required' => true,
-                            'empty_value' => 'form.choosegender',
-                            'empty_data' => null,
-                            'translation_domain' => 'FOSUserBundle'))
-                        ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle'))*/
-                        ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                        ->add('plainPassword', 'repeated', array(
-                            'type' => 'password',
-                            'options' => array('translation_domain' => 'FOSUserBundle'),
-                            'first_options' => array('label' => 'form.password'),
-                            'second_options' => array('label' => 'form.password_confirmation'),
-                            'invalid_message' => 'fos_user.password.mismatch',
-                        ));
+                        ->add('name', 'text', array('label' => 'form.name_company', 'translation_domain' => 'FOSUserBundle'))
+                        ->add('availability', 'choice', array(
+                                'choices'   => array(
+                                    '5' => '5',
+                                    '6' => '6',
+                                    '7' => '7',
+                                    '8' => '8',
+                                    '9' => '9',
+                                    '10' => '10',
+                                    '15' => '15',
+                                    '20' => '20',
+                                    '30' => '30',
+                                    '40' => '40+'
+                                ),
+                                'label'  => 'form.number_cars',
+                                'translation_domain' => 'FOSUserBundle'
+                            ))
+                        ->add('country','entity', array(
+                            'class' => 'DaVinciTaxiBundle:Country',
+                            'property' => 'name',
+                            'label' => 'form.company_country', 'translation_domain' => 'FOSUserBundle'));
                 break;
             case 2:
-                       $builder->add('terms', 'checkbox', array('property_path' => 'termsAccepted'));
                 break;
         }
     }
@@ -58,7 +55,7 @@ class RegistrationFormType extends BaseType {
      * @return string
      */
     public function getName() {
-        return 'taxi_user_registration';
+        return 'taxi_company_registration';
     }
 
 }

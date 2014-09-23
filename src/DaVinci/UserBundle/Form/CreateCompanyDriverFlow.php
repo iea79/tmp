@@ -6,7 +6,7 @@ use Craue\FormFlowBundle\Form\FormFlow;
 use Craue\FormFlowBundle\Form\FormFlowInterface;
 use Symfony\Component\Form\FormTypeInterface;
 
-class CreateUserFlow extends FormFlow {
+class CreateCompanyDriverFlow extends FormFlow {
 
     /**
      * @var FormTypeInterface

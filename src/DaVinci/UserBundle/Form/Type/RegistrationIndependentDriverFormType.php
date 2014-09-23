@@ -8,7 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use \Sonata\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
-class RegistrationFormType extends BaseType {
+class RegistrationIndependentDriverFormType extends BaseType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -58,7 +58,7 @@ class RegistrationFormType extends BaseType {
      * @return string
      */
     public function getName() {
-        return 'taxi_user_registration';
+        return 'taxi_independent_driver_registration';
     }
 
 }

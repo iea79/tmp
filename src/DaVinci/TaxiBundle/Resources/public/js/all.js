@@ -90,8 +90,8 @@ $(document).ready(function() {
 			this.value = this.value.substr(0, 200);
 	});
 
-	$('.destination .addlang').click(function() {
-		$('.destination .desticlone label:last-child').clone().appendTo(".destination .desticlone");	
+	$('.destination .add-lang').click(function() {
+		$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
 	});
 
 	

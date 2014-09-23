@@ -1,6 +1,12 @@
 <?php
 namespace DaVinci\TaxiBundle\Entity;
+
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
 
 /**
  * @ORM\Entity
@@ -15,7 +21,10 @@ class Address
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=128, nullable=true)
+     * @ORM\ManyToOne(targetEntity="DaVinci\TaxiBundle\Entity\City")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * @Assert\Type("DaVinci\TaxiBundle\Entity\City")
+     * @Assert\NotNull()
      */
     private $city;
 
@@ -30,16 +39,10 @@ class Address
     private $postcode;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="address")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Country", inversedBy="address")
-     * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
-     */
-    private $country;
 
     /**
      * Get id
@@ -54,10 +57,10 @@ class Address
     /**
      * Set city
      *
-     * @param string $city
+     * @param \DaVinci\TaxiBundle\Entity\City $city
      * @return Address
      */
-    public function setCity($city)
+    public function setCity(\DaVinci\TaxiBundle\Entity\City $city)
     {
         $this->city = $city;
 
@@ -67,7 +70,7 @@ class Address
     /**
      * Get city
      *
-     * @return string 
+     * @return \DaVinci\TaxiBundle\Entity\City 
      */
     public function getCity()
     {
@@ -143,26 +146,4 @@ class Address
         return $this->user;
     }
 
-    /**
-     * Set country
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Country $country
-     * @return Address
-     */
-    public function setCountry(\DaVinci\TaxiBundle\Entity\Country $country = null)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return \DaVinci\TaxiBundle\Entity\Country 
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
 }
