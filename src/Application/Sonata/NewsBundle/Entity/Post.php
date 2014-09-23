@@ -19,7 +19,7 @@ use Sonata\NewsBundle\Entity\BasePost as BasePost;
  * References :
  *   working with object : http://www.doctrine-project.org/projects/orm/2.0/docs/reference/working-with-objects/en
  *
- * @author Mykola Sedletskyi icevita@gmail.com
+ * @author <yourname> <youremail>
  */
 class Post extends BasePost
 {

@@ -51,7 +51,7 @@ sonata_admin:
         groups:
             sonata.admin.group.content:
                 label:           sonata_content
-                label_catalogue: SonataDemoBundle
+                label_catalogue: DaVinciTaxiBundle
                 items:
                     - sonata.news.admin.comment
                     - sonata.news.admin.post
@@ -60,7 +60,7 @@ sonata_admin:
                     - sonata.comment.admin.thread
             sonata.admin.group.ecommerce:
                 label:           sonata_ecommerce
-                label_catalogue: SonataAdminBundle
+                label_catalogue: DaVinciTaxiBundle
                 items:
                     - sonata.customer.admin.customer
                     - sonata.invoice.admin.invoice

@@ -23,7 +23,7 @@ sonata_user:
             class:      DaVinci\UserBundle\Model\UserAdmin
 
     impersonating:
-        route:                page_slug
+        route:                sonata_admin_dashboard
         parameters:           { path: / }
 
    # google_authenticator:

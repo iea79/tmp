@@ -39,8 +39,6 @@ imports:
     - { resource: sonata/sonata_delivery.yml }
     - { resource: sonata/sonata_customer.yml }
     - { resource: sonata/sonata_basket.yml }
-    - { resource: sonata/sonata_classification.yml }
-    
     
 
 
