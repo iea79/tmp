@@ -987,6 +987,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:0;
 			border:none;
 		}
+		.table-over .serv .under-head .uk-button-link:focus {
+			border:none;
+		}
 		.table-over .serv .under-head .car {
 			min-width:38px;
 		}
