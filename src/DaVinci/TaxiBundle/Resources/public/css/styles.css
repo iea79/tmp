@@ -512,6 +512,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-weight: bold;
 			height: 58px;
 			text-align: center;
+			margin-bottom:0;
 		}
 		
 		.home .tabtaxi .red-drive  a{
@@ -545,16 +546,31 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			border-bottom:1px solid #ff4d61;
 			height:60px;
 			overflow:hidden;
+			padding:0;
 		}
 			.home .steps-1-2-3 .chois li {
 				height:60px;
 				text-align:center;
+				list-style:none;
+				float:left;
+				margin-bottom:-1px;
+				position:relative;
+			}
+			.home .steps-1-2-3 .chois .first, .home .steps-1-2-3 .chois .last {
+				width:30%;
+			}
+			.home .steps-1-2-3 .chois .second {
+				width:40%;
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
 					font-size:18px;
 					padding:0 5px 0 0;
 					margin:0;
+					background:transparent;
+					border:none;
+					position:relative;
+					display:block;
 				}
 					.home .steps-1-2-3 .chois li a:hover {
 						text-decoration:underline;
@@ -573,19 +589,69 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
 						display:table-cell;
-						height:58px;
-						width:300px;
+						height:60px;
+						width:302px;
+						
 					}
-			.home .steps-1-2-3 .chois .first {
+					.home .steps-1-2-3 .chois .second a .arrow_box {
+						width:370px;
+						
+					}
+					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
+						background:#ff4d61;
+					}
+					.home .steps-1-2-3 .chois li a .arrow  {
+						border-color: transparent black transparent #fff;
+						border-image: none;
+						border-style: solid none solid solid;
+						border-width: 30px 1px 30px 30px;
+						display: block;
+						height: 0;
+						position: absolute;
+						right: -30px;
+						top: 0;
+						width: 0;
+						z-index: 50;
+						}
+					.home .steps-1-2-3 .chois li.uk-active a .arrow  {
+						border-color: transparent black transparent #ff4d61;
+						border-image: none;
+						border-style: solid none solid solid;
+						border-width: 30px 1px 30px 30px;
+						display: block;
+						height: 0;
+						position: absolute;
+						right: 2px;
+						top: 0;
+						width: 0;
+						z-index: 50;
+					}
+	/*		.home .steps-1-2-3 .chois .first {
 				background: url('../images/arrowstep1.png') right no-repeat #fff;
 			}
-			.home .steps-1-2-3 .chois .second {
+	*/
+			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
+				width:30px;
+				height:60px;
+				position: absolute;
+				right: -32px;
+				top: 0;
 			}
+			.home .steps-1-2-3 .chois li.uk-active  a .middle {
+				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
+				width:30px;
+				height:60px;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+	/*
 			.home .steps-1-2-3 .chois .uk-active {
 				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
 			}
-			.home .steps-1-2-3 .chois .last {
+	*/
+			.home .steps-1-2-3 .chois .last.uk-active {
 				background:#ff4d61!important;
 			}
 				.home .steps-1-2-3 .chois .uk-active  a {
@@ -678,14 +744,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.destination .nav-over .nextbutt {
 			margin-top:30px;
 			padding-top:4px;
+			color:#fff;
+			font-size:24px;
 		}
 			.destination .nav-over .add-another span {
 				font-size:24px;
 			}
-		.destination .nav-over div a {
-			color:#fff;
-			font-size:24px;
-		}
+		
 	
 	/*========  it is relatively global, because styles all select in the homepage, what consists from 3 pages  ========*/	
 	.home  .select {
@@ -1755,6 +1820,10 @@ footer {
 		padding:2px 7px;
 		
 	  }
+	  
+	.home .steps-1-2-3 .chois li a .on {
+		margin-left:30px;
+	}
 }
 @media only screen and (max-width:360px) {
     .whitebg .uk-table td p button  {
@@ -1783,13 +1852,13 @@ footer {
 
 		.home .steps-1-2-3 .chois li:not(.uk-active) {
 
-			width:15%;
+			width:20%!important;
 
 	}
 
 		.home .steps-1-2-3 .chois .uk-active {
 
-			width:70%;
+			width:60%!important;
 
 		}
 		
@@ -2182,6 +2251,11 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.home .steps-1-2-3 .chois li a	.exclude {
 		display:none;
 	}
+	.home .steps-1-2-3 .chois li {
+		width:33.333%!important;
+		text-transform:capitalize;
+
+	}
 }
 @media only screen and (max-width: 600px) {
 	.header-wrapper .header-top .header-top-in .logo, .header-top-in .uk-navbar-toggle {
@@ -2201,7 +2275,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	float:left;
 	width:50%;
 }
-.home .order-details-over {
+.home .wrap-left{
 	float:left;
 	width:50%;
 }
