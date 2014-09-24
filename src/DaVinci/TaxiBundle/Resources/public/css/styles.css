@@ -1217,6 +1217,12 @@ office passengers and driver
 	line-height:30px;
 	float:left !important;
 }
+.client-panel-button .uk-grid-small {
+	margin-left: -6px;
+}
+.client-panel-button .uk-grid-small > * {
+	padding-left: 6px;
+}
 /*=======================office tabs============================*/
 .client-account .main {
     margin:1px 0 0px 0;
@@ -1334,9 +1340,12 @@ office passengers and driver
 	padding-left: 30px;
 	font-size:16px;
 }
-.client-account .graybg {
+.client-account .message-graybg {
 	background:#f5f5f5;
 	padding: 15px 20px;
+}
+.client-account .message-graybg lable {
+	line-height:30px;
 }
 .client-account .message dt,
 .client-account .message dd {
@@ -1437,6 +1446,14 @@ office passengers and driver
 }
 .client-account .uk-table th:nth-child(2) {
 	width:10%;
+}
+.client-account .iconed-drop {
+	letter-spacing: 2px;
+	font-size: 18px;
+}
+.client-account .ov-trust .select {
+	background-color:transparent;
+	border:0;
 }
 .client-account .allorder th {
 	width:0;
@@ -1888,9 +1905,6 @@ footer {
 }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
-.pop-up {
-    /*display:block;*/
-}
 .client-account .uk-modal-dialog {
 	width: 690px !important;
 }
@@ -1941,6 +1955,10 @@ footer {
 }
 .about-driver dd {
 	font-size:14px;
+}
+.pop-up dt, 
+.pop-up dd {
+	min-height:30px;
 }
 .pop-up dt {
     color:#8d8f98;
@@ -1995,14 +2013,29 @@ footer {
 	color:#3d3d3d;
 	width:100%;
 	padding:2px 5px 2px 5px;
-	margin: 4px 0;
+/*	margin: 4px 0; */
 }
 .pop-up .profile select.region {
 	width:40%;
 	display:inline;
 }
+/*==== class select for script (Global) =========*/
+.select {
+    line-height:30px;
+	padding:0 8px;
+	border: 1px solid #d5d3dc;
+	color:#3d3d3d;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background:#fff;
+}
+.select .uk-icon-caret-down {
+	position:absolute;
+	right:5px;
+	top:25%;
+}
 .pop-up .profile input.fone {
-	width:58%;
+	width:57%;
 	float:right;
 }
 .pop-up .profile select.day {
@@ -2130,6 +2163,65 @@ i.quest {
 }
 .pop-up .rate-review i {
 	margin:0 -1px;
+}
+/*-======== Car color ===================*/
+.car-color-beige {
+	color:#f5f5db;
+}
+.car-color-black {
+	content: "\e61f";
+	color:#000 !important;
+}
+.car-color-blue {
+	background-image:url(src="images/stop.svg");
+}
+.car-color-brown {
+	color:#9a3200;
+}
+.car-color-burgundy {
+	color:#a31917;
+}
+.car-color-charcoal {
+	color:#333333;
+}
+.car-color-gold {
+	color:#b98112;
+}
+.car-color-gray {
+	color:#464646;
+}
+.car-color-green {
+	color:#228f12;
+}
+.car-color-off-white {
+	color:#fefff1;
+}
+.car-color-orange {
+	color:#ff7501;
+}
+.car-color-pink {
+	color:#fd69b3;
+}
+.car-color-purple {
+	color:#6600ff;
+}
+.car-color-red {
+	color:#e31313;
+}
+.car-color-silver {
+	color:#8b8b8b;
+}
+.car-color-tan {
+	color:#d0b38b;
+}
+.car-color-turquoise {
+	color:#43eedc;
+}
+.car-color-white {
+	color:#d7d7d7;
+}
+.car-color-yellow {
+	color:#f6d612;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }

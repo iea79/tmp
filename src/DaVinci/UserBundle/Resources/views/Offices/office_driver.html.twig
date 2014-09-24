@@ -3,21 +3,23 @@
 {% block body %}
 <!------------------------------------------------Account start-------------------------------------->
 <div class="main-content client-account">
-		<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+		<div class="client-panel-button">
+			<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+				</div>
 			</div>
 		</div>
 		<div class="uk-grid uk-grid-small uk-margin">
@@ -71,11 +73,11 @@
 								<div class="message">
 									<span class="uk-text-danger">Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ!
 								</div>
-								<div class="graybg">
+								<div class="message-graybg">
 									<div class=" uk-grid uk-grid-small uk-width-1-1">
-										<div class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+										<div class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1 uk-margin-small-top">
 											<div class="uk-width-1-1 uk-form-row">
-												<label class="uk-text-bold uk-text-primary uk-float-left uk-margin-small-right">{{'Passengers:'|trans}}</label>
+												<label class="uk-text-bold uk-text-primary uk-margin-small-right">{{'Vehicle Class:'|trans}}</label>
 													<select class="chosen">
 														<option>{{'Economy'|trans}}</option>
 														<option>{{'Compact'|trans}}</option>
@@ -102,166 +104,188 @@
 													</select>
 											</div>
 										</div>
-										<div class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1">
+										<div class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1 uk-margin-small-top">
 											<div class="uk-grid uk-grid-small uk-width-1-1">
-												<div class="uk-width-1-3">{{'Adult'|trans}} <input type="number" min="0" max="12" value="1"></div>
-												<div class="uk-width-1-3">{{'Children'|trans}} <input type="number" min="0" max="12" value="1"></div>
-												<div class="uk-width-1-3">{{'Seniors'|trans}} <input type="number" min="0" max="12" value="1"></div>
+												<div class="uk-width-1-3">
+													<label>{{'Adult'|trans}} </label>
+													<input type="number" min="0" max="12" value="1">
+												</div>
+												<div class="uk-width-1-3">
+													<label>{{'Children'|trans}}</label>
+													<input type="number" min="0" max="12" value="1">
+												</div>
+												<div class="uk-width-1-3">
+													<label>{{'Seniors'|trans}}</label>
+													<input type="number" min="0" max="12" value="1">
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-                                    <table class="uk-table allorder responsive"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
-                                            <thead class="blue-thead">
-												<tr>
-														<th>{{'Tip'|trans}}</th><th colspan="2">{{'Date/time'|trans}}</th><th>Route</th><th>{{'Trust'|trans}}</th><th>{{'PM'|trans}}</th><th>{{'Price'|trans}}</th><th>{{'Buy'|trans}}</th>
-												</tr>
-                                            </thead>
-                                            <thead>
-                                            <tr>
-                                                    <th><a href="#"><i class="mp-icon-cab uk-icon-small"></i></a><i class="uk-icon-caret-down"></i></th>
-                                                    <th class="datetime">
-	                                                    <form class="uk-form">
-	                                                    <div class="uk-form-icon uk-form-icon-flip">
-														    <input class="uk-width-1-1" type="text" placeholder="02/12/14-03/01/14" data-uk-datepicker="{format:'DD.MM.YYYY'}">
-	                                                    	<i class="mp-icon-calendar"></i>
-														</div>
-														</form>
-                                                    </th>
-                                                    <th class="time">
-		                                                <form class="uk-form uk-form-icon uk-form-icon-flip">
-														    <input class="uk-width-1-1" type="text" placeholder="08:30-19:00" data-uk-timepicker="{format:'24h'}">
-	                                                    	<i class="mp-icon-clock"></i>
-														</form>
-													</th>
-                                                    <th class="route">
-              		                                    <div class="uk-form-icon uk-form-icon-flip uk-width-1-1">
-					                                      	<input class="uk-width-1-1" type="text" placeholder="{{'for example, Moscow, Russia'|trans}}">
-					                                      	<i class="mp-icon-nord-star"></i>
-					                                    </div>
-                                                    </th>
-                                                    <th>
-													<div class="uk-form-select" data-uk-form-select>
-													    <a><i class="mp-icon-trust uk-text-primary"></i><i class="mp-icon-trust uk-text-primary"></i><i class="mp-icon-trust uk-text-primary"></i></a>
-														<i class="uk-icon-caret-down"></i>
-													    <select>
-													    	<option value="1"><a class="mp-icon-trust uk-text-primary"></a><a class="mp-icon-trust uk-text-primary"></a><a class="mp-icon-trust uk-text-primary"></a></option>
-													    	<option value="2"><a class="mp-icon-trust uk-text-primary"></a><a class="mp-icon-trust uk-text-primary"></a></option>
-													    	<option value="3"><a class="mp-icon-trust uk-text-primary"></a></option>
-													    	<option value="4"><a class="mp-icon-trust-invert uk-text-primary"></a></option>
-													    </select>
+								<div class="table-over">
+										<table class="serv responsive" cellspacing="1">
+											<tbody><tr>
+												<th class="tab-h1">Tip	</th>
+												<th class="daterange">Date/Time</th>
+												<th>Route</th>
+												<th>Trust</th>
+												<th>PM</th>
+												<th>Price</th>
+												<th>Status</th>
+												<th class="tab-h2">Buy</th>
+											</tr>
+											<tr class="under-head">
+												<td>
+												<div data-uk-dropdown="{mode:'click'}" class="uk-button-dropdown car">
+																	
+													<button class="uk-button-link">
+														<i class="mp-icon-taxi"></i>
+														<i class="uk-icon-caret-down uk-text-dark"></i>
+													</button>
+													<div class="uk-dropdown" style="">
+													<ul class="uk-nav uk-nav-navbar">
+														<li>
+															<a href="#">Item</a>
+														</li>
+														<li>
+															<a href="#">Another item</a>
+														</li>
+																			
+													</ul>
 													</div>
-                                                    </th>
-                                                    <th>
-                                                    	<a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>
-                                                    </th>
-                                                    <th>
-                                                    	<div class="uk-width-1-1">
-	                                                    	<a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>
-																<select>
-																	<option>$10-$50</option>
-																	<option>$50-$100</option>
-																	<option>$100-$150</option>
-																	<option>$150-$200</option>
-																	<option>$200+</option>
-																</select>
-                                                    	</div>
-                                                    </th>
-                                                    <th>
-                                                    	<select>
-															<option>{{'Short sale'|trans}}</option>
-															<option>{{'Other'|trans}}</option>
+												</div>
+												</td>
+												<td class="daterange">
+													<div class="uk-form-icon">
+														<input id="datepicker" type="text" maxlength="23" value="" placeholder="08/18/2014-09/20/2014">
+														<i class="uk-icon-calendar"></i>
+													</div>
+												</td>
+												<td>
+													<div class="uk-form-icon">
+														<input type="text" name="destination" placeholder="for example, Moscow, Russia">
+														<i class="mp-icon-nord-star"></i>
+													</div>
+												</td>
+												<td>
+													<div class="ov-trust">
+													<div class="uk-form-select select" data-uk-form-select="">
+														<span class="iconed-drop uk-text-primary"></span>
+														<i class="uk-icon-caret-down"></i>
+														<select class="iconed-drop uk-text-primary">
+															<option value="1"></option>
+															<option value="2"></option>
+															<option value="3"></option>
+															<option value="4"></option>
+																	
 														</select>
-                                                    	<a href="" class="mp-icon-closed uk-text-danger"></a>
-                                                    </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-	                                            <td><div class="uk-badge">1</div></td>
-	                                            <td>02 <span class="month">{{'mar'|trans}}</span> 14 </td>
-	                                            <td><span class="timehere"> 18:45</span></td>
-	                                            <td>
-	                                            	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a>
-			                                    </td>
-	                                            <td>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-			                                    </td>
-	                                            <td>
-	                                            	<span class="uk-text-bold uk-text-primary">escrow</span>
-			                                    </td>
-	                                            <td>
-	                                            	<span>$783.85</span>
-			                                    </td>
-	                                            <td>
-	                                            	<a class="uk-button uk-button-success"><i class="mp-icon-basket uk-margin-right"></i><span>0:10:48</span></a>
-			                                    </td>
-                                            </tr>
-                                            <tr>
-	                                            <td><div class="uk-badge">1</div></td>
-	                                            <td>02 <span class="month">{{'mar'|trans}}</span> 14 </td>
-	                                            <td><span class="timehere"> 18:45</span></td>
-	                                            <td>
-	                                            	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a>
-			                                    </td>
-	                                            <td>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-			                                    </td>
-	                                            <td>
-	                                            	<span class="uk-text-bold">{{'cash'|trans}}</span>
-			                                    </td>
-	                                            <td>
-	                                            	<span>$783.85</span>
-			                                    </td>
-	                                            <td>
-	                                            	<a class="uk-button uk-button-success"><i class="mp-icon-basket uk-margin-right"></i><span>0:10:48</span></a>
-			                                    </td>
-                                            </tr>
-                                            <tr>
-	                                            <td><div class="uk-badge">1</div></td>
-	                                            <td>02 <span class="month">{{'mar'|trans}}</span> 14 </td>
-	                                            <td><span class="timehere"> 18:45</span></td>
-	                                            <td>
-	                                            	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a>
-			                                    </td>
-	                                            <td>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-	                                            	<i class="mp-icon-trust uk-text-primary"></i>
-			                                    </td>
-	                                            <td>
-	                                            	<span class="uk-text-bold uk-text-primary">{{'escrow'|trans}}</span>
-			                                    </td>
-	                                            <td>
-	                                            	<span>$783.85</span>
-			                                    </td>
-	                                            <td>
-	                                            	<a class="uk-button uk-button-success"><i class="mp-icon-basket uk-margin-right"></i><span>0:10:48</span></a>
-			                                    </td>
-                                            </tr>
-                                            <tr>
-	                                            <td><div class="uk-badge">1</div></td>
-	                                            <td>02 <span class="month">{{'mar'|trans}}</span> 14 </td>
-	                                            <td><span class="timehere"> 18:45</span></td>
-	                                            <td>
-	                                            	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a>
-			                                    </td>
-	                                            <td>
-	                                            	<i class="mp-icon-trust-invert uk-text-primary"></i>
-			                                    </td>
-	                                            <td>
-	                                            	<span class="uk-text-bold uk-text-primary">{{'escrow'|trans}}</span>
-			                                    </td>
-	                                            <td>
-	                                            	<span>$783.85</span>
-			                                    </td>
-	                                            <td>
-	                                            	<a class="uk-button uk-button-success"><i class="mp-icon-basket uk-margin-right"></i><span>0:10:48</span></a>
-			                                    </td>
-                                            </tr>
-                                            </tbody>
-                                    </table>
+													</div>
+													</div>
+												
+												</td>
+												<td>
+												<button href="#" class="sort uk-button-link arr">
+													<i class="mp-icon-arrow-down"></i>
+													<i class="mp-icon-arrow-up uk-text-dark"></i>
+												</button>
+												</td>
+												<td>
+													<div class="ov-lt short-cont">
+													<button href="#" class="sort uk-button-link aligment arr">
+														<i class="mp-icon-arrow-down"></i>
+														<i class="mp-icon-arrow-up uk-text-dark"></i>
+													</button>
+												<div class="uk-button uk-form-select select aligment fit-in" data-uk-form-select="">
+													<span>$10-$50</span>
+													 <i class="uk-icon-caret-down"></i>
+														<select>
+															<option value="1">$10-$50</option>
+															<option value="2">$50-$100</option>
+															<option value="3">$100-$150</option>
+															<option value="4">$200+</option>
+														</select>
+												</div>
+													
+												</div>
+												</td>
+												<td>
+													
+														<div class="uk-button uk-form-select select " data-uk-form-select="">
+													<span>All</span>
+													 <i class="uk-icon-caret-down"></i>
+														<select>
+															<option value="1">All</option>
+															<option value="2">Open</option>
+															<option value="3">Pending</option>
+															<option value="4">Close</option>
+															<option value="4">Cancel</option>
+															<option value="4">All happy</option>
+														</select>
+												</div>
+														
+												</td>
+												<td>
+													<div class="ov-lt fixed-column">
+														
+												<div class="uk-button uk-form-select select aligment bascket-opt" data-uk-form-select="">
+													<span>Short sale</span>
+													 <i class="uk-icon-caret-down"></i>
+														<select>
+															<option value="1">Short sale</option>
+															<option value="3">Other</option>
+															
+														</select>
+												</div>
+														<button class="cancell-filters uk-button-link  aligment">	
+													
+														<i class="mp-icon-closed uk-text-danger"></i>
+														</button>
+													</div>
+												</td>
+											</tr>
+									
+											<tr class="table-cont">
+												<td><span class="blue-bg">1</span></td>
+												<td>2 <strong>MAR</strong> 14<br> 18:45</td>
+												<td>USA:Далалс- <br>USA: Оклахома-сити</td>
+												<td><i class="mp-icon-trust uk-text-primary"></i></td>
+												<td><span class="escro">escrow</span></td>
+												<td>$783.85</td>
+												<td>open</td>
+												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+											</tr>
+											<tr class="table-cont">
+												<td><span class="blue-bg">2</span></td>
+												<td>2 <strong>MAR</strong> 14<br> 18:45</td>
+												<td>USA:Далалс- <br>USA: Оклахома-сити</td>
+												<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
+												<td><span class="escro">escrow</span></td>
+												<td>$783.85</td>
+												<td>open</td>
+												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+											</tr>
+											<tr class="table-cont">
+												<td><span class="blue-bg">3</span></td>
+												<td>2 <strong>MAR</strong> 14<br> 18:45</td>
+												<td>USA:Далалс- <br>USA: Оклахома-сити</td>
+												<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
+												<td><span class="escro">escrow</span></td>
+												<td>$783.85</td>
+												<td>open</td>
+												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+											</tr>
+											<tr class="table-cont">
+												<td><span class="blue-bg">4</span></td>
+												<td>2 <strong>MAR</strong> 14<br> 18:45</td>
+												<td>USA:Далалс- <br>USA: Оклахома-сити</td>
+												<td><i class="mp-icon-trust-invert uk-text-primary"></i></td>
+												<td><span class="escro">cash</span></td>
+												<td>$783.85</td>
+												<td>open</td>
+												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+											</tr>
+										</tbody></table>
+									</div>
                             </div>
                     </li>
                     <li>
@@ -582,7 +606,7 @@
 								</div>
 							</div>
 							<div class="profile uk-width-large-3-4 uk-width-medium-3-4 uk-width-small-1-1">
-								<button  data-uk-toggle="{target:'#toggle0'}" class="popup-head uk-button inbox">{{'Personal information'|trans}}<i class="uk-icon-question-circle quest"></i></button>
+								<button  data-uk-toggle="{target:'#toggle0'}" class="popup-head uk-button inbox">{{'Personal information'|trans}}<i class="uk-icon-question-circle"></i></button>
 									<div class="uk-hidden" id="toggle0">
 										<dl class="uk-width-1-1 uk-margin-bottom">
 												<div class="uk-margin">
@@ -792,7 +816,7 @@
 											</dd></dt>
 										</dl>
 									</div>
-								<button  data-uk-toggle="{target:'#toggle1'}" class="popup-head uk-button inbox">{{'Car information'|trans}} <i class="uk-icon-question-circle"></i></button>
+								<button  data-uk-toggle="{target:'#toggle1'}" class="popup-head uk-button inbox">{{'Car information'|trans}}<i class="uk-icon-question-circle"></i></button>
 								<div class="uk-hidden" id="toggle1">
 								<dl>
 									<dt>{{'Brand:'|trans}}<dd>
@@ -920,7 +944,17 @@
 											<option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
 										</select>
 									</dd></dt>
-									<dt>{{'Color:'|trans}}<dd><select name="color" ><option>{{'black'|trans}}</option></select></dd></dt>
+									<dt>{{'Color:'|trans}}<dd>
+										<div class="uk-form-select select uk-width-1-1" data-uk-form-select="">
+											<span>{{'black'|trans}}</span>
+											 <i class="uk-icon-caret-down"></i>
+												<select name="color" style="font-family:icontaxi" >
+													<option class="car-color-brown"> black</option>
+													<option class="car-color-burgundy"> burgundy</option>
+													<option class="car-color-gold"> gold</option>
+												</select>
+										</div>
+									</dd></dt>
 									<dt>{{'Number plate:'|trans}}<dd><input type="text" name="plate" value="" ></dd></dt>
 									<dt>{{'Class:'|trans}}
 									<dd>
@@ -1022,7 +1056,7 @@
 									</dd>
 								</dl>
 								</div>
-								<button  data-uk-toggle="{target:'#toggle2'}" class="popup-head uk-button inbox uk-margin-top">{{'Insurance'|trans}} <i class="uk-icon-question-circle"></i></button>
+								<button  data-uk-toggle="{target:'#toggle2'}" class="popup-head uk-button inbox uk-margin-top">{{'Insurance'|trans}}<i class="uk-icon-question-circle"></i></button>
 									<div class="uk-hidden" id="toggle2">
 										<label><input type="checkbox" class="uk-float-left uk-margin-small-right">{{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}</label>
 									</div>

@@ -4,21 +4,23 @@
 <!------------------------------------------------cabinet passenger--------------------------------------->
 <div class="main-content">
 	<div class="client-account">
-		<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
-			</div>
-			<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-				<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+		<div class="client-panel-button">
+			<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
+				</div>
+				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
+					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+				</div>
 			</div>
 		</div>
 		<div class="uk-grid uk-grid-small uk-margin">
@@ -497,8 +499,8 @@
 									<a class="button-add uk-button uk-button-primary">{{ 'Add Your Photo'|trans }}</a>
 								</div>
 							</div>
-							<div class="profile uk-width-large-2-3 uk-width-medium-2-3 uk-width-small-1-1">
-								<h5>{{ 'Personal information'|trans }}<i class="uk-icon-question-circle quest"></i></h5><br />
+							<div class="profile uk-width-1-1 uk-width-large-3-4 uk-width-medium-3-4 uk-width-small-1-1">
+								<button  class="popup-head uk-button inbox">{{ 'Personal information'|trans }}<i class="uk-icon-question-circle"></i></button>
 								<dl class="uk-width-1-1 uk-margin-bottom">
 										<div class="uk-margin">
 											<dt class="myid">My ID:</dt><dd class="myid">2112121212</dd><br />
@@ -719,20 +721,22 @@
 							</div>
 							</div>
 							<div class="profile uk-width-large-3-4 uk-width-medium-3-4 uk-width-small-1-1">
-								<button class="popup-head uk-button uk-button-warning inbox">{{ 'About driver'|trans }}<i class="uk-icon-question-circle"></i></button>
-								<dl class="uk-width-1-1 uk-margin-bottom about-driver">
-									<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
-									<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
-									<dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
-									<dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
-									<dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd><br />
-									<dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
-									<dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
-									<dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
-									<dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
-									<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
-									<dt id="moretext">{{ 'About me:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans }}</dd><br />
-								</dl>
+								<button  data-uk-toggle="{target:'#toggle5'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About driver'|trans }}<i class="uk-icon-question-circle"></i></button>
+								<div class="uk-hidden" id="toggle5">
+									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
+										<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
+										<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
+										<dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
+										<dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
+										<dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd><br />
+										<dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
+										<dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
+										<dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
+										<dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
+										<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
+										<dt id="moretext">{{ 'About me:'|trans }}</dt><dd id="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+									</dl>
+								</div>
 						        <button  data-uk-toggle="{target:'#toggle3'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></button>
 								<div class="uk-hidden" id="toggle3">
 									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
@@ -744,7 +748,7 @@
 										<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
 										<dt>{{ 'Other:'|trans }}</dt><dd>
 											<div>
-												<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span>
+												<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span>
 											</div>
 										</dd><br />
 										<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
