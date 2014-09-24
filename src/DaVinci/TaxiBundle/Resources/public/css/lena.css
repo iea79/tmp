@@ -106,13 +106,13 @@
 .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
 	float: left;
 	color: #3c3d45;
-	width: 35%;
+	width: 28%;
 	margin-right: 10px;
 }
 .register .uk-form-horizontal .uk-form-controls {
 	margin-lefT: 0;
 	floaT: left;
-	width: 63%;
+	width: 68%;
 }
 .addphoneareas  .questiontooltip {
 	float: right;
@@ -136,6 +136,7 @@
 	float: none;
 	line-height: 120%;
 	text-transform: none;
+	margin-lefT: -4px;
 }
 /*.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}*/
 .questiontooltip a span.que{
@@ -270,9 +271,9 @@
 }
 .whicheck-1 {
 	width: 16%;
-	margin-right: 50px;
+	margin-right: 34px;
 }
-.whicheck-2 {width: 27%;}
+.whicheck-2 {width: 26%;}
 .register .wicheck  label {display: inline-block;}
 .twolabels .text {	clear: left;}
 .register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
@@ -570,13 +571,13 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 /*	min-width: 560px;
 	width: 40%;*/
 	
-	max-width: 546px;
+	max-width: 550px;
 	min-width: 40%;
 
 
 	margin: 0 auto;
 	background: #fff;
-	padding: 10px 3px 10px 10px;
+	padding: 10px 0px 10px 10px;
 }
 .wrapper-content .register form{
 	width: 100%;
@@ -615,7 +616,7 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 
 /*.register .uk-form-horizontal .uk-form-label.uk-width-2-5 {width: 33%;}*/
 .register .uk-form-horizontal .uk-width-4-5 {width: 97%;}
-.register .uk-form-horizontal .uk-width-4-6 {width: 46%;}
+.register .uk-form-horizontal .uk-width-4-6 {width: 48%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
