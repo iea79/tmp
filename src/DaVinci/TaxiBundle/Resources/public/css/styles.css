@@ -1,4 +1,4 @@
-﻿/*==========================   general styles   =================================*/
+.home .steps-1-2-3 .chois .active﻿/*==========================   general styles   =================================*/
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
@@ -582,21 +582,21 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			.home .steps-1-2-3 .chois .second {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
 			}
-			.home .steps-1-2-3 .chois .active {
+			.home .steps-1-2-3 .chois .uk-active {
 				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
 			}
 			.home .steps-1-2-3 .chois .last {
 				background:#ff4d61!important;
 			}
-				.home .steps-1-2-3 .chois .active  a {
+				.home .steps-1-2-3 .chois .uk-active  a {
 					color:#fff;
 					cursor:default;
 				}
-						.home .steps-1-2-3 .chois .active  a :hover {
+						.home .steps-1-2-3 .chois .uk-active  a :hover {
 							text-decoration:none!important;
 						}
 
-					.home .steps-1-2-3 .chois .active  a .on {
+					.home .steps-1-2-3 .chois .uk-active  a .on {
 						color:#ff4d61;
 						background-color:#fff;
 					}
@@ -1775,19 +1775,19 @@ footer {
    		 float:none;
    	 }
 	 /*======   adaptive view on this size from home page? do not remove, please! ===================*/
-	 .home .steps-1-2-3 .chois li:not(.active)  a .hide {
+	 .home .steps-1-2-3 .chois li:not(.uk-active)  a .hide {
 
 			display:none;
 
 		}
 
-		.home .steps-1-2-3 .chois li:not(.active) {
+		.home .steps-1-2-3 .chois li:not(.uk-active) {
 
 			width:15%;
 
 	}
 
-		.home .steps-1-2-3 .chois .active {
+		.home .steps-1-2-3 .chois .uk-active {
 
 			width:70%;
 
