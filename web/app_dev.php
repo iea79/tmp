@@ -15,7 +15,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
         , '78.26.151.101'//home Nickolay
         , '195.138.90.3'//work Nickolay
         , '81.198.90.13' //dima
-        , '147.30.139.165' //elena kontent
+        , '2.135.107.103' //elena kontent
         , '95.71.81.69' //elena
         , '62.16.43.150' //evgeny ivanov
         , '89.209.11.134' //vasya
