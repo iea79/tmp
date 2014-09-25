@@ -512,6 +512,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-weight: bold;
 			height: 58px;
 			text-align: center;
+			margin-bottom:0;
 		}
 		
 		.home .tabtaxi .red-drive  a{
@@ -545,16 +546,31 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			border-bottom:1px solid #ff4d61;
 			height:60px;
 			overflow:hidden;
+			padding:0;
 		}
 			.home .steps-1-2-3 .chois li {
 				height:60px;
 				text-align:center;
+				list-style:none;
+				float:left;
+				margin-bottom:-1px;
+				position:relative;
+			}
+			.home .steps-1-2-3 .chois .first, .home .steps-1-2-3 .chois .last {
+				width:30%;
+			}
+			.home .steps-1-2-3 .chois .second {
+				width:40%;
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
 					font-size:18px;
 					padding:0 5px 0 0;
 					margin:0;
+					background:transparent;
+					border:none;
+					position:relative;
+					display:block;
 				}
 					.home .steps-1-2-3 .chois li a:hover {
 						text-decoration:underline;
@@ -573,19 +589,69 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
 						display:table-cell;
-						height:58px;
-						width:300px;
+						height:60px;
+						width:302px;
+						
 					}
-			.home .steps-1-2-3 .chois .first {
+					.home .steps-1-2-3 .chois .second a .arrow_box {
+						width:370px;
+						
+					}
+					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
+						background:#ff4d61;
+					}
+					.home .steps-1-2-3 .chois li a .arrow  {
+						border-color: transparent black transparent #fff;
+						border-image: none;
+						border-style: solid none solid solid;
+						border-width: 30px 1px 30px 30px;
+						display: block;
+						height: 0;
+						position: absolute;
+						right: -30px;
+						top: 0;
+						width: 0;
+						z-index: 50;
+						}
+					.home .steps-1-2-3 .chois li.uk-active a .arrow  {
+						border-color: transparent black transparent #ff4d61;
+						border-image: none;
+						border-style: solid none solid solid;
+						border-width: 30px 1px 30px 30px;
+						display: block;
+						height: 0;
+						position: absolute;
+						right: 2px;
+						top: 0;
+						width: 0;
+						z-index: 50;
+					}
+	/*		.home .steps-1-2-3 .chois .first {
 				background: url('../images/arrowstep1.png') right no-repeat #fff;
 			}
-			.home .steps-1-2-3 .chois .second {
+	*/
+			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
+				width:30px;
+				height:60px;
+				position: absolute;
+				right: -32px;
+				top: 0;
 			}
+			.home .steps-1-2-3 .chois li.uk-active  a .middle {
+				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
+				width:30px;
+				height:60px;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+	/*
 			.home .steps-1-2-3 .chois .uk-active {
 				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
 			}
-			.home .steps-1-2-3 .chois .last {
+	*/
+			.home .steps-1-2-3 .chois .last.uk-active {
 				background:#ff4d61!important;
 			}
 				.home .steps-1-2-3 .chois .uk-active  a {
@@ -678,14 +744,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.destination .nav-over .nextbutt {
 			margin-top:30px;
 			padding-top:4px;
+			color:#fff;
+			font-size:24px;
 		}
 			.destination .nav-over .add-another span {
 				font-size:24px;
 			}
-		.destination .nav-over div a {
-			color:#fff;
-			font-size:24px;
-		}
+		
 	
 	/*========  it is relatively global, because styles all select in the homepage, what consists from 3 pages  ========*/	
 	.home  .select {
@@ -840,11 +905,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.order-details .overinput {
 		position:relative;
+		display:inline-block;
+		width:100%;
 	}
 		.order-details .overinput .dollar {
 			position:absolute;
 			left:5px;
-			top:0px;
+			top:4px;
 			color:#9b9b9b;
 		}
 		.order-details .contactpassenger  .nottravel{
@@ -858,13 +925,26 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.order-details  .left-spec  {
 			float:left;
-			width:30%;
+			width:25%;
 			
 		}
+		.order-details .adapt-left {
+			width:35%;
+		}
+			.order-details .adapt-left .overinput {
+				float:right;
+				width:57%;
+			}
 		
 		.order-details  .right {
 			float:right;
 			width:60%;
+		}
+		 .order-details  .adapt-left input{
+			max-width:100%;
+		}
+		.order-details  .left-spec  input {
+			max-width:80%;
 		}
 		.order-details  .pers-data {
 			padding:5px 0;
@@ -1217,6 +1297,12 @@ office passengers and driver
 	line-height:30px;
 	float:left !important;
 }
+.client-panel-button .uk-grid-small {
+	margin-left: -6px;
+}
+.client-panel-button .uk-grid-small > * {
+	padding-left: 6px;
+}
 /*=======================office tabs============================*/
 .client-account .main {
     margin:1px 0 0px 0;
@@ -1334,9 +1420,12 @@ office passengers and driver
 	padding-left: 30px;
 	font-size:16px;
 }
-.client-account .graybg {
+.client-account .message-graybg {
 	background:#f5f5f5;
 	padding: 15px 20px;
+}
+.client-account .message-graybg lable {
+	line-height:30px;
 }
 .client-account .message dt,
 .client-account .message dd {
@@ -1437,6 +1526,14 @@ office passengers and driver
 }
 .client-account .uk-table th:nth-child(2) {
 	width:10%;
+}
+.client-account .iconed-drop {
+	letter-spacing: 2px;
+	font-size: 18px;
+}
+.client-account .ov-trust .select {
+	background-color:transparent;
+	border:0;
 }
 .client-account .allorder th {
 	width:0;
@@ -1755,6 +1852,27 @@ footer {
 		padding:2px 7px;
 		
 	  }
+	  
+	.home .steps-1-2-3 .chois li a .on {
+		margin-left:30px;
+	}
+	.home .steps-1-2-3 .chois .uk-active.first a .on {
+		margin-left:-5px;
+	}
+	.order-details .recommend,   .order-details .adapt-left{
+		padding-left:20px;
+	}
+	.order-details .left-spec .overinput, .order-details .adapt-left .overinput  input{
+		margin-left:20px;
+	}
+	.order-details .left-spec input, .order-details .adapt-left .overinput  input {
+		width:80%;
+	}
+	.order-details .adapt-left .overinput .dollar {
+		left:25px;
+	}
+	
+	
 }
 @media only screen and (max-width:360px) {
     .whitebg .uk-table td p button  {
@@ -1783,13 +1901,13 @@ footer {
 
 		.home .steps-1-2-3 .chois li:not(.uk-active) {
 
-			width:15%;
+			width:20%!important;
 
 	}
 
 		.home .steps-1-2-3 .chois .uk-active {
 
-			width:70%;
+			width:60%!important;
 
 		}
 		
@@ -1824,9 +1942,20 @@ footer {
 			float:none;
 			width:100%;
 		}
+		
 		.order-details .adapt-left label {
 			display:block!important;
 			
+		}
+		.order-details .left-spec {
+			width:100%!important;
+		}
+		.order-details  .overinput {
+			float:none;
+			width:100%!important;
+		}
+		.order-details  input[type="text"] {
+			width:80%;
 		}
 		
 	.order-details .uk-button-group a {
@@ -1888,9 +2017,6 @@ footer {
 }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
-.pop-up {
-    /*display:block;*/
-}
 .client-account .uk-modal-dialog {
 	width: 690px !important;
 }
@@ -1941,6 +2067,10 @@ footer {
 }
 .about-driver dd {
 	font-size:14px;
+}
+.pop-up dt, 
+.pop-up dd {
+	min-height:30px;
 }
 .pop-up dt {
     color:#8d8f98;
@@ -1995,14 +2125,29 @@ footer {
 	color:#3d3d3d;
 	width:100%;
 	padding:2px 5px 2px 5px;
-	margin: 4px 0;
+/*	margin: 4px 0; */
 }
 .pop-up .profile select.region {
 	width:40%;
 	display:inline;
 }
+/*==== class select for script (Global) =========*/
+.select {
+    line-height:30px;
+	padding:0 8px;
+	border: 1px solid #d5d3dc;
+	color:#3d3d3d;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background:#fff;
+}
+.select .uk-icon-caret-down {
+	position:absolute;
+	right:5px;
+	top:25%;
+}
 .pop-up .profile input.fone {
-	width:58%;
+	width:57%;
 	float:right;
 }
 .pop-up .profile select.day {
@@ -2131,6 +2276,65 @@ i.quest {
 .pop-up .rate-review i {
 	margin:0 -1px;
 }
+/*-======== Car color ===================*/
+.car-color-beige {
+	color:#f5f5db;
+}
+.car-color-black {
+	content: "\e61f";
+	color:#000 !important;
+}
+.car-color-blue {
+	background-image:url(src="images/stop.svg");
+}
+.car-color-brown {
+	color:#9a3200;
+}
+.car-color-burgundy {
+	color:#a31917;
+}
+.car-color-charcoal {
+	color:#333333;
+}
+.car-color-gold {
+	color:#b98112;
+}
+.car-color-gray {
+	color:#464646;
+}
+.car-color-green {
+	color:#228f12;
+}
+.car-color-off-white {
+	color:#fefff1;
+}
+.car-color-orange {
+	color:#ff7501;
+}
+.car-color-pink {
+	color:#fd69b3;
+}
+.car-color-purple {
+	color:#6600ff;
+}
+.car-color-red {
+	color:#e31313;
+}
+.car-color-silver {
+	color:#8b8b8b;
+}
+.car-color-tan {
+	color:#d0b38b;
+}
+.car-color-turquoise {
+	color:#43eedc;
+}
+.car-color-white {
+	color:#d7d7d7;
+}
+.car-color-yellow {
+	color:#f6d612;
+}
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; } */
@@ -2182,6 +2386,14 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.home .steps-1-2-3 .chois li a	.exclude {
 		display:none;
 	}
+	.home .steps-1-2-3 .chois li {
+		width:33.333%!important;
+		text-transform:capitalize;
+
+	}
+	.order-details .adapt-left .overinput {
+		width:60%;
+	}
 }
 @media only screen and (max-width: 600px) {
 	.header-wrapper .header-top .header-top-in .logo, .header-top-in .uk-navbar-toggle {
@@ -2201,7 +2413,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	float:left;
 	width:50%;
 }
-.home .order-details-over {
+.home .wrap-left{
 	float:left;
 	width:50%;
 }
