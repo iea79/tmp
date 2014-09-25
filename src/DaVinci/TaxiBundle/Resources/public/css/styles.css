@@ -1228,8 +1228,9 @@ office passengers and driver
 .client-account .clientid {
         color: #3c3d45;
         font-size: 14px;
-        line-height:20px;
+        line-height:21px;
         width: 100%;
+		letter-spacing: 0.2px;
 }
 .client-account dl {
         margin:1em 0;
@@ -1274,10 +1275,11 @@ office passengers and driver
 /*=====================office button==============================*/
 .client-account .uk-button-profile {
     padding:0;
-    min-width:160px;
+    min-width:168px;
     line-height: 38px;
     margin-bottom:5px !important;
     font-size:16px;
+	border-radius; 4px;
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
@@ -1294,14 +1296,36 @@ office passengers and driver
 	font-size:16px;
 }
 .client-account .button-skype {
-	line-height:30px;
-	float:left !important;
+	line-height: 30px !important;
+	float: left !important;
+	margin-top: 1px !important;
+	margin-left: 0px;
+	min-width: 130px !important;
+	width: 39.5%;
+}
+.client-panel-button {
+	margin-bottom:11px;
 }
 .client-panel-button .uk-grid-small {
 	margin-left: -6px;
 }
 .client-panel-button .uk-grid-small > * {
 	padding-left: 6px;
+}
+.client-panel-list .uk-grid-small {
+	margin-left: -17px;
+}
+.client-panel-list {
+	margin-bottom: 28px;
+}
+.client-panel-list .uk-grid-small .uk-panel:first-child {
+	min-width: 164px;
+}
+.client-panel-list .uk-grid-small .uk-panel:nth-child(2) {
+	min-width: 166px;
+}
+.client-panel-list .uk-grid-small .uk-panel:last-child {
+	min-width: 160px;
 }
 /*=======================office tabs============================*/
 .client-account .main {
@@ -1353,6 +1377,7 @@ office passengers and driver
     background-color: #fff;
     color: #528ed3;
     text-shadow:none;
+	padding: 4px 0px 5px 10px;
 }
 /*========================office table===========================*/
 .shadow-main {
@@ -1382,6 +1407,8 @@ office passengers and driver
     background:#f5f5f5;
     color:#3c3d45;
     position:relative;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 .client-account .blue-thead tr th {
     font-weight:bold;
@@ -1397,7 +1424,6 @@ office passengers and driver
 }
 .client-account .uk-table tr {
     border-top:#d0d0d0 1px solid;
-    border-bottom:#d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align:center;
@@ -1416,8 +1442,7 @@ office passengers and driver
 .client-account .message {
 	display: table;
 	vertical-align:middle;
-	padding:20px;
-	padding-left: 30px;
+	padding:15px 20px 16px 20px;
 	font-size:16px;
 }
 .client-account .message-graybg {
@@ -1475,6 +1500,8 @@ office passengers and driver
 .client-account .uk-table th:nth-child(3) {
     text-align:left;
     vertical-align:middle;
+	padding: 7px 20px 7px 17px;
+	position:relative;
 }
 .client-account .uk-table.main td,
 .client-account .uk-table.main th,
@@ -1525,7 +1552,7 @@ office passengers and driver
 	width:4%;
 }
 .client-account .uk-table th:nth-child(2) {
-	width:10%;
+	width:11.8%;
 }
 .client-account .iconed-drop {
 	letter-spacing: 2px;
@@ -1564,50 +1591,67 @@ office passengers and driver
   background-color: rgba(0, 0, 0, .3);
 }
 /*================style dropdown block (driver list) Alla=================*/
-.client-account .uk-table .uk-panel-box {
+.client-account .uk-table .open-order-passenger .uk-panel-box {
     background:#fff;
     border-radius:0;
     border:none;
     padding:0;
-    margin: 10px -8px;
+    margin: 54px -20px -7px -17px;
 }
-.client-account .uk-table tr td:first-child, .uk-table tr td:nth-child(2){
-    padding:10px;
+.client-account .uk-table .open-order-passenger tr td:first-child, 
+.client-account .uk-table .open-order-passenger tr td:nth-child(2){
+    padding:20px 0px 10px 0px;
 }
 .whitebg .uk-table td p {
     overflow:hidden;
-    margin:0;
+    margin:12px 0 11px 0;
+	position:relative;
 }
-.whitebg .uk-table td p button {
+.uk-table .open-order-passenger td button {
     background-color:#528ed3;
-    float:right;
-    
+	position: relative;
+	width: 27%;
+	min-width: 150px;
+	float: right;
+	margin-top: 2px !important;
 }
-
-.whitebg .uk-table td p button:hover, .whitebg .uk-table td p button:focus {
+.open-order-passenger div.route {
+	margin: 12px 0px 11px 0px;
+}
+.whitebg .uk-table td button:hover, .whitebg .uk-table td button:focus {
     background-color:#35b3ee;
 }
-.whitebg .uk-table td p .active-gray {
+.whitebg .uk-table td .active-gray {
     background-color:#ebebeb!important;
     padding:0 10px;
+	color:#8d8f98;
     
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
-    padding:12px;
-    font-size:16px;
+    padding: 22px 20px 0px 17px;
     display: inline-block;
 }
 .driver-top  {
     overflow:hidden;
+	margin-bottom: 5px;
 }
 .driver-top div {
     float:left;
-    width:33.3%;
+}
+.driver-top div.profile {
+    width:30%;
+}
+.driver-top div.vehicle {
+    width:37%;
+}
+.driver-top div.y-no {
+    width:33%;
+	padding-top: 2px;
 }
 .driver-top  img{
     float:left;
-    margin-right:5%;
+    margin-right: 3%;
     
 }
 .driver-top .driver-photo {
@@ -1615,80 +1659,96 @@ office passengers and driver
     height:53px;
 }
 .driver-top .drive-car {
-    width:99px;
-    height:55px;
+ /*   width:99px;
+    height:55px;*/
+	margin-top:-6px;
 }
-.driver-top .y-no {
+/*.driver-top .y-no {
     text-align:right;
-    padding-top: 1px;
-}
+}*/
 .driver-top .y-no  button {
-    width:100px;
-    text-transform:uppercase;
+	min-width: 100px !important;
+	width: 48.4% !important;
+	text-transform: uppercase;
+	margin: -2px 0px 0px 0px !important;
+	float: left !important;
 }
     .profile .name {
-   	 color:#528ed3;
+		 color:#528ed3;
     }
     .profile .proffesion {
-   	 font-size:14px;
-   	 color:#8d8f98;
+		 font-size:14px;
+		 color:#8d8f98;
     }
     .profile {
-   	 line-height: 18px;
+		 line-height: 18px;
     }
     .profile .uk-icon-smile-o{
-   	 color:#27bf2e;
+		 color:#27bf2e;
     }
     .profile .uk-icon-frown-o {
-   	 color:#ff4d61;
+		 color:#ff4d61;
     }    
-    .profile .feedback_ok {
-   	 margin-right:25px;
+ 	.profile .mp-icon-taxi {
+		font-size: 18px;
+	}
+   .profile .feedback_ok {
+		 margin-right:25px;
+    }
+   .profile .feedback_ok i,
+   .profile .feedback_bad i  {
+		 font-size: 110%;
     }
     .vehicle .name {
-   	 color:#3c3d45;
+		 color:#3c3d45;
     }
     .vehicle {
-   	 line-height:25px;
+		 line-height:20px;
     }
     .vehicle span {
-   	 color: #3c3d45;
+		 color: #3c3d45;
+		 margin-bottom: 6px;
+		display: inline-block;
     }
     .vehicle i {
-   	 color:#ff4d61;
-   	 margin-left:10px;
+		 color: #ff4d61;
+		 margin-left: 22px; 
     }
-    .y-no button:first-child{
-   	 background-color:#ff4d61;
-   	 
+	.vehicle i.mp-icon-person {
+		margin-left: 0;
+	}
+    .y-no button:first-child {
+		 background-color:#ff4d61 !important;
+		 margin-right; 8px !important;
     }
     .y-no button:first-child:focus, .y-no button:first-child:hover {
-   	 background-color:#c91032;
+		 background-color:#c91032 !important;
     }
     .y-no button:last-child {
-   	 background-color:#8d8f98;
+		 background-color:#8d8f98 !important;
+		 margin-left: 8px !important;
     }
     .y-no button:last-child:focus, .y-no button:last-child:hover {
-   	 background-color:#adafa8;
+		 background-color:#adafa8 !important;
     }
     td .driver-over p.about {
-   	 margin:5px 0;
-   	 padding:0;
-   	 line-height:20px;
-   	 color: #3c3d45;
+		 margin: 5px 0px 7px 0px;
+		 padding: 0;
+		 line-height: 19px;
+		 color: #3c3d45;
     }
     .call-driver {
-   	 float:left;
-	 margin-top:15px;
-   	 padding:15px 0;
-   	 border-top: 1px solid #d0d0d0;
+		 float: left;
+		 margin-top: 5px;
+		 padding: 18px 0;
+		 border-top: 1px solid #d0d0d0;
     }
     .call-driver span {
-   	 line-height:37px;
-   	 margin-right:10px;
-   	 font-weight:bold;
-   	 float:left;
-   	 color: #3c3d45;
+		 line-height: 32px;
+		 margin-right: 6px;
+		 font-weight: bold;
+		 float: left;
+		 color: #3c3d45;
     }
 /*====================================== end of offices ============================================*/
 /*------------------------------------- footer   --------------------------------*/
