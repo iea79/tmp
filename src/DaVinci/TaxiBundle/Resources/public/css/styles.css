@@ -1190,10 +1190,11 @@ office passengers and driver
 	text-align: center;
 }
 .client-account .uk-close:after {
-  display: block;
-  content: "\e609" !important;
-  font-family: icontaxi;
-  font-size: 18px;
+	display: block;
+	content: "\e609" !important;
+	font-family: icontaxi;
+	font-size: 18px;
+	margin: -5px -11px 0px 0px;
 }
 .client-account input,
 .client-account select,
@@ -2080,12 +2081,15 @@ footer {
 .client-account .uk-modal-dialog {
 	width: 690px !important;
 }
+.uk-modal-dialog.passenger {
+	margin-top: 1px;
+}
 .popup-head {
 	width: 100%;
 	margin-left: -20px;
 	margin-top: -20px !important;
-	margin-bottom: 20px;
-	padding-left: 20px;
+	margin-bottom: 27px;
+	padding-left: 19px;
 	padding-right: 20px;
 	background-color: #EBEBEB;
 	color:#3c3d45;
@@ -2093,6 +2097,8 @@ footer {
 	font-size:18px;
 	-webkit-border-radius: 5px 5px 0 0;
 	border-radius: 5px 5px 0 0;
+	line-height: 35px;
+	height: 41px;
 }
 .popup-head:hover,
 .popup-head:focus {
@@ -2105,22 +2111,62 @@ footer {
     font-weight:normal;
 }
 .popup-head.inbox {
-	margin-left: 0px;
-	margin-bottom:10px;
-	margin-top: 0px !important;
+	margin-left: 1px;
+	margin-bottom: 5px;
+	margin-top: -2px !important;
 	padding-right: 0px;
-	font-size:16px !important;
-	font-weight:bold;
+	padding-left: 0px;
+	font-size: 16px !important;
+	font-weight: bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	text-align:center;
-	width: 100%;
-	display:inline-block;
-	line-height:40px !important;
+	text-align: center;
+	width: 99%;
+	display: inline-block;
+	line-height: 20px !important;
+	height: 30px;
 }
 .popup-head.inbox i {
 	color: #0091ca;
-	padding-left:5px;
+	padding-left: 10px;
+}
+.pop-up .static-foto {
+	width: 25%;
+}
+.pop-up .static .about-driver {
+	margin-top: 9px;
+	margin-left: 1px;
+}
+.pop-up .static .myid dt, .pop-up .static .myid dd {
+	line-height: 9px;
+	padding-left: 1px;
+	margin-bottom: -6px;
+}
+.pop-up .static dt,
+.pop-up .static dd {
+	line-height: 8px;
+	height: 16px !important;
+	margin-bottom: -4px;
+}
+.pop-up .static dd.moretext {
+	line-height: 15px;
+	padding-left: 0px;
+	margin-bottom: 17px;
+	display: inline-table;
+}
+.pop-up .static dd.insurance {
+	margin-top: 0px !important;
+	margin-bottom: 13px !important;
+	display: inline;
+}
+.pop-up .static .button-skype {
+	line-height: 28px !important;
+	margin-top: -10px !important;
+	margin-left: -1px;
+	width: 50%;
+}
+.pop-up .static .button-add {
+margin-bottom: 14px;
 }
 .pop-up dl {
     display:inline-block;
@@ -2137,18 +2183,28 @@ footer {
     font-size:16px;
     font-weight:normal;
     float:left;
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 .pop-up dd {
     color:#3c3d45;
     font-size:16px;
-    margin-bottom:4px;
+    margin-bottom: 6px;
 }
-.pop-up dd.myid {
-    font-size:14px;
+div.myid dt, div.myid dd {
+    font-size: 14px !important;
+    line-height: 18px;
+    margin-bottom: -6px;
 }
-.pop-up dt.myid {
+div.profile {
+    padding-left: 16px !important;
+    width: 71%;
+}
+div.pop-up.uk-grid.uk-grid-small {
+    width: 103%;
+}
+.pop-up .myid {
     font-size:14px;
+	margin-top: -2px;
 }
 .pop-up .addphone {
 	float:left;
@@ -2159,37 +2215,60 @@ footer {
 	margin-right: 5px;
 }
 .pop-up.route dt {
-	margin-bottom:5px;
-    width: 39%;
+	margin-bottom: 1px;
+	width: 22.5%;
 	text-align: left;
+	font-size: 14px;
+	line-height: 1.8em;
 }
 .pop-up.route dd {
-	margin-bottom:5px;
-	width:59%;
+	margin-bottom: 1px;
+	width: 76%;
+	font-size: 14px;
+	line-height: 1.8em;
 }
-.pop-up.route dt.fullsize,
+.pop-up.route dt.fullsize {
+	width: 100%;
+	margin-bottom: -3px;
+	margin-left: 0;
+}
 .pop-up.route dd.fullsize {
-	width:100%;
-	margin-left:0;
+	width: 100%;
+	margin-bottom: 8px;
+	margin-left: 0;
+	display: inline-table;
+	line-height: 17px;
 }
 .pop-up.route dt.big {
-	line-height:25px;
+	line-height: 21px;
+	margin-bottom: 1px;
 }
 .pop-up.route dd.big {
-	line-height:25px;
-	margin-bottom: 8px;
+	line-height: 25px;
+	margin-bottom: 1px;
+}
+.pop-up.route .big i {
+	line-height: 12px;
+	font-size: 22px
+	margin-right: 2px;
+}
+.pop-up.route dt.last,
+.pop-up.route dd.last {
+    margin-top: -10px;
+    margin-bottom: 13px;
 }
 .pop-up input[type="text"],
 .pop-up select {
-	border: 1px solid #d5d3dc;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
-	padding:2px 5px 2px 5px;
+	padding:2px 5px 0px 3px;
 /*	margin: 4px 0; */
 }
 .pop-up .profile select.region {
-	width:40%;
+	width:32%;
 	display:inline;
+	margin-right:3%;
 }
 /*==== class select for script (Global) =========*/
 .select {
@@ -2207,33 +2286,32 @@ footer {
 	top:25%;
 }
 .pop-up .profile input.fone {
-	width:57%;
+	width:63%;
 	float:right;
 }
 .pop-up .profile select.day {
-	width:22%;
+	width: 14.5%;
 	display:inline;
+	margin-right: 3%;
 }
 .pop-up .profile select.classauto {
 	width:55%;
 	display:inline;
 }
 .pop-up .profile select.month {
-	width:43%;
+	width: 53%;
 	display:inline;
+	margin-right: 3%;
 }
 .pop-up .profile select.year {
-	width:30%;
+	width:23.5%;
 	display:inline;
-	float:right;
 }
 .pop-up .profile dt {
-	width:43%;
-	vertical-align:top;
-	margin-top:0px;
+	width:31.1%;
 }
 .pop-up .profile dd {
-	width:55%;
+	width:66.5%;
 }
 .pop-up .profile dd.fullsize {
 	width:100%;
@@ -2257,7 +2335,7 @@ footer {
 }
 .pop-up h5 {
     display: inline-block;
-    margin: 4px 0 7px;
+    margin: 4px 0 0px;
     font-family:Arial, Helvetica, sans-serif;
     font-size:16px;
     font-weight:bold;
@@ -2269,6 +2347,14 @@ i.quest {
 }
 .uk-modal {
     z-index:10000;
+}
+.uk-modal-dialog .pop-up.route {
+    padding-top: 9px;
+	padding-right: 10px;
+    margin-left: -12px;
+}
+.uk-modal-dialog .pop-up.route dl {
+    margin-top: 11px;
 }
 .pop-up .yourdrivers .icons a, .infoprofile li .icons a {
 	margin-right: 8px;
@@ -2283,12 +2369,12 @@ i.quest {
     color:#3c3d45;
 }
 .pop-up .yourdrivers a {
-	margin-right: 4px;
-	margin-top:6px;
-	color:#528ed3;
-	font-weight:normal;
-	font-size:18px;
-	float:right;
+	margin-right: -4px;
+	margin-top: 3px;
+	color: #528ed3;
+	font-weight: normal;
+	font-size: 18px;
+	float: right;
 }
 .pop-up .yourdrivers a:hover {
 	color:#4b81bf;
@@ -2300,23 +2386,25 @@ i.quest {
 	margin-bottom: 5px;
 }
 .pop-up .profile a:hover {
-	text-decoration:none;
+	text-decoration: none;
 }
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
-	border:4px #ebebeb solid;
-	border-radius:4px;
-	margin-bottom:5px;
+	border: 4px #ebebeb solid;
+	border-radius: 4px;
+	margin-bottom: 15px;
+	min-width: 160px;
 }
 .pop-up .clientreviews .photo {
-	background:url('../images/phptpapparat.png') #fff no-repeat scroll center center;
-	width:100%;
-	min-height:100px;
-	border-bottom:4px #ebebeb solid;
+	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
+	width: 100%;
+	min-height: 182px;
+	border-bottom: 4px #ebebeb solid;
 }
 .pop-up .button-add {
-	width:100%;
-	line-height:34px;
+	width: 100%;
+	line-height: 38px;
+	font-size: 16px;
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
@@ -2330,11 +2418,37 @@ i.quest {
 	margin:0px -2px;
 	font-size:16px;
 }
+.pop-up .clientreviews .rate .mp-icon-star {
+	font-size: 28px;
+	line-height: 24px;
+}
+.pop-up .clientreviews .rate .mp-icon-person {
+	font-size: 18px;
+	line-height: 24px;
+	margin-right: 4px;
+}
 .pop-up .rate-review {
 	font-size:12px;
 }
 .pop-up .rate-review i {
-	margin:0 -1px;
+	font-size: 18px;
+	letter-spacing: 0px;
+	line-height: 17px !important;
+	margin-left: -2px;
+	float:left;
+}
+.pop-up .rate-review .name {
+	margin-bottom: -1px;
+	font-size: 16px;
+	line-height: 20px;
+}
+.pop-up .rate-review .rate {
+	line-height: 22px;
+	font-size: 14px;
+}
+.pop-up .rate-review .review {
+	line-height: 14px;
+	margin-top: 2px;
 }
 /*-======== Car color ===================*/
 .car-color-beige {
