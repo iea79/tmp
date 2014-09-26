@@ -1647,7 +1647,7 @@ office passengers and driver
     width:37%;
 }
 .driver-top div.y-no {
-    width:31%;
+    width:33%;
 	padding-top: 2px;
 }
 .driver-top  img{
@@ -2084,6 +2084,9 @@ footer {
 .uk-modal-dialog.passenger {
 	margin-top: 1px;
 }
+.passenger .pop-up .profile {
+	width: 71%;
+}
 .popup-head {
 	width: 100%;
 	margin-left: -20px;
@@ -2195,7 +2198,7 @@ div.myid dt, div.myid dd {
     line-height: 18px;
     margin-bottom: -6px;
 }
-div.profile {
+.static.profile {
     padding-left: 16px !important;
     width: 71%;
 }
