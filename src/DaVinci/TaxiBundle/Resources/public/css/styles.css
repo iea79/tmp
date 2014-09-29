@@ -1482,14 +1482,16 @@ office passengers and driver
 .client-account .allorder th select {
 	font-size:14px;
 }
-.client-account .allorder th[class="datetime"] {
-	width: 160px !important;
+.client-account .allorder th[class="date-time"] {
+	width: 15.3%;
+	min-width: 100px;
 }
 .client-account .allorder th[class="time"] {
 	width: 120px !important;
 }
 .client-account .allorder th[class="route"] {
-	width: 230px !important;
+	min-width: 160px;
+	width: 24.3%;
 }
 .client-account .allorder th select[class="trust"] {
 	width: 80px;
@@ -1575,7 +1577,8 @@ table th .questiontooltip a span.que {
 	padding:5px 2px;
 }
 .client-account .allorder th:nth-child(2) {
-	width:0;
+	width:12%;
+	min-width: 90px;
 }
 /*================scroll table====================*/
 .client-account .table-container
