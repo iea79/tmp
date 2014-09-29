@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Intl\Intl;
 
 /**
  * @ORM\Entity
@@ -17,26 +18,11 @@ class Country {
     private $id;
 
     /**
-     * @ORM\Column(type="string", type="string", length=255)
-     */
-    private $name;
-
-    /**
+     * We will get name from sonata country i18n {{ 'FR' | country }} 
      * @ORM\Column(type="string", length=2, nullable=true)
      */
-    private $iso_code_2;
+    private $countryCode;
 
-    /**
-     * @ORM\Column(type="integer", length=1, nullable=true, options={"default":1})
-     */
-    private $status;
-
-    /**
-     * @var string $slug
-     *
-     * @ORM\Column(name="slug", type="string", length=255, unique=true)
-     */
-    protected $slug;
 
     /**
      * Get id
@@ -48,55 +34,13 @@ class Country {
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Country
-     */
-    public function setName($name) {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName() {
-        return $this->name;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param  string  $slug
-     * @return Country
-     */
-    public function setSlug($slug) {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug() {
-        return $this->slug;
-    }
-
-    /**
      * Set iso_code_2
      *
      * @param string $isoCode2
      * @return Country
      */
-    public function setIsoCode2($isoCode2) {
-        $this->iso_code_2 = $isoCode2;
+    public function setCountryCode($isoCode2) {
+        $this->countryCode = $isoCode2;
 
         return $this;
     }
@@ -106,29 +50,8 @@ class Country {
      *
      * @return string 
      */
-    public function getIsoCode2() {
-        return $this->iso_code_2;
-    }
-
-    /**
-     * Set status
-     *
-     * @param integer $status
-     * @return Country
-     */
-    public function setStatus($status) {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return integer 
-     */
-    public function getStatus() {
-        return $this->status;
+    public function getCountryCode() {
+        return $this->countryCode;
     }
 
     /**
@@ -162,7 +85,7 @@ class Country {
     }
 
     public function __toString() {
-        return $this->name;
+        return Intl::getRegionBundle()->getCountryName($this->countryCode);
     }
 
 }

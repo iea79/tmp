@@ -10,6 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
+use DaVinci\TaxiBundle\Entity\TaxiCompany;
+
 class RegistrationController extends BaseController {
 
     
@@ -177,18 +179,13 @@ class RegistrationController extends BaseController {
     */
     public function register_companyAction()
     {
-               return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_company.html.twig');
- 
-        $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
-        
-        ////// form handler moved here to use craue flow bundle
-        $userManager = $this->container->get('fos_user.user_manager');
-        
-        $user = $userManager->createUser();
 
-        $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
-        
-        $flow->bind($user);
+        $user = $this->container->get('security.context')->getToken()->getUser();
+                
+        $formData = new TaxiCompany();
+        $flow = $this->container->get('taxi.registration.company.form.flow'); // must match the flow's service id
+      
+        $flow->bind($formData);
         $form = $flow->createForm();
 
         $process = false;
@@ -226,45 +223,15 @@ class RegistrationController extends BaseController {
                             
         if ($process) {
 
-            $user = $form->getData();
 
-            $authUser = false;
-            if ($confirmationEnabled) {
-                $this->container->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
-                $url = $this->container->get('router')->generate('fos_user_registration_check_email');
-            } else {
-                $authUser = true;
-                $route = $this->container->get('session')->get('sonata_basket_delivery_redirect');
-
-                if (null !== $route) {
-                    $this->container->get('session')->remove('sonata_basket_delivery_redirect');
-                    $url = $this->container->get('router')->generate($route);
-                } else {
-                    $url = $this->container->get('session')->get('sonata_user_redirect_url');
-                }
-            }
-
-            $this->setFlash('fos_user_success', 'registration.flash.user_created');
-
-            $response = new RedirectResponse($url);
-
-            if ($authUser) {
-                $this->authenticateUser($user, $response);
-            }
-
-            //send to paygnet
-            $this->container->get('paygnet')->registerUser($user->getEmail(),$user->getId());
-        
         
             return $response;
         }
         
         
-        if($flow->getCurrentStepNumber()==$flow->getFirstStepNumber())
-            $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
-
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_company.html.twig' , array(
                     'form' => $form->createView(),
+                    'user' => $user,
                     'flow' => $flow,
         ));
     }

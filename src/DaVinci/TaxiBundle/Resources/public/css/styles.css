@@ -1,4 +1,4 @@
-.home .steps-1-2-3 .chois .active﻿/*==========================   general styles   =================================*/
+﻿/*==========================   general styles   =================================*/
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
@@ -1196,11 +1196,12 @@ office passengers and driver
 	line-height: 130%;
 	text-align: center;
 }
-.client-account .uk-close:after {
-  display: block;
-  content: "\e609" !important;
-  font-family: icontaxi;
-  font-size: 18px;
+.pop-up .uk-close:after {
+	display: block;
+	content: "\e609" !important;
+	font-family: icontaxi;
+	font-size: 18px;
+	margin: -5px -11px 0px 0px;
 }
 .client-account input,
 .client-account select,
@@ -1235,8 +1236,9 @@ office passengers and driver
 .client-account .clientid {
         color: #3c3d45;
         font-size: 14px;
-        line-height:20px;
+        line-height:21px;
         width: 100%;
+		letter-spacing: 0.2px;
 }
 .client-account dl {
         margin:1em 0;
@@ -1281,10 +1283,11 @@ office passengers and driver
 /*=====================office button==============================*/
 .client-account .uk-button-profile {
     padding:0;
-    min-width:160px;
+    min-width:168px;
     line-height: 38px;
     margin-bottom:5px !important;
     font-size:16px;
+	border-radius; 4px;
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
@@ -1301,8 +1304,36 @@ office passengers and driver
 	font-size:16px;
 }
 .client-account .button-skype {
-	line-height:30px;
-	float:left !important;
+	line-height: 30px !important;
+	float: left !important;
+	margin-top: 1px !important;
+	margin-left: 0px;
+	min-width: 130px !important;
+	width: 39.5%;
+}
+.client-panel-button {
+	margin-bottom:11px;
+}
+.client-panel-button .uk-grid-small {
+	margin-left: -6px;
+}
+.client-panel-button .uk-grid-small > * {
+	padding-left: 6px;
+}
+.client-panel-list .uk-grid-small {
+	margin-left: -17px;
+}
+.client-panel-list {
+	margin-bottom: 28px;
+}
+.client-panel-list .uk-grid-small .uk-panel:first-child {
+	min-width: 164px;
+}
+.client-panel-list .uk-grid-small .uk-panel:nth-child(2) {
+	min-width: 166px;
+}
+.client-panel-list .uk-grid-small .uk-panel:last-child {
+	min-width: 160px;
 }
 /*=======================office tabs============================*/
 .client-account .main {
@@ -1354,6 +1385,7 @@ office passengers and driver
     background-color: #fff;
     color: #528ed3;
     text-shadow:none;
+	padding: 4px 0px 5px 10px;
 }
 /*========================office table===========================*/
 .shadow-main {
@@ -1383,6 +1415,8 @@ office passengers and driver
     background:#f5f5f5;
     color:#3c3d45;
     position:relative;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 .client-account .blue-thead tr th {
     font-weight:bold;
@@ -1398,7 +1432,6 @@ office passengers and driver
 }
 .client-account .uk-table tr {
     border-top:#d0d0d0 1px solid;
-    border-bottom:#d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align:center;
@@ -1417,13 +1450,15 @@ office passengers and driver
 .client-account .message {
 	display: table;
 	vertical-align:middle;
-	padding:20px;
-	padding-left: 30px;
+	padding:15px 20px 16px 20px;
 	font-size:16px;
 }
-.client-account .graybg {
+.client-account .message-graybg {
 	background:#f5f5f5;
 	padding: 15px 20px;
+}
+.client-account .message-graybg lable {
+	line-height:30px;
 }
 .client-account .message dt,
 .client-account .message dd {
@@ -1473,6 +1508,8 @@ office passengers and driver
 .client-account .uk-table th:nth-child(3) {
     text-align:left;
     vertical-align:middle;
+	padding: 7px 20px 7px 17px;
+	position:relative;
 }
 .client-account .uk-table.main td,
 .client-account .uk-table.main th,
@@ -1499,17 +1536,24 @@ office passengers and driver
     line-height:38px;
     margin-top:5px;
 }
-.uk-table th .questiontooltip {
-	width:20px;
-	float:none;
+table th .questiontooltip {
+	width: 15px;
 	display: -moz-inline-box;
 	display: -webkit-inline-box;
-    display: inline-block;
-    vertical-align: top;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-right: -1px;
 }
-.uk-table th .questiontooltip a span.que{
-	top:1px;
-	margin:0;
+table th .questiontooltip a span.que {
+	top: 0;
+	border-radius: 0;
+	font-size: 11px;
+	height: 10px;
+	width: 10px;
+	line-height: 11px;
+	padding: 0;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -1523,7 +1567,15 @@ office passengers and driver
 	width:4%;
 }
 .client-account .uk-table th:nth-child(2) {
-	width:10%;
+	width:11.8%;
+}
+.client-account .iconed-drop {
+	letter-spacing: 2px;
+	font-size: 18px;
+}
+.client-account .ov-trust .select {
+	background-color:transparent;
+	border:0;
 }
 .client-account .allorder th {
 	width:0;
@@ -1554,50 +1606,76 @@ office passengers and driver
   background-color: rgba(0, 0, 0, .3);
 }
 /*================style dropdown block (driver list) Alla=================*/
-.client-account .uk-table .uk-panel-box {
+.open-order-passenger .uk-panel-box {
     background:#fff;
     border-radius:0;
     border:none;
     padding:0;
-    margin: 10px -8px;
+    margin: 54px -20px -7px -17px;
 }
-.client-account .uk-table tr td:first-child, .uk-table tr td:nth-child(2){
-    padding:10px;
+.open-order-passenger tr td:first-child, 
+.open-order-passenger tr td:nth-child(2){
+    padding:20px 0px 10px 0px;
 }
 .whitebg .uk-table td p {
     overflow:hidden;
-    margin:0;
+    margin:12px 0 11px 0;
+	position:relative;
 }
-.whitebg .uk-table td p button {
-    background-color:#528ed3;
-    float:right;
-    
+.open-order-passenger td button {
+	background-color: #528ed3;
+	position: relative;
+	width: 27%;
+	min-width: 150px;
+	float: right;
+	margin-top: 2px !important;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
-
-.whitebg .uk-table td p button:hover, .whitebg .uk-table td p button:focus {
+@media (max-width: 600px) {
+	.open-order-passenger td button {
+		float: none;
+	}
+}
+.open-order-passenger .route {
+	margin: 12px 0px 11px 0px;
+}
+.whitebg .uk-table td button:hover,
+.whitebg .uk-table td button:focus {
     background-color:#35b3ee;
 }
-.whitebg .uk-table td p .active-gray {
+.whitebg .uk-table td .active-gray {
     background-color:#ebebeb!important;
     padding:0 10px;
+	color:#8d8f98;
     
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
-    padding:12px;
-    font-size:16px;
+    padding: 22px 20px 0px 17px;
     display: inline-block;
 }
 .driver-top  {
     overflow:hidden;
+	margin-bottom: 5px;
 }
 .driver-top div {
     float:left;
-    width:33.3%;
+}
+.driver-top .profile {
+    width:30%;
+}
+.driver-top .vehicle {
+    width:37%;
+}
+.driver-top .y-no {
+    width:33%;
+	padding-top: 2px;
 }
 .driver-top  img{
     float:left;
-    margin-right:5%;
+    margin-right: 3%;
     
 }
 .driver-top .driver-photo {
@@ -1605,80 +1683,91 @@ office passengers and driver
     height:53px;
 }
 .driver-top .drive-car {
-    width:99px;
-    height:55px;
-}
-.driver-top .y-no {
-    text-align:right;
-    padding-top: 1px;
+	margin-top:-6px;
 }
 .driver-top .y-no  button {
-    width:100px;
-    text-transform:uppercase;
+	min-width: 100px !important;
+	width: 48.4% !important;
+	text-transform: uppercase;
+	margin: -2px 0px 0px 0px !important;
+	float: left !important;
 }
     .profile .name {
-   	 color:#528ed3;
+		 color:#528ed3;
     }
     .profile .proffesion {
-   	 font-size:14px;
-   	 color:#8d8f98;
+		 font-size:14px;
+		 color:#8d8f98;
     }
     .profile {
-   	 line-height: 18px;
+		 line-height: 18px;
     }
     .profile .uk-icon-smile-o{
-   	 color:#27bf2e;
+		 color:#27bf2e;
     }
     .profile .uk-icon-frown-o {
-   	 color:#ff4d61;
+		 color:#ff4d61;
     }    
-    .profile .feedback_ok {
-   	 margin-right:25px;
+ 	.profile .mp-icon-taxi {
+		font-size: 18px;
+	}
+   .profile .feedback_ok {
+		 margin-right:25px;
+    }
+   .profile .feedback_ok i,
+   .profile .feedback_bad i  {
+		 font-size: 110%;
     }
     .vehicle .name {
-   	 color:#3c3d45;
+		 color:#3c3d45;
     }
     .vehicle {
-   	 line-height:25px;
+		 line-height:20px;
     }
     .vehicle span {
-   	 color: #3c3d45;
+		 color: #3c3d45;
+		 margin-bottom: 6px;
+		display: inline-block;
     }
     .vehicle i {
-   	 color:#ff4d61;
-   	 margin-left:10px;
+		 color: #ff4d61;
+		 margin-left: 22px; 
     }
-    .y-no button:first-child{
-   	 background-color:#ff4d61;
-   	 
+	.vehicle i.mp-icon-person {
+		margin-left: 0;
+	}
+    .y-no button:first-child {
+		 background-color:#ff4d61 !important;
+		 margin-right; 8px !important;
     }
     .y-no button:first-child:focus, .y-no button:first-child:hover {
-   	 background-color:#c91032;
+		 background-color:#c91032 !important;
     }
     .y-no button:last-child {
-   	 background-color:#8d8f98;
+		 background-color:#8d8f98 !important;
+		 margin-left: 8px !important;
     }
     .y-no button:last-child:focus, .y-no button:last-child:hover {
-   	 background-color:#adafa8;
+		 background-color:#adafa8 !important;
     }
     td .driver-over p.about {
-   	 margin:5px 0;
-   	 padding:0;
-   	 line-height:20px;
-   	 color: #3c3d45;
+		 margin: 5px 0px 7px 0px;
+		 padding: 0;
+		 line-height: 19px;
+		 color: #3c3d45;
     }
     .call-driver {
-   	 float:left;
-	 margin-top:15px;
-   	 padding:15px 0;
-   	 border-top: 1px solid #d0d0d0;
+		 float: left;
+		 margin-top: 5px;
+		 padding: 18px 0;
+		 border-top: 1px solid #d0d0d0;
     }
     .call-driver span {
-   	 line-height:37px;
-   	 margin-right:10px;
-   	 font-weight:bold;
-   	 float:left;
-   	 color: #3c3d45;
+		 line-height: 32px;
+		 margin-right: 6px;
+		 font-weight: bold;
+		 float: left;
+		 color: #3c3d45;
     }
 /*====================================== end of offices ============================================*/
 /*------------------------------------- footer   --------------------------------*/
@@ -2007,18 +2096,33 @@ footer {
 }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
-.pop-up {
-    /*display:block;*/
-}
-.client-account .uk-modal-dialog {
+/* === Main pop-up style === */
+.pop-up .uk-modal-dialog {
 	width: 690px !important;
+}
+.uk-modal-dialog.passenger {
+	margin-top: 1px;
+}
+.passenger .pop-up .profile {
+	width: 71%;
+}
+.pop-up input,
+.pop-up select,
+.pop-up .uk-form input,
+.pop-up .uk-form select {
+	border-radius:4px;
+	border: 1px #8e9099 solid;
+	height:28px;
+}
+.pop-up input[type="checkbox"] {
+	height:20px;
 }
 .popup-head {
 	width: 100%;
 	margin-left: -20px;
 	margin-top: -20px !important;
-	margin-bottom: 20px;
-	padding-left: 20px;
+	margin-bottom: 27px;
+	padding-left: 19px;
 	padding-right: 20px;
 	background-color: #EBEBEB;
 	color:#3c3d45;
@@ -2026,6 +2130,8 @@ footer {
 	font-size:18px;
 	-webkit-border-radius: 5px 5px 0 0;
 	border-radius: 5px 5px 0 0;
+	line-height: 35px;
+	height: 41px;
 }
 .popup-head:hover,
 .popup-head:focus {
@@ -2038,46 +2144,149 @@ footer {
     font-weight:normal;
 }
 .popup-head.inbox {
-	margin-left: 0px;
-	margin-bottom:10px;
-	margin-top: 0px !important;
+	margin-left: 1px;
+	margin-bottom: 5px;
+	margin-top: -1px !important;
 	padding-right: 0px;
-	font-size:16px !important;
-	font-weight:bold;
+	padding-left: 0px;
+	font-size: 16px !important;
+	font-weight: bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	text-align:center;
-	width: 100%;
-	display:inline-block;
-	line-height:40px !important;
+	text-align: center;
+	width: 99%;
+	display: inline-block;
+	line-height: 20px !important;
+	height: 30px;
 }
 .popup-head.inbox i {
 	color: #0091ca;
-	padding-left:5px;
+	padding-left: 10px;
+}
+.pop-up .block-foto-rate {
+	width: 25%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto-rate {
+		width: 100%;
+	}
+}
+.pop-up .block-foto {
+	width: 100%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto {
+		width: 25%;
+	}
+}
+@media (max-width: 570px) {
+	.pop-up .block-foto {
+		width: 35%;
+	}
+}
+.pop-up .block-rate {
+	width: 100%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-rate {
+		width: 71%;
+	}
+}
+@media (max-width: 570px) {
+	.pop-up .block-rate {
+		width: 59%;
+	}
+}
+.pop-up .form-view .myid dt,
+.pop-up .form-view .myid dd,
+.pop-up .profile .myid dt,
+.pop-up .profile .myid dd {
+	padding-left: 1px;
+	margin-top: -7px;
+	margin-bottom: -1px;
+    font-size: 14px !important;
+    line-height: 18px;
+}
+.pop-up .confirmation .uk-button {
+	line-height: 50px;
+	font-size: 23px;
+}
+/* === pop-up form-change === */
+.pop-up .profile.form-change {
+    padding-left: 16px !important;
+    width: 71%;
+}
+@media (max-width: 710px) {
+	.pop-up .profile.form-change {
+		padding-left: 10px !important;
+		width: 100%;
+	}
+}
+/* === pop-up form-view === */
+.profile.form-view {
+    padding-left: 16px !important;
+    width: 71%;
+}
+@media (max-width: 710px) {
+	.profile.form-view {
+		padding-left: 10px !important;
+		width: 100%;
+	}
+}
+.pop-up .form-view .about-driver {
+	margin-top: 9px;
+	margin-left: 1px;
+}
+.pop-up .form-view .about-driver dd {
+	font-size:14px;
+}
+.pop-up .form-view dt,
+.pop-up .form-view dd {
+	line-height: 8px;
+	height: 16px !important;
+	margin-bottom: -4px;
+}
+.pop-up .form-view dd.moretext {
+	line-height: 15px;
+	padding-left: 0px;
+	margin-bottom: 17px;
+	display: inline-table;
+}
+.pop-up .form-view dd.insurance {
+	margin-top: 0px !important;
+	margin-bottom: 13px !important;
+	display: inline;
+}
+.pop-up .form-view .button-skype {
+	line-height: 28px !important;
+	margin-top: -10px !important;
+	margin-left: -1px;
+	width: 50%;
+}
+.pop-up .form-view .button-add {
+margin-bottom: 14px;
 }
 .pop-up dl {
     display:inline-block;
 }
-.about-driver dd {
-	font-size:14px;
+.pop-up dt, 
+.pop-up dd {
+	min-height:30px;
 }
 .pop-up dt {
     color:#8d8f98;
     font-size:16px;
     font-weight:normal;
     float:left;
-    margin-bottom:4px;
+    margin-bottom:6px;
 }
 .pop-up dd {
     color:#3c3d45;
     font-size:16px;
-    margin-bottom:4px;
+    margin-bottom: 6px;
 }
-.pop-up dd.myid {
-    font-size:14px;
-}
-.pop-up dt.myid {
-    font-size:14px;
+div.pop-up.uk-grid.uk-grid-small {
+    width: 103%;
 }
 .pop-up .addphone {
 	float:left;
@@ -2088,66 +2297,103 @@ footer {
 	margin-right: 5px;
 }
 .pop-up.route dt {
-	margin-bottom:5px;
-    width: 39%;
+	margin-bottom: 1px;
+	width: 22.5%;
 	text-align: left;
+	font-size: 14px;
+	line-height: 1.8em;
 }
 .pop-up.route dd {
-	margin-bottom:5px;
-	width:59%;
+	margin-bottom: 1px;
+	width: 76%;
+	font-size: 14px;
+	line-height: 1.8em;
 }
-.pop-up.route dt.fullsize,
+.pop-up.route dt.fullsize {
+	width: 100%;
+	margin-bottom: -3px;
+	margin-left: 0;
+}
 .pop-up.route dd.fullsize {
-	width:100%;
-	margin-left:0;
+	width: 100%;
+	margin-bottom: 8px;
+	margin-left: 0;
+	display: inline-table;
+	line-height: 17px;
 }
 .pop-up.route dt.big {
-	line-height:25px;
+	line-height: 21px;
+	margin-bottom: 1px;
 }
 .pop-up.route dd.big {
-	line-height:25px;
-	margin-bottom: 8px;
+	line-height: 25px;
+	margin-bottom: 1px;
+}
+.pop-up.route .big i {
+	line-height: 12px;
+	font-size: 22px
+	margin-right: 2px;
+}
+.pop-up.route dt.last,
+.pop-up.route dd.last {
+    margin-top: -10px;
+    margin-bottom: 13px;
 }
 .pop-up input[type="text"],
 .pop-up select {
-	border: 1px solid #d5d3dc;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
-	padding:2px 5px 2px 5px;
-	margin: 4px 0;
+	padding:2px 5px 0px 3px;
+/*	margin: 4px 0; */
 }
 .pop-up .profile select.region {
-	width:40%;
+	width:32%;
 	display:inline;
+	margin-right:3%;
+}
+/*==== class select for script (Global) =========*/
+.select {
+    line-height:30px;
+	padding:0 8px;
+	border: 1px solid #d5d3dc;
+	color:#3d3d3d;
+	border-radius: 3px;
+	box-sizing: border-box;
+	background:#fff;
+}
+.select .uk-icon-caret-down {
+	position:absolute;
+	right:5px;
+	top:25%;
 }
 .pop-up .profile input.fone {
-	width:58%;
+	width:63%;
 	float:right;
 }
 .pop-up .profile select.day {
-	width:22%;
+	width: 14.5%;
 	display:inline;
+	margin-right: 3%;
 }
 .pop-up .profile select.classauto {
 	width:55%;
 	display:inline;
 }
 .pop-up .profile select.month {
-	width:43%;
+	width: 53%;
 	display:inline;
+	margin-right: 3%;
 }
 .pop-up .profile select.year {
-	width:30%;
+	width:23.5%;
 	display:inline;
-	float:right;
 }
 .pop-up .profile dt {
-	width:43%;
-	vertical-align:top;
-	margin-top:0px;
+	width:31.1%;
 }
 .pop-up .profile dd {
-	width:55%;
+	width:66.5%;
 }
 .pop-up .profile dd.fullsize {
 	width:100%;
@@ -2171,7 +2417,7 @@ footer {
 }
 .pop-up h5 {
     display: inline-block;
-    margin: 4px 0 7px;
+    margin: 4px 0 0px;
     font-family:Arial, Helvetica, sans-serif;
     font-size:16px;
     font-weight:bold;
@@ -2183,6 +2429,14 @@ i.quest {
 }
 .uk-modal {
     z-index:10000;
+}
+.uk-modal-dialog .pop-up.route {
+    padding-top: 9px;
+	padding-right: 10px;
+    margin-left: -12px;
+}
+.uk-modal-dialog .pop-up.route dl {
+    margin-top: 11px;
 }
 .pop-up .yourdrivers .icons a, .infoprofile li .icons a {
 	margin-right: 8px;
@@ -2197,12 +2451,12 @@ i.quest {
     color:#3c3d45;
 }
 .pop-up .yourdrivers a {
-	margin-right: 4px;
-	margin-top:6px;
-	color:#528ed3;
-	font-weight:normal;
-	font-size:18px;
-	float:right;
+	margin-right: -4px;
+	margin-top: 3px;
+	color: #528ed3;
+	font-weight: normal;
+	font-size: 18px;
+	float: right;
 }
 .pop-up .yourdrivers a:hover {
 	color:#4b81bf;
@@ -2214,23 +2468,27 @@ i.quest {
 	margin-bottom: 5px;
 }
 .pop-up .profile a:hover {
-	text-decoration:none;
+	text-decoration: none;
 }
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
-	border:4px #ebebeb solid;
-	border-radius:4px;
-	margin-bottom:5px;
+	border: 5px #ebebeb solid;
+	border-radius: 4px;
+	margin-bottom: 18px;
+	margin-top: -2px;
+	margin-left: -2px;
+	max-width: 160px;
 }
 .pop-up .clientreviews .photo {
-	background:url('../images/phptpapparat.png') #fff no-repeat scroll center center;
-	width:100%;
-	min-height:100px;
-	border-bottom:4px #ebebeb solid;
+	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
+	width: 100%;
+	max-height: 180px;
+	border-bottom: 4px #ebebeb solid;
 }
 .pop-up .button-add {
-	width:100%;
-	line-height:34px;
+	width: 100%;
+	line-height: 35px;
+	font-size: 15px;
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
@@ -2244,11 +2502,96 @@ i.quest {
 	margin:0px -2px;
 	font-size:16px;
 }
+.pop-up .clientreviews .rate .mp-icon-star {
+	font-size: 28px;
+	line-height: 24px;
+}
+.pop-up .clientreviews .rate .mp-icon-person {
+	font-size: 18px;
+	line-height: 24px;
+	margin-right: 4px;
+}
 .pop-up .rate-review {
 	font-size:12px;
 }
 .pop-up .rate-review i {
-	margin:0 -1px;
+	font-size: 18px;
+	letter-spacing: 0px;
+	line-height: 17px !important;
+	margin-left: -2px;
+	float:left;
+}
+.pop-up .rate-review .name {
+	margin-bottom: -1px;
+	font-size: 16px;
+	line-height: 20px;
+}
+.pop-up .rate-review .rate {
+	line-height: 22px;
+	font-size: 14px;
+}
+.pop-up .rate-review .review {
+	line-height: 14px;
+	margin-top: 2px;
+}
+/*-======== Car color ===================*/
+.car-color-beige {
+	color:#f5f5db;
+}
+.car-color-black {
+	content: "\e61f";
+	color:#000 !important;
+}
+.car-color-blue {
+	background-image:url(src="images/stop.svg");
+}
+.car-color-brown {
+	color:#9a3200;
+}
+.car-color-burgundy {
+	color:#a31917;
+}
+.car-color-charcoal {
+	color:#333333;
+}
+.car-color-gold {
+	color:#b98112;
+}
+.car-color-gray {
+	color:#464646;
+}
+.car-color-green {
+	color:#228f12;
+}
+.car-color-off-white {
+	color:#fefff1;
+}
+.car-color-orange {
+	color:#ff7501;
+}
+.car-color-pink {
+	color:#fd69b3;
+}
+.car-color-purple {
+	color:#6600ff;
+}
+.car-color-red {
+	color:#e31313;
+}
+.car-color-silver {
+	color:#8b8b8b;
+}
+.car-color-tan {
+	color:#d0b38b;
+}
+.car-color-turquoise {
+	color:#43eedc;
+}
+.car-color-white {
+	color:#d7d7d7;
+}
+.car-color-yellow {
+	color:#f6d612;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }

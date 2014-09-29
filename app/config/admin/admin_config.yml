@@ -1,0 +1,9 @@
+services:
+    davinci.taxi.admin.countrycity:
+        class: DaVinci\TaxiBundle\Admin\CountryCityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: sonata_countries }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\Admin\CountryCity
+            - SonataAdminBundle:CRUD

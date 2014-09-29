@@ -113,11 +113,16 @@
                 <nav class="header-bottom-in">
 					{{ knp_menu_render('breadcrumb',{'currentAsLink':false} ) }}
                     <ul class="uk-subnav uk-subnav-pill lang">
-                        <li data-uk-dropdown="{mode:'click'}" class="">
-                            <a href="#" class="uk-button uk-button-link">Rus <i class="uk-icon-caret-down"></i></a>
+                        <li data-uk-dropdown{#="{mode:'click'}" class=""#}>
+                            <a href="#" class="uk-button uk-button-link">
+                                
+                                {% if app.request.locale =='en' %} Eng {%elseif app.request.locale =='ru'%} Rus {% endif %}
+                                
+                                <i class="uk-icon-caret-down"></i></a>
                             <div class="uk-dropdown uk-dropdown-small">
                                 <ul class="uk-nav uk-nav-dropdown">
-                                   <li><a class="" href="#">Eng</a></li>
+                                    <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">Eng</a></li>
+                                    <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'ru'})) }}">Rus</a></li>
                                 </ul>
                             </div>
                         </li>

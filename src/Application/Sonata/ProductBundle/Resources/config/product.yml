@@ -1,0 +1,11 @@
+services:
+    sonata.ecommerce.product.giftcard.manager:
+        class: Sonata\ProductBundle\Entity\ProductManager
+        arguments:
+            - Application\Sonata\ProductBundle\Entity\giftcard
+            - @doctrine
+
+    sonata.ecommerce.product.giftcard.type:
+        class: Application\Sonata\ProductBundle\Provider\giftcardProductProvider
+        arguments:
+            - @serializer
