@@ -53,20 +53,48 @@ function setBlockHeight(){
 	});
 	$(".active .blockoffice ul").css({'height' : contentheight});
 }
-$(document).ready(function() {
+$(function(){
+    
+    if($(".register").length) { 
+    
+
+    var $country = $('#taxi_company_registration_country');
+    // When country gets selected ...
+    $country.change(function() {
+      // ... retrieve the corresponding form.
+      var $form = $(this).closest('form');
+      // Simulate form data, but only include the selected sport value.
+      var data = {};
+      data[$country.attr('name')] = $country.val();
+      // Submit data via AJAX to the form's action path.
+      $.ajax({
+        url : $form.attr('action'),
+        type: $form.attr('method'),
+        data : data,
+        success: function(html) {
+          // Replace current position field ...
+          $('#taxi_company_registration_city').replaceWith(
+            // ... with the returned one from the AJAX response.
+            $(html).find('#taxi_company_registration_city')
+          );
+          // Position field now displays the appropriate positions.
+        }
+      });
+    });
+    
 	$('.rowcity').hide();	
 	$('.rowstreet').hide();	
 	$('.rowbuild').hide();	
 	
-	$('#country').change(function() {
+	$('#taxi_company_registration_country').change(function() {
 		$('.rowcity').show();	
 	});
 
-	$('#city').change(function() {
+	$('#taxi_company_registration_city').change(function() {
 		$('.rowstreet').show();	
 	});
 	
-	$('#street').change(function() {
+	$('#taxi_company_registration_street').change(function() {
 		$('.rowbuild').show();	
 	});
 
@@ -113,6 +141,7 @@ $(document).ready(function() {
 		$('.style2').removeClass('style1');
 		return false;
 	});
+    }
 });
 /*
 $( window ).resize(function(){

@@ -22,7 +22,7 @@ class Address
 
     /**
      * @ORM\ManyToOne(targetEntity="DaVinci\TaxiBundle\Entity\City")
-     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="id", referencedColumnName="id")
      * @Assert\Type("DaVinci\TaxiBundle\Entity\City")
      * @Assert\NotNull()
      */
