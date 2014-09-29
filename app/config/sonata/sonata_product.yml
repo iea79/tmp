@@ -1,5 +1,8 @@
 sonata_product:
     products:
+        sonata.ecommerce.product.giftcard:
+            provider: sonata.ecommerce.product.giftcard.type
+            manager: sonata.ecommerce.product.giftcard.manager
         # Goodies
     #    sonata.ecommerce_demo.product.goodie:
     #        provider: sonata.ecommerce_demo.product.goodie.type
@@ -19,7 +22,6 @@ sonata_product:
 #            domain: 'http://demo.sonata-project.org'
 #            media_prefix: 'http://demo.sonata-project.org'
 #            media_format: 'reference'
-
 
 
 # Enable Doctrine to map the provided entities

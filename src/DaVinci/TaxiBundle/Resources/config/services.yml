@@ -3,7 +3,11 @@ parameters:
 
 # the menu builder service. Can be used for several menus
 services:
-    
+    davinci_locale.locale_listener:
+        class: DaVinci\TaxiBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
 #menu---------------------------------------------------------------------------
     taxi.menu_builder:
         class: DaVinci\TaxiBundle\Menu\Breadcrumbs
@@ -50,6 +54,7 @@ services:
 # company
     taxi.registration.company.form.type:
         class: DaVinci\UserBundle\Form\Type\RegistrationCompanyFormType
+        arguments: [@session]
         tags:
             - { name: form.type, alias: taxi_company_registration }
     

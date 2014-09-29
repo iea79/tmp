@@ -39,8 +39,10 @@ imports:
     - { resource: sonata/sonata_delivery.yml }
     - { resource: sonata/sonata_customer.yml }
     - { resource: sonata/sonata_basket.yml }
-    
 
+    - { resource: admin/admin_config.yml }
+    
+    - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
 
 framework:
     #esi:             ~
@@ -116,6 +118,23 @@ doctrine:
             default:
                 auto_mapping: true
                 mappings: ~
+                filters:
+                    oneLocale:
+                        class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
+                        enabled: true
+a2lix_i18n_doctrine:
+    manager_registry: doctrine
+
+a2lix_translation_form:
+    locales: [en, ru]       # [1]
+    required_locales: [en]      # [2]
+    manager_registry: doctrine      # [3]
+    templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
+
+jms_i18n_routing:
+    default_locale: en
+    locales: [en, ru]
+    strategy: prefix_except_default
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -154,3 +173,5 @@ parameters:
         followlocation: true  # to follow any "Location: " header that the server sends.
         sslversion: 3  # set to 3 to avoid any bugs that relate to automatic version selection.
         fresh_connect: false  # set to true to force full reconnect every call.
+
+

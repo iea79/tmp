@@ -17,7 +17,7 @@ class Breadcrumbs {
     }
 
     public function createBreadcrumbMenu(Request $request) {
-        $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'breadcroms'));
+        $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'breadcroms uk-subnav uk-subnav-pill'));
         
         // create the menu according to the route
         switch ($request->get('_route')) {

@@ -142,6 +142,10 @@ form:
     number_cars: "Number of cars"
     phone_number: "Phone number"
     
+    
+    please_select: "Please select..."
+    
+    
 fos_user:    
     firstname:
         latin: English/Latin characters only
