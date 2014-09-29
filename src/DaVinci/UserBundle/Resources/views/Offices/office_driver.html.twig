@@ -52,6 +52,7 @@
 			</div>
 		</div>
 <!------------------------------------------------Account end-------------------------------------->
+<!------------------------------------------------Independent-driver table--------------------------------------->
 <!------------------------------------------------Swicher button------------------------------------->
 <div class="wrapper-content">
     <div class="shadow-main">
@@ -503,9 +504,10 @@
             </ul>
     </div>
 </div>
-<!------------------------------------------------Table end------------------------------------------->
+<!------------------------------------------------Independent-driver table end------------------------------------------->
+</div>
 <!------------------------------------------------rout--------------------------------------------->
-            <div id="route" class="uk-modal client-account">
+            <div id="route" class="uk-modal pop-up">
                     <div class="uk-modal-dialog">
                         <a class="uk-modal-close uk-close"></a>
                             <div class="pop-up route uk-grid uk-grid-small uk-width-1-1">
@@ -542,70 +544,74 @@
             </div>
 
 <!------------------------------------------------profile--------------------------------------------->
-            <div id="Profile" class="uk-modal client-account">
+            <div id="Profile" class="uk-modal pop-up">
                     <div class="uk-modal-dialog">
 	                    <a class="uk-modal-close uk-close"></a>
 		                    <div class="popup-head">{{'Begin you profile'|trans}}</div>
-							<div class="pop-up uk-grid uk-grid-small">
-								<div class="uk-width-large-1-4 uk-width-medium-1-4 uk-width-small-1-1">
-									<div class="uk-grid uk-grid-small">
-										<div class="uk-width-large-1-1 uk-width-medium-1-1 uk-width-small-1-4 uk-margin-small-bottom">
-											<div class="clientreviews">
-												<div class="photo">
-													<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
-												</div>
-												<div class="rate">
-													<p>{{'Rate this driver'|trans}}</p>
-													<p>
-														<a><i class="mp-icon-star uk-text-danger uk-icon-small"></i></a>
-														<a><i class="mp-icon-star uk-text-danger uk-icon-small"></i></a>
-														<a><i class="mp-icon-star uk-text-danger uk-icon-small"></i></a>
-														<a><i class="mp-icon-star uk-text-danger uk-icon-small"></i></a>
-														<a><i class="mp-icon-star uk-text-warning uk-icon-small"></i></a>
-													</p>
-													<p><i class="mp-icon-person uk-text-warning uk-margin-small-right"></i>217</p>
-												</div>
+						<div class="pop-up uk-grid uk-grid-small">
+							<div class="block-foto-rate">
+								<div class="uk-grid uk-grid-small">
+									<div class="block-foto">
+										<div class="form-view">
+										<div class="clientreviews">
+											<div class="photo">
+												<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
 											</div>
-											<div class="">
-												<a class="uk-button uk-button-success button-add">Write a review</a>
+											<div class="rate">
+												<p>{{'Rate this driver'|trans}}</p>
+												<p>
+														<a><i class="mp-icon-star uk-text-danger"></i></a>
+														<a><i class="mp-icon-star uk-text-danger"></i></a>
+														<a><i class="mp-icon-star uk-text-danger"></i></a>
+														<a><i class="mp-icon-star uk-text-danger"></i></a>
+														<a><i class="mp-icon-star uk-text-warning"></i></a>
+												</p>
+												<p><i class="mp-icon-person uk-text-warning"></i>217</p>
 											</div>
 										</div>
-									<div class="uk-width-large-1-1 uk-width-medium-1-1 uk-width-small-3-4 uk-margin-small-bottom">
+										<div class="">
+											<a class="uk-button uk-button-success button-add">Write a review</a>
+										</div>
+									</div>
+									</div>
+									<div class="block-rate">
+										<div class="rate-review">
 										<div class="uk-grid uk-grid-small uk-margin-small">
 											<div class="uk-width-1-1 uk-margin-small">
-												<div class="uk-width-1-1 uk-text-primary">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
-												<div class="uk-width-1-1 rate-review">
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-warning"></i></a>
+												<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+												<div class="uk-width-1-1 rate">
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-warning"></i></a>
 													/ 09.01.2014
 												</div>
-												<div class="uk-width-1-1 uk-text-small">
+												<div class="uk-width-1-1 uk-text-small review">
 													{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 												</div>
 											</div>
 											<div class="uk-width-1-1 uk-margin-small">
-												<div class="uk-width-1-1 uk-text-primary">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
-												<div class="uk-width-1-1 rate-review">
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-danger"></i></a>
-													<a><i class="mp-icon-star uk-icon-small uk-text-warning"></i></a>
+												<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+												<div class="uk-width-1-1 rate">
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-warning"></i></a>
 													/ 09.01.2014
 												</div>
-												<div class="uk-width-1-1 uk-text-small">
+												<div class="uk-width-1-1 uk-text-small review">
 													{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 												</div>
 											</div>
 										</div>
-									<div class="uk-width-1-1"><a class="uk-button button-add">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
-								</div>
+									<div class="uk-width-1-1"><a class="uk-button button-add uk-margin-small-bottom">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
+									</div>
+									</div>
 								</div>
 							</div>
-							<div class="profile uk-width-large-3-4 uk-width-medium-3-4 uk-width-small-1-1">
+							<div class="profile form-change">
 								<button  data-uk-toggle="{target:'#toggle0'}" class="popup-head uk-button inbox">{{'Personal information'|trans}}<i class="uk-icon-question-circle"></i></button>
 									<div class="uk-hidden" id="toggle0">
 										<dl class="uk-width-1-1 uk-margin-bottom">
@@ -1060,7 +1066,7 @@
 									<div class="uk-hidden" id="toggle2">
 										<label><input type="checkbox" class="uk-float-left uk-margin-small-right">{{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}</label>
 									</div>
-								<div class="uk-margin">
+								<div class="uk-margin confirmation">
 									<div class="uk-grid uk-grid-small">
 										<div class="uk-panel uk-width-1-2">
 											<button class="uk-button uk-button-success uk-width-1-1">{{'Save'|trans}}</button>
@@ -1071,9 +1077,8 @@
 										</div>
 									</div>
 								</div>
-                    </div>
-            </div>
-	</div>
-</div>
+						</div>
+				</div>
+			</div>
 
 {% endblock %}
