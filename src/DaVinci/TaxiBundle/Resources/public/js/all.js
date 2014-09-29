@@ -249,3 +249,9 @@ $(document).ready(function() {
 	});
 
   });
+  
+  
+ $('.chois li').change(function(){ 
+var ind = $('.chois li').index($('li.uk-active')[0]);
+alert(ind);
+});
