@@ -245,7 +245,10 @@ $(document).ready(function() {
 	});
 
   });
-  
+ //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
+ $('.spec-request').click(function(){
+	$(this).next('.checks').toggle();
+ });
   
  $('.chois li').change(function(){ 
 var ind = $('.chois li').index($('li.uk-active')[0]);

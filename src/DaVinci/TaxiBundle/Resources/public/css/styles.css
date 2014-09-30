@@ -445,6 +445,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 
 						.header-wrapper .header-bottom .header-bottom-in .breadcroms li.current span {
 							color:#fff;
+						}
 
 							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a:hover {
 								text-decoration:none;
@@ -762,6 +763,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		
 		
 	}
+	.home  .destination .select span {
+		padding:0 6px 0 0;
+	}
 	.home .float_left {
 		float:left;
 	}
@@ -775,12 +779,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details-over h1 {
 		font-size:20px;
 		color:#ff4d61;
-		margin:5px 0 5px 20px;
+		margin:0 0 5px 20px;
+		line-height:24px;
+		
 	}
 	.order-details {
 		float:none;
 		margin:0 20px;
 		border-top:1px solid #ff4d61;
+		
 	}
 	.order-details .checks  td{
 		padding:5px 0;
@@ -788,6 +795,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details-over .order-details h4 {
 		font-size:16px;
 		color:#ff4d61;
+		margin-top:12px;
 	}
 	.order-details-over .spinner, .driv-over .spinner {
 		width:52px;
@@ -847,6 +855,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		font-size:16px;
 		font-weight:bold;
 		margin:20px 0 15px 0;
+		cursor:pointer;
 	}
 		.order-details .spec-request span {
 			font-size:20px;
@@ -1288,7 +1297,7 @@ office passengers and driver
     line-height: 38px;
     margin-bottom:5px !important;
     font-size:16px;
-	border-radius; 4px;
+	border-radius: 4px;
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
@@ -1742,7 +1751,7 @@ table th .questiontooltip a span.que {
 	}
     .y-no button:first-child {
 		 background-color:#ff4d61 !important;
-		 margin-right; 8px !important;
+		 margin-right: 8px !important;
     }
     .y-no button:first-child:focus, .y-no button:first-child:hover {
 		 background-color:#c91032 !important;
@@ -2335,7 +2344,7 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 .pop-up.route .big i {
 	line-height: 12px;
-	font-size: 22px
+	font-size: 22px;
 	margin-right: 2px;
 }
 .pop-up.route dt.last,
@@ -2547,7 +2556,7 @@ i.quest {
 	color:#000 !important;
 }
 .car-color-blue {
-	background-image:url(src="images/stop.svg");
+	background-image:url('..images/stop.svg');
 }
 .car-color-brown {
 	color:#9a3200;
