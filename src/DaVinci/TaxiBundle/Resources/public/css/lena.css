@@ -2,8 +2,8 @@
 	display:block;
 	margin:0 0 12px;
 }
+.register .wicheck  label {margin: 0;}
 .register  label .text {
-/*	width:191px;*/
 	display:inline-block;
 	vertical-align:middle;
 }
@@ -26,25 +26,28 @@
     margin: 0 0 -1px;
 }
 .register .title{
-	background: #3d3d3d;
-	color: #fff;
+	color: #3d3d3d;
 	text-align: center;
-	text-transform: uppercase;
-	margin: 20px 0 30px 0;
-    padding: 22px 0 18px 0;	
-	font-size: 30px;
+	margin: 0 0 18px 0;
+    padding: 5px 0 5px 0;	
+	font-size: 27px;
 	position: relative;
-	line-height: 120%;
 }
 .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
-    border: 1px solid #8e9099;
+    border: 1px solid #d1d1d1;
     border-radius: 3px;
+	color: #8e9099;
+	font-size: 15px;
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
     padding: 4px 11px 4px 9px;
     vertical-align: middle;
+}
+.register select {
+    padding: 0;
+	height: 20px;
 }
 .wrapper-content .register .uk-button.btn-red {
     background: none repeat scroll 0 0 #ff3148;
@@ -52,7 +55,6 @@
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 .wrapper-content .register .uk-button.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
-/*.btn-red:hover {    background: none repeat scroll 0 0 #ff94a0;}*/
 @media (max-width: 1017px) {
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
@@ -72,30 +74,20 @@
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
 .wrapper-content .register .uk-button {
-    font-size: 20px;
-    padding: 10px 10px 16px 10px;
-
-	
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: middle;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  background: #27bf2e;
-  color: #fff;
-/*
-    margin-top: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
-  text-shadow: 0 1px 0 #8e9099;
-
- 	display: block;
-	padding: 16px 0 14px 0;
-	margin-bottom: 16px;
-	*/
-
+    font-size: 22px;
+    padding: 8px 10px;
+	line-height: 144%;
+	margin-left: -2px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	border: none;
+	background: #27bf2e;
+	color: #fff;
 }
+.wrapper-content .register .uk-button.nextbutt {	line-height: 150%;}
 .wrapper-content .register input[type="submit"] {
     border: medium none;
     border-radius: 4px;
@@ -106,54 +98,64 @@
 .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
 	float: left;
 	color: #3c3d45;
-	width: 28%;
-	margin-right: 10px;
+	width: 34.8%;
+	padding-right: 10px;
+	font-size: 16px;
 }
 .register .uk-form-horizontal .uk-form-controls {
 	margin-lefT: 0;
+	margin-top: 1px;
 	floaT: left;
-	width: 68%;
+	width: 65.2%;
 }
+.register .uk-form-horizontal .uk-form-controls select, .register .uk-form-horizontal .uk-form-controls textarea, .register .uk-form-horizontal .uk-form-controls input[type="text"], .register .uk-form-horizontal .uk-form-controls input[type="password"], 
+.register .uk-form-horizontal .uk-form-controlsinput[type="email"] {	height: 28px;}
+.register .uk-form-horizontal .uk-form-row  {
+	margin-top: 13px;
+	margin-bottom: 13px;
+}
+.register .uk-form-horizontal.verifi .uk-form-row  {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {	margin-top: -2px;}
 .addphoneareas  .questiontooltip {
 	float: right;
 	position: relative;
 	position: absolute;
-	right: 0;
+	right: 0px;
 }
 .questiontooltip {
-	width: 5%;
 	position: relative;
 	float: left;
 	text-align: left;
-	margin-left: 6px;
+	margin-left: 1px;
 }
 .title .questiontooltip {
-	position: relative;
+	position: absolute;
 	display: inline-block;
-	top: -10px;
 	font-size: 11px;
 	width: auto;
 	float: none;
-	line-height: 120%;
 	text-transform: none;
-	margin-lefT: -4px;
+	margin-left: 5px;
 }
-/*.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}*/
 .questiontooltip a span.que{
 	display: block;
-	width: 18px;
-	height:17px;
+	width: 12px;
+	height:13px;
 	text-align: center;
 	background: #528ed3 ;
 	color: #fff;
 	border-radius: 50%;
-	padding-top: 1px;
-	font-size: 14px;
+	padding-top: 0px;
+	font-size: 10px;
 	vertical-align: middle;
-	line-height: 16px;
+	line-height: 130%;
+	padding-right: 1px;
 	margin-lefT: 4px;
 	position: relative;
-	top: 4px;
+	top: 7px;
 	z-index: 0;
 }
 .questiontooltip a:hover {
@@ -184,16 +186,18 @@
 }
 .numcars {margin-right: 12px;}
 .register .uk-form input[type="radio"] {
+	float: left;
 	position: relative;
-	top: 7px;
+	top: 12px;
+}
+.register .uk-form input[type="checkbox"] {
+	margin-top: 0;
+	margin-right: 10px;
 }
 .authorizat .uk-h3, .authoriz .uk-h3, .authorizat h3, .authoriz h3 {
     color: #ff4d61;
     margin-bottom: 8px;
 }
-/*.register .uk-width-1-2{
-  width: 47%;
-}*/
 .wrapper-content .register .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
 	float: left;
@@ -229,26 +233,23 @@
     width: 540px;
 }
 .addotherlanguage {
-	width: 100%;
+	width: 95%;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 5px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
-    padding: 8px 10px;
+    padding: 6px 8px  2px 8px;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     vertical-align: middle;
 }
-.addphoneline .text, .addlangline .text {    padding: 5px 0;}
-.addphoneline .text {   padding-bottom: 4%;}
+.addphoneline .text {   padding-bottom: 8%;}
 .phonecode {
 	float: left;
 	margin-right: 10px;
 }
 .register .uk-form-horizontal  .addphoneareas {
-/*	width: 60%;*/
 	float: left;
     margin-bottom: 12px;
 }
@@ -261,17 +262,19 @@
     margin: 0 15px 0 4px;
 }
 .wicheck {
-	margin-top: 12px;
+	margin-top: 18px;
+	margin-bottom: -2px;
 	position: relative;
 	float: left;
 }
+.adphoniklast  {margin-top: 20px;}
 .wicheck .questiontooltip {
 	top: -2px;
-	right: -5px;
+	right: -10px;
 }
 .whicheck-1 {
-	width: 16%;
-	margin-right: 34px;
+	width: 16.4%;
+	margin-right: 27%;
 }
 .whicheck-2 {width: 26%;}
 .register .wicheck  label {display: inline-block;}
@@ -282,6 +285,7 @@
 	cursor: pointer;
     color: #528ed3;
     display: inline-block;
+	font-size: 13px;
 }
 .addphone .questiontooltip {
 	width: 14%;
@@ -425,7 +429,6 @@
 	opacity: 0.6
 }
 #makechoice li a:active {	opacity: 0.4}
-
 .register .uk-form-controls {
 	position: relative;
 	white-space: nowrap;
@@ -453,13 +456,10 @@
 	opacity: 0.6
 }
 #makechoice li a:active {	opacity: 0.4}
-
-
 .register .uk-form-horizontal  .style1 {
 	float: left;
 	width: 50%;
 }
-/*.register .uk-form-horizontal  .style1 .uk-width-1-1{	width: 100%;}*/
 .register  .style1, .register  .style2 {
     margin: 0;
     overflow: hidden;
@@ -468,10 +468,6 @@
 .register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
 .register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
-/*
-#buttons {    overflow: hidden;}
-#insidebuttonwrapper {    float: left;}*/
-
 .register label, .register fieldset {    position: relative;}
 .errors {
     color: #ff4d61;
@@ -507,9 +503,6 @@ label .errors {
 .authorizat {
     margin: 0 auto;
     overflow: hidden;
-/*
-    width: 398px;
-    padding-bottom: 38px;*/
     position: relative;
     text-align: center;
 }
@@ -528,20 +521,9 @@ label .errors {
     border: 1px solid #8e9099;
     border-radius: 3px;
     box-sizing: border-box;
-/*    clear: left;
-    float: left;
-    margin-right: 0;*/
     padding: 4px 11px 4px 9px;
     text-align: left;
 }
-/*.authorizat .nextbutt, .authorizat .backbutt {
-    border-radius: 3px;
-    box-sizing: border-box;
-    height: 51px;
-    margin-bottom: 14px;
-    margin-top: 5px;
-    padding: 0 20px 1px;
-}*/
 div.loginfb, div.logintw {
     border-radius: 3px;
     display: inline-block;
@@ -566,39 +548,27 @@ a.loginfb, a.logintw {
 a.loginfb {    background: url("../images/fbc.png") no-repeat scroll 0 0 transparent;}
 a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 transparent;}
 .register .uk-form-password-toggle {right: 46px;}
-/*footer .footer-top .footer-in .add-nav ul li {border: none;}*/
 .wrapper-content .register {
-/*	min-width: 560px;
-	width: 40%;*/
-	
-	max-width: 550px;
+	max-width: 560px;
 	min-width: 40%;
-
-
 	margin: 0 auto;
 	background: #fff;
-	padding: 10px 0px 10px 10px;
+	padding: 6px 10px 14px 10px;
 }
 .wrapper-content .register form{
 	width: 100%;
 	margin: 0 auto;
 	text-align: left;
 }
-.wrapper-content .register .authorizat{
-	text-align: center;
-}
-.wrapper-content > .content.checkmail .float_left{
-}
+.wrapper-content .register .authorizat{	text-align: center;}
 .checkmail a, .about .term a {    color: #528ed3;}
 .checkmail .float_right {text-align: right;}
-
 .checkmail {
 	text-align: left;
     background: url("../images/checkmail.png") no-repeat 20px center #fff;
 	padding: 20px 20px 20px 140px;
 	min-width: 560px;
 	width:80%;
-	
 	margin: 0 auto;
 }
 .wrapper-content > .content.usedemail {
@@ -609,16 +579,13 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 	width:80%;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
-
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 12px;}
-
 .register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
-
-/*.register .uk-form-horizontal .uk-form-label.uk-width-2-5 {width: 33%;}*/
-.register .uk-form-horizontal .uk-width-4-5 {width: 97%;}
-.register .uk-form-horizontal .uk-width-4-6 {width: 48%;}
-.register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
+.register .uk-form-horizontal .uk-width-4-5 {width: 98.4%;}
+.register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
+.register .uk-form-horizontal .uk-width-4-8 {width: 96.8%;}
+.register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
-/*.register .uk-form-horizontal .addphoneareas .uk-width-1-1 {width: 94%;}*/
-.register .uk-form-horizontal .uk-width-4-7 {width: 93%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
+.register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49%;}

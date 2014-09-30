@@ -1,4 +1,4 @@
-.home .steps-1-2-3 .chois .active﻿/*==========================   general styles   =================================*/
+﻿/*==========================   general styles   =================================*/
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
@@ -536,7 +536,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:15px 0;
+		padding:8px 0;
 		box-shadow: 0 1px 1px 0px #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
@@ -544,12 +544,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.home .steps-1-2-3 .chois {
 			border-top:1px solid #ff4d61;
 			border-bottom:1px solid #ff4d61;
-			height:60px;
+			height:54px;
 			overflow:hidden;
 			padding:0;
 		}
 			.home .steps-1-2-3 .chois li {
-				height:60px;
+				height:54px;
 				text-align:center;
 				list-style:none;
 				float:left;
@@ -564,7 +564,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
-					font-size:18px;
+					font-size:17px;
 					padding:0 5px 0 0;
 					margin:0;
 					background:transparent;
@@ -579,9 +579,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					}
 					.home .steps-1-2-3 .chois li a .on {
 						background:#ff4d61;
-						font-size:22px;
-						width:24px;
-						padding:2px 1px;
+						font-size:21px;
+						width:22px;
+						padding:3px 2px;
 						border-radius:15px;
 						color:#fff;
 						display:inline-block;
@@ -589,7 +589,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
 						display:table-cell;
-						height:60px;
+						height:54px;
 						width:302px;
 						
 					}
@@ -604,11 +604,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #fff;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 30px 1px 30px 30px;
+						border-width: 27px 1px 27px 27px;
 						display: block;
 						height: 0;
 						position: absolute;
-						right: -30px;
+						right: -27px;
 						top: 0;
 						width: 0;
 						z-index: 50;
@@ -617,7 +617,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #ff4d61;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 30px 1px 30px 30px;
+						border-width: 27px 1px 27px 27px;
 						display: block;
 						height: 0;
 						position: absolute;
@@ -632,18 +632,18 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	*/
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:30px;
-				height:60px;
+				width:27px;
+				height:54px;
 				position: absolute;
-				right: -32px;
+				right: -28px;
 				top: 0;
 			}
 			.home .steps-1-2-3 .chois li.uk-active  a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:30px;
-				height:60px;
+				width:27px;
+				height:54px;
 				position: absolute;
-				right: 0;
+				right: 1px;
 				top: 0;
 			}
 	/*
@@ -668,7 +668,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					}
 /*==========================  styles of booking step 1  in homepage =================================*/
 .destination {
-	margin:40px 0 20px 0;
+	margin:28px 0 20px 0;
 }
 	.destination .nav-over {
 		padding:0 20px;
@@ -996,11 +996,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 /*===================================  map styles ==============================================================*/
 	.disloc-in {
-		margin:18px 20px 0 20px;
+		margin:2px 20px 0 20px;
 	}
 		.disloc-in ul {
 			padding:0;
-			margin:0 0 2px 0;
+			margin:0 0 5px 0;
 			
 		}
 		
@@ -1008,7 +1008,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			list-style:none;
 			float:left;
 			font-size:16px;
-			margin:0 10px 0 0;
+			margin:0 27px 0 0;
 		}
 			.disloc-in ul  li i {
 				font-size:20px;
@@ -1035,6 +1035,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
 }
+.table-over .serv th:nth-child(2), .table-over .serv td:nth-child(2) {
+	width:16%;
+}
+.table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
+	width:27%;
+}
 	.table-over .serv {
 		width:100%;
 		border-collapse: separate;
@@ -1059,6 +1065,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.table-over .serv .under-head td {
 			background-color:#f5f5f5;
 			vertical-align:top;
+			font-size:12px;
 		}
 			 .table-over .serv .under-head input{
 			height:27px;
@@ -1116,7 +1123,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.table-over .serv .under-head .uk-form-icon {
 			display:block;
-			margin:0 8px;
+			margin:0 6px;
 		}
 		.table-over .serv .under-head .sort {
 			font-size:14px;
@@ -1189,7 +1196,7 @@ office passengers and driver
 	line-height: 130%;
 	text-align: center;
 }
-.client-account .uk-close:after {
+.pop-up .uk-close:after {
 	display: block;
 	content: "\e609" !important;
 	font-family: icontaxi;
@@ -1482,14 +1489,16 @@ office passengers and driver
 .client-account .allorder th select {
 	font-size:14px;
 }
-.client-account .allorder th[class="datetime"] {
-	width: 160px !important;
+.client-account .allorder th[class="date-time"] {
+	width: 15.3%;
+	min-width: 100px;
 }
 .client-account .allorder th[class="time"] {
 	width: 120px !important;
 }
 .client-account .allorder th[class="route"] {
-	width: 230px !important;
+	min-width: 160px;
+	width: 24.3%;
 }
 .client-account .allorder th select[class="trust"] {
 	width: 80px;
@@ -1529,17 +1538,24 @@ office passengers and driver
     line-height:38px;
     margin-top:5px;
 }
-.uk-table th .questiontooltip {
-	width:20px;
-	float:none;
+table th .questiontooltip {
+	width: 15px;
 	display: -moz-inline-box;
 	display: -webkit-inline-box;
-    display: inline-block;
-    vertical-align: top;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin-right: -1px;
 }
-.uk-table th .questiontooltip a span.que{
-	top:1px;
-	margin:0;
+table th .questiontooltip a span.que {
+	top: 0;
+	border-radius: 0;
+	font-size: 11px;
+	height: 10px;
+	width: 10px;
+	line-height: 11px;
+	padding: 0;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -1568,7 +1584,8 @@ office passengers and driver
 	padding:5px 2px;
 }
 .client-account .allorder th:nth-child(2) {
-	width:0;
+	width:12%;
+	min-width: 90px;
 }
 /*================scroll table====================*/
 .client-account .table-container
@@ -1592,15 +1609,15 @@ office passengers and driver
   background-color: rgba(0, 0, 0, .3);
 }
 /*================style dropdown block (driver list) Alla=================*/
-.client-account .uk-table .open-order-passenger .uk-panel-box {
+.open-order-passenger .uk-panel-box {
     background:#fff;
     border-radius:0;
     border:none;
     padding:0;
     margin: 54px -20px -7px -17px;
 }
-.client-account .uk-table .open-order-passenger tr td:first-child, 
-.client-account .uk-table .open-order-passenger tr td:nth-child(2){
+.open-order-passenger tr td:first-child, 
+.open-order-passenger tr td:nth-child(2){
     padding:20px 0px 10px 0px;
 }
 .whitebg .uk-table td p {
@@ -1608,18 +1625,27 @@ office passengers and driver
     margin:12px 0 11px 0;
 	position:relative;
 }
-.uk-table .open-order-passenger td button {
-    background-color:#528ed3;
+.open-order-passenger td button {
+	background-color: #528ed3;
 	position: relative;
 	width: 27%;
 	min-width: 150px;
 	float: right;
 	margin-top: 2px !important;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
-.open-order-passenger div.route {
+@media (max-width: 600px) {
+	.open-order-passenger td button {
+		float: none;
+	}
+}
+.open-order-passenger .route {
 	margin: 12px 0px 11px 0px;
 }
-.whitebg .uk-table td button:hover, .whitebg .uk-table td button:focus {
+.whitebg .uk-table td button:hover,
+.whitebg .uk-table td button:focus {
     background-color:#35b3ee;
 }
 .whitebg .uk-table td .active-gray {
@@ -1640,13 +1666,13 @@ office passengers and driver
 .driver-top div {
     float:left;
 }
-.driver-top div.profile {
+.driver-top .profile {
     width:30%;
 }
-.driver-top div.vehicle {
+.driver-top .vehicle {
     width:37%;
 }
-.driver-top div.y-no {
+.driver-top .y-no {
     width:33%;
 	padding-top: 2px;
 }
@@ -1660,13 +1686,8 @@ office passengers and driver
     height:53px;
 }
 .driver-top .drive-car {
- /*   width:99px;
-    height:55px;*/
 	margin-top:-6px;
 }
-/*.driver-top .y-no {
-    text-align:right;
-}*/
 .driver-top .y-no  button {
 	min-width: 100px !important;
 	width: 48.4% !important;
@@ -2078,7 +2099,8 @@ footer {
 }
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
-.client-account .uk-modal-dialog {
+/* === Main pop-up style === */
+.pop-up .uk-modal-dialog {
 	width: 690px !important;
 }
 .uk-modal-dialog.passenger {
@@ -2086,6 +2108,17 @@ footer {
 }
 .passenger .pop-up .profile {
 	width: 71%;
+}
+.pop-up input,
+.pop-up select,
+.pop-up .uk-form input,
+.pop-up .uk-form select {
+	border-radius:4px;
+	border: 1px #8e9099 solid;
+	height:28px;
+}
+.pop-up input[type="checkbox"] {
+	height:20px;
 }
 .popup-head {
 	width: 100%;
@@ -2116,7 +2149,7 @@ footer {
 .popup-head.inbox {
 	margin-left: 1px;
 	margin-bottom: 5px;
-	margin-top: -2px !important;
+	margin-top: -1px !important;
 	padding-right: 0px;
 	padding-left: 0px;
 	font-size: 16px !important;
@@ -2133,49 +2166,111 @@ footer {
 	color: #0091ca;
 	padding-left: 10px;
 }
-.pop-up .static-foto {
+.pop-up .block-foto-rate {
 	width: 25%;
 }
-.pop-up .static .about-driver {
+@media (max-width: 710px) {
+	.pop-up .block-foto-rate {
+		width: 100%;
+	}
+}
+.pop-up .block-foto {
+	width: 100%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto {
+		width: 25%;
+	}
+}
+@media (max-width: 570px) {
+	.pop-up .block-foto {
+		width: 35%;
+	}
+}
+.pop-up .block-rate {
+	width: 100%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-rate {
+		width: 71%;
+	}
+}
+@media (max-width: 570px) {
+	.pop-up .block-rate {
+		width: 59%;
+	}
+}
+.pop-up .form-view .myid dt,
+.pop-up .form-view .myid dd,
+.pop-up .profile .myid dt,
+.pop-up .profile .myid dd {
+	padding-left: 1px;
+	margin-top: -7px;
+	margin-bottom: -1px;
+    font-size: 14px !important;
+    line-height: 18px;
+}
+.pop-up .confirmation .uk-button {
+	line-height: 50px;
+	font-size: 23px;
+}
+/* === pop-up form-change === */
+.pop-up .profile.form-change {
+    padding-left: 16px !important;
+    width: 71%;
+}
+@media (max-width: 710px) {
+	.pop-up .profile.form-change {
+		padding-left: 10px !important;
+		width: 100%;
+	}
+}
+/* === pop-up form-view === */
+.profile.form-view {
+    padding-left: 16px !important;
+    width: 71%;
+}
+@media (max-width: 710px) {
+	.profile.form-view {
+		padding-left: 10px !important;
+		width: 100%;
+	}
+}
+.pop-up .form-view .about-driver {
 	margin-top: 9px;
 	margin-left: 1px;
 }
-.pop-up .static .myid dt, .pop-up .static .myid dd {
-	line-height: 9px;
-	padding-left: 1px;
-	margin-bottom: -6px;
+.pop-up .form-view .about-driver dd {
+	font-size:14px;
 }
-.pop-up .static dt,
-.pop-up .static dd {
+.pop-up .form-view dt,
+.pop-up .form-view dd {
 	line-height: 8px;
 	height: 16px !important;
 	margin-bottom: -4px;
 }
-.pop-up .static dd.moretext {
+.pop-up .form-view dd.moretext {
 	line-height: 15px;
 	padding-left: 0px;
 	margin-bottom: 17px;
 	display: inline-table;
 }
-.pop-up .static dd.insurance {
+.pop-up .form-view dd.insurance {
 	margin-top: 0px !important;
 	margin-bottom: 13px !important;
 	display: inline;
 }
-.pop-up .static .button-skype {
+.pop-up .form-view .button-skype {
 	line-height: 28px !important;
 	margin-top: -10px !important;
 	margin-left: -1px;
 	width: 50%;
 }
-.pop-up .static .button-add {
+.pop-up .form-view .button-add {
 margin-bottom: 14px;
 }
 .pop-up dl {
     display:inline-block;
-}
-.about-driver dd {
-	font-size:14px;
 }
 .pop-up dt, 
 .pop-up dd {
@@ -2193,21 +2288,8 @@ margin-bottom: 14px;
     font-size:16px;
     margin-bottom: 6px;
 }
-div.myid dt, div.myid dd {
-    font-size: 14px !important;
-    line-height: 18px;
-    margin-bottom: -6px;
-}
-.static.profile {
-    padding-left: 16px !important;
-    width: 71%;
-}
 div.pop-up.uk-grid.uk-grid-small {
     width: 103%;
-}
-.pop-up .myid {
-    font-size:14px;
-	margin-top: -2px;
 }
 .pop-up .addphone {
 	float:left;
@@ -2393,21 +2475,23 @@ i.quest {
 }
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
-	border: 4px #ebebeb solid;
+	border: 5px #ebebeb solid;
 	border-radius: 4px;
-	margin-bottom: 15px;
-	min-width: 160px;
+	margin-bottom: 18px;
+	margin-top: -2px;
+	margin-left: -2px;
+	max-width: 160px;
 }
 .pop-up .clientreviews .photo {
 	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
 	width: 100%;
-	min-height: 182px;
+	max-height: 180px;
 	border-bottom: 4px #ebebeb solid;
 }
 .pop-up .button-add {
 	width: 100%;
-	line-height: 38px;
-	font-size: 16px;
+	line-height: 35px;
+	font-size: 15px;
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
