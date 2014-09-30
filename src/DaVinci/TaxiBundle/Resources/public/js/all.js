@@ -6,6 +6,10 @@ $("#passenger form, #manager form, #taxidriver form, #taxicompany form, #indepen
 			min: 0,
         });
 //});
+//Добавление доролнительных направлений 
+$('.destination .add-lang').click(function() {
+		$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
+	});
 	
 $(function(){
     var wrapper = $( ".file_upload" ),
@@ -114,11 +118,7 @@ $(function(){
 			this.value = this.value.substr(0, 200);
 	});
 
-	$('.destination .add-lang').click(function() {
-		$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
-	});
-
-	
+		
 	$('#manager .addlang').click(function() {
 		$('.style1').last().addClass('style13');
 		$('#manager .style1').clone().insertAfter('.style1').addClass('style2');	
