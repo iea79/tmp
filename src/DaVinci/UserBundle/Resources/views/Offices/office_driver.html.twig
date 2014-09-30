@@ -5,50 +5,52 @@
 <div class="main-content client-account">
 		<div class="client-panel-button">
 			<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
-				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-					<button class="uk-button uk-button-primary uk-button-profile uk-width-1-1" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
+				<div class="uk-panel">
+					<button class="uk-button uk-button-primary uk-button-profile" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
 				</div>
-				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
+				<div class="uk-panel">
+					<button class="uk-button uk-button-success uk-button-profile"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
 				</div>
-				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
+				<div class="uk-panel">
+					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
 				</div>
-				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-					<button class="uk-button uk-button-danger uk-button-profile uk-width-1-1"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
+				<div class="uk-panel">
+					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
 				</div>
-				<div class="uk-panel uk-width-large-1-5 uk-width-medium-1-3 uk-width-small-1-1">
-					<button class="uk-button uk-button-success uk-button-profile uk-width-1-1"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+				<div class="uk-panel">
+					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
 				</div>
 			</div>
 		</div>
-		<div class="uk-grid uk-grid-small uk-margin">
-			<div class="uk-panel uk-margin-right">
-				<div class="clientid">
-					<dl>
-						<dt>{{'My ID:'|trans}}</dt><dd class="data">  76877960596623 </dd><br />
-						<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
-						<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
-					</dl>
+		<div class="client-panel-list">
+			<div class="uk-grid uk-grid-small uk-margin">
+				<div class="uk-panel uk-margin-right">
+					<div class="clientid">
+						<dl>
+							<dt>{{'My ID:'|trans}}</dt><dd class="data">  7687796059662 </dd><br />
+							<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
+							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
+						</dl>
+					</div>
 				</div>
-			</div>
-			<div class="uk-panel uk-margin-right">
-				<div class="clientid">
-					<dl>
-						<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
-						<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
-						<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
-					</dl>
+				<div class="uk-panel uk-margin-right">
+					<div class="clientid">
+						<dl>
+							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
+							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
+							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
+						</dl>
+					</div>
 				</div>
-			</div>
-			<div class="uk-panel">
-				<div class="clientid">
-				<dl>
-					<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
-					<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
-					<dt><a href=""> {{'Extend'|trans}}</a></dt>
-				</dl>
-			</div>
+				<div class="uk-panel">
+					<div class="clientid">
+						<dl>
+							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
+							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
+							<dt><a href=""> {{'Extend'|trans}}</a></dt>
+						</dl>
+					</div>
+				</div>
 			</div>
 		</div>
 <!------------------------------------------------Account end-------------------------------------->
@@ -389,17 +391,38 @@
                          </div>
                     </li>
                     <li>
-                    <div class="whitebg">
+                    <div class="whitebg historyorder">
                        <div class="message"><span>{{'Attention!'|trans}}</span>{{'Choose driver by yourself!'|trans}}</div>
                                     <table class="uk-table responsive allorder">
-                                                <tbody>
                                                     <thead>
                                                             <tr>
-                                                                    <th>#</th><th>{{'TMP ID'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Date/Time'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th>{{'Route'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Price'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Status'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Left time'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th>{{'Refuse'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+                                                                    <th>#</th>
+																	<th>{{'TMP ID'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th class="date-time">{{'Date/Time'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th class="route">{{'Route'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th class="price">{{'Price'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th class="status">{{'Status'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th class="left-time">{{'Left time'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
+																	<th>{{'Refuse'|trans}}
+																		<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div>
+																	</th>
                                                             </tr>
                                                     </thead>
-                                                    <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere">18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>pending</td><td><a class="uk-button uk-button-success">{{'Confirm deal'|trans}}</a></td>
+                                             <tbody>
+                                                   <tr>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere">18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>pending</td><td><button class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</button></td>
                                                             <td>
                                                                     <div>
                                                                             <a class="mp-icon-closed uk-text-danger">
@@ -408,7 +431,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><a class="uk-button uk-button-success">{{'Confirm deal'|trans}}</a></td>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><button class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</button></td>
                                                             <td>
                                                                     <div>
                                                                             <a class="mp-icon-closed uk-text-danger">

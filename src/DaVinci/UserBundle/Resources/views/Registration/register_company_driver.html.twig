@@ -17,10 +17,13 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="country" id="country" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="country" name="country" class="">
 						<option value=""></option>
 						<option value="Russia" >Russia</option>
-					</select>
+					</select></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Region/State, City</span></a>
 					</div>
@@ -28,10 +31,13 @@
 			</label>
 			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="city" id="city" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="city" name="city" class="">
 						<option>Moscow</option>
 						<option>St. Petersburg</option>
-					</select>
+					</select></div>
 				</div>
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
@@ -44,10 +50,13 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text"></span>
 				<div class="uk-form-controls"><div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cn"  /> 
-					<select class="uk-width-4-7 float_right"  name="Choose by name" id="choose" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-4-7 float_right">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="choose" name="Choose by name" class="">
 							<option>Choose by name</option>
 							<option>Choose by name 2</option>
-					</select></div>
+					</select></div></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
 					</div>
@@ -56,7 +65,10 @@
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1 float_left" name="english" id="english" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="english" name="english" class="">
 							<option>Level</option>
 							<option>No</option>
 							<option>Elementary</option>
@@ -65,7 +77,7 @@
 							<option>Upper-Intermediate</option>
 							<option>Advanced</option>
 							<option>Proficiency</option>
-					</select>
+					</select></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Choose the level</span></a>
 					</div>
@@ -74,7 +86,10 @@
 
 			<label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
 				<div class="uk-form-controls"><div class="uk-width-1-1 style1"><div class="style2">
-					<select class="display_none" name="lang" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-1-0 float_left display_none">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="lang" name="lang" class="">
 						<option>Select a language</option>
 						<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 						<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
@@ -108,7 +123,7 @@
 						<option>Turkish</option>	<option>Turkmen</option>	<option>Ukrainian</option>	<option>Urdu</option>	<option>Uyghur</option>
 						<option>Uzbek</option>	<option>Venda</option>	<option>Vietnamese</option>	<option>Wu</option>	<option>Xhosa</option>	<option>Xiang</option>
 						<option>Yoruba</option>	<option>Zhuang</option><option>Zulu</option>
-					</select></div>
+					</select></div></div>
 					<div class="addotherlanguage">Add language</div>
 				</div>
 				<div class="questiontooltip">
@@ -118,11 +133,14 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1 float_left" name="experience" id="experience" required>
+					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="experience" name="experience" class="">
 						<option>&nbsp;</option>
 						<option>less than 4 years</option>
 						<option>more than 4 years</option>
-					</select>
+					</select></div>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Select an option</span></a>
 					</div>
@@ -147,7 +165,11 @@
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
 					</div>
-					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
+					<div class="float_left uk-width-1-1 adphonik">
+					<div data-uk-form-select="" class="uk-form-select select uk-width-4-10 phonecode">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="phonecode" name="phonecode" class="">
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -189,8 +211,9 @@
 						<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
-					</select>
+					</select></div>
 					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
+					<div class="clear"></div>
 					<div class="wicheck whicheck-1">
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
 						<div class="questiontooltip">
@@ -219,7 +242,7 @@
 	
 	
 	
-	<form action="#" method="get" class="uk-form uk-form-horizontal">
+	<form action="#" method="get" class="uk-form uk-form-horizontal verifi">
 		<fieldset>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company driver:</span>
 				<div class="uk-form-controls">
@@ -269,7 +292,7 @@
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
 					</div>
 			</label>
-			<div class="uk-button-group uk-width-4-5">
+			<div class="uk-button-group uk-width-4-8">
 				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
 				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
 				<div class="clear"></div>

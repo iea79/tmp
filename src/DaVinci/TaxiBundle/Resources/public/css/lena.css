@@ -26,25 +26,32 @@
     margin: 0 0 -1px;
 }
 .register .title{
-	background: #3d3d3d;
-	color: #fff;
-	text-align: center;
-	text-transform: uppercase;
-	margin: 20px 0 30px 0;
-    padding: 22px 0 18px 0;	
-	font-size: 30px;
-	position: relative;
-	line-height: 120%;
-}
-.register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
+	color: #3d3d3d;
+ 	text-align: center;
+	margin: 0 0 18px 0;
+    padding: 5px 0 5px 0;	
+	font-size: 27px;
+ 	position: relative;
+ }
+.register .uk-form-select, .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
-    border: 1px solid #8e9099;
+    border: 1px solid #d1d1d1;
     border-radius: 3px;
+	color: #8e9099;
+	font-size: 15px;
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
     padding: 4px 11px 4px 9px;
-    vertical-align: middle;
+ }
+.register .uk-form-select span  {
+    display: inline-block;
+	width: 98%;
+}
+.register .uk-form-select select{	width: 100%;}
+.register .uk-form-select {
+	height: 29px;
+	line-height: 26px;
 }
 .wrapper-content .register .uk-button.btn-red {
     background: none repeat scroll 0 0 #ff3148;
@@ -72,8 +79,8 @@
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
 .wrapper-content .register .uk-button {
-    font-size: 20px;
-    padding: 10px 10px 16px 10px;
+    font-size: 22px;
+    padding: 10px;
 
 	
   -moz-box-sizing: border-box;
@@ -103,57 +110,73 @@
 }
 .wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
-.register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
-	float: left;
-	color: #3c3d45;
-	width: 28%;
-	margin-right: 10px;
-}
-.register .uk-form-horizontal .uk-form-controls {
-	margin-lefT: 0;
+ .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
+ 	float: left;
+ 	color: #3c3d45;
+	width: 34.8%;
+	padding-right: 10px;
+	font-size: 16px;
+ }
+ .register .uk-form-horizontal .uk-form-controls {
+ 	margin-lefT: 0;
+	margin-top: 1px;
 	floaT: left;
-	width: 68%;
+	width: 65.2%;
 }
+.register .uk-form-horizontal .uk-form-controls select, .register .uk-form-horizontal .uk-form-controls textarea, .register .uk-form-horizontal .uk-form-controls input[type="text"], .register .uk-form-horizontal .uk-form-controls input[type="password"], 
+.register .uk-form-horizontal .uk-form-controlsinput[type="email"] {	height: 28px;}
+.register .uk-form-horizontal .uk-form-row  {
+	margin-top: 13px;
+	margin-bottom: 13px;
+ }
+
+.register .uk-form-horizontal.verifi .uk-form-row  {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {
+	margin-top: 0px;
+	margin-bottom: -2px;
+}
+.register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoneareas  .questiontooltip {
-	float: right;
-	position: relative;
+ 	float: right;
+ 	position: relative;
+ 	position: absolute;
+	right: 0px;
+ }
+ .questiontooltip {
+ 	position: relative;
+ 	float: left;
+ 	text-align: left;
+	margin-left: 1px;
+ }
+ .title .questiontooltip {
 	position: absolute;
-	right: 0;
-}
-.questiontooltip {
-	width: 5%;
-	position: relative;
-	float: left;
-	text-align: left;
-	margin-left: 6px;
-}
-.title .questiontooltip {
-	position: relative;
-	display: inline-block;
-	top: -10px;
-	font-size: 11px;
-	width: auto;
-	float: none;
-	line-height: 120%;
-	text-transform: none;
-	margin-lefT: -4px;
-}
-/*.addlangline  .questiontooltip , .addphoneline .questiontooltip  {	width: 6%;}*/
+ 	display: inline-block;
+ 	font-size: 11px;
+ 	width: auto;
+ 	float: none;
+ 	text-transform: none;
+	margin-left: 5px;
+ }
 .questiontooltip a span.que{
-	display: block;
-	width: 18px;
-	height:17px;
-	text-align: center;
-	background: #528ed3 ;
-	color: #fff;
-	border-radius: 50%;
-	padding-top: 1px;
-	font-size: 14px;
-	vertical-align: middle;
-	line-height: 16px;
+ 	display: block;
+	width: 12px;
+	height:13px;
+ 	text-align: center;
+ 	background: #528ed3 ;
+ 	color: #fff;
+ 	border-radius: 50%;
+	padding-top: 0px;
+	font-size: 10px;
+ 	vertical-align: middle;
+	line-height: 130%;
+	padding-right: 1px;
 	margin-lefT: 4px;
 	position: relative;
 	top: 4px;
+	top: 7px;
 	z-index: 0;
 }
 .questiontooltip a:hover {
@@ -183,9 +206,14 @@
 	color			: #6c6c6c;
 }
 .numcars {margin-right: 12px;}
-.register .uk-form input[type="radio"] {
+ .register .uk-form input[type="radio"] {
+	float: left;
 	position: relative;
-	top: 7px;
+	top: 12px;
+}
+.register .uk-form input[type="checkbox"] {
+	margin-top: 0;
+	margin-right: 10px;
 }
 .authorizat .uk-h3, .authoriz .uk-h3, .authorizat h3, .authoriz h3 {
     color: #ff4d61;
@@ -229,52 +257,60 @@
     width: 540px;
 }
 .addotherlanguage {
-	width: 100%;
+	width: 95%;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 5px;
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
-    padding: 8px 10px;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    vertical-align: middle;
+    padding: 6px 8px  2px 8px;
+     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+     vertical-align: middle;
 }
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
-.addphoneline .text {   padding-bottom: 4%;}
+.addphoneline .text {   padding-bottom: 8%;}
 .phonecode {
-	float: left;
-	margin-right: 10px;
+ 	float: left;
+ 	margin-right: 10px;
+ }
+ .register .uk-form-horizontal  .addphoneareas {
+ 	float: left;
+     margin-bottom: 12px;
+ }
+ .wicheck {
+	margin-top: 4px;
+	margin-bottom: 2px;
+	position: relative;
+ 	float: left;
+	font-size: 16px;
+ }
+.adphonik {margin-bottom: 10px;}
+/*.adphoniklast  .wicheck {margin-top: -2px;}*/
+ .wicheck .questiontooltip {
+ 	top: -2px;
+	right: -10px;
 }
-.register .uk-form-horizontal  .addphoneareas {
-/*	width: 60%;*/
-	float: left;
-    margin-bottom: 12px;
+ .whicheck-1 {
+	width: 16.4%;
+	margin-right: 27%;
 }
-.register .uk-form-horizontal  .addphoneareas select{
-    margin-right: 10px;
-}
+ .whicheck-2 {width: 28%;}
+ .register .wicheck  label {display: inline-block;}
+ .addphone .questiontooltip {
+ 	width: 14%;
+ 	opacity: 0.6
+ }
+ .register .uk-form-horizontal  .addphoneareas select{    margin-right: 10px;}
 .wifis {    margin-bottom: 12px;}
 .wifis label {
     display: inline-block;
     margin: 0 15px 0 4px;
 }
-.wicheck {
-	margin-top: 12px;
-	position: relative;
-	float: left;
+.register .wicheck  label {
+	display: inline-block;
+	margin-bottom: 0;
 }
-.wicheck .questiontooltip {
-	top: -2px;
-	right: -5px;
-}
-.whicheck-1 {
-	width: 16%;
-	margin-right: 34px;
-}
-.whicheck-2 {width: 26%;}
-.register .wicheck  label {display: inline-block;}
 .twolabels .text {	clear: left;}
 .register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
@@ -283,13 +319,6 @@
     color: #528ed3;
     display: inline-block;
 }
-.addphone .questiontooltip {
-	width: 14%;
-	position: relative;
-	top: -3px;
-	margin-left: -4px;
-}
-
 .addlangline select {
 	float: left;
 	clear: left;
@@ -426,10 +455,7 @@
 }
 #makechoice li a:active {	opacity: 0.4}
 
-.register .uk-form-controls {
-	position: relative;
-	white-space: nowrap;
-}
+.register .uk-form-controls {	position: relative;}
 #makechoice ul {
     margin: 0;
     padding: 0;
@@ -500,10 +526,6 @@ label .errors {
     display: inline-block;
     padding: 0 50px 10px 0;
 }
-.uk-form-controls {
-	position: relative;
-	white-space: nowrap;
-}
 .authorizat {
     margin: 0 auto;
     overflow: hidden;
@@ -566,18 +588,11 @@ a.loginfb, a.logintw {
 a.loginfb {    background: url("../images/fbc.png") no-repeat scroll 0 0 transparent;}
 a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 transparent;}
 .register .uk-form-password-toggle {right: 46px;}
-/*footer .footer-top .footer-in .add-nav ul li {border: none;}*/
 .wrapper-content .register {
-/*	min-width: 560px;
-	width: 40%;*/
-	
-	max-width: 550px;
+	max-width: 560px;
 	min-width: 40%;
-
-
 	margin: 0 auto;
-	background: #fff;
-	padding: 10px 0px 10px 10px;
+	padding: 4px 10px 10px 10px;
 }
 .wrapper-content .register form{
 	width: 100%;
@@ -610,15 +625,21 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 
-.register .uk-form-horizontal input[type="checkbox"] {margin-right: 12px;}
+.register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;}
 
 .register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
 
-/*.register .uk-form-horizontal .uk-form-label.uk-width-2-5 {width: 33%;}*/
-.register .uk-form-horizontal .uk-width-4-5 {width: 97%;}
-.register .uk-form-horizontal .uk-width-4-6 {width: 48%;}
-.register .uk-form-horizontal .uk-width-4-10 {width: 49%;}
+.register .uk-form-horizontal .uk-width-4-5 {width: 98.4%;}
+.register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
+.register .uk-form-horizontal .uk-width-4-8 {width: 96.8%;}
+.register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
-/*.register .uk-form-horizontal .addphoneareas .uk-width-1-1 {width: 94%;}*/
-.register .uk-form-horizontal .uk-width-4-7 {width: 93%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
+.register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49%;}
+.register .uk-form-horizontal .uk-width-1-0 {width: 100%;margin-bottom: 13px;}
+
+
+
+

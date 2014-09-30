@@ -327,41 +327,48 @@
 												<tbody>
 														<thead>
 																<tr>
-																		<th>#</th><th>{{ 'TMP ID'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Date/Time'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th>{{ 'Route'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th><th>{{ 'Edit'|trans }}
-																		<div class="questiontooltip">
-																			<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																		</div>
-																	</th>
+																		<th>#</th>
+																		<th>{{ 'TMP ID'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th class="date-time"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Date/Time'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th class="route">{{ 'Route'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th class="price"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th class="status"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th class="left-time"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
+																		<th>{{ 'Edit'|trans }}
+																			<div class="questiontooltip">
+																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+																			</div>
+																		</th>
 																</tr>
 														</thead>
 														<tr>
 																<td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 </br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -372,7 +379,7 @@
 														<tr>
 																<td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -383,7 +390,7 @@
 														<tr>
 																<td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-blue">48:12:21</span></td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-warning">
 																				</a>
 																				<a class="mp-icon-closed uk-text-warning">
@@ -394,7 +401,7 @@
 														<tr>
 																<td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-green">26:55:03</span></td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-warning">
 																				</a>
 																				<a class="mp-icon-closed uk-text-warning">
@@ -405,7 +412,7 @@
 														<tr>
 																<td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-red">13:55:03</span></td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-warning">
 																				</a>
 																				<a class="mp-icon-closed uk-text-warning">
@@ -416,7 +423,7 @@
 														<tr>
 																<td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><span><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a></span></td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -427,7 +434,7 @@
 														<tr>
 																<td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -438,7 +445,7 @@
 														<tr>
 																<td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -449,7 +456,7 @@
 														<tr>
 																<td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -460,7 +467,7 @@
 														<tr>
 																<td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">
@@ -471,7 +478,7 @@
 														<tr>
 																<td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
 																<td>
-																		<div>
+																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary">
 																				</a>
 																				<a class="mp-icon-closed uk-text-danger">

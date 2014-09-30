@@ -36,6 +36,12 @@ class TaxiCompany
      */
     private $registration_place;
 
+    
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $skype;
+    
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -62,6 +68,11 @@ class TaxiCompany
     private $driver;
 
     /**
+     * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Address", cascade={"persist", "remove"})
+     */
+    private $address;
+    
+    /**
      * @ORM\OneToOne(targetEntity="User", inversedBy="taxiCompany")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
@@ -74,7 +85,30 @@ class TaxiCompany
         $this->manager = new \Doctrine\Common\Collections\ArrayCollection();
         $this->driver = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    /**
+     * Get id
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
 
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return TaxiCompany
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+    
     /**
      * Get id
      *
@@ -154,6 +188,30 @@ class TaxiCompany
         return $this->registration_place;
     }
 
+    
+    /**
+     * Set skype
+     *
+     * @param string $registrationPlace
+     * @return TaxiCompany
+     */
+    public function setSkype($skype)
+    {
+        $this->skype = $skype;
+
+        return $this;
+    }
+
+    /**
+     * Get skype
+     *
+     * @return string 
+     */
+    public function getSkype()
+    {
+        return $this->skype;
+    }
+    
     /**
      * Set registraition_number
      *

@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\AbstractType as BaseType;
 use Doctrine\ORM\EntityRepository;
+use DaVinci\UserBundle\Form\EventListener\AddCityFieldSubscriber;
+use DaVinci\TaxiBundle\Entity\Address;
 
 class RegistrationCompanyFormType extends BaseType {
 
@@ -23,6 +25,10 @@ class RegistrationCompanyFormType extends BaseType {
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
+        
+        $propertyPathToCity = 'city';
+        
+        
         switch ($options['flow_step']) {
             case 1:
                 $builder
@@ -42,46 +48,73 @@ class RegistrationCompanyFormType extends BaseType {
                         ))
                         ->add('country', 'entity', array(
                             'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
+                            'data_class' => 'DaVinci\TaxiBundle\Entity\Address',
+                            'property' => 'country',
+                            'empty_value' => 'form.please_select',
+                            'translation_domain' => 'FOSUserBundle',
+                            'query_builder' => function(EntityRepository $er) {
+                                return $er->createQueryBuilder('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
+                            }))
+                        ->addEventSubscriber(new AddCityFieldSubscriber($propertyPathToCity))
+                        ->add('street', 'text')
+                        ->add('skype', 'text');
+                        
+                    
+          /*              ->add('country', 'entity', array(
+                            'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
                             'property' => 'country',
                             'empty_value' => 'form.please_select',
                             'translation_domain' => 'FOSUserBundle',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
                             },
-                            'mapped' => false
-                ));
+                            'mapped' => false))
+                        ->add;
 
-                $locale = $this->session->get('_locale');
 
                 $builder->addEventListener(FormEvents::PRE_SET_DATA, 
-                        function (FormEvent $event) use ($locale) {
+                        function (FormEvent $event) {
 
                     $form = $event->getForm();
-                    $data = $form['country']->getData();
+                    $data = $event->getData();
                     
-                    if ($form->has('city')) {
-                        $form->remove('city');
-                    }
+                    
+                    
+                        if ($form->has('city')) {
+                            $form->remove('city');
+                        }
+                        
+                        if (isset($data->country)) {
+                            $msg = 'Please give a correct line number';
+                            //$form->get('country')->addError(new FormError($msg));
+                           // var_dump($data->country,  get_class($form->get('country')->getData()));
+                        }
 
-                    $country = isset($data->country) ? $data->country : null;
-var_dump($data);exit;
-                    //$locale = $this->container->get('session')->get('_locale');
-                    
-                    $form->add('city', 'entity', array(
-                        'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
-                        'property' => 'city',
-                        'empty_value' => 'form.please_select',
-                        'translation_domain' => 'FOSUserBundle',
-                        'query_builder' => function(EntityRepository $er) use ($country) {
-                                return $er
-                                ->createQueryBuilder('c')
-                                ->where('c.countryCode = :ctr' )
-                                ->andWhere('c.status = 1')
-                                ->setParameter('ctr', $country);
-                            },
-                        'mapped' => false
-                    ));
-                });
+                       // if ($data instanceof \DaVinci\TaxiBundle\Entity\Admin\CountryCity) {
+
+                       // }
+
+                        //$country = isset($data->country) ? $data->country : null;
+
+     
+                        //TODO: сейчас показываются все города, нужно нормально сделать
+                        //как в SMTC посмотреть
+                        $form->add('city', 'entity', array(
+                            'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
+                            'property' => 'city',
+                            'empty_value' => 'form.please_select',
+                            'translation_domain' => 'FOSUserBundle',
+                            'query_builder' => function(EntityRepository $er)  {
+                                    return $er
+                                    ->createQueryBuilder('c')
+                                    ->where('c.countryCode = :ctr' )
+                                    ->andWhere('c.status = 1')
+                                    ->setParameter('ctr', 'RU');
+                                },
+                            'mapped' => false
+                        ));
+  
+                });*/
                 break;
             case 2:
                 break;
