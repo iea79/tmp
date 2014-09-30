@@ -43,12 +43,12 @@ class User extends BaseUser
      */
     private $photo;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
-     * @Assert\Valid()
-     */
-    private $addresses;
-    
+//    /**
+//     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
+//     * @Assert\Valid()
+//     */
+//    private $addresses;
+//    
     /**
      * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="user")
      */
@@ -86,7 +86,7 @@ class User extends BaseUser
     {
         parent::__construct();
         
-        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
+//        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
         $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -250,50 +250,50 @@ class User extends BaseUser
     }
 
     
-    /**
-     * Add address
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Address $address
-     * @return User
-     */
-    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-    {
-        $this->addresses[] = $address;
-
-        return $this;
-    }
-
-    /**
-     * Remove address
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Address $address
-     */
-    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-    {
-        $this->addresses->removeElement($address);
-    }
-    
-    /**
-     * set addresses
-     *
-     */
-    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
-    {
-        $this->addresses = $addresses;
-        foreach ($addresses as $address) {
-            $address->setUser($this);
-        }
-    }
-
-    /**
-     * Get addresses
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getAddresses()
-    {
-        return $this->addresses;
-    }
+//    /**
+//     * Add address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     * @return User
+//     */
+//    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses[] = $address;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     */
+//    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses->removeElement($address);
+//    }
+//    
+//    /**
+//     * set addresses
+//     *
+//     */
+//    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
+//    {
+//        $this->addresses = $addresses;
+//        foreach ($addresses as $address) {
+//            $address->setUser($this);
+//        }
+//    }
+//
+//    /**
+//     * Get addresses
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getAddresses()
+//    {
+//        return $this->addresses;
+//    }
     
     /**
      * Set taxiCompany

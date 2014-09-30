@@ -94,10 +94,6 @@ $(function(){
 		$('.rowstreet').show();	
 	});
 	
-	$('#taxi_company_registration_street').change(function() {
-		$('.rowbuild').show();	
-	});
-
 	$('.addphone').click(function() {
 		$('.adphonik').clone().appendTo(".addphoneareas");	
 		$('.addphone').addClass('display_none');	

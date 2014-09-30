@@ -87,7 +87,9 @@
 			</label>
 			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input>
+					{{ form_widget(form.address,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'5','autofocus':''}}) }}
 				</div>
 			</label>
                         
@@ -95,7 +97,9 @@
                         
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
+					{{ form_widget(form.skype,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'5','autofocus':''}}) }}
 					<div class="questiontooltip">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
