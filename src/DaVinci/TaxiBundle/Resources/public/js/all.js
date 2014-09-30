@@ -104,8 +104,8 @@ $(function(){
 		return false;
 	});
 	$('.addotherlanguage').click(function() {
-		$('.addlangline select:last-child').clone().appendTo(".style2");	
-		$('.addlangline select:last-child').removeClass('display_none');	
+		$('.addlangline .uk-form-select:last-child').clone().appendTo(".style2");	
+		$('.addlangline .uk-form-select:last-child').removeClass('display_none');	
 		return false;
 	});
 	$("#content .content-block textarea").keyup(function() {
