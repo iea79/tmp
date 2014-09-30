@@ -59,8 +59,10 @@
 			
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
 				<div class="uk-form-controls">
-
-                    
+					<select class="uk-width-1-1  float_left" name="address" id="address" required>
+						<option value=""></option>
+						<option value="Russia" >Russia</option>
+					</select>
 					<div class="questiontooltip">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
@@ -88,7 +90,7 @@
 					</select>
 				</div>
 			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
+			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_street'|trans }}:</span>
 				<div class="uk-form-controls">
 					<select class="uk-width-1-1  float_left" name="street" id="street" required>
 						<option>Street</option>
@@ -244,7 +246,7 @@
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
 					</div>
 			</label>
-			<div class="uk-button-group uk-width-4-5">
+			<div class="uk-button-group uk-width-4-8">
 				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
 				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
 				<div class="clear"></div>
