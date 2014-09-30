@@ -1046,6 +1046,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
 }
+.serv .under-head .questiontooltip {
+	display:none;
+}
 .table-over .serv th:nth-child(2), .table-over .serv td:nth-child(2) {
 	width:16%;
 }

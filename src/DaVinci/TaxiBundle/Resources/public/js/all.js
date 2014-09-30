@@ -1,11 +1,5 @@
 $("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
-//$(function() {
-        $( "#spinner1, #spinner2, #spinner3" ).spinner({
-            step: 1,
-            numberFormat: "n",
-			min: 0,
-        });
-//});
+
 //Добавление доролнительных направлений 
 $('.destination .add-lang').click(function() {
 		$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
@@ -18,7 +12,7 @@ $(function(){
         lbl = wrapper.find( "div" );
 
     btn.focus(function(){
-        inp.focus()
+        inp.focus();
     });
     // Crutches for the :focus style:
     inp.focus(function(){
@@ -56,7 +50,7 @@ function setBlockHeight(){
 		contentheight = height;
 	});
 	$(".active .blockoffice ul").css({'height' : contentheight});
-}
+};
 $(function(){
     
     if($(".register").length) { 
@@ -199,13 +193,13 @@ $(document).ready(function() {
 		original.wrap("<div class='scrollable' />");
 
     setCellHeights(original, copy);
-	}
+	};
 	
 	function unsplitTable(original) {
     original.closest(".table-wrapper").find(".pinned").remove();
     original.unwrap();
     original.unwrap();
-	}
+	};
 
   function setCellHeights(original, copy) {
     var tr = original.find('tr'),
@@ -227,7 +221,7 @@ $(document).ready(function() {
     tr_copy.each(function (index) {
       $(this).height(heights[index]);
     });
-  }
+  };
 
 });
 // Смена названий кнопок Driver list в office passahgers //////////////////// 
