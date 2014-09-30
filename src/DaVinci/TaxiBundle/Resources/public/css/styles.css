@@ -406,7 +406,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 								.header-wrapper .header-top .header-top-in  .topmenu-right .uk-button-dropdown .uk-dropdown  .myaccount-drop ul li a i {
 									width:15px;
 								}
-			/* ====================  the bottom part of header with breadcroms and languages ============================ */
+			/* ====================  the bottom part of header with breadcrumbs and languages ============================ */
 			.header-wrapper .header-bottom {
 				background-color:#8d8f98;
 				box-shadow: inset 0 1px 0px 1px #6d6f76;
@@ -419,33 +419,33 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					
 				}
 /*====================================  breadcrombs ==============================================================*/
-					.header-wrapper .header-bottom .header-bottom-in .breadcroms {
+					.header-wrapper .header-bottom .header-bottom-in .breadcrumbs {
 						float:left;
 						list-style:none;
 						margin:0 0 0 5px;
 						padding-left:0;
 					}
-						.header-wrapper .header-bottom .header-bottom-in .breadcroms li {
+						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li {
 							float:left;
 						}
-							.header-wrapper .header-bottom .header-bottom-in .breadcroms li:after {
+							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li:after {
 								content:">";
 								margin:0 10px 0 0;
 							}
-							.header-wrapper .header-bottom .header-bottom-in .breadcroms li.last:after {
+							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.last:after {
 								content:"";
 							}
-						.header-wrapper .header-bottom .header-bottom-in .breadcroms li a {
+						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a {
 							color:#fff;
 							text-decoration:underline;
 							padding:0 10px 0 0;
 							line-height:25px;
 						}
 							
-						.header-wrapper .header-bottom .header-bottom-in .breadcroms li.last a {
+						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.last a {
 							text-decoration:none;
 						}
-							.header-wrapper .header-bottom .header-bottom-in .breadcroms li a:hover {
+							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a:hover {
 								text-decoration:none;
 							}
 						.header-wrapper .header-bottom .header-bottom-in  .lang{

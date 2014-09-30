@@ -4,6 +4,7 @@ namespace DaVinci\TaxiBundle\EventListener;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class LocaleListener implements EventSubscriberInterface
 {
@@ -15,7 +16,11 @@ class LocaleListener implements EventSubscriberInterface
     }
 
     public function onKernelRequest(GetResponseEvent $event)
-    {
+    { 
+        if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType()) {
+            return;
+        }
+
         $request = $event->getRequest();
         if (!$request->hasPreviousSession()) {
             return;
