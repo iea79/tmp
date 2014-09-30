@@ -1,6 +1,20 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
+    
+{% form_theme form _self %}
+{% block form_errors  %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+    
 {% block body %}
 <div class="wrapper-content title">
 	{{ 'Taxi Company: Business Office'|trans}}
@@ -13,18 +27,23 @@
         </a>
 	</div>
 </div>
+   
 <div class="wrapper-content"><div class="content register">
-	<form action="#" method="get" class="uk-form uk-form-horizontal">
+	<form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
 		<fieldset>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">Taxi company owner:</span>
+            {% if flow.getCurrentStepNumber() == 1 %}
+				{{ form_errors(form) }}
+			
+            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
+					<div class="uk-form-label pinktext uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
 				</div>
-
 			</label>
+                
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input class="uk-width-1-1  float_left" type="text" name="name" id="name" required  />
+                    {{ form_widget(form.name, {'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'1','autofocus':''} }) }}
 					<div class="questiontooltip">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
@@ -32,22 +51,13 @@
                         </a>
 					</div>
 				</div>
+                {{ form_errors(form.name) }}
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="country" id="country" required>
-						<option value=""></option>
-						<option value="">5</option>
-						<option value="">6</option>
-						<option value="">7 </option>
-						<option value="">8</option>
-						<option value="">9</option>
-						<option value="">10</option>
-						<option value="">15</option>
-						<option value="">20</option>
-						<option value="">30</option>
-						<option value="">40+</option>
-					</select>
+                    {{ form_widget(form.cars_amount,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'1','autofocus':''}}) }}
 					<div class="questiontooltip float_left">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
@@ -55,47 +65,29 @@
                         </a>
 					</div>
 				</div>
+                {{ form_errors(form.cars_amount) }}
 			</label>
 			
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="address" id="address" required>
-						<option value=""></option>
-						<option value="Russia" >Russia</option>
-					</select>
+					{{ form_widget(form.country,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'3','autofocus':''}}) }}
 					<div class="questiontooltip">
-						<a class="tooltip" href="#">
-                            <span class="que">?</span>
-                            <span class="tooltip">{% trans %}Region/State, City{% endtrans %}</span>
-                        </a>
-					</div>
-				</div>
-			</label>
-					<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_country'|trans }}:</span>
-				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="country" id="country" required>
-						<option value=""></option>
-						<option value="Russia" >Russia</option>
-					</select>
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Region/State, City</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Country'|trans }}</span></a>
 					</div>
 				</div>
 			</label>
 			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="city" id="city" required>
-						<option>Moscow</option>
-						<option>St. Petersburg</option>
-					</select>
+					{{ form_widget(form.city,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'4','autofocus':''}}) }}
 				</div>
 			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_street'|trans }}:</span>
+			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
 				<div class="uk-form-controls">
-					<select class="uk-width-1-1  float_left" name="street" id="street" required>
-						<option>Street</option>
-						<option>Prospect</option>
-					</select>
+					<input>
 				</div>
 			</label>
                         
@@ -123,7 +115,7 @@
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
 					</div>
 					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
-						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
+						<option></option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
 						<option>994 (AZ)</option>	<option>387 (BA)</option>	<option>1 (BB)</option>	<option>32 (BE)</option>		<option>226 (BF)</option>
@@ -190,14 +182,8 @@
 			<div class="uk-button-group uk-width-4-5">
 				<button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>
 			</div>
+          {% elseif flow.getCurrentStepNumber() == 2 %}
 
-		</fieldset>
-	</form>
-
-	
-	
-	<form action="#" method="get" class="uk-form uk-form-horizontal">
-		<fieldset>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
 				<div class="uk-form-controls">
 					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
@@ -251,11 +237,11 @@
 				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
 				<div class="clear"></div>
 			</div>
-
+        {% endif %}
 		</fieldset>
 	</form>
 	
 	
 	
-</div></div>
+</div></div>            
 {% endblock %}

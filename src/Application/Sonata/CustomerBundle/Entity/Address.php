@@ -29,6 +29,35 @@ class Address extends BaseAddress
     protected $id;
 
     /**
+     * @var \Application\Sonata\CustomerBundle\Entity\Customer
+     */
+    protected $customer;
+
+
+    /**
+     * Set customer
+     *
+     * @param \Application\Sonata\CustomerBundle\Entity\Customer $customer
+     * @return Address
+     */
+    public function setCustomer(\Sonata\Component\Customer\CustomerInterface $customer = null)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Get customer
+     *
+     * @return \Application\Sonata\CustomerBundle\Entity\Customer 
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+    
+    /**
      * Get id
      *
      * @return integer $id

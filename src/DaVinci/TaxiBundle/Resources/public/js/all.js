@@ -1,126 +1,154 @@
 $("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
 //$(function() {
-		$( "#spinner1, #spinner2, #spinner3" ).spinner({
-			step: 1,
-			numberFormat: "n",
+        $( "#spinner1, #spinner2, #spinner3" ).spinner({
+            step: 1,
+            numberFormat: "n",
 			min: 0,
-		});
+        });
 //});
-
-/* register scripts */
-if($(".register").length) {
 	
-	$(function(){
-		var wrapper = $( ".file_upload" ),
-			inp = wrapper.find( "input" ),
-			btn = wrapper.find( "button" ),
-			lbl = wrapper.find( "div" );
+$(function(){
+    var wrapper = $( ".file_upload" ),
+        inp = wrapper.find( "input" ),
+        btn = wrapper.find( "button" ),
+        lbl = wrapper.find( "div" );
 
-		btn.focus(function(){
-			inp.focus()
-		});
-		// Crutches for the :focus style:
-		inp.focus(function(){
-			wrapper.addClass( "focus" );
-		}).blur(function(){
-			wrapper.removeClass( "focus" );
-		});
+    btn.focus(function(){
+        inp.focus()
+    });
+    // Crutches for the :focus style:
+    inp.focus(function(){
+        wrapper.addClass( "focus" );
+    }).blur(function(){
+        wrapper.removeClass( "focus" );
+    });
 
-		var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
+    var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
 
-		inp.change(function(){
-			var file_name;
-			if( file_api && inp[ 0 ].files[ 0 ] ) 
-				file_name = inp[ 0 ].files[ 0 ].name;
-			else
-				file_name = inp.val().replace( "C:\\fakepath\\", '' );
+    inp.change(function(){
+        var file_name;
+        if( file_api && inp[ 0 ].files[ 0 ] ) 
+            file_name = inp[ 0 ].files[ 0 ].name;
+        else
+            file_name = inp.val().replace( "C:\\fakepath\\", '' );
 
-			if( ! file_name.length )
-				return;
+        if( ! file_name.length )
+            return;
 
-			if( lbl.is( ":visible" ) ){
-				lbl.text( file_name );
-				btn.text( "Выбрать" );
-			}else
-				btn.text( file_name );
-		}).change();
+        if( lbl.is( ":visible" ) ){
+            lbl.text( file_name );
+            btn.text( "Выбрать" );
+        }else
+            btn.text( file_name );
+    }).change();
 
+});
+
+function setBlockHeight(){
+	contentheight = 0;
+	$(".active .blockoffice ul").each(function(ind, el){
+	height = $(this).height();
+	if (height > contentheight)
+		contentheight = height;
 	});
-
-	function setBlockHeight(){
-		contentheight = 0;
-		$(".active .blockoffice ul").each(function(ind, el){
-		height = $(this).height();
-		if (height > contentheight)
-			contentheight = height;
-		});
-		$(".active .blockoffice ul").css({'height' : contentheight});
-	}
-	$(document).ready(function() {
-		$('.rowcity').hide();	
-		$('.rowstreet').hide();	
-		$('.rowbuild').hide();	
-		
-		$('#country').change(function() {
-			$('.rowcity').show();	
-		});
-
-		$('#city').change(function() {
-			$('.rowstreet').show();	
-		});
-		
-		$('#street').change(function() {
-			$('.rowbuild').show();	
-		});
-
-		$('.addphone').click(function() {
-			$('.adphonik').clone().appendTo(".addphoneareas").addClass('adphoniklast');	
-			$('.addphone').addClass('display_none');	
-			
-			return false;
-		});
-		$('.addotherlanguage').click(function() {
-			$('.addlangline select:last-child').clone().appendTo(".style2");	
-			$('.addlangline select:last-child').removeClass('display_none');	
-			return false;
-		});
-		$("#content .content-block textarea").keyup(function() {
-			if (this.value.length > 300)
-				this.value = this.value.substr(0, 300);
-		});
-
-		$("#content .content-block .wishes textarea").keyup(function() {
-			if (this.value.length > 200)
-				this.value = this.value.substr(0, 200);
-		});
-
-		$('.destination .add-lang').click(function() {
-			$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
-		});
-
-		
-		$('#manager .addlang').click(function() {
-			$('.style1').last().addClass('style13');
-			$('#manager .style1').clone().insertAfter('.style1').addClass('style2');	
-			$('.style2').removeClass('style1');
-			return false;
-		});
-		$('#taxidriver .addlang').click(function() {
-			$('.style1').last().addClass('style13');
-			$('#taxidriver .style1').clone().insertAfter('.style1').addClass('style2');	
-			$('.style2').removeClass('style1');
-			return false;
-		});
-		$('#independentdriver .addlang').click(function() {
-			$('.style1').last().addClass('style13');
-			$('#independentdriver .style1').clone().insertAfter('.style1').addClass('style2');	
-			$('.style2').removeClass('style1');
-			return false;
-		});
-	});
+	$(".active .blockoffice ul").css({'height' : contentheight});
 }
-/*   /register scripts */
+$(function(){
+    
+    if($(".register").length) { 
+    
 
+    var $country = $('#taxi_company_registration_country');
+    // When country gets selected ...
+    $country.change(function() {
+      // ... retrieve the corresponding form.
+      var $form = $(this).closest('form');
+      // Simulate form data, but only include the selected sport value.
+      var data = {};
+      data[$country.attr('name')] = $country.val();
+      // Submit data via AJAX to the form's action path.
+      $.ajax({
+        url : $form.attr('action'),
+        type: $form.attr('method'),
+        data : data,
+        success: function(html) {
+          // Replace current position field ...
+          $('#taxi_company_registration_city').replaceWith(
+            // ... with the returned one from the AJAX response.
+            $(html).find('#taxi_company_registration_city')
+          );
+          // Position field now displays the appropriate positions.
+        }
+      });
+    });
+    
+	$('.rowcity').hide();	
+	$('.rowstreet').hide();	
+	$('.rowbuild').hide();	
+	
+	$('#taxi_company_registration_country').change(function() {
+		$('.rowcity').show();	
+	});
+
+	$('#taxi_company_registration_city').change(function() {
+		$('.rowstreet').show();	
+	});
+	
+	$('#taxi_company_registration_street').change(function() {
+		$('.rowbuild').show();	
+	});
+
+	$('.addphone').click(function() {
+		$('.adphonik').clone().appendTo(".addphoneareas");	
+		$('.addphone').addClass('display_none');	
+		return false;
+	});
+	$('.addotherlanguage').click(function() {
+		$('.addlangline select:last-child').clone().appendTo(".style2");	
+		$('.addlangline select:last-child').removeClass('display_none');	
+		return false;
+	});
+	$("#content .content-block textarea").keyup(function() {
+		if (this.value.length > 300)
+			this.value = this.value.substr(0, 300);
+	});
+
+	$("#content .content-block .wishes textarea").keyup(function() {
+		if (this.value.length > 200)
+			this.value = this.value.substr(0, 200);
+	});
+
+	$('.destination .add-lang').click(function() {
+		$('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");	
+	});
+
+	
+	$('#manager .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#manager .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
+	$('#taxidriver .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#taxidriver .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
+	$('#independentdriver .addlang').click(function() {
+		$('.style1').last().addClass('style13');
+		$('#independentdriver .style1').clone().insertAfter('.style1').addClass('style2');	
+		$('.style2').removeClass('style1');
+		return false;
+	});
+    }
+});
+/*
+$( window ).resize(function(){
+    $( ".file_upload input" ).triggerHandler( "change" );
+	setTabswidth();
+});
+*/
 //register page/////////////////////////////
      function add2PassPattern(text)
      {
@@ -221,3 +249,9 @@ $(document).ready(function() {
 	});
 
   });
+  
+  
+ $('.chois li').change(function(){ 
+var ind = $('.chois li').index($('li.uk-active')[0]);
+alert(ind);
+});

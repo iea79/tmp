@@ -42,3 +42,7 @@ doctrine:
                 mappings:
                     ApplicationSonataNewsBundle: ~
                     SonataNewsBundle: ~
+    dbal:
+    # ...
+        types:
+            json: Sonata\Doctrine\Types\JsonType

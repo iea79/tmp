@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             
             // DOCTRINE
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
@@ -107,6 +108,9 @@ class AppKernel extends Kernel
             new Application\Sonata\TimelineBundle\ApplicationSonataTimelineBundle(), // easy extends integration
             
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            
+            new A2lix\I18nDoctrineBundle\A2lixI18nDoctrineBundle(),
+            new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
             
             
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
