@@ -57,7 +57,7 @@
 				<div class="uk-form-controls">
                     {{ form_widget(form.cars_amount,
 						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'1','autofocus':''}}) }}
+                                 'tabindex':'2','autofocus':''}}) }}
 					<div class="questiontooltip float_left">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
@@ -68,6 +68,12 @@
                 {{ form_errors(form.cars_amount) }}
 			</label>
 			
+            
+            
+            
+            {{ form_widget(form.address.vars.prototype.country)|e }}
+            
+            {% for address in form.address %}
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
 					{{ form_widget(form.country,
@@ -87,19 +93,19 @@
 			</label>
 			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
 				<div class="uk-form-controls">
-					{{ form_widget(form.address,
+					{{ form_widget(form.street,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'5','autofocus':''}}) }}
 				</div>
 			</label>
-                        
+            {% endfor %}                
                         
                         
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
 				<div class="uk-form-controls">
 					{{ form_widget(form.skype,
 						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'5','autofocus':''}}) }}
+                                 'tabindex':'6','autofocus':''}}) }}
 					<div class="questiontooltip">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>

@@ -99,7 +99,7 @@ class TaxiCompany
     /**
      * Set name
      *
-     * @param string $name
+     * @param \DaVinci\TaxiBundle\Entity\Address $name
      * @return TaxiCompany
      */
     public function setAddress($address)

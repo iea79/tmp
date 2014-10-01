@@ -15,9 +15,8 @@ class AddressType extends AbstractType
         $propertyPathToCity = 'city';
 
         $builder
-            ->add('country', 'entity', array(
+            ->add('country', 'collection', array(
                             'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
-                            'data_class' => 'DaVinci\TaxiBundle\Entity\Address',
                             'property' => 'country',
                             'empty_value' => 'form.please_select',
                             'translation_domain' => 'FOSUserBundle',
@@ -37,6 +36,11 @@ class AddressType extends AbstractType
     }
 
     public function getName()
+    {
+        return 'address';
+    }
+
+    function getIdentifier()
     {
         return 'address';
     }

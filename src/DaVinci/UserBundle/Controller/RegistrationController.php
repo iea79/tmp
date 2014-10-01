@@ -183,6 +183,8 @@ class RegistrationController extends BaseController {
         $user = $this->container->get('security.context')->getToken()->getUser();
                 
         $formData = new TaxiCompany();
+
+        $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
         $flow = $this->container->get('taxi.registration.company.form.flow'); // must match the flow's service id
       
         $flow->bind($formData);

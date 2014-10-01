@@ -8,7 +8,6 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Doctrine\ORM\EntityRepository;
 
-use DaVinci\TaxiBundle\Entity\City;
 
 class AddCityFieldSubscriber implements EventSubscriberInterface
 {
@@ -30,7 +29,7 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
     private function addCityForm($form, $country)
     {
         $formOptions = array(
-            'class'         => 'DaVinciTaxiBundle:City',
+            'class'         => '\DaVinci\TaxiBundle\Entity\Admin\CountryCity',
             'empty_value' => 'form.please_select',
             'translation_domain' => 'FOSUserBundle',
             'query_builder' => function (EntityRepository $repository) use ($country) {
@@ -60,7 +59,7 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
         
         $countrycity = new \DaVinci\TaxiBundle\Entity\Admin\CountryCity;
         
-        $country = ($city) ? $this->getDoctrine()->getRepository('DaVinciTaxiBundle:CountryCity')
+        $country = ($city) ? $this->getDoctrine()->getRepository('\DaVinci\TaxiBundle\Entity\Admin\CountryCityRepository')
                 ->getCountryCodeByCity($city) : null;
 
         $this->addCityForm($form, $country);

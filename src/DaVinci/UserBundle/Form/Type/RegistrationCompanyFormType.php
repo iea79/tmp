@@ -46,7 +46,7 @@ class RegistrationCompanyFormType extends BaseType {
                             'label' => 'form.number_cars',
                             'translation_domain' => 'FOSUserBundle'
                         ))
-                        ->add('country', 'entity', array(
+                        /*->add('country', 'entity', array(
                             'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
                             'data_class' => 'DaVinci\TaxiBundle\Entity\Address',
                             'property' => 'country',
@@ -56,7 +56,8 @@ class RegistrationCompanyFormType extends BaseType {
                                 return $er->createQueryBuilder('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
                             }))
                         ->addEventSubscriber(new AddCityFieldSubscriber($propertyPathToCity))
-                        ->add('street', 'text')
+                        ->add('street', 'text')*/
+                        ->add('address', new AddressType())
                         ->add('skype', 'text');
                         
                     
