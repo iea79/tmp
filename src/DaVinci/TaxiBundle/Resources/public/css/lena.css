@@ -61,6 +61,15 @@
 .wrapper-content .register .uk-button.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
 /*.btn-red:hover {    background: none repeat scroll 0 0 #ff94a0;}*/
 @media (max-width: 1017px) {
+    #registration .uk-navbar-toggle, #header .uk-navbar-toggle,
+    #header table td:last-child {display: table-cell;}
+
+	.register .uk-form-horizontal .uk-width-1-1 {width: 94%;}
+	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
+
+}
+
+@media (max-width: 1017px) {
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
@@ -72,7 +81,9 @@
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
 }
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
+	.register .uk-form-horizontal .uk-width-1-1 {width: 94%;}
+	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
 	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
@@ -114,12 +125,23 @@
  	float: left;
  	color: #3c3d45;
 	width: 34.8%;
+	font-weight: normal;
 	padding-right: 10px;
 	font-size: 16px;
  }
- .register .uk-form-horizontal .uk-form-controls {
+.register .uk-form-horizontal.verifi  { 	width: 93%;}
+.register .uk-form-horizontal.verifi .twolabels, .register .uk-form-horizontal.verifi  .uk-form-label {	width: 34.2%;padding-right: 0;}
+.register .uk-form-horizontal.verifi .uk-form-controls { 	width: 65.2%;}
+.register .uk-form-horizontal.fos_user_registration_register .uk-form-label  {padding-right: 0;}
+.register .uk-form-horizontal.verifi .label-info{
+	width: 100%;
+	margin-top: 4px;
+	font-size: 16px;
+}
+
+.register .uk-form-horizontal .uk-form-controls {
  	margin-lefT: 0;
-	margin-top: 1px;
+/*	margin-top: 1px;*/
 	floaT: left;
 	width: 65.2%;
 }
@@ -129,14 +151,16 @@
 	margin-top: 13px;
 	margin-bottom: 13px;
  }
+.register .uk-form-horizontal .uk-form-row.addlangline  {	margin-bottom: 12px; }
 
-.register .uk-form-horizontal.verifi .uk-form-row  {
-	margin-top: 15px;
-	margin-bottom: 15px;
+.register .uk-form-horizontal.verifi .uk-form-row.addlangline, .register .uk-form-horizontal.verifi .uk-form-row.addphoneline, .register .uk-form-horizontal.verifi .uk-form-row  {
+	margin-top: 4px;
+	margin-bottom: 3px;
 }
+.verifi .uk-button-group {margin-top: 15px;}
 .register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {
 	margin-top: 0px;
-	margin-bottom: -2px;
+/*	margin-bottom: -2px;*/
 }
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoneareas  .questiontooltip {
@@ -269,7 +293,8 @@
      vertical-align: middle;
 }
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
-.addphoneline .text {   padding-bottom: 8%;}
+/*.addphoneline .text {   padding-bottom: 8%;}*/
+.addphoneline .text {   padding-bottom: 1%;}
 .phonecode {
  	float: left;
  	margin-right: 10px;
@@ -292,10 +317,14 @@
 	right: -10px;
 }
  .whicheck-1 {
+	min-width: 57px;
 	width: 16.4%;
 	margin-right: 27%;
 }
- .whicheck-2 {width: 28%;}
+ .whicheck-2 {
+	width: 28%;
+	min-width: 96px;
+}
  .register .wicheck  label {display: inline-block;}
  .addphone .questiontooltip {
  	width: 14%;
@@ -312,7 +341,10 @@
 	margin-bottom: 0;
 }
 .twolabels .text {	clear: left;}
-.register .uk-form-horizontal .twolabels  .uk-form-label {	width: 100%;}
+.register .uk-form-horizontal .twolabels  .uk-form-label {
+	width: 100%;
+	margin-top: 0px;
+}
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
 .addphone {
 	cursor: pointer;
@@ -338,13 +370,16 @@
 	text-align: center;
     font-size: 24px;
     font-weight: normal;
-    margin: 0 auto 48px auto;
-    padding: 11px 0;
+    margin: 2px auto 42px auto;
+    padding: 25px 0 16px 0;
     text-transform: none;
+	background: #3d3d3d;
+	color: #fff;
 }
 .officepagetitle img {
     margin-left: 15px;
     margin-right: 5px;
+	margin-top: -14px;
 }
 .officepagetitle h2, .register h2 {
     color: #fff;
@@ -362,7 +397,7 @@
     line-height: 120%;
     margin-left: 4px;
     margin-right: 10px;
-    padding: 10px;
+    padding: 5px 10px 6px 10px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -371,7 +406,7 @@
     background: none repeat scroll 0 0 #fff;
     border-radius: 4px;
     display: inline-block;
-    margin: 0 14px 25px 13px;
+    margin: 0 22px 25px 3px;
     padding: 14px 10px 0;
     text-align: center;
     width: 281px;
@@ -380,7 +415,7 @@
     color: #528ed3;
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 13px;
+    margin-bottom: 11px;
 }
 .officecomment {
     color: #ff4d61;
@@ -396,8 +431,8 @@
     background: url("../images/officelist.png") no-repeat scroll 10px center #f1f1f1;
     font-size: 14px;
     list-style: none outside none;
-    margin: 0 0 0 -10px;
-    padding: 9px 8px 8px 34px;
+    margin: 0 0 -1px -10px;
+    padding: 9px 8px 8px 37px;
     text-align: left;
     width: 259px;
 }
@@ -419,17 +454,17 @@
 .trial {
     background: none repeat scroll 0 0 #27bf2e;
     font-size: 24px;
-    padding: 17px 20px 14px;
+    padding: 14px 20px 16px;
     text-transform: uppercase;
 }
 .register #makechoice .uk-modal-dialog {
-	width: 28%;
+	width: 15.8%;
 	margin: 25% auto;
 }
 #makechoice h2 {
     color: #ff4d61;
     font-size: 18px;
-    margin: 6px 0 8px;
+    margin: 6px 0 12px;
 }
 #makechoice ul {
     margin: 0;
@@ -443,7 +478,7 @@
 }
 #makechoice li a {
 	display: block;
-	margin-bottom: 12px;
+	margin-bottom: 11px;
     padding: 8px 20px;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 4px;
@@ -469,7 +504,7 @@
 #makechoice li a {
 	display: block;
 	margin-bottom: 12px;
-    padding: 8px 20px;
+    padding: 15px 6px;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 4px;
     color: #fff;
@@ -479,7 +514,8 @@
 	opacity: 0.6
 }
 #makechoice li a:active {	opacity: 0.4}
-
+.register .uk-modal-dialog {    padding: 7px 10px 1px;}
+.register .uk-modal-dialog > .uk-close:first-child {    margin: 3px -1px 0 0;}
 
 .register .uk-form-horizontal  .style1 {
 	float: left;
@@ -492,6 +528,8 @@
     position: relative;
 }
 .register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
+.register  label span.text{color: #3d3d3d;}
+.register .verifi label span.text{color: #8d8f98;}
 .register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 /*
@@ -519,7 +557,7 @@ label .errors {
 }
 .greentitle {
     color: #27bf2e;
-    margin: 24px 0 0;
+    margin: 12px 0 0;
 }
 .greentitle span {
     background: url("../images/return.png") no-repeat scroll 100% 0 transparent;
@@ -637,9 +675,26 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 .register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
-.register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49%;}
+.register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;margin-bottom: 13px;}
 
 
 
 
+.register .header-wrapper .header-top .header-top-in .topmenu-left {	padding: 4px 0 12px 12.5%;}
+.register .header-wrapper .header-top .header-top-in .topmenu-left ul li .text-item {    padding: 6px 19px;}
+.register .uk-subnav-pill > li > a, .register .uk-subnav-pill > li > span {    padding: 3px 4px;}
+.register .header-wrapper .header-top .header-top-in .topmenu-left ul li.nest {    padding-left: 24px;}
+.register .header-wrapper .header-top .header-top-in .topmenu-right .uk-button {
+    padding: 0 16px;
+	line-height: 24px;
+}
+.register .header-wrapper .header-top .header-top-in .topmenu-right .book-store a {    padding: 14px 26px;}
+.register .footer-top .footer-in .social {    margin: 8px 9.4% 8px 0;}
+.register .footer-top .footer-in .social > li:nth-child(n+2) {    margin-left: 4px;}
+.register .footer-top .footer-in .social li .facebook {width: 25px;}
+.register .footer-top .footer-in .add-nav {    margin: 6px 0 4px 12%;}
+.register .footer-bottom {
+	color: #fff;
+    padding: 21px 0;
+}
