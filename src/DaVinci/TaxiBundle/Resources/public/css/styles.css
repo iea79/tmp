@@ -435,6 +435,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.last:after {
 								content:"";
 							}
+							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.last {
+								line-height:25px;
+							}
 						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a {
 							color:#fff;
 							text-decoration:underline;
