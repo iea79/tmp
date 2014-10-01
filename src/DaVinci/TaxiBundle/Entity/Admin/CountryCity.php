@@ -11,7 +11,7 @@ use Symfony\Component\Intl\Intl;
  */
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="DaVinci\TaxiBundle\Entity\Admin\CountryCityRepository")
  * @ORM\Table(indexes={@ORM\Index(name="country_code_idx", columns={"countryCode"})})
  */
 class CountryCity

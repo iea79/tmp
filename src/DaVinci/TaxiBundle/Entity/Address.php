@@ -21,28 +21,30 @@ class Address
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="DaVinci\TaxiBundle\Entity\City")
-     * @ORM\JoinColumn(name="id", referencedColumnName="id")
-     * @Assert\Type("DaVinci\TaxiBundle\Entity\City")
-     * @Assert\NotNull()
+     * @ORM\Column(type="string", nullable=true)
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private $address;
+    private $street;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $country;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
      */
     private $postcode;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     */
-    private $user;
+//    /**
+//     * @ORM\ManyToOne(targetEntity="User", inversedBy="addresses")
+//     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+//     */
+//    private $user;
 
     /**
      * Get id
@@ -57,10 +59,10 @@ class Address
     /**
      * Set city
      *
-     * @param \DaVinci\TaxiBundle\Entity\City $city
+     * @param string $city
      * @return Address
      */
-    public function setCity(\DaVinci\TaxiBundle\Entity\City $city)
+    public function setCity($city)
     {
         $this->city = $city;
 
@@ -70,34 +72,57 @@ class Address
     /**
      * Get city
      *
-     * @return \DaVinci\TaxiBundle\Entity\City 
+     * @return string
      */
     public function getCity()
     {
         return $this->city;
     }
-
+    
     /**
-     * Set address
+     * Set street
      *
-     * @param string $address
+     * @param string $cuontry
      * @return Address
      */
-    public function setAddress($address)
+    public function setCountry($country)
     {
-        $this->address = $address;
+        $this->country = $country;
 
         return $this;
     }
 
     /**
-     * Get address
+     * Get country
      *
      * @return string 
      */
-    public function getAddress()
+    public function getCountry()
     {
-        return $this->address;
+        return $this->country;
+    }
+
+    /**
+     * Set street
+     *
+     * @param string $address
+     * @return Address
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get street
+     *
+     * @return string 
+     */
+    public function getStreet()
+    {
+        return $this->street;
     }
 
     /**
@@ -123,27 +148,27 @@ class Address
         return $this->postcode;
     }
 
-    /**
-     * Set user
-     *
-     * @param \DaVinci\TaxiBundle\Entity\User $user
-     * @return Address
-     */
-    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \DaVinci\TaxiBundle\Entity\User 
-     */
-    public function getUser()
-    {
-        return $this->user;
-    }
+//    /**
+//     * Set user
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\User $user
+//     * @return Address
+//     */
+//    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
+//    {
+//        $this->user = $user;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get user
+//     *
+//     * @return \DaVinci\TaxiBundle\Entity\User 
+//     */
+//    public function getUser()
+//    {
+//        return $this->user;
+//    }
 
 }

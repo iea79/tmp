@@ -74,7 +74,7 @@
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3','autofocus':''}}) }}
 					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Country'|trans }}</span></a>
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'form.Country'|trans }}</span></a>
 					</div>
 				</div>
 			</label>
@@ -85,17 +85,21 @@
                                  'tabindex':'4','autofocus':''}}) }}
 				</div>
 			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'company_address'|trans }}:</span>
+			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input>
+					{{ form_widget(form.address,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'5','autofocus':''}}) }}
 				</div>
 			</label>
                         
                         
                         
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
+			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.Skype'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
+					{{ form_widget(form.skype,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'5','autofocus':''}}) }}
 					<div class="questiontooltip">
 						<a class="tooltip" href="#">
                             <span class="que">?</span>
@@ -114,7 +118,11 @@
 					<div class="questiontooltip">
 						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
 					</div>
-					<div class="float_left uk-width-1-1 adphonik"><select class="uk-width-4-10 phonecode" name="phonecode" id="phonecode" required>
+					<div class="float_left uk-width-1-1 adphonik">
+					<div data-uk-form-select="" class="uk-form-select select uk-width-4-10 phonecode">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
+						<select required="" id="phonecode" name="phonecode" class="">
 						<option></option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
 						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
@@ -156,8 +164,9 @@
 						<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
-					</select>
+					</select></div>
 					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
+					<div class="clear"></div>
 					<div class="wicheck whicheck-1">
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
 						<div class="questiontooltip">
@@ -186,7 +195,7 @@
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
 				<div class="uk-form-controls">
-					<div class="uk-form-label pinktext uk-width-1-1  float_left">Boris Ivanov</div>
+					<div class="uk-form-label  uk-width-1-1  float_left">Boris Ivanov</div>
 				</div>
 
 			</label>
@@ -232,7 +241,7 @@
 					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
 					</div>
 			</label>
-			<div class="uk-button-group uk-width-4-5">
+			<div class="uk-button-group uk-width-4-8">
 				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
 				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
 				<div class="clear"></div>
