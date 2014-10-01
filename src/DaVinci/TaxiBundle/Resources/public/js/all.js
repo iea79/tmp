@@ -93,7 +93,7 @@ $(function(){
 	});
 	
 	$('.addphone').click(function() {
-		$('.adphonik').clone().appendTo(".addphoneareas");	
+		$('.adphonik').clone().appendTo(".addphoneareas").addClass('adphoniklast');	
 		$('.addphone').addClass('display_none');	
 		return false;
 	});

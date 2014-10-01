@@ -135,7 +135,7 @@
 .register .uk-form-horizontal.fos_user_registration_register .uk-form-label  {padding-right: 0;}
 .register .uk-form-horizontal.verifi .label-info{
 	width: 100%;
-	margin-top: 4px;
+	margin-top: 5px;
 	font-size: 16px;
 }
 
@@ -208,6 +208,7 @@
 	text-decoration	: none;
 }
 .questiontooltip a span.tooltip {
+    border-radius: 3px;
 	display			: none; 
 	padding			: 2px 3px; 
 	margin-left		: 8px; 
@@ -215,7 +216,7 @@
 	height: 54px;
 	height: auto;
 	float: right;
-	right: 20px;
+	right: 18px;
 	top: 0;
 	position: relative;
 	font-size: 0.7em;
@@ -281,7 +282,7 @@
     width: 540px;
 }
 .addotherlanguage {
-	width: 95%;
+	width: 100%;
     background: none repeat scroll 0 0 #528ed3;
     border-radius: 5px;
     box-sizing: border-box;
@@ -292,6 +293,7 @@
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      vertical-align: middle;
 }
+:-moz-any(x), .addotherlanguage {	width: 95%;}
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
 /*.addphoneline .text {   padding-bottom: 8%;}*/
 .addphoneline .text {   padding-bottom: 1%;}
