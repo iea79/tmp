@@ -4,7 +4,7 @@
 <!------------------------------------------------Account start-------------------------------------->
 <div class="main-content client-account">
 		<div class="client-panel-button">
-			<div class="uk-grid uk-grid-small uk-width-7-10 uk-width-large-9-10 uk-width-medium-7-10 uk-width-small-5-10">
+			<div class="uk-grid uk-grid-small">
 				<div class="uk-panel">
 					<button class="uk-button uk-button-primary uk-button-profile" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
 				</div>
@@ -72,7 +72,7 @@
 <!------------------------------------------------ independent-driver table--------------------------------------->
             <ul id="tab-content" class="uk-switcher">
                     <li class="uk-active">
-                            <div class="whitebg">
+                            <div class="whitebg findorder">
 								<div class="message">
 									<span class="uk-text-danger">Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ!
 								</div>
@@ -125,16 +125,16 @@
 										</div>
 									</div>
 								</div>
-								<div class="table-over">
+								<div class="table-over ">
 										<table class="serv responsive" cellspacing="1">
 											<tbody><tr>
 												<th class="tab-h1">Tip	</th>
 												<th class="daterange">Date/Time</th>
-												<th>Route</th>
-												<th>Trust</th>
-												<th>PM</th>
-												<th>Price</th>
-												<th>Status</th>
+												<th class="route">Route</th>
+												<th class="trust">Trust</th>
+												<th class="pm">PM</th>
+												<th class="price">Price</th>
+												<th class="status">Status</th>
 												<th class="tab-h2">Buy</th>
 											</tr>
 											<tr class="under-head">
@@ -255,7 +255,7 @@
 												<td><span class="escro">escrow</span></td>
 												<td>$783.85</td>
 												<td>open</td>
-												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+												<td><button class="uk-button-success uk-button button-buy"><i class="mp-icon-basket"></i>12:56:03</button></td>
 											</tr>
 											<tr class="table-cont">
 												<td><span class="blue-bg">2</span></td>
@@ -265,7 +265,7 @@
 												<td><span class="escro">escrow</span></td>
 												<td>$783.85</td>
 												<td>open</td>
-												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+												<td><button class="uk-button-success uk-button button-buy"><i class="mp-icon-basket"></i>12:56:03</button></td>
 											</tr>
 											<tr class="table-cont">
 												<td><span class="blue-bg">3</span></td>
@@ -275,7 +275,7 @@
 												<td><span class="escro">escrow</span></td>
 												<td>$783.85</td>
 												<td>open</td>
-												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+												<td><button class="uk-button-success uk-button button-buy"><i class="mp-icon-basket"></i>12:56:03</button></td>
 											</tr>
 											<tr class="table-cont">
 												<td><span class="blue-bg">4</span></td>
@@ -285,20 +285,25 @@
 												<td><span class="escro">cash</span></td>
 												<td>$783.85</td>
 												<td>open</td>
-												<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+												<td><button class="uk-button-success uk-button button-buy"><i class="mp-icon-basket"></i>12:56:03</button></td>
 											</tr>
 										</tbody></table>
 									</div>
                             </div>
                     </li>
                     <li>
-                            <div class="whitebg">
+                            <div class="whitebg openorder">
                                     <div class="message"><span>{{'Attention!'|trans}}</span>{{'Choose driver by yourself!'|trans}}</div>
                                     <table class="uk-table responsive allorder">
                                                 <tbody>
                                                     <thead>
                                                             <tr>
-                                                                    <th>#</th><th>{{'TMP ID'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Left time'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Price'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th>{{'Route'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th><th><span class="filter"></span>{{'Status'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+                                                                    <th>#</th>
+																	<th>{{'TMP ID'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+																	<th class="left-time"><span class="filter"></span>{{'Left time'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+																	<th class="price"><span class="filter"></span>{{'Price'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+																	<th class="route">{{'Route'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
+																	<th><span class="filter"></span>{{'Status'|trans}}<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a></div></th>
                                                             </tr>
                                                     </thead>
                                                     <tr>
@@ -422,7 +427,7 @@
                                                     </thead>
                                              <tbody>
                                                    <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere">18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>pending</td><td><button class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</button></td>
+                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere">18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>pending</td><td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
                                                             <td>
                                                                     <div>
                                                                             <a class="mp-icon-closed uk-text-danger">
@@ -431,7 +436,7 @@
                                                             </td>
                                                     </tr>
                                                     <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><button class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</button></td>
+                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
                                                             <td>
                                                                     <div>
                                                                             <a class="mp-icon-closed uk-text-danger">

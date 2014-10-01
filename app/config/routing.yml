@@ -1,13 +1,11 @@
-da_vinci_taxi_homepage:
-    pattern:  /
-    defaults: { _controller: DaVinciTaxiBundle:Home:index }
+#main page etc
+da_vinci_taxi:
+    resource: "@DaVinciTaxiBundle/Resources/config/routing.yml"
+    prefix:   /
     
 # offices, registrations
 userbundle:
     resource: '@DaVinciUserBundle/Resources/config/routing.yml'
-    
-taxibundle:
-    resource: '@DaVinciTaxiBundle/Resources/config/routing.yml'
 
 #admin panel
 admin:

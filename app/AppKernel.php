@@ -26,7 +26,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-
+            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            
             // DOCTRINE
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
@@ -114,11 +115,6 @@ class AppKernel extends Kernel
             
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
-                        
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
-            // not required, but recommended for better extraction
-            new JMS\TranslationBundle\JMSTranslationBundle(),
-            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
