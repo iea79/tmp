@@ -210,7 +210,7 @@
 .questiontooltip a span.tooltip {
     border-radius: 3px;
 	display			: none; 
-	padding			: 2px 3px; 
+	padding			: 3px 3px 4px 3px;  
 	margin-left		: 8px; 
 	width			: 76px;
 	height: 54px;
@@ -682,21 +682,3 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 
 
 
-
-.register .header-wrapper .header-top .header-top-in .topmenu-left {	padding: 4px 0 12px 12.5%;}
-.register .header-wrapper .header-top .header-top-in .topmenu-left ul li .text-item {    padding: 6px 19px;}
-.register .uk-subnav-pill > li > a, .register .uk-subnav-pill > li > span {    padding: 3px 4px;}
-.register .header-wrapper .header-top .header-top-in .topmenu-left ul li.nest {    padding-left: 24px;}
-.register .header-wrapper .header-top .header-top-in .topmenu-right .uk-button {
-    padding: 0 16px;
-	line-height: 24px;
-}
-.register .header-wrapper .header-top .header-top-in .topmenu-right .book-store a {    padding: 14px 26px;}
-.register .footer-top .footer-in .social {    margin: 8px 9.4% 8px 0;}
-.register .footer-top .footer-in .social > li:nth-child(n+2) {    margin-left: 4px;}
-.register .footer-top .footer-in .social li .facebook {width: 25px;}
-.register .footer-top .footer-in .add-nav {    margin: 6px 0 4px 12%;}
-.register .footer-bottom {
-	color: #fff;
-    padding: 21px 0;
-}
