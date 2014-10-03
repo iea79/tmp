@@ -1,4 +1,4 @@
-$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();
+/*$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();*/
 
 //Добавление доролнительных направлений 
 $('.destination .add-lang').click(function() {

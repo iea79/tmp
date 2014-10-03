@@ -6,20 +6,22 @@
 
 
 <div class="wrapper-content"><div class="content register">
-    {% if error %}
-    <div>{{ error|trans }}</div>
-    {% endif %}
-    <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post">
-        <!--table class="authoriz">
-            <tr>
-                <td-->
-        <h3>{{ 'Login or Register'|trans}}</h3>
+    <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post"><fieldset>
+			{% if error %}
+			<ul classs="errors">
+				<li>{{ error|trans }}</li>
+			</ul>
+			{% endif %}
+			<h3>{{ 'Login or Register'|trans}}</h3>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-            <input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" autofocus/>
-            <input class="uk-width-1-1" type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
-            <div class="clear"></div>
+            <label class="uk-form-row">
+				<input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" autofocus/>
+			</label>
+            <label class="uk-form-row">
+				<input class="uk-width-1-1" type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
+			</label>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
 			
 			<button class="uk-button nextbutt uk-width-1-1" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
@@ -34,8 +36,8 @@
              <a class="loginfb" href="#"></a>
                 <a class="logintw" href="#"></a>
             <h3>Sign in with</h3>
-            <p>Don't have an account yet</p> #}
-        </form>
+			<p>Don't have an account yet</p> #}
+        </fieldset></form>
         <!--/td>
     </tr>
 </table-->
