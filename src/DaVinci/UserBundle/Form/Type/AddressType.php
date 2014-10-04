@@ -13,13 +13,14 @@ class AddressType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $propertyPathToCity = 'city';
-
+        
         $builder
-            ->add('country', 'collection', array(
+            ->add('country', 'entity', array(
                             'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
                             'property' => 'country',
                             'empty_value' => 'form.please_select',
                             'translation_domain' => 'FOSUserBundle',
+                            'property_path' => 'country',
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
                             }))

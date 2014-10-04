@@ -21,39 +21,44 @@ class TaxiCompany
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank
      */
     private $name;
 
     /**
-     * @ORM\Column(type="date", nullable=true)
+     * @ORM\Column(type="date")
      */
     private $registration_date;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
+     * @ORM\Column(type="string")
      */
     private $registration_place;
 
     
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $skype;
     
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\OneToMany(targetEntity="Phone", mappedBy="taxiCompany")
+     */
+    private $phones;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
      */
     private $registraition_number;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="smallint")
      */
     private $cars_amount;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $logo;
 
@@ -77,6 +82,7 @@ class TaxiCompany
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
+    
     /**
      * Constructor
      */
@@ -84,6 +90,7 @@ class TaxiCompany
     {
         $this->manager = new \Doctrine\Common\Collections\ArrayCollection();
         $this->driver = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->phones = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -142,6 +149,39 @@ class TaxiCompany
         return $this->name;
     }
 
+    /**
+     * Add phones
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Phone $phones
+     * @return TaxiCompany
+     */
+    public function addPhone(\DaVinci\TaxiBundle\Entity\Phone $phones)
+    {
+        $this->phones[] = $phones;
+
+        return $this;
+    }
+
+    /**
+     * Remove phones
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Phone $phones
+     */
+    public function removePhone(\DaVinci\TaxiBundle\Entity\Pone $phones)
+    {
+        $this->phones->removeElement($phones);
+    }
+
+    /**
+     * Get phones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhones()
+    {
+        return $this->phones;
+    }
+    
     /**
      * Set registration_date
      *

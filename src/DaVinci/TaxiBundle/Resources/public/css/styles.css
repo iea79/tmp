@@ -648,11 +648,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				width:30px;
 				height:60px;
 				position: absolute;
-<<<<<<< HEAD
-				right: 0;
-=======
 				right: 3px;
->>>>>>> 19843f10ec081b9efb0c7fd390a60932c0784408
 				top: 0;
 			}
 	/*
@@ -1053,8 +1049,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
 }
-<<<<<<< HEAD
-=======
+
 .serv .under-head .questiontooltip {
 	display:none;
 }
@@ -1064,7 +1059,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
 	width:27%;
 }
->>>>>>> 19843f10ec081b9efb0c7fd390a60932c0784408
+
 	.table-over .serv {
 		width:100%;
 		border-collapse: separate;
@@ -2825,5 +2820,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
 	table.responsive th:last-child, table.responsive td:last-child, table.responsive td:last-child, table.responsive.pinned td { display: none; }
 }
+
+
+.intl-tel-input {width: 100%;}
 
 /*========================end office passenger and driver=======================*/

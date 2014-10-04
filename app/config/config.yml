@@ -122,6 +122,12 @@ doctrine:
                     oneLocale:
                         class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
                         enabled: true
+
+jms_i18n_routing:
+    default_locale: en
+    locales: [en, ru]
+    strategy: prefix_except_default
+
 a2lix_i18n_doctrine:
     manager_registry: doctrine
 
@@ -130,11 +136,6 @@ a2lix_translation_form:
     required_locales: [en]      # [2]
     manager_registry: doctrine      # [3]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
-
-jms_i18n_routing:
-    default_locale: en
-    locales: [en, ru]
-    strategy: prefix_except_default
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -146,7 +147,7 @@ swiftmailer:
     sender_address: "info@taximyprice.com"
 
 jms_security_extra:
-    secure_all_services: false
+    secure_all_services: true
 
 jms_serializer:
     metadata:

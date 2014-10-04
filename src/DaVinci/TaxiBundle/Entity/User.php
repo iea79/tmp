@@ -31,6 +31,9 @@ class User extends BaseUser
      */
     protected $groups;
     
+    /**
+     * @ORM\Column(type="boolean")
+     */
     protected $termsAccepted;
 
     /**

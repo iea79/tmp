@@ -54,9 +54,14 @@ function setBlockHeight(){
 $(function(){
     
     if($(".register").length) { 
-    
+    $(".phoneinput").intlTelInput({
+        defaultCountry: "auto",
+        autoFormat: true,
+        responsiveDropdown: true,
+        utilsScript: liphone_utils_path // just for formatting/placeholders/autoformat etc
+      });
 
-    var $country = $('#taxi_company_registration_country');
+    var $country = $('#taxi_company_registration_address_country');
     // When country gets selected ...
     $country.change(function() {
       // ... retrieve the corresponding form.
@@ -71,26 +76,54 @@ $(function(){
         data : data,
         success: function(html) {
           // Replace current position field ...
-          $('#taxi_company_registration_city').replaceWith(
+          $('#taxi_company_registration_address_city').replaceWith(
             // ... with the returned one from the AJAX response.
-            $(html).find('#taxi_company_registration_city')
+            $(html).find('#taxi_company_registration_address_city')
           );
+            $('#taxi_company_registration_address_city').change('change',function() {
+                $('.rowstreet').show();	
+            });
           // Position field now displays the appropriate positions.
         }
       });
     });
-    
-	$('.rowcity').hide();	
-	$('.rowstreet').hide();	
-	$('.rowbuild').hide();	
-	
-	$('#taxi_company_registration_country').change(function() {
+
+	$('#taxi_company_registration_address_country').change(function() {
 		$('.rowcity').show();	
 	});
 
-	$('#taxi_company_registration_city').change(function() {
-		$('.rowstreet').show();	
-	});
+
+
+
+    var $collectionHolder;
+
+    // setup an "add a tag" link
+    var $addTagLink = $('<a href="#" class="addphone">Add a tag</a>');
+    var $newLinkLi = $('<li></li>').append($addTagLink);
+
+    jQuery(document).ready(function() {
+        // Get the ul that holds the collection of tags
+        $collectionHolder = $('ul.tags');
+
+        // add the "add a tag" anchor and li to the tags ul
+        $collectionHolder.append($newLinkLi);
+
+        // count the current form inputs we have (e.g. 2), use that as the new
+        // index when inserting a new item (e.g. 2)
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+
+        $addTagLink.on('click', function(e) {
+            // prevent the link from creating a "#" on the URL
+            e.preventDefault();
+
+            // add a new tag form (see next code block)
+            addTagForm($collectionHolder, $newLinkLi);
+        });
+    });
+
+
+
+
 	
 	$('.addphone').click(function() {
 		$('.adphonik').clone().appendTo(".addphoneareas").addClass('adphoniklast');	
