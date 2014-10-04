@@ -15,7 +15,7 @@
     {% endspaceless %}
 {% endblock form_errors %}
     
-{% block body %}
+{% block title %}
 <div class="wrapper-content title">
 	{{ 'Taxi Company: Business Office'|trans}}
 	<div class="questiontooltip">
@@ -27,7 +27,8 @@
         </a>
 	</div>
 </div>
-   
+{% endblock%}
+{% block body %}
 <div class="wrapper-content"><div class="content register">
 	<form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
 		<fieldset>

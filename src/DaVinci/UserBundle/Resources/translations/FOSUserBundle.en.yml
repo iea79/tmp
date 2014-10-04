@@ -104,14 +104,14 @@ form:
     male: "Male"
     female: "Female"
     choosegender: "Choose your gender"
-    firstname: "First Name"
-    lastname: "Last Name"
+    firstname: "First name"
+    lastname: "Last name"
     gender: "Gender"
     contactinfo: "Contact info"
     signininfo: "Sign in info"
     generalinfo: "General info"
     gotonextstep: "Next step >"
-    iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
+    iagreetotem: I have read and agree to the <a href="%url%">Terms of USe</a> and the <a href="%url%">Privacy Policy</a>.
     back: < Back
     create_account: "Create Account"
     finish: Finish

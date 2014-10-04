@@ -1,3 +1,21 @@
+.wrap-content {position: relative;}
+.register .wrap-content {
+	background-image:url(../images/bgmain.jpg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position: 0 0;
+	background-size: cover;
+	position: relative;
+}
+/*footer {
+	position: absolute;
+	bottom:0;
+	width: 100%;
+}*/
+footer {
+	position: relative;
+	z-index: 2;
+}
 .register label{
 	display:block;
 	margin:0 0 12px;
@@ -32,9 +50,15 @@
 	margin: 0 0 9px 0;
     padding: 17px 0 10px 0;	
 	font-size: 1.9em;
- 	position: relative;
 	line-height: 120%;
- }
+	position: relative;
+/*
+	float: none;
+ 	position: absolute;
+	width: 100%;
+	float: left;
+	left: 0;*/
+}
 /*.register .title span {display: inline-block; }*/
 .register .uk-form-select, .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
@@ -56,6 +80,7 @@
 	height: 29px;
 	line-height: 20px;
 }
+/*.register .wrapper-content  .content.register {padding-top: 68px;}*/
 .wrapper-content .register .authorizat .uk-button.nextbutt.btn-red {
     background: none repeat scroll 0 0 #ff3148;
     border: 0 none;
@@ -301,7 +326,7 @@
 :-moz-any(x), .addotherlanguage {	width: 95%;}
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
 /*.addphoneline .text {   padding-bottom: 8%;}*/
-.addphoneline .text {   padding-bottom: 1%;}
+.addphoneline .text {   padding-bottom: 2%;}
 .phonecode {
  	float: left;
  	margin-right: 10px;
@@ -380,8 +405,8 @@
     margin: 2px auto 42px auto;
     padding: 25px 0 16px 0;
     text-transform: none;
-	background: #3d3d3d;
-	color: #fff;
+/*	background: #3d3d3d;
+	color: #fff;*/
 }
 .officepagetitle img {
     margin-left: 15px;
@@ -653,14 +678,8 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 	padding: 4px 10px 10px 10px;
 }
 body.register {
-background-image:url(../images/bgmain.jpg);
-background-repeat:no-repeat;
-background-attachment:fixed;
-background-position: 0 0;
-background-size: cover;
-  min-height: 100%;
-  position: relative;
-  height: auto;
+/*  min-height: 100%;
+  height: auto;*/
 }
 body.register .main-content{
 	background: none;
