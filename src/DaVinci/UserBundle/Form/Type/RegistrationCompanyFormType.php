@@ -47,7 +47,7 @@ class RegistrationCompanyFormType extends BaseType {
                             'translation_domain' => 'FOSUserBundle'
                         ))
                         ->add('address', new AddressType())
-                        ->add('skype')
+                        ->add('skype', 'text', array('required'=>false))
                         ->add('phones','collection',array(
                                 'type'         => new PhoneType(),
                                 'allow_add'    => true ));

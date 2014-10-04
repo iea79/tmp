@@ -46,7 +46,7 @@ class User extends BaseUser
      */
     private $photo;
 
-//    /**
+//    /**manytoone...
 //     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
 //     * @Assert\Valid()
 //     */

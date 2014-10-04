@@ -95,6 +95,7 @@ footer {
 	.register .uk-form-horizontal .addphoneareas, .register .addotherlanguage	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	.changemail div.form-group .col-sm-9 {width: 77.6%;}
 }
 @media (max-width: 767px) {
 	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
@@ -111,6 +112,7 @@ footer {
 		height: 12px !important;
 		width: 12px  !important;
 	}
+	.changemail div.form-group .col-sm-9 {width: 64.8% !important;}
 }
 @media screen and (max-width: 480px) {
 	.register .uk-form-horizontal .uk-width-1-1 {width: 93.6%  !important;}
@@ -127,6 +129,13 @@ footer {
 		height: 10px !important;
 		width: 10px  !important;
 	}
+	.checkmail {
+		background: #fff !important;
+		padding: 17px 12px 20px 12px  !important;
+	}
+	.wrapper-content > .content.usedemail {	padding: 14px 12px 20px 12px  !important;}
+	.changemail {	padding: 12px 12px 5px 12px !important;}
+	.changemail div.form-group .col-sm-9 {width: 56.6% !important;}
 }
 .wrapper-content .register .uk-button {
     font-size: 22px;
@@ -160,7 +169,8 @@ footer {
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
  	float: left;
- 	color: #3c3d45;
+/* 	color: #3c3d45;*/
+ 	color: #000;
 	width: 34.8%;
 	font-weight: normal;
 	padding-right: 10px;
@@ -211,14 +221,15 @@ footer {
 	margin-left: 1px;
  }
  .title .questiontooltip {
-	position: absolute;
- 	display: inline;
+/*	position: absolute;*/
+	position: reltive;
+ 	display: inline-block;
  	font-size: 11px;
- 	width: auto;
+/* 	width: auto;*/
  	float: none;
  	text-transform: none;
 	margin-left: 5px;
-	margin-top: -2px;
+	top: -17px;
  }
  .title .questiontooltip a span.que{	top: 12px;}
 .questiontooltip a span.que{
@@ -339,7 +350,7 @@ footer {
  	float: left;
 	font-size: 16px;
  }
-.adphonik {margin-bottom: 10px;}
+/*.adphonik {margin-bottom: 10px;}*/
 .register .uk-form-horizontal .uk-width-1-0.adphoniklast{margin-bottom: 26px; }
 /*.adphoniklast  .wicheck {margin-top: -2px;}
  .wicheck .questiontooltip {
@@ -350,11 +361,11 @@ footer {
  .wicheck .questiontooltip { 	margin-top: -3px;}
  .whicheck-1 {
 	min-width: 66px;
-	width: 18%;
+	width: 28%;
 	margin-right: 23.2%;
 }
  .whicheck-2 {
-	width: 29%;
+	width: 32%;
 	min-width: 106px;
 }
  .register .wicheck  label {display: inline-block;}
@@ -381,6 +392,8 @@ footer {
 .addphone {
 	cursor: pointer;
     color: #528ed3;
+	color: #000;
+	text-decoration: underline;
     display: inline-block;
 }
 .addlangline select {
@@ -402,7 +415,7 @@ footer {
 	text-align: center;
     font-size: 24px;
     font-weight: normal;
-    margin: 2px auto 42px auto;
+    margin: 0px auto 42px auto;
     padding: 25px 0 16px 0;
     text-transform: none;
 /*	background: #3d3d3d;
@@ -429,7 +442,7 @@ footer {
     line-height: 120%;
     margin-left: 4px;
     margin-right: 10px;
-    padding: 5px 10px 6px 10px;
+    padding: 7px 10px 4px 10px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -466,7 +479,7 @@ footer {
     margin: 0 0 -1px -10px;
     padding: 9px 8px 8px 37px;
     text-align: left;
-    width: 259px;
+    width: 256px;
 }
 .blockoffice li.odd {
     background: url("../images/officelist.png") no-repeat scroll 10px center transparent;
@@ -561,8 +574,8 @@ footer {
     position: relative;
 }
 .register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
-.register  label span.text{color: #3d3d3d;}
-.register .verifi label span.text{color: #8d8f98;}
+.register  label span.text{/*color: #3d3d3d;*/ 	color: #000;}
+.register .verifi label span.text{/*color: #8d8f98;*/color: #000;}
 .register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 /*
@@ -602,10 +615,11 @@ footer {
     margin: 12px 0 0;
 }
 .greentitle span {
-    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;
+/*    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;*/
     display: inline-block;
-    padding: 0 50px 10px 0;
+    padding: 0 10px 10px 0;
 }
+.officepagetitle .greentitle span img {margin: 0;}
 .register .uk-button-group {    
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -696,24 +710,61 @@ body.register .main-content{
 .wrapper-content > .content.checkmail .float_left{
 }
 .checkmail a, .about .term a {    color: #528ed3;}
-.term a {color: #ff4d61; border: 1px solid red;}
-.checkmail .float_right {text-align: right;}
+.term a {color: #ff4d61; text-decoration: underline;}
+.checkmail .float_left{	width: 74.8%;}
+.checkmail .float_right {
+	text-align: right;
+	font-size: 14px;
+	width: 25.2%;
+	padding-top: 6px;
+}
+.checkmail .float_right  div{	line-height: 120%;}
 
 .checkmail {
 	text-align: left;
-    background: url("../images/checkmail.png") no-repeat 20px center #fff;
-	padding: 20px 20px 20px 140px;
-	min-width: 560px;
-	width:80%;
-	
-	margin: 0 auto;
+    background: url("../images/checkmail.png") no-repeat 14px center #fff;
+	padding: 17px 12px 20px 118px;
+	width:83.2%;
+	margin: 27px auto 0 auto;
+	color: #000;
+	min-width: 283px;
 }
-.wrapper-content > .content.usedemail {
-	padding: 20px 20px 20px 140px;
+.changemail {
+	text-align: left;
+	padding: 12px 12px 5px 118px;
 	margin: 0 auto;
-	background: #8d8f98;
-	min-width: 560px;
-	width:80%;
+	color: #000;
+	min-width: 283px;
+	width:83.2%;
+	background: #fff;
+	font-size: 16px;
+}
+.changemail fieldset {margin: 0 0 5px 0;}
+.changemail div, .changemail .col-sm-9, .changemail label {display: inline-block;}
+.changemail label {
+	margin-right: 15px;
+	padding-top: 8px;
+}
+.changemail div.form-group {
+	width: 37.4%;
+	white-spacE: nowrap;
+}
+.changemail div.form-group .col-sm-9 {width: 77.6%;}
+.changemail div.form-group .col-sm-9 input{width: 100%;}
+.checkmail  p{
+	margin:  0;
+	font-size: 16px;
+	line-height: 126%;
+}
+.checkmail  h3{	margin-bottom:  8px;}
+
+.wrapper-content > .content.usedemail {
+	padding: 12px 12px 16px 118px;
+	margin: 0 auto;
+	background: #f4f4f4;
+	min-width: 283px;
+	width:83.2%;
+	font-size: 16px;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 
@@ -730,6 +781,32 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
 .register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
-.register .uk-form-horizontal .uk-width-1-0 {width: 100%;margin-bottom: 38px;}
+.register .uk-form-horizontal .uk-width-1-0 {
+	width: 100%;
+	margin-bottom: 38px;
+	margin-bottom: 10px;
+}
+.register .checkmail .uk-width-5-1 {width: 74.8%;}
+.register .checkmail .uk-width-5-2 {width: 25.2%;}
+.register .changemail .btn {
+	background: #528ed3;
+	color: #fff;
+	margin-left: 10px;
+	border-radius: 4px;
+	border: none;
+	padding: 5px 15px;
+}
 
 
+.register .uk-form-horizontal .checkregister {margin-top: 28px;}
+.register .uk-form-horizontal .checkregister  .uk-form-row  {
+	margin-top: 5px;
+	margin-bottom: 6px;
+}
+.register  .checkregister  .uk-form-row.term  {
+	font-size: 16px;
+	margin-top: 19px;
+	margin-bottom: 0;
+}
+.register .uk-form-horizontal .checkregister  .uk-form-row.term  label{	margin: 0px;}
+/*.checkregister label.term  a {	color: #ff4d61;}*/

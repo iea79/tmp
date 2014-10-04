@@ -61,7 +61,7 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
         $form = $event->getForm();
         
         if (!$form->has($this->propertyPathToCity)) {
-             $form->add($this->propertyPathToCity, 'choice', array('choices' => array('0'=>'form.loading'),'translation_domain' => 'FOSUserBundle'));
+             $form->add($this->propertyPathToCity, 'choice', array('empty_value' => 'form.loading','translation_domain' => 'FOSUserBundle'));
            //$this->addCityForm($form, null);
         }
         

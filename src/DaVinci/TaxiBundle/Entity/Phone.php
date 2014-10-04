@@ -23,18 +23,18 @@ class Phone
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $phone;
+    protected $phone;
     
     
     /**
      * @ORM\Column(type="boolean")
      */
-    private $has_internet;
+    protected $has_internet;
     
     /**
      * @ORM\Column(type="boolean")
      */
-    private $has_whatsapp;
+    protected $has_whatsapp;
     
     /**
      * Get id
@@ -68,6 +68,7 @@ class Phone
     {
         return $this->phone;
     }
+    
     /**
      * Get has_internet
      *
@@ -88,4 +89,50 @@ class Phone
         return $this->has_whatsapp;
     }
     
+
+    /**
+     * Set has_internet
+     *
+     * @param boolean $hasInternet
+     * @return Phone
+     */
+    public function setHasInternet($hasInternet)
+    {
+        $this->has_internet = $hasInternet;
+
+        return $this;
+    }
+
+    /**
+     * Get has_internet
+     *
+     * @return boolean 
+     */
+    public function getHasInternet()
+    {
+        return $this->has_internet;
+    }
+
+    /**
+     * Set has_whatsapp
+     *
+     * @param boolean $hasWhatsapp
+     * @return Phone
+     */
+    public function setHasWhatsapp($hasWhatsapp)
+    {
+        $this->has_whatsapp = $hasWhatsapp;
+
+        return $this;
+    }
+
+    /**
+     * Get has_whatsapp
+     *
+     * @return boolean 
+     */
+    public function getHasWhatsapp()
+    {
+        return $this->has_whatsapp;
+    }
 }

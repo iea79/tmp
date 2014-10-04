@@ -1,12 +1,15 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
-{% block body %}
-
+{% block title %}
 <div class="wrapper-content title officepagetitle">
 
 {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': '#'}  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
-<div class="greentitle"><span>{% trans %}Need money: choose professional office!{% endtrans %}</span></div>
+<div class="greentitle"><span>{% trans %}Need money: choose professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
 </div>
+{% endblock%}
+
+{% block body %}
+
 
 <div class="align_center">
 	<div class="blockoffice">

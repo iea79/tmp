@@ -14,12 +14,10 @@
             {% endif %}
         {% endspaceless %}
     {% endblock form_errors %}
-    
-{% form_theme form 'DaVinciTaxiBundle:Registration:Theme/phone_collection.html' %}
 
 {% block title %}
 	<div class="wrapper-content title">
-		{{ 'Taxi Company: Business Office'|trans}}
+		<span>{{ 'Taxi Company: Business Office'|trans}}</span>
 		<div class="questiontooltip">
 			<a class="tooltip" href="#">
 				<span class="que">?</span>
@@ -88,7 +86,7 @@
                                  'tabindex':'4'}}) }}
                                 </div>
                             </label>
-                            <label class="uk-form-row rowstreet" style="display:none"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                            <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
                                 <div class="uk-form-controls">
                                     {{ form_widget(form.address.street,
 						{'attr':{'class': 'uk-width-1-1 float_left',
@@ -116,38 +114,43 @@
                                     <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
                                 </div>
 
-                                <ul class="tags" data-prototype="{{ form_widget(form.phones.vars.prototype)|e }}">
-
-                                </ul>
-
-                                <div class="uk-form-controls addphoneareas">
-                                    <div class="questiontooltip">
-                                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-                                    </div>
-                                    {{ form_widget(form.phones.phone,
+                            <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
+						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+                                 'tabindex':'7'}})|e }}">
+                            <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
+						{'attr':'tabindex':'8'}})|e }}">
+                            <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
+						{'attr':{'tabindex':'9'}})|e }}">
+                           
+                             {% for phones in form.phones %}   
+                             <div class="uk-form-controls addphoneareas">
+                                <div class="float_left adphonik">
+                                 {{ form_widget(phones.phone,
 						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
                                  'tabindex':'7'}}) }}
-                                    <div class="float_left uk-width-1-1 adphonik">
-                                        <div class="wicheck whicheck-1">
-                                            <div class="float_left">{{ form_widget(form.phones.internet,{'tabindex':'8'}) }}<label>{{ 'Internet'|trans }}</label></div>
-                                            <div class="questiontooltip">
-                                                <a class="tooltip" href="#">
-                                                    <span class="que">?</span>
-                                                    <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="wicheck whicheck-2">
-                                            <div class="float_left">{{ form_widget(form.phones.whatsapp,{'tabindex':'8'}) }}<label>WhatsApp</label></div>
-                                            <div class="questiontooltip">
-                                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
-                                            </div>
+
+                                    <div class="wicheck whicheck-1">
+                                        <div class="float_left">{{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}</div>
+                                        <div class="questiontooltip">
+                                            <a class="tooltip" href="#">
+                                                <span class="que">?</span>
+                                                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="uk-form-controls addphone">
-                                        {{'Add mobile number'|trans }}
+                                    <div class="wicheck whicheck-2">
+                                        <div class="float_left">{{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9'}}) }}</div>
+                                        <div class="questiontooltip">
+                                            <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
+                                        </div>
                                     </div>
                                 </div>
+                                        
+                                <div class="uk-form-controls addphone" id="addphone">
+                                    {{'Add mobile number'|trans }}
+                                </div>
+                            </div>   
+                            {% endfor %}
                             </label>
                             <div class="uk-button-group uk-width-4-5">
                                 <button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>

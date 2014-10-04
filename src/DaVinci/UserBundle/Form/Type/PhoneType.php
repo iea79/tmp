@@ -12,9 +12,15 @@ class PhoneType extends AbstractType
     {
         $builder
             ->add('phone')
-            ->add('has_internet')
-            ->add('has_whatapp')
-        ;
+            ->add('has_internet','checkbox',array(
+                'label'=>'form.internet', 
+                'translation_domain' => 'FOSUserBundle',
+                'required'  => false
+                ))
+            ->add('has_whatsapp','checkbox',array(
+                'label'=>'whatsapp',
+                'required'  => false
+                ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

@@ -111,7 +111,7 @@ form:
     signininfo: "Sign in info"
     generalinfo: "General info"
     gotonextstep: "Next step >"
-    iagreetotem: "I have read and agree to the <a href='%url%'>Terms of USe</a> and the <a href='%url%'>Privacy Policy</a>."
+    iagreetotem: "I have read and agree to the <a href='%url%'>Terms of Use</a> and the <a href='%url%'>Privacy Policy</a>."
     back: < Back
     create_account: "Create Account"
     finish: Finish
@@ -141,6 +141,8 @@ form:
     company_address: "Address of registration"
     number_cars: "Number of cars"
     mobile: "Phone number"
+    internet: "internet"
+    
     
     
     please_select: "Please select..."
