@@ -696,6 +696,7 @@ body.register .main-content{
 .wrapper-content > .content.checkmail .float_left{
 }
 .checkmail a, .about .term a {    color: #528ed3;}
+.term a {color: #ff4d61; border: 1px solid red;}
 .checkmail .float_right {text-align: right;}
 
 .checkmail {
