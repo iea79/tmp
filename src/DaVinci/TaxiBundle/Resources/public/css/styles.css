@@ -2825,3 +2825,184 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .intl-tel-input {width: 100%;}
 
 /*========================end office passenger and driver=======================*/
+/*=======================datepicker =============================================*/
+div.datepicker {
+	position: relative;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	width: 196px;
+	height: 147px;
+	position: absolute;
+	cursor: default;
+	top: 0;
+	left: 0;
+	display: none;
+}
+.datepickerContainer {
+	background: #121212;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border:1px solid #8e9099;
+	border-radius:8px;
+	overflow:hidden;
+	box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.datepickerHidden {
+	display: none;
+}
+div.datepicker table {
+	border-collapse:collapse;
+}
+div.datepicker a {
+	color: #666;
+	text-decoration: none;
+	cursor: default;
+	outline: none;
+}
+div.datepicker table td {
+	
+	padding: 4px 2px!important;
+	font-size:14px;
+	margin: 0;
+}
+div.datepicker table td  table td a {
+	height:24px;
+	width:26px;
+	line-height:24px;
+}
+
+div.datepicker th {
+	text-align: center;
+	color: #999;
+	font-weight: normal;
+	background:#fff;
+}
+div.datepicker tbody th {
+	text-align: left;
+}
+div.datepicker tbody a {
+	display: block;
+}
+.datepickerDays a {
+	width: 20px;
+	line-height: 16px;
+	height: 16px;
+	padding-right: 2px;
+}
+.datepickerYears a,
+.datepickerMonths a{
+	width: 44px;
+	line-height: 36px;
+	height: 36px;
+	text-align: center;
+}
+td.datepickerNotInMonth a {
+	color: #aaa;
+}
+tbody.datepickerDays td.datepickerSelected{
+	background: linear-gradient(rgb(0, 180, 245), rgb(0, 141, 197));
+}
+tbody.datepickerDays td.datepickerNotInMonth.datepickerSelected {
+	background: #fff;
+}
+tbody.datepickerYears td.datepickerSelected,
+tbody.datepickerMonths td.datepickerSelected{
+	background: #17384d;
+}
+div.datepicker a:hover,
+div.datepicker a:hover {
+	color: #88c5eb;
+}
+div.datepicker td.datepickerNotInMonth a:hover {
+	color: #999;
+}
+div.datepicker tbody th {
+	color:#666!important;
+	background-color:#fff!important;
+}
+
+.datepickerGoNext a,
+.datepickerGoPrev a,
+.datepickerMonth a {
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+}
+.datepickerGoNext a {
+	float: right;
+	width: 20px;
+}
+.datepickerGoPrev a {
+	float: left;
+	width: 20px;
+} 
+
+
+#widget {
+	position: relative;
+}
+#widgetField {
+	width: 290px;
+	height: 26px;
+	background: url(../images/field.png);
+	overflow: hidden;
+	position: relative;
+}
+/*#widgetField a 	{
+	display: block;
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	top: 0;
+	right: 0;
+	text-decoration: none;
+	
+} */
+#widgetField a {
+display: block;
+position: absolute;
+top: 12%;
+right: 2px;
+text-decoration: none;
+font-family: icontaxi;
+font-size: 16px;
+color: #8d8f98;
+}
+#widgetField span	{
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	position: absolute;
+	top: 0;
+	height: 26px;
+	line-height: 26px;
+	left: 5px;
+	width: 250px;
+	text-align: center;
+}
+#widgetCalendar {
+	position: absolute;
+	top: 26px;
+	left: 0;
+	height: 0px;
+	overflow: hidden;
+	width: 588px;
+	background: #B9B9B9;
+}
+#widgetCalendar .datepicker {
+	position: absolute;
+	bottom: 0;
+	top: auto;
+}
+#widgetCalendar .datepicker a:hover{
+	color: #b6f063;
+}
+table.datepickerViewDays tbody.datepickerMonths,
+table.datepickerViewDays tbody.datepickerYears {
+	display: none;
+}
+.oveflow {
+	overflow:visible!important;
+}
