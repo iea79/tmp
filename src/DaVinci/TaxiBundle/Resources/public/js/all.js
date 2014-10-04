@@ -116,7 +116,8 @@ $(function () {
             var newForm = $('.adphonik:first').clone();
             
             //remove plugin from object
-            newForm = newForm.not('.intl-tel-input');
+            //newForm = newForm.not('.intl-tel-input');
+            newForm.find('.intl-tel-input').remove();
              
             $(newForm).find('.phoneinput').replaceWith(phone_proto).attr('tabindex', function(index, attr) {
                                                                                                             return index + num;});
@@ -129,7 +130,7 @@ $(function () {
             $('.addphone').before(newForm);
             
            
-            init_phone();
+            //init_phone();
             $('.addphone').addClass('display_none'); //don't if want more phones
             return false;
         });
