@@ -184,7 +184,8 @@ class RegistrationController extends BaseController {
                 
         $formData = new TaxiCompany();
 
-    //    $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
+        $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
+        $formData->addPhone(new \DaVinci\TaxiBundle\Entity\Phone());
         $flow = $this->container->get('taxi.registration.company.form.flow'); // must match the flow's service id
       
         $flow->bind($formData);

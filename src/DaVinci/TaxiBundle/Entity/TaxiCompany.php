@@ -42,9 +42,16 @@ class TaxiCompany
      */
     private $skype;
     
-    /**
-     * @ORM\OneToMany(targetEntity="Phone", mappedBy="taxiCompany")
-     */
+
+	 /**
+	 * 
+	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
+	 * @ORM\JoinTable(name="Phone",
+	 *      joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id",unique=true)}
+	 *      )
+	 */
+    
     private $phones;
     
     /**

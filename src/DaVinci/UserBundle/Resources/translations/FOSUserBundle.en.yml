@@ -141,6 +141,8 @@ form:
     company_address: "Address of registration"
     number_cars: "Number of cars"
     mobile: "Phone number"
+    internet: "internet"
+    
     
     
     please_select: "Please select..."
