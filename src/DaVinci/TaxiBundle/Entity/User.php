@@ -5,6 +5,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
 
+
+
 /**
  * @author Mykola Sedletskyi <icevita@gmail.com>
  */
@@ -52,6 +54,12 @@ class User extends BaseUser
 //     */
 //    private $addresses;
 //    
+    
+    /** 
+     * @ORM\OneToMany(targetEntity="Application\Sonata\CustomerBundle\Entity\Customer", mappedBy="user")
+     */   
+    protected $customers;
+    
     /**
      * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="user")
      */

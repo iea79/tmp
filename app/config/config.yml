@@ -110,6 +110,8 @@ doctrine:
         types:
            json: Sonata\Doctrine\Types\JsonType
            currency: Sonata\Component\Currency\CurrencyDoctrineType
+        mapping_types:
+            currency: currency
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
@@ -147,7 +149,7 @@ swiftmailer:
     sender_address: "info@taximyprice.com"
 
 jms_security_extra:
-    secure_all_services: true
+    secure_all_services: false
 
 jms_serializer:
     metadata:

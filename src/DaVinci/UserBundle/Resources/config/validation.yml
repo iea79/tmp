@@ -1,12 +1,12 @@
-Acme\TaxiBundle\Entity\TaxiCompany:
-    properties:
-        name:
-            - NotBlank: 
-                groups: [ "flow_taxi_company_registration_step1"]
-                message: fos_user.firstname.not_blank
-        cars_amount:
-            
-            
+#Acme\TaxiBundle\Entity\TaxiCompany:
+#    properties:
+#        name:
+#            - NotBlank: 
+#                groups: [ "flow_taxi_company_registration_step1"]
+#                message: fos_user.firstname.not_blank
+##        cars_amount:
+#            
+#            
 DaVinci\TaxiBundle\Entity\User:
     properties:
         termsAccepted:
@@ -15,7 +15,7 @@ DaVinci\TaxiBundle\Entity\User:
                 groups: [ "flow_taxi_user_registration_step2"]
             - 'True': 
                 groups: [ "flow_taxi_user_registration_step2"]
-                message: fos_user.terms.not_blank
+                message: fos_user.terms.not_blank*/
         firstname:   
             - NotBlank: 
                 groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]

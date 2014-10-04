@@ -28,15 +28,8 @@ class OrderElement extends BaseOrderElement
 {
     /**
      * @var integer $id
-     * @ORM\ManyToOne(targetEntity="Order", inversedBy="orderElements")
-     * @ORM\JoinColumn(name="order", referencedColumnName="order")
      */
     protected $id;
-
-    /**
-     * @var integer $order
-     */
-    protected $order;
     
     /**
      * Get id
