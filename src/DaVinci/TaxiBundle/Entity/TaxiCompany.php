@@ -46,9 +46,9 @@ class TaxiCompany
 	 /**
 	 * 
 	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
-	 * @ORM\JoinTable(name="Phone",
+	 * @ORM\JoinTable(name="UserPhone",
 	 *      joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
-	 *      inverseJoinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id",unique=true)}
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id", unique=true)}
 	 *      )
 	 */
     

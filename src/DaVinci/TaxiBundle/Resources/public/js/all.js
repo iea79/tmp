@@ -56,15 +56,19 @@ $(function () {
 
     if ($(".register").length) {
 
-        $phone_fields = $(".phoneinput");
-        if ($phone_fields.length)
+        function init_phone()
         {
-            $(".phoneinput").intlTelInput({
+            $(".phoneinput:last").intlTelInput({
                 defaultCountry: "auto",
                 autoFormat: true,
                 responsiveDropdown: true,
                 utilsScript: liphone_utils_path // just for formatting/placeholders/autoformat etc
             });
+        }
+        $phone_fields = $(".phoneinput");
+        if ($phone_fields.length)
+        {
+            init_phone();
         }
 
         var $country = $('#taxi_company_registration_address_country');
@@ -110,6 +114,10 @@ $(function () {
 
             //replace proto elements
             var newForm = $('.adphonik:first').clone();
+            
+            //remove plugin from object
+            newForm = newForm.not('.intl-tel-input');
+             
             $(newForm).find('.phoneinput').replaceWith(phone_proto).attr('tabindex', function(index, attr) {
                                                                                                             return index + num;});
             $(newForm).find('.whicheck-1 label').replaceWith(internet_proto).attr('tabindex', function(index, attr) {
@@ -117,8 +125,11 @@ $(function () {
             $(newForm).find('.whicheck-2 label').replaceWith(whatsapp_proto).attr('tabindex', function(index, attr) {
                                                                                                             return index + num;});
 
-
+                                                                                                    
             $('.addphone').before(newForm);
+            
+           
+            init_phone();
             $('.addphone').addClass('display_none'); //don't if want more phones
             return false;
         });

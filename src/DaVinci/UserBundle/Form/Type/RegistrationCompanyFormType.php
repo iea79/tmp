@@ -28,7 +28,7 @@ class RegistrationCompanyFormType extends BaseType {
         
         $propertyPathToCity = 'city';
         
-        
+
         switch ($options['flow_step']) {
             case 1:
                 $builder
