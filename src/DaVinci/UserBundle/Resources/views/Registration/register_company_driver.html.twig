@@ -1,12 +1,14 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
-{% block body %}
+{% block title %}
 <div class="wrapper-content title">
 	<span>{{ 'Taxi Company: Driver Office'|trans}}</span>
 	<div class="questiontooltip">
 		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Make more money from international passengers</span></a>
 	</div>
 </div>
+{% endblock%}
+{% block body %}
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
