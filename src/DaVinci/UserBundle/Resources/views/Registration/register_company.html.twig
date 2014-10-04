@@ -1,256 +1,226 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
-    
-{% form_theme form _self %}
-{% block form_errors  %}
-    {% spaceless %}
-        {% if errors|length > 0 %}
-        <ul class="errors">
-            {% for error in errors %}
-                <li>{{ error.message }}</li>
-            {% endfor %}
-        </ul>
-        {% endif %}
-    {% endspaceless %}
-{% endblock form_errors %}
-    
-{% block body %}
-<div class="wrapper-content title">
-	{{ 'Taxi Company: Business Office'|trans}}
-	<div class="questiontooltip">
-		<a class="tooltip" href="#">
-            <span class="que">?</span>
-            <span class="tooltip">
-                {% trans %}Make more money from international passengers{% endtrans %}
-            </span>
-        </a>
+
+    {% form_theme form _self %}
+    {% block form_errors  %}
+        {% spaceless %}
+            {% if errors|length > 0 %}
+                <ul class="errors">
+                    {% for error in errors %}
+                        <li>{{ error.message }}</li>
+                        {% endfor %}
+                </ul>
+            {% endif %}
+        {% endspaceless %}
+    {% endblock form_errors %}
+
+{% block title %}
+	<div class="wrapper-content title">
+		<span>{{ 'Taxi Company: Business Office'|trans}}</span>
+		<div class="questiontooltip">
+			<a class="tooltip" href="#">
+				<span class="que">?</span>
+				<span class="tooltip">
+					{% trans %}Make more money from international passengers{% endtrans %}
+				</span>
+			</a>
+		</div>
 	</div>
-</div>
-   
-<div class="wrapper-content"><div class="content register">
-	<form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
-		<fieldset>
-            {% if flow.getCurrentStepNumber() == 1 %}
-				{{ form_errors(form) }}
-			
-            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label pinktext uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
-				</div>
-			</label>
-                
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
-				<div class="uk-form-controls">
-                    {{ form_widget(form.name, {'attr':{'class': 'uk-width-1-1 float_left',
+{% endblock%}
+
+    {% block body %}
+
+        <div class="wrapper-content"><div class="content register">
+                <form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
+                    <fieldset>
+                        {% if flow.getCurrentStepNumber() == 1 %}
+                            {{ form_errors(form) }}
+
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label pinktext uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                                </div>
+                            </label>
+
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    {{ form_widget(form.name, {'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''} }) }}
-					<div class="questiontooltip">
-						<a class="tooltip" href="#">
-                            <span class="que">?</span>
-                            <span class="tooltip">{% trans %}Enter Name of organization{% endtrans %}</span>
-                        </a>
-					</div>
-				</div>
-                {{ form_errors(form.name) }}
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
-				<div class="uk-form-controls">
-                    {{ form_widget(form.cars_amount,
+                                    <div class="questiontooltip">
+                                        <a class="tooltip" href="#">
+                                            <span class="que">?</span>
+                                            <span class="tooltip">{% trans %}Enter Name of organization{% endtrans %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ form_errors(form.name) }}
+                            </label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    {{ form_widget(form.cars_amount,
 						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'1','autofocus':''}}) }}
-					<div class="questiontooltip float_left">
-						<a class="tooltip" href="#">
-                            <span class="que">?</span>
-                            <span class="tooltip">{% trans %}Taxi Company starts from 5+ cars{% endtrans %}</span>
-                        </a>
-					</div>
-				</div>
-                {{ form_errors(form.cars_amount) }}
-			</label>
-			
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
-				<div class="uk-form-controls">
-					{{ form_widget(form.country,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'3','autofocus':''}}) }}
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'form.Country'|trans }}</span></a>
-					</div>
-				</div>
-			</label>
-			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
-				<div class="uk-form-controls">
-					{{ form_widget(form.city,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'4','autofocus':''}}) }}
-				</div>
-			</label>
-			<label class="uk-form-row rowstreet"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
-				<div class="uk-form-controls">
-					{{ form_widget(form.address,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'5','autofocus':''}}) }}
-				</div>
-			</label>
-                        
-                        
-                        
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.Skype'|trans }}:</span>
-				<div class="uk-form-controls">
-					{{ form_widget(form.skype,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'5','autofocus':''}}) }}
-					<div class="questiontooltip">
-						<a class="tooltip" href="#">
-                            <span class="que">?</span>
-                            <span class="tooltip">{% trans %}Write legitimate skype name{% endtrans %}</span>
-                        </a>
-					</div>
-				</div>
-			</label>
+                                 'tabindex':'2'}}) }}
+                                    <div class="questiontooltip float_left">
+                                        <a class="tooltip" href="#">
+                                            <span class="que">?</span>
+                                            <span class="tooltip">{% trans %}Taxi Company starts from 5+ cars{% endtrans %}</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ form_errors(form.cars_amount) }}
+                            </label>
 
-			<label class="addphoneline uk-form-row">
-				<div class="twolabels uk-width-2-5">
-					<span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
-					<span class="uk-form-label text">Mark if you have </span>
-				</div>
-				<div class="uk-form-controls addphoneareas">
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-					</div>
-					<div class="float_left uk-width-1-1 adphonik">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-4-10 phonecode">
-						<span></span>
-						<i class="uk-icon-caret-down"></i>
-						<select required="" id="phonecode" name="phonecode" class="">
-						<option></option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
-						<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
-						<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
-						<option>994 (AZ)</option>	<option>387 (BA)</option>	<option>1 (BB)</option>	<option>32 (BE)</option>		<option>226 (BF)</option>
-						<option>359 (BG)</option>	<option>973 (BH)</option>	<option>257 (BI)</option>	<option>229 (BJ)</option>		<option>1 (BM)</option>
-						<option>673 (BN)</option>	<option>591 (BO)</option>	<option>55 (BR)</option>	<option>1 (BS)</option>		<option>975 (BT)</option>
-						<option>267 (BW)</option>	<option>375 (BY)</option>	<option>501 (BZ)</option>	<option>86 (C2)</option>	<option>1 (CA)</option>
-						<option>243  (CD)</option>	<option>242 (CG)</option>	<option>41 (CH)</option><option>225 (CI)</option>	<option>682 (CK)</option>
-						<option>56 (CL)</option>	<option>237 (CM)</option>	<option>57 (CO)</option>		<option>506 (CR)</option>		<option>238 (CV)</option>
-						<option>357 (CY)</option>		<option>420 (CZ)</option>		<option>49 (DE)</option>		<option>253 (DJ)</option>		<option>45 (DK)</option>
-						<option>1 (DM)</option>		<option>1 (DO)</option>	<option>213 (DZ)</option>	<option>593 (EC)</option>	<option>372 (EE)</option>
-						<option>20 (EG)</option>	<option>291 (ER)</option>	<option>34 (ES)</option>	<option>251 (ET)</option>	<option>358 (FI)</option>
-						<option>679 (FJ)</option>		<option>500 (FK)</option>	<option>691 (FM)</option>	<option>298 (FO)</option>	<option>33 (FR)</option>
-						<option>241 (GA)</option>	<option>44 (GB)</option>	<option>1 (GD)</option>	<option>995 (GE)</option>	<option>594 (GF)</option>
-						<option>350 (GI)</option>	<option>299 (GL)</option>	<option>220 (GM)</option>	<option>224 (GN)</option>	<option>590 (GP)</option>
-						<option>30 (GR)</option>	<option>502 (GT)</option>	<option>245 (GW)</option>	<option>592 (GY)</option>	<option>852 (HK)</option>
-						<option>504 (HN)</option>	<option>385 (HR)</option>	<option>36 (HU)</option>	<option>62 (ID)</option>	<option>353 (IE)</option>
-						<option>972 (IL)</option>	<option>91 (IN)</option>	<option>354 (IS)</option>	<option>39 (IT)</option>	<option>1 (JM)</option>
-						<option>962 (JO)</option>	<option>81 (JP)</option>	<option>254 (KE)</option>	<option>996 (KG)</option>	<option>855 (KH)</option>
-						<option>686 (KI)</option>	<option>269 (KM)</option>	<option>1 (KN)</option>	<option>82 (KR)</option>	<option>965 (KW)</option>
-						<option>1 (KY)</option>	<option>7 (KZ)</option>	<option>856 (LA)</option>	<option>1 (LC)</option>	<option>423 (LI)</option>
-						<option>94 (LK)</option>	<option>266 (LS)</option>	<option>370 (LT)</option><option>352 (LU)</option>	<option>371 (LV)</option>
-						<option>212 (MA)</option>	<option>377 (MC)</option>	<option>373 (MD)</option>	<option>263 (ME)</option>	<option>261 (MG)</option>
-						<option>692 (MH)</option>	<option>389 (MK)</option>	<option>223 (ML)</option>	<option>976 (MN)</option>	<option>596 (MQ)</option>
-						<option>222 (MR)</option>	<option>1 (MS)</option>	<option>356 (MT)</option>	<option>230 (MU)</option>	<option>960 (MV)</option>
-						<option>265 (MW)</option>	<option>52 (MX)</option>	<option>60 (MY)</option>	<option>258 (MZ)</option>	<option>264 (NA)</option>
-						<option>687 (NC)</option>	<option>227 (NE)</option>	<option>672 (NF)</option>	<option>234 (NG)</option>	<option>505 (NI)</option>
-						<option>31 (NL)</option><option>47 (NO)</option>	<option>977 (NP)</option>		<option>674 (NR)</option>	<option>683 (NU)</option>
-						<option>64 (NZ)</option>	<option>968 (OM)</option>	<option>507 (PA)</option>	<option>51 (PE)</option>	<option>689 (PF)</option>
-						<option>675 (PG)</option>	<option>63 (PH)</option><option>48 (PL)</option>	<option>508 (PM)</option>	<option>872 (PN)</option>
-						<option>351 (PT)</option><option>680 (PW)</option>	<option>595 (PY)</option>	<option>974 (QA)</option>	<option>262 (RE)</option>
-						<option>40 (RO)</option>	<option>381 (RS)</option>	<option>250 (RW)</option>	<option>966 (SA)</option>	<option>677 (SB)</option>
-						<option>248 (SC)</option><option>46 (SE)</option>	<option>65 (SG)</option>	<option>290 (SH)</option>	<option>386 (SI)</option>
-						<option>47 (SJ)</option>	<option>421 (SK)</option>	<option>232 (SL)</option>	<option>378 (SM)</option>	<option>221 (SN)</option>
-						<option>252 (SO)</option>	<option>597 (SR)</option>	<option>239 (ST)</option>	<option>503 (SV)</option>	<option>268 (SZ)</option>
-						<option>1 (TC)</option>	<option>235 (TD)</option><option>228 (TG)</option>	<option>66 (TH)</option>	<option>992 (TJ)</option>
-						<option>993 (™)</option>	<option>216 (TN)</option>	<option>676 (TO)</option>	<option>90 (TR)</option>	<option>1 (TT)</option>
-						<option>688 (TV)</option>	<option>886 (TW)</option>	<option>255 (TZ)</option>	<option>380 (UA)</option>	<option>256 (UG)</option>
-						<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
-						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
-						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
-					</select></div>
-					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
-					<div class="clear"></div>
-					<div class="wicheck whicheck-1">
-						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>
-						<div class="questiontooltip">
-							<a class="tooltip" href="#">
-                                <span class="que">?</span>
-                                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
-                            </a>
-						</div>
-					</div>
-					<div class="wicheck whicheck-2">
-						<div class="float_left"><input type="checkbox" name="whatsapp" id="whatsapp" /><label>whatsapp</label></div>
-						<div class="questiontooltip">
-							<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
-						</div>
-					</div>
-					</div>
-					<div class="uk-form-controls addphone">
-						{{'Add mobile number'|trans }}
-					</div>
-				</div>
-			</label>
-			<div class="uk-button-group uk-width-4-5">
-				<button class="uk-button submit nextbutt uk-width-4-5">Create Office</button>
-			</div>
-          {% elseif flow.getCurrentStepNumber() == 2 %}
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                                <div class="uk-form-controls">
 
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label  uk-width-1-1  float_left">Boris Ivanov</div>
-				</div>
+                                    {{ form_widget(form.address.country,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'3'}}) }}
+                                </div>
+                                 {{ form_errors(form.address.country) }}
+                            </label>
+                            <label class="uk-form-row rowcity" style="display:none"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    {{ form_widget(form.address.city,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'4'}}) }}
+                                </div>
+                                 {{ form_errors(form.address.city) }}
+                            </label>
+                            <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    {{ form_widget(form.address.street,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'5'}}) }}
+                                </div>
+                                {{ form_errors(form.address.street) }}
+                            </label>
 
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">Boris Ivanov</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">8</div>
-				</div>
-			</label>
-			
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">Ebgland</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">Moscow</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.street'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">Moscoskaya</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.build'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">18</div>
-				</div>
-			</label>
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label uk-width-1-1  float_left">12131545</div>
-				</div>
-			</label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    {{ form_widget(form.skype,
+						{'attr':{'class': 'uk-width-1-1 float_left',
+                                 'tabindex':'6'}}) }}
+                                    <div class="questiontooltip">
+                                        <a class="tooltip" href="#">
+                                            <span class="que">?</span>
+                                            <span class="tooltip">{% trans %}Write legitimate skype name{% endtrans %}</span>
+                                        </a>
+                                    </div>
 
-			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
-				<div class="uk-form-controls">
-					<div class="uk-form-label  uk-width-1-1  float_left">+7 888-88-88</div>
-					</div>
-			</label>
-			<div class="uk-button-group uk-width-4-8">
-				<button class="uk-button submit nextbutt uk-width-4-10 float_right">Finish</button>
-				<button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left">< Edit</button>
-				<div class="clear"></div>
-			</div>
-        {% endif %}
-		</fieldset>
-	</form>
-	
-	
-	
-</div></div>            
-{% endblock %}
+                                </div>
+                                {{ form_errors(form.skype) }}
+                            </label>
+
+                            <label class="addphoneline uk-form-row">
+                                <div class="twolabels uk-width-2-5">
+                                    <span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
+                                    <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
+                                </div>
+
+                            <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
+						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+                                 'tabindex':'7'}})|e }}">
+                            <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
+						{'attr':{'tabindex':'8'}})|e }}">
+                            <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
+						{'attr':{'tabindex':'9'}})|e }}">
+                           
+                              
+                             <div class="uk-form-controls addphoneareas">
+                                 {% for phones in form.phones %}  
+                                <div class="float_left adphonik">
+                                 {{ form_widget(phones.phone,
+						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+                                 'tabindex':'7'}}) }}
+                                 {{ form_errors(phones.phone) }}
+                                    <div class="wicheck whicheck-1">
+                                        <div class="float_left">{{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}</div>
+                                        <div class="questiontooltip">
+                                            <a class="tooltip" href="#">
+                                                <span class="que">?</span>
+                                                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="wicheck whicheck-2">
+                                        <div class="float_left">{{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9'}}) }}</div>
+                                        <div class="questiontooltip">
+                                            <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}        
+                                <div class="uk-form-controls addphone" id="addphone">
+                                    {{'Add mobile number'|trans }}
+                                </div>
+                            </div>   
+                            
+                            </label>
+                            <div class="uk-button-group uk-width-4-5">
+                                <button class="uk-button submit nextbutt uk-width-4-5">{{'Create Office'|trans }}</button>
+                            </div>
+                        {% elseif flow.getCurrentStepNumber() == 2 %}
+
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label  uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                                </div>
+{{ flow.formData.getName() }}
+                            </label>
+        {#                    <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.name }}</div>
+                                </div>
+                            </label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.cars_amount }}</div>
+                                </div>
+                            </label>
+
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.country }}<</div>
+                                </div>
+                            </label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
+                                </div>
+                            </label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
+                                </div>
+                            </label>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
+                                </div>
+                            </label>
+
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
+                                <div class="uk-form-controls">
+                                    <div class="uk-form-label  uk-width-1-1  float_left"> 
+                                        {% for phones in flow.formData.phones %} 
+                                            {{ phones.phone }}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </label>
+      #}                      <div class="uk-button-group uk-width-4-8">
+                                <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans }}</button>
+                                <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="reset" formnovalidate="formnovalidate">< {{ 'Edit'|trans }}</button>
+                                <div class="clear"></div>
+                            </div>
+                        {% endif %}
+                    </fieldset>
+                    {{ form_rest(form) }}
+                </form>
+
+
+
+            </div></div>            
+        {% endblock %}

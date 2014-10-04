@@ -1,4 +1,4 @@
-﻿/*==========================   general styles   =================================*/
+/*==========================   general styles   =================================*/
 /*===================  this is a grey button fro our designe  ====================*/
 .uk-button-warning {
   background-color: #8d8f98;
@@ -541,7 +541,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:8px 0;
+		padding:15px 0;
 		box-shadow: 0 1px 1px 0px #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
@@ -549,12 +549,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.home .steps-1-2-3 .chois {
 			border-top:1px solid #ff4d61;
 			border-bottom:1px solid #ff4d61;
-			height:54px;
+			height:60px;
 			overflow:hidden;
 			padding:0;
 		}
 			.home .steps-1-2-3 .chois li {
-				height:54px;
+				height:60px;
 				text-align:center;
 				list-style:none;
 				float:left;
@@ -569,7 +569,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
-					font-size:17px;
+					font-size:18px;
 					padding:0 5px 0 0;
 					margin:0;
 					background:transparent;
@@ -584,9 +584,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					}
 					.home .steps-1-2-3 .chois li a .on {
 						background:#ff4d61;
-						font-size:21px;
-						width:22px;
-						padding:3px 2px;
+						font-size:22px;
+						width:24px;
+						padding:2px 1px;
 						border-radius:15px;
 						color:#fff;
 						display:inline-block;
@@ -594,7 +594,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
 						display:table-cell;
-						height:54px;
+						height:60px;
 						width:302px;
 						
 					}
@@ -609,11 +609,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #fff;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 27px 1px 27px 27px;
+						border-width: 30px 1px 30px 30px;
 						display: block;
 						height: 0;
 						position: absolute;
-						right: -27px;
+						right: -30px;
 						top: 0;
 						width: 0;
 						z-index: 50;
@@ -622,7 +622,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #ff4d61;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 27px 1px 27px 27px;
+						border-width: 30px 1px 30px 30px;
 						display: block;
 						height: 0;
 						position: absolute;
@@ -637,16 +637,16 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	*/
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:27px;
-				height:54px;
+				width:30px;
+				height:60px;
 				position: absolute;
-				right: -28px;
+				right: -32px;
 				top: 0;
 			}
 			.home .steps-1-2-3 .chois li.uk-active  a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:27px;
-				height:54px;
+				width:30px;
+				height:60px;
 				position: absolute;
 				right: 3px;
 				top: 0;
@@ -673,7 +673,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					}
 /*==========================  styles of booking step 1  in homepage =================================*/
 .destination {
-	margin:28px 0 20px 0;
+	margin:40px 0 20px 0;
 }
 	.destination .nav-over {
 		padding:0 20px;
@@ -1010,11 +1010,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 /*===================================  map styles ==============================================================*/
 	.disloc-in {
-		margin:2px 20px 0 20px;
+		margin:18px 20px 0 20px;
 	}
 		.disloc-in ul {
 			padding:0;
-			margin:0 0 5px 0;
+			margin:0 0 2px 0;
 			
 		}
 		
@@ -1022,7 +1022,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			list-style:none;
 			float:left;
 			font-size:16px;
-			margin:0 27px 0 0;
+			margin:0 10px 0 0;
 		}
 			.disloc-in ul  li i {
 				font-size:20px;
@@ -1049,6 +1049,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
 	
 }
+
 .serv .under-head .questiontooltip {
 	display:none;
 }
@@ -1058,6 +1059,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
 	width:27%;
 }
+
 	.table-over .serv {
 		width:100%;
 		border-collapse: separate;
@@ -1082,7 +1084,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.table-over .serv .under-head td {
 			background-color:#f5f5f5;
 			vertical-align:top;
-			font-size:12px;
 		}
 			 .table-over .serv .under-head input{
 			height:27px;
@@ -1140,7 +1141,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.table-over .serv .under-head .uk-form-icon {
 			display:block;
-			margin:0 6px;
+			margin:0 8px;
 		}
 		.table-over .serv .under-head .sort {
 			font-size:14px;
@@ -1237,7 +1238,7 @@ office passengers and driver
 }
 .client-account .order-status {
 	display:table;
-	margin:0 auto; 
+	margin: 0px auto -1px auto; 
 }
 .client-account .order-status span {
 	display:table-cell;
@@ -1418,10 +1419,6 @@ office passengers and driver
 	margin-bottom:0px;
 	margin-top:0px;
 }
-/*.client-account .uk-table input,
-.client-account .uk-table select {
-	padding: 2px 5px;
-}*/
 .client-account .uk-table button,
 .client-account .uk-table a,
 .client-account .uk-table {
@@ -1472,7 +1469,7 @@ office passengers and driver
 }
 .client-account .message-graybg {
 	background:#f5f5f5;
-	padding: 15px 20px;
+	padding: 11px 0px 10px 11px;
 }
 .client-account .message-graybg lable {
 	line-height:30px;
@@ -1485,7 +1482,8 @@ office passengers and driver
 }
 .client-account select.chosen {
 	padding:2px;
-	width: 250px;
+	min-width: 150px;
+	width: 51.4%;
 	border: 1px #8e9099 solid;
 	color:#8e9099;
 }
@@ -1494,6 +1492,10 @@ office passengers and driver
 	margin: 0 10px;
 	color:#8e9099;
 	text-align:center;
+}
+.client-account .allorder thead tr {
+	border: 2px #d0d0d0 solid;
+	line-height: 18px;
 }
 .client-account .allorder th,
 .client-account .allorder td {
@@ -1517,11 +1519,84 @@ office passengers and driver
 	min-width: 160px;
 	width: 24.3%;
 }
+.client-account .allorder th[class="status"] {
+min-width: 70px;
+width: 12.6%;
+}
+.client-account .allorder th[class="price"] {
+	min-width: 65px;
+	width: 9.6%;
+}
+.client-account .allorder th[class="left-time"] {
+	min-width: 85px;
+	width: 11.7%;
+}
 .client-account .allorder th select[class="trust"] {
 	width: 80px;
 	border:0;
 	background:transparent;
 	color:black;
+}
+.allorder .edit-close .mp-icon-edit,
+.allorder .edit-close .mp-icon-close  {
+	font-size: 20px;
+	display: inline-block;
+}
+.client-account .allorder td {
+	line-height: 19px;
+	font-size: 16px !important;
+}
+.client-account .historyorder th[class="left-time"] {
+	min-width: 113px;
+	width: 15.7%;
+}
+.historyorder a.confirm-deal {
+	margin-top: 0px !important;
+	min-width: 113px;
+	width: 90%;
+}
+.client-account .openorder .allorder td {
+	line-height: 22px;
+}
+.client-account .openorder .allorder th[class="left-time"] {
+	min-width: 60px !important;
+	width: 10% !important;
+}
+.client-account .openorder .allorder th[class="route"] {
+	min-width: 180px !important;
+	width: 44.3% !important;
+}
+.client-account .openorder .allorder th[class="prise"] {
+	min-width: 50px;
+	width: 10%;
+}
+/* === change table find order ===*/
+.findorder .table-over .serv th {
+	line-height: 24px !important;
+}
+/*.findorder .table-over .serv th[class="tab-h1"] {
+	min-width: 40px;
+	width: 5.6%;
+}
+.findorder .table-over .serv th[class="daterange"] {
+	min-width: 195px;
+	width: 27.5%;
+}
+.findorder .table-over .serv th[class="route"] {
+	min-width: 225px;
+	width: 27.2%;
+}
+.findorder .table-over .serv th[class="tab-h2"] {
+	min-width: 96px;
+	width: 12.3%;
+}*/
+.findorder .table-over .button-by {
+    min-width: 95px;
+	width: 89%;
+	line-height: 36px;
+}
+.findorder .table-over .under-head td {
+	padding-bottom: 0px;
 }
 .client-account .uk-table td:nth-child(3),
 .client-account .uk-table th:nth-child(3) {
@@ -1587,6 +1662,10 @@ table th .questiontooltip a span.que {
 }
 .client-account .uk-table th:nth-child(2) {
 	width:11.8%;
+}
+.client-account .historyorder th:nth-child(2) {
+	width:11.8% !important;
+	min-width: 90px;
 }
 .client-account .iconed-drop {
 	letter-spacing: 2px;
@@ -2741,5 +2820,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
 	table.responsive th:last-child, table.responsive td:last-child, table.responsive td:last-child, table.responsive.pinned td { display: none; }
 }
+
+
+.intl-tel-input {width: 100%;}
 
 /*========================end office passenger and driver=======================*/

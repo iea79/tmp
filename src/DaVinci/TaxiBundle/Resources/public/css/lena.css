@@ -1,3 +1,21 @@
+.wrap-content {position: relative;}
+.register .wrap-content {
+	background-image:url(../images/bgmain.jpg);
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position: 0 0;
+	background-size: cover;
+	position: relative;
+}
+/*footer {
+	position: absolute;
+	bottom:0;
+	width: 100%;
+}*/
+footer {
+	position: relative;
+	z-index: 2;
+}
 .register label{
 	display:block;
 	margin:0 0 12px;
@@ -26,13 +44,22 @@
     margin: 0 0 -1px;
 }
 .register .title{
+	background: #fff;
 	color: #3d3d3d;
  	text-align: center;
-	margin: 0 0 18px 0;
-    padding: 5px 0 5px 0;	
-	font-size: 27px;
- 	position: relative;
- }
+	margin: 0 0 9px 0;
+    padding: 17px 0 10px 0;	
+	font-size: 1.9em;
+	line-height: 120%;
+	position: relative;
+/*
+	float: none;
+ 	position: absolute;
+	width: 100%;
+	float: left;
+	left: 0;*/
+}
+/*.register .title span {display: inline-block; }*/
 .register .uk-form-select, .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #d1d1d1;
@@ -51,49 +78,68 @@
 .register .uk-form-select select{	width: 100%;}
 .register .uk-form-select {
 	height: 29px;
-	line-height: 26px;
+	line-height: 20px;
 }
-.wrapper-content .register .uk-button.btn-red {
+/*.register .wrapper-content  .content.register {padding-top: 68px;}*/
+.wrapper-content .register .authorizat .uk-button.nextbutt.btn-red {
     background: none repeat scroll 0 0 #ff3148;
     border: 0 none;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
-.wrapper-content .register .uk-button.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
+.wrapper-content .register .authorizat .uk-button.nextbutt.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
 /*.btn-red:hover {    background: none repeat scroll 0 0 #ff94a0;}*/
 @media (max-width: 1017px) {
-    #registration .uk-navbar-toggle, #header .uk-navbar-toggle,
-    #header table td:last-child {display: table-cell;}
-
-	.register .uk-form-horizontal .uk-width-1-1 {width: 94%;}
 	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
-
-}
-
-@media (max-width: 1017px) {
-	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+/*	.addphoneareas .questiontooltip {right: 0;}*/
+	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas, .register .addotherlanguage	{width: 100%;}
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	.changemail div.form-group .col-sm-9 {width: 77.6%;}
 }
 @media (max-width: 767px) {
-	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100% !important;}
+	:-moz-any(x), .register .addotherlanguage {	width: 97%;}
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	label .errors {top: 42px !important;}
+	label.unlabel  .errors {top: 24px !important;}
+/*	.addphoneareas .questiontooltip {right: 1.4% !important;}*/
+	.register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
+	.register .uk-form-horizontal .uk-width-1-1 {width: 93.6%  !important;}
+	.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
+		height: 12px !important;
+		width: 12px  !important;
+	}
+	.changemail div.form-group .col-sm-9 {width: 64.8% !important;}
 }
 @media screen and (max-width: 480px) {
-	.register .uk-form-horizontal .uk-width-1-1 {width: 94%;}
-	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
-	.whicheck-1, .whicheck-2, .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100%;}
+	.register .uk-form-horizontal .uk-width-1-1 {width: 93.6%  !important;}
+	 .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100%  !important;}
+	:-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	label .errors {top: 42px !important;}
+	label.unlabel  .errors {top: 24px !important;}
+	.register .uk-form-horizontal .uk-width-4-5	 {width: 96.8% !important;}
+	.addphoneareas .questiontooltip {right: 0.6% !important;}
+	.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
+		height: 10px !important;
+		width: 10px  !important;
+	}
+	.checkmail {
+		background: #fff !important;
+		padding: 17px 12px 20px 12px  !important;
+	}
+	.wrapper-content > .content.usedemail {	padding: 14px 12px 20px 12px  !important;}
+	.changemail {	padding: 12px 12px 5px 12px !important;}
+	.changemail div.form-group .col-sm-9 {width: 56.6% !important;}
 }
 .wrapper-content .register .uk-button {
     font-size: 22px;
     padding: 10px;
-
-	
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: middle;
@@ -123,7 +169,8 @@
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
  	float: left;
- 	color: #3c3d45;
+/* 	color: #3c3d45;*/
+ 	color: #000;
 	width: 34.8%;
 	font-weight: normal;
 	padding-right: 10px;
@@ -151,6 +198,7 @@
 	margin-top: 13px;
 	margin-bottom: 13px;
  }
+.register .authorizat .uk-form-row   {margin: 0;}
 .register .uk-form-horizontal .uk-form-row.addlangline  {	margin-bottom: 12px; }
 
 .register .uk-form-horizontal.verifi .uk-form-row.addlangline, .register .uk-form-horizontal.verifi .uk-form-row.addphoneline, .register .uk-form-horizontal.verifi .uk-form-row  {
@@ -158,16 +206,13 @@
 	margin-bottom: 3px;
 }
 .verifi .uk-button-group {margin-top: 15px;}
-.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {
-	margin-top: 0px;
-/*	margin-bottom: -2px;*/
-}
+.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {	margin-top: 0px;}
+.register .uk-form-horizontal .addphoneareas {	margin-bottom: 2px;}
+.register .uk-form-horizontal .uk-form-row.addphoneline    {	margin-bottom: 0px;}
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoneareas  .questiontooltip {
- 	float: right;
- 	position: relative;
- 	position: absolute;
-	right: 0px;
+/* 	float: right;
+	right: 0px;*/
  }
  .questiontooltip {
  	position: relative;
@@ -176,14 +221,17 @@
 	margin-left: 1px;
  }
  .title .questiontooltip {
-	position: absolute;
+/*	position: absolute;*/
+	position: reltive;
  	display: inline-block;
  	font-size: 11px;
- 	width: auto;
+/* 	width: auto;*/
  	float: none;
  	text-transform: none;
 	margin-left: 5px;
+	top: -17px;
  }
+ .title .questiontooltip a span.que{	top: 12px;}
 .questiontooltip a span.que{
  	display: block;
 	width: 12px;
@@ -199,7 +247,6 @@
 	padding-right: 1px;
 	margin-lefT: 4px;
 	position: relative;
-	top: 4px;
 	top: 7px;
 	z-index: 0;
 }
@@ -210,7 +257,7 @@
 .questiontooltip a span.tooltip {
     border-radius: 3px;
 	display			: none; 
-	padding			: 2px 3px; 
+	padding			: 3px 3px 4px 3px;  
 	margin-left		: 8px; 
 	width			: 76px;
 	height: 54px;
@@ -218,6 +265,7 @@
 	float: right;
 	right: 18px;
 	top: 0;
+	line-height:144%;
 	position: relative;
 	font-size: 0.7em;
 	white-space: normal;
@@ -240,13 +288,6 @@
 	margin-top: 0;
 	margin-right: 10px;
 }
-.authorizat .uk-h3, .authoriz .uk-h3, .authorizat h3, .authoriz h3 {
-    color: #ff4d61;
-    margin-bottom: 8px;
-}
-/*.register .uk-width-1-2{
-  width: 47%;
-}*/
 .wrapper-content .register .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
 	float: left;
@@ -289,22 +330,19 @@
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    padding: 6px 8px  2px 8px;
+    padding: 6px 9px  2px 9px;
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      vertical-align: middle;
 }
 :-moz-any(x), .addotherlanguage {	width: 95%;}
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
 /*.addphoneline .text {   padding-bottom: 8%;}*/
-.addphoneline .text {   padding-bottom: 1%;}
+.addphoneline .text {   padding-bottom: 2%;}
 .phonecode {
  	float: left;
  	margin-right: 10px;
  }
- .register .uk-form-horizontal  .addphoneareas {
- 	float: left;
-     margin-bottom: 12px;
- }
+ .register .uk-form-horizontal  .addphoneareas { 	float: left; }
  .wicheck {
 	margin-top: 4px;
 	margin-bottom: 2px;
@@ -312,20 +350,23 @@
  	float: left;
 	font-size: 16px;
  }
-.adphonik {margin-bottom: 10px;}
-/*.adphoniklast  .wicheck {margin-top: -2px;}*/
+/*.adphonik {margin-bottom: 10px;}*/
+.register .uk-form-horizontal .uk-width-1-0.adphoniklast{margin-bottom: 26px; }
+/*.adphoniklast  .wicheck {margin-top: -2px;}
  .wicheck .questiontooltip {
  	top: -2px;
 	right: -10px;
 }
+*/
+ .wicheck .questiontooltip { 	margin-top: -3px;}
  .whicheck-1 {
-	min-width: 57px;
-	width: 16.4%;
-	margin-right: 27%;
+	min-width: 66px;
+	width: 28%;
+	margin-right: 23.2%;
 }
  .whicheck-2 {
-	width: 28%;
-	min-width: 96px;
+	width: 32%;
+	min-width: 106px;
 }
  .register .wicheck  label {display: inline-block;}
  .addphone .questiontooltip {
@@ -351,6 +392,8 @@
 .addphone {
 	cursor: pointer;
     color: #528ed3;
+	color: #000;
+	text-decoration: underline;
     display: inline-block;
 }
 .addlangline select {
@@ -372,11 +415,11 @@
 	text-align: center;
     font-size: 24px;
     font-weight: normal;
-    margin: 2px auto 42px auto;
+    margin: 0px auto 42px auto;
     padding: 25px 0 16px 0;
     text-transform: none;
-	background: #3d3d3d;
-	color: #fff;
+/*	background: #3d3d3d;
+	color: #fff;*/
 }
 .officepagetitle img {
     margin-left: 15px;
@@ -399,7 +442,7 @@
     line-height: 120%;
     margin-left: 4px;
     margin-right: 10px;
-    padding: 5px 10px 6px 10px;
+    padding: 7px 10px 4px 10px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -436,7 +479,7 @@
     margin: 0 0 -1px -10px;
     padding: 9px 8px 8px 37px;
     text-align: left;
-    width: 259px;
+    width: 256px;
 }
 .blockoffice li.odd {
     background: url("../images/officelist.png") no-repeat scroll 10px center transparent;
@@ -460,6 +503,7 @@
     text-transform: uppercase;
 }
 .register #makechoice .uk-modal-dialog {
+	min-width: 283px;
 	width: 15.8%;
 	margin: 25% auto;
 }
@@ -530,8 +574,8 @@
     position: relative;
 }
 .register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
-.register  label span.text{color: #3d3d3d;}
-.register .verifi label span.text{color: #8d8f98;}
+.register  label span.text{/*color: #3d3d3d;*/ 	color: #000;}
+.register .verifi label span.text{/*color: #8d8f98;*/color: #000;}
 .register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 /*
@@ -539,34 +583,48 @@
 #insidebuttonwrapper {    float: left;}*/
 
 .register label, .register fieldset {    position: relative;}
-.errors {
+.register .errors {
     color: #ff4d61;
     margin: 0;
     padding: 0;
-}
-fieldset .errors li {    list-style: none outside none;}
-fieldset label .errors li {    list-style: none;}
-label .errors {
-    float: left;
-    left: 42%;
-    position: absolute;
-    top: 21px;
 	font-size: 0.7em;
 }
-.errors li {
-    margin-bottom: 21px;
-    margin-top: 6px;
+.register fieldset  .errors {    position: relative;}
+.register label .errors {
+    position: absolute;
+    top: 21px;
+    float: left;
+    left: 42%;
 }
+.register .authorizat  .errors {
+    float: left;
+    position: absolute;
+    left: 5%;
+	width: 95%;
+	text-align: left;
+    top: 24px;
+}
+.register fieldset  .errors li {
+    margin-bottom: 6px;
+    margin-top: 6px;
+	list-style: none outside none;
+}
+.register label .errors li {	margin-bottom: 21px;}
 .greentitle {
     color: #27bf2e;
     margin: 12px 0 0;
 }
 .greentitle span {
-    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;
+/*    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;*/
     display: inline-block;
-    padding: 0 50px 10px 0;
+    padding: 0 10px 10px 0;
 }
-.authorizat {
+.officepagetitle .greentitle span img {margin: 0;}
+.register .uk-button-group {    
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.wrapper-content .register form.authorizat {
     margin: 0 auto;
     overflow: hidden;
 /*
@@ -574,36 +632,35 @@ label .errors {
     padding-bottom: 38px;*/
     position: relative;
     text-align: center;
+	min-width: 280px;
+	width: 50%;
 }
-.authorizat h3, .authoriz h3 {
+.authorizat .uk-h3, .authoriz .uk-h3, .authorizat h3, .authoriz h3 {
     color: #ff4d61;
-    margin-bottom: 8px;
+    margin-bottom: 14px;
+    margin-top: 10px;
+	font-size: 19px;
 }
 .authorizat p, .authoriz p {
     font-size: 14px;
-    margin-bottom: 19px;
-    margin-top: 7px;
+    margin-bottom: 21px;
+    margin-top: 0px;
 }
 .authorizat a, .authoriz a {    color: #528ed3;}
-.authorizat input[type="text"], .authorizat input[type="password"], .authorizat .nextbutt, .authoriz input[type="text"], .authoriz input[type="password"], .authoriz .nextbutt {    margin-bottom: 16px;}
+.wrapper-content .register .authorizat .uk-button.nextbutt {
+	margin-bottom: 19px;
+	background: #528ed3;
+}
+.wrapper-content .register .authorizat .uk-button.nextbutt:hover {    background: none repeat scroll 0 0 #73a9e7;}
 .authorizat input[type="text"], .authorizat input[type="password"] {
     border: 1px solid #8e9099;
     border-radius: 3px;
     box-sizing: border-box;
-/*    clear: left;
-    float: left;
-    margin-right: 0;*/
     padding: 4px 11px 4px 9px;
     text-align: left;
+	margin-bottom: 6px;
+    margin-top: 4px;
 }
-/*.authorizat .nextbutt, .authorizat .backbutt {
-    border-radius: 3px;
-    box-sizing: border-box;
-    height: 51px;
-    margin-bottom: 14px;
-    margin-top: 5px;
-    padding: 0 20px 1px;
-}*/
 div.loginfb, div.logintw {
     border-radius: 3px;
     display: inline-block;
@@ -634,6 +691,14 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 	margin: 0 auto;
 	padding: 4px 10px 10px 10px;
 }
+body.register {
+/*  min-height: 100%;
+  height: auto;*/
+}
+body.register .main-content{
+	background: none;
+	padding-top: 0;
+}
 .wrapper-content .register form{
 	width: 100%;
 	margin: 0 auto;
@@ -645,23 +710,61 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 .wrapper-content > .content.checkmail .float_left{
 }
 .checkmail a, .about .term a {    color: #528ed3;}
-.checkmail .float_right {text-align: right;}
+.term a {color: #ff4d61; text-decoration: underline;}
+.checkmail .float_left{	width: 74.8%;}
+.checkmail .float_right {
+	text-align: right;
+	font-size: 14px;
+	width: 25.2%;
+	padding-top: 6px;
+}
+.checkmail .float_right  div{	line-height: 120%;}
 
 .checkmail {
 	text-align: left;
-    background: url("../images/checkmail.png") no-repeat 20px center #fff;
-	padding: 20px 20px 20px 140px;
-	min-width: 560px;
-	width:80%;
-	
-	margin: 0 auto;
+    background: url("../images/checkmail.png") no-repeat 14px center #fff;
+	padding: 17px 12px 20px 118px;
+	width:83.2%;
+	margin: 27px auto 0 auto;
+	color: #000;
+	min-width: 283px;
 }
-.wrapper-content > .content.usedemail {
-	padding: 20px 20px 20px 140px;
+.changemail {
+	text-align: left;
+	padding: 12px 12px 5px 118px;
 	margin: 0 auto;
-	background: #8d8f98;
-	min-width: 560px;
-	width:80%;
+	color: #000;
+	min-width: 283px;
+	width:83.2%;
+	background: #fff;
+	font-size: 16px;
+}
+.changemail fieldset {margin: 0 0 5px 0;}
+.changemail div, .changemail .col-sm-9, .changemail label {display: inline-block;}
+.changemail label {
+	margin-right: 15px;
+	padding-top: 8px;
+}
+.changemail div.form-group {
+	width: 37.4%;
+	white-spacE: nowrap;
+}
+.changemail div.form-group .col-sm-9 {width: 77.6%;}
+.changemail div.form-group .col-sm-9 input{width: 100%;}
+.checkmail  p{
+	margin:  0;
+	font-size: 16px;
+	line-height: 126%;
+}
+.checkmail  h3{	margin-bottom:  8px;}
+
+.wrapper-content > .content.usedemail {
+	padding: 12px 12px 16px 118px;
+	margin: 0 auto;
+	background: #f4f4f4;
+	min-width: 283px;
+	width:83.2%;
+	font-size: 16px;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 
@@ -674,29 +777,36 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
 .register .uk-form-horizontal .uk-width-4-8 {width: 96.8%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 93%;}
+.register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
 .register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
-.register .uk-form-horizontal .uk-width-1-0 {width: 100%;margin-bottom: 13px;}
-
-
-
-
-.register .header-wrapper .header-top .header-top-in .topmenu-left {	padding: 4px 0 12px 12.5%;}
-.register .header-wrapper .header-top .header-top-in .topmenu-left ul li .text-item {    padding: 6px 19px;}
-.register .uk-subnav-pill > li > a, .register .uk-subnav-pill > li > span {    padding: 3px 4px;}
-.register .header-wrapper .header-top .header-top-in .topmenu-left ul li.nest {    padding-left: 24px;}
-.register .header-wrapper .header-top .header-top-in .topmenu-right .uk-button {
-    padding: 0 16px;
-	line-height: 24px;
+.register .uk-form-horizontal .uk-width-1-0 {
+	width: 100%;
+	margin-bottom: 38px;
+	margin-bottom: 10px;
 }
-.register .header-wrapper .header-top .header-top-in .topmenu-right .book-store a {    padding: 14px 26px;}
-.register .footer-top .footer-in .social {    margin: 8px 9.4% 8px 0;}
-.register .footer-top .footer-in .social > li:nth-child(n+2) {    margin-left: 4px;}
-.register .footer-top .footer-in .social li .facebook {width: 25px;}
-.register .footer-top .footer-in .add-nav {    margin: 6px 0 4px 12%;}
-.register .footer-bottom {
+.register .checkmail .uk-width-5-1 {width: 74.8%;}
+.register .checkmail .uk-width-5-2 {width: 25.2%;}
+.register .changemail .btn {
+	background: #528ed3;
 	color: #fff;
-    padding: 21px 0;
+	margin-left: 10px;
+	border-radius: 4px;
+	border: none;
+	padding: 5px 15px;
 }
+
+
+.register .uk-form-horizontal .checkregister {margin-top: 28px;}
+.register .uk-form-horizontal .checkregister  .uk-form-row  {
+	margin-top: 5px;
+	margin-bottom: 6px;
+}
+.register  .checkregister  .uk-form-row.term  {
+	font-size: 16px;
+	margin-top: 19px;
+	margin-bottom: 0;
+}
+.register .uk-form-horizontal .checkregister  .uk-form-row.term  label{	margin: 0px;}
+/*.checkregister label.term  a {	color: #ff4d61;}*/

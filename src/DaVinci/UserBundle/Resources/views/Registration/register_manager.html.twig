@@ -1,12 +1,14 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
-{% block body %}
+{% block title %}
 <div class="wrapper-content title">
-	{{ 'Taxi Company: Manager Office'|trans}}
+	<span>{{ 'Taxi Company: Manager Office'|trans}}</span>
 	<div class="questiontooltip">
 		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Make money daily from international travelers to help your Taxi Company to be stronger and more famous.</span></a>
 	</div>
 </div>
+{% endblock%}
+{% block body %}
 <div class="wrapper-content"><div class="content register">
 	<form action="#" method="get" class="uk-form uk-form-horizontal">
 		<fieldset>
@@ -153,10 +155,8 @@
 					<span class="uk-form-label text">Mark if you have </span>
 				</div>
 				<div class="uk-form-controls addphoneareas">
-					<div class="questiontooltip">
-						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-					</div>
-					<div class="float_left uk-width-1-1 adphonik">
+					<div class="uk-width-1-0 adphonik">
+					<div class="float_left uk-width-1-1">
 					<div data-uk-form-select="" class="uk-form-select select uk-width-4-10 phonecode">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
@@ -205,6 +205,10 @@
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select></div>
 					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
+					</div>
+					<div class="questiontooltip">
+						<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
+					</div>
 					<div class="clear"></div>
 					<div class="wicheck whicheck-1">
 						<div class="float_left"><input type="checkbox" name="wifi" id="wifi"  /><label>wi-fi</label></div>

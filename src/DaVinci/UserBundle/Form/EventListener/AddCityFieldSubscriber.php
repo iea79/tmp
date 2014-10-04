@@ -8,13 +8,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Doctrine\ORM\EntityRepository;
 
-use DaVinci\TaxiBundle\Entity\City;
 
 class AddCityFieldSubscriber implements EventSubscriberInterface
 {
     private $propertyPathToCity;
 
-    public function __construct($propertyPathToCity)
+    public function __construct($propertyPathToCity = 'city')
     {
         $this->propertyPathToCity = $propertyPathToCity;
     }
@@ -22,23 +21,23 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return array(
-            FormEvents::POST_SET_DATA => 'preSetData',
-            FormEvents::PRE_SUBMIT    => 'preSubmit'
+            FormEvents::PRE_SUBMIT => 'preSetData',
+            FormEvents::POST_SET_DATA    => 'postSetData'
         );
     }
 
     private function addCityForm($form, $country)
     {
         $formOptions = array(
-            'class'         => 'DaVinciTaxiBundle:City',
+            'class'         => 'DaVinciTaxiBundle:Admin\CountryCity',
             'empty_value' => 'form.please_select',
             'translation_domain' => 'FOSUserBundle',
+            'property' => 'city',
             'query_builder' => function (EntityRepository $repository) use ($country) {
-                return $er->createQueryBuilder('c')
-                        ->where('c.countryCode = :ctr' )
+                return  $repository->createQueryBuilder('c')
+                        ->where('c.id = :ctr' )
                         ->andWhere('c.status = 1')
                         ->setParameter('ctr', $country);
-
             }
         );
 
@@ -50,29 +49,22 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
         $data = $event->getData();
         $form = $event->getForm();
 
-        if (null === $data) {
+        if (!$data['country']) {
             return;
         }
 
-        $accessor    = PropertyAccess::createPropertyAccessor();
-
-        $city        = $accessor->getValue($data, $this->propertyPathToCity);
-        
-        $countrycity = new \DaVinci\TaxiBundle\Entity\Admin\CountryCity;
-        
-        $country = ($city) ? $this->getDoctrine()->getRepository('DaVinciTaxiBundle:CountryCity')
-                ->getCountryCodeByCity($city) : null;
-
-        $this->addCityForm($form, $country);
+        $this->addCityForm($form, $data['country']);
     }
 
-    public function preSubmit(FormEvent $event)
+    public function postSetData(FormEvent $event)
     {
-        $data = $event->getData();
         $form = $event->getForm();
-
-        $country = array_key_exists('country', $data) ? $data['country'] : null;
-
-        $this->addCityForm($form, $country);
+        
+        if (!$form->has($this->propertyPathToCity)) {
+             $form->add($this->propertyPathToCity, 'choice', array('empty_value' => 'form.loading','translation_domain' => 'FOSUserBundle'));
+           //$this->addCityForm($form, null);
+        }
+        
+        
     }
 }

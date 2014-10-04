@@ -110,6 +110,8 @@ doctrine:
         types:
            json: Sonata\Doctrine\Types\JsonType
            currency: Sonata\Component\Currency\CurrencyDoctrineType
+        mapping_types:
+            currency: currency
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
@@ -122,6 +124,12 @@ doctrine:
                     oneLocale:
                         class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
                         enabled: true
+
+jms_i18n_routing:
+    default_locale: en
+    locales: [en, ru]
+    strategy: prefix_except_default
+
 a2lix_i18n_doctrine:
     manager_registry: doctrine
 
@@ -130,11 +138,6 @@ a2lix_translation_form:
     required_locales: [en]      # [2]
     manager_registry: doctrine      # [3]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
-
-jms_i18n_routing:
-    default_locale: en
-    locales: [en, ru]
-    strategy: prefix_except_default
 
 # Swiftmailer Configuration
 swiftmailer:
