@@ -224,7 +224,7 @@ $(document).ready(function() {
   };
 
 });
-// Смена названий кнопок Driver list в office passahgers //////////////////// 
+// Смена названий кнопок Driver list в office passengers //////////////////// 
     var but_txt;
   $(document).ready(function(){
 
@@ -232,9 +232,9 @@ $(document).ready(function() {
 	$(".driverlist").click(function(){
   	$(this).toggleClass("active-gray");
       
-      if ($(this).text() != "Hide drivers 1, 2,")
+      if ($(this).text() != "Hide drivers list 1, 2, ...")
    	 {    but_txt = $(this).text();
-   		 $(this).text( "Hide drivers 1, 2,");}
+   		 $(this).text( "Hide drivers list 1, 2, ...");}
     else $(this).text( but_txt);
 	});
 
@@ -248,3 +248,5 @@ $(document).ready(function() {
 var ind = $('.chois li').index($('li.uk-active')[0]);
 alert(ind);
 });
+
+// Стилизация select с цветами машин //////////////////////////
