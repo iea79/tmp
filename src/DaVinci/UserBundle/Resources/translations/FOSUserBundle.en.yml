@@ -104,14 +104,14 @@ form:
     male: "Male"
     female: "Female"
     choosegender: "Choose your gender"
-    firstname: "First Name"
-    lastname: "Last Name"
+    firstname: "First name"
+    lastname: "Last name"
     gender: "Gender"
     contactinfo: "Contact info"
     signininfo: "Sign in info"
     generalinfo: "General info"
     gotonextstep: "Next step >"
-    iagreetotem: I agree to the <a href="%url%">Terms &amp; Conditions</a>
+    iagreetotem: "I have read and agree to the <a href='%url%'>Terms of Use</a> and the <a href='%url%'>Privacy Policy</a>."
     back: < Back
     create_account: "Create Account"
     finish: Finish
@@ -140,11 +140,16 @@ form:
     company_city: "City of registration"
     company_address: "Address of registration"
     number_cars: "Number of cars"
-    phone_number: "Phone number"
+    mobile: "Phone number"
+    internet: "internet"
+    
     
     
     please_select: "Please select..."
     
+    
+    loading: "loading data..."
+
     
 fos_user:    
     firstname:

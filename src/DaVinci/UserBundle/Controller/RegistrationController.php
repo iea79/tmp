@@ -185,8 +185,9 @@ class RegistrationController extends BaseController {
         $formData = new TaxiCompany();
 
         $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
+        $formData->addPhone(new \DaVinci\TaxiBundle\Entity\Phone());
         $flow = $this->container->get('taxi.registration.company.form.flow'); // must match the flow's service id
-      
+
         $flow->bind($formData);
         $form = $flow->createForm();
 
@@ -202,20 +203,7 @@ class RegistrationController extends BaseController {
                     // form for the next step
                     $form = $flow->createForm();
                 } else {
-                    // flow finished
-                    $flow->reset(); // remove step data from the session
-                    if ($confirmationEnabled) {
-                        $user->setEnabled(false);
-                        if (null === $user->getConfirmationToken()) {
-                            $user->setConfirmationToken($this->container->get('fos_user.util.token_generator')->generateToken());
-                        }
 
-                        $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
-                    } else {
-                        $user->setEnabled(true);
-                    }
-
-                    $userManager->updateUser($user);
                     
                     $process = true; 
                 }
@@ -224,9 +212,6 @@ class RegistrationController extends BaseController {
 
                             
         if ($process) {
-
-
-        
             return $response;
         }
         
