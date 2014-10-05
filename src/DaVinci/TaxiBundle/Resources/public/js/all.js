@@ -1127,7 +1127,7 @@ $(window).bind("load", function() {
     disable_search_threshold: 10 
   });
 });
-jQuery.browser = {};
+/*jQuery.browser = {};
 (function () {
     jQuery.browser.msie = false;
     jQuery.browser.version = 0;
@@ -1135,4 +1135,4 @@ jQuery.browser = {};
         jQuery.browser.msie = true;
         jQuery.browser.version = RegExp.$1;
     }
-})();
+})();*/
