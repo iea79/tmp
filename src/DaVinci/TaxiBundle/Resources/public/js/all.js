@@ -284,7 +284,7 @@ $(document).ready(function () {
     });
 
 });
-<<<<<<< HEAD
+
 // Смена названий кнопок Driver list в office passengers //////////////////// 
     var but_txt;
   $(document).ready(function(){
@@ -298,12 +298,11 @@ $(document).ready(function () {
    		 $(this).text( "Hide drivers list 1, 2, ...");}
     else $(this).text( but_txt);
 	});
-=======
+
 //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
 $('.spec-request').click(function () {
     $(this).next('.checks').toggle();
 });
->>>>>>> 863579ba91dfa7d65ea26eb5ea28f5f6fbb921d8
 
 $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
