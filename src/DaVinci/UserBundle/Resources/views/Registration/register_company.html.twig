@@ -148,9 +148,8 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-form-label  uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
                                 </div>
-                                {{ flow.formData.getName() }}
                             </label>
-                            {#                    <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
                                                     <div class="uk-form-controls">
                                                         <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.name }}</div>
                                                     </div>
@@ -191,7 +190,7 @@
                                                         </div>
                                                     </div>
                                                 </label>
-                          #}                      <div class="uk-button-group uk-width-4-8">
+                                                <div class="uk-button-group uk-width-4-8">
                                 <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans }}</button>
                                 <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="reset" formnovalidate="formnovalidate">< {{ 'Edit'|trans }}</button>
                                 <div class="clear"></div>
