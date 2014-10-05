@@ -1,12 +1,14 @@
 <div class="float_left adphonik">
-    {% if phones is defined %} 
-        {{ form_widget(phones.phone,
+    <label class="forphoneinput">
+        {% if phones is defined %} 
+            {{ form_widget(phones.phone,
 {'attr':{'class': 'uk-width-1-1 float_left phoneinput',
- 'tabindex':'7'}}) }}
-        {{ form_errors(phones.phone) }}
-    {% else %}
-        <input hidden id="phones_input">
-    {% endif %}
+ 'tabindex':'7'}}) }} 
+            {{ form_errors(phones.phone) }}
+        {% else %}
+            <input hidden id="phones_input">
+        {% endif %}
+    </label>
     <div class="wicheck whicheck-1">
         <div class="float_left">
             {% if phones is defined %} 

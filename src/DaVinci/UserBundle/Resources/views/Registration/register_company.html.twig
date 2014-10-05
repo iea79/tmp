@@ -15,19 +15,19 @@
         {% endspaceless %}
     {% endblock form_errors %}
 
-{% block title %}
-	<div class="wrapper-content title">
-		<span>{{ 'Taxi Company: Business Office'|trans}}</span>
-		<div class="questiontooltip">
-			<a class="tooltip" href="#">
-				<span class="que">?</span>
-				<span class="tooltip">
-					{% trans %}Make more money from international passengers{% endtrans %}
-				</span>
-			</a>
-		</div>
-	</div>
-{% endblock%}
+    {% block title %}
+        <div class="wrapper-content title">
+            <span>{{ 'Taxi Company: Business Office'|trans}}</span>
+            <div class="questiontooltip">
+                <a class="tooltip" href="#">
+                    <span class="que">?</span>
+                    <span class="tooltip">
+                        {% trans %}Make more money from international passengers{% endtrans %}
+                    </span>
+                </a>
+            </div>
+        </div>
+    {% endblock%}
 
     {% block body %}
 
@@ -78,7 +78,7 @@
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
                                 </div>
-                                 {{ form_errors(form.address.country) }}
+                                {{ form_errors(form.address.country) }}
                             </label>
                             <label class="uk-form-row rowcity" style="display:none"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                                 <div class="uk-form-controls">
@@ -86,7 +86,7 @@
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'4'}}) }}
                                 </div>
-                                 {{ form_errors(form.address.city) }}
+                                {{ form_errors(form.address.city) }}
                             </label>
                             <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
                                 <div class="uk-form-controls">
@@ -120,24 +120,24 @@
                                 </div>
 
 
-                             <div class="uk-form-controls addphoneareas">
-                                 {% for phones in form.phones %}  
-                                     {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
-                                {% endfor %}        
-                                <div class="uk-form-controls addphone" id="addphone">
-                                    {{'Add mobile number'|trans }}
-                                </div>
-                            </div>   
-                            <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
+                                <div class="uk-form-controls addphoneareas">
+                                        {% for phones in form.phones %}  
+                                            {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
+                                        {% endfor %}      
+                                    <div class="uk-form-controls addphone" id="addphone">
+                                        {{'Add mobile number'|trans }}
+                                    </div>
+                                </div>   
+                                <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
 						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
                                  'tabindex':'7'}})|e }}">
-                            <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
+                                <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
 						{'attr':{'tabindex':'8'}})|e }}">
-                            <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
+                                <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
 						{'attr':{'tabindex':'9'}})|e }}">
-                            <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
+                                <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
 
-                              
+
                             </label>
                             <div class="uk-button-group uk-width-4-5">
                                 <button class="uk-button submit nextbutt uk-width-4-5">{{'Create Office'|trans }}</button>
@@ -148,50 +148,50 @@
                                 <div class="uk-form-controls">
                                     <div class="uk-form-label  uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
                                 </div>
-{{ flow.formData.getName() }}
+                                {{ flow.formData.getName() }}
                             </label>
-        {#                    <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.name }}</div>
-                                </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.cars_amount }}</div>
-                                </div>
-                            </label>
-
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.country }}<</div>
-                                </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
-                                </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
-                                </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
-                                </div>
-                            </label>
-
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label  uk-width-1-1  float_left"> 
-                                        {% for phones in flow.formData.phones %} 
-                                            {{ phones.phone }}
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </label>
-      #}                      <div class="uk-button-group uk-width-4-8">
+                            {#                    <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.name }}</div>
+                                                    </div>
+                                                </label>
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.numberscars'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.cars_amount }}</div>
+                                                    </div>
+                                                </label>
+                    
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.country }}<</div>
+                                                    </div>
+                                                </label>
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
+                                                    </div>
+                                                </label>
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
+                                                    </div>
+                                                </label>
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
+                                                    </div>
+                                                </label>
+                    
+                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
+                                                    <div class="uk-form-controls">
+                                                        <div class="uk-form-label  uk-width-1-1  float_left"> 
+                                                            {% for phones in flow.formData.phones %} 
+                                                                {{ phones.phone }}
+                                                            {% endfor %}
+                                                        </div>
+                                                    </div>
+                                                </label>
+                          #}                      <div class="uk-button-group uk-width-4-8">
                                 <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans }}</button>
                                 <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="reset" formnovalidate="formnovalidate">< {{ 'Edit'|trans }}</button>
                                 <div class="clear"></div>

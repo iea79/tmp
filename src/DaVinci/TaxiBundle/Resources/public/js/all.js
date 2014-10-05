@@ -111,11 +111,11 @@ $(function () {
 
             // Get the data-prototype
             var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
-            phone_proto.attr('tabindex', num + +phone_proto.attr('tabindex'));
+            phone_proto.attr('tabindex', num + +phone_proto.attr('tabindex') + 2);
             var internet_proto = $($('#internet_prototype').val().replace(/__name__/g, num));
-            internet_proto.attr('tabindex', num + +internet_proto.attr('tabindex'));
+            internet_proto.attr('tabindex', num + +internet_proto.attr('tabindex') + 2);
             var whatsapp_proto = $($('#whatsapp_prototype').val().replace(/__name__/g, num));
-            whatsapp_proto.attr('tabindex', num + +whatsapp_proto.attr('tabindex'));
+            whatsapp_proto.attr('tabindex', num + +whatsapp_proto.attr('tabindex') + 2);
 
             //replace proto elements
             var newForm = $($('#phone_block_prototype').val());
