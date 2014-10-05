@@ -174,7 +174,7 @@ class TaxiCompany
      *
      * @param \DaVinci\TaxiBundle\Entity\Phone $phones
      */
-    public function removePhone(\DaVinci\TaxiBundle\Entity\Pone $phones)
+    public function removePhone(\DaVinci\TaxiBundle\Entity\Phone $phones)
     {
         $this->phones->removeElement($phones);
     }

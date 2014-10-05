@@ -20,6 +20,10 @@ footer {
 	display:block;
 	margin:0 0 12px;
 }
+.register label.forphoneinput{
+    margin:0;
+}
+
 .register  label .text {
 /*	width:191px;*/
 	display:inline-block;
@@ -350,7 +354,7 @@ footer {
  	float: left;
 	font-size: 16px;
  }
-/*.adphonik {margin-bottom: 10px;}*/
+.adphonik {width: 100%; margin-bottom: 12px;}
 .register .uk-form-horizontal .uk-width-1-0.adphoniklast{margin-bottom: 26px; }
 /*.adphoniklast  .wicheck {margin-top: -2px;}
  .wicheck .questiontooltip {

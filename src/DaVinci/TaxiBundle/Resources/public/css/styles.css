@@ -1066,7 +1066,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border-spacing:1px;
 		background-color:#d0d0d0;
 		border-radius:6px 6px 0 0;
-		overflow:hidden;
+		
 	}
 		.table-over .serv th {
 			color:#fff;
@@ -1082,7 +1082,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:8px 2px;
 			text-align:center;
 		}
-		.table-over .serv .under-head td {
+		.table-over .serv .under-head > td {
 			background-color:#f5f5f5;
 			vertical-align:top;
 		}
@@ -3328,6 +3328,7 @@ div.datepicker {
 	border-radius:8px;
 	overflow:hidden;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
+	z-index:100;
 }
 
 .datepickerHidden {
@@ -3424,23 +3425,16 @@ div.datepicker tbody th {
 #widget {
 	position: relative;
 }
-#widgetField {
-	width: 290px;
-	height: 26px;
-	background: url(../images/field.png);
-	overflow: hidden;
-	position: relative;
-}
-/*#widgetField a 	{
-	display: block;
+#widgetCalendar .datepicker {
 	position: absolute;
-	width: 26px;
-	height: 26px;
-	top: 0;
-	right: 0;
-	text-decoration: none;
-	
-} */
+	bottom: 0;
+	top: auto;
+}
+
+#widgetCalendar .datepicker a:hover{
+	color: #b6f063;
+}
+
 #widgetField a {
 display: block;
 position: absolute;
@@ -3451,25 +3445,14 @@ font-family: icontaxi;
 font-size: 16px;
 color: #8d8f98;
 }
-#widgetField span	{
-	font-size: 12px;
-	font-weight: bold;
-	color: #000;
-	position: absolute;
-	top: 0;
-	height: 26px;
-	line-height: 26px;
-	left: 5px;
-	width: 250px;
-	text-align: center;
-}
+
 #widgetCalendar {
 	position: absolute;
 	top: 26px;
 	left: 0;
 	height: 0px;
 	overflow: hidden;
-	width: 588px;
+	width: 400px;
 	background: #B9B9B9;
 }
 #widgetCalendar .datepicker {

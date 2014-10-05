@@ -14,7 +14,6 @@ use DaVinci\TaxiBundle\Entity\TaxiCompany;
 
 class RegistrationController extends BaseController {
 
-    
     /**
      * Tell the user to check his email provider
      */
@@ -28,8 +27,6 @@ class RegistrationController extends BaseController {
         $post_data = $request->request->all();
         if(isset($post_data['form']))
             $new_email = $post_data['form']['email'];
-        
-
 
         //$this->container->get('session')->remove('fos_user_send_confirmation_email/email');
         $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
@@ -199,6 +196,7 @@ class RegistrationController extends BaseController {
 
                  $flow->saveCurrentStepData($form);
 
+if($flow->getCurrentStepNumber()!=2)
                 if ($flow->nextStep()) {
                     // form for the next step
                     $form = $flow->createForm();
