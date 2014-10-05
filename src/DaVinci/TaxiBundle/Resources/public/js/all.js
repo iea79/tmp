@@ -51,7 +51,7 @@ function setBlockHeight() {
     });
     $(".active .blockoffice ul").css({'height': contentheight});
 }
-;
+
 $(function () {
 
     if ($(".register").length) {
@@ -308,8 +308,7 @@ $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
     alert(ind);
 });
-
-
+  });
 // Стилизация select с цветами машин //////////////////////////
 
 // Datapicker
@@ -1252,4 +1251,3 @@ $('.chois li').change(function () {
 	
     	EYE.register(initLayout, 'init');
 })(jQuery)
->>>>>>> 863579ba91dfa7d65ea26eb5ea28f5f6fbb921d8

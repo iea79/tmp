@@ -2850,7 +2850,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .intl-tel-input {width: 100%;}
 
 /*========================end office passenger and driver=======================*/
-<<<<<<< HEAD
 /* ======================= Chosen style select with images ================start= */
 /* @group Base */
 .chzn-container {
@@ -3268,7 +3267,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 
 
 /* ======================= Chosen style select with images =================end== */
-=======
 /*=======================datepicker =============================================*/
 div.datepicker {
 	position: relative;
@@ -3450,4 +3448,3 @@ table.datepickerViewDays tbody.datepickerYears {
 .oveflow {
 	overflow:visible!important;
 }
->>>>>>> 863579ba91dfa7d65ea26eb5ea28f5f6fbb921d8
