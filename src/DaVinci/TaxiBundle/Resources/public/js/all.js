@@ -308,10 +308,10 @@ $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
     alert(ind);
 });
-<<<<<<< HEAD
+
 
 // Стилизация select с цветами машин //////////////////////////
-=======
+
 // Datapicker
 /**
  *
