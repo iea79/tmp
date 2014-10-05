@@ -51,12 +51,12 @@ function setBlockHeight() {
     });
     $(".active .blockoffice ul").css({'height': contentheight});
 }
-;
+
 $(function () {
 
     if ($(".register").length) {
 
-        function init_phone()
+        function init_phone_field()
         {
             $(".phoneinput:last").intlTelInput({
                 defaultCountry: "auto",
@@ -68,7 +68,7 @@ $(function () {
         $phone_fields = $(".phoneinput");
         if ($phone_fields.length)
         {
-            init_phone();
+            init_phone_field();
         }
 
         var $country = $('#taxi_company_registration_address_country');
@@ -104,36 +104,34 @@ $(function () {
 
 
         $('.addphone').click(function () {
+
+            $('.addphone').addClass('display_none'); //don't if want more phones
             // get the new index
             var num = $('.adphonik').length;
 
             // Get the data-prototype
-            var phone_proto = $('#phone_prototype').val().replace(/__name__/g, num);
-            var internet_proto = $('#internet_prototype').val().replace(/__name__/g, num);
-            var whatsapp_proto = $('#whatsapp_prototype').val().replace(/__name__/g, num);
+            var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
+            phone_proto.attr('tabindex', num + +phone_proto.attr('tabindex') + 2);
+            var internet_proto = $($('#internet_prototype').val().replace(/__name__/g, num));
+            internet_proto.attr('tabindex', num + +internet_proto.attr('tabindex') + 2);
+            var whatsapp_proto = $($('#whatsapp_prototype').val().replace(/__name__/g, num));
+            whatsapp_proto.attr('tabindex', num + +whatsapp_proto.attr('tabindex') + 2);
 
             //replace proto elements
-            var newForm = $('.adphonik:first').clone();
-            
-            //remove plugin from object
-            //newForm = newForm.not('.intl-tel-input');
-            newForm.find('.intl-tel-input').remove();
-             
-            $(newForm).find('.phoneinput').replaceWith(phone_proto).attr('tabindex', function(index, attr) {
-                                                                                                            return index + num;});
-            $(newForm).find('.whicheck-1 label').replaceWith(internet_proto).attr('tabindex', function(index, attr) {
-                                                                                                            return index + num;});
-            $(newForm).find('.whicheck-2 label').replaceWith(whatsapp_proto).attr('tabindex', function(index, attr) {
-                                                                                                            return index + num;});
+            var newForm = $($('#phone_block_prototype').val());
 
-                                                                                                    
+
+            $(newForm).find('#phones_input').replaceWith($(phone_proto));
+            $(newForm).find('#has_internet_input').replaceWith($(internet_proto));
+            $(newForm).find('#has_whatsapp_input').replaceWith($(whatsapp_proto));
+
+
             $('.addphone').before(newForm);
-            
-           
-            //init_phone();
-            $('.addphone').addClass('display_none'); //don't if want more phones
+            init_phone_field();
+
             return false;
         });
+
         $('.addotherlanguage').click(function () {
             $('.addlangline .uk-form-select:last-child').clone().appendTo(".style2");
             $('.addlangline .uk-form-select:last-child').removeClass('display_none');
@@ -286,6 +284,21 @@ $(document).ready(function () {
     });
 
 });
+
+// Смена названий кнопок Driver list в office passengers //////////////////// 
+    var but_txt;
+  $(document).ready(function(){
+
+	var count = 0;
+	$(".driverlist").click(function(){
+  	$(this).toggleClass("active-gray");
+      
+      if ($(this).text() != "Hide drivers list 1, 2, ...")
+   	 {    but_txt = $(this).text();
+   		 $(this).text( "Hide drivers list 1, 2, ...");}
+    else $(this).text( but_txt);
+	});
+
 //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
 $('.spec-request').click(function () {
     $(this).next('.checks').toggle();
@@ -295,6 +308,9 @@ $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
     alert(ind);
 });
+  });
+// Стилизация select с цветами машин //////////////////////////
+
 // Datapicker
 /**
  *
