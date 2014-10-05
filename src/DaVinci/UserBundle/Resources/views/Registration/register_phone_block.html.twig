@@ -1,0 +1,38 @@
+<div class="float_left adphonik">
+    {% if phones is defined %} 
+        {{ form_widget(phones.phone,
+{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+ 'tabindex':'7'}}) }}
+        {{ form_errors(phones.phone) }}
+    {% else %}
+        <input hidden id="phones_input">
+    {% endif %}
+    <div class="wicheck whicheck-1">
+        <div class="float_left">
+            {% if phones is defined %} 
+
+                {{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}
+            {% else %}
+                <input hidden id="has_internet_input">
+            {% endif %}
+        </div>
+        <div class="questiontooltip">
+            <a class="tooltip" href="#">
+                <span class="que">?</span>
+                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
+            </a>
+        </div>
+    </div>
+    <div class="wicheck whicheck-2">
+        <div class="float_left">
+            {% if phones is defined %}     
+                {{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9'}}) }}
+            {% else %}
+                <input hidden id="has_whatsapp_input">
+            {% endif %}
+        </div>
+        <div class="questiontooltip">
+            <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
+        </div>
+    </div>
+</div>

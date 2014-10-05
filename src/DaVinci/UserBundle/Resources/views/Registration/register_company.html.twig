@@ -119,6 +119,15 @@
                                     <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
                                 </div>
 
+
+                             <div class="uk-form-controls addphoneareas">
+                                 {% for phones in form.phones %}  
+                                     {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
+                                {% endfor %}        
+                                <div class="uk-form-controls addphone" id="addphone">
+                                    {{'Add mobile number'|trans }}
+                                </div>
+                            </div>   
                             <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
 						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
                                  'tabindex':'7'}})|e }}">
@@ -126,37 +135,9 @@
 						{'attr':{'tabindex':'8'}})|e }}">
                             <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
 						{'attr':{'tabindex':'9'}})|e }}">
-                           
+                            <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
+
                               
-                             <div class="uk-form-controls addphoneareas">
-                                 {% for phones in form.phones %}  
-                                <div class="float_left adphonik">
-                                 {{ form_widget(phones.phone,
-						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
-                                 'tabindex':'7'}}) }}
-                                 {{ form_errors(phones.phone) }}
-                                    <div class="wicheck whicheck-1">
-                                        <div class="float_left">{{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}</div>
-                                        <div class="questiontooltip">
-                                            <a class="tooltip" href="#">
-                                                <span class="que">?</span>
-                                                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="wicheck whicheck-2">
-                                        <div class="float_left">{{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9'}}) }}</div>
-                                        <div class="questiontooltip">
-                                            <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                {% endfor %}        
-                                <div class="uk-form-controls addphone" id="addphone">
-                                    {{'Add mobile number'|trans }}
-                                </div>
-                            </div>   
-                            
                             </label>
                             <div class="uk-button-group uk-width-4-5">
                                 <button class="uk-button submit nextbutt uk-width-4-5">{{'Create Office'|trans }}</button>
