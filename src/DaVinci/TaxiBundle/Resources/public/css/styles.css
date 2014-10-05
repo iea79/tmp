@@ -1075,6 +1075,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-weight:bold;
 			text-align:center;
 			padding:5px 2px;
+			position:relative;
 		}
 		.table-over .serv td {
 			background:#fff;
@@ -1326,6 +1327,7 @@ office passengers and driver
 }
 .client-account .uk-button-profile i {
 	padding-right:2%;
+	line-height: 35px;
 }
 .client-account .profile .uk-button {
 	line-height:54px;
@@ -1678,7 +1680,7 @@ table th .questiontooltip {
 }
 table th .questiontooltip a span.que {
 	background: #f5f5f5;
-	color: #3c3d45;
+	color: #528ed3;
 	top: 0;
 	border-radius: 0;
 	font-size: 11px;
@@ -2253,6 +2255,12 @@ footer {
 	width: 71%;
 	padding-left: 16px;
 }
+@media (max-width:710px) {
+	.passenger .pop-up .profile {
+		width: 100%;
+		padding-left: 10px;
+	}
+}
 .pop-up input,
 .pop-up select,
 .pop-up .uk-form input,
@@ -2479,6 +2487,25 @@ div.pop-up.uk-grid.uk-grid-small {
 	font-size: 14px;
 	line-height: 1.8em;
 }
+@media (max-width:610px) {
+	.pop-up.route dt,
+	.pop-up.route dd{
+		width: 99%;
+		margin-left: 0;
+	}
+}
+@media (max-width:610px) {
+	.pop-up.route dt {
+		margin-bottom: -8px !important;
+		margin-top: 0px !important;
+	}
+}
+@media (max-width: 610px) {
+	.pop-up.route dt.last,
+	.pop-up.route dd.last {
+		margin-top: 0px !important;
+	}
+}
 .pop-up.route dt.fullsize {
 	width: 100%;
 	margin-bottom: -3px;
@@ -2567,6 +2594,18 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 .pop-up .profile dd {
 	width: 66.5%;
+}
+@media (max-width: 550px) {
+	.pop-up .profile dt {
+		width: 99%;
+		margin-left: 0;
+	}
+}
+@media (max-width: 550px) {
+	.pop-up .profile dd {
+		width: 99%;
+		margin-left: 0;
+	}
 }
 .pop-up .profile dd.fullsize {
 	width: 100%;

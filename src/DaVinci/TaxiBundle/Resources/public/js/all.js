@@ -1251,3 +1251,19 @@ $('.chois li').change(function () {
 	
     	EYE.register(initLayout, 'init');
 })(jQuery)
+
+ //Выбор цвета авто ////////////////////////
+$(window).bind("load", function() {
+  $(".my-select").chosenImage({
+    disable_search_threshold: 10 
+  });
+});
+jQuery.browser = {};
+(function () {
+    jQuery.browser.msie = false;
+    jQuery.browser.version = 0;
+    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+        jQuery.browser.msie = true;
+        jQuery.browser.version = RegExp.$1;
+    }
+})();
