@@ -3,13 +3,13 @@
 namespace DaVinci\UserBundle\Controller;
 
 #use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
 
 class RegistrationController extends BaseController {
@@ -17,15 +17,14 @@ class RegistrationController extends BaseController {
     /**
      * Tell the user to check his email provider
      */
-    public function checkEmailAction()
-    {
+    public function checkEmailAction() {
         //some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
-       
-        $new_email=$email;
+
+        $new_email = $email;
         $request = $this->container->get('request');
         $post_data = $request->request->all();
-        if(isset($post_data['form']))
+        if (isset($post_data['form']))
             $new_email = $post_data['form']['email'];
 
         //$this->container->get('session')->remove('fos_user_send_confirmation_email/email');
@@ -34,12 +33,12 @@ class RegistrationController extends BaseController {
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
-        
-        $form = $this->container->get('form.factory')->createBuilder('form',$user)
+
+        $form = $this->container->get('form.factory')->createBuilder('form', $user)
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                 ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();
-        
+
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -47,23 +46,23 @@ class RegistrationController extends BaseController {
 
             $this->container->get('fos_user.user_manager')->updateUser($user);
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
-            $this->container->get('session')->set('fos_user_send_confirmation_email/email',$new_email);
-            
-            $form = $this->container->get('form.factory')->createBuilder('form',$user)
-                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle','data'=>$new_email))
-                ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
-                ->getForm();
+            $this->container->get('session')->set('fos_user_send_confirmation_email/email', $new_email);
+
+            $form = $this->container->get('form.factory')->createBuilder('form', $user)
+                    ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $new_email))
+                    ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                    ->getForm();
         }
-        
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.'.$this->getEngine(), array(
-            'user' => $user,
-            'form' => $form->createView(),
+
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), array(
+                    'user' => $user,
+                    'form' => $form->createView(),
         ));
     }
-    
+
     /**
-    * fosuser register standard route /register
-    */
+     * fosuser register standard route /register
+     */
     public function registerAction() {
         $user = $this->container->get('security.context')->getToken()->getUser();
 
@@ -76,29 +75,29 @@ class RegistrationController extends BaseController {
 
         //$form = $this->container->get('sonata.user.registration.form');
         //$formHandler = $this->container->get('sonata.user.registration.form.handler');
-       // $formHandler = $this->container->get('fos_user.registration.form.handler');
-        
-        
-        
+        // $formHandler = $this->container->get('fos_user.registration.form.handler');
+
+
+
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
-        
+
         ////// form handler moved here to use craue flow bundle
         $userManager = $this->container->get('fos_user.user_manager');
-        
+
         $user = $userManager->createUser();
 
         $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
-        
+
         $flow->bind($user);
         $form = $flow->createForm();
 
         $process = false;
-        $request  = $this->container->get('request');
+        $request = $this->container->get('request');
         if ($request->isMethod('POST')) {
             //$form->bind($request);
             if ($flow->isValid($form)) {
 
-                 $flow->saveCurrentStepData($form);
+                $flow->saveCurrentStepData($form);
 
                 if ($flow->nextStep()) {
                     // form for the next step
@@ -118,13 +117,13 @@ class RegistrationController extends BaseController {
                     }
 
                     $userManager->updateUser($user);
-                    
-                    $process = true; 
+
+                    $process = true;
                 }
             }
         }
 
-                            
+
         if ($process) {
 
             $user = $form->getData();
@@ -154,14 +153,14 @@ class RegistrationController extends BaseController {
             }
 
             //send to paygnet
-            $this->container->get('paygnet')->registerUser($user->getEmail(),$user->getId());
-        
-        
+            $this->container->get('paygnet')->registerUser($user->getEmail(), $user->getId());
+
+
             return $response;
         }
-        
-        
-        if($flow->getCurrentStepNumber()==$flow->getFirstStepNumber())
+
+
+        if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber())
             $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
 
         return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.' . $this->getEngine(), array(
@@ -171,14 +170,17 @@ class RegistrationController extends BaseController {
     }
 
     /**
-    * @Route("/register-company", name="register_company") 
-    * @Security("has_role('ROLE_USER')")
-    */
-    public function register_companyAction()
-    {
+     * @Route("/register-company", name="register_company") 
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function register_companyAction() {
 
+        if($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')){
+            return new RedirectResponse($router->generate('office_company'));
+        }
+    
         $user = $this->container->get('security.context')->getToken()->getUser();
-                
+
         $formData = new TaxiCompany();
 
         $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
@@ -189,62 +191,60 @@ class RegistrationController extends BaseController {
         $form = $flow->createForm();
 
         $process = false;
-        $request  = $this->container->get('request');
+        $request = $this->container->get('request');
         if ($request->isMethod('POST')) {
             //$form->bind($request);
             if ($flow->isValid($form)) {
 
-                 $flow->saveCurrentStepData($form);
+                $flow->saveCurrentStepData($form);
 
-if($flow->getCurrentStepNumber()!=2)
                 if ($flow->nextStep()) {
                     // form for the next step
                     $form = $flow->createForm();
+
                 } else {
 
+                    $em = $this->container->get('doctrine')->getManager();
+                    $em->persist($formData);
+                    $em->flush();  
                     
-                    $process = true; 
+                    $flow->reset(); // remove step data from the session
+                    
+                    return $this->redirect($this->generateUrl('office_company'));
                 }
             }
         }
 
-                            
-        if ($process) {
-            return $response;
-        }
-        
-        
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_company.html.twig' , array(
+
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_company.html.twig', array(
                     'form' => $form->createView(),
                     'user' => $user,
                     'flow' => $flow,
         ));
     }
-        
+
     /**
-    * @Route("/register-independent-driver", name="register_independent_driver") 
-    * @Security("has_role('ROLE_USER')")
-    */
-    public function register_independent_driverAction()
-    {
+     * @Route("/register-independent-driver", name="register_independent_driver") 
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function register_independent_driverAction() {
         return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_independent_driver.html.twig');
     }
-    
+
     /**
-    * @Route("/register-manager", name="register_manager") 
-    * @Security("has_role('ROLE_USER')")
-    */
-    public function register_managerAction()
-    {
+     * @Route("/register-manager", name="register_manager") 
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function register_managerAction() {
         return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_manager.html.twig');
     }
-    
+
     /**
-    * @Route("/register-company-driver", name="register_company_driver") 
-    * @Security("has_role('ROLE_USER')")
-    */
-    public function register_company_driverAction()
-    {
+     * @Route("/register-company-driver", name="register_company_driver") 
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function register_company_driverAction() {
         return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_company_driver.html.twig');
-    }   
+    }
+
 }
