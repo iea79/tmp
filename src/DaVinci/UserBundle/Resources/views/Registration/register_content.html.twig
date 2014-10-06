@@ -1,9 +1,16 @@
 {% trans_default_domain 'FOSUserBundle' %}
 {% if flow.getCurrentStepNumber() == 1 %}
+	{% block title %}
+		<div class="wrapper-content title">
+			<div class="clear"></div>
+			{{ 'Create an account'|trans}}
+		</div>
+	{% endblock %}
 {% endif %}
 {% if flow.getCurrentStepNumber() == 2 %}
 {% block title %}
 <div class="wrapper-content title">
+	<div class="clear"></div>
 	<span>{{ 'Please all check details'|trans}}</span>
 </div>
 {% endblock%}

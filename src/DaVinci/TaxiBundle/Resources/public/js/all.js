@@ -1,4 +1,16 @@
 /*$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();*/
+if ($(".register").length) {
+	function setBlockHeight() {
+		contentheight = 0;
+		$(".active .blockoffice ul").each(function (ind, el) {
+			height = $(this).height();
+			if (height > contentheight)
+				contentheight = height;
+		});
+		$(".active .blockoffice ul").css({'height': contentheight});
+	}
+
+}
 
 //Добавление доролнительных направлений 
 $('.destination .add-lang').click(function () {
@@ -310,4 +322,5 @@ $('.chois li').change(function () {
 });
   });
 // Стилизация select с цветами машин //////////////////////////
+
 
