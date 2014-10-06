@@ -26,33 +26,37 @@
         <header  class="header-wrapper">
             <div class="header-top">
                 <div class="header-top-in">
-                    <div class="logo">
-                        <a href="{{ url('da_vinci_taxi_homepage') }}">
-                            <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}" />
-                        </a>
-                    </div>
-                    <nav class="topmenu-left">
-                        <ul class="uk-subnav uk-subnav-pill">
-                            <li><a href="#" class="text-item">{{ 'About'|trans }}</a></li>
-                            <li><a href="#" class="text-item">{{ 'Help'|trans }}</a></li>
+                    <nav class="topmenu">
+						<ul class="uk-subnav uk-subnav-pill">
+							<li>
+								<a href="{{ url('da_vinci_taxi_homepage') }}">
+									<img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}" />
+								</a>
+							</li>
+							<li></li>
                             <li class="nest">
-                                <a href="#" class="uk-button-danger figur-item"><i class="mp-icon-person"></i></a>
-                                <span>{{ 'Profit'|trans }}</span>
-                                <a href="#" class="uk-button-primary figur-item"><i class="mp-icon-taxi"></i></a>
+								<a href="#" class="texst-item">{{ 'About'|trans }}</a>
+								<a href="#" class="texst-item">{{ 'Help'|trans }}</a>
+								<a href="#" class="nest-item">
+									<span class="uk-button-danger figur-item"><i class="mp-icon-person"></i></span>
+									<span>{{ 'Profit'|trans }}</span>
+									<span class="uk-button-primary figur-item"><i class="mp-icon-taxi"></i></span>
+								</a>
                             </li>
-                        </ul>
-                    </nav>
-                    <div class="topmenu-right">
-                        <div class="book-store">
-                            <a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
-                            <a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
-                            <div class="thumb">
-                                <i class="mp-icon-good"></i>
-                            </div>
-                        </div>
-
+							<li class="empty-middle"></li>
+                    
+						<li>
+							<div class="book-store">
+								<a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
+								<a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
+								<div class="thumb">
+									<i class="mp-icon-good"></i>
+								</div>
+							</div>
+						</li>
+						<li>
 							{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                                <div data-uk-dropdown="" class="uk-button-dropdown">
+                             <div data-uk-dropdown="" class="uk-button-dropdown">
                             <button class="uk-button  uk-button-link autorized">
                                 <span class="caption">My account</span> <i class="uk-icon-caret-down uk-margin-small-left"></i><br/><span class="ownship">passenger</span>
                             </button>
@@ -104,8 +108,9 @@
 									{% endif %}
 
                         
-
-                    </div>
+						</li>
+                    </ul>
+				</nav>
 					<a href="javascript://" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a>
                 </div>
             </div>
@@ -158,6 +163,7 @@
 							'@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
 							'@DaVinciTaxiBundle/Resources/public/js/all.js'
+							'@DaVinciTaxiBundle/Resources/public/js/datarange.js'
 							'@DaVinciTaxiBundle/Resources/public/js/chosen.jquery.js'
 							'@DaVinciTaxiBundle/Resources/public/js/chosenImage.jquery.js'
 							'@DaVinciTaxiBundle/Resources/public/js/intl-tel-input-master/js/intlTelInput.js'
