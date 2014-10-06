@@ -1,126 +1,130 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{% if flow.getCurrentStepNumber() == 1 %}
-	{% block title %}
-		<div class="wrapper-content title">
-			<div class="clear"></div>
-			{{ 'Create an account'|trans}}
-		</div>
-	{% endblock %}
-{% endif %}
-{% if flow.getCurrentStepNumber() == 2 %}
+
 {% block title %}
-<div class="wrapper-content title">
-	<div class="clear"></div>
-	<span>{{ 'Please all check details'|trans}}</span>
-</div>
+    {% if flow.getCurrentStepNumber() == 1 %}
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            {{ 'Create an account'|trans}}
+        </div>
+
+    {% elseif flow.getCurrentStepNumber() == 2 %}
+
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            <span>{{ 'Please all check details'|trans}}</span>
+        </div>
+    {% endif %}
 {% endblock%}
-{% endif %}
+
 <div class="wrapper-content"><div class="content register">
         <form class="uk-form uk-form-horizontal fos_user_registration_register" name="register" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
             <fieldset>
-			{% if flow.getCurrentStepNumber() == 1 %}
-				{{ form_errors(form) }}
-                <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.firstname'|trans }}:</span>
-                    <div class="uk-form-controls">{{ form_widget(form.firstname,
+                {% if flow.getCurrentStepNumber() == 1 %}
+                    {{ form_errors(form) }}
+                    <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.firstname'|trans }}:</span>
+                        <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
-                    <div class="questiontooltip">
-                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real First Name (George, Barbara etc.)'|trans }}</span></a>
-                    </div>
-								 </div>
-					{{ form_errors(form.firstname) }}
+                            <div class="questiontooltip">
+                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real First Name (George, Barbara etc.)'|trans }}</span></a>
+                            </div>
+                        </div>
+                        {{ form_errors(form.firstname) }}
 
-                </label>
+                    </label>
 
-                <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.lastname'|trans }}:</span>
-                    <div class="uk-form-controls">{{ form_widget(form.lastname,
+                    <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.lastname'|trans }}:</span>
+                        <div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
-                    <div class="questiontooltip">
-                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}</span></a>
-                    </div>
-								 </div>
-					{{ form_errors(form.lastname) }}
+                            <div class="questiontooltip">
+                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}</span></a>
+                            </div>
+                        </div>
+                        {{ form_errors(form.lastname) }}
 
-                </label>
+                    </label>
 
-                <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.email'|trans }}:</span>
-                    <div class="uk-form-controls">{{ form_widget(form.email,
+                    <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.email'|trans }}:</span>
+                        <div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
-                    <div class="questiontooltip">
-                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'You will get confirmation letter to complete registration.'|trans }}</span></a>
-                    </div>
-								 </div>
-					{{ form_errors(form.email) }}
+                            <div class="questiontooltip">
+                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'You will get confirmation letter to complete registration.'|trans }}</span></a>
+                            </div>
+                        </div>
+                        {{ form_errors(form.email) }}
 
-                </label>
-                <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password'|trans }}:</span>
-                    <div class="uk-form-controls uk-form-password">
-                        {{ form_widget(form.plainPassword.first,
+                    </label>
+                    <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password'|trans }}:</span>
+                        <div class="uk-form-controls uk-form-password">
+                            {{ form_widget(form.plainPassword.first,
 						{'attr':{'pattern':'.{3,}',
 								'title':'Minmimum 3 letters or numbers.'|trans,
 								'class': 'uk-width-1-1 float_left passfield',
                                  'tabindex':'4'
-								}}) }}
-                        <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                    <div class="questiontooltip">
-                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}</span></a>
+                            }}) }}
+                            <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
+                            <div class="questiontooltip">
+                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}</span></a>
 
-                    </div>
-                    </div>
-                    {{ form_errors(form.plainPassword.first) }}
+                            </div>
+                        </div>
+                        {{ form_errors(form.plainPassword.first) }}
 
-                </label>
-                <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:</span>
-                    <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second,
+                    </label>
+                    <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:</span>
+                        <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second,
 						{'attr':{'pattern':'.{3,}',
 								'title':'Passwords must match.'|trans,
 								'class': 'uk-width-1-1 float_left passfield2',
                                  'tabindex':'5'
-								}}) }}
-                        <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                    <div class="questiontooltip">
-                        <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Should match combination above.'|trans }}</span></a>
+                            }}) }}
+                            <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
+                            <div class="questiontooltip">
+                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Should match combination above.'|trans }}</span></a>
 
+                            </div>
+                        </div>
+                        {{ form_errors(form.plainPassword.second) }}
+
+                    </label>
+                    <div class="uk-button-group uk-width-4-5">
+                        <button class="uk-button nextbutt uk-width-4-5" tabindex="6">{{ 'form.create_account'|trans }}</button>
                     </div>
+                {% endif %}
+
+                {% if flow.getCurrentStepNumber() == 2 %}  
+                    {{ form_errors(form) }}
+                    <div class="checkregister">
+                        <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.firstname'|trans }}:</span>
+                            <div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</span></div>
+                        </label>
+
+                        <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.lastname'|trans }}:</span>
+                            <div class="uk-form-label">{{ flow.formData.lastname }}</div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.email'|trans }}:</span>
+                            <div class="uk-form-label">{{ flow.formData.email }}</div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password'|trans }}:</span>
+                            <div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:if (this.innerHTML == '{{ flow.formData.plainPassword }}')
+                                        this.innerHTML = '{{ 'click to show'|trans }}';
+                                    else
+                                        this.innerHTML = '{{ flow.formData.plainPassword }}';
+                                    return false;">{{ 'click to show'|trans }}</a></div>
+                        </label>
+
+
+                        <label class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</label>
+
+                        <div class="uk-button-group uk-width-4-8">
+                            <button class="uk-button nextbutt twobuttnext uk-width-4-10  float_right">{{ 'form.finish'|trans }}</button>
+                            <button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-4-10 float_left" type="submit">< {{ 'form.edit'|trans }}</button>
+                        </div>
                     </div>
-                    {{ form_errors(form.plainPassword.second) }}
-
-                </label>
-                <div class="uk-button-group uk-width-4-5">
-                    <button class="uk-button nextbutt uk-width-4-5" tabindex="6">{{ 'form.create_account'|trans }}</button>
-                </div>
-			{% endif %}
-
-			{% if flow.getCurrentStepNumber() == 2 %}  
-				{{ form_errors(form) }}
-				<div class="checkregister">
-					<label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.firstname'|trans }}:</span>
-						<div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</span></div>
-					</label>
-
-					<label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.lastname'|trans }}:</span>
-						<div class="uk-form-label">{{ flow.formData.lastname }}</div>
-					</label>
-					<label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.email'|trans }}:</span>
-						<div class="uk-form-label">{{ flow.formData.email }}</div>
-					</label>
-					<label class="uk-form-row"><span class="uk-form-label  text">{{ 'form.password'|trans }}:</span>
-						<div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:if(this.innerHTML == '{{ flow.formData.plainPassword }}') this.innerHTML = '{{ 'click to show'|trans }}'; else this.innerHTML = '{{ flow.formData.plainPassword }}';
-								return false;">{{ 'click to show'|trans }}</a></div>
-					</label>
-
-
-					<label class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</label>
-
-					<div class="uk-button-group uk-width-4-8">
-						<button class="uk-button nextbutt twobuttnext uk-width-4-10  float_right">{{ 'form.finish'|trans }}</button>
-						<button formnovalidate="formnovalidate" value="back" name="flow_taxi_user_registration_transition" class="uk-button nextbutt backbutt uk-width-4-10 float_left" type="submit">< {{ 'form.edit'|trans }}</button>
-					</div>
-				</div>
-			{% endif %}
-		{{ form_rest(form) }}
+                {% endif %}
+                {{ form_rest(form) }}
             </fieldset>
         </form>
     </div></div>
