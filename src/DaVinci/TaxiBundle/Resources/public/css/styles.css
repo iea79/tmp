@@ -493,6 +493,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						.header-wrapper .header-bottom .header-bottom-in .breadcroms li.current span {
 							color:#fff;
 						}
+						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li span {
+						    line-height: 25px;
+						}
 
 							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a:hover {
 								text-decoration:none;
