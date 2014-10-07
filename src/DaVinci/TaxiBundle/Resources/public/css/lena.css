@@ -217,7 +217,8 @@ footer {
 .addphoneareas  .questiontooltip {
 /* 	float: right;
 	right: 0px;*/
- }
+}
+.addphoniklast .questiontooltip {display: none;}
  .questiontooltip {
  	position: relative;
  	float: left;
@@ -395,8 +396,9 @@ footer {
 .register .addphoneareas input[type="text"] {    margin-right: 0;}
 .addphone {
 	cursor: pointer;
-    color: #528ed3;
-	color: #000;
+    /*color: #528ed3;
+	color: #000;*/
+	color: #ff4d61;
 	text-decoration: underline;
     display: inline-block;
 }
@@ -800,8 +802,7 @@ body.register .main-content{
 	border: none;
 	padding: 5px 15px;
 }
-
-
+.register .changemail .btn:hover {	background: #89baf3;}
 .register .uk-form-horizontal .checkregister {margin-top: 28px;}
 .register .uk-form-horizontal .checkregister  .uk-form-row  {
 	margin-top: 5px;
