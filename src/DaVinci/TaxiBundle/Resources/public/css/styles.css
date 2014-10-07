@@ -2485,6 +2485,9 @@ footer {
 .pop-up .form-view .insurance dd {
     line-height: 22px;
 }
+.pop-up .insurance .button-skype {
+	margin-top: -5px !important;
+}
 .pop-up .form-view dt,
 .pop-up .form-view dd {
 	line-height: 8px;
