@@ -9,20 +9,6 @@ if ($(".register").length) {
 		});
 		$(".active .blockoffice ul").css({'height': contentheight});
 	}
-	$('.rowcity').hide();	
-	$('.rowstreet').hide();	
-	$('.rowbuild').hide();	
-	
-	$('#country').change(function() {
-		$('.rowcity').show();	
-	});
-	$('#city').change(function() {
-		$('.rowstreet').show();	
-	});
-	$('#street').change(function() {
-		$('.rowbuild').show();	
-	});
-
 /*Переключаем радиобатоны в засисимости от того какое поле мы используем*/
     $('.uk-width-1-1 input[type="text"]').change(function () {
         $(this).siblings('input[type="radio"]').prop( "checked", true );
@@ -32,40 +18,6 @@ if ($(".register").length) {
         $(this).parent().siblings('input[type="radio"]').prop( "checked", true );
     });
 /***************/
-
-    $('#taxi_company_registration_address_country').change(function () {
-        $('.rowcity').show();
-    });
-
-    var $country = $('#taxi_company_registration_address_country');
-    // When country gets selected ...
-    $country.change(function () {
-        // ... retrieve the corresponding form.
-        var $form = $(this).closest('form');
-        // Simulate form data, but only include the selected sport value.
-        var data = {};
-        data[$country.attr('name')] = $country.val();
-        // Submit data via AJAX to the form's action path.
-        
-        $('#taxi_company_registration_address_city option').remove();
-        
-        $.ajax({
-            url: $form.attr('action'),
-            type: $form.attr('method'),
-            data: data,
-            success: function (html) {
-                // ReplaceReplace current position field ...
-                $('#taxi_company_registration_address_city').replaceWith(
-                        // ... with the returned one from the AJAX response.
-                        $(html).find('#taxi_company_registration_address_city')
-                );
-                $('#taxi_company_registration_address_city').change('change', function () {
-                    $('.rowstreet').show();
-                });
-                // Position field now displays the appropriate positions.
-            }
-        });
-    });
 
     $('.addphone').click(function () {
 

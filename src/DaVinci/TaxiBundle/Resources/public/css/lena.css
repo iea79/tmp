@@ -171,6 +171,7 @@ footer {
     color: #fff;
 }
 .wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
+.wrapper-content .register form.fos_user_registration_register {margin-top: 8px;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
  	float: left;
