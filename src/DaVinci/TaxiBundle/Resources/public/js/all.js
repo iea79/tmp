@@ -182,7 +182,6 @@ $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
     alert(ind);
 });
-<<<<<<< HEAD
 
 // Datapicker
 /**
@@ -1131,7 +1130,3 @@ $(window).bind("load", function() {
     disable_search_threshold: 10 
   });
 });
-=======
-  });
-// Стилизация select с цветами машин //////////////////////////
->>>>>>> 8d1101d7058b2282813cee1b89d488a2e54caf4b
