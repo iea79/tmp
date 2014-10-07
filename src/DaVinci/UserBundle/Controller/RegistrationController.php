@@ -175,10 +175,10 @@ class RegistrationController extends BaseController {
      */
     public function register_companyAction() {
 
-        if($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')){
+        if ($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')) {
             return new RedirectResponse($router->generate('office_company'));
         }
-    
+
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         $formData = new TaxiCompany();
@@ -201,16 +201,19 @@ class RegistrationController extends BaseController {
                 if ($flow->nextStep()) {
                     // form for the next step
                     $form = $flow->createForm();
-
                 } else {
 
+                    $user->addRole('ROLE_TAXICOMPANY');
+                    $formData->setUser($user);
                     $em = $this->container->get('doctrine')->getManager();
                     $em->persist($formData);
-                    $em->flush();  
-                    
+                    $em->flush();
+
                     $flow->reset(); // remove step data from the session
-                    
-                    return $this->redirect($this->generateUrl('office_company'));
+
+                    $url = $this->container->get('router')->generate('office_company');
+
+                    return new RedirectResponse($url);
                 }
             }
         }
