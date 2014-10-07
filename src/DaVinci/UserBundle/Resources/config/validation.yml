@@ -1,11 +1,17 @@
 Acme\TaxiBundle\Entity\TaxiCompany:
-   properties:
-        name:
-            - NotBlank: 
-                groups: [ "flow_taxi_company_registration_step1"]
-                message: fos_user.firstname.not_blank
- #       cars_amount:
-            
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+             fields: name
+             errorPath: name 
+             message: company.name.already_used
+             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile" ]
+    properties:
+         name:
+             - NotBlank: 
+                 groups: [ "flow_taxi_company_registration_step1"]
+                 message: company.name.blank
+         cars_amount:
+
             
 DaVinci\TaxiBundle\Entity\User:
     properties:

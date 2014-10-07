@@ -9,19 +9,16 @@ if ($(".register").length) {
 		});
 		$(".active .blockoffice ul").css({'height': contentheight});
 	}
-	$('.rowcity').hide();	
-	$('.rowstreet').hide();	
-	$('.rowbuild').hide();	
-	
-	$('#country').change(function() {
-		$('.rowcity').show();	
-	});
-	$('#city').change(function() {
-		$('.rowstreet').show();	
-	});
-	$('#street').change(function() {
-		$('.rowbuild').show();	
-	});
+
+//	$('#country').change(function() {
+//		$('.rowcity').show();	
+//	});
+//	$('#city').change(function() {
+//		$('.rowstreet').show();	
+//	});
+//	$('#street').change(function() {
+//		$('.rowbuild').show();	
+//	});
 
 /*Переключаем радиобатоны в засисимости от того какое поле мы используем*/
     $('.uk-width-1-1 input[type="text"]').change(function () {
@@ -59,10 +56,10 @@ if ($(".register").length) {
                         // ... with the returned one from the AJAX response.
                         $(html).find('#taxi_company_registration_address_city')
                 );
-                $('#taxi_company_registration_address_city').change('change', function () {
-                    $('.rowstreet').show();
-                });
-                // Position field now displays the appropriate positions.
+//                $('#taxi_company_registration_address_city').change('change', function () {
+//                    $('.rowstreet').show();
+//                });
+
             }
         });
     });
@@ -74,7 +71,7 @@ if ($(".register").length) {
         var num = $('.adphonik').length;
 
         // Get the data-prototype
-       /* var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
+        var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
         phone_proto.attr('tabindex', num + +phone_proto.attr('tabindex') + 2);
         var internet_proto = $($('#internet_prototype').val().replace(/__name__/g, num));
         internet_proto.attr('tabindex', num + +internet_proto.attr('tabindex') + 2);
@@ -92,7 +89,7 @@ if ($(".register").length) {
 
         $('.addphone').before(newForm);
         init_phone_field();
-*/
+
         return false;
     });
 
