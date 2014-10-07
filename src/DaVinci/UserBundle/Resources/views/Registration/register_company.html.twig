@@ -17,7 +17,6 @@
 
     {% block title %}
         <div class="wrapper-content title">
-	<div class="clear"></div>
             <span>{{ 'Taxi Company: Business Office'|trans}}</span>
             <div class="questiontooltip">
                 <a class="tooltip" href="#">
@@ -147,44 +146,44 @@
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-label  uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                                    <div class="label-info  uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
                                 </div>
                             </label>
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.name }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.name }}</div>
                                                     </div>
                                                 </label>
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left"> ~ {{ flow.formData.carsAmount }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left"> ~ {{ flow.formData.carsAmount }}</div>
                                                     </div>
                                                 </label>
                     
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.country.country }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.country.country }}</div>
                                                     </div>
                                                 </label>
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
                                                     </div>
                                                 </label>
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
                                                     </div>
                                                 </label>
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
+                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
                                                     </div>
                                                 </label>
                     
                                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
                                                     <div class="uk-form-controls">
-                                                        <div class="uk-form-label  uk-width-1-1  float_left"> 
+                                                        <div class="label-info uk-width-1-1  float_left"> 
                                                             {% for phones in flow.formData.phones %} 
                                                                 {{ phones.phone }} 
                                                             {% endfor %}

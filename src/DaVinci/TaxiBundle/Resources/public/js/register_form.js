@@ -23,18 +23,15 @@ if ($(".register").length) {
 		$('.rowbuild').show();	
 	});
 
-	$('.addphone').click(function() {
-		$('.adphonik').clone().appendTo(".addphoneareas").addClass('addphoniklast');	
-		$('.addphone').addClass('display_none');	
-		return false;
-	});
+/*Переключаем радиобатоны в засисимости от того какое поле мы используем*/
+    $('.uk-width-1-1 input[type="text"]').change(function () {
+        $(this).siblings('input[type="radio"]').prop( "checked", true );
+    });
 
-/*	$('.addotherlanguage').click(function() {
-		$('.addlangline .uk-form-select:last-child').clone().appendTo(".style2");	
-		$('.addlangline .uk-form-select:last-child').removeClass('display_none');	
-		return false;
-	});
-	*/
+    $('.uk-width-1-1 select').change(function () {
+        $(this).parent().siblings('input[type="radio"]').prop( "checked", true );
+    });
+/***************/
 
     $('#taxi_company_registration_address_country').change(function () {
         $('.rowcity').show();
@@ -58,10 +55,10 @@ if ($(".register").length) {
             data: data,
             success: function (html) {
                 // ReplaceReplace current position field ...
-/*                $('#taxi_company_registration_address_city').replaceWith(
+                $('#taxi_company_registration_address_city').replaceWith(
                         // ... with the returned one from the AJAX response.
                         $(html).find('#taxi_company_registration_address_city')
-                );*/ //print error
+                );
                 $('#taxi_company_registration_address_city').change('change', function () {
                     $('.rowstreet').show();
                 });
@@ -77,7 +74,7 @@ if ($(".register").length) {
         var num = $('.adphonik').length;
 
         // Get the data-prototype
-        var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
+       /* var phone_proto = $($('#phone_prototype').val().replace(/__name__/g, num));
         phone_proto.attr('tabindex', num + +phone_proto.attr('tabindex') + 2);
         var internet_proto = $($('#internet_prototype').val().replace(/__name__/g, num));
         internet_proto.attr('tabindex', num + +internet_proto.attr('tabindex') + 2);
@@ -95,7 +92,7 @@ if ($(".register").length) {
 
         $('.addphone').before(newForm);
         init_phone_field();
-
+*/
         return false;
     });
 

@@ -134,11 +134,13 @@
                                     </li>
                                 </ul>
                             </nav>
+							<div class="clear"></div>
                         </div>
                     {% endblock %}
                 </header>
-			{% block title %}
-			{% endblock %}
+            {% endblock %}
+                {% block title %}
+                {% endblock title %}
             <div class="main-content">
                 {% block body %}
                 {% endblock %}
@@ -221,8 +223,6 @@
             </footer>
         {% endblock %}
         {% block javascripts %}
-
-<<<<<<< .mine
             <script>
                 var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
             </script>
@@ -249,31 +249,3 @@
         {% endblock %}
     </body>
 </html>
-=======
-            <script>
-                var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
-            </script>
-            <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-            {% javascripts
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.js'
-							'@DaVinciTaxiBundle/Resources/public/js/uikit.min.js'
-							'@DaVinciTaxiBundle/Resources/public/js/addons/form-select.js'
-							'@DaVinciTaxiBundle/Resources/public/js/addons/form-password.min.js'
-							'@DaVinciTaxiBundle/Resources/public/js/timepicker.js'
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.spinner.min.js'
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.validate.js'
-							'@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
-							'@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
-							'@DaVinciTaxiBundle/Resources/public/js/datarange.js'
-							'@DaVinciTaxiBundle/Resources/public/js/chosen.jquery.js'
-							'@DaVinciTaxiBundle/Resources/public/js/chosenImage.jquery.js'
-							'@DaVinciTaxiBundle/Resources/public/js/intl-tel-input-master/js/intlTelInput.js'
-                            '@DaVinciTaxiBundle/Resources/public/js/register_form.js'
-							'@DaVinciTaxiBundle/Resources/public/js/all.js'
-            %}
-            <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
-        {% endblock %}
-    </body>
-</html>
->>>>>>> .theirs

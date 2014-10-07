@@ -56,6 +56,7 @@ footer {
 	font-size: 1.9em;
 	line-height: 120%;
 	position: relative;
+	clear: both;
 /*
 	float: none;
  	position: absolute;
@@ -111,7 +112,7 @@ footer {
 	label.unlabel  .errors {top: 24px !important;}
 /*	.addphoneareas .questiontooltip {right: 1.4% !important;}*/
 	.register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
-	.register .uk-form-horizontal .uk-width-1-1 {width: 93.6%  !important;}
+	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
 	.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
 		height: 12px !important;
 		width: 12px  !important;
@@ -119,7 +120,7 @@ footer {
 	.changemail div.form-group .col-sm-9 {width: 64.8% !important;}
 }
 @media screen and (max-width: 480px) {
-	.register .uk-form-horizontal .uk-width-1-1 {width: 93.6%  !important;}
+	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
 	 .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
 	.register .uk-form-horizontal .addphoneareas	{width: 100%  !important;}
 	:-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
@@ -128,7 +129,7 @@ footer {
 	label .errors {top: 42px !important;}
 	label.unlabel  .errors {top: 24px !important;}
 	.register .uk-form-horizontal .uk-width-4-5	 {width: 96.8% !important;}
-	.addphoneareas .questiontooltip {right: 0.6% !important;}
+	/*.addphoneareas .questiontooltip {right: 0.6% !important;}*/
 	.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
 		height: 10px !important;
 		width: 10px  !important;
@@ -819,3 +820,8 @@ body.register .main-content{
 }
 .register .uk-form-horizontal .checkregister  .uk-form-row.term  label{	margin: 0px;}
 /*.checkregister label.term  a {	color: #ff4d61;}*/
+
+
+.register .header-wrapper .header-bottom .header-bottom-in {	height: auto;}
+.header-wrapper .header-bottom .header-bottom-in .breadcrumbs {height: 30px;}
+.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.current span {line-height: 25px;}
