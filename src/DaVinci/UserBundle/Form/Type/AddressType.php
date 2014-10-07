@@ -22,7 +22,7 @@ class AddressType extends AbstractType
                             'translation_domain' => 'FOSUserBundle',
                             'property_path' => 'country',
                             'query_builder' => function(EntityRepository $er) {
-                                return $er->createQueryBuilder('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
+                                return $er->createQueryBuilder('c')->select('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
                             }))
             ->addEventSubscriber(new AddCityFieldSubscriber($propertyPathToCity))
             ->add('street', 'text')

@@ -1,5 +1,35 @@
 if ($(".register").length) {
 
+	function setBlockHeight() {
+		contentheight = 0;
+		$(".active .blockoffice ul").each(function (ind, el) {
+			height = $(this).height();
+			if (height > contentheight)
+				contentheight = height;
+		});
+		$(".active .blockoffice ul").css({'height': contentheight});
+	}
+
+//	$('#country').change(function() {
+//		$('.rowcity').show();	
+//	});
+//	$('#city').change(function() {
+//		$('.rowstreet').show();	
+//	});
+//	$('#street').change(function() {
+//		$('.rowbuild').show();	
+//	});
+
+/*Переключаем радиобатоны в засисимости от того какое поле мы используем*/
+    $('.uk-width-1-1 input[type="text"]').change(function () {
+        $(this).siblings('input[type="radio"]').prop( "checked", true );
+    });
+
+    $('.uk-width-1-1 select').change(function () {
+        $(this).parent().siblings('input[type="radio"]').prop( "checked", true );
+    });
+/***************/
+
     $('#taxi_company_registration_address_country').change(function () {
         $('.rowcity').show();
     });
@@ -13,20 +43,23 @@ if ($(".register").length) {
         var data = {};
         data[$country.attr('name')] = $country.val();
         // Submit data via AJAX to the form's action path.
+        
+        $('#taxi_company_registration_address_city option').remove();
+        
         $.ajax({
             url: $form.attr('action'),
             type: $form.attr('method'),
             data: data,
             success: function (html) {
-                // Replace current position field ...
+                // ReplaceReplace current position field ...
                 $('#taxi_company_registration_address_city').replaceWith(
                         // ... with the returned one from the AJAX response.
                         $(html).find('#taxi_company_registration_address_city')
-                        );
-                $('#taxi_company_registration_address_city').change('change', function () {
-                    $('.rowstreet').show();
-                });
-                // Position field now displays the appropriate positions.
+                );
+//                $('#taxi_company_registration_address_city').change('change', function () {
+//                    $('.rowstreet').show();
+//                });
+
             }
         });
     });
@@ -76,7 +109,7 @@ if ($(".register").length) {
     });
 
 
-    $('#manager .addlang').click(function () {
+/*    $('#manager .addlang').click(function () {
         $('.style1').last().addClass('style13');
         $('#manager .style1').clone().insertAfter('.style1').addClass('style2');
         $('.style2').removeClass('style1');
@@ -94,7 +127,7 @@ if ($(".register").length) {
         $('.style2').removeClass('style1');
         return false;
     });
-
+*/
 
 //register page/////////////////////////////
     function add2PassPattern(text)
