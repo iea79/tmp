@@ -30,12 +30,13 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
     {
         $formOptions = array(
             'class'         => 'DaVinciTaxiBundle:Admin\CountryCity',
-            'empty_value' => 'form.please_select',
+            'empty_value' => ($country==NULL)?'form.select_country_first':'form.please_select',
             'translation_domain' => 'FOSUserBundle',
             'property' => 'city',
             'query_builder' => function (EntityRepository $repository) use ($country) {
                 return  $repository->createQueryBuilder('c')
-                        ->where('c.id = :ctr' )
+                        ->select('c')
+                        ->where("c.id = :ctr" )
                         ->andWhere('c.status = 1')
                         ->setParameter('ctr', $country);
             }
@@ -59,10 +60,19 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
     public function postSetData(FormEvent $event)
     {
         $form = $event->getForm();
+        $data = $event->getData();
         
+        $country = NULL;
+        if (isset($data)) { 
+            
+            if($data instanceof \DaVinci\TaxiBundle\Entity\Address)
+                $country = $data->getCountry();
+            else
+                $country = $data['country'];
+        }
+
         if (!$form->has($this->propertyPathToCity)) {
-             $form->add($this->propertyPathToCity, 'choice', array('empty_value' => 'form.loading','translation_domain' => 'FOSUserBundle'));
-           //$this->addCityForm($form, null);
+            $this->addCityForm($form, $country);
         }
         
         

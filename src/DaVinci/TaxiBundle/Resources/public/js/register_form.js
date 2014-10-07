@@ -49,6 +49,9 @@ if ($(".register").length) {
         var data = {};
         data[$country.attr('name')] = $country.val();
         // Submit data via AJAX to the form's action path.
+        
+        $('#taxi_company_registration_address_city option').remove();
+        
         $.ajax({
             url: $form.attr('action'),
             type: $form.attr('method'),

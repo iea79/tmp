@@ -147,9 +147,8 @@ form:
     
     please_select: "Please select..."
     
-    
-    loading: "loading data..."
-
+    loading: "loading..."
+    select_country_first: "select country first"
     
 fos_user:    
     firstname:

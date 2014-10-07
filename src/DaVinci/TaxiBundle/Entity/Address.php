@@ -82,13 +82,12 @@ class Address
     /**
      * Set street
      *
-     * @param string $cuontry
+     * @param string $country
      * @return Address
      */
     public function setCountry($country)
     {
         $this->country = $country;
-
         return $this;
     }
 
