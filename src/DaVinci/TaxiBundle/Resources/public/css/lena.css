@@ -508,6 +508,10 @@ footer {
     padding: 14px 20px 16px;
     text-transform: uppercase;
 }
+.register a.trial:hover {
+	color: #fff;
+	text-decoration: underline;
+}
 .register #makechoice .uk-modal-dialog {
 	min-width: 283px;
 	width: 15.8%;
