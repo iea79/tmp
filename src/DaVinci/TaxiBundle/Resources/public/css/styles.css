@@ -2485,9 +2485,6 @@ footer {
 .pop-up .form-view .insurance dd {
     line-height: 22px;
 }
-.pop-up .insurance .button-skype {
-	margin-top: -5px !important;
-}
 .pop-up .form-view dt,
 .pop-up .form-view dd {
 	line-height: 8px;
@@ -2508,8 +2505,7 @@ footer {
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
-	margin-top: -10px !important;
-	margin-left: -1px;
+	margin-top: -5px !important;
 	width: 50%;
 }
 .pop-up .form-view .button-add {
