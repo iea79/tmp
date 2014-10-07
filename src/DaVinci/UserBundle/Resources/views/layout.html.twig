@@ -1,6 +1,20 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-
 {% block theme 'register' %}
+{% block title %}
+    {% if flow.getCurrentStepNumber() == 1 %}
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            {{ 'Create an account'|trans}}
+        </div>
+
+    {% elseif flow.getCurrentStepNumber() == 2 %}
+
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            <span>{{ 'Please all check details'|trans}}</span>
+        </div>
+    {% endif %}
+{% endblock%}
 {% block body %}
 		{% block fos_user_content %}{% endblock %}
 {% endblock %}

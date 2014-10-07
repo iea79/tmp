@@ -101,7 +101,6 @@ class CountryCity
         return $this;
     }
     
-    
     /**
      * Get status
      *
@@ -109,5 +108,11 @@ class CountryCity
      */
     public function getStatus() {
         return $this->status;
+    }
+    
+    public function __toString()
+    {
+        $translations = $this->getCurrentTranslation();
+        return $translations->getCity();
     }
 }
