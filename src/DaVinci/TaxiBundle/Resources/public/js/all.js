@@ -167,6 +167,7 @@ $(document).ready(function () {
    		 $(this).text( "Hide drivers list 1, 2, ...");}
     else $(this).text( but_txt);
 	});
+  });
 
 //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
 $('.spec-request').click(function () {
@@ -177,8 +178,6 @@ $('.chois li').change(function () {
     var ind = $('.chois li').index($('li.uk-active')[0]);
     alert(ind);
 });
-  });
-// Стилизация select с цветами машин //////////////////////////
 
 // Datapicker
 /**
@@ -1127,12 +1126,3 @@ $(window).bind("load", function() {
     disable_search_threshold: 10 
   });
 });
-/*jQuery.browser = {};
-(function () {
-    jQuery.browser.msie = false;
-    jQuery.browser.version = 0;
-    if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
-        jQuery.browser.msie = true;
-        jQuery.browser.version = RegExp.$1;
-    }
-})();*/
