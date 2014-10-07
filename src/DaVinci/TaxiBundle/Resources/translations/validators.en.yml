@@ -1,3 +1,8 @@
+company:
+    name:
+        already_used: The company name is already used
+        blank: Please enter the company name
+
 fos_user:
     username:
         already_used: The username is already used
