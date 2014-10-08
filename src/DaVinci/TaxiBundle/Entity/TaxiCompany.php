@@ -21,24 +21,24 @@ class TaxiCompany
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank
      */
     private $name;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="date", nullable=true)
      */
     private $registration_date;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $registration_place;
 
     
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $skype;
     
@@ -46,16 +46,16 @@ class TaxiCompany
 	 /**
 	 * 
 	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
-	 * @ORM\JoinTable(name="UserPhone",
-	 *      joinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id")},
-	 *      inverseJoinColumns={@ORM\JoinColumn(name="id", referencedColumnName="id", unique=true)}
+	 * @ORM\JoinTable(name="CompanyPhone",
+	 *      joinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)}
 	 *      )
 	 */
     
     private $phones;
     
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $registraition_number;
 
@@ -65,7 +65,7 @@ class TaxiCompany
     private $cars_amount;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $logo;
 

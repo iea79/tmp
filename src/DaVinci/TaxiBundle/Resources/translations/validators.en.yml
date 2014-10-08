@@ -1,3 +1,25 @@
+company:
+    name:
+        already_used: The company name is already used
+        blank: Please enter the company name
+        long: The name is to long
+    cars:
+        blank: Please chose number of cars
+        valid: Choose a valid cars amount.
+    skype:
+        long: Entered skype is too long
+    phones:
+        phone:
+            blank: Please enter your phone number
+            
+address: 
+    country:
+        blank: Please choose your country
+    city:
+        blank: Please choose your city
+    street:
+        blank: Please enter your company address 
+
 fos_user:
     username:
         already_used: The username is already used

@@ -1315,6 +1315,7 @@ office passengers and driver
 .client-account .uk-table .month {
     color:#3c3d45;
     font-weight:bold;
+	text-transform: uppercase;
 }
 .client-account .order-status {
 	display:table;
@@ -1421,7 +1422,7 @@ office passengers and driver
 	float: left !important;
 	margin-top: 1px !important;
 	margin-left: 0px;
-	min-width: 130px !important;
+	min-width: 135px !important;
 	width: 39.5%;
 }
 .client-panel-button {
@@ -1664,7 +1665,7 @@ width: 12.6%;
 }
 .historyorder a.confirm-deal {
 	margin-top: 0px !important;
-	min-width: 113px;
+	min-width: 115px;
 	width: 90%;
 }
 .historyorder a.mp-icon-closed {
@@ -1831,6 +1832,11 @@ table th .questiontooltip a span.que {
     padding:0;
     margin: 54px -20px -7px -17px;
 }
+@media (max-width: 640px) {
+	.open-order-passenger .uk-panel-box {
+		margin-top: 10px;
+	}
+}
 .open-order-passenger tr td:first-child, 
 .open-order-passenger tr td:nth-child(2){
     padding:20px 0px 10px 0px;
@@ -1844,14 +1850,14 @@ table th .questiontooltip a span.que {
 	background-color: #528ed3;
 	position: relative;
 	width: 27%;
-	min-width: 150px;
+	min-width: 180px;
 	float: right;
 	margin-top: 2px !important;
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
 }
-@media (max-width: 600px) {
+@media (max-width: 640px) {
 	.open-order-passenger td button {
 		float: none;
 	}
@@ -1867,7 +1873,6 @@ table th .questiontooltip a span.que {
     background-color: #ebebeb!important;
     padding: 3px 8px 0px 8px;
 	color: #8d8f98;
-    
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
@@ -1876,7 +1881,7 @@ table th .questiontooltip a span.que {
 }
 .driver-top  {
     overflow: hidden;
-	margin-bottom: 5px;
+	margin-bottom: 0px !important;
 }
 .driver-top div {
     float: left;
@@ -1926,28 +1931,17 @@ table th .questiontooltip a span.que {
     .profile .proffesion {
 		 font-size:14px;
 		 color:#8d8f98;
+		 line-height: 14px;
     }
     .profile {
 		 line-height: 18px;
     }
-/*    .profile .uk-icon-smile-o{
-		 color:#27bf2e;
-    }
-    .profile .uk-icon-frown-o {
-		 color:#ff4d61;
-    }*/    
  	.profile .mp-icon-taxi {
 		font-size: 18px;
 	}
-/*   .profile .feedback_ok {
-		 margin-right:25px;
-    }
-   .profile .feedback_ok i,
-   .profile .feedback_bad i  {
-		 font-size: 110%;
-    }*/
     .vehicle .name {
 		 color:#3c3d45;
+		 font-weight: bold;
     }
     .vehicle {
 		 line-height:20px;
@@ -1955,11 +1949,13 @@ table th .questiontooltip a span.que {
     .vehicle span {
 		 color: #3c3d45;
 		 margin-bottom: 6px;
-		display: inline-block;
+		 display: inline-block;
+		 line-height: 20px;
     }
     .vehicle i {
 		 color: #ff4d61;
-		 margin-left: 22px; 
+		 margin-left: 22px;
+		 margin-right: 2px;
     }
 	.vehicle i.mp-icon-person {
 		margin-left: 0;
@@ -2364,7 +2360,7 @@ footer {
 .pop-up .uk-form select {
 	border-radius:4px;
 	border: 1px #8e9099 solid;
-	height:28px;
+	height:30px;
 }
 .pop-up input[type="checkbox"] {
 	height:20px;
@@ -2466,19 +2462,26 @@ footer {
 }
 /* === pop-up form-change === */
 .pop-up .profile.form-change {
-    padding-left: 16px !important;
-    width: 71%;
+    width: 70.2%;
 }
 @media (max-width: 710px) {
 	.pop-up .profile.form-change {
 		padding-left: 10px !important;
 		width: 100%;
+		margin-left: 0 !important;
 	}
 }
 .pop-up .form-change .myid dt,
 .pop-up .form-change .myid dd {
     margin-top: 10px;
     margin-bottom: -6px;
+}
+.pop-up .driver-profile {
+    margin-left: -14px;
+    margin-top: -7px;
+}
+.pop-up .driver-profile .form-change {
+    margin-left: 1.7%;
 }
 /* === pop-up form-view === */
 .profile.form-view {
@@ -2534,8 +2537,7 @@ footer {
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
-	margin-top: -10px !important;
-	margin-left: -1px;
+	margin-top: -5px !important;
 	width: 50%;
 }
 .pop-up .form-view .button-add {
@@ -2564,12 +2566,23 @@ div.pop-up.uk-grid.uk-grid-small {
     width: 103%;
 }
 .pop-up .addphone {
-	float:left;
-	margin-top: 5px;
 	font-size: 14px;
+	width: 100%;
+}
+.pop-up .addphone span {
+	float: left;
+	text-decoration: underline;
+}
+.pop-up .addphone span:hover {
+	text-decoration: none;
 }
 .pop-up .addphone .questiontooltip  {
-	margin-right: 5px;
+	float: left;
+	display: block;
+	opacity: 1;
+}
+.pop-up .addphone .questiontooltip .que  {
+	margin-top: -4px;
 }
 .pop-up.route dt {
 	margin-bottom: 1px;
@@ -2638,7 +2651,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
-	padding:6px 5px 0px 3px;
+	padding:3px 5px 3px 3px;
 }
 .pop-up .profile select.region {
 	width:28%;
@@ -3057,11 +3070,12 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 
 .intl-tel-input {width: 100%;}
 
-/*========================end office passenger and driver=======================*/
+/*======================== end office passenger and driver =======================*/
 /* ======================= Chosen style select with images ================start= */
 /* @group Base */
 .chzn-container {
-  font-size: 13px;
+  width: 100% !important;
+  font-size: 16px;
   position: relative;
   display: inline-block;
   zoom: 1;
@@ -3074,9 +3088,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   position: absolute;
   top: 29px;
   left: 0;
-  -webkit-box-shadow: 0 4px 5px rgba(0,0,0,.15);
-  -moz-box-shadow   : 0 4px 5px rgba(0,0,0,.15);
-  box-shadow        : 0 4px 5px rgba(0,0,0,.15);
   z-index: 1010;
 }
 /* @end */
@@ -3085,30 +3096,26 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .chzn-container-single .chzn-single {
   background-color: #ffffff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0 );   
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
-  background-image: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background-image: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background-image: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  background-image: linear-gradient(#ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%); 
   -webkit-border-radius: 5px;
   -moz-border-radius   : 5px;
-  border-radius        : 5px;
+  border-radius        : 5px; 
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
-  border: 1px solid #aaaaaa;
-  -webkit-box-shadow: 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-  -moz-box-shadow   : 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
-  box-shadow        : 0 0 3px #ffffff inset, 0 1px 1px rgba(0,0,0,0.1);
+  border: 2px solid #d5d3dc;
   display: block;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 23px;
-  line-height: 24px;
+  height: 29px;
+  line-height: 29px;
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
+}
+.chzn-container-single a.chzn-single {
+	font-size: 16px;
+	text-decoration: none;
 }
 .chzn-container-single .chzn-default {
   color: #999;
@@ -3130,7 +3137,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   width: 12px;
   height: 13px;
   font-size: 1px;
-  background: url('chosen-sprite.png') right top no-repeat;
+  background: url('') right top no-repeat;
 }
 .chzn-container-single .chzn-single abbr:hover {
   background-position: right -11px;
@@ -3147,36 +3154,28 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   width: 18px;
 }
 .chzn-container-single .chzn-single div b {
-  background: url('chosen-sprite.png') no-repeat 0 0;
   display: block;
   width: 100%;
   height: 100%;
 }
 .chzn-container-single .chzn-search {
-  padding: 3px 4px;
   position: relative;
   margin: 0;
   white-space: nowrap;
   z-index: 1010;
 }
 .chzn-container-single .chzn-search input {
-  background: #fff url('chosen-sprite.png') no-repeat 100% -22px;
-  background: url('chosen-sprite.png') no-repeat 100% -22px, -webkit-gradient(linear, 0 0, 0 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
-  background: url('chosen-sprite.png') no-repeat 100% -22px, -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background: url('chosen-sprite.png') no-repeat 100% -22px, -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background: url('chosen-sprite.png') no-repeat 100% -22px, -o-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background: url('chosen-sprite.png') no-repeat 100% -22px, linear-gradient(#eeeeee 1%, #ffffff 15%);
-  margin: 1px 0;
-  padding: 4px 20px 4px 5px;
+  background: #fff;
+  margin: 4px 3%;
+  padding: 1px 4px;
   outline: 0;
-  border: 1px solid #aaa;
-  font-family: sans-serif;
+  border: 1px solid #ddd;
   font-size: 1em;
+  width: 94% !important;
+  height: 24px;
 }
 .chzn-container-single .chzn-drop {
-  -webkit-border-radius: 0 0 4px 4px;
-  -moz-border-radius   : 0 0 4px 4px;
-  border-radius        : 0 0 4px 4px;
+  width: 100% !important;
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
@@ -3191,11 +3190,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 /* @group Multi Chosen */
 .chzn-container-multi .chzn-choices {
   background-color: #fff;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
-  background-image: -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background-image: -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background-image: -o-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background-image: linear-gradient(#eeeeee 1%, #ffffff 15%);
   border: 1px solid #aaa;
   margin: 0;
   padding: 0;
@@ -3238,16 +3232,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
-  background-color: #e4e4e4;
+  background-color: #fff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#eeeeee', GradientType=0 ); 
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%); 
-  -webkit-box-shadow: 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
-  -moz-box-shadow   : 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
-  box-shadow        : 0 0 2px #ffffff inset, 0 1px 0 rgba(0,0,0,0.05);
   color: #333;
   border: 1px solid #aaaaaa;
   line-height: 13px;
@@ -3257,14 +3243,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   cursor: default;
 }
 .chzn-container-multi .chzn-choices .search-choice.search-choice-disabled {
-  background-color: #e4e4e4;
+  background-color: #fff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4f4f4', endColorstr='#eeeeee', GradientType=0 );
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
-  background-image: -webkit-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -moz-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -o-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: -ms-linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-  background-image: linear-gradient(top, #f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
   color: #666;
   border: 1px solid #cccccc;
   padding-right: 5px;
@@ -3280,7 +3260,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   width: 12px;
   height: 13px;
   font-size: 1px;
-  background: url('chosen-sprite.png') right top no-repeat;
+/*  background: url('chosen-sprite.png') right top no-repeat;*/
 }
 .chzn-container-multi .chzn-choices .search-choice .search-choice-close:hover {
   background-position: right -11px;
@@ -3292,9 +3272,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 
 /* @group Results */
 .chzn-container .chzn-results {
-  margin: 0 4px 4px 0;
-  max-height: 240px;
-  padding: 0 0 0 4px;
+  margin: 0;
+  padding: 0;
   position: relative;
   overflow-x: hidden;
   overflow-y: auto;
@@ -3306,8 +3285,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 .chzn-container .chzn-results li {
   display: none;
-  line-height: 15px;
-  padding: 5px 6px;
+  line-height: 18px;
+  padding: 2px 6px;
   margin: 0;
   list-style: none;
 }
@@ -3316,13 +3295,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   display: list-item;
 }
 .chzn-container .chzn-results .highlighted {
-  background-color: #3875d7;
+  background-color: #528ed3;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3875d7', endColorstr='#2a62bc', GradientType=0 );  
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #3875d7), color-stop(90%, #2a62bc));
-  background-image: -webkit-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: -moz-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: -o-linear-gradient(top, #3875d7 20%, #2a62bc 90%);
-  background-image: linear-gradient(#3875d7 20%, #2a62bc 90%);
   color: #fff;
 }
 .chzn-container .chzn-results li em {
@@ -3364,12 +3338,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .chzn-container .chzn-results-scroll-down {
   bottom: 0;
 }
-.chzn-container .chzn-results-scroll-down span {
-  background: url('chosen-sprite.png') no-repeat -4px -3px;
-}
-.chzn-container .chzn-results-scroll-up span {
-  background: url('chosen-sprite.png') no-repeat -22px -3px;
-}
 /* @end */
 
 /* @group Active  */
@@ -3384,13 +3352,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   -webkit-box-shadow: 0 1px 0 #fff inset;
   -moz-box-shadow   : 0 1px 0 #fff inset;
   box-shadow        : 0 1px 0 #fff inset;
-  background-color: #eee;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff', GradientType=0 );
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(20%, #eeeeee), color-stop(80%, #ffffff));
-  background-image: -webkit-linear-gradient(top, #eeeeee 20%, #ffffff 80%);
-  background-image: -moz-linear-gradient(top, #eeeeee 20%, #ffffff 80%);
-  background-image: -o-linear-gradient(top, #eeeeee 20%, #ffffff 80%);
-  background-image: linear-gradient(#eeeeee 20%, #ffffff 80%);
+  background-color: #fff;
   -webkit-border-bottom-left-radius : 0;
   -webkit-border-bottom-right-radius: 0;
   -moz-border-radius-bottomleft : 0;
@@ -3446,35 +3408,33 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .chzn-rtl .chzn-results .group-option { padding-left: 0; padding-right: 15px; }
 .chzn-rtl.chzn-container-active .chzn-single-with-drop div { border-right: none; }
 .chzn-rtl .chzn-search input {
-  background: #fff url('chosen-sprite.png') no-repeat -38px -22px;
-  background: url('chosen-sprite.png') no-repeat -38px -22px, -webkit-gradient(linear, 0 0, 0 100%, color-stop(1%, #eeeeee), color-stop(15%, #ffffff));
-  background: url('chosen-sprite.png') no-repeat -38px -22px, -webkit-linear-gradient(top, #eeeeee 1%, #ffffff 15%);  
-  background: url('chosen-sprite.png') no-repeat -38px -22px, -moz-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background: url('chosen-sprite.png') no-repeat -38px -22px, -o-linear-gradient(top, #eeeeee 1%, #ffffff 15%);
-  background: url('chosen-sprite.png') no-repeat -38px -22px, linear-gradient(#eeeeee 1%, #ffffff 15%);
+  background: #fff;
   padding: 4px 5px 4px 20px;
   direction: rtl;
 }
 .chzn-container-single .chzn-single {
   padding: 0 0 0 10px;
+  margin-bottom: -3px !important;
 }
 
 /* DG - 03/12/12 -chosenImage - position, size and indent text */
 .chznImage-container .chzn-results li,
 .chznImage-container .chzn-single span {
-  background-position: 6px 45%;
-  background-size: auto 12px;
-  padding-left: 23px;
+  background-position: 10px 45%;
+  background-size: auto 18px;
+  padding-left: 53px;
 }
 
 .chznImage-container .chzn-single span {
   background-position: 0px 45%;
-  padding-left: 17px;
+  padding-left: 42px;
+  font-size: 16px;
+  text-decoration: none;
 }
 /* @end */
-
-
 /* ======================= Chosen style select with images =================end== */
+
+
 /*=======================datepicker =============================================*/
 div.datepicker {
 	position: relative;
