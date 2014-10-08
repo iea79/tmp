@@ -20,7 +20,13 @@ class RegistrationController extends BaseController {
     public function checkEmailAction() {
         //some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
-
+        
+        if(empty($email))
+        {
+            $url = $this->container->get('router')->generate('fos_user_registration_register');
+            throw new NotFoundHttpException(sprintf('There is empty check email, try register'));
+        }
+        
         $new_email = $email;
         $request = $this->container->get('request');
         $post_data = $request->request->all();
