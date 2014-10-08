@@ -39,7 +39,7 @@
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-label pinktext uk-width-1-1  float_left">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                                    <div class="uk-form-label pinktext uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
                                 </div>
                             </label>
 
