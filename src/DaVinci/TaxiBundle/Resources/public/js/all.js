@@ -139,23 +139,12 @@ $(document).ready(function () {
     ;
 
 });
-// Смена названий кнопок Driver list в office passahgers //////////////////// 
-var but_txt;
-$(document).ready(function () {
 
-    var count = 0;
-    $(".driverlist").click(function () {
-        $(this).toggleClass("active-gray");
-
-        if ($(this).text() != "Hide drivers 1, 2,")
-        {
-            but_txt = $(this).text();
-            $(this).text("Hide drivers 1, 2,");
-        }
-        else
-            $(this).text(but_txt);
-    });
-
+ //Выбор цвета авто ////////////////////////
+$(window).bind("load", function() {
+  $(".my-select").chosenImage({
+    disable_search_threshold: 10 
+  });
 });
 
 // Смена названий кнопок Driver list в office passengers //////////////////// 
@@ -171,6 +160,7 @@ $(document).ready(function () {
    		 $(this).text( "Hide drivers list 1, 2, ...");}
     else $(this).text( but_txt);
 	});
+
   });
 
 //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
@@ -1123,10 +1113,3 @@ $('.chois li').change(function () {
 	
     	EYE.register(initLayout, 'init');
 })(jQuery)
-
- //Выбор цвета авто ////////////////////////
-$(window).bind("load", function() {
-  $(".my-select").chosenImage({
-    disable_search_threshold: 10 
-  });
-});

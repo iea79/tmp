@@ -34,6 +34,7 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
             'translation_domain' => 'FOSUserBundle',
             'property' => 'city',
             'query_builder' => function (EntityRepository $repository) use ($country) {
+                if($country==NULL) $countyr = '';
                 return  $repository->createQueryBuilder('c')
                         ->select('c')
                         ->where("c.id = :ctr" )
