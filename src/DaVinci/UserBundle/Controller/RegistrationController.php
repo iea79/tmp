@@ -176,7 +176,7 @@ class RegistrationController extends BaseController {
     public function register_companyAction() {
 
         if ($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')) {
-            return new RedirectResponse($router->generate('office_company'));
+            return new RedirectResponse($this->container->get('router')->generate('office_company'));
         }
 
         $user = $this->container->get('security.context')->getToken()->getUser();
