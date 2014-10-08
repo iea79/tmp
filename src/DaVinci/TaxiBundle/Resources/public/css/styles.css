@@ -459,7 +459,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					max-width:1000px;
 					margin:0 auto;
 					color:#fff;
-					height:30px;
+					height:28px;
 					
 				}
 /*====================================  breadcrombs ==============================================================*/
@@ -537,14 +537,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 .main-content {
 	max-width:1000px;
-	margin:0 auto;
+	margin:1px auto 0;
 	background-color:#f5f5f5;
-	padding:15px 0 155px 0;
+	padding:13px 0 155px 0;
 	
 }
 /*===================================    home ===========================================*/
 .home {
-	margin-top:20px;
+	margin-top:13px;
 }
 	.home .tabtaxi {
 		font-size:20px;
@@ -588,7 +588,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:15px 0;
+		padding:9px 0;
 		box-shadow: 0 1px 1px 0px #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
@@ -596,28 +596,36 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.home .steps-1-2-3 .chois {
 			border-top:1px solid #ff4d61;
 			border-bottom:1px solid #ff4d61;
-			height:60px;
+			height:52px;
 			overflow:hidden;
 			padding:0;
+			margin:0;
 		}
 			.home .steps-1-2-3 .chois li {
-				height:60px;
+				height:52px;
 				text-align:center;
 				list-style:none;
 				float:left;
-				margin-bottom:-1px;
+				padding: 0 26px 0 0;
 				position:relative;
+				width:33.3%;
+				box-sizing:border-box;
 			}
 			.home .steps-1-2-3 .chois .first, .home .steps-1-2-3 .chois .last {
-				width:30%;
+				
 			}
-			.home .steps-1-2-3 .chois .second {
-				width:40%;
+			.home .steps-1-2-3 .chois  .uk-active .back {
+				position: absolute;
+				background-color: #ff4d61;
+				width: 26px;
+				height: 52px;
+				left: -26px;
+				top: 0;
+				
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
 					font-size:18px;
-					padding:0 5px 0 0;
 					margin:0;
 					background:transparent;
 					border:none;
@@ -641,8 +649,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
 						display:table-cell;
-						height:60px;
-						width:302px;
+						height:52px;
+						width:306px;
 						
 					}
 					.home .steps-1-2-3 .chois .second a .arrow_box {
@@ -656,12 +664,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #fff;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 30px 1px 30px 30px;
+						border-width: 26px 1px 32px 18px;
 						display: block;
 						height: 0;
 						position: absolute;
-						right: -30px;
-						top: 0;
+						right: -17px;
+						top: -1px;
 						width: 0;
 						z-index: 50;
 						}
@@ -669,12 +677,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						border-color: transparent black transparent #ff4d61;
 						border-image: none;
 						border-style: solid none solid solid;
-						border-width: 30px 1px 30px 30px;
+						border-width: 26px 1px 32px 18px;
 						display: block;
 						height: 0;
 						position: absolute;
-						right: 4px;
-						top: 0;
+						right: -15px;
+						top: -1px;
 						width: 0;
 						z-index: 50;
 					}
@@ -684,18 +692,18 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	*/
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:30px;
-				height:60px;
+				width:26px;
+				height:52px;
 				position: absolute;
-				right: -32px;
+				right: -26px;
 				top: 0;
 			}
 			.home .steps-1-2-3 .chois li.uk-active  a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
-				width:30px;
-				height:60px;
+				width:19px;
+				height:52px;
 				position: absolute;
-				right: 3px;
+				right: -16px;
 				top: 0;
 			}
 	/*
@@ -731,26 +739,32 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			background-color:#ff4d61;
 			border:none;
 			height:1px;
+			margin:20px 0 18px 0;
 		}
 		.destination .nav-over .uk-button {
-			margin:10px 0;
+			margin:1px 0;
 		}
 	.destination .form-block-wrap {
 		margin:0 20px 10px 0;
 		overflow:hidden;
 	}
 	.destination .labels {
-		width:30%;
+		width:39%;
 		float:left;
-		font-size:20px;
+		font-size:19px;
 		color:#ff4d61;
-		padding:0;
+		padding:3px 0 0 0;
+		font-weight:bold;
 	}
 		.destination .labels label {
 			margin-left:20px;
 		}
+		.destination .labels label  i {
+			margin:0 2px 0 8px;
+			font-size:21px;
+		}
 	.destination  .inputs {
-		width:70%;
+		width:61%;
 		float:right;
 		color:#9b9b9b;
 		font-size:16px;
@@ -766,7 +780,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		height: 27px;
+		height: 30px;
 		vertical-align: bottom;
 		padding-left:8px;
 	}
@@ -782,20 +796,25 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			right:0;
 		}
 	.destination  .inputs .uk-button {
-		min-height:25px;
-		line-height:25px;
+		min-height:28px;
+		line-height:28px;
 	}
 		.destination .nav-over .add-another {
 			color:#3c3d45;
 			font-weight:bold;
-			min-height:27px;
-			line-height:27px;
+			min-height:21px;
+			line-height:21px;
 			border:1px solid #d3d3d3;
 			cursor:pointer;
 		}
+		.destination .nav-over .add-another .caption {
+			position:relative;
+			top:-3px;
+			font-size:14px;
+		}
 		.destination .nav-over .nextbutt {
-			margin-top:30px;
-			padding-top:4px;
+			margin-top:19px;
+			padding:4px 0;
 			color:#fff;
 			font-size:24px;
 		}
@@ -812,6 +831,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		box-sizing: border-box;
 		
 		
+	}
+	.home .inputs .select {
+		margin:0 0 0 5px;
 	}
 	.home  .destination .select span {
 		padding:0 12px 0 0;
@@ -1106,6 +1128,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
 	width:27%;
 }
+.table-over .serv th:nth-child(8), .table-over .serv td:nth-child(8) {
+	width:12%;
+}
+.table-over .serv th:nth-child(7), .table-over .serv td:nth-child(7) {
+	width:12%;
+}
 
 	.table-over .serv {
 		width:100%;
@@ -1156,6 +1184,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.table-over .serv .under-head .select {
 			padding:0 3px;
 			display:inline-flex;
+			width:75%;
+			}
+			.table-over .serv .under-head select {
+				width:100%!important;
 			}
 		.table-over .serv .under-head .select span {
 			display:inline-block;
@@ -1170,7 +1202,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		
 		.table-over .serv  .ov-lt {
-			display:inline-block;
+			
 			margin:0 auto; 
 			white-space:nowrap;
 		}
@@ -1214,7 +1246,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			
 		}
 		.table-over .serv .ov-trust {
-			display:inline-block;
+			
 		}
 		.table-over .serv .aligment {
 			float:left;
@@ -2837,7 +2869,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 		}
 		
 .header-top .header-top-in .topmenu ul li:last-child {
-	width:133px;
+	width:116px;
 }
 
 .header-top .header-top-in .topmenu ul li:first-child {
@@ -2847,6 +2879,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .header-top .header-top-in .topmenu ul li:nth-child(5) {
 	width:auto;
 	text-align:right;
+}
+
+.header-top .header-top-in .topmenu ul li .texst-item {
+	padding:2px 4%;
 }
 
 
@@ -2916,6 +2952,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	
 	.header-top .header-top-in .topmenu ul li .texst-item {
 		font-weight:normal;
+		font-size:17px;
 	}
 	
 	.header-top .header-top-in .topmenu ul .nest span {
@@ -2970,7 +3007,11 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 	
 	.destination .form-block-wrap {
-		margin-right:10px;
+		margin:0 10px 10px 0;
+	}
+	.destination  .form-block-wrap.last {
+		position:relative;
+		top:-6px;
 	}
 	
 	.destination .nav-over {
@@ -3000,9 +3041,14 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 		margin-right: 20%; 
 	}
 	div.table-wrapper div.scrollable .daterange {
-		min-width:200px;
+		min-width:100px;
+	} 
+	div.table-wrapper div.scrollable table.responsive th, div.table-wrapper div.scrollable table.responsive td {
+		width:auto;
 	}
-	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	div.table-wrapper div.scrollable { 
+	overflow: scroll;
+	overflow-y: hidden; }	
 	
 	/*table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; } */
 	table.responsive tbody tr > th:last-child, table.responsive tbody tr  > td:last-child, table.responsive.pinned tbody tr > td { display: none; }
