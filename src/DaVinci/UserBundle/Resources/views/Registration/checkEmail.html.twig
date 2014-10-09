@@ -19,7 +19,7 @@
 
 		</div>
 		<div class="content usedemail">
-		{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}
+		{% if user.email %}{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}{% endif %}
 		</div>
         {% for flashMessage in app.session.flashbag.get('change_email_message') %}
             <div class="flash-notice">

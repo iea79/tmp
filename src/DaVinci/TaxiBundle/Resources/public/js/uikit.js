@@ -2239,7 +2239,7 @@
             }, 100));
         },
 
-        check: function() {
+      /*  check: function() {
 
             var children = this.element.children(':not(.uk-tab-responsive)').removeClass('uk-hidden');
 
@@ -2267,7 +2267,7 @@
 
                     if (item.css('float') != 'none' && !item.attr('uk-dropdown')) {
 
-                        item.addClass('uk-hidden');
+                       item.addClass('uk-hidden'); 
 
                         if (!item.hasClass('uk-disabled')) {
                             this.responsivetab.lst.append('<li><a href="'+link.attr('href')+'" data-index="'+i+'">'+link.html()+'</a></li>');
@@ -2276,8 +2276,8 @@
                 }
             }
 
-            this.responsivetab[this.responsivetab.lst.children().length ? 'removeClass':'addClass']('uk-hidden');
-        }
+          this.responsivetab[this.responsivetab.lst.children().length ? 'removeClass':'addClass']('uk-hidden'); 
+        } */
     });
 
     // init code

@@ -53,7 +53,7 @@ class Breadcrumbs {
                 break;
             case 'fos_user_registration_check_email':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
-                $menu->addChild('Registration', array('route' => 'fos_user_register'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                $menu->addChild('Registration', array('route' => 'fos_user_registration_register'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Check e-mail')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 ;
                 break;
