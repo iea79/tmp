@@ -238,6 +238,7 @@ footer {
 	margin-left: 5px;
 	top: -17px;
  }
+ :-moz-any(x), .title .questiontooltip  {top: -6px;}
  .title .questiontooltip a span.que{	top: 12px;}
 .questiontooltip a span.que{
  	display: block;
@@ -337,7 +338,7 @@ footer {
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    padding: 6px 9px  2px 9px;
+    padding: 4px 9px  4px 9px;
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      vertical-align: middle;
 }
@@ -423,8 +424,8 @@ footer {
 	text-align: center;
     font-size: 24px;
     font-weight: normal;
-    margin: 0px auto 42px auto;
-    padding: 25px 0 16px 0;
+    margin: 0px auto 36px auto;
+    padding: 22px 0 8px 0;
     text-transform: none;
 /*	background: #3d3d3d;
 	color: #fff;*/
@@ -448,9 +449,8 @@ footer {
     display: inline-block;
     font-size: 18px;
     line-height: 120%;
-    margin-left: 4px;
-    margin-right: 10px;
-    padding: 7px 10px 4px 10px;
+    margin: -1px 10px 0 4px;
+    padding: 8px 10px 6px 10px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -624,14 +624,14 @@ footer {
 .register label .errors li {	margin-bottom: 21px;}
 .greentitle {
     color: #27bf2e;
-    margin: 12px 0 0;
+    margin: 9px 0 0;
 }
 .greentitle span {
 /*    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;*/
     display: inline-block;
     padding: 0 10px 10px 0;
 }
-.officepagetitle .greentitle span img {margin: 0;}
+.officepagetitle .greentitle span img {margin:0; position: relative; top: 5px;}
 .register .uk-button-group {    
 	margin-top: 20px;
 	margin-bottom: 20px;
