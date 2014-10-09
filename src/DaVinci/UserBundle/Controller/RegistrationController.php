@@ -40,7 +40,7 @@ class RegistrationController extends BaseController {
 
         $form = $this->container->get('form.factory')->createBuilder('form', $user)
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                ->add('save', 'submit', array('label' => 'Resend or Change', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();
 
         $form->handleRequest($request);
@@ -54,7 +54,7 @@ class RegistrationController extends BaseController {
 
             $form = $this->container->get('form.factory')->createBuilder('form', $user)
                     ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $new_email))
-                    ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                    ->add('save', 'submit', array('label' => 'Resend or Change', 'translation_domain' => 'FOSUserBundle'))
                     ->getForm();
         }
 
