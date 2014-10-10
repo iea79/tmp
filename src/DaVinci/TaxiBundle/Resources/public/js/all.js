@@ -155,9 +155,9 @@ $(window).bind("load", function() {
 	$(".driverlist").click(function(){
   	$(this).toggleClass("active-gray");
       
-      if ($(this).text() != "Hide drivers list 1, 2, ...")
+      if ($(this).text() != "Hide drivers list: 1, 2,...")
    	 {    but_txt = $(this).text();
-   		 $(this).text( "Hide drivers list 1, 2, ...");}
+   		 $(this).text( "Hide drivers list: 1, 2,...");}
     else $(this).text( but_txt);
 	});
 
