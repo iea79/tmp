@@ -20,7 +20,11 @@ class RegistrationController extends BaseController {
     public function checkEmailAction() {
         //some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
+        
+        if(empty($email))
+            throw new NotFoundHttpException(sprintf('There is empty check email, try register'));
 
+        
         $new_email = $email;
         $request = $this->container->get('request');
         $post_data = $request->request->all();
@@ -36,7 +40,7 @@ class RegistrationController extends BaseController {
 
         $form = $this->container->get('form.factory')->createBuilder('form', $user)
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                ->add('save', 'submit', array('label' => 'Resend or Change', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();
 
         $form->handleRequest($request);
@@ -50,7 +54,7 @@ class RegistrationController extends BaseController {
 
             $form = $this->container->get('form.factory')->createBuilder('form', $user)
                     ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $new_email))
-                    ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
+                    ->add('save', 'submit', array('label' => 'Resend or Change', 'translation_domain' => 'FOSUserBundle'))
                     ->getForm();
         }
 
@@ -175,10 +179,10 @@ class RegistrationController extends BaseController {
      */
     public function register_companyAction() {
 
-        if($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')){
-            return new RedirectResponse($router->generate('office_company'));
+        if ($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')) {
+            return new RedirectResponse($this->container->get('router')->generate('office_company'));
         }
-    
+
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         $formData = new TaxiCompany();
@@ -201,16 +205,19 @@ class RegistrationController extends BaseController {
                 if ($flow->nextStep()) {
                     // form for the next step
                     $form = $flow->createForm();
-
                 } else {
 
+                    $user->addRole('ROLE_TAXICOMPANY');
+                    $formData->setUser($user);
                     $em = $this->container->get('doctrine')->getManager();
                     $em->persist($formData);
-                    $em->flush();  
-                    
+                    $em->flush();
+
                     $flow->reset(); // remove step data from the session
-                    
-                    return $this->redirect($this->generateUrl('office_company'));
+
+                    $url = $this->container->get('router')->generate('office_company');
+
+                    return new RedirectResponse($url);
                 }
             }
         }

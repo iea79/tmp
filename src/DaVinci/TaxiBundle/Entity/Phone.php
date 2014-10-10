@@ -27,14 +27,14 @@ class Phone
     
     
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $has_internet;
+    protected $has_internet = false;
     
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $has_whatsapp;
+    protected $has_whatsapp = false;
     
     /**
      * Get id

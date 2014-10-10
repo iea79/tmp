@@ -34,9 +34,9 @@ class User extends BaseUser
     protected $groups;
     
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    protected $termsAccepted;
+    protected $termsAccepted = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

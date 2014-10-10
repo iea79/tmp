@@ -37,4 +37,7 @@
             <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
         </div>
     </div>
+    {% if phones is defined %}  
+        {{ form_errors(phones.phone) }}
+    {% endif %}
 </div>

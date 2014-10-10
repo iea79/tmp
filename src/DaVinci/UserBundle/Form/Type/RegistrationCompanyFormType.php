@@ -50,7 +50,9 @@ class RegistrationCompanyFormType extends BaseType {
                         ->add('skype', 'text', array('required'=>false))
                         ->add('phones','collection',array(
                                 'type'         => new PhoneType(),
-                                'allow_add'    => true ));
+                                'allow_add'    => true,
+                                'error_bubbling' => false,
+                                'cascade_validation' => true));
                 break;
             case 2:
                 break;

@@ -1,18 +1,62 @@
-Acme\TaxiBundle\Entity\TaxiCompany:
+DaVinci\TaxiBundle\Entity\Address:
+    properties:
+        country:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: address.country.blank
+        city:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: address.city.blank
+        street:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: address.street.blank
+            - Length:
+                max: 255
+                maxMessage: company.name.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+                
+DaVinci\TaxiBundle\Entity\TaxiCompany:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
              fields: name
              errorPath: name 
              message: company.name.already_used
-             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile" ]
+             groups: [ "flow_taxi_company_registration_step1", "DaVinciProfile" ]
     properties:
-         name:
-             - NotBlank: 
-                 groups: [ "flow_taxi_company_registration_step1"]
-                 message: company.name.blank
-         cars_amount:
-
-            
+        address:
+            - Valid: ~
+        name:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: company.name.blank
+            - Length:
+                max: 255
+                maxMessage: company.name.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+        cars_amount:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: company.cars.blank
+            - Choice: 
+                choices: [5, 10, 15, 20, 30, 40]
+                message:  company.cars.valid
+                groups: [ "flow_taxi_company_registration_step1" ]
+        skype:
+            - Length:
+                max: 255
+                maxMessage: company.skype.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+        phones:
+            - Collection:
+                fields:
+                    phone:
+                        - NotBlank:
+                            groups: [ "flow_taxi_company_registration_step1"]
+                            message: company.phones.phone.blank
+                allowMissingFields: false
+                                 
 DaVinci\TaxiBundle\Entity\User:
     properties:
         termsAccepted:

@@ -26,16 +26,19 @@ class Breadcrumbs {
                 $menu->addChild('Register Indipendent driver')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 // setCurrent is use to add a "current" css class
                 ;
+                break;   
             case 'register_manager':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Taxi company manager')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 // setCurrent is use to add a "current" css class
                 ;
+                break;   
             case 'register_company_driver':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Register company driver')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 // setCurrent is use to add a "current" css class
                 ;
+                break;   
             case 'register_company':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Owner')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
@@ -50,7 +53,7 @@ class Breadcrumbs {
                 break;
             case 'fos_user_registration_check_email':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
-                $menu->addChild('Registration', array('route' => 'fos_user_register'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                $menu->addChild('Registration', array('route' => 'fos_user_registration_register'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Check e-mail')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 ;
                 break;
