@@ -213,11 +213,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				display:table;
 				width:100%;
 			}
-				.header-top .header-top-in  .topmenu ul {
+				.header-top .header-top-in  .topmenu ul.topmenu-in {
 					display:table-row;
 					list-style:none;
 				}
-					.header-top .header-top-in  .topmenu ul li {
+					.header-top .header-top-in  .topmenu ul.topmenu-in > li {
 						display:table-cell;
 						vertical-align:middle;
 					}
@@ -227,48 +227,48 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							font-size:0;
 							
 						}
-							.header-top .header-top-in  .topmenu ul .nest .nest-item {
+							.header-top .header-top-in  .topmenu ul.topmenu-in .nest .nest-item {
 								padding:2px 0;
 							}
-							.header-top .header-top-in  .topmenu ul .nest span {
+							.header-top .header-top-in  .topmenu ul.topmenu-in .nest span {
 								font-size:18px;
 								font-weight:bold;
 								color:#3d3d3d;
 								margin:0 5px;
 							}
-						.header-top .header-top-in  .topmenu ul  .empty-middle {
+						.header-top .header-top-in  .topmenu ul.topmenu-in   .empty-middle {
 							width:4%; 
 						}
-						.header-top .header-top-in  .topmenu ul li:first-child {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child {
 							background-color:#528ed3;
 							width:15%;
 						}
-						.header-top .header-top-in  .topmenu ul li:first-child img {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child img {
 							margin-left:10px;
 						}
-							.header-top .header-top-in  .topmenu ul li:first-child a {
+							.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child a {
 								padding:0;
 							}
-						.header-top .header-top-in  .topmenu ul li:nth-child(2) {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:nth-child(2) {
 							background: url(../images/shashki-left-top.png) left top no-repeat;
 							width:10%;
 						}
-						.header-top .header-top-in  .topmenu ul li:last-child {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:last-child {
 							width:13.5%;
 							margin:0;
 							text-align:center;
 						}
-							.header-top .header-top-in  .topmenu ul li:last-child a {
+							.header-top .header-top-in  .topmenu ul.topmenu-in  > li:last-child a {
 								padding:0;
 							}
-						.header-top .header-top-in  .topmenu ul li:nth-child(5) {
+						.header-top .header-top-in  .topmenu ul.topmenu-in >  li:nth-child(5) {
 							text-align:right;
 							width:20.5%;
 						}
 						
 					
 						
-						.header-top .header-top-in  .topmenu ul li .texst-item {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li .texst-item {
 							font-size:18px;
 							font-weight:bold;
 							display:inline-block;
@@ -277,11 +277,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							padding:2px 6%;
 							color:#3d3d3d;
 						}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li .text-item {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in > li .text-item {
 						color:#3d3d3d;
 						padding:6px 14px;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li .figur-item {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item {
 						border-radius: 3px;
 						color: #fff;
 						font-size: 17px;
@@ -291,13 +291,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						width: 16px;
 						margin:0;
 					}
-					.header-top .header-top-in  .topmenu ul li a:nth-child(3) {
+					.header-top .header-top-in  .topmenu ul.topmenu-in li a:nth-child(3) {
 						margin-left:6%;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li a.uk-button-danger:hover {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in li a.uk-button-danger:hover {
 						background-color: #e4354f;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li a.uk-button-primary:hover {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in li a.uk-button-primary:hover {
 						background-color: #35b3ee;
 					}
 			
@@ -366,7 +366,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				border-radius:8px;
 				background-color:#fff;
 				box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
-				margin:15px 0 0 0;
+				margin:8px 0 0 0;
 				width:600px;
 				right:0;
 			}
