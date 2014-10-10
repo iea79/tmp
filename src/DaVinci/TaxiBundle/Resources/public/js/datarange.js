@@ -903,11 +903,13 @@
 		var now3 = new Date();
 		now3.addDays(-4);
 		var now4 = new Date()
+		calAm = 2;
+		if($(window).width() < 600) calAm = 1;
 		$('#widgetCalendar').DatePicker({
 			flat: true,
 			format: 'd B, Y',
 			date: [new Date(now3), new Date(now4)],
-			calendars: 2,
+			calendars: calAm,
 			mode: 'range',
 			starts: 1,
 			onChange: function(formated) {
@@ -915,8 +917,8 @@
 			}
 		});
 		var state = false;
-		$('#widgetField>a').bind('click', function(){
-			$('#widgetCalendar').stop().animate({height: state ? 0 : $('#widgetCalendar div.datepicker').get(0).offsetHeight}, 500).toggleClass('oveflow');
+		$('#widgetField').bind('click', function(){
+			$('#widgetCalendar').stop().animate({height: state ? 0 : $('#widgetCalendar div.datepicker').get(0).offsetHeight}, 500).toggleClass('overflow');
 			state = !state;
 			return false;
 		});
