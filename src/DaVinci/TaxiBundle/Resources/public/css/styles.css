@@ -1518,7 +1518,7 @@ office passengers and driver
 /*=====================office button==============================*/
 .client-account .uk-button-profile {
     padding:0;
-    min-width:168px;
+	width:100%;
     line-height: 38px;
     margin-bottom:5px !important;
     font-size:16px;
@@ -1526,6 +1526,15 @@ office passengers and driver
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
+}
+.client-account .client-panel-button .uk-panel {
+	min-width: 168px;
+    width: 16%;
+}
+@media (max-width:400px) {
+	.client-account .client-panel-button .uk-panel {
+		width:100%;
+	}
 }
 .client-account .uk-button-profile i {
 	padding-right:2%;
@@ -1693,20 +1702,62 @@ office passengers and driver
 	line-height:30px;
 }
 .message-graybg input[type="number"] {
-    width: 53px;
+    min-width: 40px;
+	max-width: 80px;
+	width: 36%;
     padding-left: 13px;
 }
 .message-graybg .number-passenger label {
-    margin-left: 7px;
-    margin-right: 20px;
-    padding-top: 3px;
-    display: inline-block;
+    margin-left: 5%;
+	margin-right: 13%;
+	line-height: 28px;
+	display: inline-block;
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger label,
+	.message-graybg label.vehicle {
+		margin: 5px 5px 0 0 !important;
+		margin-left: 0 !important;
+		width: 100px !important;
+		float: left;
+		display: inline-table;
+	}
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger  div {
+		margin: 5px 0 0 0 !important;
+		min-width: 161px;
+		float: left;
+		width: 100%;
+	}
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger  div:last-child {
+		margin-bottom: 5px 0 10px 0 !important;
+		min-width: 161px;
+		float: left;
+		width: 100%;
+	}
+}
+.message-graybg .number-passenger .seniors label {
+    margin-left: 22%;
+    margin-right: 8%;
+}
+.message-graybg .number-passenger .children label {
+    margin-left: 9%;
+    margin-right: 9%;
 }
 .message-graybg .number-passenger .uk-panel {
     min-width: 150px;
 }
 .message-graybg .number-passenger {
-    min-width: 450px;
+    min-width: 300px;
+	width: 50%;
+}
+@media (max-width: 1115px) {
+	.message-graybg .number-passenger {
+		width: 100%;
+	}
 }
 .client-account .message dt,
 .client-account .message dd {
@@ -2018,6 +2069,35 @@ table th .questiontooltip a span.que {
     width: 33%;
 	padding-top: 2px;
 }
+	@media (max-width: 960px) {
+		.driver-top .profile {
+			width: 50%;
+		}
+	}
+		@media (max-width: 680px) {
+			.driver-top .profile span {
+				width: 100%;
+				display: inline-block;
+				margin-top: 2px;
+			}
+		}
+	@media (max-width: 960px) {
+		.driver-top .vehicle {
+			width: 50%;
+		}
+	}
+		@media (max-width: 680px) {
+			.driver-top .vehicle span {
+				width: 100%;
+				display: inline-block;
+				margin-top: 2px;
+			}
+		}
+	@media (max-width: 960px) {
+		.driver-top .y-no {
+			width: 100%;
+		}
+	}
 .driver-top  img{
     float: left;
     margin-right: 3%;
@@ -2054,6 +2134,8 @@ table th .questiontooltip a span.que {
 		 font-size:14px;
 		 color:#8d8f98;
 		 line-height: 14px;
+		 display:inline-flex;
+		 margin-top: 2px;
     }
     .profile {
 		 line-height: 18px;
@@ -2181,43 +2263,12 @@ footer {
 
 /*===================adaptaciya===========================*/
 @media only screen and (max-width:650px) {
-   	 .whitebg .uk-table td {
-   		 font-size:14px;
-   	 }
-   	 .whitebg .uk-table td p {
-   		 text-align:center;
-   		 padding:0 10px;
-   	 }
-   	 .whitebg .uk-table td p button {
-   		 float:none;
-   	 }
    	 .driver-top img {
    		 float:none;
    		 display:block;
    	 }
-   	 td .driver-over p.about {
-   		 text-align:left;
-   		 padding:0;
-   		 color: #3c3d45;
-   	 }
-/*   	 .profile .feedback_ok {
-   	 margin-right:10px;
-   	 }*/
    	 .vehicle i.uk-icon-male {
    		 margin-left:0;
-   	 }
-   	 .driver-top .y-no button {
-   		 width:70px;
-   		 margin-bottom:10px;
-   	 }
-   	 .driver-top div.y-no {
-   		 width:25%;
-   	 }
-   	 .driver-top div.profile {
-   		 width:35%;
-   	 }
-   	 .driver-top div.vehicle {
-   		 width:40%;
    	 }
     }
     
@@ -2244,17 +2295,6 @@ footer {
    	 padding:0 10px;
    	 font-size:14px;
     }
-    .driver-top .y-no button {
-   		 width:70px;
-   		 margin-bottom:0;
-   	 }
-   	 .driver-top div.y-no {
-   		 float:none;
-   		 clear:both;
-   		 width:100%;
-   		 
-   		 
-   	 }
    	 .profile .name, .vehicle ,name {
    		 font-size:14px;
    	 }
@@ -2263,10 +2303,10 @@ footer {
    	 }
    	 
    	 .driver-top div.profile {
-   		 width:50%;
+   		 width:100%;
    	 }
    	 .driver-top div.vehicle {
-   		 width:50%;
+   		 width:100%;
    	 }
 	 .rightlabels label {
 		display:block;
@@ -2487,6 +2527,13 @@ footer {
 .pop-up input[type="checkbox"] {
 	height:20px;
 }
+.pop-up textarea {
+    min-height: 90px;
+    width: 100%;
+    padding: 9px 7px 0px 7px;
+    font-size: 14px;
+    line-height: 17px;
+}
 .popup-head {
 	width: 100%;
 	margin-left: -20px;
@@ -2514,21 +2561,42 @@ footer {
 	margin-left: 1px;
 	margin-bottom: 5px;
 	margin-top: -1px !important;
-	padding-right: 0px;
-	padding-left: 0px;
+	padding-left: 37%;
 	font-size: 16px !important;
 	font-weight: bold;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	text-align: center;
 	width: 99%;
-	display: inline-block;
+	display: inline-flex;
 	line-height: 20px !important;
 	height: 30px;
 }
-.popup-head.inbox i {
-	color: #0091ca;
-	padding-left: 10px;
+.popup-head.inbox span {
+	float:left;
+}
+.profile.form-view .popup-head.inbox,
+.profile.form-change .popup-head.inbox {
+	background-image: url(../images/button-arrow-left.svg);
+	background-size: 9px;
+	background-repeat: no-repeat;
+	background-position: right 2% center;
+}
+.profile.form-view .popup-head.inbox:focus,
+.profile.form-change .popup-head.inbox:focus {
+	background-image: url(../images/button-arrow-down.svg);
+}
+.profile .popup-head.inbox .questiontooltip {
+	margin: -4px 0px 0px 6px;
+}
+.driver-office .popup-head {
+    padding-right: 13px;
+}
+.pop-up .uk-parent a {
+	text-decoration: none !important;
+}
+.pop-up ul.uk-nav-sub {
+    padding: 0;
 }
 .pop-up .block-foto-rate {
 	width: 25%;
@@ -2605,6 +2673,26 @@ footer {
 .pop-up .driver-profile .form-change {
     margin-left: 1.7%;
 }
+.driver-office .uk-modal-dialog>.uk-close:first-child {
+    margin: -12px -2px 0 0;
+}
+.driver-office .profile.form-change dt {
+    width: 31%;
+}
+.driver-office .uk-modal-dialog {
+    padding-right: 12px;
+}
+.pop-up .adphonik {
+	margin-bottom: 0px;
+}
+.pop-up .twolabels span {
+	margin-top: 11px;
+	display: block;
+}
+.pop-up .wicheck {
+	margin-top: 5%;
+	width: 24%;
+}
 /* === pop-up form-view === */
 .profile.form-view {
     padding-left: 16px !important;
@@ -2618,18 +2706,31 @@ footer {
 }
 .pop-up .form-view .about-driver {
 	margin-top: 9px;
+	margin-bottom: 8px !important;
 	margin-left: 1px;
 }
 .pop-up .form-view .about-driver dd {
 	font-size:14px;
 }
+.pop-up .form-view .about-driver dd.moretext {
+	margin-top: -2px;
+	margin-bottom: 20px;
+}
 .pop-up .form-view .about-car {
     margin-top: 11px;
+	margin-bottom: 6px !important;
     margin-left: 1px;
 }
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
     line-height: 22px;
+}
+.pop-up .about-car .other i {
+	font-size: 17px;
+	margin-right: 2%;
+}
+.pop-up .about-car .other span {
+	margin-right: 2%;
 }
 .pop-up .form-view .insurance {
     margin-top: 11px;
@@ -2646,24 +2747,41 @@ footer {
 	margin-bottom: -4px;
 }
 .pop-up .form-view dd.moretext {
-	line-height: 15px !important;
+	line-height: 17px !important;
 	margin-top: 2px;
 	margin-bottom: 15px;
 	display: inline-table;
 	font-size: 14px;
 }
+.pop-up .form-view .insurance .moretext {
+	margin-bottom: 8px !important;
+}
 .pop-up .form-view dd.insurance {
 	margin-top: 0px !important;
-	margin-bottom: 18px !important;
+	margin-bottom: 15px !important;
 	display: inline;
+	font-size: 15px;
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
-	margin-top: -5px !important;
-	width: 50%;
+	margin-top: 0px !important;
+	min-width: 120px;
+	width: 35%;
+	text-decoration: none;
 }
 .pop-up .form-view .button-add {
 margin-bottom: 14px;
+}
+/* === pop-up form-change === */
+.pop-up .form-change .personal-info {
+	margin-bottom: 2px;
+}
+.pop-up .form-change .car-info {
+	margin-top: 7px;
+}
+.pop-up .form-change .insurance {
+	margin-top: 11px;
+	margin-bottom: 23px;
 }
 .pop-up dl {
     display:inline-block;
@@ -2690,6 +2808,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .addphone {
 	font-size: 14px;
 	width: 100%;
+	margin-bottom: 10px;
 }
 .pop-up .addphone span {
 	float: left;
@@ -2697,14 +2816,6 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 .pop-up .addphone span:hover {
 	text-decoration: none;
-}
-.pop-up .addphone .questiontooltip  {
-	float: left;
-	display: block;
-	opacity: 1;
-}
-.pop-up .addphone .questiontooltip .que  {
-	margin-top: -4px;
 }
 .pop-up.route dt {
 	margin-bottom: 1px;
@@ -2799,7 +2910,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	top:25%;
 }
 .pop-up .profile input.fone {
-	width:69%;
+	width:67%;
 	float:right;
 }
 .pop-up .profile select.day {
@@ -2848,7 +2959,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	margin: 0;
 }
 .pop-up .profile .button-add-lang {
-	line-height: 14px;
+	line-height: 18px;
 	font-size: 16px;
 	text-align: left;
 	float: left;
@@ -2915,6 +3026,11 @@ i.quest {
 .pop-up .profile a:hover {
 	text-decoration: none;
 }
+.pop-up .profile .example a{
+    margin-top: -14px !important;
+    display: block;
+    font-size: 12px;
+}
 /*=========================Client foto====================*/
 .pop-up .clientreviews {
 	border: 5px #ebebeb solid;
@@ -2944,6 +3060,9 @@ i.quest {
 .pop-up .clientreviews .rate p {
 	margin: 0px auto;
 	padding-top: 1px;
+}
+.pop-up .clientreviews .rate p a:hover {
+	text-decoration: none;
 }
 .pop-up .clientreviews .rate p i {
 	margin:0px -2px;
@@ -3297,7 +3416,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   height: 24px;
 }
 .chzn-container-single .chzn-drop {
-  width: 100% !important;
+  width: 99.4% !important;
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;

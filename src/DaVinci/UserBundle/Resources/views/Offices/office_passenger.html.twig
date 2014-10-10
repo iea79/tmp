@@ -69,12 +69,12 @@
 				</div>
 	 <!------------------------------------------------ swicher table (end)------------------------------------------------>
 				<ul id="tab-content" class="uk-switcher">
-						<li>
+						<li class="uk-active">
 							<div class="whitebg">
 								empty-tabs
 							</div>
 						</li>
-						<li class="uk-active">
+						<li>
 								<div class="whitebg">
 									<div class="message"><span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}</div>
 										<div class="table-container">
@@ -115,7 +115,7 @@
 																									<div class="vehicle">
 																											<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																											<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																											<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																											<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																									</div>
 																									<div class="y-no">
 																											<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -142,7 +142,7 @@
 																									<div class="vehicle">
 																											<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																											<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																											<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																											<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																									</div>
 																									<div class="y-no">
 																											<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -169,7 +169,7 @@
 																									<div class="vehicle">
 																											<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																											<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																											<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																											<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																									</div>
 																									<div class="y-no">
 																											<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -206,7 +206,7 @@
 																											<div class="vehicle">
 																													<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																													<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																													<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																													<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																											</div>
 																											<div class="y-no">
 																													<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -233,7 +233,7 @@
 																											<div class="vehicle">
 																													<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																													<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																													<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																													<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																											</div>
 																											<div class="y-no">
 																													<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -260,7 +260,7 @@
 																											<div class="vehicle">
 																													<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118px" height="75px" alt="ford-focus" class="drive-car"/>
 																													<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																													<span><i class="mp-icon-person"></i><span> 5 </span><i class="mp-icon-bug"></i><span> 5 </span><i class="mp-icon-door"></i><span> 5 </span></span>
+																													<span><i class="mp-icon-person"></i><font> 5 </font><i class="mp-icon-bug"></i><font> 5 </font><i class="mp-icon-door"></i><font> 5 </font></span>
 																											</div>
 																											<div class="y-no">
 																													<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
@@ -526,7 +526,12 @@
 								</div>
 							</div>
 							<div class="profile">
-								<button  class="popup-head uk-button inbox">{{ 'Personal information'|trans }}<i class="uk-icon-question-circle"></i></button>
+								<button  class="popup-head uk-button inbox">
+								<span>{{ 'Personal information'|trans }}</span>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
+									</div>
+								</button>
 								<dl class="uk-width-1-1 uk-margin-bottom">
 										<div class="myid">
 											<dt>My ID:</dt><dd>2112121212</dd><br />
@@ -765,7 +770,14 @@
 								</div>
 							</div>
 							<div class="profile form-view">
-								<button  data-uk-toggle="{target:'#toggle5'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About driver'|trans }}<i class="uk-icon-question-circle"></i></button>
+								<button  data-uk-toggle="{target:'#toggle5'}" class="popup-head uk-button uk-button-warning inbox">
+								<span>{{ 'About driver'|trans }}</span>
+								</span>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+									</div>
+								</span>
+								</button>
 								<div class="uk-hidden" id="toggle5">
 									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
 										<div class="myid">
@@ -782,9 +794,16 @@
 										<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
 										<dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage.'|trans }}</dd><br />
 									</dl>
-								</div>
-						        <button  data-uk-toggle="{target:'#toggle3'}" class="popup-head uk-button uk-button-warning inbox">{{ 'About car'|trans }} <i class="uk-icon-question-circle"></i></button>
-								<div class="uk-hidden" id="toggle3">
+									</div>
+								<button  data-uk-toggle="{target:'#toggle6'}" class="popup-head uk-button uk-button-warning inbox">
+								<span>{{ 'About car'|trans }}</span>
+								</span>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+									</div>
+								</span>
+								</button>
+								<div class="uk-hidden" id="toggle6">
 									<dl class="uk-width-1-1 uk-margin-bottom about-car">
 										<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
 										<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
@@ -793,7 +812,7 @@
 										<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
 										<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
 										<dt>{{ 'Other:'|trans }}</dt><dd>
-											<div>
+											<div class="other">
 												<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span>
 											</div>
 										</dd><br />
@@ -803,17 +822,20 @@
 											graphs that illustrate trends in your browsing.'|trans }}</dd><br />
 									</dl>
 								</div>
-						        <button  data-uk-toggle="{target:'#toggle4'}" class="popup-head uk-button uk-button-warning inbox">{{ 'Insurance'|trans }} <i class="uk-icon-question-circle"></i></button>
-								<div class="uk-hidden" id="toggle4">
+								<button  data-uk-toggle="{target:'#toggle7'}" class="popup-head uk-button uk-button-warning inbox">
+								<span>{{ 'Insurance'|trans }}</span>
+								</span>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+									</div>
+								</span>
+								</button>
+								<div class="uk-hidden" id="toggle7">
 									<dl class="uk-width-1-1 uk-margin-bottom insurance">
-										<dt class="moretext">{{ 'Driver promises:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
-											more interesting view of statistics about your 
-											browser usage. The current version includes 
-											graphs that illustrate trends in your browsing.'|trans }}</dd><br /><br />
-										<dd class="fullsize insurance">{{ 'It will be great, if you have an international insurance.'|trans }}</dd><br /><br />
-										<dt>{{ 'Driver:'|trans }}</dt><dd><a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a></dd>
+										<dd class="fullsize insurance">{{ 'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans }}</dd><br /><br />
 									</dl>
 								</div>
+								<a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a>
 							</div>
 						</div>
 				</div>
