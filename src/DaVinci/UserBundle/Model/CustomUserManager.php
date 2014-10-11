@@ -21,9 +21,11 @@ class CustomUserManager extends BaseUserManager
             return $this->findUserByEmail($phoneOrEmail);
         }
         $user = $this->findUserBy(array('phone' => $phoneOrEmail));
+        
         if($user == NULL)
             $user = $this->findUserBy(array('username' => $phoneOrEmail));
-        return $this->findUserBy(array('phone' => $phoneOrEmail));
+
+        return $user;
     }
 
 }
