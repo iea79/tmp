@@ -2239,7 +2239,7 @@
             }, 100));
         },
 
-      /*  check: function() {
+       check: function() {
 
             var children = this.element.children(':not(.uk-tab-responsive)').removeClass('uk-hidden');
 
@@ -2277,7 +2277,7 @@
             }
 
           this.responsivetab[this.responsivetab.lst.children().length ? 'removeClass':'addClass']('uk-hidden'); 
-        } */
+        } 
     });
 
     // init code

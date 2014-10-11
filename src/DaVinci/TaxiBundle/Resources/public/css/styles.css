@@ -31,7 +31,8 @@
 
 body, html {
 	background-color:#f5f5f5;
-	height:100%; /* ====  it is important part to have a footer in the bottom of page =================*/
+	height:100%;
+	font-family: Arial, Helvetica, sans-serif;	/* ====  it is important part to have a footer in the bottom of page =================*/
 }
 /*===========================  fantastic thind to clear up all floated containers, just add the name of the class to ypur container, hwat contents float elements ===========================*/
 	.clr {
@@ -212,11 +213,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				display:table;
 				width:100%;
 			}
-				.header-top .header-top-in  .topmenu ul {
+				.header-top .header-top-in  .topmenu ul.topmenu-in {
 					display:table-row;
 					list-style:none;
 				}
-					.header-top .header-top-in  .topmenu ul li {
+					.header-top .header-top-in  .topmenu ul.topmenu-in > li {
 						display:table-cell;
 						vertical-align:middle;
 					}
@@ -226,48 +227,48 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							font-size:0;
 							
 						}
-							.header-top .header-top-in  .topmenu ul .nest .nest-item {
+							.header-top .header-top-in  .topmenu ul.topmenu-in .nest .nest-item {
 								padding:2px 0;
 							}
-							.header-top .header-top-in  .topmenu ul .nest span {
+							.header-top .header-top-in  .topmenu ul.topmenu-in .nest span {
 								font-size:18px;
 								font-weight:bold;
 								color:#3d3d3d;
 								margin:0 5px;
 							}
-						.header-top .header-top-in  .topmenu ul  .empty-middle {
+						.header-top .header-top-in  .topmenu ul.topmenu-in   .empty-middle {
 							width:4%; 
 						}
-						.header-top .header-top-in  .topmenu ul li:first-child {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child {
 							background-color:#528ed3;
 							width:15%;
 						}
-						.header-top .header-top-in  .topmenu ul li:first-child img {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child img {
 							margin-left:10px;
 						}
-							.header-top .header-top-in  .topmenu ul li:first-child a {
+							.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child a {
 								padding:0;
 							}
-						.header-top .header-top-in  .topmenu ul li:nth-child(2) {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:nth-child(2) {
 							background: url(../images/shashki-left-top.png) left top no-repeat;
 							width:10%;
 						}
-						.header-top .header-top-in  .topmenu ul li:last-child {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li:last-child {
 							width:13.5%;
 							margin:0;
 							text-align:center;
 						}
-							.header-top .header-top-in  .topmenu ul li:last-child a {
+							.header-top .header-top-in  .topmenu ul.topmenu-in  > li:last-child a {
 								padding:0;
 							}
-						.header-top .header-top-in  .topmenu ul li:nth-child(5) {
+						.header-top .header-top-in  .topmenu ul.topmenu-in >  li:nth-child(5) {
 							text-align:right;
 							width:20.5%;
 						}
 						
 					
 						
-						.header-top .header-top-in  .topmenu ul li .texst-item {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li .texst-item {
 							font-size:18px;
 							font-weight:bold;
 							display:inline-block;
@@ -276,11 +277,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							padding:2px 6%;
 							color:#3d3d3d;
 						}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li .text-item {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in > li .text-item {
 						color:#3d3d3d;
 						padding:6px 14px;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li .figur-item {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item {
 						border-radius: 3px;
 						color: #fff;
 						font-size: 17px;
@@ -290,13 +291,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						width: 16px;
 						margin:0;
 					}
-					.header-top .header-top-in  .topmenu ul li a:nth-child(3) {
+					.header-top .header-top-in  .topmenu ul.topmenu-in li a:nth-child(3) {
 						margin-left:6%;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li a.uk-button-danger:hover {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in li a.uk-button-danger:hover {
 						background-color: #e4354f;
 					}
-					.header-wrapper .header-top .header-top-in  .topmenu  ul li a.uk-button-primary:hover {
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in li a.uk-button-primary:hover {
 						background-color: #35b3ee;
 					}
 			
@@ -365,7 +366,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				border-radius:8px;
 				background-color:#fff;
 				box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
-				margin:15px 0 0 0;
+				margin:8px 0 0 0;
 				width:600px;
 				right:0;
 			}
@@ -851,30 +852,81 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details-over h1 {
 		font-size:20px;
 		color:#ff4d61;
-		margin:0 0 5px 20px;
+		margin:15px 0 5px 20px;
 		line-height:24px;
 		
 	}
 	.order-details {
 		float:none;
-		margin:0 20px;
+		margin:0 12px 0 21px;
 		border-top:1px solid #ff4d61;
 		
 	}
-	.order-details .checks  td{
-		padding:5px 0;
+	/* second page styles */
+	.order-details .top-group {
+		margin:21px 0 8px 0!important;
 	}
+	.order-details  .kids-pats-line {
+		margin-bottom:7px;
+	}
+	.order-details .kids-pats-group {
+		margin-bottom:14px;
+	}
+	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
+		width:49%;
+		display:inline-block;
+	}
+	.order-details  .kids-pats-line .right-group .uk-form-controls, .order-details  .kids-pats-line .left-group  .uk-form-controls { 
+		width:61%!important;
+	}
+	.order-details  .kids-pats-line .right-group input[type=checkbox] {
+		margin-left:13%;
+	}
+	.order-details .kids-pats-line .select {
+		min-height:28px;
+		line-height:28px;
+	}
+	.order-details .kids-pats-group .kids-pats-line .amount {
+		width:42px;
+	}
+	.order-details  .kids-pats-line .object {
+		width:55%;
+		text-align:left;
+		margin-left:1%;
+	}
+	.order-details .kids-pats-group .kids-pats-line .choose-lang {
+		width:66%;
+	}
+	.order-details .kids-pats-line .label-header {
+		font-size:18px;
+		display:inline-block;
+		width:43%;
+	}
+	.order-details  .kids-pats-line .uk-form-controls {
+		width:30%;
+		display:inline-block;
+	}
+	.order-details .additional  .kids-pats-line  .uk-form-controls {
+		width:auto;
+		}
 	.order-details-over .order-details h4 {
-		font-size:16px;
+		font-size:15px;
+		font-weight:bold;
 		color:#ff4d61;
-		margin-top:12px;
+		margin-top:12px 0 5px 0;
+	}
+	.order-details-over .order-details .wishes-1 {
+		margin:0 0 15px 0;
+	}
+	.order-details-over .order-details .wishes-2 {
+		margin:2px 0 4px 0;
 	}
 	.order-details-over .spinner, .driv-over .spinner {
 		width:52px;
 		display:inline-block;
 		position:relative;
 		height:25px;
-		margin-left:5px;
+		margin-left:12%;
 		
 	}
 		.order-details-over .spinner input, .driv-over .spinner input {
@@ -894,21 +946,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				color:#9b9b9b;
 			}
 		
-	.rightlabels .spin-1 {
-		float:left;
-	}
-	.rightlabels .spin-3 {
-		float:right;
-		text-align:right;
-	}
-	.rightlabels .spin-2 {
-		width:100px;
-		margin:0 auto;
-	}
-	.rightlabels label {
-		font-size:16px;
-	}
-	.order-details-over .select, .home .driv-over  .leftlabels .select {
+	
+	.home .driv-over  .leftlabels .select {
 		max-width:273px;
 		min-height:25px;
 		line-height:25px;
@@ -929,15 +968,63 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin:20px 0 15px 0;
 		cursor:pointer;
 	}
-		.order-details .spec-request span {
-			font-size:20px;
+		.order-details-over  .uk-icon-question-circle  {
+			font-size:16px;
 			color:#528ed3;
 			margin-left:7px;
+		}
+		.order-details-over h1  .uk-icon-question-circle  {
+			position:relative;
+			top:-3px;
+			}
+		.order-details-over .note {
+			margin:0 0 12px;
+		}
+			.order-details-over .note  span {
+				color:#ff4d61;
+			}
+		
+		.tarif-line {
+			display:table-row;
+			margin:0 0 11px 0;
+		}
+		.tarif-line	.tarif-line-group 	{
+			display:table-cell;
+			padding:7px 0;
+		}
+		.tarif-line	.second  {
+			width:37%;
+			
+		}
+		.tarif-line .third {
+			width:28%;
+			text-align:right;
+		}
+		.tarif-line	.tarif-line-group input[type="text"]{
+			width:100%;
+		}
+		.tarif-line	.tarif-line-group .select {
+			width:54%;
+			text-align:left;
+			float:right;
+			margin-left:5px;
+			min-height:27px;
+			line-height:27px;
+			position:relative;
+			top:-5px;
+			display:inline-flex;
+			padding:0 3px;
+		}
+		.tarif-line	.tarif-line-group .select span {
+			display: inline-block;
+			margin-right: 9px;
+			overflow: hidden;
+			line-height:26px;
 		}
 		.order-details-over .select i, .home .driv-over  .leftlabels .select i{
 			position:absolute;
 			right:7px;
-			top:4px;
+			top:6px;
 		}
 		
 	.order-details .checks {
@@ -955,26 +1042,28 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			border-radius:4px;
 			font-size:14px;
 			padding:5px;
-			min-height:90px;
+			min-height:94px;
 		}
 		.order-details .helptext {
 			color:#9b9b9b;
 			font-size:14px;
 		}
 		.order-details .uk-button-group {
-			margin:20px 0 0 0;
+			margin:11px 0 0 0;
 		}
 		.order-details .uk-button-group a {
-			min-height:40px;
-			line-height:40px;
+			min-height:48px;
+			line-height:48px;
 			width:49%;
 			font-size:24px;
 		}
 /*==========================  styles of booking step 3  in homepage =================================*/
 	 .padding-top {
-		padding-top:15px;
+		padding-top:9px;
 	}
-	
+	.order-details-over .pass-info {
+		margin:0 0 5px 20px;
+	}
 	.order-details  input[type="text"], .driv-over  input[type="text"] {
 		padding:0 0 0 15px;
 		border-radius:4px;
@@ -984,7 +1073,18 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		font-size:14px;
 	}
 	.order-details  .recommend {
-		font-size:18px;
+		font-size:15px;
+	}
+	.quantity-over .tarif-line .center-group {
+		text-align:center;
+	}
+	.quantity-over .tarif-line .right-group {
+		text-align:right;
+	}
+	.order-details .tarif-line-group  .overinput {
+		width:36%;
+		float:right;
+		top:-3px;
 	}
 	.order-details .overinput {
 		position:relative;
@@ -997,41 +1097,63 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			top:4px;
 			color:#9b9b9b;
 		}
+		.order-details-over .quantity-over {
+			display:table;
+			width:100%;
+		}
 		.order-details .contactpassenger  .nottravel{
-			margin:20px 0;
+			margin:12px 0;
 		}
 		
 		.order-details  .left  {
 			float:left;
-			width:40%;
+			width:41%;
 			
 		}
-		.order-details  .left-spec  {
-			float:left;
-			width:25%;
+		.order-details .quantity-header {
+			font-size:16px;
+			margin:12px 0;
+		}
 			
-		}
-		.order-details .adapt-left {
-			width:35%;
-		}
-			.order-details .adapt-left .overinput {
-				float:right;
-				width:57%;
-			}
 		
 		.order-details  .right {
 			float:right;
-			width:60%;
+			width:59%;
 		}
-		 .order-details  .adapt-left input{
-			max-width:100%;
+		 .order-details  .pers-data .right input[type="text"]{
+			width:100%;
+			min-height:29px;
+			text-align:left;
 		}
-		.order-details  .left-spec  input {
-			max-width:80%;
+		.order-details  .pers-data .right .select {
+			width:30%;
+			line-height:27px;
+		}
+		.order-details  .pers-data .right .mobile {
+			width:65%!important;
+			float:right;
+		}
+		.order-details  .pers-data .right .right-group {
+			float:right;
+		}
+		.order-details  .pers-data  button {
+			width:100%;
+		}
+		.order-details  .pers-data .photo {
+			font-size:9px;
+			padding:0 0  0 10px;
+			margin:0;
 		}
 		.order-details  .pers-data {
 			padding:5px 0;
 			overflow:hidden;
+		}
+		.order-details .about-passenger {
+			margin:10px 0;
+		}
+		.order-details .about-passenger p {
+			font-size:16px;
+			margin:0 0 9px 0;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {
@@ -1396,7 +1518,7 @@ office passengers and driver
 /*=====================office button==============================*/
 .client-account .uk-button-profile {
     padding:0;
-    min-width:168px;
+	width:100%;
     line-height: 38px;
     margin-bottom:5px !important;
     font-size:16px;
@@ -1404,6 +1526,15 @@ office passengers and driver
 }
 .client-account .uk-button-profile:hover {
 	text-decoration:none;
+}
+.client-account .client-panel-button .uk-panel {
+	min-width: 168px;
+    width: 16%;
+}
+@media (max-width:400px) {
+	.client-account .client-panel-button .uk-panel {
+		width:100%;
+	}
 }
 .client-account .uk-button-profile i {
 	padding-right:2%;
@@ -1514,6 +1645,7 @@ office passengers and driver
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
+	border-collapse: separate;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
@@ -1541,15 +1673,13 @@ office passengers and driver
 	text-decoration: none;
 }
 .client-account .uk-table tr {
-    border-top: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align: center;
     line-height: 20px;
     vertical-align: top;
-    border-left: #d0d0d0 1px solid;
-    border-right: #d0d0d0 1px solid;
-    border-bottom: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-badge {
 	border-radius:3px;
@@ -1571,20 +1701,62 @@ office passengers and driver
 	line-height:30px;
 }
 .message-graybg input[type="number"] {
-    width: 53px;
+    min-width: 40px;
+	max-width: 80px;
+	width: 36%;
     padding-left: 13px;
 }
 .message-graybg .number-passenger label {
-    margin-left: 7px;
-    margin-right: 20px;
-    padding-top: 3px;
-    display: inline-block;
+    margin-left: 5%;
+	margin-right: 13%;
+	line-height: 28px;
+	display: inline-block;
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger label,
+	.message-graybg label.vehicle {
+		margin: 5px 5px 0 0 !important;
+		margin-left: 0 !important;
+		width: 100px !important;
+		float: left;
+		display: inline-table;
+	}
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger  div {
+		margin: 5px 0 0 0 !important;
+		min-width: 161px;
+		float: left;
+		width: 100%;
+	}
+}
+@media (max-width: 530px) {
+	.message-graybg .number-passenger  div:last-child {
+		margin-bottom: 5px 0 10px 0 !important;
+		min-width: 161px;
+		float: left;
+		width: 100%;
+	}
+}
+.message-graybg .number-passenger .seniors label {
+    margin-left: 22%;
+    margin-right: 8%;
+}
+.message-graybg .number-passenger .children label {
+    margin-left: 9%;
+    margin-right: 9%;
 }
 .message-graybg .number-passenger .uk-panel {
     min-width: 150px;
 }
 .message-graybg .number-passenger {
-    min-width: 450px;
+    min-width: 300px;
+	width: 50%;
+}
+@media (max-width: 1115px) {
+	.message-graybg .number-passenger {
+		width: 100%;
+	}
 }
 .client-account .message dt,
 .client-account .message dd {
@@ -1592,12 +1764,14 @@ office passengers and driver
 	line-height:28px;
 	margin-bottom: 5px;
 }
-.client-account select.chosen {
+.client-account .chosen {
 	padding:2px;
 	min-width: 150px;
 	width: 51.4%;
 	border: 1px #8e9099 solid;
 	color:#8e9099;
+	line-height: 24px;
+	text-align: left;
 }
 .client-account .message input[type="number"] {
 	width: 50px;
@@ -1896,6 +2070,35 @@ table th .questiontooltip a span.que {
     width: 33%;
 	padding-top: 2px;
 }
+	@media (max-width: 960px) {
+		.driver-top .profile {
+			width: 50%;
+		}
+	}
+		@media (max-width: 680px) {
+			.driver-top .profile span {
+				width: 100%;
+				display: inline-block;
+				margin-top: 2px;
+			}
+		}
+	@media (max-width: 960px) {
+		.driver-top .vehicle {
+			width: 50%;
+		}
+	}
+		@media (max-width: 680px) {
+			.driver-top .vehicle span {
+				width: 100%;
+				display: inline-block;
+				margin-top: 2px;
+			}
+		}
+	@media (max-width: 960px) {
+		.driver-top .y-no {
+			width: 100%;
+		}
+	}
 .driver-top  img{
     float: left;
     margin-right: 3%;
@@ -1932,6 +2135,8 @@ table th .questiontooltip a span.que {
 		 font-size:14px;
 		 color:#8d8f98;
 		 line-height: 14px;
+		 display:inline-flex;
+		 margin-top: 2px;
     }
     .profile {
 		 line-height: 18px;
@@ -2059,43 +2264,12 @@ footer {
 
 /*===================adaptaciya===========================*/
 @media only screen and (max-width:650px) {
-   	 .whitebg .uk-table td {
-   		 font-size:14px;
-   	 }
-   	 .whitebg .uk-table td p {
-   		 text-align:center;
-   		 padding:0 10px;
-   	 }
-   	 .whitebg .uk-table td p button {
-   		 float:none;
-   	 }
    	 .driver-top img {
    		 float:none;
    		 display:block;
    	 }
-   	 td .driver-over p.about {
-   		 text-align:left;
-   		 padding:0;
-   		 color: #3c3d45;
-   	 }
-/*   	 .profile .feedback_ok {
-   	 margin-right:10px;
-   	 }*/
    	 .vehicle i.uk-icon-male {
    		 margin-left:0;
-   	 }
-   	 .driver-top .y-no button {
-   		 width:70px;
-   		 margin-bottom:10px;
-   	 }
-   	 .driver-top div.y-no {
-   		 width:25%;
-   	 }
-   	 .driver-top div.profile {
-   		 width:35%;
-   	 }
-   	 .driver-top div.vehicle {
-   		 width:40%;
    	 }
     }
     
@@ -2122,17 +2296,6 @@ footer {
    	 padding:0 10px;
    	 font-size:14px;
     }
-    .driver-top .y-no button {
-   		 width:70px;
-   		 margin-bottom:0;
-   	 }
-   	 .driver-top div.y-no {
-   		 float:none;
-   		 clear:both;
-   		 width:100%;
-   		 
-   		 
-   	 }
    	 .profile .name, .vehicle ,name {
    		 font-size:14px;
    	 }
@@ -2141,10 +2304,10 @@ footer {
    	 }
    	 
    	 .driver-top div.profile {
-   		 width:50%;
+   		 width:100%;
    	 }
    	 .driver-top div.vehicle {
-   		 width:50%;
+   		 width:100%;
    	 }
 	 .rightlabels label {
 		display:block;
@@ -2365,6 +2528,13 @@ footer {
 .pop-up input[type="checkbox"] {
 	height:20px;
 }
+.pop-up textarea {
+    min-height: 90px;
+    width: 100%;
+    padding: 9px 7px 0px 7px;
+    font-size: 14px;
+    line-height: 17px;
+}
 .popup-head {
 	width: 100%;
 	margin-left: -20px;
@@ -2389,58 +2559,42 @@ footer {
     font-weight:normal;
 }
 .popup-head.inbox {
-	margin-left: 1px;
-	margin-bottom: 5px;
-	margin-top: -1px !important;
-	padding-right: 0px;
-	padding-left: 0px;
+	border-radius: 3px;
 	font-size: 16px !important;
 	font-weight: bold;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	text-align: center;
-	width: 99%;
-	display: inline-block;
-	line-height: 20px !important;
 	height: 30px;
+	line-height: 20px !important;
+	margin-top: -1px !important;
+	margin-bottom: 5px;
+	margin-left: 1px;
+	width: 99%;
 }
-.popup-head.inbox i {
-	color: #0091ca;
-	padding-left: 10px;
+.popup-head.inbox span {
+	display: inline-flex;
+    margin: 0 auto;
 }
-.pop-up .block-foto-rate {
-	width: 25%;
+.profile.form-view .popup-head.inbox,
+.profile.form-change .popup-head.inbox {
+	background-image: url(../images/button-arrow-left.svg);
+	background-size: 9px;
+	background-repeat: no-repeat;
+	background-position: right 2% center;
 }
-@media (max-width: 710px) {
-	.pop-up .block-foto-rate {
-		width: 100%;
-	}
+.profile.form-view .popup-head.inbox:hover,
+.profile.form-change .popup-head.inbox:hover {
+	background-image: url(../images/button-arrow-down.svg);
 }
-.pop-up .block-foto {
-	width: 100%;
+.profile .popup-head.inbox .questiontooltip {
+	margin: -4px 0px 0px 6px;
 }
-@media (max-width: 710px) {
-	.pop-up .block-foto {
-		width: 25%;
-	}
+.driver-office .popup-head {
+    padding-right: 13px;
 }
-@media (max-width: 570px) {
-	.pop-up .block-foto {
-		width: 35%;
-	}
+.pop-up .uk-parent a {
+	text-decoration: none !important;
 }
-.pop-up .block-rate {
-	width: 100%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-rate {
-		width: 71%;
-	}
-}
-@media (max-width: 570px) {
-	.pop-up .block-rate {
-		width: 59%;
-	}
+.pop-up ul.uk-nav-sub {
+    padding: 0;
 }
 .pop-up .form-view .myid dt,
 .pop-up .form-view .myid dd,
@@ -2483,6 +2637,26 @@ footer {
 .pop-up .driver-profile .form-change {
     margin-left: 1.7%;
 }
+.driver-office .uk-modal-dialog>.uk-close:first-child {
+    margin: -12px -2px 0 0;
+}
+.driver-office .profile.form-change dt {
+    width: 31%;
+}
+.driver-office .uk-modal-dialog {
+    padding-right: 12px;
+}
+.pop-up .adphonik {
+	margin-bottom: 0px;
+}
+.pop-up .twolabels span {
+	margin-top: 11px;
+	display: block;
+}
+.pop-up .wicheck {
+	margin-top: 5%;
+	width: 24%;
+}
 /* === pop-up form-view === */
 .profile.form-view {
     padding-left: 16px !important;
@@ -2496,18 +2670,53 @@ footer {
 }
 .pop-up .form-view .about-driver {
 	margin-top: 9px;
+	margin-bottom: 8px !important;
 	margin-left: 1px;
 }
 .pop-up .form-view .about-driver dd {
 	font-size:14px;
 }
+.pop-up .form-view .about-driver dd.moretext {
+	margin-top: -2px;
+	margin-bottom: 20px;
+}
 .pop-up .form-view .about-car {
     margin-top: 11px;
+	margin-bottom: 6px !important;
     margin-left: 1px;
 }
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
     line-height: 22px;
+}
+.pop-up .other .uk-panel {
+	width: 33.33%;
+	float: left;
+}
+.pop-up .other .uk-panel i {
+    float: left;
+}
+.pop-up .other .uk-panel .mp-icon-person {
+    line-height: 29px;
+	font-size: 18px;
+	margin: 0 3%;
+}
+.pop-up .other .uk-panel .mp-icon-bug {
+    line-height: 29px;
+	font-size: 15px;
+	margin: 0 4% 0 21%;
+}
+.pop-up .other .uk-panel .mp-icon-door {
+	line-height: 29px;
+	font-size: 15px;
+	margin: 0 2% 0 35%;
+}
+.pop-up .about-car .other i {
+	font-size: 17px;
+	margin-right: 2%;
+}
+.pop-up .about-car .other span {
+	margin-right: 2%;
 }
 .pop-up .form-view .insurance {
     margin-top: 11px;
@@ -2524,24 +2733,41 @@ footer {
 	margin-bottom: -4px;
 }
 .pop-up .form-view dd.moretext {
-	line-height: 15px !important;
+	line-height: 17px !important;
 	margin-top: 2px;
 	margin-bottom: 15px;
 	display: inline-table;
 	font-size: 14px;
 }
+.pop-up .form-view .insurance .moretext {
+	margin-bottom: 8px !important;
+}
 .pop-up .form-view dd.insurance {
 	margin-top: 0px !important;
-	margin-bottom: 18px !important;
+	margin-bottom: 15px !important;
 	display: inline;
+	font-size: 15px;
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
-	margin-top: -5px !important;
-	width: 50%;
+	margin-top: 0px !important;
+	min-width: 120px;
+	width: 35%;
+	text-decoration: none;
 }
 .pop-up .form-view .button-add {
 margin-bottom: 14px;
+}
+/* === pop-up form-change === */
+.pop-up .form-change .personal-info {
+	margin-bottom: 2px;
+}
+.pop-up .form-change .car-info {
+	margin-top: 7px;
+}
+.pop-up .form-change .insurance {
+	margin-top: 11px;
+	margin-bottom: 23px;
 }
 .pop-up dl {
     display:inline-block;
@@ -2568,6 +2794,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .addphone {
 	font-size: 14px;
 	width: 100%;
+	margin-bottom: 10px;
 }
 .pop-up .addphone span {
 	float: left;
@@ -2575,14 +2802,6 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 .pop-up .addphone span:hover {
 	text-decoration: none;
-}
-.pop-up .addphone .questiontooltip  {
-	float: left;
-	display: block;
-	opacity: 1;
-}
-.pop-up .addphone .questiontooltip .que  {
-	margin-top: -4px;
 }
 .pop-up.route dt {
 	margin-bottom: 1px;
@@ -2653,11 +2872,6 @@ div.pop-up.uk-grid.uk-grid-small {
 	width:100%;
 	padding:3px 5px 3px 3px;
 }
-.pop-up .profile select.region {
-	width:28%;
-	display:inline;
-	margin-right:3%;
-}
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
 }
@@ -2665,7 +2879,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .select {
     line-height:30px;
 	padding:0 8px;
-	border: 1px solid #d5d3dc;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -2676,34 +2890,40 @@ div.pop-up.uk-grid.uk-grid-small {
 	right:5px;
 	top:25%;
 }
-.pop-up .profile input.fone {
+.pop-up .select {
+    line-height:26px;
+	width: 100%;
+	float: left;
+	text-align: left;
+	font-size: 16px;
+}
+.pop-up .profile .fone {
 	width:69%;
-	float:right;
 }
-.pop-up .profile select.day {
+.pop-up .profile .region {
+	width:28%;
+	margin-right:3%;
+}
+.pop-up .profile .day {
 	width: 14.5%;
-	display: inline;
-	margin-right: 3%;
+	margin-right: 5%;
 }
-.pop-up .profile select.classauto {
-	width: 55%;
-	display: inline;
+.pop-up .profile .classauto {
+	width: 46%;
 }
-.pop-up .profile select.month {
-	width: 53%;
-	display: inline;
-	margin-right: 3%;
+.pop-up .profile .month {
+	width: 52%;
+	margin-right: 5%;
 }
-.pop-up .profile select.year {
+.pop-up .profile .year {
 	width: 23.5%;
-	display: inline;
 }
 .pop-up .profile dt {
-	width: 31.1%;
+	width: 31%;
 	line-height: 30px;
 }
 .pop-up .profile dd {
-	width: 66.5%;
+	width: 67%;
 }
 @media (max-width: 550px) {
 	.pop-up .profile dt {
@@ -2726,10 +2946,11 @@ div.pop-up.uk-grid.uk-grid-small {
 	margin: 0;
 }
 .pop-up .profile .button-add-lang {
-	line-height: 14px;
+	line-height: 20px;
 	font-size: 16px;
 	text-align: left;
 	float: left;
+	width: 100%;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
@@ -2793,7 +3014,53 @@ i.quest {
 .pop-up .profile a:hover {
 	text-decoration: none;
 }
+.pop-up .profile .example a{
+    margin-top: -14px !important;
+    display: block;
+    font-size: 12px;
+}
 /*=========================Client foto====================*/
+.pop-up .block-foto-rate {
+	width: 25%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto-rate {
+		width: 100%;
+	}
+}
+.pop-up .block-foto {
+	width: 95%;
+	margin-bottom: 14px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto {
+		width: 25%;
+		margin-bottom: 5px;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-foto {
+		width: 80%;
+		margin-bottom: 5px;
+	}
+}
+.pop-up .block-rate {
+	width: 97%;
+	margin-left: -2px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-rate {
+		width: 70%;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-rate {
+		width: 96%;
+	}
+}
+.form-view .pop-up .block-foto {
+	margin-bottom: 2px;
+}
 .pop-up .clientreviews {
 	border: 5px #ebebeb solid;
 	border-radius: 4px;
@@ -2804,8 +3071,6 @@ i.quest {
 }
 .pop-up .clientreviews .photo {
 	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
-	width: 160px;
-	height: 180px;
 	border-bottom: 4px #ebebeb solid;
 }
 .pop-up .button-add {
@@ -2823,6 +3088,9 @@ i.quest {
 	margin: 0px auto;
 	padding-top: 1px;
 }
+.pop-up .clientreviews .rate p a:hover {
+	text-decoration: none;
+}
 .pop-up .clientreviews .rate p i {
 	margin:0px -2px;
 	font-size:16px;
@@ -2838,7 +3106,18 @@ i.quest {
 }
 .pop-up .rate-review {
 	font-size:12px;
+	width: 100%;
+	max-height:330px;
+	overflow-y: auto;
+	margin-bottom: 7px;
 }
+@media (max-width: 710px) {
+	.pop-up .rate-review {
+		width: 100%;
+		max-height:256px;
+	}
+}
+
 .pop-up .rate-review i {
 	font-size: 18px;
 	letter-spacing: 0px;
@@ -2860,11 +3139,10 @@ i.quest {
 	line-height: 14px;
 	margin-top: 2px;
 	margin-bottom: 0px;
-	margin-left: -2px;
+	margin-left: 0px;
 }
 .pop-up  .rate-review .uk-grid-small .button-add {
-	margin-top: 14px;
-	width: 96%;
+	margin-top: 11px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }
@@ -3016,7 +3294,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	width:50%;
 }
 	.home .disloc .disloc-in {
-		margin-left:10px;
+		margin:40px 0 0 10px;
 	}
 	
 	.destination .form-block-wrap {
@@ -3086,7 +3364,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   border: 1px solid #aaa;
   border-top: 0;
   position: absolute;
-  top: 29px;
+  top: 26px;
   left: 0;
   z-index: 1010;
 }
@@ -3107,8 +3385,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 29px;
-  line-height: 29px;
+  height: 26px;
+  line-height: 26px;
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
@@ -3157,6 +3435,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   display: block;
   width: 100%;
   height: 100%;
+  padding-left: 4px;
 }
 .chzn-container-single .chzn-search {
   position: relative;
@@ -3175,7 +3454,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   height: 24px;
 }
 .chzn-container-single .chzn-drop {
-  width: 100% !important;
+  width: 99.4% !important;
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
@@ -3563,6 +3842,9 @@ div.datepicker tbody th {
 	bottom: 0;
 	top: auto;
 }
+#widgetCalendar div.datepicker:nth-child(2) {
+	display:none!important;
+}
 
 #widgetCalendar .datepicker a:hover{
 	color: #b6f063;
@@ -3600,6 +3882,6 @@ table.datepickerViewDays tbody.datepickerMonths,
 table.datepickerViewDays tbody.datepickerYears {
 	display: none;
 }
-.oveflow {
+.overflow {
 	overflow:visible!important;
 }

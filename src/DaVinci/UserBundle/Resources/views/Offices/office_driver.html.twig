@@ -74,55 +74,57 @@
                     <li class="uk-active">
                             <div class="whitebg findorder">
 								<div class="message">
-									<span class="uk-text-danger">Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ!
+									<span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ!'|trans}}
 								</div>
 								<div class="message-graybg">
 									<div class=" uk-grid uk-grid-small uk-width-1-1">
 										<div class="uk-width-large-1-2 uk-width-medium-1-2 uk-width-small-1-1 uk-margin-small-top">
 											<div class="uk-width-1-1 uk-form-row">
-												<label class="uk-text-bold uk-text-primary uk-margin-small-right">{{'Vehicle Class:'|trans}}</label>
-													<select class="chosen">
-														<option>{{'Economy'|trans}}</option>
-														<option>{{'Compact'|trans}}</option>
-														<option>{{'Midsize'|trans}}</option>
-														<option>{{'Standart'|trans}}</option>
-														<option>{{'Full Size'|trans}}</option>
-														<option>{{'Premium'|trans}}</option>
-														<option>{{'Midsize SUV'|trans}}</option>
-														<option>{{'Standart Convertible'|trans}}</option>
-														<option>{{'Premium Pickup'|trans}}</option>
-														<option>{{'Mini Van'|trans}}</option>
-														<option>{{'Standart SUV'|trans}}</option>
-														<option>{{'Standart Van'|trans}}</option>
-														<option>{{'Full Size Pickup'|trans}}</option>
-														<option>{{'Full Size SUV'|trans}}</option>
-														<option>{{'Standart Pickup'|trans}}</option>
-														<option>{{'Full Size Van'|trans}}</option>
-														<option>{{'Special Van'|trans}}</option>
-														<option>{{'Premium Van'|trans}}</option>
-														<option>{{'Luxury'|trans}}</option>
-														<option>{{'Premium Special'|trans}}</option>
-														<option>{{'Premium SUV'|trans}}</option>
-														<option>{{'Special'|trans}}</option>
-													</select>
+												<label class="uk-text-bold uk-text-primary uk-margin-small-right vehicle">{{'Vehicle Class:'|trans}}</label>
+													<div class="uk-button uk-form-select select chosen" data-uk-form-select="">
+														<span>All</span>
+														 <i class="uk-icon-caret-down"></i>
+															<select class="">
+																<option>{{'Economy'|trans}}</option>
+																<option>{{'Compact'|trans}}</option>
+																<option>{{'Midsize'|trans}}</option>
+																<option>{{'Standart'|trans}}</option>
+																<option>{{'Full Size'|trans}}</option>
+																<option>{{'Premium'|trans}}</option>
+																<option>{{'Midsize SUV'|trans}}</option>
+																<option>{{'Standart Convertible'|trans}}</option>
+																<option>{{'Premium Pickup'|trans}}</option>
+																<option>{{'Mini Van'|trans}}</option>
+																<option>{{'Standart SUV'|trans}}</option>
+																<option>{{'Standart Van'|trans}}</option>
+																<option>{{'Full Size Pickup'|trans}}</option>
+																<option>{{'Full Size SUV'|trans}}</option>
+																<option>{{'Standart Pickup'|trans}}</option>
+																<option>{{'Full Size Van'|trans}}</option>
+																<option>{{'Special Van'|trans}}</option>
+																<option>{{'Premium Van'|trans}}</option>
+																<option>{{'Luxury'|trans}}</option>
+																<option>{{'Premium Special'|trans}}</option>
+																<option>{{'Premium SUV'|trans}}</option>
+																<option>{{'Special'|trans}}</option>
+															</select>
+													</div>
 											</div>
 										</div>
-										<div class="uk-width-large-1-2 uk-width-medium-1-1 uk-width-small-1-1 uk-margin-small-top">
-											<div class="uk-grid uk-grid-small uk-width-1-1 number-passenger">
-												<div class="uk-panel uk-width-1-3">
+											<div class="uk-grid uk-grid-small number-passenger uk-margin-small-top">
+												<div class="uk-width-1-3 adult">
 													<label>{{'Adult'|trans}} </label>
 													<input type="number" min="0" max="12" value="1">
 												</div>
-												<div class="uk-panel uk-width-1-3">
+												<div class="uk-width-1-3 children">
 													<label>{{'Children'|trans}}</label>
 													<input type="number" min="0" max="12" value="1">
 												</div>
-												<div class="uk-panel uk-width-1-3">
+												<div class="uk-width-1-3 seniors">
 													<label>{{'Seniors'|trans}}</label>
 													<input type="number" min="0" max="12" value="1">
 												</div>
 											</div>
-										</div>
 									</div>
 								</div>
 								<div class="table-over ">
@@ -227,7 +229,7 @@
 												</td>
 												<td>
 													
-														<div class="uk-button uk-form-select select " data-uk-form-select="">
+												<div class="uk-button uk-form-select select " data-uk-form-select="">
 													<span>All</span>
 													 <i class="uk-icon-caret-down"></i>
 														<select>
@@ -558,6 +560,9 @@
 			                                    <a href="#" class="mp-icon-edit"></a>
 			                              </div>
                                           <h5>{{ 'USA: Даллас'|trans }} - {{ 'USA: Оклахома-сити'|trans }}</h5>
+											<div class="questiontooltip">
+												<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+											</div>
                                             <dl class="uk-width-1-1">
 	                                                    <div class="uk-margin">
 		                                                    <dt class="myid">{{ 'Order ID:'|trans }}</dt><dd class="myid">211212121221</dd>
@@ -586,14 +591,14 @@
             </div>
 
 <!------------------------------------------------profile--------------------------------------------->
-            <div id="Profile" class="uk-modal pop-up">
+            <div id="Profile" class="uk-modal pop-up driver-office">
                     <div class="uk-modal-dialog">
 	                    <a class="uk-modal-close uk-close"></a>
 		                    <div class="popup-head">{{'Begin you profile'|trans}}</div>
 						<div class="uk-grid uk-grid-small driver-profile">
 							<div class="block-foto-rate">
 								<div class="uk-grid uk-grid-small">
-									<div class="form-view">
+									<div class="block-foto">
 										<div class="clientreviews">
 											<div class="photo">
 												<img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
@@ -601,11 +606,11 @@
 											<div class="rate">
 												<p>{{'Rate this driver'|trans}}</p>
 												<p>
-														<a><i class="mp-icon-star uk-text-danger"></i></a>
-														<a><i class="mp-icon-star uk-text-danger"></i></a>
-														<a><i class="mp-icon-star uk-text-danger"></i></a>
-														<a><i class="mp-icon-star uk-text-danger"></i></a>
-														<a><i class="mp-icon-star uk-text-warning"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-danger"></i></a>
+													<a><i class="mp-icon-star uk-text-warning"></i></a>
 												</p>
 												<p><i class="mp-icon-person uk-text-warning"></i>217</p>
 											</div>
@@ -645,15 +650,52 @@
 														{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 													</div>
 												</div>
-											<div class="uk-width-1-1"><a class="uk-button button-add uk-margin-small-bottom">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
+												<div class="uk-hidden" id="toggle10">
+													<div class="uk-width-1-1 uk-margin-small">
+														<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+														<div class="uk-width-1-1 rate">
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-warning"></i></a>
+															/ 09.01.2014
+														</div>
+														<div class="uk-width-1-1 review">
+															{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+														</div>
+													</div>
+													<div class="uk-width-1-1 uk-margin-small">
+														<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+														<div class="uk-width-1-1 rate">
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-danger"></i></a>
+															<a><i class="mp-icon-star uk-text-warning"></i></a>
+															/ 09.01.2014
+														</div>
+														<div class="uk-width-1-1 review">
+															{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
+										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#toggle10'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
 									</div>
 								</div>
 							</div>
 							<div class="profile form-change">
-								<button  data-uk-toggle="{target:'#toggle0'}" class="popup-head uk-button inbox">{{'Personal information'|trans}}<i class="uk-icon-question-circle"></i></button>
-									<div class="uk-hidden" id="toggle0">
+								<button  data-uk-toggle="{target:'#toggle0'}" class="popup-head uk-button inbox">
+									<span>
+									<div>{{'Personal information'|trans}}</div>
+										<div class="questiontooltip">
+											<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+										</div>
+									</span>
+								</button>
+									<div class="uk-hidden personal-info" id="toggle0">
 										<dl class="uk-width-1-1 uk-margin-bottom">
 												<div class="myid">
 													<dt>My ID:</dt><dd>2112121212</dd><br />
@@ -663,29 +705,42 @@
 											<dt>{{'E-mail:'|trans}}<dd><input type="text" name="email" value="" /></dd></dt><br />
 											<dt>{{'Country:'|trans}}
 											<dd>
-												<select name="country" >
-													<option>{{'Russia'|trans}}</option>
-												</select>
+												<div class="uk-button uk-form-select select " data-uk-form-select="">
+													<span></span>
+													 <i class="uk-icon-caret-down"></i>
+														<select name="country" >
+															<option>{{'Russia'|trans}}</option>
+														</select>
+												</div>
 											</dd></dt><br />
 											<dt>{{'City:'|trans}}
 											<dd>
-												<select name="city">
-													<option>{{'Moscow'|trans}}</option>
-													<option>{{'St. Petersburg'|trans}}</option>
-												</select>
+												<div class="uk-button uk-form-select select " data-uk-form-select="">
+													<span></span>
+													 <i class="uk-icon-caret-down"></i>
+														<select name="city">
+															<option>{{'Moscow'|trans}}</option>
+															<option>{{'St. Petersburg'|trans}}</option>
+														</select>
+												</div>
 											</dd></dt><br />
 											<dt>{{'English:'|trans}}
 											<dd>
-												<select name="english" >
-													<option>{{'Level'|trans}}</option>
-													<option>{{'No'|trans}}</option>
-													<option>{{'Elementary'|trans}}</option>
-													<option>{{'Pre-intermediate'|trans}}</option>
-													<option>{{'Intermediate'|trans}}</option>
-													<option>{{'Upper-intermediate'|trans}}</option>
-													<option>{{'Advanced'|trans}}</option>
-													<option>{{'Proficiency'|trans}}</option>
-												</select>
+											<div class="uk-button uk-form-select select " data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="english" >
+														<option></option>
+														<option>{{'Level'|trans}}</option>
+														<option>{{'No'|trans}}</option>
+														<option>{{'Elementary'|trans}}</option>
+														<option>{{'Pre-intermediate'|trans}}</option>
+														<option>{{'Intermediate'|trans}}</option>
+														<option>{{'Upper-intermediate'|trans}}</option>
+														<option>{{'Advanced'|trans}}</option>
+														<option>{{'Proficiency'|trans}}</option>
+													</select>
+											</div>
 											</dd></dt><br />
 											<dt>{{'Other language:'|trans}}
 											<dd class="addlangline">
@@ -693,7 +748,7 @@
 													<div class="uk-width-1-1 style1">
 														<div class="style2">
 															<select class="display_none" name="lang" required="">
-																<option>Select a language</option>
+																<option></option>
 																<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 																<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
 																<option>Asturian</option>	<option>Avar</option>	<option>Awadhi</option>	<option>Azerbaijani</option>	<option>Balochi</option>
@@ -734,11 +789,15 @@
 											</dd></dt><br />
 											<dt>{{'Driving Experience:'|trans}}
 											<dd>
-												<select name="experience" >
-													<option>{{''|trans}}</option>
-													<option>{{'less than 4 years'|trans}}</option>
-													<option>{{'more than 4 years'|trans}}</option>
-												</select>
+											<div class="uk-button uk-form-select select " data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="experience" >
+														<option></option>
+														<option>{{'less than 4 years'|trans}}</option>
+														<option>{{'more than 4 years'|trans}}</option>
+													</select>
+											</div>
 											</dd></dt><br />
 											<dt>{{'Skype:'|trans}}<dd><input type="text" name="skype"  value="" /></dd></dt><br />
 												<label class="addphoneline uk-form-row">
@@ -748,49 +807,53 @@
 													</dt>
 													<dd class="uk-form-controls addphoneareas">
 														<div class="float_left uk-width-1-1 adphonik">
-															<select class="region" name="phonecode" id="phonecode" required="">
-																<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
-																<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
-																<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
-																<option>994 (AZ)</option>	<option>387 (BA)</option>	<option>1 (BB)</option>	<option>32 (BE)</option>		<option>226 (BF)</option>
-																<option>359 (BG)</option>	<option>973 (BH)</option>	<option>257 (BI)</option>	<option>229 (BJ)</option>		<option>1 (BM)</option>
-																<option>673 (BN)</option>	<option>591 (BO)</option>	<option>55 (BR)</option>	<option>1 (BS)</option>		<option>975 (BT)</option>
-																<option>267 (BW)</option>	<option>375 (BY)</option>	<option>501 (BZ)</option>	<option>86 (C2)</option>	<option>1 (CA)</option>
-																<option>243  (CD)</option>	<option>242 (CG)</option>	<option>41 (CH)</option><option>225 (CI)</option>	<option>682 (CK)</option>
-																<option>56 (CL)</option>	<option>237 (CM)</option>	<option>57 (CO)</option>		<option>506 (CR)</option>		<option>238 (CV)</option>
-																<option>357 (CY)</option>		<option>420 (CZ)</option>		<option>49 (DE)</option>		<option>253 (DJ)</option>		<option>45 (DK)</option>
-																<option>1 (DM)</option>		<option>1 (DO)</option>	<option>213 (DZ)</option>	<option>593 (EC)</option>	<option>372 (EE)</option>
-																<option>20 (EG)</option>	<option>291 (ER)</option>	<option>34 (ES)</option>	<option>251 (ET)</option>	<option>358 (FI)</option>
-																<option>679 (FJ)</option>		<option>500 (FK)</option>	<option>691 (FM)</option>	<option>298 (FO)</option>	<option>33 (FR)</option>
-																<option>241 (GA)</option>	<option>44 (GB)</option>	<option>1 (GD)</option>	<option>995 (GE)</option>	<option>594 (GF)</option>
-																<option>350 (GI)</option>	<option>299 (GL)</option>	<option>220 (GM)</option>	<option>224 (GN)</option>	<option>590 (GP)</option>
-																<option>30 (GR)</option>	<option>502 (GT)</option>	<option>245 (GW)</option>	<option>592 (GY)</option>	<option>852 (HK)</option>
-																<option>504 (HN)</option>	<option>385 (HR)</option>	<option>36 (HU)</option>	<option>62 (ID)</option>	<option>353 (IE)</option>
-																<option>972 (IL)</option>	<option>91 (IN)</option>	<option>354 (IS)</option>	<option>39 (IT)</option>	<option>1 (JM)</option>
-																<option>962 (JO)</option>	<option>81 (JP)</option>	<option>254 (KE)</option>	<option>996 (KG)</option>	<option>855 (KH)</option>
-																<option>686 (KI)</option>	<option>269 (KM)</option>	<option>1 (KN)</option>	<option>82 (KR)</option>	<option>965 (KW)</option>
-																<option>1 (KY)</option>	<option>7 (KZ)</option>	<option>856 (LA)</option>	<option>1 (LC)</option>	<option>423 (LI)</option>
-																<option>94 (LK)</option>	<option>266 (LS)</option>	<option>370 (LT)</option><option>352 (LU)</option>	<option>371 (LV)</option>
-																<option>212 (MA)</option>	<option>377 (MC)</option>	<option>373 (MD)</option>	<option>263 (ME)</option>	<option>261 (MG)</option>
-																<option>692 (MH)</option>	<option>389 (MK)</option>	<option>223 (ML)</option>	<option>976 (MN)</option>	<option>596 (MQ)</option>
-																<option>222 (MR)</option>	<option>1 (MS)</option>	<option>356 (MT)</option>	<option>230 (MU)</option>	<option>960 (MV)</option>
-																<option>265 (MW)</option>	<option>52 (MX)</option>	<option>60 (MY)</option>	<option>258 (MZ)</option>	<option>264 (NA)</option>
-																<option>687 (NC)</option>	<option>227 (NE)</option>	<option>672 (NF)</option>	<option>234 (NG)</option>	<option>505 (NI)</option>
-																<option>31 (NL)</option><option>47 (NO)</option>	<option>977 (NP)</option>		<option>674 (NR)</option>	<option>683 (NU)</option>
-																<option>64 (NZ)</option>	<option>968 (OM)</option>	<option>507 (PA)</option>	<option>51 (PE)</option>	<option>689 (PF)</option>
-																<option>675 (PG)</option>	<option>63 (PH)</option><option>48 (PL)</option>	<option>508 (PM)</option>	<option>872 (PN)</option>
-																<option>351 (PT)</option><option>680 (PW)</option>	<option>595 (PY)</option>	<option>974 (QA)</option>	<option>262 (RE)</option>
-																<option>40 (RO)</option>	<option>381 (RS)</option>	<option>250 (RW)</option>	<option>966 (SA)</option>	<option>677 (SB)</option>
-																<option>248 (SC)</option><option>46 (SE)</option>	<option>65 (SG)</option>	<option>290 (SH)</option>	<option>386 (SI)</option>
-																<option>47 (SJ)</option>	<option>421 (SK)</option>	<option>232 (SL)</option>	<option>378 (SM)</option>	<option>221 (SN)</option>
-																<option>252 (SO)</option>	<option>597 (SR)</option>	<option>239 (ST)</option>	<option>503 (SV)</option>	<option>268 (SZ)</option>
-																<option>1 (TC)</option>	<option>235 (TD)</option><option>228 (TG)</option>	<option>66 (TH)</option>	<option>992 (TJ)</option>
-																<option>993 (™)</option>	<option>216 (TN)</option>	<option>676 (TO)</option>	<option>90 (TR)</option>	<option>1 (TT)</option>
-																<option>688 (TV)</option>	<option>886 (TW)</option>	<option>255 (TZ)</option>	<option>380 (UA)</option>	<option>256 (UG)</option>
-																<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
-																<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
-																<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
-															</select>
+														<div class="uk-button uk-form-select select region" data-uk-form-select="">
+															<span></span>
+															<i class="uk-icon-caret-down"></i>
+																<select class="" name="phonecode" id="phonecode" required="">
+																	<option></option>	<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
+																	<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>
+																	<option>244 (AO)</option>		<option>54 (AR)</option>	<option>43 (AT)</option>		<option>61 (AU)</option>		<option>297 (AW)</option>
+																	<option>994 (AZ)</option>	<option>387 (BA)</option>	<option>1 (BB)</option>	<option>32 (BE)</option>		<option>226 (BF)</option>
+																	<option>359 (BG)</option>	<option>973 (BH)</option>	<option>257 (BI)</option>	<option>229 (BJ)</option>		<option>1 (BM)</option>
+																	<option>673 (BN)</option>	<option>591 (BO)</option>	<option>55 (BR)</option>	<option>1 (BS)</option>		<option>975 (BT)</option>
+																	<option>267 (BW)</option>	<option>375 (BY)</option>	<option>501 (BZ)</option>	<option>86 (C2)</option>	<option>1 (CA)</option>
+																	<option>243  (CD)</option>	<option>242 (CG)</option>	<option>41 (CH)</option><option>225 (CI)</option>	<option>682 (CK)</option>
+																	<option>56 (CL)</option>	<option>237 (CM)</option>	<option>57 (CO)</option>		<option>506 (CR)</option>		<option>238 (CV)</option>
+																	<option>357 (CY)</option>		<option>420 (CZ)</option>		<option>49 (DE)</option>		<option>253 (DJ)</option>		<option>45 (DK)</option>
+																	<option>1 (DM)</option>		<option>1 (DO)</option>	<option>213 (DZ)</option>	<option>593 (EC)</option>	<option>372 (EE)</option>
+																	<option>20 (EG)</option>	<option>291 (ER)</option>	<option>34 (ES)</option>	<option>251 (ET)</option>	<option>358 (FI)</option>
+																	<option>679 (FJ)</option>		<option>500 (FK)</option>	<option>691 (FM)</option>	<option>298 (FO)</option>	<option>33 (FR)</option>
+																	<option>241 (GA)</option>	<option>44 (GB)</option>	<option>1 (GD)</option>	<option>995 (GE)</option>	<option>594 (GF)</option>
+																	<option>350 (GI)</option>	<option>299 (GL)</option>	<option>220 (GM)</option>	<option>224 (GN)</option>	<option>590 (GP)</option>
+																	<option>30 (GR)</option>	<option>502 (GT)</option>	<option>245 (GW)</option>	<option>592 (GY)</option>	<option>852 (HK)</option>
+																	<option>504 (HN)</option>	<option>385 (HR)</option>	<option>36 (HU)</option>	<option>62 (ID)</option>	<option>353 (IE)</option>
+																	<option>972 (IL)</option>	<option>91 (IN)</option>	<option>354 (IS)</option>	<option>39 (IT)</option>	<option>1 (JM)</option>
+																	<option>962 (JO)</option>	<option>81 (JP)</option>	<option>254 (KE)</option>	<option>996 (KG)</option>	<option>855 (KH)</option>
+																	<option>686 (KI)</option>	<option>269 (KM)</option>	<option>1 (KN)</option>	<option>82 (KR)</option>	<option>965 (KW)</option>
+																	<option>1 (KY)</option>	<option>7 (KZ)</option>	<option>856 (LA)</option>	<option>1 (LC)</option>	<option>423 (LI)</option>
+																	<option>94 (LK)</option>	<option>266 (LS)</option>	<option>370 (LT)</option><option>352 (LU)</option>	<option>371 (LV)</option>
+																	<option>212 (MA)</option>	<option>377 (MC)</option>	<option>373 (MD)</option>	<option>263 (ME)</option>	<option>261 (MG)</option>
+																	<option>692 (MH)</option>	<option>389 (MK)</option>	<option>223 (ML)</option>	<option>976 (MN)</option>	<option>596 (MQ)</option>
+																	<option>222 (MR)</option>	<option>1 (MS)</option>	<option>356 (MT)</option>	<option>230 (MU)</option>	<option>960 (MV)</option>
+																	<option>265 (MW)</option>	<option>52 (MX)</option>	<option>60 (MY)</option>	<option>258 (MZ)</option>	<option>264 (NA)</option>
+																	<option>687 (NC)</option>	<option>227 (NE)</option>	<option>672 (NF)</option>	<option>234 (NG)</option>	<option>505 (NI)</option>
+																	<option>31 (NL)</option><option>47 (NO)</option>	<option>977 (NP)</option>		<option>674 (NR)</option>	<option>683 (NU)</option>
+																	<option>64 (NZ)</option>	<option>968 (OM)</option>	<option>507 (PA)</option>	<option>51 (PE)</option>	<option>689 (PF)</option>
+																	<option>675 (PG)</option>	<option>63 (PH)</option><option>48 (PL)</option>	<option>508 (PM)</option>	<option>872 (PN)</option>
+																	<option>351 (PT)</option><option>680 (PW)</option>	<option>595 (PY)</option>	<option>974 (QA)</option>	<option>262 (RE)</option>
+																	<option>40 (RO)</option>	<option>381 (RS)</option>	<option>250 (RW)</option>	<option>966 (SA)</option>	<option>677 (SB)</option>
+																	<option>248 (SC)</option><option>46 (SE)</option>	<option>65 (SG)</option>	<option>290 (SH)</option>	<option>386 (SI)</option>
+																	<option>47 (SJ)</option>	<option>421 (SK)</option>	<option>232 (SL)</option>	<option>378 (SM)</option>	<option>221 (SN)</option>
+																	<option>252 (SO)</option>	<option>597 (SR)</option>	<option>239 (ST)</option>	<option>503 (SV)</option>	<option>268 (SZ)</option>
+																	<option>1 (TC)</option>	<option>235 (TD)</option><option>228 (TG)</option>	<option>66 (TH)</option>	<option>992 (TJ)</option>
+																	<option>993 (™)</option>	<option>216 (TN)</option>	<option>676 (TO)</option>	<option>90 (TR)</option>	<option>1 (TT)</option>
+																	<option>688 (TV)</option>	<option>886 (TW)</option>	<option>255 (TZ)</option>	<option>380 (UA)</option>	<option>256 (UG)</option>
+																	<option>598 (UY)</option>	<option>379 (VA)</option>	<option>1 (VC)</option>	<option>58 (VE)</option>	<option>1 (VG)</option>
+																	<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
+																	<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
+																</select>
+														</div>
 														<input class="fone" type="text" name="phone" id="phone" required="">
 														
 														<div class="wicheck whicheck-1">
@@ -808,17 +871,17 @@
 														</div>
 														<div class="uk-form-controls addphone uk-width-1-1">
 															<span class="uk-float-left">
-																Add mobile number
+																{{'Add mobile number'|trans}}
 															</span>
-															<div class="questiontooltip">
-																<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">777-777-7777</span></a>
-															</div>
 														</div>
 													</dd>
 												</label>
 											<dt>{{'Birthday:'|trans}}<dd>
-													<select name="day" class="day" >
-														<option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option>
+											<div class="uk-button uk-form-select select day" data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="day" class="" >
+														<option></option><option>1</option> <option>2</option> <option>3</option> <option>4</option> <option>5</option>
 														<option>6</option> <option>7</option> <option>8</option> <option>9</option> <option>10</option>
 														<option>11</option> <option>12</option> <option>13</option> <option>14</option> <option>15</option>
 														<option>16</option> <option>17</option> <option>18</option> <option>19</option> <option>20</option>
@@ -826,7 +889,12 @@
 														<option>26</option> <option>27</option> <option>28</option> <option>29</option> <option>30</option>
 														<option>31</option>
 													</select>
-													<select name="month" class="month" >
+											</div>
+											<div class="uk-button uk-form-select select month" data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="month" class="" >
+														<option></option>
 														<option>{{'January'|trans}}</option>
 														<option>{{'February'|trans}}</option>
 														<option>{{'March'|trans}}</option>
@@ -840,8 +908,12 @@
 														<option>{{'November'|trans}}</option>
 														<option>{{'December'|trans}}</option>
 													</select>
-													<select name="year" class="year" >
-														<option>1940</option><option>1941</option><option>1942</option><option>1943</option><option>1944</option>
+											</div>
+											<div class="uk-button uk-form-select select year" data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="year" class="" >
+														<option></option><option>1940</option><option>1941</option><option>1942</option><option>1943</option><option>1944</option>
 														<option>1945</option><option>1946</option><option>1947</option><option>1948</option><option>1949</option>
 														<option>1950</option><option>1951</option><option>1952</option><option>1953</option><option>1954</option>
 														<option>1955</option><option>1956</option><option>1957</option><option>1958</option><option>1959</option>
@@ -854,247 +926,298 @@
 														<option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
 														<option>1995</option><option>1996</option>
 													</select>
+											</div>
 												</dd></dt><br />
-											<dt>{{'Gender:'|trans}}<dd><select name="gender" ><option>{{'Male'|trans}}</option><option>{{'Female'|trans}}</option></select></dt></dd>
-											<dt>{{'About me:'|trans}}<br><a href="">{{'example'|trans}}</a>
+											<dt>{{'Gender:'|trans}}<dd>
+												<div class="uk-button uk-form-select select year" data-uk-form-select="">
+													<span></span>
+													<i class="uk-icon-caret-down"></i>
+														<select name="gender" >
+															<option></option>
+															<option>{{'Male'|trans}}</option>
+															<option>{{'Female'|trans}}</option>
+														</select>
+												</div>
+											</dt></dd>
+											<dt class="example">{{'About me:'|trans}}<br><a href="">{{'example'|trans}}</a>
 											<dd>
 												<textarea rows="4" maxlength="200" class="uk-width-1-1">{{'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans}}</textarea>
 												<span class="uk-text-small">{{'осталось 200 символов'|trans}}</span>
 											</dd></dt>
 										</dl>
 									</div>
-							<button  data-uk-toggle="{target:'#toggle1'}" class="popup-head uk-button inbox">{{'Car information'|trans}}<i class="uk-icon-question-circle"></i></button>
-								<div class="uk-hidden" id="toggle1">
+							<button  data-uk-toggle="{target:'#toggle1'}" class="popup-head uk-button inbox">
+								<span>
+								<div>{{'Car information'|trans}}</div>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+									</div>
+								</span>
+							</button>
+								<div class="uk-hidden car-info" id="toggle1">
 									<dl>
 										<dt>{{'Brand:'|trans}}<dd>
-											<select name="brand" >
-												<option value="ac">AC</option>
-												<option value="am_general">AM General</option>
-												<option value="acura">Acura</option>
-												<option value="alfa_romeo">Alfa Romeo</option>
-												<option value="alpine">Alpine</option>
-												<option value="american_motors">American Motors</option>
-												<option value="aston_martin">Aston Martin</option>
-												<option value="audi">Audi</option>
-												<option value="austin">Austin</option>
-												<option value="avanti">Avanti</option>
-												<option value="bmw">BMW</option>
-												<option value="bentley">Bentley</option>
-												<option value="bitter">Bitter</option>
-												<option value="bristol">Bristol</option>
-												<option value="bugatti">Bugatti</option>
-												<option value="buick">Buick</option>
-												<option value="cadillac">Cadillac</option>
-												<option value="checker">Checker</option>
-												<option value="chevrolet">Chevrolet</option>
-												<option value="chrysler">Chrysler</option>
-												<option value="citroen">Citroen</option>
-												<option value="clenet">Clenet</option>
-												<option value="daewoo">Daewoo</option>
-												<option value="daihatsu">Daihatsu</option>
-												<option value="daimler">Daimler</option>
-												<option value="datsun">Datsun</option>
-												<option value="de_tomaso">De Tomaso</option>
-												<option value="delorean">Delorean</option>
-												<option value="dodge">Dodge</option>
-												<option value="eagle">Eagle</option>
-												<option value="excalibur">Excalibur</option>
-												<option value="ferrari">Ferrari</option>
-												<option value="fiat">Fiat</option>
-												<option value="fisker">Fisker</option>
-												<option value="ford">Ford</option>
-												<option value="freightliner">Freightliner</option>
-												<option value="gmc">GMC</option>
-												<option value="geo">Geo</option>
-												<option value="ginetta">Ginetta</option>
-												<option value="hawk">Hawk</option>
-												<option value="honda">Honda</option>
-												<option value="hummer">Hummer</option>
-												<option value="hyundai">Hyundai</option>
-												<option value="infiniti">Infiniti</option>
-												<option value="isuzu">Isuzu</option>
-												<option value="jaguar">Jaguar</option>
-												<option value="jeep">Jeep</option>
-												<option value="kia">Kia</option>
-												<option value="koenigsegg">Koenigsegg</option>
-												<option value="lada">Lada</option>
-												<option value="laforza">Laforza</option>
-												<option value="lamborghini">Lamborghini</option>
-												<option value="lancia">Lancia</option>
-												<option value="land_rover">Land Rover</option>
-												<option value="lexus">Lexus</option>
-												<option value="lincoln">Lincoln</option>
-												<option value="lotus">Lotus</option>
-												<option value="mg">MG</option>
-												<option value="maserati">Maserati</option>
-												<option value="maybach">Maybach</option>
-												<option value="mazda">Mazda</option>
-												<option value="mclaren">Mclaren</option>
-												<option value="mercedes_benz">Mercedes-Benz</option>
-												<option value="mercury">Mercury</option>
-												<option value="merkur">Merkur</option>
-												<option value="mini">Mini</option>
-												<option value="mitsubishi">Mitsubishi</option>
-												<option value="morgan">Morgan</option>
-												<option value="mosler">Mosler</option>
-												<option value="nissan">Nissan</option>
-												<option value="oldsmobile">Oldsmobile</option>
-												<option value="opel">Opel</option>
-												<option value="pagani">Pagani</option>
-												<option value="panoz">Panoz</option>
-												<option value="panther">Panther</option>
-												<option value="peugeot">Peugeot</option>
-												<option value="pilgrim">Pilgrim</option>
-												<option value="plymouth">Plymouth</option>
-												<option value="pontiac">Pontiac</option>
-												<option value="porsche">Porsche</option>
-												<option value="ram">Ram</option>
-												<option value="reliant">Reliant</option>
-												<option value="renault">Renault</option>
-												<option value="rolls_royce">Rolls-Royce</option>
-												<option value="rover">Rover</option>
-												<option value="saab">Saab</option>
-												<option value="saturn">Saturn</option>
-												<option value="scion">Scion</option>
-												<option value="seat">Seat</option>
-												<option value="skoda">Skoda</option>
-												<option value="smart">Smart</option>
-												<option value="spyker">Spyker</option>
-												<option value="sterling">Sterling</option>
-												<option value="stutz">Stutz</option>
-												<option value="subaru">Subaru</option>
-												<option value="suzuki">Suzuki</option>
-												<option value="tvr">TVR</option>
-												<option value="talbot">Talbot</option>
-												<option value="tata">Tata</option>
-												<option value="tesla">Tesla</option>
-												<option value="thexclaimnk">Th!nk</option>
-												<option value="toyota">Toyota</option>
-												<option value="triumph">Triumph</option>
-												<option value="vpg">VPG</option>
-												<option value="vauxhall">Vauxhall</option>
-												<option value="venturi">Venturi</option>
-												<option value="volkswagen">Volkswagen</option>
-												<option value="volvo">Volvo</option>
-												<option value="yugo">Yugo</option>
-												<option value="zastava">Zastava</option>
-												<option value="zimmer">Zimmer</option>
-												<option value="zimmer">{{'Other'|trans}}</option>
-											</select>
+											<div class="uk-button uk-form-select select " data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="brand" >
+														<option value="ac">AC</option>
+														<option value="am_general">AM General</option>
+														<option value="acura">Acura</option>
+														<option value="alfa_romeo">Alfa Romeo</option>
+														<option value="alpine">Alpine</option>
+														<option value="american_motors">American Motors</option>
+														<option value="aston_martin">Aston Martin</option>
+														<option value="audi">Audi</option>
+														<option value="austin">Austin</option>
+														<option value="avanti">Avanti</option>
+														<option value="bmw">BMW</option>
+														<option value="bentley">Bentley</option>
+														<option value="bitter">Bitter</option>
+														<option value="bristol">Bristol</option>
+														<option value="bugatti">Bugatti</option>
+														<option value="buick">Buick</option>
+														<option value="cadillac">Cadillac</option>
+														<option value="checker">Checker</option>
+														<option value="chevrolet">Chevrolet</option>
+														<option value="chrysler">Chrysler</option>
+														<option value="citroen">Citroen</option>
+														<option value="clenet">Clenet</option>
+														<option value="daewoo">Daewoo</option>
+														<option value="daihatsu">Daihatsu</option>
+														<option value="daimler">Daimler</option>
+														<option value="datsun">Datsun</option>
+														<option value="de_tomaso">De Tomaso</option>
+														<option value="delorean">Delorean</option>
+														<option value="dodge">Dodge</option>
+														<option value="eagle">Eagle</option>
+														<option value="excalibur">Excalibur</option>
+														<option value="ferrari">Ferrari</option>
+														<option value="fiat">Fiat</option>
+														<option value="fisker">Fisker</option>
+														<option value="ford">Ford</option>
+														<option value="freightliner">Freightliner</option>
+														<option value="gmc">GMC</option>
+														<option value="geo">Geo</option>
+														<option value="ginetta">Ginetta</option>
+														<option value="hawk">Hawk</option>
+														<option value="honda">Honda</option>
+														<option value="hummer">Hummer</option>
+														<option value="hyundai">Hyundai</option>
+														<option value="infiniti">Infiniti</option>
+														<option value="isuzu">Isuzu</option>
+														<option value="jaguar">Jaguar</option>
+														<option value="jeep">Jeep</option>
+														<option value="kia">Kia</option>
+														<option value="koenigsegg">Koenigsegg</option>
+														<option value="lada">Lada</option>
+														<option value="laforza">Laforza</option>
+														<option value="lamborghini">Lamborghini</option>
+														<option value="lancia">Lancia</option>
+														<option value="land_rover">Land Rover</option>
+														<option value="lexus">Lexus</option>
+														<option value="lincoln">Lincoln</option>
+														<option value="lotus">Lotus</option>
+														<option value="mg">MG</option>
+														<option value="maserati">Maserati</option>
+														<option value="maybach">Maybach</option>
+														<option value="mazda">Mazda</option>
+														<option value="mclaren">Mclaren</option>
+														<option value="mercedes_benz">Mercedes-Benz</option>
+														<option value="mercury">Mercury</option>
+														<option value="merkur">Merkur</option>
+														<option value="mini">Mini</option>
+														<option value="mitsubishi">Mitsubishi</option>
+														<option value="morgan">Morgan</option>
+														<option value="mosler">Mosler</option>
+														<option value="nissan">Nissan</option>
+														<option value="oldsmobile">Oldsmobile</option>
+														<option value="opel">Opel</option>
+														<option value="pagani">Pagani</option>
+														<option value="panoz">Panoz</option>
+														<option value="panther">Panther</option>
+														<option value="peugeot">Peugeot</option>
+														<option value="pilgrim">Pilgrim</option>
+														<option value="plymouth">Plymouth</option>
+														<option value="pontiac">Pontiac</option>
+														<option value="porsche">Porsche</option>
+														<option value="ram">Ram</option>
+														<option value="reliant">Reliant</option>
+														<option value="renault">Renault</option>
+														<option value="rolls_royce">Rolls-Royce</option>
+														<option value="rover">Rover</option>
+														<option value="saab">Saab</option>
+														<option value="saturn">Saturn</option>
+														<option value="scion">Scion</option>
+														<option value="seat">Seat</option>
+														<option value="skoda">Skoda</option>
+														<option value="smart">Smart</option>
+														<option value="spyker">Spyker</option>
+														<option value="sterling">Sterling</option>
+														<option value="stutz">Stutz</option>
+														<option value="subaru">Subaru</option>
+														<option value="suzuki">Suzuki</option>
+														<option value="tvr">TVR</option>
+														<option value="talbot">Talbot</option>
+														<option value="tata">Tata</option>
+														<option value="tesla">Tesla</option>
+														<option value="thexclaimnk">Th!nk</option>
+														<option value="toyota">Toyota</option>
+														<option value="triumph">Triumph</option>
+														<option value="vpg">VPG</option>
+														<option value="vauxhall">Vauxhall</option>
+														<option value="venturi">Venturi</option>
+														<option value="volkswagen">Volkswagen</option>
+														<option value="volvo">Volvo</option>
+														<option value="yugo">Yugo</option>
+														<option value="zastava">Zastava</option>
+														<option value="zimmer">Zimmer</option>
+														<option value="zimmer">{{'Other'|trans}}</option>
+													</select>
+											</div>
 										</dd></dt>
-										<dt>{{'Model:'|trans}}<dd><select name="model" ><option>{{'Focus'|trans}}</option></select></dd></dt>
+										<dt>{{'Model:'|trans}}<dd>
+											<div class="uk-button uk-form-select select" data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="model" >
+														<option>{{'Focus'|trans}}</option>
+													</select>
+											</div>
+										</dd></dt>
 										<dt>{{'Year:'|trans}}<dd>
-											<select name="year" class="region" >
-												<option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
-												<option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option>
-												<option>2000</option><option>2001</option><option>2002</option><option>2003</option><option>2004</option>
-												<option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option>
-												<option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
-											</select>
+											<div class="uk-button uk-form-select select region" data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="year" class="" >
+														<option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
+														<option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option>
+														<option>2000</option><option>2001</option><option>2002</option><option>2003</option><option>2004</option>
+														<option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option>
+														<option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
+													</select>
+											</div>
 										</dd></dt>
 										<dt>{{'Color:'|trans}}<dd>
-											<select data-placeholder="Choose a color..." class="my-select">
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/black.png') }}">Black</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/beige.png') }}">Beige</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/blue.png') }}">Blue</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/burgundy.png') }}">Burgundy</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/charcoal.png') }}">Charcoal</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/gold.png') }}">Gold</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/gray.png') }}">Gray</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/green.png') }}">Green</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/off-white.png') }}">Off-white</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/orange.png') }}">Orange</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/pink.png') }}">Pink</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/purple.png') }}">Purple</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/red.png') }}">Red</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/silver.png') }}">Silver</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/tan.png') }}">Tan</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/turquoise.png') }}">Turquoise</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/white.png') }}">White</option>
-												<option data-img-src="{{ asset('bundles/davincitaxi/images/yellow.png') }}">Yellow</option>
-											</select>
+													<select data-placeholder="Choose a color..." class="my-select">
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/black.png') }}">Black</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/beige.png') }}">Beige</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/blue.png') }}">Blue</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/brown.png') }}">Brown</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/burgundy.png') }}">Burgundy</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/charcoal.png') }}">Charcoal</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/gold.png') }}">Gold</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/gray.png') }}">Gray</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/green.png') }}">Green</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/off-white.png') }}">Off-white</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/orange.png') }}">Orange</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/pink.png') }}">Pink</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/purple.png') }}">Purple</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/red.png') }}">Red</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/silver.png') }}">Silver</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/tan.png') }}">Tan</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/turquoise.png') }}">Turquoise</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/white.png') }}">White</option>
+														<option data-img-src="{{ asset('bundles/davincitaxi/images/yellow.png') }}">Yellow</option>
+													</select>
 										</dd></dt>
 										<dt>{{'Number plate:'|trans}}<dd><input type="text" name="plate" value="" ></dd></dt>
 										<dt>{{'Class:'|trans}}
 										<dd>
-											<select name="number" class="" >
-												<option>{{'Economy'|trans}}</option>
-												<option>{{'Compact'|trans}}</option>
-												<option>{{'Midsize'|trans}}</option>
-												<option>{{'Standart'|trans}}</option>
-												<option>{{'Full Size'|trans}}</option>
-												<option>{{'Premium'|trans}}</option>
-												<option>{{'Midsize SUV'|trans}}</option>
-												<option>{{'Standart Convertible'|trans}}</option>
-												<option>{{'Premium Pickup'|trans}}</option>
-												<option>{{'Mini Van'|trans}}</option>
-												<option>{{'Standart SUV'|trans}}</option>
-												<option>{{'Standart Van'|trans}}</option>
-												<option>{{'Full Size Pickup'|trans}}</option>
-												<option>{{'Full Size SUV'|trans}}</option>
-												<option>{{'Standart Pickup'|trans}}</option>
-												<option>{{'Full Size Van'|trans}}</option>
-												<option>{{'Special Van'|trans}}</option>
-												<option>{{'Premium Van'|trans}}</option>
-												<option>{{'Luxury'|trans}}</option>
-												<option>{{'Premium Special'|trans}}</option>
-												<option>{{'Premium SUV'|trans}}</option>
-												<option>{{'Special'|trans}}</option>
-											</select>
+											<div class="uk-button uk-form-select select " data-uk-form-select="">
+												<span></span>
+												<i class="uk-icon-caret-down"></i>
+													<select name="number" class="" >
+														<option>{{'Economy'|trans}}</option>
+														<option>{{'Compact'|trans}}</option>
+														<option>{{'Midsize'|trans}}</option>
+														<option>{{'Standart'|trans}}</option>
+														<option>{{'Full Size'|trans}}</option>
+														<option>{{'Premium'|trans}}</option>
+														<option>{{'Midsize SUV'|trans}}</option>
+														<option>{{'Standart Convertible'|trans}}</option>
+														<option>{{'Premium Pickup'|trans}}</option>
+														<option>{{'Mini Van'|trans}}</option>
+														<option>{{'Standart SUV'|trans}}</option>
+														<option>{{'Standart Van'|trans}}</option>
+														<option>{{'Full Size Pickup'|trans}}</option>
+														<option>{{'Full Size SUV'|trans}}</option>
+														<option>{{'Standart Pickup'|trans}}</option>
+														<option>{{'Full Size Van'|trans}}</option>
+														<option>{{'Special Van'|trans}}</option>
+														<option>{{'Premium Van'|trans}}</option>
+														<option>{{'Luxury'|trans}}</option>
+														<option>{{'Premium Special'|trans}}</option>
+														<option>{{'Premium SUV'|trans}}</option>
+														<option>{{'Special'|trans}}</option>
+													</select>
+											</div>
 										</dd></dt>
 										<dt>{{'Other:'|trans}}
 											<dd>
-											<div class="uk-grid uk-grid-small uk-width-1-1">
-												<div class="uk-panel uk-width-1-3">
+											<div class="other">
+												<div class="uk-panel">
 													<i class="mp-icon-person uk-text-danger"></i>
-														<select name="day" class="classauto">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															<option>6</option>
-															<option>7</option>
-															<option>8</option>
-															<option>9</option>
-															<option>10</option>
-															<option>11</option>
-															<option>12</option>
-														</select>
+														<div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+															<span></span>
+															<i class="uk-icon-caret-down"></i>
+																<select name="day" class="">
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																	<option>5</option>
+																	<option>6</option>
+																	<option>7</option>
+																	<option>8</option>
+																	<option>9</option>
+																	<option>10</option>
+																	<option>11</option>
+																	<option>12</option>
+																</select>
+														</div>
 												</div>
-												<div class="uk-panel uk-width-1-3">
+												<div class="uk-panel">
 													<i class="mp-icon-bug uk-text-danger"></i>
-														<select name="day" class="classauto">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															<option>6</option>
-															<option>7</option>
-															<option>8</option>
-															<option>9</option>
-															<option>10</option>
-															<option>11</option>
-															<option>12</option>
-														</select>
+														<div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+															<span></span>
+															<i class="uk-icon-caret-down"></i>
+																<select name="day" class="">
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																	<option>5</option>
+																	<option>6</option>
+																	<option>7</option>
+																	<option>8</option>
+																	<option>9</option>
+																	<option>10</option>
+																	<option>11</option>
+																	<option>12</option>
+																</select>
+														</div>
 												</div>
-												<div class="uk-panel uk-width-1-3">
+												<div class="uk-panel">
 													<i class="mp-icon-door uk-text-danger"></i>
-														<select name="day" class="classauto">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															<option>6</option>
-															<option>7</option>
-															<option>8</option>
-															<option>9</option>
-															<option>10</option>
-															<option>11</option>
-															<option>12</option>
-														</select>
+														<div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+															<span></span>
+															<i class="uk-icon-caret-down"></i>
+																<select name="day" class="">
+																	<option>1</option>
+																	<option>2</option>
+																	<option>3</option>
+																	<option>4</option>
+																	<option>5</option>
+																	<option>6</option>
+																	<option>7</option>
+																	<option>8</option>
+																	<option>9</option>
+																	<option>10</option>
+																	<option>11</option>
+																	<option>12</option>
+																</select>
+														</div>
 												</div>
 											</div>
 											</dd></dt>
@@ -1108,15 +1231,22 @@
 											<div class="questiontooltip"><a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a></div>
 										</div>
 										</dd>
-										<dt>{{'Short description:'|trans}}<br><a href="">{{'example'|trans}}</a></dt>
+										<dt class="example">{{'Short description:'|trans}}<br><a href="">{{'example'|trans}}</a></dt>
 										<dd>
 											<textarea rows="4" maxlength="200" class="uk-width-1-1">{{'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans}}</textarea>
 											<span class="uk-text-small">{{'осталось 200 символов'|trans}}</span>
 										</dd>
 									</dl>
 								</div>
-							<button  data-uk-toggle="{target:'#toggle2'}" class="popup-head uk-button inbox uk-margin-top">{{'Insurance'|trans}}<i class="uk-icon-question-circle"></i></button>
-								<div class="uk-hidden" id="toggle2">
+							<button  data-uk-toggle="{target:'#toggle2'}" class="popup-head uk-button inbox uk-margin-top">
+								<span>
+								<div>{{'Insurance'|trans}}</div>
+									<div class="questiontooltip">
+										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+									</div>
+								</span>
+							</button>
+								<div class="uk-hidden insurance" id="toggle2">
 										<label><input type="checkbox" class="uk-float-left uk-margin-small-right">{{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}</label>
 								</div>
 								<div class="uk-margin confirmation">
