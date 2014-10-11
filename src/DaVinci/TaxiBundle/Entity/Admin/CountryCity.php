@@ -113,6 +113,9 @@ class CountryCity
     public function __toString()
     {
         $translations = $this->getCurrentTranslation();
-        return $translations->getCity();
+        if($translations)
+            return $translations->getCity();
+        else
+            return '';
     }
 }

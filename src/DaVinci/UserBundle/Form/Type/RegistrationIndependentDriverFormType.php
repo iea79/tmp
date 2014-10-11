@@ -22,6 +22,12 @@ class RegistrationIndependentDriverFormType extends BaseType {
                             'data_class' => 'DaVinci\TaxiBundle\Entity\Language'))
                         ->add('address', new AddressType(false))
                         ->add('skype', 'text', array('required'=>false,'property_path'=>'user.skype'))
+                        ->add('experience', 'choice', array(
+                            'choices' => \DaVinci\TaxiBundle\Entity\IndependentDriver::getDriverExperienceOptions(),
+                            'empty_value' => 'form.please_select',
+                            'label' => 'form.english',
+                            'translation_domain' => 'FOSUserBundle'
+                        ))
                         ->add('phones','collection',array(
                                 'type'         => new PhoneType(),
                                 'allow_add'    => true,
@@ -29,7 +35,7 @@ class RegistrationIndependentDriverFormType extends BaseType {
                                 'cascade_validation' => true));
                 break;
             case 2:
-                       $builder->add('terms', 'checkbox', array('property_path' => 'termsAccepted'));
+
                 break;
         }
     }

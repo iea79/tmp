@@ -20,15 +20,7 @@ class LanguageType extends AbstractType
         
         $builder
             ->add('level', 'choice', array(
-                            'choices' => array(
-                                '0' => 'No',
-                                '1' => 'Elementary',
-                                '2' => 'Pre-Intermediate',
-                                '3' => 'Intermediate',
-                                '4' => 'Upper-Intermediate',
-                                '5' => 'Advanced',
-                                '5' => 'Proficiency'
-                            ),
+                            'choices' => \DaVinci\TaxiBundle\Entity\Language::getLanguageLevelOptions(),
                             'empty_value' => 'form.please_select',
                             'label' => 'form.english',
                             'translation_domain' => 'FOSUserBundle'

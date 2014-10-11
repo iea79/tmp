@@ -12,6 +12,16 @@ use Doctrine\ORM\Mapping AS ORM;
  */
 class IndependentDriver
 {
+    const LESS_THAN_4  = 0;
+    const MORE_THAN_4 = 1;
+    
+    static public function getDriverExperienceOptions()
+    {
+         return array(
+            self::LESS_THAN_4 => 'less than 4 years',
+            self::MORE_THAN_4 => 'more than 4 years'
+         );
+    }
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -130,6 +140,16 @@ class IndependentDriver
         return $this->experience;
     }
 
+    /**
+     * Get experience name
+     *
+     * @return integer 
+     */
+    public function getExperienceNamed()
+    {
+        return self::getDriverExperienceOptions()[$this->experience];
+    }
+    
     /**
      * Set user
      *
