@@ -65,4 +65,27 @@ class Language
     }
 
 
+
+    /**
+     * Set languages
+     *
+     * @param array $languages
+     * @return Language
+     */
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Get languages
+     *
+     * @return array 
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
 }

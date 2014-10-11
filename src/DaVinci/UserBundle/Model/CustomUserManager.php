@@ -9,7 +9,7 @@ class CustomUserManager extends BaseUserManager
 
     
     /**
-     * Finds a user either by email, or phone
+     * Finds a user either by email, or phone or username
      *
      * @param string $phoneOrEmail
      *
@@ -20,7 +20,9 @@ class CustomUserManager extends BaseUserManager
         if (filter_var($phoneOrEmail, FILTER_VALIDATE_EMAIL)) {
             return $this->findUserByEmail($phoneOrEmail);
         }
-
+        $user = $this->findUserBy(array('phone' => $phoneOrEmail));
+        if($user == NULL)
+            $user = $this->findUserBy(array('username' => $phoneOrEmail));
         return $this->findUserBy(array('phone' => $phoneOrEmail));
     }
 

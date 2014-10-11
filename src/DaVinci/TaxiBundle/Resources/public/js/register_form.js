@@ -34,7 +34,7 @@ if ($(".register").length) {
         $('.rowcity').show();
     });
 
-    var $country = $('#taxi_company_registration_address_country');
+    var $country = $('.country_selector');
     // When country gets selected ...
     $country.change(function () {
         // ... retrieve the corresponding form.
@@ -44,7 +44,7 @@ if ($(".register").length) {
         data[$country.attr('name')] = $country.val();
         // Submit data via AJAX to the form's action path.
         
-        $('#taxi_company_registration_address_city option').remove();
+        $('.city_selector option').remove();
         
         $.ajax({
             url: $form.attr('action'),
@@ -52,9 +52,9 @@ if ($(".register").length) {
             data: data,
             success: function (html) {
                 // ReplaceReplace current position field ...
-                $('#taxi_company_registration_address_city').replaceWith(
+                $('.city_selector option').replaceWith(
                         // ... with the returned one from the AJAX response.
-                        $(html).find('#taxi_company_registration_address_city')
+                        $(html).find('.city_selector option')
                 );
 //                $('#taxi_company_registration_address_city').change('change', function () {
 //                    $('.rowstreet').show();
@@ -94,8 +94,13 @@ if ($(".register").length) {
     });
 
     $('.addotherlanguage').click(function () {
-        $('.addlangline .uk-form-select:last-child').clone().appendTo(".style2");
-        $('.addlangline .uk-form-select:last-child').removeClass('display_none');
+        var num = $('.addlang').length;
+
+        // Get the data-prototype
+        var lang_proto = $($('#language_prototype').val().replace(/__name__/g, num));
+        lang_proto.attr('tabindex', num + +lang_proto.attr('tabindex'));
+        
+        $('.addotherlanguage').before(newForm);
         return false;
     });
     $("#content .content-block textarea").keyup(function () {

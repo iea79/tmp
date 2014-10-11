@@ -60,28 +60,28 @@ class User extends BaseUser
      */   
     protected $customers;
     
-    /**
-     * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="user")
+     /**
+     * @ORM\OneToOne(targetEntity="Language", cascade={"persist", "remove"})
      */
-    private $userLanguage;
+    private $language;
 
     /**
-     * @ORM\OneToOne(targetEntity="TaxiCompany", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="TaxiCompany", mappedBy="user", cascade={"persist", "remove"})
      */
     private $taxiCompany;
 
     /**
-     * @ORM\OneToOne(targetEntity="TaxiManager", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="TaxiManager", mappedBy="user", cascade={"persist", "remove"})
      */
     private $taxiManager;
 
     /**
-     * @ORM\OneToOne(targetEntity="Driver", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="Driver", mappedBy="user", cascade={"persist", "remove"})
      */
     private $driver;
 
     /**
-     * @ORM\OneToOne(targetEntity="IndependentDriver", mappedBy="user")
+     * @ORM\OneToOne(targetEntity="IndependentDriver", mappedBy="user", cascade={"persist", "remove"})
      */
     private $independentDriver;
 
@@ -98,7 +98,6 @@ class User extends BaseUser
         parent::__construct();
         
 //        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     public function setFirstname($firstname)
@@ -178,36 +177,36 @@ class User extends BaseUser
     }
 
     /**
-     * Add userLanguage
+     * Remove Language
      *
-     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
+     * @param \DaVinci\TaxiBundle\Entity\Language $language
+     */
+    public function removeUserLanguage(\DaVinci\TaxiBundle\Entity\Language $language)
+    {
+        $this->language->removeElement($language);
+    }
+
+    /**
+     * Get Language
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Language 
+     */
+    public function getLanguage()
+    {
+        return $this->language;
+    }
+    
+    /**
+     * Set language
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Language  $currency
      * @return User
      */
-    public function addUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
+    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language  $language)
     {
-        $this->userLanguage[] = $userLanguage;
+        $this->language = $language;
 
         return $this;
-    }
-
-    /**
-     * Remove userLanguage
-     *
-     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
-     */
-    public function removeUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
-    {
-        $this->userLanguage->removeElement($userLanguage);
-    }
-
-    /**
-     * Get userLanguage
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUserLanguage()
-    {
-        return $this->userLanguage;
     }
 
 

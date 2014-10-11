@@ -28,13 +28,29 @@ class IndependentDriver
      * @ORM\Column(type="integer", nullable=true)
      */
     private $experience;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Address", cascade={"persist", "remove"})
+     */
+    private $address;
 
+    
     /**
      * @ORM\OneToOne(targetEntity="User", inversedBy="independentDriver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
+    
+	 /**
+	 * 
+	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
+	 * @ORM\JoinTable(name="DriverPhone",
+	 *      joinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)}
+	 *      )
+	 */
+    private $phones;
+    
     /**
      * Get id
      *
@@ -45,6 +61,29 @@ class IndependentDriver
         return $this->id;
     }
 
+    /**
+     * Get id
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set name
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $name
+     * @return IndependentDriver
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+    
     /**
      * Set about
      *
@@ -112,5 +151,45 @@ class IndependentDriver
     public function getUser()
     {
         return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->phones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add phones
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Phone $phones
+     * @return IndependentDriver
+     */
+    public function addPhone(\DaVinci\TaxiBundle\Entity\Phone $phones)
+    {
+        $this->phones[] = $phones;
+
+        return $this;
+    }
+
+    /**
+     * Remove phones
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Phone $phones
+     */
+    public function removePhone(\DaVinci\TaxiBundle\Entity\Phone $phones)
+    {
+        $this->phones->removeElement($phones);
+    }
+
+    /**
+     * Get phones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhones()
+    {
+        return $this->phones;
     }
 }
