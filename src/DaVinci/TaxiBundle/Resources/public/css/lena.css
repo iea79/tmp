@@ -220,14 +220,46 @@ footer {
 /* 	float: right;
 	right: 0px;*/
 }
-.addphoniklast .questiontooltip {display: none;}
+.addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
+.utooltip {
+ 	position: relative;
+ 	float: left;
+ 	text-align: left;
+	margin-left: 1px;
+
+    background: url("../images/tooltip.png") no-repeat scroll 0 0 transparent;
+	display: block;
+	width: 13px;
+	height:14px;
+ 	text-align: center;
+/*
+ 	border-radius: 50%;
+ 	background: #528ed3 ;*/
+ 	color: #fff;
+	padding-top: 0px;
+	font-size: 10px;
+ 	vertical-align: middle;
+	line-height: 130%;
+	padding-right: 1px;
+	margin-lefT: 4px;
+	position: relative;
+	top: 7px;
+	z-index: 0;
+ }
+ .uk-tooltip {
+	background		: #ffffff; 
+	border			: 1px solid #cccccc; 
+	color			: #6c6c6c;
+	border-radius: 3px;
+}
+.uk-tooltip-left:after {  border-left-color: #fff;}
  .questiontooltip {
  	position: relative;
  	float: left;
  	text-align: left;
 	margin-left: 1px;
  }
- .title .questiontooltip {
+ .title .utooltip, .title .questiontooltip {
 /*	position: absolute;*/
 	position: reltive;
  	display: inline-block;
@@ -366,7 +398,7 @@ footer {
 	right: -10px;
 }
 */
- .wicheck .questiontooltip { 	margin-top: -3px;}
+ .wicheck  .utooltip, .wicheck .questiontooltip { 	margin-top: -3px;}
  .whicheck-1 {
 	min-width: 66px;
 	width: 28%;
@@ -377,7 +409,7 @@ footer {
 	min-width: 106px;
 }
  .register .wicheck  label {display: inline-block;}
- .addphone .questiontooltip {
+ .addphone .utooltip, .addphone .questiontooltip {
  	width: 14%;
  	opacity: 0.6
  }

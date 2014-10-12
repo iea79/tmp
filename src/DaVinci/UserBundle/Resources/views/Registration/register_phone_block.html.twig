@@ -18,12 +18,7 @@
                 <input hidden id="has_internet_input">
             {% endif %}
         </div>
-        <div class="questiontooltip">
-            <a class="tooltip" href="#">
-                <span class="que">?</span>
-                <span class="tooltip">{{ 'Mobile internet'|trans }}</span>
-            </a>
-        </div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mobile internet'|trans }}" data-cached-title="{{ 'Mobile internet'|trans }}"></div>
     </div>
     <div class="wicheck whicheck-2">
         <div class="float_left">
@@ -33,9 +28,7 @@
                 <input hidden id="has_whatsapp_input">
             {% endif %}
         </div>
-        <div class="questiontooltip">
-            <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Mobile messaging app'|trans }}</span></a>
-        </div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mobile messaging app'|trans }}" data-cached-title="{{ 'Mobile messaging app'|trans }}"></div>
     </div>
     {% if phones is defined %}  
         {{ form_errors(phones.phone) }}

@@ -18,14 +18,7 @@
     {% block title %}
         <div class="wrapper-content title">
             <span>{{ 'Taxi Company: Business Office'|trans}}</span>
-            <div class="questiontooltip">
-                <a class="tooltip" href="#">
-                    <span class="que">?</span>
-                    <span class="tooltip">
-                        {% trans %}Make more money from international passengers{% endtrans %}
-                    </span>
-                </a>
-            </div>
+            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Make more money from international passengers{% endtrans %}" data-cached-title="{% trans %}Make more money from international passengers{% endtrans %}"></div>
         </div>
     {% endblock%}
 
@@ -47,12 +40,7 @@
                                 <div class="uk-form-controls">
                                     {{ form_widget(form.name, {'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''} }) }}
-                                    <div class="questiontooltip">
-                                        <a class="tooltip" href="#">
-                                            <span class="que">?</span>
-                                            <span class="tooltip">{% trans %}Enter Name of organization{% endtrans %}</span>
-                                        </a>
-                                    </div>
+                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}"></div>
                                 </div>
                                 {{ form_errors(form.name) }}
                             </label>
@@ -61,12 +49,7 @@
                                     {{ form_widget(form.cars_amount,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
-                                    <div class="questiontooltip float_left">
-                                        <a class="tooltip" href="#">
-                                            <span class="que">?</span>
-                                            <span class="tooltip">{% trans %}Taxi Company starts from 5+ cars{% endtrans %}</span>
-                                        </a>
-                                    </div>
+                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}" data-cached-title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}"></div>
                                 </div>
                                 {{ form_errors(form.cars_amount) }}
                             </label>
@@ -77,6 +60,7 @@
                                     {{ form_widget(form.address.country,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
+                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Region/State, City{% endtrans %}" data-cached-title="{% trans %}Region/State, City{% endtrans %}"></div>
                                 </div>
                                 {{ form_errors(form.address.country) }}
                             </label>
@@ -102,13 +86,7 @@
                                     {{ form_widget(form.skype,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'6'}}) }}
-                                    <div class="questiontooltip">
-                                        <a class="tooltip" href="#">
-                                            <span class="que">?</span>
-                                            <span class="tooltip">{% trans %}Write legitimate skype name{% endtrans %}</span>
-                                        </a>
-                                    </div>
-
+                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Write legitimate skype name{% endtrans %}" data-cached-title="{% trans %}Write legitimate skype name{% endtrans %}"></div>
                                 </div>
                                 {{ form_errors(form.skype) }}
                             </label>
