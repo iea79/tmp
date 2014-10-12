@@ -102,8 +102,7 @@ if ($(".register").length) {
 
         // Get the data-prototype
         var lang_proto = $($('#language_prototype').val().replace(/__name__/g, num));
-        lang_proto.attr('tabindex', num + +lang_proto.attr('tabindex'));
-        
+        lang_proto.uk("form-select");
         $('.addotherlanguage').before(lang_proto);
         return false;
     });
