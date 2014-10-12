@@ -17,7 +17,7 @@ class RegistrationIndependentDriverFormType extends BaseType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         switch ($options['flow_step']) {
             case 1:
-                $builder
+                $builder       
                         ->add('language', new LanguageType(),array('property_path'=>'user.language',
                             'data_class' => 'DaVinci\TaxiBundle\Entity\Language'))
                         ->add('address', new AddressType(false))

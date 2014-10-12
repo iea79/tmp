@@ -34,53 +34,38 @@
 
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
                             <div class="uk-form-controls">
-                                <div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
-                                    <span></span>
-                                    <i class="uk-icon-caret-down"></i>
-
                                     {{ form_widget(form.address.country,
-        {'attr':{'class': 'country_selector',
+        {'attr':{'class': 'uk-width-1-1 float_left country_selector',
                  'tabindex':'1'}}) }}
-                                </div>
                             </div>
                             {{ form_errors(form.address.country) }}
                         </label>
                         <label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                             <div class="uk-form-controls">
-                                <div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
-                                    <span></span>
-                                    <i class="uk-icon-caret-down"></i>
-
-                                    {{ form_widget(form.address.city,
-        {'attr':{'class': 'city_selector',
+                                {{ form_widget(form.address.city,
+        {'attr':{'class': 'uk-width-1-1 float_left city_selector',
                  'tabindex':'2'}}) }}
-                                </div>
                             </div>
                             {{ form_errors(form.address.city) }}
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
                             <div class="uk-form-controls">
-                                <div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
-                                    <span></span>
-                                    <i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.language.level,
-                                {'attr':{'tabindex':'3'}}) }}
-                                </div>
+                                {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'3'}}) }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
                             </div>
+                            {{ form_errors(form.language.level) }}
                         </label>
-                        <input hidden id="language_prototype" value = "<div class='uk-form-select select uk-width-1-1 float_left addlang'><span></span>
-                               <i class='uk-icon-caret-down'></i>{{ form_widget(form.language.languages.vars.prototype)|e }}</div>">
+                        <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
+                                {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}">
                         <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
                             <div class="uk-form-controls">
                                 {% for lang in form.language.languages %}
-                                    <div class="uk-form-select select uk-width-1-1 float_left addlang">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
+                                        {{ form_widget(lang,
+                                            {'attr':{'class': 'uk-width-1-1 float_left'}}) }}
                                         {{ form_errors(lang) }}
-                                        {{ form_widget(lang) }}
-                                    </div>
                                 {% endfor %}
+                                {% do form.language.setRendered() %}
                                 <div class="addotherlanguage uk-width-1-1 float_left">{{ 'Add language'|trans}}</div>
 
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mark additional language'|trans}}" data-cached-title="{{ 'Mark additional language'|trans}}"></div>
@@ -88,11 +73,7 @@
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
                             <div class="uk-form-controls">
-                                <div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
-                                    <span></span>
-                                    <i class="uk-icon-caret-down"></i>
-                                    {{ form_widget(form.experience, {'attr':{'tabindex':'5'}}) }}
-                                </div>
+                                    {{ form_widget(form.experience, {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'5'}}) }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
                             </div>
                         </label>
@@ -132,7 +113,7 @@
                         </label>
 
                         <div class="uk-button-group uk-width-4-5">
-                            <button class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
+                            <button type='submit' class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
                         </div>
                     {% elseif flow.getCurrentStepNumber() == 2 %}
 
@@ -189,7 +170,7 @@
                             </div>
                         </label>
                         <div class="uk-button-group uk-width-4-8">
-                            <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans}}</button>
+                            <button type='submit' class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans}}</button>
                             <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">< {{ 'Edit'|trans}}</button>
                             <div class="clear"></div>
                         </div>

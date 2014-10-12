@@ -121,13 +121,13 @@ class Language
      */
     public function removeLanguage($language)
     {
-        $this->languages->removeElement($language);
+        $arr = array_diff($this->languages, array($language));
     }
 
     /**
      * Get languages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return array
      */
     public function getLanguages()
     {

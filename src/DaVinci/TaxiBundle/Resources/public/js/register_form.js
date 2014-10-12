@@ -98,11 +98,10 @@ if ($(".register").length) {
     });
 
     $('.addotherlanguage').click(function () {
-        var num = $('.addlang').length;
+        var num = $('.addlangline select').length;
 
         // Get the data-prototype
         var lang_proto = $($('#language_prototype').val().replace(/__name__/g, num));
-        lang_proto.uk("form-select");
         $('.addotherlanguage').before(lang_proto);
         return false;
     });
