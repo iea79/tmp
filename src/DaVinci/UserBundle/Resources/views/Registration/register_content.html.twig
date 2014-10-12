@@ -10,9 +10,7 @@
                         <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="" data-cached-title=""></div>
-                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real First Name (George, Barbara etc.)'|trans }}</span></a>
-                            </div>
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}" data-cached-title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}"></div>
                         </div>
                         {{ form_errors(form.firstname) }}
 
@@ -22,9 +20,7 @@
                         <div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="" data-cached-title=""></div>
-                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}</span></a>
-                            </div>
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}" data-cached-title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}"></div>
                         </div>
                         {{ form_errors(form.lastname) }}
 
@@ -34,9 +30,7 @@
                         <div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="" data-cached-title=""></div>
-                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'You will get confirmation letter to complete registration.'|trans }}</span></a>
-                            </div>
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'You will get confirmation letter to complete registration.'|trans }}" data-cached-title="{{ 'You will get confirmation letter to complete registration.'|trans }}"></div>
                         </div>
                         {{ form_errors(form.email) }}
 
@@ -50,10 +44,7 @@
                                  'tabindex':'4'
                             }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="" data-cached-title=""></div>
-                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}</span></a>
-
-                            </div>
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}" data-cached-title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}"></div>
                         </div>
                         {{ form_errors(form.plainPassword.first) }}
 
@@ -66,10 +57,7 @@
                                  'tabindex':'5'
                             }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="" data-cached-title=""></div>
-                                <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{ 'Should match combination above.'|trans }}</span></a>
-
-                            </div>
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Should match combination above.'|trans }}" data-cached-title="{{ 'Should match combination above.'|trans }}"></div>
                         </div>
                         {{ form_errors(form.plainPassword.second) }}
 

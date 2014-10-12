@@ -253,6 +253,7 @@ footer {
 	border-radius: 3px;
 }
 .uk-tooltip-left:after {  border-left-color: #fff;}
+.title .uk-tooltip-left:after {  border-left-color: #ccc;}
  .questiontooltip {
  	position: relative;
  	float: left;
@@ -268,7 +269,7 @@ footer {
  	float: none;
  	text-transform: none;
 	margin-left: 5px;
-	top: -17px;
+	top: -2px;
  }
  :-moz-any(x), .title .questiontooltip  {top: -6px;}
  .title .questiontooltip a span.que{	top: 12px;}
@@ -350,6 +351,8 @@ footer {
 .wrapper-content .register .uk-button.backbutt:hover, .wrapper-content .register .uk-button.backbutt:focus {  background-color: rgba(140, 142, 150, 0.68);}
 .wrapper-content .register .uk-button:active, .wrapper-content .register .uk-button.uk-active {  background-color: rgba(39, 191, 46, 0.4);}
 .wrapper-content .register .uk-button.backbutt:active, .wrapper-content .register .uk-button.backbutt.uk-active {  background-color: rgba(140, 142, 150, 0.4);}
+.register .uk-form-select.addlang  {margin-bottom: 14px;}
+
 .addlang {
     background: none repeat scroll 0 0 #e8e8e8;
     border: 1px solid #d3d3d3;

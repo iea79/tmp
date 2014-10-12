@@ -20,7 +20,6 @@
             <span>{{ 'Taxi Company: Business Office'|trans}}</span>
             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Make more money from international passengers{% endtrans %}" data-cached-title="{% trans %}Make more money from international passengers{% endtrans %}"></div>
         </div>
-    </div>
 {% endblock%}
 
 {% block body %}
@@ -51,8 +50,7 @@
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}" data-cached-title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}"></div>
-                                </div>
-                            </div>
+								</div>
                             {{ form_errors(form.cars_amount) }}
                         </label>
 
