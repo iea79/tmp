@@ -50,6 +50,13 @@ class Language
      */
     private $languages;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->languages = array();
+    }
 
     /**
      * Get id
@@ -127,6 +134,7 @@ class Language
         return $this->languages;
     }
     
+    
     /**
      * Get languages
      *
@@ -134,6 +142,7 @@ class Language
      */
     public function getLanguagesNamed()
     {
+
         return array_map(array(Intl::getLanguageBundle(),"getLanguageName"),$this->languages);
     }
 }
