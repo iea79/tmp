@@ -7,6 +7,6 @@ class PhoneEmailProvider extends UserProvider
 {
     protected function findUser($username)
     {
-        return $this->userManager->findUserByPhoneOrEmail($username, $username);
+        return $this->userManager->findUserByPhoneOrEmail($username);
     }
 }

@@ -1645,6 +1645,7 @@ office passengers and driver
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
+	border-collapse: separate;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
@@ -1672,15 +1673,13 @@ office passengers and driver
 	text-decoration: none;
 }
 .client-account .uk-table tr {
-    border-top: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align: center;
     line-height: 20px;
     vertical-align: top;
-    border-left: #d0d0d0 1px solid;
-    border-right: #d0d0d0 1px solid;
-    border-bottom: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-badge {
 	border-radius:3px;
@@ -1765,12 +1764,14 @@ office passengers and driver
 	line-height:28px;
 	margin-bottom: 5px;
 }
-.client-account select.chosen {
+.client-account .chosen {
 	padding:2px;
 	min-width: 150px;
 	width: 51.4%;
 	border: 1px #8e9099 solid;
 	color:#8e9099;
+	line-height: 24px;
+	text-align: left;
 }
 .client-account .message input[type="number"] {
 	width: 50px;
@@ -2558,22 +2559,19 @@ footer {
     font-weight:normal;
 }
 .popup-head.inbox {
-	margin-left: 1px;
-	margin-bottom: 5px;
-	margin-top: -1px !important;
-	padding-left: 37%;
+	border-radius: 3px;
 	font-size: 16px !important;
 	font-weight: bold;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	text-align: center;
-	width: 99%;
-	display: inline-flex;
-	line-height: 20px !important;
 	height: 30px;
+	line-height: 20px !important;
+	margin-top: -1px !important;
+	margin-bottom: 5px;
+	margin-left: 1px;
+	width: 99%;
 }
 .popup-head.inbox span {
-	float:left;
+	display: inline-flex;
+    margin: 0 auto;
 }
 .profile.form-view .popup-head.inbox,
 .profile.form-change .popup-head.inbox {
@@ -2582,8 +2580,8 @@ footer {
 	background-repeat: no-repeat;
 	background-position: right 2% center;
 }
-.profile.form-view .popup-head.inbox:focus,
-.profile.form-change .popup-head.inbox:focus {
+.profile.form-view .popup-head.inbox:hover,
+.profile.form-change .popup-head.inbox:hover {
 	background-image: url(../images/button-arrow-down.svg);
 }
 .profile .popup-head.inbox .questiontooltip {
@@ -2597,40 +2595,6 @@ footer {
 }
 .pop-up ul.uk-nav-sub {
     padding: 0;
-}
-.pop-up .block-foto-rate {
-	width: 25%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-foto-rate {
-		width: 100%;
-	}
-}
-.pop-up .block-foto {
-	width: 100%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-foto {
-		width: 25%;
-	}
-}
-@media (max-width: 570px) {
-	.pop-up .block-foto {
-		width: 35%;
-	}
-}
-.pop-up .block-rate {
-	width: 100%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-rate {
-		width: 71%;
-	}
-}
-@media (max-width: 570px) {
-	.pop-up .block-rate {
-		width: 59%;
-	}
 }
 .pop-up .form-view .myid dt,
 .pop-up .form-view .myid dd,
@@ -2724,6 +2688,28 @@ footer {
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
     line-height: 22px;
+}
+.pop-up .other .uk-panel {
+	width: 33.33%;
+	float: left;
+}
+.pop-up .other .uk-panel i {
+    float: left;
+}
+.pop-up .other .uk-panel .mp-icon-person {
+    line-height: 29px;
+	font-size: 18px;
+	margin: 0 3%;
+}
+.pop-up .other .uk-panel .mp-icon-bug {
+    line-height: 29px;
+	font-size: 15px;
+	margin: 0 4% 0 21%;
+}
+.pop-up .other .uk-panel .mp-icon-door {
+	line-height: 29px;
+	font-size: 15px;
+	margin: 0 2% 0 35%;
 }
 .pop-up .about-car .other i {
 	font-size: 17px;
@@ -2886,11 +2872,6 @@ div.pop-up.uk-grid.uk-grid-small {
 	width:100%;
 	padding:3px 5px 3px 3px;
 }
-.pop-up .profile select.region {
-	width:28%;
-	display:inline;
-	margin-right:3%;
-}
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
 }
@@ -2898,7 +2879,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .select {
     line-height:30px;
 	padding:0 8px;
-	border: 1px solid #d5d3dc;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -2909,34 +2890,40 @@ div.pop-up.uk-grid.uk-grid-small {
 	right:5px;
 	top:25%;
 }
-.pop-up .profile input.fone {
-	width:67%;
-	float:right;
+.pop-up .select {
+    line-height:26px;
+	width: 100%;
+	float: left;
+	text-align: left;
+	font-size: 16px;
 }
-.pop-up .profile select.day {
+.pop-up .profile .fone {
+	width:69%;
+}
+.pop-up .profile .region {
+	width:28%;
+	margin-right:3%;
+}
+.pop-up .profile .day {
 	width: 14.5%;
-	display: inline;
-	margin-right: 3%;
+	margin-right: 5%;
 }
-.pop-up .profile select.classauto {
-	width: 55%;
-	display: inline;
+.pop-up .profile .classauto {
+	width: 46%;
 }
-.pop-up .profile select.month {
-	width: 53%;
-	display: inline;
-	margin-right: 3%;
+.pop-up .profile .month {
+	width: 52%;
+	margin-right: 5%;
 }
-.pop-up .profile select.year {
+.pop-up .profile .year {
 	width: 23.5%;
-	display: inline;
 }
 .pop-up .profile dt {
-	width: 31.1%;
+	width: 31%;
 	line-height: 30px;
 }
 .pop-up .profile dd {
-	width: 66.5%;
+	width: 67%;
 }
 @media (max-width: 550px) {
 	.pop-up .profile dt {
@@ -2959,10 +2946,11 @@ div.pop-up.uk-grid.uk-grid-small {
 	margin: 0;
 }
 .pop-up .profile .button-add-lang {
-	line-height: 18px;
+	line-height: 20px;
 	font-size: 16px;
 	text-align: left;
 	float: left;
+	width: 100%;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
@@ -3032,6 +3020,47 @@ i.quest {
     font-size: 12px;
 }
 /*=========================Client foto====================*/
+.pop-up .block-foto-rate {
+	width: 25%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto-rate {
+		width: 100%;
+	}
+}
+.pop-up .block-foto {
+	width: 95%;
+	margin-bottom: 14px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto {
+		width: 25%;
+		margin-bottom: 5px;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-foto {
+		width: 80%;
+		margin-bottom: 5px;
+	}
+}
+.pop-up .block-rate {
+	width: 97%;
+	margin-left: -2px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-rate {
+		width: 70%;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-rate {
+		width: 96%;
+	}
+}
+.form-view .pop-up .block-foto {
+	margin-bottom: 2px;
+}
 .pop-up .clientreviews {
 	border: 5px #ebebeb solid;
 	border-radius: 4px;
@@ -3042,8 +3071,6 @@ i.quest {
 }
 .pop-up .clientreviews .photo {
 	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
-	width: 160px;
-	height: 180px;
 	border-bottom: 4px #ebebeb solid;
 }
 .pop-up .button-add {
@@ -3079,7 +3106,18 @@ i.quest {
 }
 .pop-up .rate-review {
 	font-size:12px;
+	width: 100%;
+	max-height:330px;
+	overflow-y: auto;
+	margin-bottom: 7px;
 }
+@media (max-width: 710px) {
+	.pop-up .rate-review {
+		width: 100%;
+		max-height:256px;
+	}
+}
+
 .pop-up .rate-review i {
 	font-size: 18px;
 	letter-spacing: 0px;
@@ -3101,11 +3139,10 @@ i.quest {
 	line-height: 14px;
 	margin-top: 2px;
 	margin-bottom: 0px;
-	margin-left: -2px;
+	margin-left: 0px;
 }
 .pop-up  .rate-review .uk-grid-small .button-add {
-	margin-top: 14px;
-	width: 96%;
+	margin-top: 11px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }
@@ -3327,7 +3364,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   border: 1px solid #aaa;
   border-top: 0;
   position: absolute;
-  top: 29px;
+  top: 26px;
   left: 0;
   z-index: 1010;
 }
@@ -3348,8 +3385,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 29px;
-  line-height: 29px;
+  height: 26px;
+  line-height: 26px;
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
@@ -3398,6 +3435,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   display: block;
   width: 100%;
   height: 100%;
+  padding-left: 4px;
 }
 .chzn-container-single .chzn-search {
   position: relative;

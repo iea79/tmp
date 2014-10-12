@@ -2,39 +2,40 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
 
-    {% form_theme form _self %}
-    {% block form_errors  %}
-        {% spaceless %}
-            {% if errors|length > 0 %}
-                <ul class="errors">
-                    {% for error in errors %}
-                        <li>{{ error.message }}</li>
-                        {% endfor %}
-                </ul>
-            {% endif %}
-        {% endspaceless %}
-    {% endblock form_errors %}
+{% form_theme form _self %}
+{% block form_errors  %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul class="errors">
+                {% for error in errors %}
+                    <li>{{ error.message }}</li>
+                    {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
 
     {% block title %}
         <div class="wrapper-content title">
             <span>{{ 'Taxi Company: Business Office'|trans}}</span>
             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Make more money from international passengers{% endtrans %}" data-cached-title="{% trans %}Make more money from international passengers{% endtrans %}"></div>
         </div>
-    {% endblock%}
+    </div>
+{% endblock%}
 
-    {% block body %}
+{% block body %}
 
-        <div class="wrapper-content"><div class="content register">
-                <form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
-                    <fieldset>
-                        {% if flow.getCurrentStepNumber() == 1 %}
-                            {{ form_errors(form) }}
+    <div class="wrapper-content"><div class="content register">
+            <form action="{{ path('register_company') }}" {{ form_enctype(form) }} method="POST" class="uk-form uk-form-horizontal">
+                <fieldset>
+                    {% if flow.getCurrentStepNumber() == 1 %}
+                        {{ form_errors(form) }}
 
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    <div class="uk-form-label pinktext uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
-                                </div>
-                            </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="uk-form-label pinktext uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
+                            </div>
+                        </label>
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
                                 <div class="uk-form-controls">
@@ -51,134 +52,136 @@
                                  'tabindex':'2'}}) }}
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}" data-cached-title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}"></div>
                                 </div>
-                                {{ form_errors(form.cars_amount) }}
-                            </label>
-
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
-                                <div class="uk-form-controls">
-
-                                    {{ form_widget(form.address.country,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'3'}}) }}
-                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Region/State, City{% endtrans %}" data-cached-title="{% trans %}Region/State, City{% endtrans %}"></div>
-                                </div>
-                                {{ form_errors(form.address.country) }}
-                            </label>
-                            <label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    {{ form_widget(form.address.city,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'4'}}) }}
-                                </div>
-                                {{ form_errors(form.address.city) }}
-                            </label>
-                            <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    {{ form_widget(form.address.street,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'5'}}) }}
-                                </div>
-                                {{ form_errors(form.address.street) }}
-                            </label>
-
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
-                                <div class="uk-form-controls">
-                                    {{ form_widget(form.skype,
-						{'attr':{'class': 'uk-width-1-1 float_left',
-                                 'tabindex':'6'}}) }}
-                                    <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Write legitimate skype name{% endtrans %}" data-cached-title="{% trans %}Write legitimate skype name{% endtrans %}"></div>
-                                </div>
-                                {{ form_errors(form.skype) }}
-                            </label>
-
-                            <label class="addphoneline uk-form-row">
-                                <div class="twolabels uk-width-2-5">
-                                    <span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
-                                    <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
-                                </div>
-
-
-                                <div class="uk-form-controls addphoneareas">
-                                        {% for phones in form.phones %}  
-                                            {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
-                                        {% endfor %}      
-                                    <div class="uk-form-controls addphone" id="addphone">
-                                        {{'Add mobile number'|trans }}
-                                    </div>
-                                </div>   
-                                <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
-						{'attr':{'class': 'uk-width-1-1 float_left phoneinput',
-                                 'tabindex':'7'}})|e }}">
-                                <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
-						{'attr':{'tabindex':'8'}})|e }}">
-                                <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
-						{'attr':{'tabindex':'9'}})|e }}">
-                                <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
-
-
-                            </label>
-                            <div class="uk-button-group uk-width-4-5">
-                                <button class="uk-button submit nextbutt uk-width-4-5">{{'Create Office'|trans }}</button>
                             </div>
-                        {% elseif flow.getCurrentStepNumber() == 2 %}
+                            {{ form_errors(form.cars_amount) }}
+                        </label>
 
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
-                                <div class="uk-form-controls">
-                                    <div class="label-info  uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
-                                </div>
-                            </label>
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.name }}</div>
-                                                    </div>
-                                                </label>
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left"> ~ {{ flow.formData.carsAmount }}</div>
-                                                    </div>
-                                                </label>
-                    
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.country.country }}</div>
-                                                    </div>
-                                                </label>
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
-                                                    </div>
-                                                </label>
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
-                                                    </div>
-                                                </label>
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
-                                                    </div>
-                                                </label>
-                    
-                                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
-                                                    <div class="uk-form-controls">
-                                                        <div class="label-info uk-width-1-1  float_left"> 
-                                                            {% for phones in flow.formData.phones %} 
-                                                                {{ phones.phone }} 
-                                                            {% endfor %}
-                                                        </div>
-                                                    </div>
-                                                </label>
-                                                <div class="uk-button-group uk-width-4-8">
-                                <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans }}</button>
-                                <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">< {{ 'Edit'|trans }}</button>
-                                <div class="clear"></div>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                            <div class="uk-form-controls">
+
+                                {{ form_widget(form.address.country,
+                {'attr':{'class': 'uk-width-1-1 float_left country_selector',
+                         'tabindex':'3'}}) }}
                             </div>
-                        {% endif %}
-                    </fieldset>
+                            {{ form_errors(form.address.country) }}
+                        </label>
+                        <label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                {{ form_widget(form.address.city,
+                {'attr':{'class': 'uk-width-1-1 float_left city_selector',
+                         'tabindex':'4'}}) }}
+                            </div>
+                            {{ form_errors(form.address.city) }}
+                        </label>
+                        <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                {{ form_widget(form.address.street,
+                {'attr':{'class': 'uk-width-1-1 float_left',
+                         'tabindex':'5'}}) }}
+                            </div>
+                            {{ form_errors(form.address.street) }}
+                        </label>
+
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                {{ form_widget(form.skype,
+                {'attr':{'class': 'uk-width-1-1 float_left',
+                         'tabindex':'6'}}) }}
+                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Write legitimate skype name{% endtrans %}" data-cached-title="{% trans %}Write legitimate skype name{% endtrans %}"></div>
+
+                            </div>
+                            {{ form_errors(form.skype) }}
+                        </label>
+
+                        <label class="addphoneline uk-form-row">
+                            <div class="twolabels uk-width-2-5">
+                                <span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
+                                <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
+                            </div>
+
+
+                            <div class="uk-form-controls addphoneareas">
+                                {% for phones in form.phones %}  
+                                    {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
+                                {% endfor %}      
+                                <div class="uk-form-controls addphone" id="addphone">
+                                    {{'Add mobile number'|trans }}
+                                </div>
+                            </div>   
+                            <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
+                {'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+                         'tabindex':'7'}})|e }}">
+                            <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
+                {'attr':{'tabindex':'8'}})|e }}">
+                            <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
+                {'attr':{'tabindex':'9'}})|e }}">
+                            <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
+
+
+                        </label>
+                        <div class="uk-button-group uk-width-4-5">
+                            <button class="uk-button submit nextbutt uk-width-4-5">{{'Create Office'|trans }}</button>
+                        </div>
+                    {% elseif flow.getCurrentStepNumber() == 2 %}
+
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Taxi company owner:'|trans }}</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info  uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
+                            </div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left">{{ flow.formData.name }}</div>
+                            </div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left"> ~ {{ flow.formData.carsAmount }}</div>
+                            </div>
+                        </label>
+
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.country.country }}</div>
+                            </div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.city }}</div>
+                            </div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.street }}</div>
+                            </div>
+                        </label>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left">{{ flow.formData.skype }}</div>
+                            </div>
+                        </label>
+
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
+                            <div class="uk-form-controls">
+                                <div class="label-info uk-width-1-1  float_left"> 
+                                    {% for phones in flow.formData.phones %} 
+                                        {{ phones.phone }} 
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </label>
+                        <div class="uk-button-group uk-width-4-8">
+                            <button class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans }}</button>
+                            <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">< {{ 'Edit'|trans }}</button>
+                            <div class="clear"></div>
+                        </div>
+                    {% endif %}
                     {{ form_rest(form) }}
-                </form>
+                </fieldset>
+            </form>
 
 
 
-            </div></div>            
-        {% endblock %}
+        </div>
+    </div>            
+{% endblock %}

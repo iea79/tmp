@@ -11,7 +11,7 @@ company:
     phones:
         phone:
             blank: Please enter your phone number
-            
+     
 address: 
     country:
         blank: Please choose your country
