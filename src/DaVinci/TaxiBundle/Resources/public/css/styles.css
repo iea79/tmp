@@ -1718,6 +1718,10 @@ office passengers and driver
 	line-height: 28px;
 	display: inline-block;
 }
+.message-graybg .vehicle {
+	line-height:20px;
+	margin-right:9px;
+}
 @media (max-width: 530px) {
 	.message-graybg .number-passenger label,
 	.message-graybg label.vehicle {
@@ -2179,10 +2183,6 @@ table th .questiontooltip a span.que {
 		 font-weight: bold;
 		 line-height: 16px;
 		 margin-bottom: 8px;;;
-    }
-    .vehicle {
-		 line-height:20px;
-		 margin-right:9px;
     }
     .vehicle span {
 		 color: #3c3d45;
