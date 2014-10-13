@@ -19,7 +19,7 @@ company:
 
 phones:
     phone:
-        blank: Phone number is required
+        blank: Mobile number is required
      
 address: 
     country:
