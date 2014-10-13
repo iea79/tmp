@@ -10,6 +10,12 @@ use Doctrine\ORM\EntityRepository;
 
 class AddressType extends AbstractType
 {
+    private $with_street;
+    public function __construct($with_street = true)
+    {
+        $this->with_street = $with_street;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $propertyPathToCity = 'city';
@@ -24,9 +30,9 @@ class AddressType extends AbstractType
                             'query_builder' => function(EntityRepository $er) {
                                 return $er->createQueryBuilder('c')->select('c')->where('c.status = 1' )->groupBy('c.countryCode')->orderBy('c.countryCode', 'ASC');
                             }))
-            ->addEventSubscriber(new AddCityFieldSubscriber($propertyPathToCity))
-            ->add('street', 'text')
-        ;
+            ->addEventSubscriber(new AddCityFieldSubscriber($propertyPathToCity));
+        if($this->with_street)
+            $builder->add('street', 'text');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

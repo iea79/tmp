@@ -220,14 +220,47 @@ footer {
 /* 	float: right;
 	right: 0px;*/
 }
-.addphoniklast .questiontooltip {display: none;}
+.addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
+.utooltip {
+ 	position: relative;
+ 	float: left;
+ 	text-align: left;
+	margin-left: 1px;
+
+    background: url("../images/tooltip.png") no-repeat scroll 0 0 transparent;
+	display: block;
+	width: 13px;
+	height:14px;
+ 	text-align: center;
+/*
+ 	border-radius: 50%;
+ 	background: #528ed3 ;*/
+ 	color: #fff;
+	padding-top: 0px;
+	font-size: 10px;
+ 	vertical-align: middle;
+	line-height: 130%;
+	padding-right: 1px;
+	margin-lefT: 4px;
+	position: relative;
+	top: 7px;
+	z-index: 0;
+ }
+ .uk-tooltip {
+	background		: #ffffff; 
+	border			: 1px solid #cccccc; 
+	color			: #6c6c6c;
+	border-radius: 3px;
+}
+.uk-tooltip-left:after {  border-left-color: #fff;}
+.title .uk-tooltip-left:after {  border-left-color: #ccc;}
  .questiontooltip {
  	position: relative;
  	float: left;
  	text-align: left;
 	margin-left: 1px;
  }
- .title .questiontooltip {
+ .title .utooltip, .title .questiontooltip {
 /*	position: absolute;*/
 	position: reltive;
  	display: inline-block;
@@ -236,7 +269,7 @@ footer {
  	float: none;
  	text-transform: none;
 	margin-left: 5px;
-	top: -17px;
+	top: -2px;
  }
  :-moz-any(x), .title .questiontooltip  {top: -6px;}
  .title .questiontooltip a span.que{	top: 12px;}
@@ -318,6 +351,8 @@ footer {
 .wrapper-content .register .uk-button.backbutt:hover, .wrapper-content .register .uk-button.backbutt:focus {  background-color: rgba(140, 142, 150, 0.68);}
 .wrapper-content .register .uk-button:active, .wrapper-content .register .uk-button.uk-active {  background-color: rgba(39, 191, 46, 0.4);}
 .wrapper-content .register .uk-button.backbutt:active, .wrapper-content .register .uk-button.backbutt.uk-active {  background-color: rgba(140, 142, 150, 0.4);}
+.register .uk-form-select.addlang  {margin-bottom: 14px;}
+
 .addlang {
     background: none repeat scroll 0 0 #e8e8e8;
     border: 1px solid #d3d3d3;
@@ -366,7 +401,7 @@ footer {
 	right: -10px;
 }
 */
- .wicheck .questiontooltip { 	margin-top: -3px;}
+ .wicheck  .utooltip, .wicheck .questiontooltip { 	margin-top: -3px;}
  .whicheck-1 {
 	min-width: 66px;
 	width: 28%;
@@ -377,7 +412,7 @@ footer {
 	min-width: 106px;
 }
  .register .wicheck  label {display: inline-block;}
- .addphone .questiontooltip {
+ .addphone .utooltip, .addphone .questiontooltip {
  	width: 14%;
  	opacity: 0.6
  }

@@ -51,7 +51,6 @@ class TaxiCompany
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)}
 	 *      )
 	 */
-    
     private $phones;
     
     /**

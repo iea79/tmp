@@ -3,6 +3,11 @@ namespace DaVinci\TaxiBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
 /**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+
+/**
  * @ORM\Entity
  */
 class IndependentDriver
@@ -23,13 +28,29 @@ class IndependentDriver
      * @ORM\Column(type="integer", nullable=true)
      */
     private $experience;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Address", cascade={"persist", "remove"})
+     */
+    private $address;
 
+    
     /**
      * @ORM\OneToOne(targetEntity="User", inversedBy="independentDriver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
+    
+	 /**
+	 * 
+	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
+	 * @ORM\JoinTable(name="DriverPhone",
+	 *      joinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)}
+	 *      )
+	 */
+    private $phones;
+    
     /**
      * Get id
      *
@@ -40,6 +61,29 @@ class IndependentDriver
         return $this->id;
     }
 
+    /**
+     * Get id
+     *
+     * @return \DaVinci\TaxiBundle\Entity\Address 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set name
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $name
+     * @return IndependentDriver
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+    
     /**
      * Set about
      *
@@ -84,5 +128,28 @@ class IndependentDriver
     public function getExperience()
     {
         return $this->experience;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @return IndependentDriver
+     */
+    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \DaVinci\TaxiBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

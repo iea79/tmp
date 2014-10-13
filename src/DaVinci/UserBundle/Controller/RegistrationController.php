@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
+use DaVinci\TaxiBundle\Entity\IndependentDriver;
 
 class RegistrationController extends BaseController {
 
@@ -20,11 +21,11 @@ class RegistrationController extends BaseController {
     public function checkEmailAction() {
         //some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
-        
-        if(empty($email))
+
+        if (empty($email))
             throw new NotFoundHttpException(sprintf('There is empty check email, try register'));
 
-        
+
         $new_email = $email;
         $request = $this->container->get('request');
         $post_data = $request->request->all();
@@ -235,7 +236,59 @@ class RegistrationController extends BaseController {
      * @Security("has_role('ROLE_USER')")
      */
     public function register_independent_driverAction() {
-        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Registration:register_independent_driver.html.twig');
+        if ($this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            return new RedirectResponse($this->container->get('router')->generate('office_driver'));
+        }
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+
+        $formData = new IndependentDriver();
+
+        $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
+        $formData->addPhone(new \DaVinci\TaxiBundle\Entity\Phone()); 
+        if($user->getLanguage() == NULL){
+            $user->setLanguage(new \DaVinci\TaxiBundle\Entity\Language());
+        }
+        $formData->setUser($user);
+        
+        $flow = $this->container->get('taxi.registration.independent.driver.form.flow'); // must match the flow's service id
+
+        $flow->bind($formData);
+        $form = $flow->createForm();
+
+        $process = false;
+        $request = $this->container->get('request');
+        if ($request->isMethod('POST')) {
+            //$form->bind($request);
+            if ($flow->isValid($form)) {
+
+                $flow->saveCurrentStepData($form);
+
+                if ($flow->nextStep()) {
+                    // form for the next step
+                    $form = $flow->createForm();
+                } else {
+
+                    $user->addRole('ROLE_TAXIDRIVER');
+                    //$formData->setUser($user);
+                    $em = $this->container->get('doctrine')->getManager();
+                    $em->persist($formData);
+                    $em->flush();
+
+                    $flow->reset(); // remove step data from the session
+
+                    $url = $this->container->get('router')->generate('office_driver');
+
+                    return new RedirectResponse($url);
+                }
+            }
+        }
+
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_independent_driver.html.twig', array(
+                    'form' => $form->createView(),
+                    'user' => $user,
+                    'flow' => $flow,
+        ));
     }
 
     /**

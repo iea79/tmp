@@ -2,6 +2,12 @@
 namespace DaVinci\TaxiBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 
+
+/**
+ * @author Mykola Sedletskyi <icevita@gmail.com>
+ */
+
+
 /**
  * @ORM\Entity
  */
@@ -15,26 +21,15 @@ class Language
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $name;
+    private $level;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
+     * @ORM\Column(type="array")
      */
-    private $status;
+    private $languages;
 
-    /**
-     * @ORM\OneToMany(targetEntity="UserLanguage", mappedBy="language")
-     */
-    private $userLanguage;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->userLanguage = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -47,81 +42,27 @@ class Language
     }
 
     /**
-     * Set name
+     * Set level
      *
-     * @param string $name
-     * @return Language
+     * @param string $level
+     * @return UserLanguage
      */
-    public function setName($name)
+    public function setLevel($level)
     {
-        $this->name = $name;
+        $this->level = $level;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get level
      *
      * @return string 
      */
-    public function getName()
+    public function getLevel()
     {
-        return $this->name;
+        return $this->level;
     }
 
-    /**
-     * Set status
-     *
-     * @param integer $status
-     * @return Language
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
 
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return integer 
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Add userLanguage
-     *
-     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
-     * @return Language
-     */
-    public function addUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
-    {
-        $this->userLanguage[] = $userLanguage;
-
-        return $this;
-    }
-
-    /**
-     * Remove userLanguage
-     *
-     * @param \DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage
-     */
-    public function removeUserLanguage(\DaVinci\TaxiBundle\Entity\UserLanguage $userLanguage)
-    {
-        $this->userLanguage->removeElement($userLanguage);
-    }
-
-    /**
-     * Get userLanguage
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUserLanguage()
-    {
-        return $this->userLanguage;
-    }
 }

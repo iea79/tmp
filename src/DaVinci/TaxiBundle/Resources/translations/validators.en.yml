@@ -1,24 +1,33 @@
+independent:
+    experience:
+        blank: Please select how many years Drivers Licence
+
+language:
+    level:
+        blank: English level is required 
+        
 company:
     name:
         already_used: The company name is already used
-        blank: Please enter the company name
+        blank: Company Name is required
         long: The name is to long
     cars:
         blank: Please chose number of cars
         valid: Choose a valid cars amount.
     skype:
         long: Entered skype is too long
-    phones:
-        phone:
-            blank: Please enter your phone number
-            
+
+phones:
+    phone:
+        blank: Mobile number is required
+     
 address: 
     country:
-        blank: Please choose your country
+        blank: Country is required
     city:
-        blank: Please choose your city
+        blank: City is required
     street:
-        blank: Please enter your company address 
+        blank: Address is required
 
 fos_user:
     username:
