@@ -1852,6 +1852,7 @@ width: 12.6%;
 	min-width: 115px;
 	width: 90%;
 	color: #fff;
+	line-height: 36px;
 }
 .historyorder a.mp-icon-closed {
 	font-size: 19px;
@@ -2920,6 +2921,12 @@ div.pop-up.uk-grid.uk-grid-small {
 	width:100%;
 	padding:3px 5px 3px 9px;
 }
+.pop-up input[type="text"]:focus,
+.pop-up select:focus,
+.pop-up input[type="text"]:hover,
+.pop-up select:hover {
+	background-color: #f5f5f5;
+}
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
 }
@@ -3407,7 +3414,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 /* @group Base */
 .chzn-container {
   width: 100% !important;
-  font-size: 16px;
   position: relative;
   display: inline-block;
   zoom: 1;
@@ -3415,10 +3421,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 .chzn-container .chzn-drop {
   background: #fff;
-  border: 1px solid #aaa;
+  border: 1px solid #d5d3dc;
   border-top: 0;
   position: absolute;
-  top: 26px;
+  top: 32px;
   left: 0;
   z-index: 1010;
 }
@@ -3428,9 +3434,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .chzn-container-single .chzn-single {
   background-color: #ffffff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0 );   
-  -webkit-border-radius: 5px;
-  -moz-border-radius   : 5px;
-  border-radius        : 5px; 
+  -webkit-border-radius: 3px;
+  -moz-border-radius   : 3px;
+  border-radius        : 3px; 
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
@@ -3439,11 +3445,15 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 26px;
-  line-height: 26px;
+  height: 28px;
+  line-height: 28px;
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
+}
+.chzn-container-single .chzn-single:hover,
+.chzn-container-single .chzn-single:focus {
+	background-color: #f5f5f5;
 }
 .chzn-container-single a.chzn-single {
 	font-size: 16px;
