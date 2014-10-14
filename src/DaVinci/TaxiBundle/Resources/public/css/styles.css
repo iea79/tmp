@@ -1851,6 +1851,7 @@ width: 12.6%;
 	margin-top: 0px !important;
 	min-width: 115px;
 	width: 90%;
+	color: #fff;
 }
 .historyorder a.mp-icon-closed {
 	font-size: 19px;
@@ -1925,7 +1926,7 @@ width: 12.6%;
 	line-height: 39px;
 	position: absolute;
 	float: right;
-	min-width: 192px;
+	min-width: 190px;
 	width: 26%;
 	right: 20px;
 	display: block;
@@ -1936,7 +1937,7 @@ width: 12.6%;
 	.client-account .open-order-passenger .active-gray {
 		position: relative;
 		float: none;
-		margin: 0 auto -40px auto;
+		margin: 0 auto 0px auto;
 	}	
 }
 .client-account .open-order-passenger .driverlist {
@@ -1977,7 +1978,6 @@ table th .questiontooltip {
 }
 table th .questiontooltip a span.que {
 	background: #f5f5f5;
-	color: #528ed3;
 	top: 0;
 	border-radius: 0;
 	font-size: 11px;
@@ -1985,6 +1985,7 @@ table th .questiontooltip a span.que {
 	width: 10px;
 	line-height: 11px;
 	padding: 0;
+	color: #528ed3;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -2074,6 +2075,8 @@ table th .questiontooltip a span.que {
 }
 .open-order-passenger .route {
 	margin: 12px 0px 11px 0px;
+	display: block;
+	float: left;
 }
 .whitebg .uk-table td button:hover,
 .whitebg .uk-table td button:focus {
@@ -2570,7 +2573,7 @@ footer {
 	height:30px;
 }
 .pop-up input[type="checkbox"] {
-	height:20px;
+  height: 20px;
 }
 .pop-up textarea {
     min-height: 90px;
@@ -2592,11 +2595,6 @@ footer {
 	line-height: 35px;
 	height: 38px;
 }
-.popup-head:hover,
-.popup-head:focus {
-	background-color: #EBEBEB;
-	color:#3c3d45;
-}
 .popup-head.red,
 .popup-head.red i {
     color:#ff4d61;
@@ -2614,19 +2612,9 @@ footer {
 	width: 99%;
 }
 .popup-head.inbox span {
-	display: inline-flex;
-    margin: 0 auto;
-}
-.profile.form-view .popup-head.inbox,
-.profile.form-change .popup-head.inbox {
-	background-image: url(../images/button-arrow-left.svg);
-	background-size: 9px;
-	background-repeat: no-repeat;
-	background-position: right 2% center;
-}
-.profile.form-view .popup-head.inbox:hover,
-.profile.form-change .popup-head.inbox:hover {
-	background-image: url(../images/button-arrow-down.svg);
+  font-size: 13px;
+  margin-left: 5px;
+  color: #528ed3;
 }
 .profile .popup-head.inbox .questiontooltip {
 	margin: -4px 0px 0px 6px;
@@ -2646,7 +2634,7 @@ footer {
 .pop-up .profile .myid dd {
 	padding-left: 1px;
 	margin-top: -7px;
-	margin-bottom: -1px;
+	margin-bottom: -2px;
     font-size: 14px !important;
     line-height: 16px !important;
 }
@@ -2701,6 +2689,10 @@ footer {
 	margin-top: 5%;
 	width: 24%;
 }
+.pop-up .whicheck-1 {
+  min-width: 90px;
+  margin-right: 20%;
+}
 /* === pop-up form-view === */
 .profile.form-view {
     padding-left: 16px !important;
@@ -2714,8 +2706,8 @@ footer {
 }
 .pop-up .form-view .about-driver {
 	margin-top: 9px;
-	margin-bottom: 8px !important;
 	margin-left: 1px;
+	margin-bottom: 8px !important;
 }
 .pop-up .form-view .about-driver dd {
 	font-size:14px;
@@ -2805,17 +2797,28 @@ footer {
 }
 /* === pop-up form-change === */
 .pop-up .form-change .personal-info {
-	margin-bottom: 2px;
+	padding-bottom: 3px !important;
 }
 .pop-up .form-change .car-info {
 	margin-top: 7px;
+	margin-bottom: 0px !important;
+	display: inline-block;
+}
+.pop-up .form-change .car-info dl {
+	margin: 0 0 20px 0 !important;
 }
 .pop-up .form-change .insurance {
 	margin-top: 11px;
-	margin-bottom: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.pop-up .form-change .confirmation {
+	margin-top: 14px;
+	margin-bottom: 0px;
+	display: block;
 }
 .pop-up dl {
-    display:inline-block;
+  display: inline-block;
 }
 .pop-up dt, 
 .pop-up dd {
@@ -2915,7 +2918,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
-	padding:3px 5px 3px 3px;
+	padding:3px 5px 3px 9px;
 }
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
@@ -3081,6 +3084,7 @@ i.quest {
 	.pop-up .block-foto {
 		width: 25%;
 		margin-bottom: 5px;
+		min-width: 130px;
 	}
 }
 @media (max-width: 450px) {
@@ -3116,10 +3120,10 @@ i.quest {
 }
 .pop-up .clientreviews .photo {
 	border-bottom: 4px #ebebeb solid;
-	background: url('../../bundles/davincitaxi/images/phptpapparat.png') #fff no-repeat scroll center center;
+	background: url('../../bundles/davincitaxi/images/phptpapparat.png') #fff no-repeat scroll center center;;
 }
 .pop-up .passenger .clientreviews .photo {
- 	min-height: 180px;
+  min-height: 180px;
 }
 .pop-up .button-add {
 	width: 100%;

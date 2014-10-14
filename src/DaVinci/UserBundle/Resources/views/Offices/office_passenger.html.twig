@@ -1,13 +1,5 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-passenger' %}
-{% block title %}
-<div class="wrapper-content title">
-	<span>{{ 'Passenger: Office'|trans}}</span>
-	<div class="questiontooltip">
-		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Make more money from international passengers</span></a>
-	</div>
-</div>
-{% endblock%}
 
 {% block body %}
 {# =========== cabinet passenger ================= #}
@@ -1034,12 +1026,7 @@
 							</div>
 							<div class="profile">
 								<button  class="popup-head uk-button inbox">
-								<span>
-								<div>{{ 'Personal information'|trans }}</div>
-									<div class="questiontooltip">
-										<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-									</div>
-								</span>
+								{{ 'Personal information'|trans }}
 								</button>
 								<dl class="uk-width-1-1 uk-margin-bottom">
 										<div class="myid">
@@ -1101,7 +1088,7 @@
 										</dd><br />
 									<dt>{{ 'Country:'|trans }}</dt><dd>
 										<div class="uk-button uk-form-select select country" data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="country" class="">
 													<option></option>
@@ -1111,7 +1098,7 @@
 									</dd><br />
 									<dt>{{ 'City:'|trans }}</dt><dd>
 										<div class="uk-button uk-form-select select city" data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="city" class="">
 													<option></option>
@@ -1122,7 +1109,7 @@
 									</dd><br />
 									<dt>{{ 'Birthday:'|trans }}</dt><dd>
 										<div class="uk-button uk-form-select select day" data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="day" class="">
 													<option></option>
@@ -1136,7 +1123,7 @@
 												</select>
 										</div>
 										<div class="uk-button uk-form-select select month" data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="month" class="" required>
 													<option></option>
@@ -1155,7 +1142,7 @@
 												</select>
 										</div>
 										<div class="uk-button uk-form-select select year" data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="year" class="" required>
 													<option></option>
@@ -1183,7 +1170,7 @@
 										</dd><br />
 									<dt>{{ 'Gender:'|trans }}</dt><dd>
 										<div class="uk-button uk-form-select select " data-uk-form-select="">
-											<span>All</span>
+											<span></span>
 											<i class="uk-icon-caret-down"></i>
 												<select name="gender" required>
 													<option></option>
@@ -1343,75 +1330,71 @@
 								</div>
 							</div>
 							<div class="profile form-view">
-								<button  data-uk-toggle="{target:'#toggle5'}" class="popup-head uk-button uk-button-warning inbox">
-									<span>
-									<div>{{ 'About driver'|trans }}</div>
-										<div class="questiontooltip">
-											<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
-										</div>
-									</span>
-								</button>
-								<div class="uk-hidden" id="toggle5">
-									<dl class="uk-width-1-1 uk-margin-bottom about-driver">
-										<div class="myid">
-											<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
-										</div>
-										<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
-										<dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
-										<dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
-										<dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd><br />
-										<dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
-										<dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
-										<dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
-										<dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
-										<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
-										<dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage.'|trans }}</dd><br />
-									</dl>
-									</div>
-								<button  data-uk-toggle="{target:'#toggle6'}" class="popup-head uk-button uk-button-warning inbox">
-									<span>
-									<div>{{ 'About car'|trans }}</div>
-										<div class="questiontooltip">
-											<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
-										</div>
-									</span>
-								</button>
-								<div class="uk-hidden" id="toggle6">
-									<dl class="uk-width-1-1 uk-margin-bottom about-car">
-										<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
-										<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
-										<dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
-										<dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
-										<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
-										<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
-										<dt>{{ 'Other:'|trans }}</dt><dd>
-											<div class="other">
-												<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span>
-											</div>
-										</dd><br />
-										<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
-											more interesting view of statistics about your 
-											browser usage. The current version includes 
-											graphs that illustrate trends in your browsing.'|trans }}</dd><br />
-									</dl>
-								</div>
-								<button  data-uk-toggle="{target:'#toggle7'}" class="popup-head uk-button uk-button-warning inbox">
-									<span>
-									<div>{{ 'Insurance'|trans }}</div>
-										<div class="questiontooltip">
-											<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
-										</div>
-									</span>
-								</button>
-								<div class="uk-hidden" id="toggle7">
-									<dl class="uk-width-1-1 uk-margin-bottom insurance">
-										<dd class="fullsize insurance">{{ 'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans }}</dd><br /><br />
-									</dl>
-								</div>
-								<a class="uk-button uk-button-primary button-skype">{{ 'Skype + Phone'|trans }}</a>
+								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+									<li class="uk-parent">
+										<a class="popup-head uk-button inbox" href="#">{{ 'About driver'|trans }}</a>
+										<ul class="uk-nav-sub">
+											<li>
+												<dl class="uk-width-1-1 about-driver">
+													<div class="myid">
+														<dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
+													</div>
+													<dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
+													<dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
+													<dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
+													<dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd><br />
+													<dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
+													<dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
+													<dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
+													<dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
+													<dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
+													<dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage.'|trans }}</dd><br />
+												</dl>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+									<li class="uk-parent">
+										<a class="popup-head uk-button inbox" href="#">{{ 'About car'|trans }}</a>
+										<ul class="uk-nav-sub">
+											<li>
+												<dl class="uk-width-1-1 about-car">
+													<dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
+													<dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
+													<dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
+													<dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
+													<dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
+													<dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
+													<dt>{{ 'Other:'|trans }}</dt><dd>
+														<div class="other">
+															<i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span>
+														</div>
+													</dd><br />
+													<dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
+														more interesting view of statistics about your 
+														browser usage. The current version includes 
+														graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+												</dl>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+									<li class="uk-parent">
+										<a class="popup-head uk-button inbox" href="#">{{ 'Insurance'|trans }} <i class="que">?</i></a>
+										<ul class="uk-nav-sub">
+											<li>
+												<dl class="uk-width-1-1 insurance">
+													<dd class="fullsize insurance">{{ 'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans }}</dd><br /><br />
+												</dl>
+											</li>
+										</ul>
+									</li>
+								</ul>
+								<a class="uk-button uk-button-primary button-skype"  data-uk-tooltip title="Skype + Phone">{{ 'Skype + Phone'|trans }}</a>
 							</div>
 						</div>
 				</div>
 			</div>
-{# ========= pop-up end ========= #}
 {% endblock %}
