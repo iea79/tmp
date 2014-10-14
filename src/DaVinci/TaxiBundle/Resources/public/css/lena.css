@@ -82,6 +82,7 @@ footer {
 }
 .register .uk-form-select select{	width: 100%;}
 .register .uk-form-select {
+	position: relative;
 	height: 29px;
 	line-height: 20px;
 }

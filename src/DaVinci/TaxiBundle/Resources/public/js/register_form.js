@@ -30,6 +30,7 @@ if ($(".register").length) {
     });
 /***************/
 
+	//$.UIkit.domObserve('$.UIkit.domObserve('#element', function(element) { /* apply on dom change within element */ })', function(element) { /* apply on dom change within element */ })
     //$('.register select').wrap('<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select=""></div>');
 
 
