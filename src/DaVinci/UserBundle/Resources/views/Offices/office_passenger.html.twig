@@ -84,14 +84,10 @@
 														<tr>
 																<th>#</th>
 																<th>{{ 'TMP ID'|trans }}
-																	<div class="questiontooltip">
-																		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																	</div>
+																	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
 																</th>
 																<th>{{ 'My orders'|trans }}
-																	<div class="questiontooltip">
-																		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																	</div>
+																	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check open orders{% endtrans %}">?</div>
 																</th>
 														</tr>
 													</thead>
@@ -846,39 +842,25 @@
 																<tr>
 																		<th>#</th>
 																		<th>{{ 'TMP ID'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
 																		</th>
 																		<th class="date-time"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'DATE/TIME'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Date and time of exact trip{% endtrans %}">?</div>
 																		</th>
 																		<th class="route">{{ 'Route'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">?</div>
 																		</th>
 																		<th class="price"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Your fare{% endtrans %}">?</div>
 																		</th>
 																		<th class="status"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}">?</div>
 																		</th>
 																		<th class="left-time"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}">?</div>
 																		</th>
 																		<th>{{ 'Edit'|trans }}
-																			<div class="questiontooltip">
-																				<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-																			</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit trip details{% endtrans %}">?</div>
 																		</th>
 																</tr>
 														</thead>
@@ -886,9 +868,9 @@
 																<td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 </br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
 																<td>
 																		<div class="edit-close">
-																				<a class="mp-icon-edit uk-text-primary">
+																				<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
 																				</a>
-																				<a class="mp-icon-closed uk-text-danger">
+																				<a class="mp-icon-closed uk-text-danger" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
 																				</a>
 																		</div>
 																</td>
@@ -899,7 +881,7 @@
 																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-warning">
 																				</a>
-																				<a class="mp-icon-closed uk-text-danger">
+																				<a class="mp-icon-closed uk-text-danger" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
 																				</a>
 																		</div>
 																</td>
@@ -943,7 +925,7 @@
 																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-warning">
 																				</a>
-																				<a class="mp-icon-closed uk-text-danger">
+																				<a class="mp-icon-closed uk-text-danger" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
 																				</a>
 																		</div>
 																</td>
@@ -952,9 +934,9 @@
 																<td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>00:00:00</td>
 																<td>
 																		<div class="edit-close">
-																				<a class="mp-icon-edit uk-text-primary">
+																				<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
 																				</a>
-																				<a class="mp-icon-closed uk-text-danger">
+																				<a class="mp-icon-closed uk-text-danger" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
 																				</a>
 																		</div>
 																</td>
@@ -1027,6 +1009,7 @@
 							<div class="profile">
 								<button  class="popup-head uk-button inbox">
 								{{ 'Personal information'|trans }}
+									<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
 								</button>
 								<dl class="uk-width-1-1 uk-margin-bottom">
 										<div class="myid">
@@ -1204,9 +1187,7 @@
 			                                    <a href="#" class="mp-icon-edit"></a>
 			                              </div>
                                           <h5>USA: {{ 'Даллас'|trans }} - USA: {{ 'Оклахома-сити'|trans }}</h5>
-											<div class="questiontooltip">
-												<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">{{'Mobile internet'|trans}}</span></a>
-											</div>
+											<div class="utooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Enter Name of organization{% endtrans %}"></div>
                                             <dl class="uk-width-1-1">
 	                                                    <div class="myid">
 		                                                    <dt>{{ 'Order ID:'|trans }}</dt><dd>211212121221</dd>
@@ -1332,7 +1313,9 @@
 							<div class="profile form-view">
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
-										<a class="popup-head uk-button inbox" href="#">{{ 'About driver'|trans }}</a>
+										<a class="popup-head uk-button inbox" href="#">{{ 'About driver'|trans }}
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+										</a>
 										<ul class="uk-nav-sub">
 											<li>
 												<dl class="uk-width-1-1 about-driver">
@@ -1356,7 +1339,9 @@
 								</ul>
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
-										<a class="popup-head uk-button inbox" href="#">{{ 'About car'|trans }}</a>
+										<a class="popup-head uk-button inbox" href="#">{{ 'About car'|trans }}
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+										</a>
 										<ul class="uk-nav-sub">
 											<li>
 												<dl class="uk-width-1-1 about-car">
@@ -1382,7 +1367,9 @@
 								</ul>
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
-										<a class="popup-head uk-button inbox" href="#">{{ 'Insurance'|trans }} <i class="que">?</i></a>
+										<a class="popup-head uk-button inbox" href="#">{{ 'Insurance'|trans }}
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+										</a>
 										<ul class="uk-nav-sub">
 											<li>
 												<dl class="uk-width-1-1 insurance">
@@ -1392,7 +1379,7 @@
 										</ul>
 									</li>
 								</ul>
-								<a class="uk-button uk-button-primary button-skype"  data-uk-tooltip title="Skype + Phone">{{ 'Skype + Phone'|trans }}</a>
+								<a class="uk-button uk-button-primary button-skype" data-uk-tooltip="{pos:'right'}" title="{% trans %}Pay to get driver's contacts{% endtrans %}">{{ 'Skype + Phone'|trans }}</a>
 							</div>
 						</div>
 				</div>

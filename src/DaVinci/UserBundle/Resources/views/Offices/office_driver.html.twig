@@ -130,27 +130,29 @@
 								<div class="table-over ">
 										<table class="serv responsive" cellspacing="1">
 											<tbody><tr>
-												<th class="tab-h1">Tip</th>
+												<th class="tab-h1">Tip
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select vehicle{% endtrans %}" data-cached-title="{% trans %}Select vehicle{% endtrans %}">?</div>
+												</th>
 												<th class="daterange">DATE/TIME
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}" data-cached-title="{% trans %}Pick-up time{% endtrans %}">?</div>
 												</th>
 												<th class="route">Route
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
 												</th>
 												<th class="trust">Trust
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}" data-cached-title="{% trans %}Pick-up/drop off location{% endtrans %}">?</div>
 												</th>
 												<th class="pm">PM
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}" data-cached-title="{% trans %}Payment method{% endtrans %}">?</div>
 												</th>
 												<th class="price">Price
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}">?</div>
 												</th>
 												<th class="status">Status
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
 												</th>
 												<th class="tab-h2">Buy
-													<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+													<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
 												</th>
 											</tr>
 											<tr class="under-head">
@@ -316,22 +318,28 @@
                                                             <tr>
                                                                     <th>#</th>
 																	<th>{{'TMP ID'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
 																	<th class="left-time"><span class="filter"></span>{{'Left time'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}">?</div>
 																	<th class="price"><span class="filter"></span>{{'Price'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}">?</div>
 																	<th class="route">{{'Route'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">?</div>
 																	<th><span class="filter"></span>{{'Status'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
                                                             </tr>
                                                     </thead>
                                                     <tr>
                                                             <td>1</td><td class="timesent">0223240234</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -351,7 +359,13 @@
                                                             <td>4</td><td class="timesent">0223240237</td><td><span>24:09:57</span></td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -359,7 +373,13 @@
                                                             <td>5</td><td class="timesent">0223240238</td><td><span>24:09:57</span></td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -367,7 +387,13 @@
                                                             <td>6</td><td class="timesent">0223240239</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -375,7 +401,13 @@
                                                             <td>7</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -383,7 +415,13 @@
                                                             <td>8</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -391,7 +429,13 @@
                                                             <td>9</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -399,7 +443,13 @@
                                                             <td>10</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -407,7 +457,13 @@
                                                             <td>11</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></span></td>
                                                             	<td>
 	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-danger">3<br /><i class="mp-icon-taxi"></i></span><span><br>+ </span><span class="uk-text-warning">2<br /><i class="mp-icon-taxi"></i></span><span><br>= </span><span class="uk-text-primary">6<br /><i class="mp-icon-taxi"></i></span>
+	                                                            		<span class="uk-text-success">{{'I\'m'|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>+ </span>
+	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+	                                                            		<span><br>= </span>
+	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
 	                                                            	</div>
                                                             	</td>
                                                     </tr>
@@ -424,25 +480,25 @@
                                                             <tr>
                                                                     <th>#</th>
 																	<th>{{'TMP ID'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
 																	</th>
 																	<th class="date-time">{{'DATE/TIME'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}">?</div>
 																	</th>
 																	<th class="route">{{'Route'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">?</div>
 																	</th>
 																	<th class="price">{{'Price'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}">?</div>
 																	</th>
 																	<th class="status">{{'Status'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check your deals{% endtrans %}">?</div>
 																	</th>
 																	<th class="left-time">{{'Left time'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">?</div>
 																	</th>
 																	<th>{{'Refuse'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}You can cancel deal{% endtrans %}">?</div>
 																	</th>
                                                             </tr>
                                                     </thead>
@@ -565,7 +621,7 @@
 			                                    <a href="#" class="mp-icon-edit"></a>
 			                              </div>
                                           <h5>{{ 'USA: Даллас'|trans }} - {{ 'USA: Оклахома-сити'|trans }}</h5>
-											<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}"></div>
+											<div class="utooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Enter Name of organization{% endtrans %}"></div>
                                             <dl class="uk-width-1-1">
 	                                                    <div class="uk-margin">
 		                                                    <dt class="myid">{{ 'Order ID:'|trans }}</dt><dd class="myid">211212121221</dd>
@@ -693,7 +749,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{'Personal information'|trans}}
-											<span class="uk-icon-question-circle" data-uk-tooltip title="{% trans %}Personal information{% endtrans %}" data-cached-title="{% trans %}Personal information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>
@@ -860,11 +916,11 @@
 																	
 																	<div class="wicheck whicheck-1">
 																		<div class="float_left"><label><input type="checkbox" class="uk-float-left uk-margin-small-right" name="wifi" id="wifi">{{'internet'|trans}}</label></div>
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Any kind of connection{% endtrans %}">?</div>
 																	</div>
 																	<div class="wicheck whicheck-2">
 																		<div class="float_left"><label><input type="checkbox" class="uk-float-left uk-margin-small-right" name="whatsapp" id="whatsapp">{{'whatsapp'|trans}}</label></div>
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Free communication program{% endtrans %}">?</div>
 																	</div>
 																	</div>
 																	<div class="uk-form-controls addphone uk-width-1-1">
@@ -951,7 +1007,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{'Car information'|trans}}
-											<span class="uk-icon-question-circle" data-uk-tooltip title="{% trans %}Personal information{% endtrans %}" data-cached-title="{% trans %}Personal information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>
@@ -1225,11 +1281,10 @@
 														<dt> Photo: </dt>
 														<dd>
 														<div class="uk-margin-small-bottom uk-margin-small-top">
-															<div class="uk-form-file uk-width-9-10 uk-float-left">
+															<div class="uk-form-file uk-width-1-1 uk-float-left">
 																<button class="uk-button uk-button-primary uk-width-1-1 button-add-lang">{{'Add photo'|trans}}</button>
 																<input type="file">
 															</div>
-																<div class="questiontooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
 														</div>
 														</dd>
 														<dt class="example">{{'Short description:'|trans}}<br><a href="">{{'example'|trans}}</a></dt>
@@ -1246,7 +1301,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{'Insurance'|trans}}
-											<span class="uk-icon-question-circle" data-uk-tooltip title="{% trans %}Personal information{% endtrans %}" data-cached-title="{% trans %}Personal information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>

@@ -1978,6 +1978,7 @@ table th .questiontooltip {
 	position: absolute;
 	right: 0;
 	top: 0px;
+	cursor: default;;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -3018,7 +3019,10 @@ i.quest {
 	font-size:18px;
 }
 .uk-modal {
-    z-index:10000;
+  z-index: 10000;;
+}
+.uk-tooltip {
+  z-index: 10300 !important;
 }
 .uk-modal-dialog .pop-up.route {
     padding-top: 9px;
