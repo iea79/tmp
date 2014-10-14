@@ -352,7 +352,6 @@ footer {
 .wrapper-content .register .uk-button:active, .wrapper-content .register .uk-button.uk-active {  background-color: rgba(39, 191, 46, 0.4);}
 .wrapper-content .register .uk-button.backbutt:active, .wrapper-content .register .uk-button.backbutt.uk-active {  background-color: rgba(140, 142, 150, 0.4);}
 .register .uk-form-select.addlang  {margin-bottom: 14px;}
-
 .addlang {
     background: none repeat scroll 0 0 #e8e8e8;
     border: 1px solid #d3d3d3;
@@ -861,3 +860,10 @@ body.register .main-content{
 .register .header-wrapper .header-bottom .header-bottom-in {	height: auto;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs {height: 30px;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.current span {line-height: 25px;}
+
+.register .uk-form input[type="radio"], .register  .uk-form input[type="checkbox"] {
+	width: 4%;
+	height: 4%;
+	max-width: 14px;
+	max-height: 14px;
+}
