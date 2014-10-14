@@ -1968,25 +1968,16 @@ width: 12.6%;
 	color: gray;
 }
 table th .questiontooltip {
-	width: 15px;
-	display: -moz-inline-box;
-	display: -webkit-inline-box;
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	margin-right: -1px;
-}
-table th .questiontooltip a span.que {
 	background: #f5f5f5;
-	top: 0;
-	border-radius: 0;
+	color: #528ed3;
 	font-size: 11px;
+	text-align: center;
 	height: 10px;
 	width: 10px;
 	line-height: 11px;
-	padding: 0;
-	color: #528ed3;
+	position: absolute;
+	right: 0;
+	top: 0px;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -2610,7 +2601,7 @@ footer {
 	margin-top: -1px !important;
 	margin-bottom: 5px;
 	margin-left: 1px;
-	width: 99%;
+	width: 99%;;
 }
 .popup-head.inbox span {
   font-size: 13px;
