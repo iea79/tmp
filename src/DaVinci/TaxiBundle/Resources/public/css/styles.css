@@ -1528,8 +1528,8 @@ office passengers and driver
 	text-decoration:none;
 }
 .client-account .client-panel-button .uk-panel {
-	min-width: 168px;
-    width: 16%;
+	min-width: 140px;
+    width: 16.7%;
 }
 @media (max-width:400px) {
 	.client-account .client-panel-button .uk-panel {
@@ -1551,10 +1551,11 @@ office passengers and driver
 .client-account .button-skype {
 	line-height: 30px !important;
 	float: left !important;
-	margin-top: 1px !important;
 	margin-left: 0px;
 	min-width: 135px !important;
 	width: 39.5%;
+	color: #fff !important;
+	margin-top: 2px !important;
 }
 .client-panel-button {
 	margin-bottom:11px;
@@ -1645,12 +1646,12 @@ office passengers and driver
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
-	border-collapse: separate;
+	border-collapse: collapse;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
 .client-account .uk-table {
-	font-size:16px;
+  font-size: 16px;
 }
 .client-account .uk-table thead th {
     font-weight: normal;
@@ -1690,12 +1691,17 @@ office passengers and driver
 .client-account .message {
 	display: table;
 	vertical-align:middle;
-	padding:15px 20px 16px 20px;
+	padding:19px 20px 13px 14px;
 	font-size:16px;
 }
 .client-account .message-graybg {
 	background:#f5f5f5;
-	padding: 11px 0px 10px 11px;
+	padding: 4px 0px 8px 11px;
+}
+.client-account .message-graybg input,
+.client-account .message-graybg select {
+	border: 2px solid #d5d3dc;
+	color: #3d3d3d;
 }
 .client-account .message-graybg lable {
 	line-height:30px;
@@ -1711,6 +1717,10 @@ office passengers and driver
 	margin-right: 13%;
 	line-height: 28px;
 	display: inline-block;
+}
+.message-graybg .vehicle {
+	line-height:20px;
+	margin-right:9px;
 }
 @media (max-width: 530px) {
 	.message-graybg .number-passenger label,
@@ -1739,12 +1749,12 @@ office passengers and driver
 	}
 }
 .message-graybg .number-passenger .seniors label {
-    margin-left: 22%;
-    margin-right: 8%;
+    margin-left: 17%;
+    margin-right: 9%;
 }
 .message-graybg .number-passenger .children label {
-    margin-left: 9%;
-    margin-right: 9%;
+    margin-left: 7%;
+    margin-right: 7%;
 }
 .message-graybg .number-passenger .uk-panel {
     min-width: 150px;
@@ -1767,9 +1777,9 @@ office passengers and driver
 .client-account .chosen {
 	padding:2px;
 	min-width: 150px;
-	width: 51.4%;
-	border: 1px #8e9099 solid;
-	color:#8e9099;
+	width: 50.4%;
+	border: 2px solid #d5d3dc;
+	color:#3c3d45;
 	line-height: 24px;
 	text-align: left;
 }
@@ -1910,17 +1920,50 @@ width: 12.6%;
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
 }
-.client-account .driverlist {
-	margin-top:0px;
+.client-account .open-order-passenger .driverlist,
+.client-account .open-order-passenger .active-gray {
+	line-height: 39px;
+	position: absolute;
+	float: right;
+	min-width: 192px;
+	width: 26%;
+	right: 20px;
+	display: block;
+	margin-top: 3px;
+}	
+@media (max-width: 660px) {
+	.client-account .open-order-passenger .driverlist,
+	.client-account .open-order-passenger .active-gray {
+		position: relative;
+		float: none;
+		margin: 0 auto -40px auto;
+	}	
 }
-.client-account .driverlist-button {
-    float:right;
-    line-height:30px !important;
+.client-account .open-order-passenger .driverlist {
+	background-color:#528ed3;
+	color: #fff;
 }
-.client-account .uk-table .uk-button {
-    color:#fff;
-    line-height:38px;
-    margin-top:5px;
+.client-account .open-order-passenger .driverlist b {
+	display: block;
+	font-weight: normal;
+}
+.client-account .open-order-passenger .driverlist span {
+	display: none;
+}
+.client-account .open-order-passenger .active-gray {
+	background-color: #D5D5D5;
+	color: gray;
+}
+.client-account .open-order-passenger .active-gray:hover,
+.client-account .open-order-passenger .active-gray:focus {
+	background-color: #D5D5D5 !important;
+}
+.client-account .open-order-passenger .active-gray b {
+	display: none;
+}
+.client-account .open-order-passenger .active-gray span {
+	display: block;
+	color: gray;
 }
 table th .questiontooltip {
 	width: 15px;
@@ -2021,15 +2064,8 @@ table th .questiontooltip a span.que {
 	position:relative;
 }
 .open-order-passenger td button {
-	background-color: #528ed3;
-	position: relative;
-	width: 27%;
-	min-width: 180px;
-	float: right;
-	margin-top: 2px !important;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+  float: none;
+  width: 100%;
 }
 @media (max-width: 640px) {
 	.open-order-passenger td button {
@@ -2042,11 +2078,6 @@ table th .questiontooltip a span.que {
 .whitebg .uk-table td button:hover,
 .whitebg .uk-table td button:focus {
     background-color: #35b3ee;
-}
-.whitebg .uk-table td .active-gray {
-    background-color: #ebebeb!important;
-    padding: 3px 8px 0px 8px;
-	color: #8d8f98;
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
@@ -2114,6 +2145,7 @@ table th .questiontooltip a span.que {
 }
 .driver-top .profile .rate .mp-icon-star{
 	font-size: 15px;
+	margin-right: 0.5%;
 }
 .driver-top .profile .rate .mp-icon-person {
 	font-size: 12px;
@@ -2127,6 +2159,8 @@ table th .questiontooltip a span.que {
 	text-transform: uppercase;
 	margin: 3px 0px 0px 0px !important;
 	float: left !important;
+	line-height: 37px;
+	color: #fff;
 }
     .profile .name {
 		 color:#528ed3;
@@ -2147,23 +2181,33 @@ table th .questiontooltip a span.que {
     .vehicle .name {
 		 color:#3c3d45;
 		 font-weight: bold;
-    }
-    .vehicle {
-		 line-height:20px;
+		 line-height: 16px;
+		 margin-bottom: 8px;;;
     }
     .vehicle span {
 		 color: #3c3d45;
+		 line-height: 20px;
+		 font-size: 14px;
 		 margin-bottom: 6px;
 		 display: inline-block;
-		 line-height: 20px;
+		 margin-left: -1px;
+		 width: 55%;;
     }
     .vehicle i {
 		 color: #ff4d61;
-		 margin-left: 22px;
-		 margin-right: 2px;
+		 margin-right: 1%;
     }
 	.vehicle i.mp-icon-person {
-		margin-left: 0;
+		margin-left: -2%;
+		font-size: 17px;
+	}
+ 	.vehicle i.mp-icon-bug {
+		margin-left: 10%;
+		font-size: 15px;
+	}
+  	.vehicle i.mp-icon-door {
+		margin-left: 12%;
+		margin-right: 0%;
 	}
     .y-no button:first-child {
 		 background-color:#ff4d61 !important;
@@ -2186,7 +2230,7 @@ table th .questiontooltip a span.que {
     }
     .call-driver {
 		 float: left;
-		 margin-top: 3px;
+		 margin-top: 5px;
 		 padding: 18px 0;
 		 border-top: 1px solid #d0d0d0;
     }
@@ -2755,8 +2799,9 @@ footer {
 	width: 35%;
 	text-decoration: none;
 }
-.pop-up .form-view .button-add {
-margin-bottom: 14px;
+.pop-up .form-view .button-add,
+.pop-up .block-rate .button-add {
+	line-height: 38px;
 }
 /* === pop-up form-change === */
 .pop-up .form-change .personal-info {
@@ -3067,16 +3112,21 @@ i.quest {
 	margin-bottom: 14px;
 	margin-top: 0px;
 	margin-left: -2px;
-	max-width: 160px;
+	max-width: 160px;;
 }
 .pop-up .clientreviews .photo {
-	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
 	border-bottom: 4px #ebebeb solid;
+	background: url('../../bundles/davincitaxi/images/phptpapparat.png') #fff no-repeat scroll center center;
+}
+.pop-up .passenger .clientreviews .photo {
+ 	min-height: 180px;
 }
 .pop-up .button-add {
 	width: 100%;
-	line-height: 36px;
+	line-height: 39px;
 	font-size: 15px;
+;
+
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
@@ -3109,7 +3159,7 @@ i.quest {
 	width: 100%;
 	max-height:330px;
 	overflow-y: auto;
-	margin-bottom: 7px;
+	margin-bottom: 6px;
 }
 @media (max-width: 710px) {
 	.pop-up .rate-review {
@@ -3126,7 +3176,7 @@ i.quest {
 	float:left;
 }
 .pop-up .rate-review .name {
-	margin: 3px 0px -2px 0px;
+	margin: 2px 0px -2px 0px;
 	font-size: 16px;
 	line-height: 20px;
 }
@@ -3885,3 +3935,4 @@ table.datepickerViewDays tbody.datepickerYears {
 .overflow {
 	overflow:visible!important;
 }
+
