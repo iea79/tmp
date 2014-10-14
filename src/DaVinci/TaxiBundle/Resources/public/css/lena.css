@@ -82,6 +82,7 @@ footer {
 }
 .register .uk-form-select select{	width: 100%;}
 .register .uk-form-select {
+	position: relative;
 	height: 29px;
 	line-height: 20px;
 }
@@ -376,7 +377,7 @@ footer {
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      vertical-align: middle;
 }
-:-moz-any(x), .addotherlanguage {	width: 95%;}
+/*:-moz-any(x), .addotherlanguage {	width: 95%;}*/
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
 /*.addphoneline .text {   padding-bottom: 8%;}*/
 .addphoneline .text {   padding-bottom: 2%;}

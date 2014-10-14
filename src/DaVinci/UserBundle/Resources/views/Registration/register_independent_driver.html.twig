@@ -49,10 +49,14 @@
                             {{ form_errors(form.address.city) }}
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
-                            <div class="uk-form-controls">
+                            <div class="uk-form-controls" data-uk-observe>
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.language.level,
                                 {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'3'}}) }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
+                            </div>
                             </div>
                             {{ form_errors(form.language.level) }}
                         </label>
@@ -72,9 +76,14 @@
                             </div>
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
-                            <div class="uk-form-controls">
+                            <div class="uk-form-controls" data-uk-observe>
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.experience, {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'5'}}) }}
-                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
+                            </div>
+
+							<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
                             </div>
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
