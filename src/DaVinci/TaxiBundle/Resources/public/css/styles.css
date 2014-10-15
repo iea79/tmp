@@ -1790,7 +1790,7 @@ office passengers and driver
 	text-align:center;
 }
 .client-account .allorder thead tr {
-	border: 2px #d0d0d0 solid;
+	border: 1px #d0d0d0 solid;
 	line-height: 18px;
 }
 .client-account .allorder th,
@@ -2683,9 +2683,17 @@ footer {
 	width: 24%;
 }
 .pop-up .whicheck-1 {
-  min-width: 90px;
-  margin-right: 20%;
+  min-width: 95px;
+  margin-right: 18%;
 }
+.pop-up .whicheck-2 {
+  min-width: 110px;
+}
+.pop-up .wicheck .uk-icon-question-circle {
+	font-size: 13px !important;
+	margin-left: 10px;
+}
+
 /* === pop-up form-view === */
 .profile.form-view {
     padding-left: 16px !important;
@@ -3122,10 +3130,7 @@ i.quest {
 }
 .pop-up .clientreviews .photo {
 	border-bottom: 4px #ebebeb solid;
-	background: url('../../bundles/davincitaxi/images/phptpapparat.png') #fff no-repeat scroll center center;;
-}
-.pop-up .passenger .clientreviews .photo {
-  min-height: 180px;
+/*	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;;*/
 }
 .pop-up .button-add {
 	width: 100%;
