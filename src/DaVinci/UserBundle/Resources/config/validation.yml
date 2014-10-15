@@ -2,11 +2,11 @@ DaVinci\TaxiBundle\Entity\Address:
     properties:
         country:
             - NotBlank: 
-                groups: [ "flow_taxi_company_registration_step1"]
+                groups: [ "flow_taxi_company_registration_step1", "flow_taxi_independent_driver_registration_step1"]
                 message: address.country.blank
         city:
             - NotBlank: 
-                groups: [ "flow_taxi_company_registration_step1"]
+                groups: [ "flow_taxi_company_registration_step1", "flow_taxi_independent_driver_registration_step1"]
                 message: address.city.blank
         street:
             - NotBlank: 
@@ -16,6 +16,32 @@ DaVinci\TaxiBundle\Entity\Address:
                 max: 255
                 maxMessage: company.name.long
                 groups: [ "flow_taxi_user_registration_step1" ]
+
+DaVinci\TaxiBundle\Entity\Language:
+   properties:
+        level:
+            - NotBlank:
+                groups: ["flow_taxi_independent_driver_registration_step1"]
+                message: language.level.blank
+    
+DaVinci\TaxiBundle\Entity\IndependentDriver:
+    properties:
+        address:
+            - Valid: ~
+        user:
+            - Valid: ~
+        experience:
+            - NotBlank:
+                groups: ["flow_taxi_independent_driver_registration_step1"]
+                message: independent.experience.blank
+        phones:
+            - Collection:
+                fields:
+                    phone:
+                        - NotBlank:
+                            groups: [ "flow_taxi_independent_driver_registration_step1"]
+                            message: phones.phone.blank
+                allowMissingFields: false         
                 
 DaVinci\TaxiBundle\Entity\TaxiCompany:
     constraints:
@@ -54,7 +80,7 @@ DaVinci\TaxiBundle\Entity\TaxiCompany:
                     phone:
                         - NotBlank:
                             groups: [ "flow_taxi_company_registration_step1"]
-                            message: company.phones.phone.blank
+                            message: phones.phone.blank
                 allowMissingFields: false
                                  
 DaVinci\TaxiBundle\Entity\User:
@@ -96,6 +122,22 @@ DaVinci\TaxiBundle\Entity\User:
                 htmlPattern: "^[a-zA-Z ]+$"
                 message: fos_user.lastname.latin
                 groups: [ "flow_taxi_user_registration_step1" ]
+        email:
+            - Email:
+                message: fos_user.email.invalid
+                checkMX: true
+                groups: [ "flow_taxi_user_registration_step1", "Profile" ]
+            - NotBlank: 
+                message: fos_user.email.blank
+                groups: [ "flow_taxi_user_registration_step1", "Profile" ]
+            - Length:
+                min: 2
+                minMessage: fos_user.email.short
+                max: 254
+                maxMessage: fos_user.email.long
+                groups: [ "flow_taxi_user_registration_step1" , "Profile"]
+        language: 
+            - Valid: ~
        # gender:
        #     - Choice: 
        #         choices: [0, 1]

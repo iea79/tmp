@@ -15,7 +15,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
         , '78.26.151.101'//home Nickolay
         , '195.138.90.3'//work Nickolay
         , '81.198.90.13' //dima
-        , '147.30.135.27' //elena kontent
+        , '37.151.110.103' //elena kontent
         , '95.71.81.69' //elena 
         , '93.100.166.25' //elena verst
         , '62.16.43.150' //evgeny ivanov
@@ -24,6 +24,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
         , '84.83.255.2' //Alla
         , '109.68.173.20' //evgeniy voronov
         , ' 95.111.150.84' //Дарья
+        , '83.69.244.205' //Олеся PR
        , 'fe80::1', '::1')) || php_sapi_name() === 'cli-server')
 ) {
     header('HTTP/1.0 403 Forbidden');

@@ -132,7 +132,7 @@ form:
     other_language: "Other languages"
     driving_experience: "Driving experience"
     skype: "Skype"
-    phone_number: "Phone number"
+    phone_number: "Mobile number"
     
     #company
     name_company: "Name of company"
@@ -140,7 +140,7 @@ form:
     company_city: "City of registration"
     company_address: "Address of registration"
     number_cars: "Number of cars"
-    mobile: "Phone number"
+    mobile: "Mobile number"
     internet: "internet"
     
     

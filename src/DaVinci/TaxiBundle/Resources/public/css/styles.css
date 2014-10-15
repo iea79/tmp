@@ -1571,8 +1571,8 @@ office passengers and driver
 	text-decoration:none;
 }
 .client-account .client-panel-button .uk-panel {
-	min-width: 168px;
-    width: 16%;
+	min-width: 140px;
+    width: 16.7%;
 }
 @media (max-width:400px) {
 	.client-account .client-panel-button .uk-panel {
@@ -1594,10 +1594,11 @@ office passengers and driver
 .client-account .button-skype {
 	line-height: 30px !important;
 	float: left !important;
-	margin-top: 1px !important;
 	margin-left: 0px;
 	min-width: 135px !important;
 	width: 39.5%;
+	color: #fff !important;
+	margin-top: 2px !important;
 }
 .client-panel-button {
 	margin-bottom:11px;
@@ -1688,11 +1689,12 @@ office passengers and driver
 .client-account .uk-table {
 	margin-bottom:0px;
 	margin-top:0px;
+	border-collapse: collapse;
 }
 .client-account .uk-table button,
 .client-account .uk-table a,
 .client-account .uk-table {
-	font-size:16px;
+  font-size: 16px;
 }
 .client-account .uk-table thead th {
     font-weight: normal;
@@ -1715,15 +1717,13 @@ office passengers and driver
 	text-decoration: none;
 }
 .client-account .uk-table tr {
-    border-top: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align: center;
     line-height: 20px;
     vertical-align: top;
-    border-left: #d0d0d0 1px solid;
-    border-right: #d0d0d0 1px solid;
-    border-bottom: #d0d0d0 1px solid;
+    border: #d0d0d0 1px solid;
 }
 .client-account .uk-badge {
 	border-radius:3px;
@@ -1734,12 +1734,17 @@ office passengers and driver
 .client-account .message {
 	display: table;
 	vertical-align:middle;
-	padding:15px 20px 16px 20px;
+	padding:19px 20px 13px 14px;
 	font-size:16px;
 }
 .client-account .message-graybg {
 	background:#f5f5f5;
-	padding: 11px 0px 10px 11px;
+	padding: 4px 0px 8px 11px;
+}
+.client-account .message-graybg input,
+.client-account .message-graybg select {
+	border: 2px solid #d5d3dc;
+	color: #3d3d3d;
 }
 .client-account .message-graybg lable {
 	line-height:30px;
@@ -1755,6 +1760,10 @@ office passengers and driver
 	margin-right: 13%;
 	line-height: 28px;
 	display: inline-block;
+}
+.message-graybg .vehicle {
+	line-height:20px;
+	margin-right:9px;
 }
 @media (max-width: 530px) {
 	.message-graybg .number-passenger label,
@@ -1783,12 +1792,12 @@ office passengers and driver
 	}
 }
 .message-graybg .number-passenger .seniors label {
-    margin-left: 22%;
-    margin-right: 8%;
+    margin-left: 17%;
+    margin-right: 9%;
 }
 .message-graybg .number-passenger .children label {
-    margin-left: 9%;
-    margin-right: 9%;
+    margin-left: 7%;
+    margin-right: 7%;
 }
 .message-graybg .number-passenger .uk-panel {
     min-width: 150px;
@@ -1808,12 +1817,14 @@ office passengers and driver
 	line-height:28px;
 	margin-bottom: 5px;
 }
-.client-account select.chosen {
+.client-account .chosen {
 	padding:2px;
 	min-width: 150px;
-	width: 51.4%;
-	border: 1px #8e9099 solid;
-	color:#8e9099;
+	width: 50.4%;
+	border: 2px solid #d5d3dc;
+	color:#3c3d45;
+	line-height: 24px;
+	text-align: left;
 }
 .client-account .message input[type="number"] {
 	width: 50px;
@@ -1822,7 +1833,7 @@ office passengers and driver
 	text-align:center;
 }
 .client-account .allorder thead tr {
-	border: 2px #d0d0d0 solid;
+	border: 1px #d0d0d0 solid;
 	line-height: 18px;
 }
 .client-account .allorder th,
@@ -1883,6 +1894,8 @@ width: 12.6%;
 	margin-top: 0px !important;
 	min-width: 115px;
 	width: 90%;
+	color: #fff;
+	line-height: 36px;
 }
 .historyorder a.mp-icon-closed {
 	font-size: 19px;
@@ -1952,38 +1965,63 @@ width: 12.6%;
     border-left:#d0d0d0 1px solid;
     border-right:#d0d0d0 1px solid;
 }
-.client-account .driverlist {
-	margin-top:0px;
+.client-account .open-order-passenger .driverlist,
+.client-account .open-order-passenger .active-gray {
+	line-height: 39px;
+	position: absolute;
+	float: right;
+	min-width: 190px;
+	width: 26%;
+	right: 20px;
+	display: block;
+	margin-top: 3px;
+}	
+@media (max-width: 660px) {
+	.client-account .open-order-passenger .driverlist,
+	.client-account .open-order-passenger .active-gray {
+		position: relative;
+		float: none;
+		margin: 0 auto 0px auto;
+	}	
 }
-.client-account .driverlist-button {
-    float:right;
-    line-height:30px !important;
+.client-account .open-order-passenger .driverlist {
+	background-color:#528ed3;
+	color: #fff;
 }
-.client-account .uk-table .uk-button {
-    color:#fff;
-    line-height:38px;
-    margin-top:5px;
+.client-account .open-order-passenger .driverlist b {
+	display: block;
+	font-weight: normal;
+}
+.client-account .open-order-passenger .driverlist span {
+	display: none;
+}
+.client-account .open-order-passenger .active-gray {
+	background-color: #D5D5D5;
+	color: gray;
+}
+.client-account .open-order-passenger .active-gray:hover,
+.client-account .open-order-passenger .active-gray:focus {
+	background-color: #D5D5D5 !important;
+}
+.client-account .open-order-passenger .active-gray b {
+	display: none;
+}
+.client-account .open-order-passenger .active-gray span {
+	display: block;
+	color: gray;
 }
 table th .questiontooltip {
-	width: 15px;
-	display: -moz-inline-box;
-	display: -webkit-inline-box;
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	margin-right: -1px;
-}
-table th .questiontooltip a span.que {
 	background: #f5f5f5;
 	color: #528ed3;
-	top: 0;
-	border-radius: 0;
 	font-size: 11px;
+	text-align: center;
 	height: 10px;
 	width: 10px;
 	line-height: 11px;
-	padding: 0;
+	position: absolute;
+	right: 0;
+	top: 0px;
+	cursor: default;;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -2063,15 +2101,8 @@ table th .questiontooltip a span.que {
 	position:relative;
 }
 .open-order-passenger td button {
-	background-color: #528ed3;
-	position: relative;
-	width: 27%;
-	min-width: 180px;
-	float: right;
-	margin-top: 2px !important;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+  float: none;
+  width: 100%;
 }
 @media (max-width: 640px) {
 	.open-order-passenger td button {
@@ -2080,15 +2111,12 @@ table th .questiontooltip a span.que {
 }
 .open-order-passenger .route {
 	margin: 12px 0px 11px 0px;
+	display: block;
+	float: left;
 }
 .whitebg .uk-table td button:hover,
 .whitebg .uk-table td button:focus {
     background-color: #35b3ee;
-}
-.whitebg .uk-table td .active-gray {
-    background-color: #ebebeb!important;
-    padding: 3px 8px 0px 8px;
-	color: #8d8f98;
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
@@ -2156,6 +2184,7 @@ table th .questiontooltip a span.que {
 }
 .driver-top .profile .rate .mp-icon-star{
 	font-size: 15px;
+	margin-right: 0.5%;
 }
 .driver-top .profile .rate .mp-icon-person {
 	font-size: 12px;
@@ -2169,6 +2198,8 @@ table th .questiontooltip a span.que {
 	text-transform: uppercase;
 	margin: 3px 0px 0px 0px !important;
 	float: left !important;
+	line-height: 37px;
+	color: #fff;
 }
     .profile .name {
 		 color:#528ed3;
@@ -2189,23 +2220,33 @@ table th .questiontooltip a span.que {
     .vehicle .name {
 		 color:#3c3d45;
 		 font-weight: bold;
-    }
-    .vehicle {
-		 line-height:20px;
+		 line-height: 16px;
+		 margin-bottom: 8px;;;
     }
     .vehicle span {
 		 color: #3c3d45;
+		 line-height: 20px;
+		 font-size: 14px;
 		 margin-bottom: 6px;
 		 display: inline-block;
-		 line-height: 20px;
+		 margin-left: -1px;
+		 width: 55%;;
     }
     .vehicle i {
 		 color: #ff4d61;
-		 margin-left: 22px;
-		 margin-right: 2px;
+		 margin-right: 1%;
     }
 	.vehicle i.mp-icon-person {
-		margin-left: 0;
+		margin-left: -2%;
+		font-size: 17px;
+	}
+ 	.vehicle i.mp-icon-bug {
+		margin-left: 10%;
+		font-size: 15px;
+	}
+  	.vehicle i.mp-icon-door {
+		margin-left: 12%;
+		margin-right: 0%;
 	}
     .y-no button:first-child {
 		 background-color:#ff4d61 !important;
@@ -2228,7 +2269,7 @@ table th .questiontooltip a span.que {
     }
     .call-driver {
 		 float: left;
-		 margin-top: 3px;
+		 margin-top: 5px;
 		 padding: 18px 0;
 		 border-top: 1px solid #d0d0d0;
     }
@@ -2689,7 +2730,7 @@ footer {
 	height:30px;
 }
 .pop-up input[type="checkbox"] {
-	height:20px;
+  height: 20px;
 }
 .pop-up textarea {
     min-height: 90px;
@@ -2711,44 +2752,26 @@ footer {
 	line-height: 35px;
 	height: 38px;
 }
-.popup-head:hover,
-.popup-head:focus {
-	background-color: #EBEBEB;
-	color:#3c3d45;
-}
 .popup-head.red,
 .popup-head.red i {
     color:#ff4d61;
     font-weight:normal;
 }
 .popup-head.inbox {
-	margin-left: 1px;
-	margin-bottom: 5px;
-	margin-top: -1px !important;
-	padding-left: 37%;
+	border-radius: 3px;
 	font-size: 16px !important;
 	font-weight: bold;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	text-align: center;
-	width: 99%;
-	display: inline-flex;
-	line-height: 20px !important;
 	height: 30px;
+	line-height: 20px !important;
+	margin-top: -1px !important;
+	margin-bottom: 5px;
+	margin-left: 1px;
+	width: 99%;;
 }
 .popup-head.inbox span {
-	float:left;
-}
-.profile.form-view .popup-head.inbox,
-.profile.form-change .popup-head.inbox {
-	background-image: url(../images/button-arrow-left.svg);
-	background-size: 9px;
-	background-repeat: no-repeat;
-	background-position: right 2% center;
-}
-.profile.form-view .popup-head.inbox:focus,
-.profile.form-change .popup-head.inbox:focus {
-	background-image: url(../images/button-arrow-down.svg);
+  font-size: 13px;
+  margin-left: 5px;
+  color: #528ed3;
 }
 .profile .popup-head.inbox .questiontooltip {
 	margin: -4px 0px 0px 6px;
@@ -2762,47 +2785,13 @@ footer {
 .pop-up ul.uk-nav-sub {
     padding: 0;
 }
-.pop-up .block-foto-rate {
-	width: 25%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-foto-rate {
-		width: 100%;
-	}
-}
-.pop-up .block-foto {
-	width: 100%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-foto {
-		width: 25%;
-	}
-}
-@media (max-width: 570px) {
-	.pop-up .block-foto {
-		width: 35%;
-	}
-}
-.pop-up .block-rate {
-	width: 100%;
-}
-@media (max-width: 710px) {
-	.pop-up .block-rate {
-		width: 71%;
-	}
-}
-@media (max-width: 570px) {
-	.pop-up .block-rate {
-		width: 59%;
-	}
-}
 .pop-up .form-view .myid dt,
 .pop-up .form-view .myid dd,
 .pop-up .profile .myid dt,
 .pop-up .profile .myid dd {
 	padding-left: 1px;
 	margin-top: -7px;
-	margin-bottom: -1px;
+	margin-bottom: -2px;
     font-size: 14px !important;
     line-height: 16px !important;
 }
@@ -2857,6 +2846,18 @@ footer {
 	margin-top: 5%;
 	width: 24%;
 }
+.pop-up .whicheck-1 {
+  min-width: 95px;
+  margin-right: 18%;
+}
+.pop-up .whicheck-2 {
+  min-width: 110px;
+}
+.pop-up .wicheck .uk-icon-question-circle {
+	font-size: 13px !important;
+	margin-left: 10px;
+}
+
 /* === pop-up form-view === */
 .profile.form-view {
     padding-left: 16px !important;
@@ -2870,8 +2871,8 @@ footer {
 }
 .pop-up .form-view .about-driver {
 	margin-top: 9px;
-	margin-bottom: 8px !important;
 	margin-left: 1px;
+	margin-bottom: 8px !important;
 }
 .pop-up .form-view .about-driver dd {
 	font-size:14px;
@@ -2888,6 +2889,28 @@ footer {
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
     line-height: 22px;
+}
+.pop-up .other .uk-panel {
+	width: 33.33%;
+	float: left;
+}
+.pop-up .other .uk-panel i {
+    float: left;
+}
+.pop-up .other .uk-panel .mp-icon-person {
+    line-height: 29px;
+	font-size: 18px;
+	margin: 0 3%;
+}
+.pop-up .other .uk-panel .mp-icon-bug {
+    line-height: 29px;
+	font-size: 15px;
+	margin: 0 4% 0 21%;
+}
+.pop-up .other .uk-panel .mp-icon-door {
+	line-height: 29px;
+	font-size: 15px;
+	margin: 0 2% 0 35%;
 }
 .pop-up .about-car .other i {
 	font-size: 17px;
@@ -2933,22 +2956,34 @@ footer {
 	width: 35%;
 	text-decoration: none;
 }
-.pop-up .form-view .button-add {
-margin-bottom: 14px;
+.pop-up .form-view .button-add,
+.pop-up .block-rate .button-add {
+	line-height: 38px;
 }
 /* === pop-up form-change === */
 .pop-up .form-change .personal-info {
-	margin-bottom: 2px;
+	padding-bottom: 3px !important;
 }
 .pop-up .form-change .car-info {
 	margin-top: 7px;
+	margin-bottom: 0px !important;
+	display: inline-block;
+}
+.pop-up .form-change .car-info dl {
+	margin: 0 0 20px 0 !important;
 }
 .pop-up .form-change .insurance {
 	margin-top: 11px;
-	margin-bottom: 23px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.pop-up .form-change .confirmation {
+	margin-top: 14px;
+	margin-bottom: 0px;
+	display: block;
 }
 .pop-up dl {
-    display:inline-block;
+  display: inline-block;
 }
 .pop-up dt, 
 .pop-up dd {
@@ -3066,12 +3101,13 @@ div.pop-up.uk-grid.uk-grid-small {
 	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
-	padding:3px 5px 3px 3px;
+	padding:3px 5px 3px 9px;
 }
-.pop-up .profile select.region {
-	width:28%;
-	display:inline;
-	margin-right:3%;
+.pop-up input[type="text"]:focus,
+.pop-up select:focus,
+.pop-up input[type="text"]:hover,
+.pop-up select:hover {
+	background-color: #f5f5f5;
 }
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
@@ -3080,7 +3116,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .select {
     line-height:30px;
 	padding:0 8px;
-	border: 1px solid #d5d3dc;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -3091,34 +3127,40 @@ div.pop-up.uk-grid.uk-grid-small {
 	right:5px;
 	top:25%;
 }
-.pop-up .profile input.fone {
-	width:67%;
-	float:right;
+.pop-up .select {
+    line-height:26px;
+	width: 100%;
+	float: left;
+	text-align: left;
+	font-size: 16px;
 }
-.pop-up .profile select.day {
+.pop-up .profile .fone {
+	width:69%;
+}
+.pop-up .profile .region {
+	width:28%;
+	margin-right:3%;
+}
+.pop-up .profile .day {
 	width: 14.5%;
-	display: inline;
-	margin-right: 3%;
+	margin-right: 5%;
 }
-.pop-up .profile select.classauto {
-	width: 55%;
-	display: inline;
+.pop-up .profile .classauto {
+	width: 46%;
 }
-.pop-up .profile select.month {
-	width: 53%;
-	display: inline;
-	margin-right: 3%;
+.pop-up .profile .month {
+	width: 52%;
+	margin-right: 5%;
 }
-.pop-up .profile select.year {
+.pop-up .profile .year {
 	width: 23.5%;
-	display: inline;
 }
 .pop-up .profile dt {
-	width: 31.1%;
+	width: 31%;
 	line-height: 30px;
 }
 .pop-up .profile dd {
-	width: 66.5%;
+	width: 67%;
 }
 @media (max-width: 550px) {
 	.pop-up .profile dt {
@@ -3141,10 +3183,11 @@ div.pop-up.uk-grid.uk-grid-small {
 	margin: 0;
 }
 .pop-up .profile .button-add-lang {
-	line-height: 18px;
+	line-height: 20px;
 	font-size: 16px;
 	text-align: left;
 	float: left;
+	width: 100%;
 }
 .pop-up dt.moretext {
 	vertical-align:top;
@@ -3166,7 +3209,10 @@ i.quest {
 	font-size:18px;
 }
 .uk-modal {
-    z-index:10000;
+  z-index: 10000;;
+}
+.uk-tooltip {
+  z-index: 10300 !important;
 }
 .uk-modal-dialog .pop-up.route {
     padding-top: 9px;
@@ -3214,24 +3260,66 @@ i.quest {
     font-size: 12px;
 }
 /*=========================Client foto====================*/
+.pop-up .block-foto-rate {
+	width: 25%;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto-rate {
+		width: 100%;
+	}
+}
+.pop-up .block-foto {
+	width: 95%;
+	margin-bottom: 14px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-foto {
+		width: 25%;
+		margin-bottom: 5px;
+		min-width: 130px;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-foto {
+		width: 80%;
+		margin-bottom: 5px;
+	}
+}
+.pop-up .block-rate {
+	width: 97%;
+	margin-left: -2px;
+}
+@media (max-width: 710px) {
+	.pop-up .block-rate {
+		width: 70%;
+	}
+}
+@media (max-width: 450px) {
+	.pop-up .block-rate {
+		width: 96%;
+	}
+}
+.form-view .pop-up .block-foto {
+	margin-bottom: 2px;
+}
 .pop-up .clientreviews {
 	border: 5px #ebebeb solid;
 	border-radius: 4px;
 	margin-bottom: 14px;
 	margin-top: 0px;
 	margin-left: -2px;
-	max-width: 160px;
+	max-width: 160px;;
 }
 .pop-up .clientreviews .photo {
-	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;
-	width: 160px;
-	height: 180px;
 	border-bottom: 4px #ebebeb solid;
+/*	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;;*/
 }
 .pop-up .button-add {
 	width: 100%;
-	line-height: 36px;
+	line-height: 39px;
 	font-size: 15px;
+;
+
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
@@ -3261,7 +3349,18 @@ i.quest {
 }
 .pop-up .rate-review {
 	font-size:12px;
+	width: 100%;
+	max-height:330px;
+	overflow-y: auto;
+	margin-bottom: 6px;
 }
+@media (max-width: 710px) {
+	.pop-up .rate-review {
+		width: 100%;
+		max-height:256px;
+	}
+}
+
 .pop-up .rate-review i {
 	font-size: 18px;
 	letter-spacing: 0px;
@@ -3270,7 +3369,7 @@ i.quest {
 	float:left;
 }
 .pop-up .rate-review .name {
-	margin: 3px 0px -2px 0px;
+	margin: 2px 0px -2px 0px;
 	font-size: 16px;
 	line-height: 20px;
 }
@@ -3283,11 +3382,10 @@ i.quest {
 	line-height: 14px;
 	margin-top: 2px;
 	margin-bottom: 0px;
-	margin-left: -2px;
+	margin-left: 0px;
 }
 .pop-up  .rate-review .uk-grid-small .button-add {
-	margin-top: 14px;
-	width: 96%;
+	margin-top: 11px;
 }
 /*========================Table Responsive (last block fixed left)==============================*/
 /*table th { font-weight: bold; }
@@ -3501,7 +3599,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 /* @group Base */
 .chzn-container {
   width: 100% !important;
-  font-size: 16px;
   position: relative;
   display: inline-block;
   zoom: 1;
@@ -3509,10 +3606,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 .chzn-container .chzn-drop {
   background: #fff;
-  border: 1px solid #aaa;
+  border: 1px solid #d5d3dc;
   border-top: 0;
   position: absolute;
-  top: 29px;
+  top: 32px;
   left: 0;
   z-index: 1010;
 }
@@ -3522,9 +3619,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .chzn-container-single .chzn-single {
   background-color: #ffffff;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0 );   
-  -webkit-border-radius: 5px;
-  -moz-border-radius   : 5px;
-  border-radius        : 5px; 
+  -webkit-border-radius: 3px;
+  -moz-border-radius   : 3px;
+  border-radius        : 3px; 
   -moz-background-clip   : padding;
   -webkit-background-clip: padding-box;
   background-clip        : padding-box;
@@ -3533,11 +3630,15 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 29px;
-  line-height: 29px;
+  height: 28px;
+  line-height: 28px;
   padding: 0 0 0 8px;
   color: #444444;
   text-decoration: none;
+}
+.chzn-container-single .chzn-single:hover,
+.chzn-container-single .chzn-single:focus {
+	background-color: #f5f5f5;
 }
 .chzn-container-single a.chzn-single {
 	font-size: 16px;
@@ -3583,6 +3684,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
   display: block;
   width: 100%;
   height: 100%;
+  padding-left: 4px;
 }
 .chzn-container-single .chzn-search {
   position: relative;
@@ -4032,5 +4134,5 @@ table.datepickerViewDays tbody.datepickerYears {
 }
 /*end of datepicker        */
 
-/*off-canvas menu        */
+
 

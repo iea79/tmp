@@ -67,7 +67,7 @@
                                                             <li class="uk-nav-header">My account</li>
                                                             <li><a href=""><i class="mp-icon-person"></i> My profile</a></li>
                                                             <li><a href=""><i class="uk-icon-envelope"></i> Messages</a></li>
-                                                            <li><a href=""><i class="uk-icon-sign-out"></i> Log Out</a></li>
+                                                            <li><a href="{{ url('fos_user_security_logout') }}"><i class="uk-icon-sign-out"></i> Log Out</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="myoffice-drop">
@@ -129,6 +129,7 @@
                                         <div class="uk-dropdown uk-dropdown-small">
                                             <ul class="uk-nav uk-nav-dropdown">
                                                 <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">Eng</a></li>
+                                                {# <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'ru'})) }}">Rus</a></li> #}
                                             </ul>
                                         </div>
                                     </li>
