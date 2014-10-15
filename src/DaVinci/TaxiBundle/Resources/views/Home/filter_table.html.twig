@@ -8,10 +8,10 @@
 				<th>PM</th>
 				<th>Price</th>
 				<th>Status</th>
-				<th class="tab-h2">Buy</th>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <th class="tab-h2">Buy</th>{% endif %}
 			</tr>
 			<tr class="under-head">
-				<td >
+				<td class="auto-tip">
 				<div data-uk-dropdown="{mode:'click'}" class="uk-button-dropdown car">
                                     
 					<button class="uk-button-link">
@@ -37,7 +37,7 @@
 				<td class="daterange">
 					<div id="widget">
 						<div id="widgetField" class="uk-form-icon">
-							<input type="text" name="datarange" maxlength="23" value="" placeholder="20.10.2014-26.10.2014"/>
+							<input type="text" name="datarange" maxlength="23" value="" placeholder="02/12/14-26/12/14"/>
 							<a href="#">&#58896;</a>
 						</div>
 						<div id="widgetCalendar">
@@ -56,7 +56,7 @@
                    <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   </div>
 				</td>
-				<td>
+				<td class="trust">
 					<div class="ov-trust">
 					<div class="uk-button uk-form-select select" data-uk-form-select="">
 						<span class="iconed-drop uk-text-primary">&#58901;</span>
@@ -76,19 +76,21 @@
 					 </div>
 				</td>
 				<td>
-					<button href="#" class="sort uk-button-link arr">
-						<i class="mp-icon-arrow-down"></i>
+					<button href="#" class="sort uk-button-link arr single-butt">
+						
 						<i class="mp-icon-arrow-up uk-text-dark"></i>
+						<i class="mp-icon-arrow-down"></i>
 					</button>
 					<div class="questiontooltip">
                    <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   </div>
 				</td>
-				<td>
+				<td class="price">
 					<div class="ov-lt short-cont">
 						<button href="#"  class="sort uk-button-link aligment arr">
-							<i class="mp-icon-arrow-down"></i>
+							
 							<i class="mp-icon-arrow-up uk-text-dark"></i>
+							<i class="mp-icon-arrow-down"></i>
 						</button>
 						<div class="uk-button uk-form-select select aligment fit-in" data-uk-form-select="">
 						<span>$10-$20</span>
@@ -106,7 +108,7 @@
 					   <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
 					 </div>
 				</td>
-				<td>
+				<td class="status">
 					
 						<div class="uk-button uk-form-select select " data-uk-form-select="">
                     <span>All</span>
@@ -124,18 +126,19 @@
                    <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   </div>	
 				</td>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td>
 					<div class="ov-lt fixed-column">
 						
-				<div class="uk-button uk-form-select select aligment bascket-opt" data-uk-form-select="">
-                    <span>Other</span>
-                     <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">Short sale</option>
-                            <option value="3">Other</option>
-                            
-                        </select>
-                </div>
+					<div class="uk-button uk-form-select select aligment bascket-opt" data-uk-form-select="">
+						<span>Other</span>
+						 <i class="uk-icon-caret-down"></i>
+							<select>
+								<option value="1">Short sale</option>
+								<option value="3">Other</option>
+								
+							</select>
+					</div>
 						<button class="cancell-filters uk-button-link  aligment" >	
 					
 						<i class="mp-icon-closed uk-text-danger"></i>
@@ -145,6 +148,7 @@
                    <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   </div>
 				</td>
+				{% endif %}
 			</tr>
 	
 			<tr class="table-cont">
@@ -155,7 +159,9 @@
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
 				<td>open</td>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+				{% endif %}
 			</tr>
 			<tr class="table-cont">
 				<td><span class="blue-bg">2</span></td>
@@ -165,7 +171,9 @@
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
 				<td>open</td>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+				{% endif %}
 			</tr>
 			<tr class="table-cont">
 				<td><span class="blue-bg">3</span></td>
@@ -175,7 +183,9 @@
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
 				<td>open</td>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+				{% endif %}
 			</tr>
 			<tr class="table-cont">
 				<td><span class="blue-bg">4</span></td>
@@ -185,7 +195,9 @@
 				<td><span class="escro">cash</span></td>
 				<td>$783.85</td>
 				<td>open</td>
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
+				{% endif %}
 			</tr>
 		</table>
 	</div>
