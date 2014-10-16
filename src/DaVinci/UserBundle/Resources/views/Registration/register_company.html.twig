@@ -65,10 +65,11 @@
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
                                 {{ form_widget(form.address.country,
-                {'attr':{'class': 'uk-width-1-1 float_left country_selector',
+                {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required', 
                          'tabindex':'3'}}) }}
                             </div>
 
+                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
                             </div>
                             {{ form_errors(form.address.country) }}
                         </label>
@@ -78,7 +79,7 @@
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
 					{{ form_widget(form.address.city,
-                {'attr':{'class': 'uk-width-1-1 float_left city_selector',
+                {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required', 
                          'tabindex':'4'}}) }}
 					</div>
                             </div>
@@ -96,7 +97,7 @@
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
                             <div class="uk-form-controls">
                                 {{ form_widget(form.skype,
-                {'attr':{'class': 'uk-width-1-1 float_left',
+                {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 
                          'tabindex':'6'}}) }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Write legitimate skype name{% endtrans %}" data-cached-title="{% trans %}Write legitimate skype name{% endtrans %}"></div>
 

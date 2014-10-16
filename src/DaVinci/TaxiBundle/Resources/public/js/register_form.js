@@ -9,31 +9,26 @@ if ($(".register").length) {
 		});
 		$(".active .blockoffice ul").css({'height': contentheight});
 	}
-
-//	$('#country').change(function() {
-//		$('.rowcity').show();	
-//	});
-//	$('#city').change(function() {
-//		$('.rowstreet').show();	
-//	});
-//	$('#street').change(function() {
-//		$('.rowbuild').show();	
-//	});
-
 /*Переключаем радиобатоны в засисимости от того какое поле мы используем*/
-    $('.uk-width-1-1 input[type="text"]').change(function () {
+    $('.uk-width-1-1 input[type="text"]').siblings('input[type="radio"]').prop( "checked", false);
+    $('.uk-width-1-1 select').siblings('input[type="radio"]').prop( "checked", false);
+    $('.uk-width-4-7 input[type="text"]').change(function () {
         $(this).siblings('input[type="radio"]').prop( "checked", true );
     });
-
-    $('.uk-width-1-1 select').change(function () {
+    $('.uk-width-4-7 select').change(function () {
         $(this).parent().siblings('input[type="radio"]').prop( "checked", true );
     });
 /***************/
 
-	//$.UIkit.domObserve('$.UIkit.domObserve('#element', function(element) { /* apply on dom change within element */ })', function(element) { /* apply on dom change within element */ })
-    //$('.register select').wrap('<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select=""></div>');
+    /*$('.addotherlanguage').click(function () {
+				$( ".addlangline select" ).wrap(function() {
+				  return "<div class='uk-form-select select uk-width-1-1 float_left' data-uk-form-select='' data-uk-observe=''><span>Please select...</span><i class='uk-icon-caret-down'></i>" + $( this ) + "</div>";
+				});
 
-
+            /*$( ".addlangline select" ).load(function() {
+				$( ".addlangline select" ).wrap( '<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe=""><span>Please select...</span><i class="uk-icon-caret-down"></i> </div>' );
+            });*/
+    });*/
     $('#taxi_company_registration_address_country').change(function () {
         $('.rowcity').show();
     });
@@ -64,10 +59,6 @@ if ($(".register").length) {
                         $(html).find('.city_selector option')
                 );
                 $(".city_selector").val($(".city_selector option:first").val());
-//                $('#taxi_company_registration_address_city').change('change', function () {
-//                    $('.rowstreet').show();
-//                });
-
             }
         });
     });
@@ -118,28 +109,6 @@ if ($(".register").length) {
         if (this.value.length > 200)
             this.value = this.value.substr(0, 200);
     });
-
-
-/*    $('#manager .addlang').click(function () {
-        $('.style1').last().addClass('style13');
-        $('#manager .style1').clone().insertAfter('.style1').addClass('style2');
-        $('.style2').removeClass('style1');
-        return false;
-    });
-    $('#taxidriver .addlang').click(function () {
-        $('.style1').last().addClass('style13');
-        $('#taxidriver .style1').clone().insertAfter('.style1').addClass('style2');
-        $('.style2').removeClass('style1');
-        return false;
-    });
-    $('#independentdriver .addlang').click(function () {
-        $('.style1').last().addClass('style13');
-        $('#independentdriver .style1').clone().insertAfter('.style1').addClass('style2');
-        $('.style2').removeClass('style1');
-        return false;
-    });
-*/
-
 //register page/////////////////////////////
     function add2PassPattern(text)
     {
