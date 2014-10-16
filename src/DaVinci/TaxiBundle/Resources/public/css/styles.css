@@ -1006,7 +1006,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.tarif-line	.tarif-line-group 	{
 			display:table-cell;
-			padding:7px 0;
+			padding:6px 0 7px 0;
 		}
 		.tarif-line	.second  {
 			width:25%;
@@ -1024,14 +1024,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			width:100%;
 		}
 		.tarif-line	.tarif-line-group .select {
-			width:44%;
+			width:47%;
 			text-align:left;
 			float:right;
 			margin-left:5px;
 			min-height:28px;
 			line-height:26px;
 			position:relative;
-			top:-5px;
+			top:-3px;
 			display:inline-flex;
 			padding:0 3px;
 		}
@@ -1088,7 +1088,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding:0 0 0 15px;
 		border-radius:4px;
 		border: 1px solid #8e9099;
-		height:27px;
+		height:28px;
 		color:#9b9b9b;
 		font-size:14px;
 	}
@@ -1123,7 +1123,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			width:100%;
 		}
 		.order-details .contactpassenger  .nottravel{
-			margin:12px 0;
+			margin:15px 0 12px;
 		}
 		
 		.order-details  .left  {
@@ -1172,11 +1172,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			color:#8d8f98;
 		}
 		.order-details .about-passenger {
-			margin:10px 0;
+			margin:17px 0 9px 0;
 		}
 		.order-details .about-passenger p {
 			font-size:16px;
-			margin:0 0 9px 0;
+			margin:0 0 7px 0;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {

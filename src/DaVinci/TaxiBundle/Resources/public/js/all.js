@@ -169,7 +169,7 @@ $('.chois li').change(function () {
 });
 //Скрытие и открытие обратной даты на 1-м шаге главной
 $(function(){
-	var startCheck = $('.inputs input[type=checkbox]')[0].checked;
+	var startCheck = $('.inputs input[type=checkbox]').prop("checked");
 	if(startCheck) $('.destination .last').show();
 	else $('.destination .last').hide();
 });
@@ -208,7 +208,7 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 
 //accordeon for buttoons in step 2 of homepage
-$(".uk-nav-parent-icon").click(function(){
+$(".order-details .uk-nav-parent-icon").click(function(){
 	$(this).find(".uk-parent").toggleClass("uk-open");
 });
 
@@ -241,5 +241,8 @@ $(".kids-pats-line input[type=checkbox]").click(function(){
 	}
 	});
 
-
+//default disable for a in buttons 2 step
+$('.spec-request .uk-parent > a').click(function(event){
+	return false;
+	});
 
