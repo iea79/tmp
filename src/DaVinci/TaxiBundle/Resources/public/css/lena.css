@@ -330,6 +330,9 @@ footer {
 	margin-top: 0;
 	margin-right: 10px;
 }
+.register .uk-form .wicheck  input[type="checkbox"] {
+	margin-top: -3px;
+}
 .wrapper-content .register .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
 	float: left;
@@ -401,7 +404,7 @@ footer {
 	right: -10px;
 }
 */
- .wicheck  .utooltip, .wicheck .questiontooltip { 	margin-top: -3px;}
+ .wicheck  .utooltip, .wicheck .questiontooltip { 	margin-top: -4px;}
  .whicheck-1 {
 	min-width: 66px;
 	width: 28%;

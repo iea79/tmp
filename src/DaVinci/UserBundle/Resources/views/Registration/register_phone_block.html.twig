@@ -3,7 +3,7 @@
         {% if phones is defined %} 
             {{ form_widget(phones.phone,
 {'attr':{'class': 'float_left phoneinput',
- 'tabindex':'7'}}) }} 
+ 'tabindex':'7', 'css': 'width: 100%'}}) }} 
 
 		<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="Region/State, City" data-cached-title="Region/State, City"></div>
 		{{ form_errors(phones.phone) }}

@@ -25,9 +25,9 @@ if ($(".register").length) {
 				  return "<div class='uk-form-select select uk-width-1-1 float_left' data-uk-form-select='' data-uk-observe=''><span>Please select...</span><i class='uk-icon-caret-down'></i>" + $( this ) + "</div>";
 				});
 
-            /*$( ".addlangline select" ).load(function() {
+            $( ".addlangline select" ).load(function() {
 				$( ".addlangline select" ).wrap( '<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe=""><span>Please select...</span><i class="uk-icon-caret-down"></i> </div>' );
-            });*/
+            });
     });*/
     $('#taxi_company_registration_address_country').change(function () {
         $('.rowcity').show();
