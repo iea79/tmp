@@ -242,7 +242,7 @@ $(".kids-pats-line input[type=checkbox]").click(function(){
 	});
 
 //default disable for a in buttons 2 step
-$('.spec-request .uk-parent > a').click(function(event){
+$('.spec-request .uk-parent > a, .auto-tip a').click(function(event){
 	return false;
 	});
 
