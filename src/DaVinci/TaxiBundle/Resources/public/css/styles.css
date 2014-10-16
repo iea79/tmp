@@ -3213,6 +3213,7 @@ i.quest {
 }
 .uk-tooltip {
   z-index: 10300 !important;
+  font-family: 'icontaxi', Arial;
 }
 .uk-modal-dialog .pop-up.route {
     padding-top: 9px;
