@@ -34,36 +34,45 @@
 
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
                             <div class="uk-form-controls">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.address.country,
-        {'attr':{'class': 'uk-width-1-1 float_left country_selector',
+        {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
                  'tabindex':'1'}}) }}
+				 </div>
+                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
                             </div>
                             {{ form_errors(form.address.country) }}
                         </label>
-                        <label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                        <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                             <div class="uk-form-controls">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
+						<span></span>
+						<i class="uk-icon-caret-down"></i>
                                 {{ form_widget(form.address.city,
-        {'attr':{'class': 'uk-width-1-1 float_left city_selector',
+        {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
                  'tabindex':'2'}}) }}
+				 </div>
                             </div>
                             {{ form_errors(form.address.city) }}
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
-                            <div class="uk-form-controls" data-uk-observe>
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="">
+                            <div class="uk-form-controls">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.language.level,
-                                {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'3'}}) }}
-                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
+                                {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'3'}}) }}
                             </div>
+                                <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
                             </div>
                             {{ form_errors(form.language.level) }}
                         </label>
                         <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
                                 {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}">
                         <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
-                            <div class="uk-form-controls">
+                            <div class="uk-form-controls" data-uk-observe="">
                                 {% for lang in form.language.languages %}
                                         {{ form_widget(lang,
                                             {'attr':{'class': 'uk-width-1-1 float_left'}}) }}
@@ -76,11 +85,11 @@
                             </div>
                         </label>
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
-                            <div class="uk-form-controls" data-uk-observe>
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="">
+                            <div class="uk-form-controls">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-                                    {{ form_widget(form.experience, {'attr':{'class': 'uk-width-1-1 float_left','tabindex':'5'}}) }}
+                                    {{ form_widget(form.experience, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'5'}}) }}
                             </div>
 
 							<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
@@ -89,8 +98,7 @@
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
                             <div class="uk-form-controls">
                                 {{ form_widget(form.skype,
-                            {'attr':{'class': 'uk-width-1-1 float_left',
-                                     'tabindex':'6'}}) }}
+                            {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 'tabindex':'6'}}) }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write legitimate skype name'|trans}}" data-cached-title="{{ 'Write legitimate skype name'|trans}}"></div>
                             </div>
                         </label>

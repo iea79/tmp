@@ -17,10 +17,10 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-						<select required="" id="country" name="country" class="">
+						<select required="" id="country" name="country"  data-errormessage-value-missing="Country is required" data-errormessage="Country is required">
 						<option value=""></option>
 						<option value="Russia" >Russia</option>
 					</select></div>
@@ -29,10 +29,10 @@
 			</label>
 			<label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-						<select required="" id="city" name="city" class="">
+						<select required="" id="city" name="city"  data-errormessage-value-missing="City is required" data-errormessage="City is required">
 						<option>Moscow</option>
 						<option>St. Petersburg</option>
 					</select></div>
@@ -40,13 +40,14 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.code'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cc"  /> <input class="uk-width-4-7  float_right" type="text" name="code" id="code" required  /></div>
+					<div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cc"   data-errormessage-value-missing="Country is required" data-errormessage="Country is required"  /> 
+						<input class="uk-width-4-7  float_right" type="text" name="code" id="code" required   data-errormessage-value-missing="Company Code is required" data-errormessage="Company Code is required" /></div>
 					<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="Ask Taxi Company Owner" data-cached-title="Ask Taxi Company Owner"></div>
 				</div>
 			</label>
 			<label class="uk-form-row unlabel"><span class="uk-form-label uk-width-2-5 text"></span>
 				<div class="uk-form-controls"><div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cn"  /> 
-					<div data-uk-form-select="" class="uk-form-select select uk-width-4-7 float_right">
+					<div class="select uk-form-select select uk-width-4-7 float_right" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
 						<select required="" id="choose" name="Choose by name" class="">
@@ -59,10 +60,10 @@
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-						<select required="" id="english" name="english" class="">
+						<select required="" id="english" name="english"    data-errormessage-value-missing="Please select an option" data-errormessage="Please select an option">
 							<option>Level</option>
 							<option>No</option>
 							<option>Elementary</option>
@@ -78,11 +79,10 @@
 
 			<label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
 				<div class="uk-form-controls"><div class="uk-width-1-1 style1"><div class="style2">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-1-0 float_left display_none">
-						<span></span>
+					<div class="uk-form-select select uk-width-1-0 float_left display_none" data-uk-form-select="" data-uk-observe="">
+						<span>Please select...</span>
 						<i class="uk-icon-caret-down"></i>
 						<select required="" id="lang" name="lang" class="">
-						<option>Select a language</option>
 						<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 						<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
 						<option>Asturian</option>	<option>Avar</option>	<option>Awadhi</option>	<option>Azerbaijani</option>	<option>Balochi</option>
@@ -123,10 +123,10 @@
 			</label>
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
 				<div class="uk-form-controls">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-1-1 float_left">
+					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-						<select required="" id="experience" name="experience" class="">
+						<select required="" id="experience" name="experience"  data-errormessage-value-missing="Please select how many years Drivers Licence" data-errormessage="Please select how many years Drivers Licence">
 						<option>&nbsp;</option>
 						<option>less than 4 years</option>
 						<option>more than 4 years</option>
@@ -137,7 +137,7 @@
 
 			<label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
 				<div class="uk-form-controls">
-					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" required  />
+					<input class="uk-width-1-1 float_left" type="text" name="skype" id="skype" data-errormessage-value-missing="Please enter your Skype" data-errormessage="Please enter your Skype"  required  />
 					<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="Write legitimate skype name" data-cached-title="Write legitimate skype name"></div>
 				</div>
 			</label>
@@ -150,9 +150,10 @@
 				<div class="uk-form-controls addphoneareas">
 					<div class="uk-width-1-0 adphonik">
 					<div class="float_left uk-width-1-1">
-					<div data-uk-form-select="" class="uk-form-select select uk-width-4-10 phonecode">
+					<div class="uk-form-select select uk-width-4-10 phonecode" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
+
 						<select required="" id="phonecode" name="phonecode" class="">
 
 						<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
@@ -197,7 +198,7 @@
 						<option>84 (VN)</option>	<option>678 (VU)</option>	<option>681 (WF)</option>	<option>685 (WS)</option>	<option>967 (YE)</option>
 						<option>269 (YT)</option>	<option>27 (ZA)</option>	<option>260 (ZM)</option>	<option>263 (ZW)</option>
 					</select></div>
-					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required  />
+					<input class="uk-width-4-6 float_right" type="text" name="phone" id="phone" required   data-errormessage-value-missing="Mobile is required" data-errormessage="Mobile is required"/>
 					</div>
 					<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="777-777-7777" data-cached-title="777-777-7777"></div>
 					<div class="clear"></div>
