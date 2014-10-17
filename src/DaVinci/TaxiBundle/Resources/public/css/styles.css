@@ -774,6 +774,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		font-size:16px;
 		padding:1px 0;
 	}
+	.destination  .inputs .uk-primary {
+		color:#528ed3;
+	}
 	.destination  .inputs .date-input {
 		max-width:91px;
 	}
@@ -857,25 +860,25 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		color:#ff4d61;
 		margin:15px 0 5px 20px;
 		line-height:24px;
-		
+		font-weight:bold;
 	}
 	
 	.order-details {
 		float:none;
-		margin:0 12px 0 21px;
+		margin:0 11px 0 21px;
 		border-top:1px solid #ff4d61;
 		
 	}
 	/* second page styles */
 	.order-details .top-group {
-		margin:21px 0 8px 0!important;
+		margin:19px 0 27px 0!important;
 	}
 	.order-details  .kids-pats-line {
 		margin-bottom:7px;
 	}
 	.order-details .kids-pats-group {
 		margin-bottom:14px;
-		font-size:16px;
+		
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
 		width:49%;
@@ -902,6 +905,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details .kids-pats-group .kids-pats-line .amount {
 		width:42px;
 	}
+	.order-details .kids-pats-wrap {
+		padding:17px 0 9px 0;
+	}
 	.order-details  .kids-pats-line .object {
 		width:55%;
 		text-align:left;
@@ -910,15 +916,22 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details .kids-pats-group .kids-pats-line .choose-lang {
 		width:66%;
 		text-align:left;
+		position:relative;
+		top:-5px;
 	}
 	.order-details .kids-pats-line .label-header {
 		font-size:18px;
 		display:inline-block;
 		width:43%;
 	}
+	.order-details  .kids-pats-line input[type=checkbox]{
+		display:inline-block;
+		vertical-align:middle;
+	}
 	.order-details  .kids-pats-line .uk-form-controls {
 		width:30%;
 		display:inline-block;
+		vertical-align:middle;
 	}
 	.order-details .additional  .kids-pats-line  .uk-form-controls {
 		width:auto;
@@ -979,7 +992,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		line-height:30px;
 		font-size:16px;
 		font-weight:bold;
-		margin:20px 0 15px 0;
+		margin:3px 0;
 		cursor:pointer;
 	}
 	.order-details .spec-request .uk-parent a {
