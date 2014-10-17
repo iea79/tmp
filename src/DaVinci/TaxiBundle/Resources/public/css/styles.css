@@ -875,6 +875,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.order-details .kids-pats-group {
 		margin-bottom:14px;
+		font-size:16px;
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
 		width:49%;
@@ -889,6 +890,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details .kids-pats-line .select {
 		min-height:28px;
 		line-height:28px;
+		font-size:16px;
 	}
 		.home .select.taxi-disabled {
 			border-color:#8d8f98;
@@ -1294,12 +1296,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:16px;
 			font-weight:bold;
 			text-align:center;
-			padding:5px 2px;
+			padding:7px 2px;
 			position:relative;
 		}
 		.table-over .serv td {
 			background:#fff;
-			padding:8px 2px;
+			padding:7px 2px;
 			text-align:center;
 		}
 		.table-over .serv .under-head > td {
@@ -1321,7 +1323,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			min-width:38px;
 		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
-			padding:5px 0;
+			padding:7px 0;
 		}
 		.table-over .serv .under-head .mp-icon-taxi {
 			font-size:22px;
