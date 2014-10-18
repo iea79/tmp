@@ -72,8 +72,15 @@
                         <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
                                 {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}">
                         <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
-                            <div class="uk-form-controls" data-uk-observe="">
-                                {% for lang in form.language.languages %}
+                            <div class="uk-form-controls">
+
+<input hidden id="language_prototype" value = "<div class='обертка'>{% for lang in form.language.languages %}{{ form_widget(lang,{'attr':{'class': 'uk-width-1-1 float_left'}}) }}{{ form_errors(lang) }}{% endfor %}{% do form.language.setRendered() %}</div>">
+								
+								
+								
+								
+
+								{% for lang in form.language.languages %}
                                         {{ form_widget(lang,
                                             {'attr':{'class': 'uk-width-1-1 float_left'}}) }}
                                         {{ form_errors(lang) }}
