@@ -43,7 +43,8 @@ imports:
     - { resource: admin/admin_config.yml }
     
     - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
-
+    #- { resource: requirejs/require_js.yml }
+    
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
