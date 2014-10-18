@@ -245,4 +245,13 @@ $(".kids-pats-line  label input[type=checkbox]").click(function(){
 $('.spec-request .uk-parent > a, .auto-tip a').click(function(event){
 	return false;
 	});
+//simbols left in textarea in step 2 homepage
+var text_area_len = 200;
 
+/*$('.wishes-1 textarea').keyup(function(){
+    if($(this).val().length > text_area_len){
+        $(this).val($(this).val().substr(0, text_area_len));
+		}
+var remainding = text_area_len - $(this).val().length;
+$('.wishes-1 textarea').next('.helptext').append("simbols left "+ remainding);
+}*/

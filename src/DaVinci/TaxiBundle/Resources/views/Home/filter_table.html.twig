@@ -1,13 +1,13 @@
 ﻿	<div class="table-over">
 		<table class="serv responsive" cellspacing="1">
 			<tr>
-				<th class="tab-h1">Tip	</th>
-				<th class="daterange">Date/Time</th>
-				<th>Route</th>
-				<th>Trust</th>
-				<th>PM</th>
-				<th>Price</th>
-				<th>Status</th>
+				<th class="tab-h1">Tip	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Vehicle type{% endtrans %}">?</div></th>
+				<th class="daterange">Date/Time <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select date and time{% endtrans %}">?</div></th>
+				<th>Route <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick up/drop off location{% endtrans %}">?</div></th>
+				<th>Trust <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">?</div></th>
+				<th>PM <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}" >?</div></th>
+				<th>Price <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Set your price(fare){% endtrans %}" >?</div></th>
+				<th>Status <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}" >?</div></th>
 				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <th class="tab-h2">Buy</th>{% endif %}
 			</tr>
 			<tr class="under-head">
@@ -165,8 +165,8 @@
                             <option value="1">All</option>
                             <option value="2">Open</option>
                             <option value="3">Pending</option>
-                            <option value="4">Close</option>
-                            <option value="4">Cancel</option>
+                            <option value="4">Closed</option>
+                            <option value="4">Canceled</option>
                             <option value="4">All happy</option>
                         </select>
 					</div>

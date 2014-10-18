@@ -1,6 +1,6 @@
 <div class="wrap-left">
     <div class="order-details-over">
-        <h1 class="labels">Vehicle <i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct  information{% endtrans %}"></i></h1>
+        <h1 class="labels">Vehicle <i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}"  title="{% trans %}Write correct  information{% endtrans %}"></i></h1>
 		<div class="order-details">
 		<form name="order-details" method="post" action="#" >
 				
@@ -36,7 +36,7 @@
              </div>
 			 </div>
 			 <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle2'}"><span class="uk-parent">For kids, pats and baggage<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct  information{% endtrans %}"></span></span></div>
-			 <div class="uk-hidden" id="toggle2">
+			 <div class="uk-hidden kids-pats-wrap" id="toggle2">
 			<div class="kids-pats-group">
 				<div class="kids-pats-line">
 					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span></label>
@@ -248,7 +248,7 @@
 			</div>
 			</div>
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle1'}"><span class="uk-parent">Additional services <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
-			<div class="kids-pats-group additional uk-hidden" id="toggle1">
+			<div class="kids-pats-group additional uk-hidden kids-pats-wrap" id="toggle1">
 				<div class="kids-pats-line">
 					<div class="left-group">
 						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;wi-fi</span></label>
@@ -330,9 +330,9 @@
 			
 			
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle0'}"><span class="uk-parent">Additional drivers conditions <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
-			<div class="kids-pats-group uk-hidden" id="toggle0">
+			<div class="kids-pats-group uk-hidden kids-pats-wrap" id="toggle0">
 				<div class="kids-pats-line">
-					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;interpreter </span><label>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;interpreter </span></label>
 					
 					 <div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
 							<span>выберите язык</span>
