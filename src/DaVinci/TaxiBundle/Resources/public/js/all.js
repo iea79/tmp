@@ -215,34 +215,43 @@ $(".order-details .uk-nav-parent-icon").click(function(){
 //show and hide texareas on step 2 of homepage
 $(function(){
 	$('.kids-pats-line .wishes-1').hide();
-	$('.kids-pats-line input[type=checkbox]:checked').each(function(){
-		$(this).parent().find('.wishes-1').show();
+	$('.kids-pats-line label input[type=checkbox]:checked').each(function(){
+		$(this).parent().parent().find('.wishes-1').show();
 	});
-	$('.kids-pats-line input[type=checkbox]').each(function(){
+	$('.kids-pats-line label input[type=checkbox]').each(function(){
 		var checked = this.checked;
-		if(!checked) $(this).parent().find('select').prop('disabled', true).parent().addClass("taxi-disabled");
+		if(!checked) $(this).parent().parent().find('select').prop('disabled', true).parent().addClass("taxi-disabled");
 		
-		else {$(this).parent().find('select').prop('disabled', false).parent().removeClass("taxi-disabled");
+		else $(this).parent().parent().find('select').prop('disabled', false).parent().removeClass("taxi-disabled");
 			
-		}
+		
 	});
 	
 });
-$(".kids-pats-line input[type=checkbox]").click(function(){
+$(".kids-pats-line  label input[type=checkbox]").click(function(){
 	var checked = this.checked;
-	var targetBlock = $(this).parent().find('.wishes-1');
+	var targetBlock = $(this).parent().parent().find('.wishes-1');
 	if(checked) targetBlock.show();
 	else targetBlock.hide();
 	//disable - abanle selects on step 2
-	var targetSelect = $(this).parent().find('.select');
-	if(!checked) {targetSelect.find('select').prop('disabled', true); targetSelect.parent().find('.select').addClass("taxi-disabled");}
+	var targetSelect = $(this).parent().parent().find('.select');
+	if(!checked) { targetSelect.find('select').prop('disabled', true); targetSelect.parent().find('.select').addClass("taxi-disabled"); }
 	else {targetSelect.parent().find('.select').removeClass("taxi-disabled");
-			targetSelect.find('select').prop('disabled', false);
-	}
+			targetSelect.find('select').prop('disabled', false); }
+	
 	});
 
 //default disable for a in buttons 2 step
 $('.spec-request .uk-parent > a, .auto-tip a').click(function(event){
 	return false;
 	});
+//simbols left in textarea in step 2 homepage
+var text_area_len = 200;
 
+/*$('.wishes-1 textarea').keyup(function(){
+    if($(this).val().length > text_area_len){
+        $(this).val($(this).val().substr(0, text_area_len));
+		}
+var remainding = text_area_len - $(this).val().length;
+$('.wishes-1 textarea').next('.helptext').append("simbols left "+ remainding);
+}*/
