@@ -1,4 +1,5 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'office-driver' %}
 
 {% block body %}
 {# ========= Account start ============= #}
@@ -325,7 +326,7 @@
 																	<th class="route">{{'Route'|trans}}
 																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">?</div>
 																	<th><span class="filter"></span>{{'Status'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Enter Name of organization{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}">?</div>
                                                             </tr>
                                                     </thead>
                                                     <tr>
@@ -497,7 +498,7 @@
 																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">?</div>
 																	</th>
 																	<th>{{'Refuse'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}You can cancel deal{% endtrans %}">?</div>
+																		<div class="questiontooltip" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}You can cancel deal{% endtrans %}">?</div>
 																	</th>
                                                             </tr>
                                                     </thead>
@@ -1308,7 +1309,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{'Insurance'|trans}}
-											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Getting the right cover is essential{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>

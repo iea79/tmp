@@ -3950,3 +3950,229 @@ table.datepickerViewDays tbody.datepickerYears {
 	overflow:visible!important;
 }
 
+/* === Step-4 === */
+
+.check-order {
+  padding: 20px 10px 0 20px;;
+}
+.check-order hr {
+  padding: 0px 0px 0px 0px;
+  margin: 5px 0px 14px 0px !important;
+  color: #ff4d61;
+  background: #ff4d61;
+  height: 1px;
+  width: 100%;
+  display: block;;;
+}
+.check-order .tariff hr {
+  color: #8d8f98;
+  background: #8d8f98;
+}
+.check-order h1.labels {
+	margin: 0px;
+	font-weight: bold;
+	display: block;
+}
+.check-order .tariff h1.labels {
+	color: #8d8f98;
+}
+.check-order h1.labels a {
+	font-size: 16px;
+	float: right;
+	display: inline-block;
+	line-height: 29px;
+	font-weight: normal;;
+}
+.check-order h1 .uk-icon-question-circle {
+	top: 0px;
+	margin-left: 9px;;
+}
+.check-order dl {
+	display: table;
+}
+.check-order dl[class="quantity"] {
+	margin-bottom: 14px;
+}
+.check-order dt {
+	display: table;
+	color: #8d8f98;
+	font-size: 15px;
+	font-weight: normal;
+	margin-right: 5px !important;
+}
+.check-order dt,dd {
+	float: left;
+	line-height: 18px;
+	font-size: 16px;
+	display: inline-block;
+	margin: 0px;
+	margin-bottom: 12px !important;;;
+}
+.check-order .quantity dt.photo {
+	display: table;
+	margin-right: 8px !important;
+	margin-top: -2px;
+}
+.check-order .passenger-info .photo img {
+	margin-right: 4px;
+	border: 4px #ebebeb solid;
+	border-radius: 4px;
+	height: 113px;
+	width: 110px;}
+.check-order .main-passenger-info dd.personal {
+	min-width: 250px;
+	width: 72%;
+}
+.check-order .main-passenger-info .personal dl {
+	width: 100%;
+	display: inline-block;
+	margin-top: -3px;
+	margin-bottom: -10px;;
+}
+.check-order .main-passenger-info .personal dt,
+.check-order .main-passenger-info .personal dd {
+	margin-bottom: 2.1% !important;
+	margin-right: 0 !important;
+}
+.check-order .main-passenger-info .personal dt {
+	width: 57%;
+}
+.check-order .main-passenger-info .personal dd {
+	width: 37%;
+}
+.check-order .main-passenger-info dt[class="about"] {
+	margin-bottom: 1px !important;
+}
+.check-order .main-passenger-info dd[class="about"] {
+	font-size: 14px;
+	line-height: 16px;
+}
+.check-order dd.personal {
+	display: table;
+}
+.check-order .tariff {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: -16px;
+}
+.check-order .tariff .price,
+.check-order .tariff .payment {
+	float: left;
+	margin-bottom: 26px;
+	margin-top: 0px;
+}
+.check-order .tariff .price {
+	width: 58%;
+}
+.check-order .tariff .payment {
+	width: 42%;
+}
+.check-order .tariff .price dt,
+.check-order .tariff .price dd,
+.check-order .tariff .payment dt,
+.check-order .tariff .payment dd {
+	float: left;
+	display: table-cell;
+	margin-bottom: 9px !important;
+}
+.check-order .tariff .price dd {
+  width: 70%;
+}
+.check-order .tariff .payment dd {
+	width: 40% !important;
+}
+.check-order .route-info {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 0px;
+}
+.check-order .route-info dt {
+	width: 40%;
+}
+.check-order .route-info dt, .check-order .route-info dd {
+	margin-bottom: 7px !important;
+	display: block;;
+}
+.check-order .route-info dd {
+	width: 58%;
+	line-height: 19px;
+}
+.check-order .vechicle dl {
+	width: 100%;
+	display: inline-block;
+	margin-top: 3px;
+}
+.check-order .vechicle dl,
+.check-order .vechicle dt {
+	display: inline-block;
+}
+.check-order .vechicle dt {
+    width: 40% !important;
+    line-height: 16px;
+}
+.check-order .vechicle dd {
+    font-size: 15px;
+    line-height: 10px;
+}
+.check-order .vechicle dd span {
+    margin-right: 7%;
+}
+
+.check-order .vechicle dl {
+    width: 100%;      
+    display: inline-block;
+    margin-top: 3px;
+}
+.check-order .vechicle dl i {
+	color: #ff4d61;
+	margin-right: 3%;
+	font-size: 18px;
+}
+.check-order .vechicle dl i[class="mp-icon-bug"] {
+    margin-left: 6%;
+    font-size: 15px;
+}
+.check-order .vechicle dl i[class="mp-icon-door"] {
+    margin-left: 6%;
+    font-size: 15px;
+}
+.main-passenger-info .spec-request {
+    line-height: 30px;
+    font-weight: bold;
+}
+.check-order .passenger-info .kid-pat-bag dl.child-pet {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 23px;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dt {
+    width: 39%;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dd {
+    width: 59%;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dt,.check-order .passenger-info .kid-pat-bag .child-pet dd {
+    line-height: 16px;
+    display: block;
+    margin-bottom: 9px !important;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left,.check-order .passenger-info .kid-pat-bag .rack-right {
+    float: left;
+    margin-top: 2px;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left {
+    width: 58%;
+}
+.check-order .passenger-info .kid-pat-bag .rack-right {
+    width: 42%;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left dt, .check-order .passenger-info .kid-pat-bag .rack-right dt,.check-order .passenger-info .kid-pat-bag .rack-left dd, .check-order .passenger-info .kid-pat-bag .rack-right dd {
+    line-height: 14px;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left dt, .check-order .passenger-info .kid-pat-bag .rack-right dt {
+    width: 68%;
+    text-align: left;
+}
+.check-order .passenger-info .kid-pat-bag .rack-right dt {
+    width: 92%;
+}
