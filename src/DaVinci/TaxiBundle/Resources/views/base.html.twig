@@ -152,14 +152,14 @@
             <div id="offcanvas-nav" class="uk-offcanvas">
                 <div class="uk-offcanvas-bar uk-offcanvas-bar-flip">
                     <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:false}">
-                        <li><a href="index.html"class="uk-button">
+                        <li><a href="#"  class="uk-button uk-button-primary">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
-                                    {{ 'Log In'|trans}} <i class="uk-icon-sign-in"></i>
+                                    {{ 'Hello!'|trans}} 
                                 {% else %} 
-                                    {{ 'Sing Up'|trans}}
+                                    {{ 'Sing Up'|trans}}<i class="uk-icon-sign-in"></i>
                                 {% endif %}
                             </a></li>
-                        <li><a href="index.html">Home <i class="uk-icon-home"></i></a></li>
+                        
                         <li class="uk-parent"><a href="#">Your passanger</a>
                             <ul class="uk-nav-sub">
                                 <li><a href="">Book</a></li>
@@ -228,6 +228,7 @@
                 var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
             </script>
             <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+			<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
             {% javascripts
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.js'
 							'@DaVinciTaxiBundle/Resources/public/js/uikit.min.js'
@@ -238,13 +239,15 @@
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.validate.js'
 							'@DaVinciTaxiBundle/Resources/public/js/custom-form-elements.js'
 							'@DaVinciTaxiBundle/Resources/public/js/jquery.form.js'
-							
 							'@DaVinciTaxiBundle/Resources/public/js/datarange.js'
-							
+							'@DaVinciTaxiBundle/Resources/public/js/addons/datepicker.js'
 							'@DaVinciTaxiBundle/Resources/public/js/chosen.jquery.js'
 							'@DaVinciTaxiBundle/Resources/public/js/chosenImage.jquery.js'
 							'@DaVinciTaxiBundle/Resources/public/js/intl-tel-input-master/js/intlTelInput.js'
                             '@DaVinciTaxiBundle/Resources/public/js/register_form.js'
+                            '@DaVinciTaxiBundle/Resources/public/js/civem.js'
+							
+
 							'@DaVinciTaxiBundle/Resources/public/js/all.js'
             %}
             <script src="{{ asset_url }}"></script>

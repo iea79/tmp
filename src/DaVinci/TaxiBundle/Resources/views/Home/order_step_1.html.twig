@@ -36,7 +36,7 @@
 		</div>
 		<div class="inputs">
 			<div class="uk-form-controls">
-				<input class="date-input date-pick"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
+				<input class="date-input date-pick"  type="" placeholder="mm/dd/yy" data-uk-datepicker="{format:'DD/MM/YY'}"  />
 				<div class="uk-button uk-form-select select" data-uk-form-select="">
                     <span>11</span>
                     <i class="uk-icon-caret-down"></i>
@@ -82,7 +82,7 @@
                 </div>
 			</div>
 			<div class="check-box">
-			<input type="checkbox" /><span class="uk-form-controls">&nbsp;Round trip </span>
+			<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}"  title="{% trans %}Return to pick-up palce{% endtrans %}"></i>
 			</div>
 		</div>
 		
@@ -97,25 +97,49 @@
 		</div>
 		<div class="inputs">
 			<div class="uk-form-controls ">
-				<input class="date-input date-pick"  type="text" placeholder="mm/dd/yy" id="datepicker0"  />
+				
+				<input class="date-input date-pick"  type="" placeholder="mm/dd/yy" id="datepicker0"  data-uk-datepicker="{format:'DD/MM/YY'}" />
+				
 				<div class="uk-button uk-form-select select" data-uk-form-select="">
                     <span>11</span>
                      <i class="uk-icon-caret-down"></i>
                         <select>
-                            <option value="1">12</option>
+                            <option value="1">00</option>
+                            <option value="1">01</option>
+                            <option value="1">02</option>
+                            <option value="1">03</option>
+                            <option value="1">04</option>
+                            <option value="1">05</option>
+                            <option value="1">06</option>
+                            <option value="1">07</option>
+                            <option value="1">08</option>
+                            <option value="1">09</option>
+                            <option value="2">10</option>
+                            <option value="2">11</option>
+                            <option value="2">12</option>
                             <option value="2">13</option>
                             <option value="3">14</option>
                             <option value="4">15</option>
+                            <option value="4">16</option>
+                            <option value="4">17</option>
+                            <option value="4">18</option>
+                            <option value="4">19</option>
+                            <option value="4">20</option>
+                            <option value="4">21</option>
+                            <option value="4">22</option>
+                            <option value="4">23</option>
                         </select>
                 </div>
 				<div class="uk-button uk-form-select select" data-uk-form-select="">
                     <span>01</span>
                      <i class="uk-icon-caret-down"></i>
                         <select>
-                            <option value="1">01</option>
-                            <option value="2">02</option>
-                            <option value="3">03</option>
-                            <option value="4">04</option>
+                            <option value="1">00</option>
+                            <option value="2">10</option>
+                            <option value="3">20</option>
+                            <option value="4">30</option>
+                            <option value="4">40</option>
+                            <option value="4">50</option>
                         </select>
                 </div>
 			</div>
@@ -125,14 +149,13 @@
 	<div class="nav-over">
         <a href="#" data-uk-switcher-item="next">
 		<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
-            Next > 
+            Next &gt; 
         </div>
 		</a>
 	</div>
 		
     </div>
 
-		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
-    <div class="clear"></div>
+		
 
 

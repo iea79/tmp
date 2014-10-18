@@ -577,7 +577,7 @@
 					tmp = [[],[], options.el];
 					$.each(options.date, function(nr, val){
 						var date = new Date(val);
-						options.format = 'd/m/Y'
+						options.format = 'd/m/y'
 						tmp[0].push(formatDate(date, options.format));
 						tmp[1].push(date);
 					});
@@ -939,4 +939,4 @@
 	}; 
 	
     	EYE.register(initLayout, 'init');
-})(jQuery)
+})(jQuery);

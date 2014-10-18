@@ -1,26 +1,45 @@
 <div class="wrap-left">
     <div class="order-details-over">
-        <h1 class="labels">Vehicle <i class="uk-icon-question-circle uk-primary"></i></h1>
+        <h1 class="labels">Vehicle <i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}"  title="{% trans %}Write correct  information{% endtrans %}"></i></h1>
 		<div class="order-details">
 		<form name="order-details" method="post" action="#" >
 				
 			<div class="kids-pats-line top-group">
 			<label class="label-header">Class</label>
-			<div class="uk-button uk-form-select select object" data-uk-form-select="">
+			<div class="uk-button uk-form-select select object " data-uk-form-select="">
                     <span>not choosen</span>
                     <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">not choosen</option>
-                            <option value="2">not choosen</option>
-                            <option value="3">not choosen</option>
-                            <option value="4">not choosen</option>
-                        </select>
+                        <select class="chosen">
+														<option>{{'Economy'|trans}}</option>
+														<option>{{'Compact'|trans}}</option>
+														<option>{{'Midsize'|trans}}</option>
+														<option>{{'Standart'|trans}}</option>
+														<option>{{'Full Size'|trans}}</option>
+														<option>{{'Premium'|trans}}</option>
+														<option>{{'Midsize SUV'|trans}}</option>
+														<option>{{'Standart Convertible'|trans}}</option>
+														<option>{{'Premium Pickup'|trans}}</option>
+														<option>{{'Mini Van'|trans}}</option>
+														<option>{{'Standart SUV'|trans}}</option>
+														<option>{{'Standart Van'|trans}}</option>
+														<option>{{'Full Size Pickup'|trans}}</option>
+														<option>{{'Full Size SUV'|trans}}</option>
+														<option>{{'Standart Pickup'|trans}}</option>
+														<option>{{'Full Size Van'|trans}}</option>
+														<option>{{'Special Van'|trans}}</option>
+														<option>{{'Premium Van'|trans}}</option>
+														<option>{{'Luxury'|trans}}</option>
+														<option>{{'Premium Special'|trans}}</option>
+														<option>{{'Premium SUV'|trans}}</option>
+														<option>{{'Special'|trans}}</option>
+													</select>
              </div>
 			 </div>
-			 <div class="uk-button-large uk-button uk-width-1-1 spec-request">For kids, pats and baggage <span class="uk-icon-question-circle "></span></div>
+			 <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle2'}"><span class="uk-parent">For kids, pats and baggage<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct  information{% endtrans %}"></span></span></div>
+			 <div class="uk-hidden kids-pats-wrap" id="toggle2">
 			<div class="kids-pats-group">
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -28,7 +47,7 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
+                            
                         </select>
 					</div>
 					 <div class="uk-button uk-form-select select object" data-uk-form-select="">
@@ -36,14 +55,14 @@
 							<i class="uk-icon-caret-down"></i>
 								<select>
 									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="2">1-3 years</option>
+									<option value="3">4-7 years</option>
+									<option value="4">7-12 years</option>
 								</select>
 					</div>
 				</div>
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -51,7 +70,7 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
+                            
                         </select>
 					</div>
 					 <div class="uk-button uk-form-select select object" data-uk-form-select="">
@@ -59,14 +78,14 @@
 							<i class="uk-icon-caret-down"></i>
 								<select>
 									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="2">1-3 years</option>
+									<option value="3">4-7 years</option>
+									<option value="4">7-12 years</option>
 								</select>
 					</div>
 				</div>
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;child seat </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -74,7 +93,7 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
+                            
                         </select>
 					</div>
 					 <div class="uk-button uk-form-select select object" data-uk-form-select="">
@@ -82,9 +101,9 @@
 							<i class="uk-icon-caret-down"></i>
 								<select>
 									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="2">1-3 years</option>
+									<option value="3">4-7 years</option>
+									<option value="4">7-12 years</option>
 								</select>
 					</div>
 				</div>
@@ -92,7 +111,7 @@
 			</div>
 			<div class="kids-pats-group">
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -100,22 +119,21 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
+                            
                         </select>
 					</div>
 					 <div class="uk-button uk-form-select select object" data-uk-form-select="">
 							<span>0-12 month</span>
 							<i class="uk-icon-caret-down"></i>
 								<select>
-									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="1">10 pound</option>
+									<option value="2">50 pound</option>
+									<option value="3">100 pound</option>
 								</select>
 					</div>
 				</div>
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -130,15 +148,14 @@
 							<span>0-12 month</span>
 							<i class="uk-icon-caret-down"></i>
 								<select>
-									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="1">10 pound</option>
+									<option value="2">50 pound</option>
+									<option value="3">100 pound</option>
 								</select>
 					</div>
 				</div>
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;pat cages </span></label>
 					<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 						<span>1</span>
 						<i class="uk-icon-caret-down"></i>
@@ -146,17 +163,16 @@
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
-                            <option value="4">4</option>
+                            
                         </select>
 					</div>
 					 <div class="uk-button uk-form-select select object" data-uk-form-select="">
 							<span>0-12 month</span>
 							<i class="uk-icon-caret-down"></i>
 								<select>
-									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option value="1">10 pound</option>
+									<option value="2">50 pound</option>
+									<option value="3">100 pound</option>
 								</select>
 					</div>
 				</div>
@@ -165,7 +181,35 @@
 			<div class="kids-pats-group">
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;cycle rack</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;cycle rack</span></label>
+							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+								<span>1</span>
+								<i class="uk-icon-caret-down"></i>
+								<select>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									
+								</select>
+							</div>
+					</div>
+					<div class="right-group">
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;ski rack</span></label>
+							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+								<span>1</span>
+								<i class="uk-icon-caret-down"></i>
+								<select>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									
+								</select>
+							</div>
+					</div>
+				</div>
+				<div class="kids-pats-line">
+					<div class="left-group">
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;place for strollers</span></label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<span>1</span>
 								<i class="uk-icon-caret-down"></i>
@@ -178,7 +222,7 @@
 							</div>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;ski rack</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;wheelchairs place</span></label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<span>1</span>
 								<i class="uk-icon-caret-down"></i>
@@ -193,143 +237,165 @@
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;place for strollers</span>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
-								<span>1</span>
-								<i class="uk-icon-caret-down"></i>
-								<select>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
-					</div>
-					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;wheelchairs place</span>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
-								<span>1</span>
-								<i class="uk-icon-caret-down"></i>
-								<select>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
-					</div>
-				</div>
-				<div class="kids-pats-line">
-					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;roof rack</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;roof rack</span></label>
 							
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;trailer</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;trailer</span></label>
 							
 					</div>
 				</div>
 			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request">Additional services <span class="uk-icon-question-circle "></span></div>
-			<div class="kids-pats-group additional">
+			</div>
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle1'}"><span class="uk-parent">Additional services <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
+			<div class="kids-pats-group additional uk-hidden kids-pats-wrap" id="toggle1">
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;wi-fi</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;wi-fi</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;GPS</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;GPS</span></label>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;air conditioner</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;air conditioner</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;sunroof</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;sunroof</span></label>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;car for non smokers</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;car for non smokers</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;first aid kit</span>
-					</div>
-				</div>
-				<div class="kids-pats-line">
-					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;cool drinks <span class="uk-icon-question-circle "></span></span>
-					</div>
-				</div>
-				<div class="kids-pats-line">
-					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;snacks <span class="uk-icon-question-circle "></span></span>
-					</div>
-				</div>
-				<div class="kids-pats-line">
-					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;DVD <span class="uk-icon-question-circle "></span></span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;first aid kit</span></label>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;gadgets chargers <span class="uk-icon-question-circle "></span></span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;cool drinks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></abel>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						</div>
 					
 				</div>
 				<div class="kids-pats-line">
 					
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;disabled transportation tools <span class="uk-icon-question-circle "></span></span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;snacks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></label>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						
+					</div>
+				</div>
+				<div class="kids-pats-line">
+					
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;DVD <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></label>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						</div>
 					
 				</div>
 				<div class="kids-pats-line">
 					
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;passenger has an disease <span class="uk-icon-question-circle "></span></span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;gadgets chargers <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></label>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						</div>
 					
+				</div>
+				<div class="kids-pats-line">
+					
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;disabled transportation tools <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></label>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						</div>
+					
+				</div>
+				<div class="kids-pats-line">
+					
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;passenger has an disease <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></label>
+						<div class="wishes-1">
+							<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
+							<div class=" helptext">simbols left 200</div>
+						</div>
 				</div>
 			</div>
 			
-			<div class="wishes-1">
-				<textarea placeholder="Например: алергия на шерсть или диабет."></textarea>
-				<div class=" helptext">осталось символов 200</div>
-			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request">Additional drivers conditions <span class="uk-icon-question-circle "></span></div>
-			<div class="kids-pats-group">
+			
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle0'}"><span class="uk-parent">Additional drivers conditions <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
+			<div class="kids-pats-group uk-hidden kids-pats-wrap" id="toggle0">
 				<div class="kids-pats-line">
-					<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;interpreter </span>
+					<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;interpreter </span></label>
 					
 					 <div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
 							<span>выберите язык</span>
 							<i class="uk-icon-caret-down"></i>
 								<select>
-									<option value="1">0-12 month</option>
-									<option value="2">0-12 month</option>
-									<option value="3">0-12 month</option>
-									<option value="4">0-12 month</option>
+									<option>Select a language</option>
+																<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
+																<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
+																<option>Asturian</option>	<option>Avar</option>	<option>Awadhi</option>	<option>Azerbaijani</option>	<option>Balochi</option>
+																<option>Bashkir</option>	<option>Basque</option>	<option>Belarusian</option>	<option>Bengali</option>	<option>Berber</option>
+																<option>Bhojpuri</option>	<option>Bosnian</option>	<option>Bulgarian</option>	<option>Burmese</option>	<option>Cantonese</option>
+																<option>Catalan</option>	<option>Cebuano</option>	<option>Chechen</option>	<option>Chewa</option>	<option>Chichewa</option>
+																<option>Chuvash</option><option>Chhattisgarhi</option>	<option>Chinese </option>	<option>Chittagonian</option>	<option>Comorian</option>
+																<option>Creole</option>	<option>Croatian</option>	<option>Czech</option>	<option>Dari</option>	<option>Deccan</option>
+																<option>Dhivehi</option>	<option>Dhundhari</option>	<option>Danish</option>	<option>Dutch</option>	<option>Dzongkha</option>
+																<option>Estonian</option>	<option>Filipino </option>	<option>Finnish</option>	<option>French</option>	<option>Fula</option>
+																<option>Gan</option>	<option>Georgian</option>	<option>German</option>	<option>Greek</option>	<option>Gujarati</option>
+																<option>Haitian Creole</option>	<option>Hakka</option>	<option>Haryanvi</option>	<option>Hausa</option>	<option>Hebrew </option>
+																<option>Hiligaynon</option>	<option>Hindi</option>		<option>Hmong</option>	<option>Hungarian</option>	<option>Icelandic</option>
+																<option>Igbo</option>	<option>Ilokano</option>	<option>Indonesian</option>	<option>Irish </option>	<option>Italian</option>
+																<option>Japanese</option>	<option>Javanese</option>	<option>Jin</option>	<option>Kabardian</option>	<option>Kannada</option>
+																<option>Kazakh</option>	<option>Khmer</option>	<option>Kinyarwanda</option>	<option>Kirundi</option>	<option>Korean</option>
+																<option>Kurdish</option>	<option>Kyrgyz</option>	<option>Lao</option>	<option>Latvian</option>	<option>Lithuanian</option>
+																<option>Macedonian</option>	<option>Madurese</option>	<option>Magahi</option>	<option>Maithili</option>	<option>Malagasy</option>
+																<option>Malay</option>	<option>Malayalam</option>	<option>Maltese </option>	<option>Mandarin</option>	<option>Marathi</option>
+																<option>Marwari</option>	<option>Min Bei</option>	<option>Min Dong</option>	<option>Min Nan</option>	<option>Moldavian</option>
+																<option>Mongolian </option>	<option>Mossi</option>	<option>Myanmar</option>	<option>Ndebele</option>	<option>Nepali</option>
+																<option>Norwegian</option>	<option>Oriya</option>	<option>Oromo</option>	<option>Ossetian</option>	<option>Pashto</option>
+																<option>Persian</option>	<option>Polish</option>	<option>Portuguese</option>	<option>Punjabi</option>	<option>Quechua</option>
+																<option>Romanian</option>	<option>Sango</option>	<option>Saraiki</option>	<option>Sardinian</option>	<option>Scots</option>
+																<option>Sepedi</option>	<option>Serbian</option>	<option>Sesotho</option><option>Setswana</option>	<option>Shona</option>
+																<option>Sindhi</option>	<option>Sindebele</option>	<option>Sinhalese</option>	<option>Slovak</option>	<option>Slovene</option>
+																<option>Somali</option>	<option>Spanish</option>	<option>Sundanese</option>	<option>Swahili</option>	<option>Swati</option>
+																<option>Swedish</option><option>Sylheti</option>	<option>Tagalog</option>	<option>Tajik </option>	<option>Tamil</option>
+																<option>Tatar</option>	<option>Telugu</option>	<option>Thai</option>	<option>Tigrinya</option>	<option>Tsonga</option>
+																<option>Turkish</option>	<option>Turkmen</option>	<option>Ukrainian</option>	<option>Urdu</option>	<option>Uyghur</option>
+																<option>Uzbek</option>	<option>Venda</option>	<option>Vietnamese</option>	<option>Wu</option>	<option>Xhosa</option>	<option>Xiang</option>
+																<option>Yoruba</option>	<option>Zhuang</option><option>Zulu</option>
 								</select>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;educator</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;educator</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;medical liscence</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;medical liscence</span></label>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;bodyguard</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;bodyguard</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;animal trainer</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;animal trainer</span></label>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;carrier</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;carrier</span></label>
 					</div>
 					<div class="right-group">
-						<input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;guide</span>
+						<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;&nbsp;guide</span></label>
 					</div>
 				</div>
 			</div>
@@ -340,14 +406,13 @@
 			</div>
 			<div class="uk-button-group uk-width-1-1">
 				
-				<a href="#" data-uk-switcher-item="previous" class="uk-button uk-button-warning   float_left"><span>< Back</span></a>
-				<a href="#"  data-uk-switcher-item="next" class="uk-button uk-button-danger     float_right"><span>Next ></span></a>
+				<a href="#" data-uk-switcher-item="previous" class="uk-button uk-button-warning   float_left"><span>&lt; Back</span></a>
+				<a href="#"  data-uk-switcher-item="next" class="uk-button uk-button-danger     float_right"><span>Next &gt;</span></a>
 			</div>
 			</form>
 		</div>
     </div>
 </div>
-		{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
-    <div class="clear"></div>
+		
 
 

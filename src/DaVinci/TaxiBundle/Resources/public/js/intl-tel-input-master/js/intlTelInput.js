@@ -165,7 +165,7 @@ https://github.com/Bluefieldscom/intl-tel-input.git
             this.telInput = $(this.element);
             // containers (mostly for positioning)
             this.telInput.wrap($("<div>", {
-                "class": "intl-tel-input"
+                "class": "intl-tel-input uk-width-1-1 float_left"
             }));
             var flagsContainer = $("<div>", {
                 "class": "flag-dropdown"
