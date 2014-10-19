@@ -438,6 +438,7 @@ footer {
     margin-right: 0;
 	width: 100%;
 }
+.register .addphoneareas input[type="text"].tempo {	width: 71.3%;}
 .addphone {
 	cursor: pointer;
     /*color: #528ed3;
@@ -844,8 +845,8 @@ body.register .main-content{
 	position: relative;
     top: -2px;
 }
-.register .checkmail .uk-width-5-1 {width: 74.8%;}
-.register .checkmail .uk-width-5-2 {width: 25.2%;}
+.register .checkmail .uk-width-5-1 {width: 74.6%;}
+.register .checkmail .uk-width-5-2 {width: 25.4%;}
 .register .changemail .btn {
 	background: #528ed3;
 	color: #fff;
@@ -900,3 +901,4 @@ background: transparent;
 .uk-form input[type="checkbox"], .uk-form input[type="radio"] {
 padding: 0;
 }
+.otherlang {margin-bottom: 14px;}

@@ -26,20 +26,31 @@ class AddCityFieldSubscriber implements EventSubscriberInterface
         );
     }
 
-    private function addCityForm($form, $country)
-    {
+ private function addCityForm($form, $country) {
         $formOptions = array(
-            'class'         => 'DaVinciTaxiBundle:Admin\CountryCity',
-            'empty_value' => ($country==NULL)?'form.select_country_first':'form.please_select',
+            'class' => 'DaVinciTaxiBundle:Admin\CountryCity',
+            'empty_value' => ($country == NULL) ? 'form.select_country_first' : 'form.please_select',
             'translation_domain' => 'FOSUserBundle',
             'property' => 'city',
             'query_builder' => function (EntityRepository $repository) use ($country) {
-                if($country==NULL) $countyr = '';
-                return  $repository->createQueryBuilder('c')
-                        ->select('c')
-                        ->where("c.id = :ctr" )
-                        ->andWhere('c.status = 1')
-                        ->setParameter('ctr', $country);
+                if ($country == NULL)
+                    $countyr = '';
+
+                if (is_numeric($country)) {
+                    $result= $repository->createQueryBuilder('c')
+                            ->select('c.countryCode')
+                            ->where("c.id = :ctr")
+                            ->andWhere('c.status = 1')
+                            ->setParameter('ctr', $country)->getQuery()->getSingleResult(); 
+                    $country = $result['countryCode'];
+                }
+
+
+                return $repository->createQueryBuilder('c')
+                                ->select('c')
+                                ->where("c.countryCode = :ctr")
+                                ->andWhere('c.status = 1')
+                                ->setParameter('ctr', $country);
             }
         );
 
