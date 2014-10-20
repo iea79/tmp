@@ -11,6 +11,9 @@ order_step_2:
 order_step_3:
     pattern:  /order-step-3
     defaults: { _controller: DaVinciTaxiBundle:Home:order_step_3 }
+order_step_4:
+    pattern:  /order-step-4
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_4 }
 main_driver:
     pattern:  /main-driver
     defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    

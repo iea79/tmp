@@ -31,5 +31,9 @@ class HomeController extends Controller
         return $this->render('DaVinciTaxiBundle:Home:order_step_3.html.twig');
     }
 
+    public function order_step_4Action()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:order_step_4.html.twig');
+    }
 
 }

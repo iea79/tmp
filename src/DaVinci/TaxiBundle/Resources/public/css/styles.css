@@ -1,6 +1,6 @@
-/*==========================   general styles   =================================*/
+/*========================== general styles =================================*/
 
-/*===================  this is a grey button fro our designe  ====================*/
+/*=======================this is a grey button fro our designe====================*/
 .uk-button-warning {
   background-color: #8d8f98;
   color: #ffffff;
@@ -1366,9 +1366,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		
 		.table-over .serv  .select {
-			
-			margin:0 auto; 
+			 
 			white-space:nowrap;
+			margin:0 auto;
 		}
 		.table-over .serv .short-cont {
 			min-width:115px;
@@ -1455,7 +1455,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			top:3px;
 		}
 		
-/*=======
 office passengers and driver
 ========*/
 
@@ -1542,7 +1541,7 @@ office passengers and driver
         display: table;
         margin: 0;
 }
-.client-account .clientid dl a{
+.client-account .client-panel-list .clientid dl a{
         font-size: 14px;
         line-height: 16px;
         font-weight: normal;
@@ -1555,13 +1554,15 @@ office passengers and driver
 	padding-left: 6px;
 	border-left: 1px #3c3d45 solid;
 }
-.client-account .clientid dt,dd {
-		display: inline;
-        font-size: 14px;
-        float: left;
-		margin-left: 5px;
+.client-account .client-panel-list .clientid dt,
+.client-account .client-panel-list .clientid dd {
+	display: block;
+    font-size: 14px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	float: left;
 }
-.client-account .clientid dt {
+.client-account .client-panel-list .clientid dt {
 	color: #8d8f98;
 	font-weight: normal;
 }
@@ -1755,6 +1756,7 @@ office passengers and driver
 .client-account .message-graybg {
 	background:#f5f5f5;
 	padding: 4px 0px 8px 11px;
+	margin-bottom: -20px;
 }
 .client-account .message-graybg input,
 .client-account .message-graybg select {
@@ -2056,10 +2058,9 @@ table th .questiontooltip {
 	width:11.8% !important;
 	min-width: 90px;
 }
-.client-account .iconed-drop {
-	letter-spacing: 2px;
-	font-size: 18px;
-}
+/*.client-account .iconed-drop {
+  font-size: 18px;
+}*/
 .client-account .ov-trust .select {
 	background-color:transparent;
 	border:0;
@@ -4170,3 +4171,344 @@ table.datepickerViewDays tbody.datepickerYears {
   display: none;
 }
 /*end of pace.js        */
+/* === Step-4 === */
+
+.order-step-four {
+  width: 50%;
+}
+.order-step-four .uk-icon-check {
+  margin-left: -10px;
+  line-height: 11px;
+  font-size: 20px;
+  color: #8d8f98;
+  text-align: right;
+}
+@media only screen and (max-width: 761px) {
+	.order-step-four {
+	  width: 100%;
+	}
+}
+@media only screen and (max-width: 827px) {
+	.order-step-four dt,
+	.order-step-four dd {
+	  width: 100%;
+	}
+	.order-step-four dt {
+	  margin-bottom: 5px !important;
+	}
+	.order-step-four .uk-icon-check {
+	  margin-left: 0px !important;
+	}
+}
+.order-step-4 .whitebg {
+	background: #fff;
+	border-radius: 6px !important;
+}
+.order-step-4 .title {
+  margin-top: 17px;
+  margin-bottom: 18px;
+}
+.check-order .passenger-info {
+  padding: 11px 13px 21px 18px;
+}
+.check-order .passenger-info hr {
+  padding: 0px 0px 0px 0px;
+  margin: 5px 0px 14px 0px !important;
+  color: #ff4d61;
+  background: #ff4d61;
+  height: 1px;
+  width: 100%;
+  display: block;;;
+}
+.check-order .passenger-info .tariff hr {
+  color: #8d8f98;
+  background: #8d8f98;
+}
+.check-order .passenger-info h1.labels {
+	margin: 0px;
+	font-weight: bold;
+	display: block;
+}
+.check-order .passenger-info .tariff h1.labels {
+	color: #8d8f98;
+}
+.check-order .passenger-info h1.labels a {
+	font-size: 16px;
+	float: right;
+	display: inline-block;
+	line-height: 29px;
+	font-weight: normal;;
+}
+.check-order .passenger-info h1 .uk-icon-question-circle {
+	top: 0px;
+	margin-left: 9px;;
+}
+.check-order .passenger-info dl {
+	display: table;
+}
+.check-order .passenger-info dl[class="quantity"] {
+	margin-bottom: 16px;
+}
+.check-order .passenger-info dt {
+	color: #8d8f98;
+	font-size: 15px;
+	font-weight: normal;
+	margin-right: 5px !important;
+}
+.check-order .passenger-info dt,dd {
+	float: left;
+	line-height: 18px;
+	display: inline-block;
+	font-size: 16px;
+	margin: 0px;
+	margin-bottom: 12px;
+}
+.check-order .passenger-info .quantity dt.photo {
+	display: table;
+	margin-right: 7px !important;
+	margin-top: -2px;
+}
+.check-order .passenger-info .photo img {
+	margin-right: 4px;
+	border: 4px #ebebeb solid;
+	border-radius: 4px;
+	height: 113px;
+	width: 110px;
+}
+.check-order .main-passenger-info dd.personal {
+	min-width: 250px;
+	width: 74%;
+	margin-top: -3px;
+	margin-bottom: 11px !important;
+}
+.check-order .main-passenger-info .personal dl {
+	width: 100%;
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: -10px;;
+}
+.check-order .main-passenger-info .personal dt,
+.check-order .main-passenger-info .personal dd {
+	margin-bottom: 2.1% !important;
+	margin-right: 0 !important;
+}
+.check-order .passenger-info .main-passenger-info .personal dt {
+	width: 55%;
+}
+.check-order .passenger-info .main-passenger-info .personal dd {
+	width: 45%;
+}
+.check-order .main-passenger-info dt[class="about"] {
+	margin-bottom: 2px !important;
+	width: 100%;
+}
+.check-order .passenger-info .main-passenger-info dd[class="about"] {
+	font-size: 14px !important;
+	line-height: 16px;
+	margin-bottom: 11px !important;
+}
+.check-order .passenger-info .tariff {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: -16px;
+}
+.check-order .passenger-info .tariff .price,
+.check-order .passenger-info .tariff .payment {
+	float: left;
+	margin-bottom: 26px;
+	margin-top: 0px;
+}
+.check-order .passenger-info .tariff .price {
+	width: 58%;
+}
+.check-order .passenger-info .tariff .payment {
+	width: 42%;
+}
+.check-order .passenger-info .tariff .price dt,
+.check-order .passenger-info .tariff .price dd,
+.check-order .passenger-info .tariff .payment dt,
+.check-order .passenger-info .tariff .payment dd {
+	display: table-cell;
+	margin-bottom: 9px !important;
+}
+.check-order .passenger-info .tariff .price dd {
+  width: 80%;
+}
+.check-order .passenger-info .tariff .payment dd {
+	width: 49% !important;
+}
+@media (max-width: 874px) {
+	.check-order .passenger-info .tariff .price dd,
+	.check-order .passenger-info .tariff .payment dd {
+		width: 100% !important;
+	}
+}
+.check-order .passenger-info .route-info {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: -3px;
+}
+.check-order .passenger-info .route-info dt {
+	width: 40%;
+}
+.check-order .passenger-info .route-info dt, .check-order .route-info dd {
+	margin-bottom: 7px !important;
+	display: block;;
+}
+.check-order .passenger-info .route-info dd {
+	width: 58%;
+	line-height: 19px;
+}
+.check-order .passenger-info .vechicle dl {
+	width: 100%;
+	display: inline-block;
+	margin-top: 3px;
+	margin-bottom: 0px;
+}
+.check-order .passenger-info .vechicle dt {
+    width: 39.5% !important;
+    line-height: 16px;
+}
+.check-order .passenger-info .vechicle dd {
+    font-size: 15px;
+    line-height: 10px;
+}
+.check-order .passenger-info .vechicle dd span {
+    margin-right: 9%;
+}
+.check-order .passenger-info .vechicle dl {
+    width: 100%;      
+    display: inline-block;
+    margin-top: 2px;
+    margin-bottom: 1px;
+}
+.check-order .passenger-info .vechicle dl i {
+	color: #ff4d61;
+	margin-right: 3%;
+	font-size: 18px;
+}
+.check-order .passenger-info .vechicle dl i[class="mp-icon-bug"] {
+    margin-left: 6%;
+    font-size: 15px;
+}
+.check-order .passenger-info .vechicle dl i[class="mp-icon-door"] {
+    margin-left: 6%;
+    font-size: 15px;
+}
+.check-order .passenger-info .order-details {
+	margin: 0;
+	border: none;
+}
+.check-order .passenger-info .kid-pat-bag dl.child-pet {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 21px;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dt {
+    width: 39.5%;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dd {
+    width: 59%;
+}
+.check-order .passenger-info .kid-pat-bag .child-pet dt,.check-order .passenger-info .kid-pat-bag .child-pet dd {
+    line-height: 16px;
+    display: block;
+    margin-bottom: 9px !important;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left,.check-order .passenger-info .kid-pat-bag .rack-right {
+    float: left;
+    margin-top: 2px;
+    margin-bottom: 11px;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left {
+    width: 58%;
+}
+.check-order .passenger-info .kid-pat-bag .rack-right {
+    width: 42%;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left dt, .check-order .passenger-info .kid-pat-bag .rack-right dt,.check-order .passenger-info .kid-pat-bag .rack-left dd, .check-order .passenger-info .kid-pat-bag .rack-right dd {
+    line-height: 14px;
+}
+.check-order .passenger-info .kid-pat-bag .rack-left dt, .check-order .passenger-info .kid-pat-bag .rack-right dt {
+    width: 68%;
+    text-align: left;
+}
+.check-order .passenger-info .kid-pat-bag .rack-right dt {
+    width: 91%;
+}
+@media (max-height: 910px) {
+	.check-order .passenger-info .kid-pat-bag .rack-right dt {
+    	width: 89%;
+	}
+}
+.check-order .passenger-info .more-details .message {
+    padding: 0;
+    margin-top: 18px;
+    font-size: 15px;
+}
+.check-order .passenger-info .more-details dl[class="cheks1"],
+.check-order .passenger-info .more-details dl[class="cheks2"] {
+    float: left;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
+.check-order .passenger-info .more-details dl[class="cheks1"] {
+    width: 58%;    
+}
+.check-order .passenger-info .more-details dl[class="cheks2"] {
+    width: 42%;    
+}
+.check-order .passenger-info .more-details .cheks1 dt,
+.check-order .passenger-info .more-details .cheks1 dd,
+.check-order .passenger-info .more-details .cheks2 dt,
+.check-order .passenger-info .more-details .cheks2 dd {
+    line-height: 14px;
+
+}
+.check-order .passenger-info .more-details .cheks1 dt {
+    width: 68%;    
+}
+.check-order .passenger-info .more-details .cheks2 dt {
+    width: 90%;    
+}
+.check-order .passenger-info .more-details .comfort {    
+    margin-bottom: 10px !important;
+    width: 100%;;
+}
+.check-order .passenger-info .more-details .comfort dt,
+.check-order .passenger-info .more-details .comfort dd {
+    line-height: 16px;
+}
+.check-order .passenger-info .more-details .comfort dd {    
+    font-size: 14px;
+    margin-bottom: 13px !important;
+}
+.check-order .passenger-info .more-details .comfort dt {    
+    margin-bottom: 4px !important;
+}
+.check-order .passenger-info .more-details dl[class="interpreter"] {
+  margin-bottom: -11px;
+  margin-top: 18px;
+  width: 100%;
+}
+.check-order .passenger-info .more-details .interpreter dt {
+  width: 39.5%;
+  float: left;
+}
+.check-order .passenger-info .more-details .interpreter dd {
+  width: 50%;
+  float: left;
+}
+.check-order .passenger-info .more-details .special {    
+    margin-bottom: 12px !important;;;
+}
+.check-order .passenger-info .more-details .special dd {    
+    font-size: 14px;
+    margin-bottom: 14px !important;
+}
+.check-order .passenger-info .more-details .special dt {    
+    margin-bottom: 4px !important;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -3px;
+}
