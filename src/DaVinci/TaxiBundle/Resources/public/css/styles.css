@@ -4013,7 +4013,7 @@ div.datepicker {
 	display: none;
 }
 .datepickerContainer {
-	background: #121212;
+	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -4022,6 +4022,12 @@ div.datepicker {
 	overflow:hidden;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
 	z-index:100;
+	
+}
+.uk-dropdown.uk-datepicker {
+	border:1px solid #8e9099;
+	border-radius:8px;
+	box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
 .datepickerHidden {
@@ -4052,7 +4058,7 @@ div.datepicker table td  table td a {
 	line-height:24px;
 }
 
-div.datepicker th {
+div.datepicker th,  .uk-dropdown.uk-datepicker {
 	text-align: center;
 	color: #999;
 	font-weight: normal;
