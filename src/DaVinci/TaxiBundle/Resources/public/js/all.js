@@ -34,7 +34,7 @@ $(function () {
 
         if (lbl.is(":visible")) {
             lbl.text(file_name);
-            btn.text("Выбрать");
+            btn.text("Выбрать");// такого не должно быть! текст в js недопустим
         } else
             btn.text(file_name);
     }).change();
@@ -47,20 +47,6 @@ $(function () {
  setTabswidth();
  });
  */
-//register page/////////////////////////////
-function add2PassPattern(text)
-{
-    $('.passfield2').attr('pattern', text);
-}
-$(".passfield").change(function () {
-    add2PassPattern(this.value);
-});
-
-//check Email js////////////////////////
-$('#resend_email a').click(function (e) {
-    e.preventDefault();
-    $('#change_email_block').show();
-});
 
 //Table Responsive/////////////////////
 

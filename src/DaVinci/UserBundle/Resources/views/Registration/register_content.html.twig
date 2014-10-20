@@ -6,56 +6,61 @@
                 {% if flow.getCurrentStepNumber() == 1 %}
                     {{ form_errors(form) }}
 					<!-- Begin Line first name  -->
-                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:</label>
+                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:
+                        {{ form_errors(form.firstname) }}</label>
                         <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}" data-cached-title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}"></div>
                         </div>
-                        {{ form_errors(form.firstname) }}
+                        
                     </div>
 					<!-- End Line first name  -->
 
 					<!-- Begin Line last name  -->
-                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:</label>
+                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:
+                        {{ form_errors(form.lastname) }}</label>
                         <div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}" data-cached-title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}"></div>
                         </div>
-                        {{ form_errors(form.lastname) }}
+                        
                     </div>
 					<!-- End Line last name  -->
 
 					<!-- Begin Line email  -->
-                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:</label>
+                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:
+                        {{ form_errors(form.email) }}</label>
                         <div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'You will get confirmation letter to complete registration.'|trans }}" data-cached-title="{{ 'You will get confirmation letter to complete registration.'|trans }}"></div>
                         </div>
-                        {{ form_errors(form.email) }}
+                        
                     </div>
 					<!-- End Line email  -->
 
 					<!-- Begin Line password  -->
-                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}:</label>
+                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}: 
+                            {{ form_errors(form.plainPassword.first) }}</label>
                         <div class="uk-form-controls uk-form-password">
                             {{ form_widget(form.plainPassword.first, {'attr':{'pattern':'.{3,}', 'title':'Minmimum 3 letters or numbers.'|trans, 'class': 'uk-width-1-1 float_left passfield', 'tabindex':'4' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}" data-cached-title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}"></div>
                         </div>
-                        {{ form_errors(form.plainPassword.first) }}
+                        
                     </div>
 					<!-- End Line password  -->
 
 					<!-- Begin Line confirm password  -->
-                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:</label>
+                    <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:
+                        {{ form_errors(form.plainPassword.second) }}</label>
                         <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'5' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Should match combination above.'|trans }}" data-cached-title="{{ 'Should match combination above.'|trans }}"></div>
                         </div>
-                        {{ form_errors(form.plainPassword.second) }}
+                        
                     </div>
 					<!-- End Line confirm password  -->
 
@@ -72,25 +77,25 @@
                     {{ form_errors(form) }}
                     <div class="checkregister">
 						<!-- Begin Line first name  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:</div>
-                            <div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</div></div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:</label>
+                            <div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</div>
                         </div>
 						<!-- End Line first name  -->
 
 						<!-- Begin Line last name  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:</div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:</label>
                             <div class="uk-form-label">{{ flow.formData.lastname }}</div>
                         </div>
 						<!-- End Line last name  -->
 
 						<!-- Begin Line email  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:</div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:</label>
                             <div class="uk-form-label">{{ flow.formData.email }}</div>
                         </div>
 						<!-- End Line email  -->
 
 						<!-- Begin Line password  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}:</div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}:</label>
                             <div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:if (this.innerHTML == '{{ flow.formData.plainPassword }}')
                                         this.innerHTML = '{{ 'click to show'|trans }}';
                                     else
@@ -101,7 +106,7 @@
 
 
 						<!-- Begin Line terms  -->
-                        <label class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</div>
+                        <label class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</label>
 						<!-- End  Line terms  -->
 
 						<!-- Begin Line button  -->
@@ -117,3 +122,13 @@
             </fieldset>
         </form>
     </div></div>
+            
+    {% block javascripts %}
+        {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.passenger.js'
+        %}
+
+        {{ require_js_initialize({ 'main' : asset_url })}}
+
+        {% endjavascripts %}
+    {% endblock %}

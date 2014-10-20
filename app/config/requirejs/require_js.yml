@@ -12,6 +12,27 @@ hearsay_require_js:
             location: @DaVinciTaxiBundle/Resources/public/js/requirejs/libs/async
         uikit:
             location: @DaVinciTaxiBundle/Resources/public/js/uikit
+        uikitdatepicker:
+            location: @DaVinciTaxiBundle/Resources/public/js/addons/datepicker
+        gmaps:
+            location: https://maps.googleapis.com/maps/api/js?v=3.exp
+            external: true
+            
+    shim:
+        # Prototype
+        uikitdatepicker:
+            deps:    [jquery]
+        jquery.spinner:
+            deps:    [jquery]
+        datarange:
+            deps:    [jquery]
+        jquery.form:
+            deps:    [jquery]
+        timepicker:
+            deps:    [jquery]
+        chosen.jquery:
+            deps:    [jquery]
+            
     #конфигурация оптимизатора, в нашем случае r.js
     optimizer:
         path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/public/js/requirejs/r.js

@@ -1,6 +1,7 @@
-require(["pages/common"], function(){
-    require(['pages/register/country.block','intl-tel-input-master/js/intlTelInput'], function(){
-        require(['pages/register/phone.block']);
-        
+require(['pages/common'], function(){
+    require(['addons/form-password']);
+    
+    $(".passfield").change(function () {
+        $('.passfield2').attr('pattern', this.value);
     });
 });
