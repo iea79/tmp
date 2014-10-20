@@ -1,27 +1,27 @@
 <div class="float_left adphonik">
-    <label class="forphoneinput">
+    <div class="forphoneinput">
         {% if phones is defined %} 
             {{ form_widget(phones.phone,
-{'attr':{'class': 'float_left phoneinput',
- 'tabindex':'7', 'css': 'width: 100%'}}) }} 
+{'attr':{'class': 'float_left phoneinput uk-width-1-1',
+ 'tabindex':'7'}}) }} 
 
-		<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="Region/State, City" data-cached-title="Region/State, City"></div>
+		<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="777-777-7777" data-cached-title="777-777-7777"></div>
 		{{ form_errors(phones.phone) }}
         {% else %}
             <input hidden id="phones_input">
         {% endif %}
-    </label>
+    </div>
     <div class="wicheck whicheck-1">
         <div class="float_left">
             {% if phones is defined %} 
-
                 {{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}
             {% else %}
                 <input hidden id="has_internet_input">
             {% endif %}
         </div>
-        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mobile internet'|trans }}" data-cached-title="{{ 'Mobile internet'|trans }}"></div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Any kind of connection'|trans }}" data-cached-title="{{ 'Any kind of connection'|trans }}"></div>
     </div>
+
     <div class="wicheck whicheck-2">
         <div class="float_left">
             {% if phones is defined %}     
@@ -30,7 +30,7 @@
                 <input hidden id="has_whatsapp_input">
             {% endif %}
         </div>
-        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mobile messaging app'|trans }}" data-cached-title="{{ 'Mobile messaging app'|trans }}"></div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Free communication program'|trans }}" data-cached-title="{{ 'Free communication program'|trans }}"></div>
     </div>
     {% if phones is defined %}  
         {{ form_errors(phones.phone) }}

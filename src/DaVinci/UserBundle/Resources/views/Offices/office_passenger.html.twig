@@ -59,7 +59,7 @@
 {# ========= swicher table =========== #}
 				<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
 					<div class="uk-panel uk-width-1-3 uk-active">
-						<button class="uk-width-1-1">{{'Empty orders'|trans}}</button>
+						<button class="uk-width-1-1">{{'Book your trip'|trans}}</button>
 					</div>
 					<div class="uk-panel uk-width-1-3">
 						<button class="uk-width-1-1">{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> (8)</button>
@@ -71,8 +71,51 @@
 {# ========= swicher table ============ #}
 				<ul id="tab-content" class="uk-switcher">
 						<li class="uk-active">
-							<div class="whitebg">
-								empty-tabs
+							<div class="whitebg home">
+						        <div class="steps-1-2-3">
+						            <ul class="chois" data-uk-tab="{connect:'#steps'}">
+						                <li class="uk-width-1-3 first">
+						                    <a href="#">
+						                        <div class="arrow_box"><span class="on"><i class="uk-icon-check"></i></span><span class="hide"> <span class="exclude">Choose a </span>route</span>
+												</div>
+												<span class="arrow"></span>
+												<span class="middle"></span>
+						                    </a>
+											
+						                </li>
+						                <li class="uk-width-1-3 other second">
+						                    <a href="#">
+						                        <div class="arrow_box"><span class="on">2</span><span class="hide"> <span class="exclude">Choose the type of </span>vehicle</span>
+												</div>
+												<span class="arrow"> </span>
+												<span class="middle"> </span>
+						                    </a>
+											<span class="back"></span>
+						                </li>
+						                <li class="uk-width-1-3 last">
+						                    <a href="#">
+						                        <div class="arrow_box"><span class="on">3</span><span class="hide"> Start <span class="exclude">a trip</span></span>
+						                        </div>
+												<span class="arrow"></span>
+												
+						                    </a>
+											<span class="back"></span>
+						                </li>
+						            </ul>
+						            <div id="steps" class="uk-switcher ">
+						                <li>
+						                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
+						                </li>
+						                <li>
+						                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
+						                </li>
+						                <li>
+						                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
+						                </li>
+						            </div>
+									{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
+								<div class="clear"></div>
+						        </div>
 							</div>
 						</li>
 						<li>
@@ -87,7 +130,7 @@
 																	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
 																</th>
 																<th>{{ 'My orders'|trans }}
-																	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check open orders{% endtrans %}">?</div>
+																	<div class="questiontooltip" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check open orders{% endtrans %}">?</div>
 																</th>
 														</tr>
 													</thead>
@@ -99,8 +142,8 @@
 																<div class="uk-float-left route">
 																	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																</div>
-																	<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle1'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																			<div class="uk-panel uk-panel-box uk-hidden" id="toggle1">
+																	<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle21'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																			<div class="uk-panel uk-panel-box uk-hidden" id="toggle21">
 																					<div class="driver-over">
 																							<div class="driver-top">
 																									<div class="profile">
@@ -190,8 +233,8 @@
 																			<div class="uk-float-left route">
 																					<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																			</div>
-																				<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle2'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle2">
+																				<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle22'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle22">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -282,8 +325,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle3'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle3">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle23'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle23">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -374,8 +417,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle4'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle4">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle24'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle24">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -466,8 +509,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle5'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle5">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle25'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle25">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -558,8 +601,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle6'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle6">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle26'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle26">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -650,8 +693,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle7'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle7">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle27'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle27">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -742,8 +785,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle="{target:'#toggle8'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle8">
+																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle28'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle28">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -860,7 +903,7 @@
 																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}">?</div>
 																		</th>
 																		<th>{{ 'Edit'|trans }}
-																			<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit trip details{% endtrans %}">?</div>
+																			<div class="questiontooltip" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Edit trip details{% endtrans %}">?</div>
 																		</th>
 																</tr>
 														</thead>
@@ -1276,7 +1319,7 @@
 														{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 													</div>
 												</div>
-												<div class="uk-hidden" id="toggle10">
+												<div class="uk-hidden" id="toggle210">
 													<div class="uk-width-1-1 uk-margin-small">
 														<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
 														<div class="uk-width-1-1 rate">
@@ -1308,7 +1351,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#toggle10'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
+										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle2="{target:'#toggle210'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
 									</div>
 								</div>
 							</div>
@@ -1316,7 +1359,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{ 'About driver'|trans }}
-											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Personal information{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>
@@ -1342,7 +1385,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{ 'About car'|trans }}
-											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Car description{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>
@@ -1370,7 +1413,7 @@
 								<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
 									<li class="uk-parent">
 										<a class="popup-head uk-button inbox" href="#">{{ 'Insurance'|trans }}
-											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+											<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}All passengers can enjoy cover in  the event of an accident or accident related incidents{% endtrans %}"></span>
 										</a>
 										<ul class="uk-nav-sub">
 											<li>

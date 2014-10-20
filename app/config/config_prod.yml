@@ -23,3 +23,7 @@ monolog:
             level: debug
         console:
             type:  console
+
+hearsay_require_js:
+  optimizer:
+    hide_unoptimized_assets: true

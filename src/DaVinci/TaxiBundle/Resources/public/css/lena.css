@@ -1,3 +1,13 @@
+/******styles for:
+register 
+register_independent_driver
+register_company_driver
+register_company
+register_manager
+register_checkmeil
+register_choose_office
+*****/
+/*base styles*/
 .wrap-content {position: relative;}
 .register .wrap-content {
 	background-image:url(../images/bgmain.jpg);
@@ -7,27 +17,9 @@
 	background-size: cover;
 	position: relative;
 }
-/*footer {
-	position: absolute;
-	bottom:0;
-	width: 100%;
-}*/
 footer {
 	position: relative;
 	z-index: 2;
-}
-.register label{
-	display:block;
-	margin:0 0 12px;
-}
-.register label.forphoneinput{
-    margin:0;
-}
-
-.register  label .text {
-/*	width:191px;*/
-	display:inline-block;
-	vertical-align:middle;
 }
 .align_center {text-align: center;}
 .blue {color: #528ed3;}
@@ -35,10 +27,6 @@ footer {
 .display_none {display: none !important;}
 .float_left {float: left !important;}
 .float_right {float: right !important;}
-.half {
-	width: 50%;
-	float: left;
-}
 .clear {
     clear: both;
     display: block;
@@ -46,6 +34,16 @@ footer {
     height: 1px;
     line-height: 1px;
     margin: 0 0 -1px;
+}
+/* /base styles*/
+.register label{
+	display:block;
+	margin:0 0 12px;
+}
+.register label.forphoneinput{    margin:0;}
+.register  label .text {
+	display:inline-block;
+	vertical-align:middle;
 }
 .register .title{
 	background: #fff;
@@ -57,14 +55,9 @@ footer {
 	line-height: 120%;
 	position: relative;
 	clear: both;
-/*
-	float: none;
- 	position: absolute;
-	width: 100%;
-	float: left;
-	left: 0;*/
 }
-/*.register .title span {display: inline-block; }*/
+
+/* form styles*/
 .register .uk-form-select, .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #d1d1d1;
@@ -86,63 +79,12 @@ footer {
 	height: 29px;
 	line-height: 20px;
 }
-/*.register .wrapper-content  .content.register {padding-top: 68px;}*/
 .wrapper-content .register .authorizat .uk-button.nextbutt.btn-red {
     background: none repeat scroll 0 0 #ff3148;
     border: 0 none;
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 }
 .wrapper-content .register .authorizat .uk-button.nextbutt.btn-red:hover {    background: none repeat scroll 0 0 #ff4d61;}
-/*.btn-red:hover {    background: none repeat scroll 0 0 #ff94a0;}*/
-@media (max-width: 1017px) {
-	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
-/*	.addphoneareas .questiontooltip {right: 0;}*/
-	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas, .register .addotherlanguage	{width: 100%;}
-	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
-	.changemail div.form-group .col-sm-9 {width: 77.6%;}
-}
-@media (max-width: 767px) {
-	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100% !important;}
-	:-moz-any(x), .register .addotherlanguage {	width: 97%;}
-	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
-	label .errors {top: 42px !important;}
-	label.unlabel  .errors {top: 24px !important;}
-/*	.addphoneareas .questiontooltip {right: 1.4% !important;}*/
-	.register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
-	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
-	/*.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
-		height: 12px !important;
-		width: 12px  !important;
-	}*/
-	.changemail div.form-group .col-sm-9 {width: 64.8% !important;}
-}
-@media screen and (max-width: 480px) {
-	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
-	 .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100%  !important;}
-	:-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
-	.wrapper-content .register .uk-button {width: 91%;}
-	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
-	label .errors {top: 42px !important;}
-	label.unlabel  .errors {top: 24px !important;}
-	.register .uk-form-horizontal .uk-width-4-5	 {width: 96.8% !important;}
-	/*.addphoneareas .questiontooltip {right: 0.6% !important;}*/
-/*	.register .uk-form-horizontal  input[type="radio"], .register .uk-form-horizontal input[type="checkbox"] {
-		height: 10px !important;
-		width: 10px  !important;
-	}*/
-	.checkmail {
-		background: #fff !important;
-		padding: 17px 12px 20px 12px  !important;
-	}
-	.wrapper-content > .content.usedemail {	padding: 14px 12px 20px 12px  !important;}
-	.changemail {	padding: 12px 12px 5px 12px !important;}
-	.changemail div.form-group .col-sm-9 {width: 56.6% !important;}
-}
 .wrapper-content .register .uk-button {
     font-size: 22px;
     padding: 10px;
@@ -154,17 +96,6 @@ footer {
   border: none;
   background: #27bf2e;
   color: #fff;
-/*
-    margin-top: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 6px;
-  text-shadow: 0 1px 0 #8e9099;
-
- 	display: block;
-	padding: 16px 0 14px 0;
-	margin-bottom: 16px;
-	*/
-
 }
 .wrapper-content .register input[type="submit"] {
     border: medium none;
@@ -176,7 +107,6 @@ footer {
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
  	float: left;
-/* 	color: #3c3d45;*/
  	color: #000;
 	width: 34.8%;
 	font-weight: normal;
@@ -192,10 +122,8 @@ footer {
 	margin-top: 5px;
 	font-size: 16px;
 }
-
 .register .uk-form-horizontal .uk-form-controls {
  	margin-lefT: 0;
-/*	margin-top: 1px;*/
 	floaT: left;
 	width: 65.2%;
 }
@@ -217,25 +145,17 @@ footer {
 .register .uk-form-horizontal .addphoneareas {	margin-bottom: 2px;}
 .register .uk-form-horizontal .uk-form-row.addphoneline    {	margin-bottom: 0px;}
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
-.addphoneareas  .questiontooltip {
-/* 	float: right;
-	right: 0px;*/
-}
 .addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
 .utooltip {
  	position: relative;
  	float: left;
  	text-align: left;
 	margin-left: 1px;
-
     background: url("../images/tooltip.png") no-repeat scroll 0 0 transparent;
 	display: block;
 	width: 13px;
 	height:14px;
  	text-align: center;
-/*
- 	border-radius: 50%;
- 	background: #528ed3 ;*/
  	color: #fff;
 	padding-top: 0px;
 	font-size: 10px;
@@ -255,71 +175,15 @@ footer {
 }
 .uk-tooltip-left:after {  border-left-color: #fff;}
 .title .uk-tooltip-left:after {  border-left-color: #ccc;}
- .questiontooltip {
- 	position: relative;
- 	float: left;
- 	text-align: left;
-	margin-left: 1px;
- }
- .title .utooltip, .title .questiontooltip {
-/*	position: absolute;*/
+.title .utooltip, .title .questiontooltip {
 	position: reltive;
  	display: inline-block;
  	font-size: 11px;
-/* 	width: auto;*/
  	float: none;
  	text-transform: none;
 	margin-left: 5px;
 	top: -2px;
  }
- :-moz-any(x), .title .questiontooltip  {top: -6px;}
- .title .questiontooltip a span.que{	top: 12px;}
-.questiontooltip a span.que{
- 	display: block;
-	width: 12px;
-	height:13px;
- 	text-align: center;
- 	background: #528ed3 ;
- 	color: #fff;
- 	border-radius: 50%;
-	padding-top: 0px;
-	font-size: 10px;
- 	vertical-align: middle;
-	line-height: 130%;
-	padding-right: 1px;
-	margin-lefT: 4px;
-	position: relative;
-	top: 7px;
-	z-index: 0;
-}
-.questiontooltip a:hover {
-	background		: #ffffff;	/*необходимо для IE6*/
-	text-decoration	: none;
-}
-.questiontooltip a span.tooltip {
-    border-radius: 3px;
-	display			: none; 
-	padding			: 3px 3px 4px 3px;  
-	margin-left		: 8px; 
-	width			: 76px;
-	height: 54px;
-	height: auto;
-	float: right;
-	right: 18px;
-	top: 0;
-	line-height:144%;
-	position: relative;
-	font-size: 0.7em;
-	white-space: normal;
-	z-index: 4;
-}
-.questiontooltip a:hover span.tooltip {
-	display			: inline; 
-	position		: absolute; 
-	background		: #ffffff; 
-	border			: 1px solid #cccccc; 
-	color			: #6c6c6c;
-}
 .numcars {margin-right: 12px;}
  .register .uk-form input[type="radio"] {
 	float: left;
@@ -330,9 +194,7 @@ footer {
 	margin-top: 0;
 	margin-right: 10px;
 }
-.register .uk-form .wicheck  input[type="checkbox"] {
-	margin-top: -3px;
-}
+.register .uk-form .wicheck  input[type="checkbox"] {	margin-top: -3px;}
 .wrapper-content .register .uk-button.nextbutt.backbutt {
 	background: #8c8e96;
 	float: left;
@@ -382,7 +244,6 @@ footer {
 }
 :-moz-any(x), .addotherlanguage {	width: 94%;}
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
-/*.addphoneline .text {   padding-bottom: 8%;}*/
 .addphoneline .text {   padding-bottom: 2%;}
 .phonecode {
  	float: left;
@@ -396,14 +257,11 @@ footer {
  	float: left;
 	font-size: 16px;
  }
-.adphonik {width: 100%; margin-bottom: 12px;}
-.register .uk-form-horizontal .uk-width-1-0.adphoniklast{margin-bottom: 26px; }
-/*.adphoniklast  .wicheck {margin-top: -2px;}
- .wicheck .questiontooltip {
- 	top: -2px;
-	right: -10px;
+.adphonik {
+	width: 100%;
+	margin-bottom: 12px;
 }
-*/
+.register .uk-form-horizontal .uk-width-1-0.adphoniklast{margin-bottom: 26px; }
  .wicheck  .utooltip, .wicheck .questiontooltip { 	margin-top: -4px;}
  .whicheck-1 {
 	min-width: 66px;
@@ -436,12 +294,10 @@ footer {
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
-	width: 100%;
 }
+.register .addphoneareas input[type="text"].tempo {	width: 71.3%;}
 .addphone {
 	cursor: pointer;
-    /*color: #528ed3;
-	color: #000;*/
 	color: #ff4d61;
 	text-decoration: underline;
     display: inline-block;
@@ -468,8 +324,6 @@ footer {
     margin: 0px auto 36px auto;
     padding: 22px 0 8px 0;
     text-transform: none;
-/*	background: #3d3d3d;
-	color: #fff;*/
 }
 .officepagetitle img {
     margin-left: 15px;
@@ -620,22 +474,18 @@ footer {
 	float: left;
 	width: 50%;
 }
-/*.register .uk-form-horizontal  .style1 .uk-width-1-1{	width: 100%;}*/
 .register  .style1, .register  .style2 {
     margin: 0;
     overflow: hidden;
     position: relative;
 }
 .register  .style1 label, .register  .style2 label {   margin: 0 0 9px;}
-.register  label span.text{/*color: #3d3d3d;*/ 	color: #000;}
-.register .verifi label span.text{/*color: #8d8f98;*/color: #000;}
+.register  label span.text{color: #000;}
+.register .verifi label span.text{color: #000;}
 .register  .style1 select {width: 100%;}
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
-/*
-#buttons {    overflow: hidden;}
-#insidebuttonwrapper {    float: left;}*/
-
 .register label, .register fieldset {    position: relative;}
+/** errors */
 .register .errors {
     color: #ff4d61;
     margin: 0;
@@ -663,12 +513,14 @@ footer {
 	list-style: none outside none;
 }
 .register label .errors li {	margin-bottom: 21px;}
+/** /errors */
+
+/** choose office */
 .greentitle {
     color: #27bf2e;
     margin: 9px 0 0;
 }
 .greentitle span {
-/*    background: url("../images/return.png") no-repeat scroll 100% 0 transparent;*/
     display: inline-block;
     padding: 0 10px 10px 0;
 }
@@ -680,9 +532,6 @@ footer {
 .wrapper-content .register form.authorizat {
     margin: 0 auto;
     overflow: hidden;
-/*
-    width: 398px;
-    padding-bottom: 38px;*/
     position: relative;
     text-align: center;
 	min-width: 280px;
@@ -737,16 +586,14 @@ a.loginfb, a.logintw {
 }
 a.loginfb {    background: url("../images/fbc.png") no-repeat scroll 0 0 transparent;}
 a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 transparent;}
+/** /choose office */
+
 .register .uk-form-password-toggle {right: 46px;}
 .wrapper-content .register {
 	max-width: 560px;
 	min-width: 40%;
 	margin: 0 auto;
 	padding: 4px 10px 10px 10px;
-}
-body.register {
-/*  min-height: 100%;
-  height: auto;*/
 }
 body.register .main-content{
 	background: none;
@@ -757,11 +604,8 @@ body.register .main-content{
 	margin: 0 auto;
 	text-align: left;
 }
-.wrapper-content .register .authorizat{
-	text-align: center;
-}
-.wrapper-content > .content.checkmail .float_left{
-}
+.wrapper-content .register .authorizat{	text-align: center;}
+/** checkmail */
 .checkmail a, .about .term a {    color: #528ed3;}
 .term a {color: #ff4d61; text-decoration: underline;}
 .checkmail .float_left{	width: 74.8%;}
@@ -772,7 +616,6 @@ body.register .main-content{
 	padding-top: 6px;
 }
 .checkmail .float_right  div{	line-height: 120%;}
-
 .checkmail {
 	text-align: left;
     background: url("../images/checkmail.png") no-repeat 14px center #fff;
@@ -813,7 +656,6 @@ body.register .main-content{
 	margin-bottom:  9px;
 	font-weight: bold;
 }
-
 .wrapper-content > .content.usedemail {
 	padding: 12px 12px 16px 118px;
 	margin: 0 auto;
@@ -823,11 +665,8 @@ body.register .main-content{
 	font-size: 15px;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
-
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;}
-
 .register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
-
 .register .uk-form-horizontal .uk-width-4-5 {width: 98.4%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
 .register .uk-form-horizontal .uk-width-4-8 {width: 96.8%;}
@@ -835,6 +674,7 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
 .register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
 .register .uk-form-horizontal .uk-width-1-0 {
@@ -844,8 +684,8 @@ body.register .main-content{
 	position: relative;
     top: -2px;
 }
-.register .checkmail .uk-width-5-1 {width: 74.8%;}
-.register .checkmail .uk-width-5-2 {width: 25.2%;}
+.register .checkmail .uk-width-5-1 {width: 74.6%;}
+.register .checkmail .uk-width-5-2 {width: 25.4%;}
 .register .changemail .btn {
 	background: #528ed3;
 	color: #fff;
@@ -866,37 +706,72 @@ body.register .main-content{
 	margin-bottom: 0;
 }
 .register .uk-form-horizontal .checkregister  .uk-form-row.term  label{	margin: 0px;}
-/*.checkregister label.term  a {	color: #ff4d61;}*/
+/** /checkmail */
+.uk-form input[type="radio"] {border-radius: 50%;}
+.uk-form input[type="radio"], .uk-form input[type="checkbox"] {
+	display: inline-block;
+	height: 14px;
+	width: 14px;
+	border: 1px solid #aaa;
+	overflow: hidden;
+	margin-top: -4px;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	outline: 0;
+	background: transparent;
+}
+.uk-form input[type="checkbox"], .uk-form input[type="radio"] {padding: 0;}
+.register .uk-form-select.otherlang {margin-bottom: 14px;}
 
-
+/* breadcrumbs*/
 .register .header-wrapper .header-bottom .header-bottom-in {	height: auto;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs {height: 30px;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.current span {line-height: 25px;}
+/* /breadcrumbs*/
 
-/*
-.register .uk-form input[type="radio"], .register  .uk-form input[type="checkbox"] {
-	width: 4%;
-	height: 4%;
-	max-width: 14px;
-	max-height: 14px;
-}
-*/
+/* mobiles line */
 .intl-tel-input  {float: left;}
-.uk-form input[type="radio"] {
-border-radius: 50%;
+/* /mobiles line */
+/* /form styles*/
+
+
+/* mobile styles*/
+@media (max-width: 1017px) {
+	.register .uk-form-horizontal .uk-form-controls {width: 100%;}
+	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas, .register .addotherlanguage	{width: 100%;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	.changemail div.form-group .col-sm-9 {width: 77.6%;}
 }
-.uk-form input[type="radio"], .uk-form input[type="checkbox"] {
-display: inline-block;
-height: 14px;
-width: 14px;
-border: 1px solid #aaa;
-overflow: hidden;
-margin-top: -4px;
-vertical-align: middle;
--webkit-appearance: none;
-outline: 0;
-background: transparent;
+@media (max-width: 767px) {
+	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100% !important;}
+	:-moz-any(x), .register .addotherlanguage {	width: 97%;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	label .errors {top: 42px !important;}
+	label.unlabel  .errors {top: 24px !important;}
+	.register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
+	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
+	.changemail div.form-group .col-sm-9 {width: 64.8% !important;}
 }
-.uk-form input[type="checkbox"], .uk-form input[type="radio"] {
-padding: 0;
+@media screen and (max-width: 480px) {
+	.register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
+	 .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
+	.register .uk-form-horizontal .addphoneareas	{width: 100%  !important;}
+	:-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
+	.wrapper-content .register .uk-button {width: 91%;}
+	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
+	label .errors {top: 42px !important;}
+	label.unlabel  .errors {top: 24px !important;}
+	.register .uk-form-horizontal .uk-width-4-5	 {width: 96.8% !important;}
+	.checkmail {
+		background: #fff !important;
+		padding: 17px 12px 20px 12px  !important;
+	}
+	.wrapper-content > .content.usedemail {	padding: 14px 12px 20px 12px  !important;}
+	.changemail {	padding: 12px 12px 5px 12px !important;}
+	.changemail div.form-group .col-sm-9 {width: 56.6% !important;}
 }
+/* /mobile styles*/

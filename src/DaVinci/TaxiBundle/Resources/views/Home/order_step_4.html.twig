@@ -1,0 +1,149 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'order-step-4' %}
+{% block title %}
+    <div class="register">
+    	<div class="title">
+            <div class="clear"></div>
+	            Please check info
+	        </div>
+    </div>
+{% endblock%}
+{% block body %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+<div class="shadow-main">
+    <div  class="home whitebg">
+    		<div class="order-step-four">
+								<div class="order-details-over wrap-left">
+								    <div class="check-order">
+										<div class="passenger-info">
+											<div class="main-passenger-info">
+												<dl class="quantity">
+											        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write correct  information'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
+											        <hr>
+														<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} (2), {{'children'|trans}} (2), {{'seniors'|trans}} (1)</dd>
+														<dd class="uk-width-1-1">{{'I am making this booking on anofer\'s behalf.'|trans}}</dd>
+														<dt class="photo"><img src="{{ asset('bundles/davincitaxi/images/girl-photo.png') }}" height="104px" width="101px"></dt>
+														<dd class="personal">
+															<dl>
+																<dt>{{'Name'|trans}}:</dt><dd>{{'Boris'|trans}}</dd>
+																<dt>{{'E-mail'|trans}}:</dt><dd>boris@gmail.com</dd>
+																<dt>{{'Skype'|trans}}:</dt><dd>borigsmail.com</dd>
+																<dt>{{'Phone'|trans}}:</dt><dd>+1 343 34 34 342</dd>
+																<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
+															</dl>
+														</dd>
+														<dt class="about">{{'About passenger'|trans}}</dt>
+														<dd class="about">Женщина 45 лет, высокая, в зеленой шубе и красной шляпе. Буду ждать на главном выходе аэропорта.</dd>
+												</dl>
+												<div class="tariff">
+												<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write correct  information'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
+												<hr>
+													<dl class="price">
+														<dt>{{'Price'|trans}}:</dt><dd>{{'market'|trans}} $100</dd>
+														<dt>{{'Tips'|trans}}:</dt><dd>{{'market'|trans}} $10</dd>
+													</dl>
+													<dl class="payment">
+														<dt>{{'Payment'|trans}}:</dt><dd>{{'escrow'|trans}}</dd>
+														<dt>{{'Payment'|trans}}:</dt><dd>{{'escrow'|trans}}</dd>
+													</dl>
+												</div>
+												<div class="route-info">
+												<h1 class="labels">{{'Route info'|trans}}
+													<a class="uk-float-right">{{'edit'|trans}}</a></h1>
+												<hr>
+													<dl>
+														<dt>{{'From'|trans}}:</dt><dd>{{'Russia'|trans}}, {{'Moscow'|trans}}, {{'Точный адрес'|trans}}</dd>
+														<dt>{{'To'|trans}}:</dt><dd>{{'Russia'|trans}}, {{'Ufa'|trans}}, {{'Riharda'|trans}} 65 {{'street'|trans}}, {{'hotel Tan'|trans}}</dd>
+														<dt>{{'Pick up'|trans}}:</dt><dd>12 {{'Oct'|trans}} 2014, 18:00</dd>
+														<dt>{{'Return'|trans}}:</dt><dd>13 {{'Oct'|trans}} 2014, 05:30</dd>
+													</dl>
+												</div>
+												<div class="vechicle">
+													<h1 class="labels">{{'Vechicle'|trans}}<a class="uk-float-right">{{'edit'|trans}}</a></h1>
+													<hr>
+													<dl>
+														<dt>{{'Class'|trans}}:</dt><dd><span>{{'Econom'|trans}}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
+													</dl>
+												</div>
+												<div class="other-passenger-details">
+													<div class="order-details">
+														<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pats and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Write correct  information'|trans}}"></span></span></div>
+														<div class="kid-pat-bag" id="toggle12">
+														    <dl class="child-pet">
+														        <dt>{{'child seat'|trans}}</dt><dd>1 (0-12 {{'months'|trans}})</dd>
+														        <dt>{{'child seat'|trans}}</dt><dd>2 (1-3 {{'years'|trans}})</dd>
+														        <dt>{{'pat cages'|trans}}</dt><dd>2 (10 {{'pound'|trans}})</dd>
+														    </dl>
+														  <dl class="rack-left">
+														    <dt>{{'bicycle rack'|trans}}</dt><dd>2</dd>
+														    <dt>{{'place for strollers'|trans}}</dt><dd>2</dd>
+														    <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+														  </dl>
+														  <dl class="rack-right">
+														    <dt>{{'ski rack'|trans}}</dt><dd>2</dd>
+														    <dt>{{'wheelchairs place'|trans}}</dt><dd>1</dd>
+														    <dt>{{'trailer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+														  </dl>
+														</div>
+														<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}"><span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Write correct  information'|trans}}"></span></span></div>							
+															<div class="more-details" id="toggle11">
+															  <div class="message"><span class="uk-text-danger">{{'Напоминание'|trans}}! </span>{{'Цену на эти сервисы оговаривайте с водителем'|trans}}.</div>
+															  <dl class="cheks1">
+															    <dt>{{'internet'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															  </dl>
+															  <dl class="cheks2">
+															    <dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															  </dl>
+															  <dl class="comfort">
+															    <dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
+															    <dd class="uk-width-1-1">С нами будут ехать дети, надо для них взять яблочный сок 4 пачки (250 гр)</dd>
+															    <dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
+															    <dd class="uk-width-1-1">С нами будут ехать дети, надо для них взять 2 кг бананов и 10 кг апельсинов</dd>
+															    <dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
+															    <dd class="uk-width-1-1">С нами будут ехать дети, они обожают мультфильмы "oggi-i-tarakany" и "The Simpsons"</dd>
+															    <dt class="uk-width-1-1">{{'gadgets chargers'|trans}}</dt>
+															    <dd class="uk-width-1-1">Нужно зарядное устройство для Samsung GALAXY S5</dd>
+															    <dt class="uk-width-1-1">{{'passenger has and disease'|trans}}</dt>
+															    <dd class="uk-width-1-1">Человек болен на астму, важен свежий воздух в салоне автомобиля и возможность остановки при необходимости</dd>
+															  </dl>
+														</div>
+														<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional drivers conditions'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="Write correct information"></span></span></div>
+															<div class="more-details" id="toggle10">
+															  <dl class="interpreter">
+															  	<dt>{{'interpreter'|trans}}</dt><dd>{{'English'|trans}}</dd>
+															  </dl> 
+															  <dl class="cheks1">
+															    <dt>{{'edukator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															  </dl>
+															  <dl class="cheks2">
+															    <dt>{{'medical liscence'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															    <dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+															  </dl>
+															  <dl class="special">
+															    <dt class="uk-width-1-1 uk-text-danger">{{'Special recuirement'|trans}}</dt>
+															    <dd class="uk-width-1-1">Дети любят петь весёлые песни, потому водитель должен спокойно на это реагировать</dd>
+															  </dl>
+															</div>
+														<div class="uk-button-group uk-width-1-1">
+															<a href="#" class="uk-button uk-button-warning float_left"><span>&lt; {{'Edit'|trans}}</span></a>
+															<a href="#" class="uk-button uk-button-danger float_right"><span>{{'Finish'|trans}}</span></a>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+			</div>
+			{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
+		<div class="clear"></div>
+    </div>
+</div>
+{% endblock %}

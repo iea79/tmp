@@ -1,0 +1,35 @@
+hearsay_require_js:
+    require_js_src: /bundles/davincitaxi/js/requirejs/require.min.js
+    initialize_template: HearsayRequireJSBundle::initialize.html.twig
+    #папка в которую будут собираться наши, не полностью обработанные,  скрипты в «дев» версии в каталоге «web».
+    base_url:  js
+    #путь к папке со скриптами в бандле
+    base_dir: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/public/js # Required
+    #пути к основным модулям и скриптам для requirejs.config()
+ 
+    paths:
+        async:
+            location: @DaVinciTaxiBundle/Resources/public/js/requirejs/libs/async
+        uikit:
+            location: @DaVinciTaxiBundle/Resources/public/js/uikit
+    #конфигурация оптимизатора, в нашем случае r.js
+    optimizer:
+        path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/public/js/requirejs/r.js
+        #для продакшена прячем все не оптимизированные файлы для папки web
+        #hide_unoptimized_assets: true
+        #настройки оптимизатора (r.js можно посмотреть здесь https://github.com/jrburke/r.js/blob/master/build/example.build.js, например)
+        options:
+            removeCombined: true
+            name: main
+            #воспользуемся библиотекой uglify2 для оптимизации, она входит в стандартную сборку r.js
+            optimize: uglify2
+            #настройки для  uglify2
+            uglify2:
+                output:
+                    beautify: false
+                compress:
+                    sequences: true
+                    global_defs:
+                        DEBUG: false
+                warnings: true
+                mangle: false
