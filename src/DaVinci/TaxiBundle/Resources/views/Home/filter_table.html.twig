@@ -4,7 +4,7 @@
 				<th class="tab-h1">Tip	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Vehicle type{% endtrans %}">?</div></th>
 				<th class="daterange">Date/Time <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select date and time{% endtrans %}">?</div></th>
 				<th>Route <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick up/drop off location{% endtrans %}">?</div></th>
-				<th>Trust <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">?</div></th>
+				<th>Tips <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">?</div></th>
 				<th>PM <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}" >?</div></th>
 				<th>Price <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Set your price(fare){% endtrans %}" >?</div></th>
 				<th>Status <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}" >?</div></th>
@@ -12,83 +12,37 @@
 			</tr>
 			<tr class="under-head">
 				<td class="auto-tip">
-				<div data-uk-dropdown="{mode:'click'}" class="uk-button-dropdown car">
+				<div class="car">
                                     
 					<button class="uk-button-link">
 						<i class="mp-icon-taxi"></i>
 						<i class="uk-icon-caret-down uk-text-dark"></i>
 					</button>
-					<div class="uk-dropdown" style="">
-					<ul class="uk-nav uk-nav-navbar">
-						<li>
-							<a href="#">{{'Economy'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Compact'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Midsize'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Standart'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Full Size'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Premium'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Midsize SUV'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Standart Convertible'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Premium Pickup'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Mini Van'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Standart SUV'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Standart Van'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Full Size Pickup'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Full Size SUV'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Standart Pickup'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Full Size Van'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Special Van'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Premium Van'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Luxury'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Premium Special'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Premium SUV'|trans}}</a>
-						</li>
-						<li>
-							<a href="#">{{'Special'|trans}}</a>
-						</li>
-											
-					</ul>
-					</div>
+					<select>
+						<option>{{'Economy'|trans}}</option>
+						<option>{{'Compact'|trans}}</option>
+						<option>{{'Midsize'|trans}}</option>
+						<option>{{'Standart'|trans}}</option>
+						<option>{{'Full Size'|trans}}</option>
+						<option>{{'Premium'|trans}}</option>
+						<option>{{'Midsize SUV'|trans}}</option>
+						<option>{{'Standart Convertible'|trans}}</option>
+						<option>{{'Premium Pickup'|trans}}</option>
+						<option>{{'Mini Van'|trans}}</option>
+						<option>{{'Standart SUV'|trans}}</option>
+						<option>{{'Standart SUV'|trans}}</option>
+						<option>{{'Full Size Pickup'|trans}}</option>
+						<option>{{'Full Size SUV'|trans}}</option>
+						<option>{{'Standart Pickup'|trans}}</option>
+						<option>{{'Full Size SUV'|trans}}</option>
+						<option>{{'Special Van'|trans}}</option>
+						<option>{{'Premium Van'|trans}}</option>
+						<option>{{'Luxury'|trans}}</option>
+						<option>{{'Premium Special'|trans}}</option>
+						<option>{{'Premium SUV'|trans}}</option>
+						<option>{{'Special'|trans}}</option>
+					</select>
+					
 				</div>
 					
 				</td>
@@ -113,13 +67,13 @@
 				<td class="trust">
 					<div class="ov-trust">
 						<div class="uk-button uk-form-select select" data-uk-form-select="">
-							<span class="iconed-drop uk-text-primary">&#58901;</span>
+							<span >All</span>
 							<i class="uk-icon-caret-down"></i>
 							<select class="iconed-drop uk-text-primary">
-								<option value="1">&#58901;</option>
-								<option value="1">&#58901; &#58901;</option>
-								<option value="1">&#58901; &#58901; &#58901;</option>
-								<option value="1">&#58900;</option>
+								<option value="1">All</option>
+								<option value="2">&#58901;</option>
+								<option value="3">&#58901; &#58901;</option>
+								<option value="4">&#58900;</option>
 										
 							</select>
 						</div>

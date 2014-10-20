@@ -1,54 +1,12 @@
-/*$("#passenger form, #manager form, #taxidriver form, #taxicompany form, #independentdriver form").validate();*/
-//Добавление доролнительных направлений 
-$('.destination .add-lang').click(function () {
-    $('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");
-});
+require(["pages/common", "gmaps"], function () {
+    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery'], function () {
+        require('chosenImage.jquery', function(){
 
-$(function () {
-    var wrapper = $(".file_upload"),
-            inp = wrapper.find("input"),
-            btn = wrapper.find("button"),
-            lbl = wrapper.find("div");
+        //Добавление доролнительных направлений 
+        $('.destination .add-lang').click(function () {
+            $('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");
+        });
 
-    btn.focus(function () {
-        inp.focus();
-    });
-    // Crutches for the :focus style:
-    inp.focus(function () {
-        wrapper.addClass("focus");
-    }).blur(function () {
-        wrapper.removeClass("focus");
-    });
-
-    var file_api = (window.File && window.FileReader && window.FileList && window.Blob) ? true : false;
-
-    inp.change(function () {
-        var file_name;
-        if (file_api && inp[ 0 ].files[ 0 ])
-            file_name = inp[ 0 ].files[ 0 ].name;
-        else
-            file_name = inp.val().replace("C:\\fakepath\\", '');
-
-        if (!file_name.length)
-            return;
-
-        if (lbl.is(":visible")) {
-            lbl.text(file_name);
-            btn.text("Выбрать");// такого не должно быть! текст в js недопустим
-        } else
-            btn.text(file_name);
-    }).change();
-
-});
-
-/*
- $( window ).resize(function(){
- $( ".file_upload input" ).triggerHandler( "change" );
- setTabswidth();
- });
- */
-
-//Table Responsive/////////////////////
 
 
 $(document).ready(function () {
@@ -233,11 +191,7 @@ $('.spec-request .uk-parent > a, .auto-tip a').click(function(event){
 	});
 //simbols left in textarea in step 2 homepage
 var text_area_len = 200;
-
-$('.wishes-1 textarea, .wishes-2 textarea').keyup(function(){
-    if($(this).val().length > text_area_len){
-        $(this).val($(this).val().substr(0, text_area_len));
-		}
-var remainding = text_area_len - $(this).val().length;
-$(this).next('.helptext').html("simbols left "+ remainding);
+        });
+    });
 });
+

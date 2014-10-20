@@ -881,14 +881,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
-		width:49%;
-		display:inline-block;
+		width:50%;
+		float:left;
+		margin-bottom:5px;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls, .order-details  .kids-pats-line .left-group  .uk-form-controls { 
-		width:61%!important;
+		width:59%!important;
 	}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
-		margin-left:13%;
+		margin-left:15%;
 	}
 	.order-details .kids-pats-line .select {
 		min-height:28px;
@@ -909,9 +910,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding:17px 0 9px 0;
 	}
 	.order-details  .kids-pats-line .object {
-		width:55%;
+		width:56%;
 		text-align:left;
-		margin-left:1%;
+		margin-left:0.5%;
 	}
 	.order-details .kids-pats-group .kids-pats-line .choose-lang {
 		width:66%;
@@ -922,14 +923,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details .kids-pats-line .label-header {
 		font-size:18px;
 		display:inline-block;
-		width:43%;
+		width:42%;
 	}
 	.order-details  .kids-pats-line input[type=checkbox]{
 		display:inline-block;
 		vertical-align:middle;
 	}
 	.order-details  .kids-pats-line .uk-form-controls {
-		width:30%;
+		width:29.5%;
 		display:inline-block;
 		vertical-align:middle;
 	}
@@ -1334,6 +1335,17 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.table-over .serv .under-head .car {
 			min-width:38px;
+			position:relative;
+		}
+			.table-over .serv .under-head .car select {
+				position:absolute;
+				top:0;
+				left:0;
+				height:38px;
+				opacity:0;
+			}
+		.table-over .serv .under-head .auto-tip{
+			width:6.2%;
 		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
 			padding:7px 0;
@@ -1455,7 +1467,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			top:3px;
 		}
 		
-/*=======
 office passengers and driver
 ========*/
 
@@ -2379,6 +2390,9 @@ footer {
 		width:100%;
 		margin:3px 0;
 	}
+	.order-details .kids-pats-group .kids-pats-line .left-group  .amount, .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
+	}
 	.order-details .kids-pats-line .right-group input[type=checkbox] {
 		margin:0;
 	}
@@ -2442,6 +2456,9 @@ footer {
 	.order-details .kids-pats-line .right-group, .order-details .kids-pats-line .left-group {
 		width:100%;
 		margin:3px 0;
+	}
+	.order-details .kids-pats-group .kids-pats-line .left-group  .amount, .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
 	}
 	.order-details .kids-pats-line .right-group input[type=checkbox] {
 		margin:0;
@@ -3572,6 +3589,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 }
 @media only screen and (max-width: 760px) {
+ .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
+		
+	}
 	
 	table.responsive { margin-bottom: 0; }
 	
@@ -3993,7 +4014,7 @@ div.datepicker {
 	display: none;
 }
 .datepickerContainer {
-	background: #121212;
+	
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -4002,6 +4023,12 @@ div.datepicker {
 	overflow:hidden;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
 	z-index:100;
+	
+}
+.uk-dropdown.uk-datepicker {
+	border:1px solid #8e9099;
+	border-radius:8px;
+	box-shadow:0 2px 5px rgba(0,0,0,.1);
 }
 
 .datepickerHidden {
@@ -4032,7 +4059,7 @@ div.datepicker table td  table td a {
 	line-height:24px;
 }
 
-div.datepicker th {
+div.datepicker th,  .uk-dropdown.uk-datepicker {
 	text-align: center;
 	color: #999;
 	font-weight: normal;
@@ -4151,7 +4178,25 @@ table.datepickerViewDays tbody.datepickerYears {
 /*end of datepicker        */
 
 
+/*start of pace.js        */
+.pace .pace-progress {
+  background: #ffffff;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 2px;
 
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
+}
+/*end of pace.js        */
 /* === Step-4 === */
 
 .order-step-four {

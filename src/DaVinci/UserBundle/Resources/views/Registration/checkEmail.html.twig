@@ -33,3 +33,11 @@
 	</div>
 
 {% endblock fos_user_content %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/registration/check.email.js'
+    %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+    {% endjavascripts %}
+{% endblock %}
