@@ -1344,6 +1344,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				height:38px;
 				opacity:0;
 			}
+		.table-over .serv .under-head .auto-tip{
+			width:6.2%;
+		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
 			padding:7px 0;
 		}
