@@ -43,7 +43,7 @@ imports:
     - { resource: admin/admin_config.yml }
     
     - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
-    #- { resource: requirejs/require_js.yml }
+    - { resource: requirejs/require_js.yml }
     
 framework:
     #esi:             ~
@@ -86,7 +86,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ DaVinciTaxiBundle, FOSUserBundle ]
+    #bundles:        [ DaVinciTaxiBundle, FOSUserBundle, HearsayRequireJSBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

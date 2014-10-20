@@ -40,11 +40,12 @@
                                     {{ form_widget(form.address.country,
         {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
                  'tabindex':'1'}}) }}
-				 </div>
+				 </div>{{ flow.formData.address.country.country }}
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
                             </div>
                             {{ form_errors(form.address.country) }}
-                        </label>
+                        </label>   
+                        
                         <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                             <div class="uk-form-controls">
 					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
@@ -63,7 +64,7 @@
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
                                     {{ form_widget(form.language.level,
-                                {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'3'}}) }}
+                                {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'3'}}) }}
                             </div>
                                 <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
                             </div>
@@ -72,17 +73,10 @@
                         <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
                                 {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}">
                         <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
-                            <div class="uk-form-controls">
-
-<input hidden id="language_prototype" value = "<div class='обертка'>{% for lang in form.language.languages %}{{ form_widget(lang,{'attr':{'class': 'uk-width-1-1 float_left'}}) }}{{ form_errors(lang) }}{% endfor %}{% do form.language.setRendered() %}</div>">
-								
-								
-								
-								
-
+                            <div class="uk-form-controls">							
 								{% for lang in form.language.languages %}
                                         {{ form_widget(lang,
-                                            {'attr':{'class': 'uk-width-1-1 float_left'}}) }}
+                                            {'attr':{'class': 'float_left'}}) }}
                                         {{ form_errors(lang) }}
                                 {% endfor %}
                                 {% do form.language.setRendered() %}
@@ -96,7 +90,7 @@
 					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
 						<span></span>
 						<i class="uk-icon-caret-down"></i>
-                                    {{ form_widget(form.experience, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'5'}}) }}
+                                    {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'5'}}) }}
                             </div>
 
 							<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
@@ -206,4 +200,17 @@
 
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
+    </script>
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.independent.driver.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
 {% endblock %}

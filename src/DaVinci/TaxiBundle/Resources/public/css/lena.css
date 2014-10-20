@@ -105,7 +105,6 @@ footer {
 }
 @media (max-width: 767px) {
 	.register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
-	.register .uk-form-horizontal .addphoneareas	{width: 100% !important;}
 	:-moz-any(x), .register .addotherlanguage {	width: 97%;}
 	.wrapper-content .register .uk-button {width: 91%;}
 	.phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
@@ -436,7 +435,6 @@ footer {
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
-	width: 100%;
 }
 .addphone {
 	cursor: pointer;

@@ -4151,4 +4151,22 @@ table.datepickerViewDays tbody.datepickerYears {
 /*end of datepicker        */
 
 
+/*start of pace.js        */
+.pace .pace-progress {
+  background: #ffffff;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 2px;
 
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
+}
+/*end of pace.js        */

@@ -118,7 +118,7 @@ class AppKernel extends Kernel
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             // not required, but recommended for better extraction
             new JMS\TranslationBundle\JMSTranslationBundle(),
-            //new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
+            new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
