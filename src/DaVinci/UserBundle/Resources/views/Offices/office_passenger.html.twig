@@ -3,6 +3,7 @@
 
 {% block body %}
 {# =========== cabinet passenger ================= #}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 <div class="main-content">
 	<div class="client-account">
 		<div class="client-panel-button">
@@ -57,7 +58,7 @@
 		</div>
 			<div class="shadow-main">
 {# ========= swicher table =========== #}
-				<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
+				<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-office'}">
 					<div class="uk-panel uk-width-1-3 uk-active">
 						<button class="uk-width-1-1">{{'Book your trip'|trans}}</button>
 					</div>
@@ -69,9 +70,9 @@
 					</div>
 				</div>
 {# ========= swicher table ============ #}
-				<ul id="tab-content" class="uk-switcher">
+				<ul id="tab-office" class="uk-switcher">
 						<li class="uk-active">
-							<div class="whitebg home">
+							<div class="home">
 						        <div class="steps-1-2-3">
 						            <ul class="chois" data-uk-tab="{connect:'#steps'}">
 						                <li class="uk-width-1-3 first">
@@ -102,18 +103,16 @@
 											<span class="back"></span>
 						                </li>
 						            </ul>
-						            <div id="steps" class="uk-switcher ">
-						            	<ul>
-							                <li>
+						            <div id="steps" class="uk-switcher uk-float-left">
+							                <div class="uk-active">
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
-							                </li>
-							                <li>
+							                </div>
+							                <div>
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
-							                </li>
-							                <li>
+							                </div>
+							                <div>
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
-							                </li>
-						                </ul>
+							                </div>
 						            </div>
 									{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
 								<div class="clear"></div>
@@ -144,8 +143,8 @@
 																<div class="uk-float-left route">
 																	<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																</div>
-																	<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle21'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																			<div class="uk-panel uk-panel-box uk-hidden" id="toggle21">
+																	<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list1'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																			<div class="uk-panel uk-panel-box uk-hidden" id="driver-list1">
 																					<div class="driver-over">
 																							<div class="driver-top">
 																									<div class="profile">
@@ -235,8 +234,8 @@
 																			<div class="uk-float-left route">
 																					<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																			</div>
-																				<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle22'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle22">
+																				<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list2'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list2">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -327,8 +326,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle23'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle23">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list3'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list3">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -419,8 +418,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle24'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle24">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list4'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list4">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -511,8 +510,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle25'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle25">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list5'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list5">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -603,8 +602,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle26'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle26">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list6'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list6">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -695,8 +694,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle27'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle27">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list7'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list7">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -787,8 +786,8 @@
 																					<div class="uk-float-left route">
 																							<a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} <i class="mp-icon-arrow-right"></i>  {{ 'Оклахома-сити (USA)'|trans }}</a>
 																					</div>
-																						<button class="uk-button driverlist" data-uk-toggle2="{target:'#toggle28'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																					<div class="uk-panel uk-panel-box uk-hidden" id="toggle28">
+																						<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list8'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																					<div class="uk-panel uk-panel-box uk-hidden" id="driver-list8">
 																							<div class="driver-over">
 																									<div class="driver-top">
 																											<div class="profile">
@@ -1321,7 +1320,7 @@
 														{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 													</div>
 												</div>
-												<div class="uk-hidden" id="toggle210">
+												<div class="uk-hidden" id="review">
 													<div class="uk-width-1-1 uk-margin-small">
 														<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
 														<div class="uk-width-1-1 rate">
@@ -1353,7 +1352,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle2="{target:'#toggle210'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
+										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
 									</div>
 								</div>
 							</div>

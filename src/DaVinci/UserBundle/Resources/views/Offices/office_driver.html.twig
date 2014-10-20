@@ -3,6 +3,7 @@
 
 {% block body %}
 {# ========= Account start ============= #}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 <div class="main-content client-account">
 		<div class="client-panel-button">
 			<div class="uk-grid uk-grid-small">
@@ -531,7 +532,7 @@
 														{{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
 													</div>
 												</div>
-												<div class="uk-hidden" id="toggle10">
+												<div class="uk-hidden" id="review">
 													<div class="uk-width-1-1 uk-margin-small">
 														<div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
 														<div class="uk-width-1-1 rate">
@@ -563,7 +564,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#toggle10'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
+										<div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
 									</div>
 								</div>
 							</div>

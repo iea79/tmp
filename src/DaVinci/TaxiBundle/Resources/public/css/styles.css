@@ -1466,24 +1466,21 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			position:relative;
 			top:3px;
 		}
-		
+/*=======		
 office passengers and driver
 ========*/
-
-
-
 .icon-messages-n {
-	background:url('../images/messages-n.png') transparent no-repeat scroll left center;
-	width:14px;
-	height:14px;
-	color:#fff;
-	font-size:11px;
-	left:8px;
-	top:-9px;
-	position:relative;
-	display: inline-block;
-	line-height: 130%;
-	text-align: center;
+  background: url('../bundles/davincitaxi/images/messages-n.png') transparent no-repeat scroll left center;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  font-size: 11px;
+  left: 8px;
+  top: -9px;
+  position: relative;
+  display: inline-block;
+  line-height: 130%;
+  text-align: center;
 }
 .pop-up .uk-close:after {
 	display: block;
@@ -1491,6 +1488,9 @@ office passengers and driver
 	font-family: icontaxi;
 	font-size: 18px;
 	margin: -5px -11px 0px 0px;
+}
+.client-account .home {
+	margin-top: 0;
 }
 .client-account input,
 .client-account select,
@@ -4538,3 +4538,4 @@ table.datepickerViewDays tbody.datepickerYears {
     font-weight: bold;
     margin-top: -3px;
 }
+
