@@ -881,14 +881,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
-		width:49%;
-		display:inline-block;
+		width:50%;
+		float:left;
+		margin-bottom:5px;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls, .order-details  .kids-pats-line .left-group  .uk-form-controls { 
-		width:61%!important;
+		width:59%!important;
 	}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
-		margin-left:13%;
+		margin-left:15%;
 	}
 	.order-details .kids-pats-line .select {
 		min-height:28px;
@@ -909,9 +910,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding:17px 0 9px 0;
 	}
 	.order-details  .kids-pats-line .object {
-		width:55%;
+		width:56%;
 		text-align:left;
-		margin-left:1%;
+		margin-left:0.5%;
 	}
 	.order-details .kids-pats-group .kids-pats-line .choose-lang {
 		width:66%;
@@ -922,14 +923,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.order-details .kids-pats-line .label-header {
 		font-size:18px;
 		display:inline-block;
-		width:43%;
+		width:42%;
 	}
 	.order-details  .kids-pats-line input[type=checkbox]{
 		display:inline-block;
 		vertical-align:middle;
 	}
 	.order-details  .kids-pats-line .uk-form-controls {
-		width:30%;
+		width:29.5%;
 		display:inline-block;
 		vertical-align:middle;
 	}
@@ -2379,6 +2380,9 @@ footer {
 		width:100%;
 		margin:3px 0;
 	}
+	.order-details .kids-pats-group .kids-pats-line .left-group  .amount, .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
+	}
 	.order-details .kids-pats-line .right-group input[type=checkbox] {
 		margin:0;
 	}
@@ -2442,6 +2446,9 @@ footer {
 	.order-details .kids-pats-line .right-group, .order-details .kids-pats-line .left-group {
 		width:100%;
 		margin:3px 0;
+	}
+	.order-details .kids-pats-group .kids-pats-line .left-group  .amount, .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
 	}
 	.order-details .kids-pats-line .right-group input[type=checkbox] {
 		margin:0;
@@ -3572,6 +3579,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 }
 @media only screen and (max-width: 760px) {
+ .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
+		float:right;
+		
+	}
 	
 	table.responsive { margin-bottom: 0; }
 	
