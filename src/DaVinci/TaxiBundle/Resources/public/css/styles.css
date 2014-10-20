@@ -1482,7 +1482,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 office passengers and driver
 ========*/
 .icon-messages-n {
-  background: url('../bundles/davincitaxi/images/messages-n.png') transparent no-repeat scroll left center;
+  background: url('../images/messages-n.png') transparent no-repeat scroll left center;
   width: 14px;
   height: 14px;
   color: #fff;
