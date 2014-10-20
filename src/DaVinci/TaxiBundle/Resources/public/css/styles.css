@@ -1345,7 +1345,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				opacity:0;
 			}
 		.table-over .serv .under-head .auto-tip{
-			width:6.2%;
+			width:5.7%;
+		}
+		.table-over .serv .under-head .destinations_list .uk-form-icon {
+			position:relative;
+			top:2px;
+			margin:0;
 		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
 			padding:7px 0;
