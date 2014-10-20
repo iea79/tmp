@@ -242,7 +242,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child {
 							background-color:#528ed3;
-							width:15%;
+							width:15.2%;
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child img {
 							margin-left:10px;
@@ -252,7 +252,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:nth-child(2) {
 							background: url(../images/shashki-left-top.png) left top no-repeat;
-							width:10%;
+							width:9.2%;
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:last-child {
 							width:13.5%;
@@ -764,7 +764,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			margin-left:20px;
 		}
 		.destination .labels label  i {
-			margin:0 2px 0 8px;
+			margin:0 2px 0 3px;
 			font-size:21px;
 		}
 	.destination  .inputs {
@@ -778,7 +778,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		color:#528ed3;
 	}
 	.destination  .inputs .date-input {
-		max-width:91px;
+		max-width:92px;
 	}
 	.destination  .inputs .check-box {
 		margin-top:5px;
@@ -840,7 +840,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		
 	}
 	.home .inputs .select {
-		margin:0 0 0 5px;
+		margin:0 0 0 4px;
+		width:18%;
 	}
 	.home  .destination .select span {
 		padding:0 12px 0 0;
