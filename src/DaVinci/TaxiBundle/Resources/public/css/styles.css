@@ -1335,7 +1335,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.table-over .serv .under-head .car {
 			min-width:38px;
+			position:relative;
 		}
+			.table-over .serv .under-head .car select {
+				position:absolute;
+				top:0;
+				left:0;
+				height:38px;
+				opacity:0;
+			}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
 			padding:7px 0;
 		}
