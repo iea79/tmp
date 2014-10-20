@@ -294,7 +294,6 @@ footer {
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
-	width: 100%;
 }
 .register .addphoneareas input[type="text"].tempo {	width: 71.3%;}
 .addphone {

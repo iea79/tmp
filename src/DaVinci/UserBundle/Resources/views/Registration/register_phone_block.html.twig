@@ -1,7 +1,9 @@
 <div class="float_left adphonik">
     <div class="forphoneinput">
         {% if phones is defined %} 
-            {{ form_widget(phones.phone, {'attr':{'class': 'float_left phoneinput', 'tabindex':'7', 'css': 'width: 100%'}}) }} 
+            {{ form_widget(phones.phone,
+{'attr':{'class': 'float_left phoneinput uk-width-1-1',
+ 'tabindex':'7'}}) }} 
 
 		<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="777-777-7777" data-cached-title="777-777-7777"></div>
 		{{ form_errors(phones.phone) }}
