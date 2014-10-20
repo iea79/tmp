@@ -72,26 +72,26 @@
                     {{ form_errors(form) }}
                     <div class="checkregister">
 						<!-- Begin Line first name  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:</div>
-                            <div class="uk-form-label"><span class="text">{{ flow.formData.firstname }}</div></div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.firstname'|trans }}:</label>
+                            <div class="label-info text">{{ flow.formData.firstname }}</div>
                         </div>
 						<!-- End Line first name  -->
 
 						<!-- Begin Line last name  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:</div>
-                            <div class="uk-form-label">{{ flow.formData.lastname }}</div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.lastname'|trans }}:</label>
+                            <div class="label-info">{{ flow.formData.lastname }}</div>
                         </div>
 						<!-- End Line last name  -->
 
 						<!-- Begin Line email  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:</div>
-                            <div class="uk-form-label">{{ flow.formData.email }}</div>
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.email'|trans }}:</label>
+                            <div class="label-info">{{ flow.formData.email }}</div>
                         </div>
 						<!-- End Line email  -->
 
 						<!-- Begin Line password  -->
-                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}:</div>
-                            <div class="uk-form-label"><a href="javascript:void(0)" onclick="javascript:if (this.innerHTML == '{{ flow.formData.plainPassword }}')
+                        <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}:</label>
+                            <div class="label-info"><a href="javascript:void(0)" onclick="javascript:if (this.innerHTML == '{{ flow.formData.plainPassword }}')
                                         this.innerHTML = '{{ 'click to show'|trans }}';
                                     else
                                         this.innerHTML = '{{ flow.formData.plainPassword }}';
@@ -101,7 +101,7 @@
 
 
 						<!-- Begin Line terms  -->
-                        <label class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</div>
+                        <div class="uk-form-row term">{{ form_widget(form.terms,{'label':'form.iagreetotem'|trans({'%url%': '#'})|raw} ) }}</div>
 						<!-- End  Line terms  -->
 
 						<!-- Begin Line button  -->
