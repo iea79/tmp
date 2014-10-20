@@ -30,7 +30,7 @@
 					<div class="clientid">
 						<dl>
 							<dt>{{'My ID:'|trans}}</dt><dd class="data">  7687796059662 </dd><br />
-							<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
+							<dt>{{' Name:'|trans}}</dt><dd class="data">  {{'Boris'|trans}} {{'Ivanov'|trans}} </dd><br />
 							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
 						</dl>
 					</div>
@@ -103,15 +103,17 @@
 						                </li>
 						            </ul>
 						            <div id="steps" class="uk-switcher ">
-						                <li>
-						                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
-						                </li>
-						                <li>
-						                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
-						                </li>
-						                <li>
-						                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
-						                </li>
+						            	<ul>
+							                <li>
+							                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
+							                </li>
+							                <li>
+							                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
+							                </li>
+							                <li>
+							                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
+							                </li>
+						                </ul>
 						            </div>
 									{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
 								<div class="clear"></div>
@@ -908,7 +910,7 @@
 																</tr>
 														</thead>
 														<tr>
-																<td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 </br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
+																<td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Даллас (USA)'|trans }} - <br>  {{ 'Оклахома-сити (USA)'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
 																<td>
 																		<div class="edit-close">
 																				<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
