@@ -17,7 +17,7 @@
 }
 /*====================  border-radius for buttons, dropdowns, modals  ===============*/
 .uk-button {
-	border-radius:6px;
+	border-radius:4px;
 }
 .uk-dropdown {
 	border-radius:4px;
@@ -1090,7 +1090,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.order-details .uk-button-group a {
 			min-height:48px;
-			line-height:48px;
+			line-height:50px;
 			width:49%;
 			font-size:24px;
 		}
@@ -4241,13 +4241,25 @@ table.datepickerViewDays tbody.datepickerYears {
 .order-step-4 .whitebg {
 	background: #fff;
 	border-radius: 6px !important;
+	margin-bottom: 8px;
 }
 .order-step-4 .title {
   margin-top: 17px;
   margin-bottom: 18px;
 }
+.wrapper-content.banner {
+  margin: 17px auto 17px auto;
+  display: table;
+}
+
+.order-step-4 .register {
+  margin-bottom: 10px;
+}
+.order-step-4 .main-content {
+  margin-top: -17px !important;
+}
 .check-order .passenger-info {
-  padding: 11px 13px 21px 18px;
+  padding: 10px 13px 21px 18px;
 }
 .check-order .passenger-info hr {
   padding: 0px 0px 0px 0px;
@@ -4266,9 +4278,6 @@ table.datepickerViewDays tbody.datepickerYears {
 	margin: 0px;
 	font-weight: bold;
 	display: block;
-}
-.check-order .passenger-info .tariff h1.labels {
-	color: #8d8f98;
 }
 .check-order .passenger-info h1.labels a {
 	font-size: 16px;
@@ -4412,7 +4421,7 @@ table.datepickerViewDays tbody.datepickerYears {
     line-height: 10px;
 }
 .check-order .passenger-info .vechicle dd span {
-    margin-right: 9%;
+    margin-right: 7%;
 }
 .check-order .passenger-info .vechicle dl {
     width: 100%;      
@@ -4550,4 +4559,5 @@ table.datepickerViewDays tbody.datepickerYears {
     font-weight: bold;
     margin-top: -3px;
 }
+
 
