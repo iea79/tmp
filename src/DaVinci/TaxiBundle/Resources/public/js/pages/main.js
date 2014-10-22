@@ -1,5 +1,5 @@
 require(["pages/common", "gmaps"], function () {
-    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery'], function () {
+    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'uikitdatepicker', 'chosen.jquery'], function () {
         require('chosenImage.jquery', function(){
 
         //Добавление доролнительных направлений 

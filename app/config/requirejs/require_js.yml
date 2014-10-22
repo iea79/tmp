@@ -20,8 +20,10 @@ hearsay_require_js:
             
     shim:
         # Prototype
-        uikitdatepicker:
+        uikit:
             deps:    [jquery]
+        uikitdatepicker:
+            deps:    [jquery, uikit]
         jquery.spinner:
             deps:    [jquery]
         datarange:
