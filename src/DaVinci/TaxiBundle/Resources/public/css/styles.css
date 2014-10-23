@@ -223,36 +223,68 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						vertical-align:middle;
 					}
 						.header-top .header-top-in  .topmenu ul .nest {
-							text-align:center;
-							letter-spacing: 0;
+							padding-top:4px;
+							width:40.7%;
+							padding-left:2%;
 							font-size:0;
 							
 						}
+						@media only screen and (max-width: 850px) {
+							.header-top .header-top-in  .topmenu ul .nest {
+								width:0;
+								padding-left:0%;
+								text-align: center;
+							}
+						}
+							@media only screen and (max-width: 610px) {
+								.header-top .header-top-in  .topmenu ul .nest {
+									width:0;
+								}
+							}
+						.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5) {
+														width:20.4%;
+														text-align:right;
+						} 
+						.header-top .header-top-in  .topmenu ul .nest a {
+							padding: 0 1px;
+						}
+						.header-top .header-top-in  .topmenu ul .nest a:hover {
+							background: transparent;
+						}
+						.header-top .header-top-in  .topmenu ul .nest a:nth-child(1) {
+							width: 13%;
+							min-width: 45px;
+						}
+						.header-top .header-top-in  .topmenu ul .nest a:nth-child(2) {
+							width: 8%;
+							min-width: 33px;
+						}
 							.header-top .header-top-in  .topmenu ul.topmenu-in .nest .nest-item {
-								padding:2px 0;
+								padding: 2px 0;
 							}
 							.header-top .header-top-in  .topmenu ul.topmenu-in .nest span {
 								font-size:18px;
 								font-weight:bold;
 								color:#3d3d3d;
-								margin:0 5px;
+								margin:0 6px;
 							}
 						.header-top .header-top-in  .topmenu ul.topmenu-in   .empty-middle {
-							width:4%; 
+								width: 4%; 
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child {
 							background-color:#528ed3;
-							width:15.2%;
+							width:15.5%;
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child img {
 							margin-left:10px;
 						}
 							.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child a {
 								padding:0;
+								margin-left:3px;
 							}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:nth-child(2) {
 							background: url(../images/shashki-left-top.png) left top no-repeat;
-							width:9.2%;
+							width:9.9%;
 						}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:last-child {
 							width:13.5%;
@@ -262,13 +294,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 							.header-top .header-top-in  .topmenu ul.topmenu-in  > li:last-child a {
 								padding:0;
 							}
-						.header-top .header-top-in  .topmenu ul.topmenu-in >  li:nth-child(5) {
-							text-align:right;
-							width:20.5%;
-						}
-						
-					
-						
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li .texst-item {
 							font-size:18px;
 							font-weight:bold;
@@ -285,15 +310,28 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item {
 						border-radius: 3px;
 						color: #fff;
-						font-size: 17px;
-						height: 20px;
 						padding: 3px 5px;
 						text-align: center;
-						width: 16px;
 						margin:0;
+						display:inline;
+					}
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item .mp-icon-person {
+						margin: 0px 2px 2px 2px;
+						font-size: 16px;
+					}
+					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item .mp-icon-taxi {
+						margin: 0px;
+						font-size: 16px;
+						line-height: 20px;
 					}
 					.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
-						margin-left:6%;
+						margin-left: 5%;;
+					}
+					@media only screen and (max-width: 695px) {
+						.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
+							margin-left: 1% !important;
+							font-weight: bold !important;
+						}
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in> li a.uk-button-danger:hover {
 						background-color: #e4354f;
@@ -307,6 +345,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				width:100%;
 				font-size:0;
 				display:table;
+				position:relative;
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu .book-store a {
 				display:inline-block;
@@ -319,10 +358,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				font-size:16px;
 			}
 				.header-wrapper .header-top .header-top-in  .topmenu .book-store a:first-child {
-					padding:14px 21px 14px 15px;
+					padding:15px 21px 13px 15px;
 				}
 				.header-wrapper .header-top .header-top-in  .topmenu .book-store a:nth-child(2) {
-					padding:14px 15px 14px 21px;
+					padding:15px 0px 13px 13px;
 				}
 			.header-wrapper .header-top .header-top-in  .topmenu .book-store .thumb {
 				background-color: #fff;
@@ -330,10 +369,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				color: #528ed3;
 				display: inline-block;
 				font-size: 24px;
-				padding: 4px 7px;
-				position: absolute;
-				right: 43%;
+				padding: 4px 8px 4px 4px;
+				right: 42%;
+				position:absolute;
 				top:20%;
+			}
+			.header-wrapper .header-top .header-top-in  .topmenu .book-store .thumb .mp-icon-good {
+				font-size: 26px;
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu .nonautorized {
 				color:#ff4d61;
@@ -3485,16 +3527,16 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 /*===  for top menu   ======*/
 @media only screen and (max-width: 850px) { 
 	.header-top .header-top-in .topmenu ul.topmenu-in  >li:nth-child(2) {
-		display:none;
+		display:none !important;
 		}
 
 	.header-top .header-top-in .topmenu ul.topmenu-in .empty-middle {
 		display:none;
 		}
 		
-	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child {
+/*	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child {
 			width:116px;
-		}
+		}*/
 
 	.header-top .header-top-in .topmenu ul.topmenu-in >li:first-child {
 			width:123px;
@@ -3575,12 +3617,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 	
 	.header-top .header-top-in .topmenu ul.topmenu-in > li .texst-item {
-		font-weight:normal;
 		font-size:17px;
 	}
 	
 	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {
-		font-weight:normal;
 	}
 	
 }
@@ -4603,9 +4643,6 @@ table.datepickerViewDays tbody.datepickerYears {
     font-weight: bold;
     margin-top: -3px;
 }
-
-
-
 .order-details .kids-pats-wrap.aditional-driver {
   padding: 11px 0 27px 0;
   display: table;
