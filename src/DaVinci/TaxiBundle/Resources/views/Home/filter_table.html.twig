@@ -3,10 +3,10 @@
 			<tr>
 				<th class="tab-h1">Tip	<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Vehicle type{% endtrans %}">?</div></th>
 				<th class="daterange">Date/Time <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select date and time{% endtrans %}">?</div></th>
-				<th>Route <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick up/drop off location{% endtrans %}">?</div></th>
+				<th>Route <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">?</div></th>
 				<th>Tips <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">?</div></th>
 				<th>PM <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}" >?</div></th>
-				<th>Price <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Set your price(fare){% endtrans %}" >?</div></th>
+				<th>Price <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Set your price (fare){% endtrans %}" >?</div></th>
 				<th>Status <div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}" >?</div></th>
 				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <th class="tab-h2">Buy</th>{% endif %}
 			</tr>
@@ -154,7 +154,7 @@
 			<tr class="table-cont">
 				<td><span class="blue-bg">1</span></td>
 				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
 				<td><i class="mp-icon-trust uk-text-primary"></i></td>
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
@@ -166,7 +166,7 @@
 			<tr class="table-cont">
 				<td><span class="blue-bg">2</span></td>
 				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
 				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
@@ -178,8 +178,8 @@
 			<tr class="table-cont">
 				<td><span class="blue-bg">3</span></td>
 				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
-				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
+				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
+				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
 				<td><span class="escro">escrow</span></td>
 				<td>$783.85</td>
 				<td>open</td>
@@ -190,7 +190,7 @@
 			<tr class="table-cont">
 				<td><span class="blue-bg">4</span></td>
 				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td>USA:Далалс- <br/>USA: Оклахома-сити</td>
+				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
 				<td><i class="mp-icon-trust-invert uk-text-primary"></i></td>
 				<td><span class="escro">cash</span></td>
 				<td>$783.85</td>
