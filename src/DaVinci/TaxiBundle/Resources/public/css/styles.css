@@ -590,6 +590,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				width:500px;
 				
 			}
+	.steps-1-2-3 input:focus {
+		color: #3c3d45 !important;
+	}
+
 	.home .steps-1-2-3 {
 		background-color:#fff;
 		padding:9px 0;
@@ -612,10 +616,18 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				float:left;
 				padding: 0 26px 0 0;
 				position:relative;
-				width:33.3%;
 				box-sizing:border-box;
 			}
-			.home .steps-1-2-3 .chois .first, .home .steps-1-2-3 .chois .last {
+			.home .steps-1-2-3 .chois .first {
+  width: 36%;
+
+				} 
+			.home .steps-1-2-3 .chois .second {
+  width: 32.8%;
+
+				} 
+			.home .steps-1-2-3 .chois .last {
+  width: 31.2%;
 				
 			}
 			.home .steps-1-2-3 .chois  .uk-active .back {
@@ -644,25 +656,28 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.home .steps-1-2-3 .chois li a .on {
 						background:#ff4d61;
 						font-size:22px;
-						width:24px;
+						width:29px;
 						padding:2px 1px;
-						border-radius:15px;
+						border-radius:50%;
 						color:#fff;
 						display:inline-block;
+						height:27px;
+						line-height:27px;
 					}
 					.home .steps-1-2-3 .chois li a .arrow_box {
 						vertical-align:middle;
-						display:table-cell;
+						display:table;
 						height:52px;
-						width:306px;
+						padding-top:9px;
+						text-align:center;
+						width:100%;
 						
 					}
 					.home .steps-1-2-3 .chois .second a .arrow_box {
-						width:370px;
 						
 					}
 					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
-						background:#ff4d61;
+						background:#ff4d61;;
 					}
 					.home .steps-1-2-3 .chois li a .arrow  {
 						border-color: transparent black transparent #fff;
@@ -719,8 +734,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				background:#ff4d61!important;
 			}
 				.home .steps-1-2-3 .chois .uk-active  a {
-					color:#fff;
 					cursor:default;
+					color:#fff;
 				}
 						.home .steps-1-2-3 .chois .uk-active  a :hover {
 							text-decoration:none!important;
@@ -757,15 +772,17 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		float:left;
 		font-size:19px;
 		color:#ff4d61;
-		padding:3px 0 0 0;
+		padding:4px 0 0 0;
 		font-weight:bold;
 	}
 		.destination .labels label {
 			margin-left:20px;
+			font-size:20px;
 		}
 		.destination .labels label  i {
-			margin:0 2px 0 3px;
-			font-size:21px;
+			margin:0px 2px 0 3px;
+			font-size:22px;
+			line-height:17px;
 		}
 	.destination  .inputs {
 		width:61%;
@@ -793,11 +810,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.destination  .inputs .uk-form-icon {
 		width:100%;
-		
+	}
+	.destination  .inputs .uk-form-icon i {
+  font-size: 22px;;
 	}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
-		padding:1px 30px 1px 5px!important;
+		padding:0px 30px 1px 5px!important;
 	}
 		.destination  .inputs .uk-form-icon  i {
 			right:0;
@@ -826,7 +845,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:24px;
 		}
 			.destination .nav-over .add-another span.mp-icon-point-plus {
-				font-size:24px;
+				font-size:22px;
 			}
 		
 	
@@ -876,26 +895,35 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.order-details  .kids-pats-line {
 		margin-bottom:7px;
+		width:100%;
 	}
 	.order-details .kids-pats-group {
-		margin-bottom:14px;
+		margin-bottom:10px;
 		
 	}
+	.order-details  .kids-pats-line .right-group {
+		width: 42%
+	}
+	.order-details  .kids-pats-line .left-group {
+		width: 58%
+	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
-		width:50%;
 		float:left;
 		margin-bottom:5px;
 	}
-	.order-details  .kids-pats-line .right-group .uk-form-controls, .order-details  .kids-pats-line .left-group  .uk-form-controls { 
-		width:59%!important;
+	.order-details  .kids-pats-line .right-group .uk-form-controls { 
+		width:69.6% !important;
+	}
+	.order-details  .kids-pats-line .left-group  .uk-form-controls {
+		width: 51%;
 	}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
-		margin-left:15%;
 	}
 	.order-details .kids-pats-line .select {
-		min-height:28px;
-		line-height:28px;
+		line-height:30px;
 		font-size:16px;
+		height:28px !important;
+		margin-bottom:-1px;;
 	}
 		.home .select.taxi-disabled {
 			border-color:#8d8f98;
@@ -905,15 +933,21 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding-right:12px;
 	}
 	.order-details .kids-pats-group .kids-pats-line .amount {
-		width:42px;
+		width:42px;;
 	}
 	.order-details .kids-pats-wrap {
-		padding:17px 0 9px 0;
+		padding:13px 0 12px 0;
+		display:table;
+		width:100%;;
+	}
+	.order-details .kids-pats-wrap.additional {
+		padding:15px 0 7px 0;
+		display:table;
+		width:100%;;
 	}
 	.order-details  .kids-pats-line .object {
-		width:56%;
+		width:57%;
 		text-align:left;
-		margin-left:0.5%;
 	}
 	.order-details .kids-pats-group .kids-pats-line .choose-lang {
 		width:66%;
@@ -934,6 +968,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		width:29.5%;
 		display:inline-block;
 		vertical-align:middle;
+		font-size:16px;
 	}
 	.order-details .additional  .kids-pats-line  .uk-form-controls {
 		width:auto;
@@ -948,7 +983,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin: 7px 0 9px 0;
 	}
 	.order-details-over .order-details .wishes-2 {
-		margin:2px 0 4px 0;
+		margin:3px 0 8px 0;
 	}
 	.order-details-over .spinner, .driv-over .spinner {
 		width:52px;
@@ -966,13 +1001,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			width:12px;
 			position:absolute;
 			top:0;
-			left:35px;
+			left:35px;;
 		}
 			.order-details-over .spinner .arrows a, .driv-over .spinner  .arrows a {
 				display:block;
 				line-height:13px;
-				font-size:11px;
-				color:#9b9b9b;
+				font-size:10px;
+				color:#3d3d3d;
 			}
 		
 	
@@ -1005,6 +1040,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:16px;
 			color:#528ed3;
 			margin-left:4px;
+
+			/* display: inline-block; */;;
 		}
 		.order-details-over h1  .uk-icon-question-circle  {
 			position:relative;
@@ -1063,7 +1100,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			right:7px;
 			top:6px;
 		}
-		
+		.order-details-over .select .uk-icon-caret-down {
+			color: #3d3d3d;
+		}
 	.order-details .checks {
 		width:100%;
 	}
@@ -1083,10 +1122,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.order-details .helptext {
 			color:#9b9b9b;
-			font-size:14px;
+			font-size:12px;
 		}
 		.order-details .uk-button-group {
-			margin:11px 0 0 0;
+			margin:11px 0 7px 0;
 		}
 		.order-details .uk-button-group a {
 			min-height:48px;
@@ -1284,6 +1323,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 /*===========================  table styles in home  ==================================*/
 .table-over {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
+	margin-top: -6px;
+	margin-bottom: 26px;
 	
 }
 
@@ -1294,7 +1335,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	width:16%;
 }
 .table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
-	width:27%;
+	min-width:60px;
+	max-width:200px;
 }
 .table-over .serv th:nth-child(8), .table-over .serv td:nth-child(8) {
 	width:12%;
@@ -1302,7 +1344,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .table-over .serv th:nth-child(7), .table-over .serv td:nth-child(7) {
 	width:12%;
 }
+.table-over .serv th:nth-child(6), .table-over .serv td:nth-child(6) {
+  width: 13%;
 
+}
 	.table-over .serv {
 		width:100%;
 		border-collapse: separate;
@@ -3447,25 +3492,28 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 		display:none;
 		}
 		
-.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child {
-	width:116px;
+	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child {
+			width:116px;
+		}
+
+	.header-top .header-top-in .topmenu ul.topmenu-in >li:first-child {
+			width:123px;
+		}
+
+	.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5) {
+			width:auto;
+			text-align:right;
+		}
+
+	.header-top .header-top-in .topmenu ul.topmenu-in  >li .texst-item {
+			padding:2px 4%;
+		}
+
 }
-
-.header-top .header-top-in .topmenu ul.topmenu-in >li:first-child {
-	width:123px;
-}
-
-.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5) {
-	width:auto;
-	text-align:right;
-}
-
-.header-top .header-top-in .topmenu ul.topmenu-in  >li .texst-item {
-	padding:2px 4%;
-}
-
-
-
+ @media only screen and (max-width: 830px) {
+	.home .steps-1-2-3 .chois li a {
+		font-size:15px;
+	}
 }
 
  @media only screen and (max-width: 800px) {
@@ -3491,9 +3539,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.home .driv-over .rightlabels {
 		padding:10px 0 2px 0;
 		
-	}
-	.home .steps-1-2-3 .chois li a {
-		font-size:14px;
 	}
 }
 @media only screen and (max-width: 695px) {
@@ -4259,7 +4304,7 @@ table.datepickerViewDays tbody.datepickerYears {
   margin-top: -17px !important;
 }
 .check-order .passenger-info {
-  padding: 10px 13px 21px 18px;
+  padding: 10px 13px 13px 18px;
 }
 .check-order .passenger-info hr {
   padding: 0px 0px 0px 0px;
@@ -4271,8 +4316,6 @@ table.datepickerViewDays tbody.datepickerYears {
   display: block;;;
 }
 .check-order .passenger-info .tariff hr {
-  color: #8d8f98;
-  background: #8d8f98;
 }
 .check-order .passenger-info h1.labels {
 	margin: 0px;
@@ -4419,9 +4462,10 @@ table.datepickerViewDays tbody.datepickerYears {
 .check-order .passenger-info .vechicle dd {
     font-size: 15px;
     line-height: 10px;
+    width: 58%;
 }
 .check-order .passenger-info .vechicle dd span {
-    margin-right: 7%;
+    margin-right: 5%;
 }
 .check-order .passenger-info .vechicle dl {
     width: 100%;      
@@ -4431,15 +4475,15 @@ table.datepickerViewDays tbody.datepickerYears {
 }
 .check-order .passenger-info .vechicle dl i {
 	color: #ff4d61;
-	margin-right: 3%;
+	margin-right: 2%;
 	font-size: 18px;
 }
 .check-order .passenger-info .vechicle dl i[class="mp-icon-bug"] {
-    margin-left: 6%;
+    margin-left: 4%;
     font-size: 15px;
 }
 .check-order .passenger-info .vechicle dl i[class="mp-icon-door"] {
-    margin-left: 6%;
+    margin-left: 4%;
     font-size: 15px;
 }
 .check-order .passenger-info .order-details {
@@ -4561,3 +4605,9 @@ table.datepickerViewDays tbody.datepickerYears {
 }
 
 
+
+.order-details .kids-pats-wrap.aditional-driver {
+  padding: 11px 0 27px 0;
+  display: table;
+  width: 100%;
+}
