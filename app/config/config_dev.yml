@@ -35,3 +35,9 @@ assetic:
 
 swiftmailer:
     delivery_address: icevita@gmail.com
+    
+    
+hearsay_require_js:    
+     options:
+        waitSeconds:
+            value: 100

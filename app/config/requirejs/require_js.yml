@@ -12,15 +12,13 @@ hearsay_require_js:
             location: @DaVinciTaxiBundle/Resources/public/js/requirejs/libs/async
         uikit:
             location: @DaVinciTaxiBundle/Resources/public/js/uikit
-        uikitdatepicker:
-            location: @DaVinciTaxiBundle/Resources/public/js/addons/datepicker
-        gmaps:
+        googlemaps:
             location: https://maps.googleapis.com/maps/api/js?v=3.exp
             external: true
-            
+           
     shim:
         # Prototype
-        uikitdatepicker:
+        uikit:
             deps:    [jquery]
         jquery.spinner:
             deps:    [jquery]

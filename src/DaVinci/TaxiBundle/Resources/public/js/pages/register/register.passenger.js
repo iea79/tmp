@@ -1,4 +1,4 @@
-require(['pages/common'], function(){
+require(['pages/common'], function($){
     require(['addons/form-password']);
     
     $(".passfield").change(function () {

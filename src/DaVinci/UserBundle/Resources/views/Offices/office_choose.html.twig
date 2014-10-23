@@ -3,7 +3,7 @@
 {% block title %}
 <div class="wrapper-content title officepagetitle">
 
-{% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': '#'}  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
+{% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
 <div class="greentitle"><span>{% trans %}Need money: choose professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
 </div>
 {% endblock%}
