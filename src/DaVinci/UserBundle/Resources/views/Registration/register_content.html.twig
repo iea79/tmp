@@ -11,8 +11,8 @@
                         <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}" data-cached-title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}"></div>
-                        </div>{{ form_errors(form.firstname) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}" data-cached-title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}">{{ form_errors(form.firstname) }}</div>
+                        </div>
                         
                     </div>
 					<!-- End Line first name  -->
@@ -23,8 +23,8 @@
                         <div class="uk-form-controls">{{ form_widget(form.lastname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'2'}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}" data-cached-title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}"></div>
-                        </div>{{ form_errors(form.lastname) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}" data-cached-title="{{ 'Write your real Last Name (Jackson, Presley etc.)'|trans }}">{{ form_errors(form.lastname) }}</div>
+                        </div>
                         
                     </div>
 					<!-- End Line last name  -->
@@ -35,8 +35,8 @@
                         <div class="uk-form-controls">{{ form_widget(form.email,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'3'}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'You will get confirmation letter to complete registration.'|trans }}" data-cached-title="{{ 'You will get confirmation letter to complete registration.'|trans }}"></div>
-                        </div>{{ form_errors(form.email) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'You will get confirmation letter to complete registration.'|trans }}" data-cached-title="{{ 'You will get confirmation letter to complete registration.'|trans }}">{{ form_errors(form.email) }}</div>
+                        </div>
                         
                     </div>
 					<!-- End Line email  -->
@@ -47,8 +47,8 @@
                         <div class="uk-form-controls uk-form-password">
                             {{ form_widget(form.plainPassword.first, {'attr':{'pattern':'.{3,}', 'title':'Minmimum 3 letters or numbers.'|trans, 'class': 'uk-width-1-1 float_left passfield', 'tabindex':'4' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}" data-cached-title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}"></div>
-                        </div>{{ form_errors(form.plainPassword.first) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}" data-cached-title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}">{{ form_errors(form.plainPassword.first) }}</div>
+                        </div>
                         
                     </div>
 					<!-- End Line password  -->
@@ -58,8 +58,8 @@
                         </label>
                         <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'5' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Should match combination above.'|trans }}" data-cached-title="{{ 'Should match combination above.'|trans }}"></div>
-                        </div>{{ form_errors(form.plainPassword.second) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Should match combination above.'|trans }}" data-cached-title="{{ 'Should match combination above.'|trans }}">{{ form_errors(form.plainPassword.second) }}</div>
+                        </div>
                         
                     </div>
 					<!-- End Line confirm password  -->
