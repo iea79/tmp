@@ -512,7 +512,12 @@ footer {
     margin-top: 6px;
 	list-style: none outside none;
 }
-.register label .errors li {	margin-bottom: 21px;}
+.register label .errors li {
+	margin-bottom: 21px;
+    margin-top: 0px;
+    margin-right: -112%;
+    margin-left: 112%;
+}
 /** /errors */
 
 /** choose office */
