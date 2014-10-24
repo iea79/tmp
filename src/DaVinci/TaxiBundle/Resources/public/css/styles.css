@@ -1369,10 +1369,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .table-over {
 	box-shadow: 0 1px 1px 0px #b4b4b4;
 	margin-top: -6px;
-	margin-bottom: 26px;
-	
 }
-
+.office-driver .table-over {
+	box-shadow: none;
+	margin-top: -20px;
+	margin-bottom: -1px !important;
+}
 .serv .under-head .questiontooltip {
 	display:none;
 }
