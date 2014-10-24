@@ -2502,6 +2502,11 @@ footer {
 				background:#2967ad;
 				padding:4px 10px 2px 9px;
 			}
+			.footer-top .footer-in .social li .youtube {
+				background: transparent;
+				color: black;
+				padding:4px 10px 2px 9px;
+			}
 .footer-bottom  {
 	clear:both;
 	width:100%;
