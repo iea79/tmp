@@ -11,7 +11,7 @@
                         <div class="uk-form-controls">{{ form_widget(form.firstname,
 						{'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''}}) }}
-                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}" data-cached-title="{{ 'Write your real First Name (George, Barbara etc.)'|trans }}"></div>{{ form_errors(form.firstname) }}
+                            <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %} Write your real First Name (George, Barbara etc.){% endtrans %}" data-cached-title="{% trans %} Write your real First Name (George, Barbara etc.) {% endtrans %}"></div>{{ form_errors(form.firstname) }}
                         </div>
                         
                     </div>
