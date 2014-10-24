@@ -3307,11 +3307,12 @@ div.pop-up.uk-grid.uk-grid-small {
 	top:25%;
 }
 .pop-up .select {
-    line-height:26px;
+    line-height:32px;
 	width: 100%;
 	float: left;
 	text-align: left;
 	font-size: 16px;
+	max-height: 30px;
 }
 .pop-up .profile .fone {
 	width:69%;
