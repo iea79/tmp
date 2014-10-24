@@ -518,6 +518,11 @@ footer {
     margin-right: -112%;
     margin-left: 112%;
 }
+@media (max-width: 1017px) {
+    .register label .errors li {
+        margin: 0px;
+    }
+}
 /** /errors */
 
 /** choose office */
