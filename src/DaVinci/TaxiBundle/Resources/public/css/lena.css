@@ -492,7 +492,7 @@ footer {
     padding: 0;
     font-size: 0.7em;
 }
-.register fieldset  .errors {
+.fos_user_registration_register fieldset  .errors {
     position: relative;
     display: block;
     float: left;
@@ -512,7 +512,7 @@ footer {
     text-align: left;
     top: 24px;
 }
-.register fieldset  .errors li {
+.fos_user_registration_register fieldset  .errors li {
     list-style: none outside none;
     line-height: 7px;
     margin-top: 2px;
