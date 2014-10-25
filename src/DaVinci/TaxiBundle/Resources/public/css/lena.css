@@ -511,10 +511,8 @@ footer {
 }
 @media (max-width: 1017px) {
     .register label .errors {
-        position: absolute;
-        top: 30px;
+        position: relative;
         float: left;
-        left: 0;
     }
 }
 .register .authorizat  .errors {
