@@ -1,0 +1,88 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="vehicle_services")
+ */
+class VehicleServices {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $wifi = false;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $gps = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="air_conditioner")
+	 */
+	private $airConditioner = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="sun_roof")
+	 */
+	private $sunRoof = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="non_smokers")
+	 */
+	private $nonSmokers = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="first_aid_kit")
+	 */
+	private $firstAidKit = false;
+		
+	/**
+	 * @ORM\Column(type="string", name="cool_drinks", length=255)
+	 */
+	private $coolDrinks;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $snacks;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $dvd;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $gadgets;
+	
+	/**
+	 * @ORM\Column(type="string", name="tools_for_disabled", length=255)
+	 */
+	private $toolsForDisabled;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $diseases;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>

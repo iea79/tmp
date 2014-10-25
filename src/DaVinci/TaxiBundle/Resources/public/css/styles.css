@@ -3393,7 +3393,6 @@ i.quest {
 }
 .uk-tooltip {
   z-index: 10300 !important;
-  font-family: 'icontaxi', Arial;
 }
 .uk-modal-dialog .pop-up.route {
     padding-top: 9px;
@@ -3499,8 +3498,10 @@ i.quest {
 	width: 100%;
 	line-height: 39px;
 	font-size: 15px;
-;
-
+}
+.pop-up .clientreviews .uk-form-file input[type="file"] {
+	height: 39px;
+	cursor: default;
 }
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {

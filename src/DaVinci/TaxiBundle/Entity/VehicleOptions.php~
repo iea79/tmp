@@ -1,0 +1,82 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="vehicle_options")
+ */
+class VehicleOptions {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+
+	/**
+	 * @ORM\ManyToMany(targetEntity="VehicleChildSeat")
+	 * @ORM\JoinTable(name="vehicle_options_child_seats",
+	 * 		joinColumns={@ORM\JoinColumn(name="option_id", referencedColumnName="id")},
+	 * 		inverseJoinColumns={@ORM\JoinColumn(name="child_seat_id", referencedColumnName="id", unique=true)}
+	 * )
+	 */
+	private $childSeats;
+	
+	/**
+	 * @ORM\ManyToMany(targetEntity="VehiclePetCage")
+	 * @ORM\JoinTable(name="vehicle_options_pet_cages",
+	 * 		joinColumns={@ORM\JoinColumn(name="option_id", referencedColumnName="id")},
+	 * 		inverseJoinColumns={@ORM\JoinColumn(name="pet_cage_id", referencedColumnName="id", unique=true)}
+	 * )
+	 */
+	private $petCages;
+	
+	/**
+	 * @ORM\Column(type="integer", name="cycle_rack")
+	 */
+	private $cycleRack = 0;
+	
+	/**
+	 * @ORM\Column(type="integer", name="ski_rack")
+	 */
+	private $skiRack = 0;
+	
+	/**
+	 * @ORM\Column(type="integer", name="stroller_place")
+	 */
+	private $strollerPlace = 0;
+	
+	/**
+	 * @ORM\Column(type="integer", name="wheel_chair_place")
+	 */
+	private $wheelChairPlace = 0;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="roof_rack")
+	 */
+	private $roofRack = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="trailer")
+	 */
+	private $trailer = false;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+	public function __construct() {
+		$this->childSeats = new ArrayCollection();
+		$this->petCages = new ArrayCollection();
+	}
+	
+}
+
+?>
