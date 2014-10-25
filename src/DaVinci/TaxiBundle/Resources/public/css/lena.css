@@ -493,10 +493,6 @@ footer {
     width: 100%;
     display: inline-block;
 }
-.register.mainpage fieldset  .errors {
-    float: left;
-    margin-bottom: -7px !important;;
-}
 .register fieldset .errors {
     position: relative;
     list-style: none outside none;
@@ -514,8 +510,8 @@ footer {
         position: relative;
         float: left;
         left: 0;
-        margin-top: 0px;
-        margin-bottom: 0px;
+        margin: 0px;
+        padding: 0px;
         display: inline-block;
     }
 }
@@ -526,6 +522,10 @@ footer {
     width: 95%;
     text-align: left;
     top: 24px;
+}
+.register.mainpage fieldset  .errors {
+    float: left;
+    margin-bottom: -7px !important;;
 }
 .register.mainpage fieldset  .errors li {
     margin-top: 2px;
