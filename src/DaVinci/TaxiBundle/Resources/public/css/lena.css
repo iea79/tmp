@@ -141,9 +141,16 @@ footer {
     margin-bottom: 3px;
 }
 .verifi .uk-button-group {margin-top: 15px;}
-.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {    margin-top: 0px;}
-.register .uk-form-horizontal .addphoneareas {  margin-bottom: 2px;}
-.register .uk-form-horizontal .uk-form-row.addphoneline    {    margin-bottom: 0px;}
+.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {margin-top: 0px;}
+.register .uk-form-horizontal .addphoneareas {
+    margin-bottom: 2px;
+    width: 100%;
+}
+.register .uk-form-horizontal .uk-form-row.addphoneline    {
+    margin-bottom: 0px;
+    width: 65%;
+    float: right;
+}
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
 .utooltip {
@@ -290,6 +297,7 @@ footer {
 .register .uk-form-horizontal .twolabels  .uk-form-label {
     width: 100%;
     margin-top: 0px;
+    margin-bottom: 12px;
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
