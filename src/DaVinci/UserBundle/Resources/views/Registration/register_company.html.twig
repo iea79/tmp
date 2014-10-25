@@ -54,8 +54,8 @@
                                  'tabindex':'2'}}) }}
                                     </div>
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}" data-cached-title="{% trans %}Taxi Company starts from 5+ cars{% endtrans %}"></div>
-                                </div>
                                 {{ form_errors(form.cars_amount) }}
+                                </div>
                             </label>
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
@@ -70,8 +70,8 @@
                                     </div>
 
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
-                                </div>
                                 {{ form_errors(form.address.country) }}
+                                </div>
                             </label>
                             <label class="uk-form-row rowcity"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                                 <div class="uk-form-controls">
@@ -82,16 +82,16 @@
                 {'attr':{'class': 'float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required', 
                          'tabindex':'4'}}) }}
                                     </div>
-                                </div>
                                 {{ form_errors(form.address.city) }}
+                                </div>
                             </label>
                             <label class="uk-form-row rowstreet" ><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_address'|trans }}:</span>
                                 <div class="uk-form-controls">
                                     {{ form_widget(form.address.street,
                 {'attr':{'class': 'uk-width-1-1 float_left',
                          'tabindex':'5'}}) }}
-                                </div>
                                 {{ form_errors(form.address.street) }}
+                                </div>
                             </label>
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Skype'|trans }}:</span>
@@ -100,9 +100,9 @@
                 {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 
                          'tabindex':'6'}}) }}
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Write legitimate skype name{% endtrans %}" data-cached-title="{% trans %}Write legitimate skype name{% endtrans %}"></div>
+                                {{ form_errors(form.skype) }}
 
                                 </div>
-                                {{ form_errors(form.skype) }}
                             </label>
 
                             <label class="addphoneline uk-form-row">
