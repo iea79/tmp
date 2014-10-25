@@ -509,6 +509,14 @@ footer {
     float: left;
     left: 35%;
 }
+@media (max-width: 1017px) {
+    .register label .errors {
+        position: absolute;
+        top: 30px;
+        float: left;
+        left: 0;
+    }
+}
 .register .authorizat  .errors {
     float: left;
     position: absolute;
