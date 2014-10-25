@@ -117,6 +117,9 @@ form:
     finish: Finish
     edit: Edit
     
+    #office
+    old_password: "Old password"
+    
 
     #registration
     register.company: "Taxi Company: Manager Offie"

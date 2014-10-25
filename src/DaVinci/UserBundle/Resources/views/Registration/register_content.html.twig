@@ -1,5 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="wrapper-content"><div class="content register">
+<div class="wrapper-content">
+    <div class="content register">
         <form class="uk-form uk-form-horizontal fos_user_registration_register uk-form-stacked" name="register" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
             <fieldset>
 				<!-- Begin first step registration -->
@@ -121,14 +122,5 @@
                 {{ form_rest(form) }}
             </fieldset>
         </form>
-    </div></div>
-            
-    {% block javascripts %}
-        {% javascripts filter='?requirejs'
-        '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.passenger.js'
-        %}
-
-        {{ require_js_initialize({ 'main' : asset_url })}}
-
-        {% endjavascripts %}
-    {% endblock %}
+    </div>
+</div>

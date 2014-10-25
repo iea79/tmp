@@ -241,6 +241,9 @@ class RegistrationController extends BaseController {
         }
 
         $user = $this->container->get('security.context')->getToken()->getUser();
+        if (empty($user))
+            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+
 
         $formData = new IndependentDriver();
 
