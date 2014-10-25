@@ -771,7 +771,7 @@ body.register .main-content{
 
 /* mobile styles*/
 @media (max-width: 1017px) {
-    .register .uk-form-horizontal .uk-form-controls {width: 100%;}
+    .register .uk-form-horizontal .twolabels,.register .uk-form-horizontal .uk-form-row.addphoneline, .register .uk-form-horizontal .uk-form-controls {width: 100%;}
     .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
     .register .uk-form-horizontal .addphoneareas, .register .addotherlanguage   {width: 100%;}
     .wrapper-content .register .uk-button {width: 91%;}
