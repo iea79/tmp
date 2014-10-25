@@ -242,7 +242,6 @@ footer {
      text-shadow: 0 1px rgba(0, 0, 0, 0.3);
      vertical-align: middle;
 }
-:-moz-any(x), .addotherlanguage {   width: 94%;}
 .addphoneline .text, .addlangline .text {    padding: 5px 0;}
 .addphoneline .text {   padding-bottom: 2%;}
 .phonecode {
@@ -492,11 +491,14 @@ footer {
     padding: 0;
     font-size: 0.7em;
 }
-.fos_user_registration_register fieldset  .errors {
+.register.mainpage fieldset  .errors {
     position: relative;
     display: block;
     float: left;
     margin-bottom: -7px !important;;
+}
+.register fieldset .errors {
+    position: relative;
 }
 .register label .errors {
     position: absolute;
@@ -512,15 +514,15 @@ footer {
     text-align: left;
     top: 24px;
 }
-.fos_user_registration_register fieldset  .errors li {
+.register.mainpage fieldset  .errors li {
+    margin-top: 2px;
     list-style: none outside none;
     line-height: 7px;
-    margin-top: 2px;
 }
-.register label .errors li {    margin-bottom: 21px;}
-.register .uk-form-password-toggle {
-    top: 13px !important;
+.register label .errors li {
+    margin-bottom: 21px;
 }
+
 /** /errors */
 
 /** choose office */
