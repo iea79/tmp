@@ -47,8 +47,8 @@
              'tabindex':'1'}}) }}
                                     </div>
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
-                                </div>
                                 {{ form_errors(form.address.country) }}
+                                </div>
                             </label>   
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
@@ -60,8 +60,8 @@
     {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
              'tabindex':'2'}}) }}
                                     </div>
-                                </div>
                                 {{ form_errors(form.address.city) }}
+                                </div>
                             </label>
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
                                 <div class="uk-form-controls">
@@ -72,8 +72,8 @@
                             {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'3'}}) }}
                                     </div>
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
-                                </div>
                                 {{ form_errors(form.language.level) }}
+                                </div>
                             </label>
                             <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
                             {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}">

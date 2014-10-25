@@ -773,7 +773,7 @@ body.register .main-content{
     :-moz-any(x), .register .addotherlanguage { width: 97%;}
     .wrapper-content .register .uk-button {width: 91%;}
     .phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
-    label .errors {top: 42px !important;}
+    label .errors {top: 24px !important;}
     label.unlabel  .errors {top: 24px !important;}
     .register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
     .register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
@@ -786,7 +786,7 @@ body.register .main-content{
     :-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
     .wrapper-content .register .uk-button {width: 91%;}
     .phonecode, .register .uk-form-horizontal .addphoneareas select {margin-right: 6px;}
-    label .errors {top: 42px !important;}
+    label .errors {top: 24px !important;}
     label.unlabel  .errors {top: 24px !important;}
     .register .uk-form-horizontal .uk-width-4-5  {width: 96.8% !important;}
     .checkmail {
