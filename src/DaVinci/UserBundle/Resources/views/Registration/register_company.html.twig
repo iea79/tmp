@@ -36,14 +36,14 @@
                                 </div>
                             </label>
 
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span>
+                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.name_company'|trans }}:</span></label>
                                 <div class="uk-form-controls">
                                     {{ form_widget(form.name, {'attr':{'class': 'uk-width-1-1 float_left',
                                  'tabindex':'1','autofocus':''} }) }}
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Enter Name of organization{% endtrans %}" data-cached-title="{% trans %}Enter Name of organization{% endtrans %}"></div>
                                 </div>
                                 {{ form_errors(form.name) }}
-                            </label>
+                            
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.number_cars'|trans }}:</span>
                                 <div class="uk-form-controls">
                                     <div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select=""  data-uk-observe>
