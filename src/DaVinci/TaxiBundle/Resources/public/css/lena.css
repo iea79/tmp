@@ -505,9 +505,9 @@ footer {
 }
 .register label .errors {
     position: absolute;
-    top: 21px;
+    top: 24px;
     float: left;
-    left: 42%;
+    left: 35%;
 }
 .register .authorizat  .errors {
     float: left;
