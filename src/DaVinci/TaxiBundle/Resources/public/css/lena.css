@@ -611,7 +611,10 @@ a.loginfb {    background: url("../images/fbc.png") no-repeat scroll 0 0 transpa
 a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 transparent;}
 /** /choose office */
 
-.register .uk-form-password-toggle {right: 46px;}
+.register .uk-form-password-toggle {
+    right: 46px;
+    top: 14px;
+}
 .wrapper-content .register {
     max-width: 560px;
     min-width: 40%;
