@@ -503,17 +503,17 @@ footer {
     position: absolute;
     top: 24px;
     float: left;
-    left: 35%;
+    left: 0%;
 }
 @media (max-width: 1017px) {
-    .register label .errors {
+/*    .register label .errors {
         position: relative;
         float: left;
         left: 0;
         margin: 0px;
         padding: 0px;
         display: inline-block;
-    }
+    }*/
 }
 .register .authorizat  .errors {
     float: left;
