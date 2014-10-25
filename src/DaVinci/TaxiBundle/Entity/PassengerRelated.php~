@@ -1,0 +1,68 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="passenger_related")
+ */
+class PassengerRelated {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $name;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $email;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $skype;
+	
+	/**
+	 * @ORM\Column(type="integer", name="mobile_code")
+	 */
+	private $mobileCode;
+	
+	/**
+	 * @ORM\Column(type="integer", name="mobile_phone")
+	 */
+	private $mobilePhone;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="mobile_has_wifi")
+	 */
+	private $mobileHasWifi = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="mobile_has_whatsapp")
+	 */
+	private $mobileHasWhatsapp = false;
+	
+	/**
+	 * @ORM\Column(type="text")
+	 */
+	private $about;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>

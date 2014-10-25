@@ -1,0 +1,89 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="vehicle_pet_cage")
+ */
+class VehiclePetCage {
+	
+	const PET_CAGE_SMALL = '10 pounds';
+	const PET_CAGE_MIDDLE = '50 pounds';
+	const PET_CAGE_BIG = '100 pounds';
+
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+		
+	/**
+	 * @ORM\Column(type="integer", name="child_seat_number")
+	 */
+	private $petCageNumber = 0;
+		
+	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('0-12 months', '1-3 years', '4-7 years', '8-12 years')", name="child_seat_type", length=20)
+	 */
+	private $petCageType;
+	
+	public function setPetCageType($petCageType) {
+		if (!in_array($childSeatType, array(
+			self::PET_CAGE_SMALL, 
+			self::PET_CAGE_MIDDLE, 
+			self::PET_CAGE_BIG
+		))) {
+			throw new InvalidArgumentException("Invalid pet cage type :: {$petCageType}");
+		}
+	
+		$this->petCageType = $petCageType;
+	}
+	
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set petCageNumber
+     *
+     * @param integer $petCageNumber
+     * @return VehiclePetCage
+     */
+    public function setPetCageNumber($petCageNumber)
+    {
+        $this->petCageNumber = $petCageNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get petCageNumber
+     *
+     * @return integer 
+     */
+    public function getPetCageNumber()
+    {
+        return $this->petCageNumber;
+    }
+
+    /**
+     * Get petCageType
+     *
+     * @return string 
+     */
+    public function getPetCageType()
+    {
+        return $this->petCageType;
+    }
+}

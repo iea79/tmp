@@ -1,0 +1,43 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="passenger_detail")
+ */
+class PassengerDetail {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $adult = 0;
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $children = 0;
+	
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $seniors = 0;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>

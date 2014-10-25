@@ -1,0 +1,54 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="route_point")
+ */
+class RoutePoint {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="float", nullable=true)
+	 */
+	private $latitude = 0.00;
+	
+	/**
+	 * @ORM\Column(type="float", nullable=true)
+	 */
+	private $longitude = 0.00;
+	
+	
+	/**
+	 * @ORM\Column(type="integer", name="post_code", nullable=true)
+	 */
+	private $postCode;
+	
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	private $place;
+	
+	/**
+	 * @ORM\Column(type="integer", name="sort_value", nullable=true)
+	 */
+	private $sort;
+	
+	/**
+	 * @ORM\ManyToOne(targetEntity="PassengerRequest", inversedBy="routePoints")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>

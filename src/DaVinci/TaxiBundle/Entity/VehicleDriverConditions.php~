@@ -1,0 +1,63 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="vehicle_driver_conditions")
+ */
+class VehicleDriverConditions {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="string", name="interpreter_lang", length=255)
+	 */
+	private $interpreterLang;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $educator = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="medical_license")
+	 */
+	private $medicalLicense = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="body_guard")
+	 */
+	private $bodyGuard = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="animal_trainer")
+	 */
+	private $animalTrainer = false;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $carrier = false;
+	
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $guide = false;
+		
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>
