@@ -498,7 +498,9 @@ footer {
     margin-bottom: -7px !important;;
 }
 .register fieldset .errors {
+    padding-top: 6px;
     position: relative;
+    list-style: none outside none;
 }
 .register label .errors {
     position: absolute;
