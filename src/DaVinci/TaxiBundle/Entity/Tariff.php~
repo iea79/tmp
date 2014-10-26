@@ -1,0 +1,38 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="tariff")
+ */
+class Tariff {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="float")
+	 */
+	private $price = 0.00;
+	
+	/**
+	 * @ORM\Column(type="float")
+	 */
+	private $tips = 0.00;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="tariff")
+	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
+	 */
+	private $passengerRequest;
+	
+}
+
+?>

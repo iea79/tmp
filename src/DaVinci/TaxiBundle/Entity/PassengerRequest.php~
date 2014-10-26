@@ -1,0 +1,57 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="passenger_request")
+ */
+class PassengerRequest {
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="datetimetz", name="create_date")
+	 */
+	private $createDate;
+	
+	/**
+	 * @ORM\Column(type="datetimetz", name="pick_up")
+	 */
+	private $pickUp;
+	
+	/**
+	 * @ORM\Column(type="datetimetz", nullable=true)
+	 */
+	private $return;
+	
+	/**
+	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
+	 */
+	private $routePoints;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="Tariff", mappedBy="passengerRequest")
+	 */
+	private $tariff;
+	
+	/**
+	 * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="passengerRequest")
+	 */
+	private $vehicle;
+	
+	public function __construct() {
+		$this->routePoints = new ArrayCollection();
+	}
+		
+}
+
+?>

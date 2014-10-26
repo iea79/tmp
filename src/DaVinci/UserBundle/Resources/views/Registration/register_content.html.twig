@@ -121,14 +121,5 @@
                 {{ form_rest(form) }}
             </fieldset>
         </form>
-    </div></div>
-            
-    {% block javascripts %}
-        {% javascripts filter='?requirejs'
-        '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.passenger.js'
-        %}
-
-        {{ require_js_initialize({ 'main' : asset_url })}}
-
-        {% endjavascripts %}
-    {% endblock %}
+    </div>
+</div>
