@@ -36,4 +36,19 @@ class HomeController extends Controller
         return $this->render('DaVinciTaxiBundle:Home:order_step_4.html.twig');
     }
 
+    public function profitAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit.html.twig');
+    }
+
+    public function profit_passengerAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit_passenger.html.twig');
+    }
+
+    public function profit_driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit_driver.html.twig');
+    }
+
 }
