@@ -787,11 +787,11 @@ body.register .main-content{
     label .errors {top: 24px !important;}
     label.unlabel  .errors {top: 24px !important;}
     .register .uk-form-horizontal .uk-width-4-5 {width: 96.8% !important;}
-    .register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
+    .register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%;}
     .changemail div.form-group .col-sm-9 {width: 64.8% !important;}
 }
 @media screen and (max-width: 480px) {
-    .register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%  !important;}
+    .register .uk-form-horizontal .uk-width-2-5, .register .uk-form-horizontal .uk-width-1-1 {width: 93.2%;}
      .register .uk-form-horizontal .uk-form-label, .register .uk-form-horizontal .uk-form-controls,
     .register .uk-form-horizontal .addphoneareas    {width: 100%  !important;}
     :-moz-any(x), .register .addotherlanguage {width: 95.4% !important;}
