@@ -689,6 +689,11 @@ body.register .main-content{
     width: 37.4%;
     white-spacE: nowrap;
 }
+@media (max-width: 460px) {
+    .changemail div.form-group {
+        width: 90%;
+    }
+}
 .changemail div.form-group .col-sm-9 {width: 77.6%;}
 .changemail div.form-group .col-sm-9 input{width: 100%;}
 .checkmail  p{
