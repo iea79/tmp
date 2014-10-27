@@ -4981,3 +4981,6 @@ Profit
   font-size: 16px;
   font-weight: 700;;;
 }
+.intl-tel-input .country-list {
+	max-height: 180px !important;
+}
