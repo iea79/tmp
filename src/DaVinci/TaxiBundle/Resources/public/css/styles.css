@@ -1812,7 +1812,7 @@ office passengers and driver
 .shadow-main {
     -webkit-box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
     -moz-box-shadow:        -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
-    box-shadow:             -2px 2px 2px 0px rgba(50, 50, 50, 0.4);
+    box-shadow:             -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
 }
 .client-account .whitebg {
     background:#fff;
@@ -4899,9 +4899,6 @@ Profit
 		content:counter(li) !important; 
     counter-increment:li !important;
     position:absolute !important;
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box;
     width:2em !important;
     padding:0px !important;
     text-align:center !important;
