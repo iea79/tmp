@@ -649,7 +649,17 @@ body.register .main-content{
     width: 25.2%;
     padding-top: 6px;
 }
-.checkmail .float_right  div{   line-height: 120%;}
+@media screen and (max-width: 480px) {
+    .checkmail .float_right {
+        float: left !important;
+        width: 87% !important;
+        text-align: left;
+        margin-top: 10px;
+    }
+}
+.checkmail .float_right  div{
+   line-height: 120%;
+}
 .checkmail {
     text-align: left;
     background: url("../images/checkmail.png") no-repeat 14px center #fff;
@@ -709,6 +719,9 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
+@media (max-width: 767px) {
+    .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
+}
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
 .register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
 .register .uk-form-horizontal .uk-width-1-0 {
@@ -803,9 +816,10 @@ body.register .main-content{
     .checkmail {
         background: #fff !important;
         padding: 17px 12px 20px 12px  !important;
+        display: table;
     }
-    .wrapper-content > .content.usedemail { padding: 14px 12px 20px 12px  !important;}
-    .changemail {   padding: 12px 12px 5px 12px !important;}
+    .wrapper-content > .content.usedemail { padding: 14px 12px 20px 12px  !important; display: table;}
+    .changemail {   padding: 12px 12px 5px 12px !important; display: table;}
     .changemail div.form-group .col-sm-9 {width: 56.6% !important;}
 }
 /* /mobile styles*/
