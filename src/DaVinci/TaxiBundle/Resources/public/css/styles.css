@@ -4698,3 +4698,289 @@ table.datepickerViewDays tbody.datepickerYears {
   display: table;
   width: 100%;
 }
+/* ==========================
+Profit
+========================== */
+.profit .button-swicher {
+	  margin-top: 23px;
+}
+.profit .message {
+  padding: 17px 20px 14px 20px;
+}
+.profit .uk-grid-small > * {
+		padding-right: 0;
+		padding-left: 0;
+}
+.profit .uk-grid.uk-grid-small {
+  margin-left: 0;
+}
+.profit .button-swicher .uk-panel:first-child {
+		padding-right: 0.3%;
+}
+.profit .button-swicher .uk-panel:last-child {
+		padding-left: 0.2%;
+}
+.profit .button-swicher button {
+	  padding: 3px 12px;
+	  border-radius: 4px 4px 0 0;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-bottom: 0;
+	  background-color: #528ed3;
+	  color: #fff;
+	  font-size: 20px;
+	  line-height: 22px;
+	  height: 64px;
+}
+.profit .button-swicher .uk-active button {
+		background: url('../images/blue-tabs-left.png') left no-repeat, url('../images/blue-tabs-right.png') right no-repeat #fff;
+		color: #528ed3;
+}
+.profit .button-swicher .mp-icon-taxi {
+		font-size: 18px;
+		margin-right: 1%;
+}
+
+.profit .button-swicher .mp-icon-person {
+  font-size: 18px;
+  margin-right: 0.3%;
+}
+
+.profit .buttom-swicher {
+		background-color: #528ed3;
+}
+.profit li .content {
+	padding: 23px 0% 16px 0%;
+	display: inline-block;
+	width: 100%;;;
+}
+.profit .buttom-swicher .uk-panel button {
+		background-color: #528ed3;
+		border-radius: 0;
+		color: #fff;
+		font-size: 16px;
+		height: 35px;
+		border-top: 1px #528ed3 solid;
+		padding: 0 1%;
+}
+.profit .buttom-swicher .uk-panel.uk-active button {
+		background-color: #fff;
+		color: #528ed3;
+}
+.profit .wh {
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.profit-passenger .buttom-swicher .uk-panel:first-child {
+	  width: 11%;
+}
+.profit-passenger .buttom-swicher .uk-panel:nth-child(2) {
+  width: 18.5%;
+
+}
+.profit-passenger .buttom-swicher .uk-panel:nth-child(3) {
+  width: 20.3%;
+
+}
+.profit-passenger .buttom-swicher .uk-panel:nth-child(4) {
+  width: 20.9%;
+
+}
+.profit-passenger .buttom-swicher .uk-panel:last-child {
+  width: 26.6%;
+}
+
+
+.profit-driver .buttom-swicher .uk-panel:first-child {
+  width: 14%;
+}
+.profit-driver .buttom-swicher .uk-panel:nth-child(2) {
+  width: 15.7%;
+}
+.profit-driver .buttom-swicher .uk-panel:nth-child(3) {
+  width: 14.6%;
+}
+.profit-driver .buttom-swicher .uk-panel:nth-child(4) {
+  width: 26.4%;
+}
+.profit-driver .buttom-swicher .uk-panel:last-child {
+  width: 29.3%;
+}
+.profit li .content div {
+  float: left;
+  padding: 0;;;
+}
+.profit li .content .left {
+  width: 23.6%;
+  margin: 0 2.2% 0 2.1%;
+}
+.profit li .content .center {
+  width: 39.2%;
+  border: 1px red solid;
+  margin-top: 0.6%;
+  min-width: 263px;
+}
+.profit li .content .right {
+  width: 32.6%;
+  padding: 5px 0px 2px 0px;
+  position: relative;;
+}
+.profit li .content .left h2 {
+  color: #ff4d61;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
+}
+.profit li .content .left ul {
+	list-style: none;
+	display: table;
+	padding: 0;
+	margin: 0;
+}
+.profit li .content .left li {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #3c3d45;
+  line-height: 15px;;;
+}
+.profit li .content .left li:before {
+		content: "\f00c";
+		font-family: FontAwesome;
+		font-size: 19px;
+		color: #27bf2e;
+		display: block;
+		float: left;
+		margin-right: 5px;
+		margin-bottom: 16px;;;
+}
+.profit li .content .left li i {
+  font-size: 19px;
+  color: #27bf2e;
+  display: inline-block;
+}
+.profit li .content .center h3 {
+  width: 100%;;
+  display: table;
+  margin: 0;
+  background: #ff4d61;
+  color: #fff;
+  height: 50px;;
+}
+
+.profit li .content .center h3 .mp-icon-good {
+  font-size: 35px;
+  margin-left: 18px;
+  margin-top: 12px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+  width: 12%;
+}
+.profit li .content .center h4 {
+  padding: 13px 21px 0px 21px;
+  font-weight: bold;
+  margin: 0 0 -3px 0;
+}
+.profit li .content .center ol {
+  margin: 13px 0px 3px -7px;
+  padding-right: 0px;
+  counter-reset: li;
+  width: 100%;
+  display: inline-block;
+}
+.profit li .content .center ol > li {
+  position:relative;
+  margin:0px 0 10px 18px;
+  padding:0px 10px 0px 0px;
+  list-style:none;
+  line-height:20px;;;
+}
+.profit li .content .center ol > li:before {
+		content:counter(li) !important; 
+    counter-increment:li !important;
+    position:absolute !important;
+    width:2em !important;
+    padding:0px !important;
+    text-align:center !important;
+    margin-right:0px;
+    left:-2em !important;
+    top:0px !important;
+    border-top:0px solid #ccc !important;
+    color:#3c3d45 !important;
+    font-weight:normal;
+}
+.profit li .content .center ol > li:after {
+  margin-bottom: 5px;
+}
+.profit li .content .right .book-ride {
+  height: 50px;
+  width: 86%;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 22px auto;
+  margin-left: 8%;
+  letter-spacing: 1px;
+}
+.profit li .content .right iframe {
+}
+.videoWrapper {
+  position: relative;
+  padding-bottom: 44.25% !important; /* 16:9 */
+  padding-top: 25px !important;
+  float: none !important;
+  width: 86.5%;
+  margin-left: 8%;;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 995px) {
+	.profit li .content .left,
+	.profit li .content .center {
+			margin-bottom: 20px;
+	}
+	.profit li .content .center {
+			width: 70%;
+	}
+	.profit li .content .right {
+		width: 100%;
+	}
+}
+@media (max-width: 565px) {
+	.profit li .content .left,
+	.profit li .content .center {
+			width: 96%;
+			margin-bottom: 20px;
+	}
+	.profit li .content .center {
+			margin: 0 10px 20px 10px;
+	}
+	.profit li .content .right {
+			width: 96.4%;
+			margin: 0 10px;
+	}
+	.profit li .content .right .videoWrapper {
+			width: 100%;
+			margin-left: 0%;
+	}
+} 
+.whitebg {
+	  background: #fff;
+}
+.profit li .content .center span {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0;
+  text-align: left;
+  width: 88%;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 700;;;
+}
+.intl-tel-input .country-list {
+	max-height: 180px !important;
+}
