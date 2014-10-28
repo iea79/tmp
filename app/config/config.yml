@@ -113,6 +113,7 @@ doctrine:
            currency: Sonata\Component\Currency\CurrencyDoctrineType
         mapping_types:
             currency: currency
+            enum:       string 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default

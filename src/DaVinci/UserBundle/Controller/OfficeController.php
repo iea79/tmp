@@ -37,7 +37,9 @@ class OfficeController extends Controller
     public function office_passengerAction(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-        
+        if (empty($user))
+            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+               
         $form =$this->createForm(new OfficePassengerProfileType(), $user);
 
         if ('POST' === $request->getMethod()) {
