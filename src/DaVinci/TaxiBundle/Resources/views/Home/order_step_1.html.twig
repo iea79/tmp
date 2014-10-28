@@ -1,161 +1,88 @@
-    <div class="destination">
+	<div class="destination">
 		<div class="desticlone">
 			<div class="form-block-wrap">	
-				
-				<div class="labels">	
-					<label><i class="mp-icon-point-a"></i> From:</label>
+				<div class="labels">
+					<label for="route_info_route_points_0_place"><i class="mp-icon-point-a"></i> From:</label>
 				</div>
 				<div class="inputs">
-						<div class="uk-form-icon">
-							<i class=" mp-icon-nord-star"></i>
-							<input class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text"  />
-						</div>
+					<div class="uk-form-icon">
+						<i class="mp-icon-nord-star"></i>
+						<input id="route_info_route_points_0_place" name="route_info[route_points][0][place]" class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text" />
+					</div>
 				</div>
 			</div>
 			<div class="form-block-wrap to">		
 				 <div class="labels">   
-					<label><i class="mp-icon-point-b"></i> To:</label>
+					<label for="route_info_route_points_1_place"><i class="mp-icon-point-b"></i> To:</label>
 				</div>
 				<div class="inputs">
-						<div class="uk-form-icon">
-							<i class=" mp-icon-nord-star"></i>
-							<input class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text"   />
-						</div>
+					<div class="uk-form-icon">
+						<i class="mp-icon-nord-star"></i>
+						<input id="route_info_route_points_1_place" name="route_info[route_points][1][place]" class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text" />
+					</div>
 				</div>
 			</div>
 		</div>
+		
 		<div class="clr"></div>	
+        
         <div class="nav-over add-lang">    
-     
-			<div class="uk-button-large uk-button uk-width-1-1 add-another"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
+     		<div class="uk-button-large uk-button uk-width-1-1 add-another"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
 			<hr />
 		</div>
-	<div class="form-block-wrap">
-		<div class="labels">
-			<label>Pick up:</label>
-		</div>
-		<div class="inputs">
-			<div class="uk-form-controls">
-				<input class="date-input date-pick"  type="" placeholder="mm/dd/yy" data-uk-datepicker="{format:'DD/MM/YY'}"  />
-				<div class="uk-button uk-form-select select" data-uk-form-select="">
-                    <span>11</span>
-                    <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">00</option>
-                            <option value="1">01</option>
-                            <option value="1">02</option>
-                            <option value="1">03</option>
-                            <option value="1">04</option>
-                            <option value="1">05</option>
-                            <option value="1">06</option>
-                            <option value="1">07</option>
-                            <option value="1">08</option>
-                            <option value="1">09</option>
-                            <option value="2">10</option>
-                            <option value="2">11</option>
-                            <option value="2">12</option>
-                            <option value="2">13</option>
-                            <option value="3">14</option>
-                            <option value="4">15</option>
-                            <option value="4">16</option>
-                            <option value="4">17</option>
-                            <option value="4">18</option>
-                            <option value="4">19</option>
-                            <option value="4">20</option>
-                            <option value="4">21</option>
-                            <option value="4">22</option>
-                            <option value="4">23</option>
-                        </select>
-                    </div>
-				
-				<div class="uk-button uk-form-select select" data-uk-form-select="">
-                    <span>01</span>
-                     <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">00</option>
-                            <option value="2">10</option>
-                            <option value="3">20</option>
-                            <option value="4">30</option>
-                            <option value="4">40</option>
-                            <option value="4">50</option>
-                        </select>
-                </div>
+		
+		<div class="form-block-wrap">
+			<div class="labels">
+				{{ form_label(form.pick_up_date, 'Pick up:') }}
 			</div>
-			<div class="check-box">
-			<label><input type="checkbox" /><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}"  title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+			<div class="inputs">
+				<div class="uk-form-controls">
+					{{ form_widget(form.pick_up_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
+					<div class="uk-button uk-form-select data-uk-form-select">
+						<span>10</span>
+						<i class="uk-icon-caret-down"></i>
+						{{ form_widget(form.pick_up_hour) }}
+	                </div>
+	                <div class="uk-button uk-form-select data-uk-form-select">
+	                    <span>00</span>
+	                    <i class="uk-icon-caret-down"></i>
+                        {{ form_widget(form.pick_up_minute) }}
+	                </div>
+				</div>
+				<div class="check-box">
+					<input id="route_info_round_trip" name="route_info_round_trip" type="checkbox" /><label for="route_info_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+				</div>
 			</div>
 		</div>
 		
-	</div>
 		<div class="clr"></div>	
-       
-			
-	   
-	<div class="form-block-wrap last">
-		<div class="labels">
-			<label>Return:</label>
-		</div>
-		<div class="inputs">
-			<div class="uk-form-controls ">
-				
-				<input class="date-input date-pick"  type="" placeholder="mm/dd/yy" id="datepicker0"  data-uk-datepicker="{format:'DD/MM/YY'}" />
-				
-				<div class="uk-button uk-form-select select" data-uk-form-select="">
-                    <span>11</span>
-                     <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">00</option>
-                            <option value="1">01</option>
-                            <option value="1">02</option>
-                            <option value="1">03</option>
-                            <option value="1">04</option>
-                            <option value="1">05</option>
-                            <option value="1">06</option>
-                            <option value="1">07</option>
-                            <option value="1">08</option>
-                            <option value="1">09</option>
-                            <option value="2">10</option>
-                            <option value="2">11</option>
-                            <option value="2">12</option>
-                            <option value="2">13</option>
-                            <option value="3">14</option>
-                            <option value="4">15</option>
-                            <option value="4">16</option>
-                            <option value="4">17</option>
-                            <option value="4">18</option>
-                            <option value="4">19</option>
-                            <option value="4">20</option>
-                            <option value="4">21</option>
-                            <option value="4">22</option>
-                            <option value="4">23</option>
-                        </select>
-                </div>
-				<div class="uk-button uk-form-select select" data-uk-form-select="">
-                    <span>01</span>
-                     <i class="uk-icon-caret-down"></i>
-                        <select>
-                            <option value="1">00</option>
-                            <option value="2">10</option>
-                            <option value="3">20</option>
-                            <option value="4">30</option>
-                            <option value="4">40</option>
-                            <option value="4">50</option>
-                        </select>
-                </div>
+       	   
+		<div class="form-block-wrap last">
+			<div class="labels">
+				{{ form_label(form.return_date, 'Return:') }}
+			</div>
+			<div class="inputs">
+				<div class="uk-form-controls">
+					{{ form_widget(form.return_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
+					<div class="uk-button uk-form-select data-uk-form-select">
+						<span>10</span>
+						<i class="uk-icon-caret-down"></i>
+						{{ form_widget(form.return_hour) }}
+	                </div>
+	                <div class="uk-button uk-form-select data-uk-form-select">
+	                    <span>00</span>
+	                    <i class="uk-icon-caret-down"></i>
+                        {{ form_widget(form.return_minute) }}
+	                </div>
+				</div>
 			</div>
 		</div>
+	        
+		<div class="nav-over">
+	        <a href="#">
+			<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
+	            Next &gt; 
+	        </div>
+			</a>
+		</div>
 	</div>
-        
-	<div class="nav-over">
-        <a href="#">
-		<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
-            Next &gt; 
-        </div>
-		</a>
-	</div>
-		
-    </div>
-
-		
-
-

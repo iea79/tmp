@@ -1,19 +1,7 @@
 da_vinci_taxi_homepage:
-    pattern:  /
-    defaults: { _controller: DaVinciTaxiBundle:Home:index }
+    resource: "@DaVinciTaxiBundle/Controller/HomeController.php"
+    type: annotation
     
-order_step_1:
-    pattern:  /order-step-1
-    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1 }
-order_step_2:
-    pattern:  /order-step-2
-    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_2 }
-order_step_3:
-    pattern:  /order-step-3
-    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_3 }
-order_step_4:
-    pattern:  /order-step-4
-    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_4 }
 main_driver:
     pattern:  /main-driver
     defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    

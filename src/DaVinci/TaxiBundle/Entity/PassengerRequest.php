@@ -51,7 +51,6 @@ class PassengerRequest {
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
 	}
-		
 
     /**
      * Get id
