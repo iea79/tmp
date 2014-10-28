@@ -37,6 +37,7 @@ class OfficePassengerProfileType extends AbstractType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
+                        ->add('photo','iphp_file')
                         ->add('oldPassword','password',array(
                             'label' => 'form.old_password', 'translation_domain' => 'FOSUserBundle',
                             'mapped' => false

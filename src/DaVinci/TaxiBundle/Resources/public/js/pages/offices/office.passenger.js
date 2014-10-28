@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['pages/table.resize','intl-tel-input-master/js/intlTelInput'], function () {
+    require(['addons/form-password','pages/table.resize','intl-tel-input-master/js/intlTelInput'], function () {
 
         // Смена класса кнопок Driver list в office passengers //////////////////// 
         var but_txt;

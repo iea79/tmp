@@ -4,7 +4,7 @@ namespace DaVinci\TaxiBundle\Entity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
-
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 
 /**
@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping AS ORM;
 
 /**
  * @ORM\Entity
+ * @FileStore\Uploadable
  */
 class User extends BaseUser
 {
@@ -23,7 +24,8 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-  
+
+    
     /**
      * @ORM\ManyToMany(targetEntity="DaVinci\TaxiBundle\Entity\Group")
      * @ORM\JoinTable(name="fos_user_user_group",
@@ -44,7 +46,9 @@ class User extends BaseUser
     private $skype;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\File( maxSize="20M")
+     * @FileStore\UploadableField(mapping="photo")
+     * @ORM\Column(type="array")
      */
     private $photo;
 

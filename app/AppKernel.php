@@ -119,6 +119,8 @@ class AppKernel extends Kernel
             // not required, but recommended for better extraction
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
+            
+            new Iphp\FileStoreBundle\IphpFileStoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
