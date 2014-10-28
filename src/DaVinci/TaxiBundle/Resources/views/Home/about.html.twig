@@ -1,0 +1,103 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'about' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    <h4>About TaxiMyPrice</h4>
+    	<div class="buttom-swicher">
+            <ul>
+                <li class="uk-active"><a href="#">Главная</a></li>
+                <li><a href="#">Joolma</a></li>
+                <li><a href="#">WordPress</a></li>
+                <li><a href="#">HTML5&amp;CSS3</a></li>
+                <li><a href="#">PHP</a></li>
+            </ul>
+        </div>
+{% endblock%}
+{% block body %}
+{# ======= About ========= #}
+<div class="whitebg shadow-main">
+	<div class="info-block">
+		<div class="text">
+		  <h2>Прилетели в другую страну?</h2>
+		  <h3>Пользуйтесь услугами TaxiMyPrice (TMP)!</h3>
+		  <p>TaxiMyPrice предлагает Вам уникальный сервис:</p>
+		  <ol>
+		    <li>Недорогой и финансово-безопасный</li>
+			  <h4>Вы называете Вашу цену, таксисты её принимают,</h4>
+			  <h4>таксист получает оплату и чаевые, через нас, на 24 часа позже, если услуга Вам понравилась;</h4>
+		    <li>Дружелюбный и качественный</li>
+		    <li></li>
+		  </ol>
+		</div>
+		<div class="video">
+			<div class="videoWrapper">
+				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+			</div>
+			<button class="book-ride uk-button uk-button-success">Choose best passenger</button>
+		</div>
+		<div class="otziv">
+			<div class="rate-review">
+					<div class="uk-width-1-1">
+						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+						<div class="uk-width-1-1 rate">
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-warning"></i></a>
+							/ 09.01.2014
+						</div>
+						<div class="uk-width-1-1 review">
+							Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.
+						</div>
+					</div>
+					<div class="uk-width-1-1">
+						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+						<div class="uk-width-1-1 rate">
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-warning"></i></a>
+							/ 09.01.2014
+						</div>
+						<div class="uk-width-1-1 review">
+							Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.
+						</div>
+					</div>
+					<div class="uk-width-1-1">
+						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+						<div class="uk-width-1-1 rate">
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-danger"></i></a>
+							<a><i class="mp-icon-star uk-text-warning"></i></a>
+							/ 09.01.2014
+						</div>
+						<div class="uk-width-1-1 review">
+							Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+		$(document).ready(function(){
+
+		        var $buttom-swicher = $(".buttom-swicher");
+
+		        $(window).scroll(function(){
+		            if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
+		                $menu.removeClass("default").addClass("fixed");
+		            } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+		                $menu.removeClass("fixed").addClass("default");
+		            }
+		        });//scroll
+		    });
+    </script>
+{% endblock %}

@@ -26,3 +26,6 @@ profit_driver:
 profit_passenger:
     pattern:  /profit-passenger
     defaults: { _controller: DaVinciTaxiBundle:Home:profit_passenger }    
+about:
+    pattern:  /about
+    defaults: { _controller: DaVinciTaxiBundle:Home:about }    
