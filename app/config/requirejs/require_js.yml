@@ -39,7 +39,7 @@ hearsay_require_js:
         #настройки оптимизатора (r.js можно посмотреть здесь https://github.com/jrburke/r.js/blob/master/build/example.build.js, например)
         options:
             removeCombined: true
-            name: main
+            #name: main
             #воспользуемся библиотекой uglify2 для оптимизации, она входит в стандартную сборку r.js
             optimize: uglify2
             #настройки для  uglify2

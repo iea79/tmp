@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
+use Symfony\Component\HttpFoundation\Request;
 
 class OfficeController extends Controller
 {
@@ -32,9 +34,35 @@ class OfficeController extends Controller
     * @Route("/office-passenger", name="office_passenger")
     * @Security("has_role('ROLE_USER')")
     */
-    public function office_passengerAction()
+    public function office_passengerAction(Request $request)
     {
-        return $this->render('DaVinciUserBundle:Offices:office_passenger.html.twig');
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (empty($user))
+            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+               
+        $form =$this->createForm(new OfficePassengerProfileType(), $user);
+
+        if ('POST' === $request->getMethod()) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+
+                $usr = $form->getData();
+                
+                $em = $this->container->get('doctrine')->getManager();
+                $em->persist($usr->getUser());
+                $em->flush();
+                
+                $this->setFlash('fos_user_success', 'profile.flash.updated');
+
+                return new RedirectResponse($this->getRedirectionUrl($user));
+            }
+        }
+        
+        
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig', array(
+                    'form' => $form->createView()
+        ));
     }
 
     /**

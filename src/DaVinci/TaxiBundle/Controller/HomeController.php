@@ -56,4 +56,25 @@ class HomeController extends Controller {
     	return $request;
     }
     
+
+    public function profitAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit.html.twig');
+    }
+
+    public function profit_passengerAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit_passenger.html.twig');
+    }
+
+    public function profit_driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:profit_driver.html.twig');
+    }
+
+    public function aboutAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:about.html.twig');
+    }
+
 }

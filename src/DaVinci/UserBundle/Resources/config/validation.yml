@@ -125,7 +125,7 @@ DaVinci\TaxiBundle\Entity\User:
         email:
             - Email:
                 message: fos_user.email.invalid
-                checkMX: true
+                #checkMX: true - some gliches, shoold test
                 groups: [ "flow_taxi_user_registration_step1", "Profile" ]
             - NotBlank: 
                 message: fos_user.email.blank

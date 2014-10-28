@@ -112,17 +112,17 @@
                             <!-- Begin Line skype -->
 
                             <!-- Begin labels phones -->
-                            <label class="addphoneline uk-form-row">
                                 <div class="twolabels uk-width-2-5">
                                     <span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
                                     <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
                                 </div>
+                            <label class="addphoneline uk-form-row">
                                 <div class="uk-form-controls addphoneareas">
                                     {% for phones in form.phones %}  
                                         {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
                                     {% endfor %}      
                                     <div class="uk-form-controls addphone" id="addphone">
-                                        {{'Add mobile number'|trans }}
+                                        {{'Add mobile'|trans }}
                                     </div>
                                 </div>   
                                 <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
@@ -138,6 +138,7 @@
                                     <button type='submit' class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
                                 </div>
                             {% elseif flow.getCurrentStepNumber() == 2 %}
+                            </label>
 
                                 {{ form_errors(form) }}
                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Independent driver'|trans}}:</span>
@@ -193,7 +194,7 @@
                                 </label>
                                 <div class="uk-button-group uk-width-4-8">
                                     <button type='submit' class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans}}</button>
-                                    <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate">< {{ 'Edit'|trans}}</button>
+                                    <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate"> {{ 'Edit'|trans}}</button>
                                     <div class="clear"></div>
                                 </div>
                             {% endif %}

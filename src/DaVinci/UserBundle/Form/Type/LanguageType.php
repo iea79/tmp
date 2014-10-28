@@ -27,7 +27,10 @@ class LanguageType extends AbstractType
                         ))
             ->add('languages', 'collection', array(
                     'type'         => 'language',
+                    'options'      =>array(
+                    'empty_value' => 'form.please_select'),
                     'allow_add'    => true,
+                    'translation_domain' => 'FOSUserBundle'
                 ));
 
     }

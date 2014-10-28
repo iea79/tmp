@@ -1,9 +1,10 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-driver' %}
-
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
 {% block body %}
 {# ========= Account start ============= #}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 <div class="main-content client-account">
 		<div class="client-panel-button">
 			<div class="uk-grid uk-grid-small">
@@ -699,7 +700,7 @@
 																	</div>
 																	<div class="uk-form-controls addphone uk-width-1-1">
 																		<span class="uk-float-left">
-																			{{'Add mobile number'|trans}}
+																			{{'Add mobile'|trans}}
 																		</span>
 																	</div>
 																</dd>

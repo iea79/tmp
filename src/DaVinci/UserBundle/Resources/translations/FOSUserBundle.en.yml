@@ -117,6 +117,9 @@ form:
     finish: Finish
     edit: Edit
     
+    #office
+    old_password: "Old password"
+    
 
     #registration
     register.company: "Taxi Company: Manager Offie"
@@ -140,7 +143,7 @@ form:
     company_city: "City of registration"
     company_address: "Address of registration"
     number_cars: "Number of cars"
-    mobile: "Mobile number"
+    mobile: "Mobile"
     internet: "internet"
     
     

@@ -64,7 +64,8 @@
         "a2lix/i18n-doctrine-bundle": "0.*@dev",
         "a2lix/translation-form-bundle": "2.*@dev",
         "leaseweb/api-caller-bundle": "1.0.*@dev",
-        "hearsay/require-js-bundle": "2.0.*@dev"
+        "hearsay/require-js-bundle": "2.0.*@dev",
+        "iphp/filestore-bundle":"dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

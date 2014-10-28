@@ -1,0 +1,26 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'profit' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# ======= Swicher button ========= #}
+	<div class="shadow-main">
+		<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#profit'}">
+			<div class="uk-panel uk-width-1-2">
+				<button class="uk-width-1-1 uk-button"><i class="mp-icon-person"></i>{{ ' Passenger profit'|trans }}</button>
+			</div>
+			<div class="uk-panel uk-width-1-2">
+				<button class="uk-width-1-1 uk-button"><i class="mp-icon-taxi"></i>{{' Driver profit'|trans}}</button>
+			</div>
+		</div>
+		<ul id="profit" class="uk-switcher">
+			<li class="uk-active">
+			    {% include 'DaVinciTaxiBundle:Home:profit_passenger.html.twig' %}
+			</li>
+			<li>
+			    {% include 'DaVinciTaxiBundle:Home:profit_driver.html.twig' %}
+			</li>
+		</ul>
+	</div>
+{% endblock %}

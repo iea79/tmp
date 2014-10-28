@@ -5,3 +5,15 @@ da_vinci_taxi_homepage:
 main_driver:
     pattern:  /main-driver
     defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
+profit:
+    pattern:  /profit
+    defaults: { _controller: DaVinciTaxiBundle:Home:profit }    
+profit_driver:
+    pattern:  /profit-driver
+    defaults: { _controller: DaVinciTaxiBundle:Home:profit_driver }    
+profit_passenger:
+    pattern:  /profit-passenger
+    defaults: { _controller: DaVinciTaxiBundle:Home:profit_passenger }    
+about:
+    pattern:  /about
+    defaults: { _controller: DaVinciTaxiBundle:Home:about }    

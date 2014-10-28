@@ -113,6 +113,7 @@ doctrine:
            currency: Sonata\Component\Currency\CurrencyDoctrineType
         mapping_types:
             currency: currency
+            enum:       string 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
@@ -179,3 +180,12 @@ parameters:
         fresh_connect: false  # set to true to force full reconnect every call.
 
 
+iphp_file_store:
+    mappings:
+       photo:
+           upload_dir:  %kernel.root_dir%/../web/photo
+           upload_path: /photo
+           directory_namer:
+               date:
+                  params: { field : date, depth : month }
+           namer: ~
