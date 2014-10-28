@@ -94,6 +94,15 @@ class User extends BaseUser
      * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
      */
     private $currency;
+    
+    
+    
+    /**
+     *
+     * @ORM\Column(type="datetime", nullable = true)
+     */
+    protected $passwordUpdatedAt;
+    
     /**
      * Constructor
      */
@@ -102,6 +111,19 @@ class User extends BaseUser
         parent::__construct();
         
 //        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    public function setPasswordUpdatedAt($passwordUpdatedAt)
+    {        
+        if(!$passwordUpdatedAt){
+            $this->passwordUpdatedAt = new \DateTime();
+        }
+        $this->passwordUpdatedAt = $passwordUpdatedAt;
+    }
+
+    public function getPasswordUpdatedAt()
+    {
+        $this->passwordUpdatedAt;
     }
     
     public function setFirstname($firstname)
