@@ -213,10 +213,16 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			.header-top .header-top-in  .topmenu {
 				display:table;
 				width:100%;
+				height:48px !important;
 			}
 				.header-top .header-top-in  .topmenu ul.topmenu-in {
 					display:table-row;
 					list-style:none;
+				}
+				@media only screen and (max-width: 850px) {
+					.header-top .header-top-in  .topmenu ul.topmenu-in {
+						  line-height: 18px;
+					}
 				}
 					.header-top .header-top-in  .topmenu ul.topmenu-in > li {
 						display:table-cell;
@@ -3073,6 +3079,12 @@ footer {
 	width: 33.33%;
 	float: left;
 }
+@media (max-width: 400px) {
+	.pop-up .other .uk-panel {
+		width: 60%;
+		float: left;
+	}
+}
 .pop-up .other .uk-panel i {
     float: left;
 }
@@ -3276,6 +3288,7 @@ div.pop-up.uk-grid.uk-grid-small {
     margin-bottom: 13px;
 }
 .pop-up input[type="text"],
+.pop-up input[type="email"],
 .pop-up select {
 	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
@@ -3283,8 +3296,10 @@ div.pop-up.uk-grid.uk-grid-small {
 	padding:3px 5px 3px 9px;
 }
 .pop-up input[type="text"]:focus,
+.pop-up input[type="email"]:focus,
 .pop-up select:focus,
 .pop-up input[type="text"]:hover,
+.pop-up input[type="email"]:hover,
 .pop-up select:hover {
 	background-color: #f5f5f5;
 }
@@ -4706,6 +4721,7 @@ Profit
 }
 .profit .message {
   padding: 17px 20px 14px 20px;
+  font-size: 16px;
 }
 .profit .uk-grid-small > * {
 		padding-right: 0;
@@ -4755,17 +4771,20 @@ Profit
 	width: 100%;;;
 }
 .profit .buttom-swicher .uk-panel button {
-		background-color: #528ed3;
-		border-radius: 0;
-		color: #fff;
-		font-size: 16px;
-		height: 35px;
-		border-top: 1px #528ed3 solid;
-		padding: 0 1%;
+	background-color: #528ed3;
+	border-radius: 0;
+	color: #fff;
+	font-size: 16px;
+	min-height: 35px;
+	border-top: 1px #528ed3 solid;
+	padding: 0 1%;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 18px;
 }
 .profit .buttom-swicher .uk-panel.uk-active button {
-		background-color: #fff;
-		color: #528ed3;
+	background-color: #fff;
+	color: #528ed3;
 }
 .profit .wh {
   border-bottom-right-radius: 6px;
@@ -4816,7 +4835,7 @@ Profit
 }
 .profit li .content .center {
   width: 39.2%;
-  border: 1px red solid;
+  border: 1px #ff4d61 solid;
   margin-top: 0.6%;
   min-width: 263px;
 }
@@ -4915,7 +4934,7 @@ Profit
 .profit li .content .right .book-ride {
   height: 50px;
   width: 86%;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bold;
   margin: 22px auto;
   margin-left: 8%;
@@ -4981,6 +5000,19 @@ Profit
   font-size: 16px;
   font-weight: 700;;;
 }
+/* ======
+poteriashki
+=======*/
 .intl-tel-input .country-list {
 	max-height: 180px !important;
+}
+@media screen and (max-width: 480px) {
+  .changemail {
+    display: table;
+  }
+.wrapper-content > .content.usedemail {
+  display: table;
+}
+.checkmail {
+  display: table;
 }
