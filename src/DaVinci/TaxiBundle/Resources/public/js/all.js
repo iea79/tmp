@@ -144,6 +144,19 @@ $(window).bind("load", function() {
   });
 });
 
+$(document).ready(function(){
+
+        var $menu = $("#menu");
+
+        $(window).scroll(function(){
+            if ( $(this).scrollTop() > 100 && $menu.hasClass("default") ){
+                $menu.removeClass("default").addClass("fixed");
+            } else if($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+                $menu.removeClass("fixed").addClass("default");
+            }
+        });//scroll
+    });
+
 //Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
 $('.spec-request').click(function () {
     $(this).next('.checks').toggle();

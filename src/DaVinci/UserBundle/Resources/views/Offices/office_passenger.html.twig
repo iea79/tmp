@@ -1,9 +1,10 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-passenger' %}
-
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
 {% block body %}
 {# =========== cabinet passenger ================= #}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 <div class="main-content">
 	<div class="client-account">
 		<div class="client-panel-button">
