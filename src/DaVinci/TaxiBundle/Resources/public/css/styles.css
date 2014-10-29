@@ -5881,8 +5881,8 @@ About
 	margin: 0 auto;
 	max-width: 1000px;
 	display: table;
-	min-height: 35px;
-	width: 100%;;
+	width: 100%;
+	height: 35px;;
 }
 .about .buttom-swicher li{
     list-style: none;
@@ -5922,6 +5922,9 @@ About
     left: 0;
     width: 100%;
 }
+.about .empty {
+	padding-top: 30px;
+}
 .about .text,
 .about .video,
 .about .otziv {
@@ -5946,13 +5949,13 @@ About
 	padding-right: 1%;
 }
 .about .info-block {
-	margin-bottom: 3.7%;
+	margin-bottom: 0.8%;
     display: inline-block;
 }
 .about .whitebg {
   margin-top: -14px;
   padding-top: 13px;
-  margin-bottom: 24px;
+  margin-bottom: 50px;
 }
 .about .text h2 {
   color: #ff4d61;
@@ -6074,7 +6077,7 @@ About
 	margin-top: 17px;
 }
 .about .info-block.driver {
-	margin-bottom: 3.4%;
+	margin-bottom: 0.3%;
 }
 .about .info-block.company {
 	margin-bottom: 1%;
@@ -6104,15 +6107,16 @@ About
 	content: "";
 }
 .about .contact-buttons {
-	width: 96%;
-	margin-left: 2%;
+	width: 95.8%;
+	margin-left: 2.1%;
 	display: inline-block;
+	margin-right: 2.1%;
 }
 .about .contact-buttons a {
-  width: 17%;
+  width: 17.7%;
   display: inline-table;
-  margin: 10px 0.15%;
-  min-height: 37px;
+  margin: 9px 6px 20px 0px;
+  min-height: 38px;
   font-size: 16px;
   padding-left: 3px;
   font-weight: normal;
@@ -6146,8 +6150,9 @@ About
 		display: none;
 	}
 	.about .contact-buttons a {
-		width: 24.6%;
-		padding-left: 10px;;
+		width: 24%;
+		padding-left: 1%;
+		margin-right: 1% !important;;
 	}
 	.about .buttom-swicher li:first-child {
 	  width: 30% !important;
@@ -6156,9 +6161,19 @@ About
 	  width: 30% !important;
 	}
 }
+@media (max-width: 650px) {
+	.about .empty {
+		padding-top: 50px;
+	}
+}
 @media  (max-width: 450px) {
 	.about .contact-buttons a {
 		width: 100%;
 		margin-bottom: 0;
+	}
+}
+@media (max-width: 350px) {
+	.about .empty {
+		padding-top: 80px;
 	}
 }

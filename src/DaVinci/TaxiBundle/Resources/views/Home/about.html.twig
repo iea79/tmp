@@ -2,7 +2,7 @@
 {% block theme 'about' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-	    <h4>About TaxiMyPrice</h4>
+	    <h4 id="passenger">About TaxiMyPrice</h4>
 	    	<div class="buttom-swicher">
 	            <ul class="uk-width-1-1 uk-width-large-2-3">
 	                <li class="menuitem uk-active"><a href="#passenger"  data-uk-smooth-scroll>Для пасажира</a></li>
@@ -87,140 +87,144 @@
 			</div>
 		</div>
 	</div>
-	<div id="driver" class="info-block driver">
-		<div class="video top">
-			<div class="videoWrapper">
-				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+	<div id="driver" class="empty">
+		<div class="info-block driver">
+			<div class="video top">
+				<div class="videoWrapper">
+					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+				</div>
+				<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
 			</div>
-			<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
-		</div>
-		<div class="text">
-		  <h2>Для водителя легковой машины:</h2>
-		  <h3>Высокий заработок!</h3>
-		  <ol>
-		    <li><span>1.</span>Иностранные пассажиры оплачивают ваш труд;</li>
-		    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
-		    <li><span>3.</span>Диспетчерские услуги для Вас $0;</li>
-		    <li><span>4.</span>Активность поощряется:</li>
-				    <li><span>4.1.</span>уменьшением цен на основные и дополнительные наши услуги;</li>
-				    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы дарим американские лоторейные билеты.</li>
-		  </ol>
-		</div>
-		<div class="video bottom">
-			<div class="videoWrapper">
-				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+			<div class="text">
+			  <h2>Для водителя легковой машины:</h2>
+			  <h3>Высокий заработок!</h3>
+			  <ol>
+			    <li><span>1.</span>Иностранные пассажиры оплачивают ваш труд;</li>
+			    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
+			    <li><span>3.</span>Диспетчерские услуги для Вас $0;</li>
+			    <li><span>4.</span>Активность поощряется:</li>
+					    <li><span>4.1.</span>уменьшением цен на основные и дополнительные наши услуги;</li>
+					    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы дарим американские лоторейные билеты.</li>
+			  </ol>
 			</div>
-			<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
-		</div>
-		<div class="otziv">
-			<div class="rate-review">
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
+			<div class="video bottom">
+				<div class="videoWrapper">
+					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+				</div>
+				<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
+			</div>
+			<div class="otziv">
+				<div class="rate-review">
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
-						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div id="company" class="info-block company">
-		<div class="text">
-		  <h2>Значительные дополнительные доходы для владельцев такси компаний!</h2>
-		  <ol>
-		    <li><span>1.</span>Авиапоток иностранных туристов работает на Вас;</li>
-		    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
-		    <li><span>3.</span>Внешние рекламные и дополнительные диспетчерские услуги для Вас $0;</li>
-		    <li><span>4.</span>Такси компании, лидеры перевозок, дополнительно поощряются:</li>
-				    <li><span>4.1.</span>уменьшением цены на основные и дополнительные наши услуги;</li>
-				    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы бесплатно вручаем американские лоторейные билеты.</li>
-		  </ol>
-		</div>
-		<div class="video">
-			<div class="videoWrapper">
-				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+	<div id="company" class="empty">
+		<div class="info-block company">
+			<div class="text">
+			  <h2>Значительные дополнительные доходы для владельцев такси компаний!</h2>
+			  <ol>
+			    <li><span>1.</span>Авиапоток иностранных туристов работает на Вас;</li>
+			    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
+			    <li><span>3.</span>Внешние рекламные и дополнительные диспетчерские услуги для Вас $0;</li>
+			    <li><span>4.</span>Такси компании, лидеры перевозок, дополнительно поощряются:</li>
+					    <li><span>4.1.</span>уменьшением цены на основные и дополнительные наши услуги;</li>
+					    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы бесплатно вручаем американские лоторейные билеты.</li>
+			  </ol>
 			</div>
-			<button class="book-ride uk-button uk-button-success">Pick up a lot of passenger now!</button>
-		</div>
-		<div class="otziv">
-			<div class="rate-review">
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
+			<div class="video">
+				<div class="videoWrapper">
+					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+				</div>
+				<button class="book-ride uk-button uk-button-success">Pick up a lot of passenger now!</button>
+			</div>
+			<div class="otziv">
+				<div class="rate-review">
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
+						<div class="uk-width-1-1">
+							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
+							<div class="uk-width-1-1 rate">
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-danger"></i></a>
+								<a><i class="mp-icon-star uk-text-warning"></i></a>
+								/ 09.01.2014
+							</div>
+							<div class="uk-width-1-1 review">
+								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
+							</div>
 						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
-						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</div>
