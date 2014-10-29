@@ -5874,6 +5874,7 @@ About
     text-align: center;
     background: #528ed3;
     width: 100%;
+    z-index: 100;
 }
 .about .buttom-swicher ul {
 	padding: 0;
@@ -6094,7 +6095,7 @@ About
 	content: "";
 }
 .about .contact-buttons {
-	width: 100%;
+	width: 96%;
 	margin-left: 2%;
 	display: inline-block;
 }
@@ -6107,4 +6108,42 @@ About
   padding-left: 3px;
   font-weight: normal;
   padding-top: 5px;;
+}
+.about .driver .video.bottom {
+	display: none;
+}
+
+@media (max-width: 680px) {
+	.about .text,
+	.about .video,
+	.about .otziv {
+		float: none;
+		width: 96% !important;
+		padding: 0% 2% !important;
+	}
+	.about .videoWrapper {
+		width: 100% !important;
+		margin: 0 !important;
+	}
+	.about .book-ride {
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+	.about .driver .video.bottom {
+		display: block !important;
+	}
+	.about .driver .video.top {
+		display: none;
+	}
+	.about .contact-buttons a {
+		width: 24.6%;
+		padding-left: 10px;;
+	}
+}
+@media  (max-width: 450px) {
+	.about .contact-buttons a {
+		width: 100%;
+		margin-bottom: 0;
+	}
 }

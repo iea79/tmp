@@ -2,8 +2,16 @@ require(["pages/common"], function($){
     require(['pages/pageinfo/stickUp'], function(){
 	    jQuery(function($) {
 	        $(document).ready( function() {
-	            //активируем stickUp на элементе с классом '.navbar-wrapper'
-	            $('.buttom-swicher').stickUp();
+	            $('.buttom-swicher').stickUp({
+	            	parts: {
+	            		0:'passenger',
+	            		1:'driver',
+	            		2:'company',
+	            		3:'end'
+	            	},
+	            	itemClass: 'menuitem',
+	            	itemHover: 'uk-active'
+	            });
 	        });
 	    });
         

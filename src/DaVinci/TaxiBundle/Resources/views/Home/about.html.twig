@@ -2,20 +2,20 @@
 {% block theme 'about' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-    <h4>About TaxiMyPrice</h4>
-    	<div class="buttom-swicher">
-            <ul>
-                <li class="uk-active"><a href="#">Для пасажира</a></li>
-                <li><a href="#">Для водителя</a></li>
-                <li><a href="#">Для владельцев такси компаний</a></li>
-                <li><a href="#">Почему TaxiMyPrice</a></li>
-            </ul>
-        </div>
+	    <h4>About TaxiMyPrice</h4>
+	    	<div class="buttom-swicher">
+	            <ul>
+	                <li class="menuitem uk-active"><a href="#passenger"  data-uk-smooth-scroll>Для пасажира</a></li>
+	                <li class="menuitem"><a href="#driver"  data-uk-smooth-scroll>Для водителя</a></li>
+	                <li class="menuitem"><a href="#company"  data-uk-smooth-scroll>Для владельцев такси компаний</a></li>
+	                <li class="menuitem"><a href="#end"  data-uk-smooth-scroll>Почему TaxiMyPrice</a></li>
+	            </ul>
+	        </div>
 {% endblock%}
 {% block body %}
 {# ======= About ========= #}
 <div class="whitebg shadow-main">
-	<div class="info-block passenger">
+	<div id="passenger" class="info-block passenger">
 		<div class="text">
 		  <h2>Прилетели в другую страну?</h2>
 		  <h3>Пользуйтесь услугами TaxiMyPrice (TMP)!</h3>
@@ -88,8 +88,8 @@
 			</div>
 		</div>
 	</div>
-	<div class="info-block driver">
-		<div class="video">
+	<div id="driver" class="info-block driver">
+		<div class="video top">
 			<div class="videoWrapper">
 				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
 			</div>
@@ -106,6 +106,12 @@
 				    <li><span>4.1.</span>уменьшением цен на основные и дополнительные наши услуги;</li>
 				    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы дарим американские лоторейные билеты.</li>
 		  </ol>
+		</div>
+		<div class="video bottom">
+			<div class="videoWrapper">
+				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
+			</div>
+			<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
 		</div>
 		<div class="otziv">
 			<div class="rate-review">
@@ -154,7 +160,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="info-block company">
+	<div id="company" class="info-block company">
 		<div class="text">
 		  <h2>Значительные дополнительные доходы для владельцев такси компаний!</h2>
 		  <ol>
@@ -219,19 +225,22 @@
 			</div>
 		</div>
 	</div>
-	<div class="contact-buttons uk-grid uk-grid-small">
-		<a href="" class="uk-button uk-button-primary">СМИ</a>
-		<a href="" class="uk-button uk-button-primary">Соц. сети</a>
-		<a href="" class="uk-button uk-button-primary">YouTube</a>
-		<a href="" class="uk-button uk-button-primary">Клиенты</a>
+	<div id="end" class="contact-buttons uk-grid uk-grid-small">
+		<a href="#" class="uk-button uk-button-primary">СМИ</a>
+		<a href="#" class="uk-button uk-button-primary">Соц. сети</a>
+		<a href="#" class="uk-button uk-button-primary">YouTube</a>
+		<a href="#" class="uk-button uk-button-primary">Клиенты</a>
 	</div>
 </div>
 
 {% endblock %}
 
-    {% block javascripts %}
-        <script>
-            var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/pages/pageinfo/about.js') }}";
-        </script>
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/pageinfo/about.js'
+    %}
 
-    {% endblock %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
