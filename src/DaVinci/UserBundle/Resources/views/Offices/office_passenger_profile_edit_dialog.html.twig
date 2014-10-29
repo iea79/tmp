@@ -51,9 +51,10 @@
                         {{ form_errors(form.phone) }}
                     </dd><br />
                     <dt>{{ 'Birthday:'|trans }}</dt><dd>
-                        
-                        {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'6','class':'dateofbirth'} }) }}
-                        {{ form_errors(form.dateOfBirth) }}
+                        <div class="birthday">                        
+                            {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'6','class':'dateofbirth'} }) }}
+                            {{ form_errors(form.dateOfBirth) }}
+                        </div>
                     </dd><br />
                     <dt>{{ 'Gender:'|trans }}</dt><dd>
                         <div class="uk-button uk-form-select select " data-uk-form-select="">

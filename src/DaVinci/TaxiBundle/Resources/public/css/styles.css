@@ -3289,17 +3289,20 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 .pop-up input[type="text"],
 .pop-up input[type="email"],
+.pop-up input[type="password"],
 .pop-up select {
-	border: 2px solid #d5d3dc;
+	border: 2px solid #d5d3dc !important;
 	color:#3d3d3d;
 	width:100%;
 	padding:3px 5px 3px 9px;
 }
 .pop-up input[type="text"]:focus,
 .pop-up input[type="email"]:focus,
+.pop-up input[type="password"]:focus,
 .pop-up select:focus,
 .pop-up input[type="text"]:hover,
 .pop-up input[type="email"]:hover,
+.pop-up input[type="password"]:hover,
 .pop-up select:hover {
 	background-color: #f5f5f5;
 }
@@ -3343,6 +3346,15 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile .classauto {
 	width: 46%;
 }
+.pop-up .birthday .row:first-child {
+	width: 100%;
+} 
+.pop-up .birthday .row:nth-child(2) {
+	width: 100%;
+} 
+.pop-up .birthday .row:last-child {
+	width: 100%;
+} 
 .pop-up .profile .month {
 	width: 52%;
 	margin-right: 5%;
@@ -4360,10 +4372,7 @@ table.datepickerViewDays tbody.datepickerYears {
 }
 /*end of pace.js        */
 
-/* ====================================
-Lena css
-==================================== */
-/******styles for:
+/* ====================== styles for:
 register 
 register_independent_driver
 register_company_driver
@@ -4371,7 +4380,7 @@ register_company
 register_manager
 register_checkmeil
 register_choose_office
-*****/
+================================== */
 /*base styles*/
 .wrap-content {position: relative;}
 .register .wrap-content {
@@ -5862,7 +5871,6 @@ About
 	
 }
 .about .buttom-swicher {
-    text-transform: uppercase;
     text-align: center;
     background: #528ed3;
     width: 100%;
@@ -5890,6 +5898,7 @@ About
     text-decoration: none;
     width: 100%;
     color: #fff;
+    font-size: 16px;
 }
 .about .buttom-swicher li.uk-active a {
 	color: #528ed3;
@@ -5907,25 +5916,33 @@ About
 .about .video,
 .about .otziv {
 	float: left;
-	padding: 2%;
+	padding: 0% 2%;
 }
 .about .text {
-    width: 48.7%;
+    width: 50.7%;
+    padding-right: 0;
+    padding-top: 2%;
 }
 .about .video {
-    width: 41%;
+    width: 43.3%;
     margin-top: 0.6%;
+    padding-top: 2%;
 }
 .about .otziv {
-	width: 96%;
+	width: 97%;
 	display: table;
+	padding-top: 0px;
+	margin-top: -1px;
+	padding-right: 1%;
 }
 .about .info-block {
-  display: inline-block;;
+	margin-bottom: 3.7%;
+    display: inline-block;
 }
 .about .whitebg {
   margin-top: -14px;
   padding-top: 13px;
+  margin-bottom: 24px;
 }
 .about .text h2 {
   color: #ff4d61;
@@ -5943,17 +5960,17 @@ About
   margin-bottom: 1px;;
 }
 .about .text ol {
-  margin-left: -8px;
   margin-top: 4px;
   display: inline-block;
   font-size: 16px;
+  list-style: none;
+  padding: 0;
 }
 .about .text ol h4 {
   margin-top: 5px;
-  margin-left: -21px !important;
-  font-size: 15px;
+  font-size: 14px;
   color: #777;
-  margin-bottom: 4px;
+  margin-bottom: 6px !important;
   line-height: 18px;
   font-weight: normal;
   padding-left: 0 !important;
@@ -5961,21 +5978,23 @@ About
 .about .text ol li {
   margin-top: 6px;
   margin-bottom: 0px;
+  font-size: 16px;;
+}
+.about .text ol li span {
+  padding-right: 5px;;;
 }
 .about .text ol li:nth-child(n+2) {
   margin-top: 16px;
 }
-
-
 .about .videoWrapper {
-  width: 97.6%;
-  padding-bottom: 52.25% !important;
+  width: 92.4%;
+  padding-bottom: 49.6% !important;
 }
 .about .book-ride {
-  margin: 30px 0px 30px 8.2%;
+  margin: 30px 0px 28px 8%;
   display: inline-block;
   min-height: 50px;
-  width: 97.5%;
+  width: 92%;
   font-size: 24px;
   font-weight: 700;
 }
@@ -5984,4 +6003,108 @@ About
   margin: 41px auto 14px auto;
   padding-left: 40px !important;
   font-weight: 700;;
+}
+.about .otziv .rate-review .name {
+    font-size: 16px;
+    margin-bottom: -4px;
+    display: table;
+    margin-left: 2px;
+}
+.about .otziv .rate-review .rate {
+    font-size: 14px;
+    display: table;
+    line-height: 20px;
+}
+.about .otziv .rate-review .review {
+    font-size: 14px;
+    display: table;
+    margin-top: -1px;
+    margin-bottom: 14px;
+}
+.about .otziv .rate-review .rate a {
+    text-decoration: none;
+    font-size: 17px;
+    min-width: 14px;
+    display: inline-table;
+}
+.about .info-block .driver {
+	margin-bottom: 4%;
+}
+.about .driver .text {
+    padding-right: 0%;
+    padding-top: 2%;
+    padding-left: 0%;
+    width: 51.5%;
+}
+.about .driver .video {
+    width: 43%;
+    padding-top: 2.1%;;
+    margin-top: 0.6%;
+}
+.about .driver .otziv {
+	width: 97%;
+	display: table;
+	padding-top: 0px;
+	margin-top: -1px;
+	padding-right: 1%;
+}
+.about .driver .video .videoWrapper {
+	margin-left: 0;
+	margin-right: 8%;
+	width: 92.55%;
+}
+.about .driver .video .book-ride {
+	margin-left: 0;
+	margin-right: 8%;
+    width: 92.6%;
+    margin-top: 32px;
+    margin-bottom: 26px;
+}
+.about .driver .text ol {
+	margin-top: 17px;
+}
+.about .info-block.driver {
+	margin-bottom: 3.4%;
+}
+.about .info-block.company {
+	margin-bottom: 1%;
+}
+.about .company .text {
+  width: 51.3%;
+	
+}
+.about .company .video {
+	width: 42.7%
+}
+.about .company .text ol {
+	margin-top: 7px;
+}
+.about .company .videoWrapper {
+	width: 93.4%;
+	margin-left: 6.4%;
+}
+.about .company .book-ride {
+	width: 93.4%;
+	margin-left: 6.4%;
+}
+.about .text ol.inner {
+	list-style: none;
+}
+.about .text .inner li:before {
+	content: "";
+}
+.about .contact-buttons {
+	width: 100%;
+	margin-left: 2%;
+	display: inline-block;
+}
+.about .contact-buttons a {
+  width: 17%;
+  display: inline-table;
+  margin: 10px 0.15%;
+  min-height: 37px;
+  font-size: 16px;
+  padding-left: 3px;
+  font-weight: normal;
+  padding-top: 5px;;
 }
