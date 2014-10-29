@@ -5881,14 +5881,23 @@ About
 	margin: 0 auto;
 	max-width: 1000px;
 	display: table;
-	width: 100%;
 	min-height: 35px;
+	width: 100%;;
 }
 .about .buttom-swicher li{
     list-style: none;
     color: #fff;
     vertical-align: middle;
     display: table-cell;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.about .buttom-swicher li:first-child {
+  width: 23%;
+	
+}
+.about .buttom-swicher li:nth-child(2) {
+  width: 32%;
 }
 .about .buttom-swicher li.uk-active {
 	background-color: #fff;
@@ -6139,6 +6148,12 @@ About
 	.about .contact-buttons a {
 		width: 24.6%;
 		padding-left: 10px;;
+	}
+	.about .buttom-swicher li:first-child {
+	  width: 30% !important;
+	}
+	.about .buttom-swicher li:nth-child(2) {
+	  width: 30% !important;
 	}
 }
 @media  (max-width: 450px) {
