@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class PassengerRequestRoutePointType extends AbstractType {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) {
-		$builder->add('name');
+		$builder->add('place');
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {
@@ -19,7 +19,7 @@ class PassengerRequestRoutePointType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'RoutePoint';
+		return 'route_point';
 	}
 	
 }

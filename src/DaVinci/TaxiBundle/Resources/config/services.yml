@@ -91,7 +91,7 @@ services:
         calls:
              - [ setFormType, [ @taxi.registration.manager.form.type ] ]    
  
-#login with email or phone
+# login with email or phone
     phoneemail_user_provider:
         class: DaVinci\UserBundle\Security\PhoneEmailProvider
         public: false
@@ -101,9 +101,13 @@ services:
         class: DaVinci\UserBundle\Model\CustomUserManager
         arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, @fos_user.entity_manager, %fos_user.model.user.class%]
        
-
-  
-  #PaymentGlobalNetwork---------------------------------------------------------
+# passenger request handler
+    taxi.passengerRequest.form.flow:
+        class: DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow
+        parent: craue.form.flow
+        scope: request
+        
+# PaymentGlobalNetwork---------------------------------------------------------
     paygnet:
       class:     DaVinci\TaxiBundle\payGnetAPIcaller
-      arguments: ["@api_caller"]
+      arguments: ["@api_caller"]      

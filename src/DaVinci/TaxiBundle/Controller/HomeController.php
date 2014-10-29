@@ -8,37 +8,54 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-class HomeController extends Controller
-{
-    public function indexAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:index.html.twig');
+use DaVinci\TaxiBundle\Entity\PassengerRequest;
+use DaVinci\TaxiBundle\Entity\RoutePoint;
+use Doctrine\Common\Collections\ArrayCollection;
+
+class HomeController extends Controller {
+	
+	/**
+	 * @Route("/", name="da_vinci_taxi_homepage")
+	 */
+    public function indexAction() {
+        $flow = $this->container->get('taxi.passengerRequest.form.flow');
+    	$flow->bind($this->spawnPassengerRequest());
+    	
+    	$form = $flow->createForm();
+    	if ($flow->isValid($form)) {
+    		
+    	}
+    	
+    	return $this->render(
+    		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
+    		array (	
+	    		'form' => $form->createView(),
+	    		'flow' => $flow	
+    		)		
+    	);
     }
     
-    public function main_driverAction()
-    {
+    public function main_driverAction() {
         return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
     }
     
-    public function order_step_1Action()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:order_step_1.html.twig');
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    private function spawnPassengerRequest() {
+    	$request = new PassengerRequest();
+    	
+    	$actualTime = new \DateTime();
+    	
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->setCreateDate($actualTime);
+    	$request->setPickUp($actualTime);
+    	$request->setReturn($actualTime);    	
+    	    	
+    	return $request;
     }
     
-    public function order_step_2Action()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:order_step_2.html.twig');
-    }
-    
-    public function order_step_3Action()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:order_step_3.html.twig');
-    }
-
-    public function order_step_4Action()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:order_step_4.html.twig');
-    }
 
     public function profitAction()
     {
