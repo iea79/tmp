@@ -116,7 +116,7 @@
                                     <span class="uk-form-label  text">{{ 'form.mobile'|trans }}:</span>
                                     <span class="uk-form-label text">{{ 'Mark if you have'|trans }} </span>
                                 </div>
-                            <label class="addphoneline uk-form-row">
+                            <div class="addphoneline uk-form-row">
                                 <div class="uk-form-controls addphoneareas">
                                     {% for phones in form.phones %}  
                                         {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
@@ -134,11 +134,11 @@
     {'attr':{'tabindex':'9'}})|e }}">
                                 <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">
 
+                            </div>
                                 <div class="uk-button-group uk-width-4-5">
                                     <button type='submit' class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
                                 </div>
                             {% elseif flow.getCurrentStepNumber() == 2 %}
-                            </label>
 
                                 {{ form_errors(form) }}
                                 <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Independent driver'|trans}}:</span>
