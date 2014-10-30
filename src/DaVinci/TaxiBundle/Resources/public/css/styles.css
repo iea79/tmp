@@ -3102,7 +3102,13 @@ footer {
 @media (max-width: 400px) {
 	.pop-up .other .uk-panel {
 		width: 60%;
-		float: left;
+		margin-bottom: 5px;
+	}
+	.pop-up .other .uk-panel .mp-icon-person,
+	.pop-up .other .uk-panel .mp-icon-bug,
+	.pop-up .other .uk-panel .mp-icon-door {
+		margin-left: 0% !important;
+		margin-right: 4% !important;
 	}
 }
 .pop-up .other .uk-panel i {
@@ -4690,8 +4696,8 @@ footer {
 .twolabels .text {  clear: left;}
 .register .uk-form-horizontal .twolabels  .uk-form-label {
     width: 100%;
-    margin-top: 0px;
-    margin-bottom: 12px;
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
@@ -5087,6 +5093,9 @@ body.register .main-content{
 @media (max-width: 460px) {
     .changemail div.form-group {
         width: 90%;
+    }
+    .register .changemail .btn {
+    	margin-left: 0 !important;
     }
 }
 .changemail div.form-group .col-sm-9 {width: 77.6%;}
