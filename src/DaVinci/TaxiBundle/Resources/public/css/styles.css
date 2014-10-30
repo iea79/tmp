@@ -5596,7 +5596,7 @@ Step-4
 Profit
 ========================== */
 .profit .button-swicher {
-	  margin-top: 23px;
+  margin-top: 4px;
 }
 .profit .message {
   padding: 17px 20px 14px 20px;
@@ -5982,7 +5982,7 @@ About
     display: inline-block;
 }
 .about .whitebg {
-  margin-top: -14px;
+  margin-top: -3px;
   padding-top: 13px;
   margin-bottom: 50px;
 }
