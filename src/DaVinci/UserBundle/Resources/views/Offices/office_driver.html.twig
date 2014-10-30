@@ -252,26 +252,26 @@
                                                     <thead>
                                                             <tr>
                                                                     <th>#</th>
-																	<th>{{'TMP ID'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">?</div>
+																	<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th class="date-time">{{'Date/Time'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}">?</div>
+																	<th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}">{{'Date/Time'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th class="route">{{'Route'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">?</div>
+																	<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{'Route'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th class="price">{{'Price'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}">?</div>
+																	<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}">{{'Price'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th class="status">{{'Status'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check your deals{% endtrans %}">?</div>
+																	<th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check your deals{% endtrans %}">{{'Status'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th class="left-time">{{'Left time'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">?</div>
+																	<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">{{'Left time'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
-																	<th>{{'Refuse'|trans}}
-																		<div class="questiontooltip" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}You can cancel deal{% endtrans %}">?</div>
+																	<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}You can cancel deal{% endtrans %}">{{'Refuse'|trans}}
+																		<div class="questiontooltip">?</div>
 																	</th>
                                                             </tr>
                                                     </thead>
@@ -1110,3 +1110,15 @@
 			</div>
 {% endblock %}
 
+{% block javascripts %}
+    <script>
+        var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
+    </script>
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/offices/office.driver.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}

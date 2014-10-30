@@ -1646,10 +1646,10 @@ office passengers and driver
         font-size: 14px;
         line-height:21px;
         width: 100%;
-		letter-spacing: 0.2px;
+        letter-spacing: 0.2px;
 }
 .client-panel-list .uk-grid-small .uk-panel:first-child {
-	min-width: 166px;
+	min-width: 167px;
 }
 .client-panel-list .uk-grid-small .uk-panel:nth-child(2) {
 	min-width: 165px;
@@ -1695,6 +1695,26 @@ office passengers and driver
 .client-account .clientid dd[id="status"] {
 	color: #ff4d61;
 	font-size: 16px;
+}
+@media (max-width: 1030px) {
+	.client-account .clientid {
+		padding-left: 7%;;
+	}
+	.client-panel-button {
+		margin-left: 1%;
+		margin-right: 1%;
+		width: 98%;
+	}
+}
+@media (max-width: 530px) {
+	.client-account .clientid {
+		padding-bottom: 7px;
+	}
+	.client-panel-button {
+		margin-left: 1%;
+		margin-right: 2.5%;
+		width: 96.5%;
+	}
 }
 /*=====================office button==============================*/
 .client-account .uk-button-profile {
