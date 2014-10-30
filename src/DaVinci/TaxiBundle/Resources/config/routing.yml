@@ -17,3 +17,6 @@ profit_passenger:
 about:
     pattern:  /about
     defaults: { _controller: DaVinciTaxiBundle:Home:about }    
+help:
+    pattern:  /help
+    defaults: { _controller: DaVinciTaxiBundle:Home:help }    

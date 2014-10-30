@@ -77,4 +77,9 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:about.html.twig');
     }
 
+    public function helpAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:help.html.twig');
+    }
+
 }
