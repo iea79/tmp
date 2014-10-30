@@ -594,7 +594,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	max-width:1000px;
 	margin:1px auto 0;
 	background-color:#f5f5f5;
-	padding:13px 0 155px 0;
+	padding:2px 0 155px 0;
 	
 }
 /*===================================    home ===========================================*/
@@ -5277,7 +5277,7 @@ Step-4
   margin-bottom: 18px;
 }
 .wrapper-content.banner {
-  margin: 17px auto 17px auto;
+  margin: 25px auto 17px auto;
   display: table;
 }
 
