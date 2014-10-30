@@ -5765,7 +5765,7 @@ Profit
   display: inline-block;
 }
 .profit li .content .center h3 {
-  width: 100%;;
+  width: 100.1%;;
   display: table;
   margin: 0;
   background: #ff4d61;
@@ -5819,13 +5819,12 @@ Profit
   margin-bottom: 5px;
 }
 .profit li .content .right .book-ride {
-  height: 50px;
   width: 86%;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 700;
   margin: 22px auto;
   margin-left: 8%;
-  letter-spacing: 1px;
+  min-height: 50px;
 }
 .profit li .content .right iframe {
 }
@@ -5882,7 +5881,7 @@ Profit
   vertical-align: middle;
   margin: 0;
   text-align: left;
-  width: 88%;
+  width: 88.%;
   line-height: 20px;
   font-size: 16px;
   font-weight: 700;;;
@@ -6206,3 +6205,6 @@ About
 		padding-top: 80px;
 	}
 }
+/* ===================
+Help
+=================== */
