@@ -6449,9 +6449,6 @@ Help
 	}
 }
 
-<<<<<<< HEAD
-.register .header-wrapper {
-}
 .header-wrapper {
   height: 76px !important;
   margin-bottom: -6px !important;
@@ -6478,4 +6475,3 @@ input::-webkit-input-placeholder{color:#9b9b9b;}
 [class*="uk-icon-"]{
 	vertical-align: middle;
 }
->>>>>>> 9a933d3d3bdf5706e719607cefebedae2908747c
