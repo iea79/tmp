@@ -1,5 +1,5 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-{% block theme 'view_offices' %}
+{% block theme 'client-account' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 {% endblock%}
@@ -30,8 +30,8 @@
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt>{{'My ID:'|trans}}</dt><dd class="data">  {{ app.user.id }} </dd><br />
-							<dt>{{' Name:'|trans}}</dt><dd class="data">  {% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} </dd><br />
+							<dt>{{'My ID:'|trans}}</dt><dd class="data">  7687796059662 </dd><br />
+							<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
 							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
 						</dl>
 					</div>
@@ -46,16 +46,125 @@
 					</div>
 				</div>
 				<div class="uk-panel">
-				<div class="clientid">
-				<dl>
-					<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
-					<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
-					<dt><a href=""> {{'Extend'|trans}}</a></dt>
-				</dl>
-			</div>
+					<div class="clientid">
+						<dl>
+							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
+							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
+							<dt><a href=""> {{'Extend'|trans}}</a></dt>
+						</dl>
+					</div>
+				</div>
 			</div>
 		</div>
-		</div>
+</div>
 {# === View offices === #}
+<div class="view-office">
+		<h2 class="uk-text-danger">My offices</h2>
+		<div class="messege">
+			<span class="uk-text-danger">Внимание: </span>
+			за непрерывную оплату офиса в течении года, вы получите скидку 10% на следующий год!
+		</div>
+	<div class="table-container">
+		<table class="uk-table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Office</th>
+					<th>Status</th>
+					<th>Renew</th>
+					<th>Time</th>
+					<th>Price, $</th>
+					<th>Get office</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Passenger</td>
+					<td class="uk-text-success">Free</td>
+					<td class="uk-text-success">Free</td>
+					<td>
+						<select name="" id="">
+							<option value="">1 month</option>
+							<option value="">2 month</option>
+							<option value="">3 month</option>
+						</select>
+					</td>
+					<td>3</td>
+					<td>
+						<a href="" class="uk-button free">Free</a>
+					</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Taxi company owner</td>
+					<td>Active</td>
+					<td>12.10.2015</td>
+					<td>
+						<select name="" id="">
+							<option value="">1 month</option>
+							<option value="">2 month</option>
+							<option value="">3 month</option>
+						</select>
+					</td>
+					<td>21</td>
+					<td>
+						<a href="" class="uk-button buy">Buy</a>
+					</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Taxi company manager</td>
+					<td class="uk-text-warning">Closed</td>
+					<td>00,00,0000</td>
+					<td>
+						<select name="" id="">
+							<option value="">1 month</option>
+							<option value="">2 month</option>
+							<option value="">3 month</option>
+						</select>
+					</td>
+					<td>6</td>
+					<td>
+						<a href="" class="uk-button activate">Activate</a>
+					</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Taxi company driver</td>
+					<td class="uk-text-warning">Closed</td>
+					<td>00,00,0000</td>
+					<td>
+						<select name="" id="">
+							<option value="">1 month</option>
+							<option value="">2 month</option>
+							<option value="">3 month</option>
+						</select>
+					</td>
+					<td>4</td>
+					<td>
+						<a href="" class="uk-button activate">Activate</a>
+					</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Independent driver</td>
+					<td class="uk-text-warning">Closed</td>
+					<td>00,00,0000</td>
+					<td>
+						<select name="" id="">
+							<option value="">1 month</option>
+							<option value="">2 month</option>
+							<option value="">3 month</option>
+						</select>
+					</td>
+					<td>3</td>
+					<td>
+						<a href="" class="uk-button activate">Activate</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 {% endblock %}

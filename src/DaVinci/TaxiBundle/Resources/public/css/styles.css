@@ -6475,3 +6475,83 @@ input::-webkit-input-placeholder{color:#9b9b9b;}
 [class*="uk-icon-"]{
 	vertical-align: middle;
 }
+/* ===================
+View offices
+=================== */
+
+.view-office h2 {
+	padding: 8px 2.1% 1px 2.1%;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 0;
+}
+.view-office .uk-table thead th {
+  background: #f5f5f5;
+  color: #3c3d45;
+}
+.view-office {
+  background: #fff;
+  margin-bottom: -12px;
+}
+.view-office .messege {
+  padding: 13px 2.1% 13px 2.1%;
+  font-size: 16px;
+}
+
+.view-office .uk-table td:nth-child(2) {
+	width: 26.4%;
+}
+.view-office .uk-table td:nth-child(3) {
+	width: 13.1%;
+	font-weight: 700;
+}
+.view-office .uk-table td:nth-child(4) {
+	width: 13%;
+}
+.view-office .uk-table td:nth-child(5) {
+	width: 18.1%;
+}
+.view-office .uk-table td:nth-child(6) {
+	width: 11.6%;
+}
+
+.view-office .uk-table td, .view-office .uk-table th {
+  text-align: center !important;
+  line-height: 20px;
+  vertical-align: middle;
+  border: #d0d0d0 1px solid;
+  padding: 7px 5px 9px 5px;;
+}
+.view-office .uk-table td {
+  padding: 0px 5px 0px 5px;
+  height: 35px;
+}
+.view-office .uk-table td select {
+  width: 94%;
+  font-size: 14px;
+  padding-left: 6px;
+}
+.view-office a.uk-button {
+  padding: 4px;
+  font-size: 16px;
+  width: 100%;
+  min-width: 70px;
+  height: 37px;;
+}
+.view-office a.uk-button:hover {
+  opacity: 0.8;
+}
+.view-office .uk-button.buy {
+  color: #fff;
+  background: #27bf2e;;
+}
+.view-office .uk-button.free {
+  color: #27bf2e;
+  background: #fff;
+  padding: 2px 6px 2px 4px;
+}
+.view-office .uk-button.activate {
+  background: #ff4d61;
+  color: #fff;
+}
+
