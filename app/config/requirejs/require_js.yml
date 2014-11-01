@@ -12,12 +12,13 @@ hearsay_require_js:
             location: @DaVinciTaxiBundle/Resources/public/js/requirejs/libs/async
         uikit:
             location: @DaVinciTaxiBundle/Resources/public/js/uikit
+        jquery:
+            location: @DaVinciTaxiBundle/Resources/public/js/jquery
         googlemaps:
             location: https://maps.googleapis.com/maps/api/js?v=3.exp
             external: true
            
     shim:
-        # Prototype
         uikit:
             deps:    [jquery]
         jquery.spinner:
@@ -37,11 +38,15 @@ hearsay_require_js:
         #для продакшена прячем все не оптимизированные файлы для папки web
         #hide_unoptimized_assets: true
         #настройки оптимизатора (r.js можно посмотреть здесь https://github.com/jrburke/r.js/blob/master/build/example.build.js, например)
+        modules:
+            main:
+                exclude: [jquery,uikit]
         options:
             removeCombined: true
             #name: main
             #воспользуемся библиотекой uglify2 для оптимизации, она входит в стандартную сборку r.js
             optimize: uglify2
+            findNestedDependencies: true
             #настройки для  uglify2
             uglify2:
                 output:
@@ -52,3 +57,4 @@ hearsay_require_js:
                         DEBUG: false
                 warnings: true
                 mangle: false
+                
