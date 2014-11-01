@@ -335,7 +335,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						line-height: 20px;
 					}
 					.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
-						margin-left: 5%;;
+						margin-left: 5.7%;;
 					}
 					@media only screen and (max-width: 695px) {
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
@@ -6345,7 +6345,8 @@ Help
   text-align: center;
   display: block;
   float: left;
-  margin-bottom: 10px;;;
+  margin-bottom: 10px;
+  margin-top: 2px;;;
 }
 .block-help .uk-nav.demo li:nth-child(n+3) {
   margin-top: -9px !important;
@@ -6355,7 +6356,7 @@ Help
   margin-top: -3px !important;
 }
 .block-help .uk-nav.demo li a.uk-button {
-	margin-top: 16px !important;
+	margin-top: 17px !important;
 }
 .block-help .uk-nav li:last-child {
   border-bottom: 0;
