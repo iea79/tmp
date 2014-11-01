@@ -594,7 +594,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	max-width:1000px;
 	margin:1px auto 0;
 	background-color:#f5f5f5;
-	padding:2px 0 155px 0;
+	padding:2px 0 180px;
 	
 }
 /*===================================    home ===========================================*/
@@ -784,12 +784,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			.home .steps-1-2-3 .chois .last.uk-active {
 				background:#ff4d61!important;
 			}
-				.home .steps-1-2-3 .chois .uk-active  a {
+				.home .steps-1-2-3 .chois .uk-active a {
 					cursor:default;
 					color:#fff;
 				}
-						.home .steps-1-2-3 .chois .uk-active  a :hover {
-							text-decoration:none!important;
+						.home .steps-1-2-3 .chois .uk-active  a:hover {
+							text-decoration:none !important;
 						}
 
 					.home .steps-1-2-3 .chois .uk-active  a .on {
@@ -886,8 +886,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.destination .nav-over .add-another .caption {
 			position:relative;
-			top:-3px;
+			top:-1px;
 			font-size:14px;
+			display: inline-block;
+			vertical-align: middle;
 		}
 		.destination .nav-over .nextbutt {
 			margin-top:19px;
@@ -897,6 +899,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 			.destination .nav-over .add-another span.mp-icon-point-plus {
 				font-size:22px;
+				display: inline-block;
+				vertical-align: middle;
 			}
 		
 	
@@ -1373,7 +1377,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}	
 /*===========================  table styles in home  ==================================*/
 .table-over {
-	box-shadow: 0 1px 1px 0px #b4b4b4;
+	box-shadow: 0 1px 1px #b4b4b4;
 	margin-top: -6px;
 }
 .office-driver .table-over {
@@ -1384,20 +1388,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .serv .under-head .questiontooltip {
 	display:none;
 }
-.table-over .serv th:nth-child(2), .table-over .serv td:nth-child(2) {
+.table-over .serv > tbody > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
 	width:16%;
 }
-.table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
+.table-over .serv > tbody > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	min-width:60px;
 	max-width:200px;
 }
-.table-over .serv th:nth-child(8), .table-over .serv td:nth-child(8) {
+.table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
 }
-.table-over .serv th:nth-child(7), .table-over .serv td:nth-child(7) {
+.table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
 }
-.table-over .serv th:nth-child(6), .table-over .serv td:nth-child(6) {
+.table-over .serv > tbody > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6) {
   width: 13%;
 
 }
@@ -1409,7 +1413,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border-radius:6px 6px 0 0;
 		
 	}
-		.table-over .serv th {
+		.table-over .serv > tbody > tr > th {
 			color:#fff;
 			background:#528ed3;
 			font-size:16px;
@@ -1418,7 +1422,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:7px 2px;
 			position:relative;
 		}
-		.table-over .serv td {
+		.table-over .serv > tbody > tr > td {
 			background:#fff;
 			padding:7px 2px;
 			text-align:center;
@@ -4248,11 +4252,14 @@ div.datepicker a {
 	outline: none;
 }
 div.datepicker table td {
-	
+	background: #fff;
 	padding: 4px 2px!important;
 	font-size:14px;
 	margin: 0;
 }
+div.datepicker table .datepickerViewDays .datepickerGoNext a,
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoPrev a{display: none;}
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoNext a{display: block;}
 div.datepicker table td  table td a {
 	height:24px;
 	width:26px;
@@ -4502,7 +4509,6 @@ footer {
     border-radius: 4px;
     color: #fff;
 }
-.wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .wrapper-content .register form.fos_user_registration_register {margin-top: 8px;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
@@ -6439,10 +6445,11 @@ Help
 	.help .topic-faq .uk-list:last-child {
 		width: 100% !important;
 		margin-bottom: 10px;
-		min-height: 0px !important;
+		min-height: 0 !important;
 	}
 }
 
+<<<<<<< HEAD
 .register .header-wrapper {
 }
 .header-wrapper {
@@ -6451,3 +6458,24 @@ Help
   margin: 0;
   padding: 0;;
 }
+=======
+/* styles 31.10-01.11 */
+input{color: #000;}
+input:-moz-placeholder{color:#9b9b9b;}
+input::-moz-placeholder{color:#9b9b9b; opacity:1;}
+input:-ms-input-placeholder{color:#9b9b9b;}
+input::-webkit-input-placeholder{color:#9b9b9b;}
+
+.home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
+.home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
+.home .steps-1-2-3 .chois .complete .uk-icon-check{
+	display: block;
+	text-indent: 0;
+	float: left;
+	width: 100%;
+	line-height: 29px;
+}
+[class*="uk-icon-"]{
+	vertical-align: middle;
+}
+>>>>>>> 9a933d3d3bdf5706e719607cefebedae2908747c
