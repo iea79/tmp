@@ -11,8 +11,13 @@ fos_user_registration_register:
 
 
 fos_user_registration_confirm:
-    pattern: /confirm/{token}
+    pattern: /register/confirm/{token}
     defaults: { _controller: FOSUserBundle:Registration:confirm }
+    methods:  [GET]
+
+fos_user_registration_confirmed:
+    pattern: /register/confirmed
+    defaults: { _controller: FOSUserBundle:Registration:confirmed }
     methods:  [GET]
 
 fos_user_registration_check_email:
