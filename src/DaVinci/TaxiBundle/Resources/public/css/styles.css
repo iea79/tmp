@@ -196,9 +196,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 }
 /*======================================== end of font ===============================*/
 /*-------------------------------------  header --------------------------------- */
-.header-wrapper {
-}
-	.header-wrapper .header-top {
+.header-wrapper .header-top {
 		width:100%;
 		background:#528ed3;
 		height:48px;
@@ -4433,9 +4431,9 @@ footer {
     clear: both;
     display: block;
     font-size: 1px;
+    margin: 0 0 -1px;
     height: 1px;
     line-height: 1px;
-    margin: 0 0 -1px;
 }
 /* /base styles*/
 .register label{
@@ -4451,7 +4449,7 @@ footer {
     background: #fff;
     color: #3d3d3d;
     text-align: center;
-    margin: 0 0 9px 0;
+    margin: 0px 0 9px 0;
     padding: 17px 0 10px 0; 
     font-size: 1.9em;
     line-height: 120%;
@@ -5184,7 +5182,8 @@ body.register .main-content{
 .register .uk-form-select.otherlang {margin-bottom: 14px;}
 
 /* breadcrumbs*/
-.register .header-wrapper .header-bottom .header-bottom-in {    height: auto;}
+.register .header-wrapper .header-bottom .header-bottom-in {
+  height: 28px;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs {height: 30px;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.current span {line-height: 25px;}
 /* /breadcrumbs*/
@@ -6442,4 +6441,13 @@ Help
 		margin-bottom: 10px;
 		min-height: 0px !important;
 	}
+}
+
+.register .header-wrapper {
+}
+.header-wrapper {
+  height: 76px !important;
+  margin-bottom: -6px !important;
+  margin: 0;
+  padding: 0;;
 }
