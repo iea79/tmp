@@ -596,7 +596,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	max-width:1000px;
 	margin:1px auto 0;
 	background-color:#f5f5f5;
-	padding:2px 0 155px 0;
+	padding:2px 0 180px;
 	
 }
 /*===================================    home ===========================================*/
@@ -786,12 +786,12 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			.home .steps-1-2-3 .chois .last.uk-active {
 				background:#ff4d61!important;
 			}
-				.home .steps-1-2-3 .chois .uk-active  a {
+				.home .steps-1-2-3 .chois .uk-active a {
 					cursor:default;
 					color:#fff;
 				}
-						.home .steps-1-2-3 .chois .uk-active  a :hover {
-							text-decoration:none!important;
+						.home .steps-1-2-3 .chois .uk-active  a:hover {
+							text-decoration:none !important;
 						}
 
 					.home .steps-1-2-3 .chois .uk-active  a .on {
@@ -899,6 +899,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 			.destination .nav-over .add-another span.mp-icon-point-plus {
 				font-size:22px;
+				display: inline-block;
+				vertical-align: middle;
 			}
 		
 	
@@ -4504,7 +4506,6 @@ footer {
     border-radius: 4px;
     color: #fff;
 }
-.wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .wrapper-content .register form.fos_user_registration_register {margin-top: 8px;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
@@ -6438,6 +6439,26 @@ Help
 	.help .topic-faq .uk-list:last-child {
 		width: 100% !important;
 		margin-bottom: 10px;
-		min-height: 0px !important;
+		min-height: 0 !important;
 	}
+}
+
+/* styles 31.10-01.11 */
+input{color: #000;}
+input:-moz-placeholder{color:#9b9b9b;}
+input::-moz-placeholder{color:#9b9b9b; opacity:1;}
+input:-ms-input-placeholder{color:#9b9b9b;}
+input::-webkit-input-placeholder{color:#9b9b9b;}
+
+.home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
+.home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
+.home .steps-1-2-3 .chois .complete .uk-icon-check{
+	display: block;
+	text-indent: 0;
+	float: left;
+	width: 100%;
+	line-height: 29px;
+}
+[class*="uk-icon-"]{
+	vertical-align: middle;
 }
