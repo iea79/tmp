@@ -5931,17 +5931,15 @@ About
 .about .buttom-swicher li{
     list-style: none;
     color: #fff;
-    vertical-align: middle;
+    vertical-align: top;
     display: table-cell;
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 25%;
+    padding: 8px 5px;
 }
-.about .buttom-swicher li:first-child {
-  width: 23%;
-	
-}
-.about .buttom-swicher li:nth-child(2) {
-  width: 32%;
+@media (max-width: 840px) {
+	.about .buttom-swicher li:last-child {
+		display: none;
+	}
 }
 .about .buttom-swicher li.uk-active {
 	background-color: #fff;
@@ -6010,11 +6008,11 @@ About
   margin: -3px 0px 0px 0px;
   color: #ff4d61;
 }
-.about .text p {
-  margin-top: 22px;
+.about p {
+  margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 1px;;
+  margin-bottom: 14px;;
 }
 .about .text ol {
   margin-top: 4px;
@@ -6197,12 +6195,6 @@ About
 		width: 24%;
 		padding-left: 1%;
 		margin-right: 1% !important;;
-	}
-	.about .buttom-swicher li:first-child {
-	  width: 30% !important;
-	}
-	.about .buttom-swicher li:nth-child(2) {
-	  width: 30% !important;
 	}
 }
 @media (max-width: 650px) {
@@ -6555,3 +6547,36 @@ View offices
   color: #fff;
 }
 
+
+
+/* ===================
+Lists whit icon check
+=================== */
+p.mp-check {
+  margin-top: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;;
+}
+ul.mp-check {
+	list-style: none;
+	display: table;
+	padding: 0;
+	margin: 0 0 20px 0;;
+}
+ul.mp-check li {
+	margin-bottom: 16px;
+	font-size: 14px;
+	color: #3c3d45;
+	line-height: 15px;
+}
+ul.mp-check li:before {
+	content: "\f00c";
+	font-family: FontAwesome;
+	font-size: 19px;
+	color: #27bf2e;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 16px;
+}
