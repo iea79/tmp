@@ -888,8 +888,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.destination .nav-over .add-another .caption {
 			position:relative;
-			top:-3px;
+			top:-1px;
 			font-size:14px;
+			display: inline-block;
+			vertical-align: middle;
 		}
 		.destination .nav-over .nextbutt {
 			margin-top:19px;
@@ -1377,7 +1379,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}	
 /*===========================  table styles in home  ==================================*/
 .table-over {
-	box-shadow: 0 1px 1px 0px #b4b4b4;
+	box-shadow: 0 1px 1px #b4b4b4;
 	margin-top: -6px;
 }
 .office-driver .table-over {
@@ -1388,20 +1390,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .serv .under-head .questiontooltip {
 	display:none;
 }
-.table-over .serv th:nth-child(2), .table-over .serv td:nth-child(2) {
+.table-over .serv > tbody > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
 	width:16%;
 }
-.table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
+.table-over .serv > tbody > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	min-width:60px;
 	max-width:200px;
 }
-.table-over .serv th:nth-child(8), .table-over .serv td:nth-child(8) {
+.table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
 }
-.table-over .serv th:nth-child(7), .table-over .serv td:nth-child(7) {
+.table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
 }
-.table-over .serv th:nth-child(6), .table-over .serv td:nth-child(6) {
+.table-over .serv > tbody > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6) {
   width: 13%;
 
 }
@@ -1413,7 +1415,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border-radius:6px 6px 0 0;
 		
 	}
-		.table-over .serv th {
+		.table-over .serv > tbody > tr > th {
 			color:#fff;
 			background:#528ed3;
 			font-size:16px;
@@ -1422,7 +1424,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:7px 2px;
 			position:relative;
 		}
-		.table-over .serv td {
+		.table-over .serv > tbody > tr > td {
 			background:#fff;
 			padding:7px 2px;
 			text-align:center;
@@ -4252,11 +4254,14 @@ div.datepicker a {
 	outline: none;
 }
 div.datepicker table td {
-	
+	background: #fff;
 	padding: 4px 2px!important;
 	font-size:14px;
 	margin: 0;
 }
+div.datepicker table .datepickerViewDays .datepickerGoNext a,
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoPrev a{display: none;}
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoNext a{display: block;}
 div.datepicker table td  table td a {
 	height:24px;
 	width:26px;
