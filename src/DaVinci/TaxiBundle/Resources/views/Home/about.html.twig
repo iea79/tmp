@@ -2,12 +2,13 @@
 {% block theme 'about' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-	    <h4 id="passenger">About TaxiMyPrice</h4>
+	    <h4 id="passenger">{{ 'About TaxiMyPrice' |trans }}</h4>
 	    	<div class="buttom-swicher">
 	            <ul class="uk-width-1-1 uk-width-large-2-3">
-	                <li class="menuitem uk-active"><a href="#passenger"  data-uk-smooth-scroll>Для пасажира</a></li>
-	                <li class="menuitem"><a href="#driver"  data-uk-smooth-scroll>Для водителя</a></li>
-	                <li class="menuitem"><a href="#company"  data-uk-smooth-scroll>Для владельцев такси компаний</a></li>
+	                <li class="menuitem uk-active"><a href="#passenger"  data-uk-smooth-scroll>{{ 'For passengers' |trans }}</a></li>
+	                <li class="menuitem"><a href="#driver"  data-uk-smooth-scroll>{{ 'For independent drivers' |trans }}</a></li>
+	                <li class="menuitem"><a href="#company"  data-uk-smooth-scroll>{{ 'For taxi companies\' owners' |trans }}</a></li>
+	                <li class="menuitem"  data-uk-smooth-scroll></li>
 	            </ul>
 	        </div>
 {% endblock%}
@@ -16,29 +17,37 @@
 <div class="whitebg shadow-main">
 	<div id="passenger" class="info-block passenger">
 		<div class="text">
-		  <h2>Прилетели в другую страну?</h2>
-		  <h3>Пользуйтесь услугами TaxiMyPrice (TMP)!</h3>
-		  <p>TaxiMyPrice предлагает Вам уникальный сервис:</p>
-		  <ol>
-		    <li><span>1.</span>Недорогой и финансово-безопасный</li>
-			  <h4>вы называете Вашу цену, таксисты её принимают;</h4>
-			  <h4>таксист получает оплату и чаевые, через нас, на 24 часа позже, если услуга Вам понравилась;</h4>
-		    <li><span>2.</span>Дружелюбный и качественный</li>
-   			  <h4>водитель особенно рад помогать семьям с детьми, людям с ограничениями, владельцам домашних животных.</h4>
-			  <h4>многие таксисты предлагают Вам:</h4>
-   			  <h4>-Wi-Fi, возможность зарядить Ваши гаджеты;</h4>
-   			  <h4>-специальный салон для не курящих, инвалидов, детей;</h4>
-		    <li><span>3.</span>Специальное дополнительное оборудование</li>
-   			  <h4>сидения для детей и инвалидов;</h4>
-   			  <h4>контейнеры для перевозки домашних животных;</h4>
-   			  <h4>приспособления для нестандартных грузов;</h4>
-		  </ol>
+		  <p>{{ 'We offer you an unique taxi service' |trans }}:</p>
+		  <ul class="mp-check">
+		  	<li>{{ 'You set a price for your ride' |trans }}</li>
+		  	<li>{{ 'The drivers like your price and send you an info about them and their cars' |trans }}</li>
+		  	<li>{{ 'You choose the driver you like' |trans }}</li>
+		  	<li>{{ 'You can skype the driver if you hire him or not' |trans }}</li>
+		  	<li>{{ 'You decide how much and when and in which way to pay a tip' |trans }}</li>
+		  	<li>{{ 'Mainly, the taxi drivers are customer-oriented and friendly' |trans }}</li>
+		  	<li>{{ 'Many cars are equiped for kids, disabled people, pets etc' |trans }}... </li>
+		  </ul>
+		  <p>{{ 'Extras' |trans }}:</p>
+		  <ul class="mp-check">
+		  	<li>{{ 'Some drivers can offer you Wi-Fi, chargers for gadgets' |trans }}</li>
+		  	<li>{{ 'Smoke free vehicles' |trans }}</li>
+		  	<li>{{ 'Equipment for outsized cargo transportation' |trans }}</li>
+		  	<li>{{ 'Refreshing drinks, snacks' |trans }}</li>
+		  </ul>
+		  <p>{{ 'Some drivers have additional skills' |trans }}:</p>
+		  <ul class="mp-check">
+		  	<li>{{ 'English' |trans }}</li>
+		  	<li>{{ 'Medical Practice License' |trans }}</li>
+		  	<li>{{ 'Guides' |trans }}</li>
+		  	<li>{{ 'Body Guard License' |trans }}</li>
+		  	<li>{{ 'Veterinery Practice Licen' |trans }}se</li>
+		  </ul>
 		</div>
 		<div class="video">
 			<div class="videoWrapper">
 				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
 			</div>
-			<button class="book-ride uk-button uk-button-success">Book ride now!</button>
+			<button class="book-ride uk-button uk-button-success">{{ 'Book ride now' |trans }}!</button>
 		</div>
 		<div class="otziv">
 			<div class="rate-review">
@@ -93,19 +102,23 @@
 				<div class="videoWrapper">
 					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
 				</div>
-				<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
+				<button class="book-ride uk-button uk-button-success">{{ 'Choose passenger now' |trans }}!</button>
 			</div>
 			<div class="text">
-			  <h2>Для водителя легковой машины:</h2>
-			  <h3>Высокий заработок!</h3>
-			  <ol>
-			    <li><span>1.</span>Иностранные пассажиры оплачивают ваш труд;</li>
-			    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
-			    <li><span>3.</span>Диспетчерские услуги для Вас $0;</li>
-			    <li><span>4.</span>Активность поощряется:</li>
-					    <li><span>4.1.</span>уменьшением цен на основные и дополнительные наши услуги;</li>
-					    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы дарим американские лоторейные билеты.</li>
-			  </ol>
+			  <p>{{ 'For independent taxi drivers' |trans }}:</p>
+			  	<ul class="mp-check">
+			  			<li>{{ 'You take as many orders as you need' |trans }}</li>
+			  			<li>{{ 'Your passengers are from many countries' |trans }}</li>
+			  			<li>{{ 'You have no other boss but you' |trans }}</li>
+			  			<li>{{ 'You do not need to pay any Dispatching Service' |trans }}</li>
+			  			<li>{{ 'Feel  free making money any time for any day!' |trans }}</li>
+			  			<li>{{ 'Getting a high rating from passengers increases chances for your income!' |trans }}</li>
+			  		</ul>	
+			  <p>{{ 'A range of bonuses for your activity' |trans }}:</p>
+			  	<ul class="mp-check">
+			  			<li>{{ 'Special prices for our main and value-added services' |trans }}</li>
+			  			<li>{{ 'Free participation in Weekly California Lottery (calottery.com) and the most active taxi drivers will be awarded by American Lottery Tickets' |trans }}</li>
+			  		</ul>	
 			</div>
 			<div class="video bottom">
 				<div class="videoWrapper">
@@ -164,21 +177,24 @@
 	<div id="company" class="empty">
 		<div class="info-block company">
 			<div class="text">
-			  <h2>Значительные дополнительные доходы для владельцев такси компаний!</h2>
-			  <ol>
-			    <li><span>1.</span>Авиапоток иностранных туристов работает на Вас;</li>
-			    <li><span>2.</span>Любой заказ на $50, $75, $100 и более, Вы получаете за $3, максимум за $5;</li>
-			    <li><span>3.</span>Внешние рекламные и дополнительные диспетчерские услуги для Вас $0;</li>
-			    <li><span>4.</span>Такси компании, лидеры перевозок, дополнительно поощряются:</li>
-					    <li><span>4.1.</span>уменьшением цены на основные и дополнительные наши услуги;</li>
-					    <li><span>4.2.</span>бесплатным участием в официальном еженедельном розыгры-ше американской Калифорнийской лотореи (<a href="www.calottery.com">www.calottery.com</a>). Лучшим мы бесплатно вручаем американские лоторейные билеты.</li>
-			  </ol>
+			  <p>{{ 'A significant additional source of income for taxi companies\' owners' |trans }}:</p>
+			  	<ul class="mp-check">
+			  			<li>{{ 'Your drivers can make more money for you every day' |trans }}!</li>
+			  			<li>{{ 'High rating of your drivers is the key to the huge income' |trans }}!</li>
+			  			<li>{{ 'You do not need to pay us for any Dispatching Service' |trans }}</li>
+			  			<li>{{ 'You do not need to pay for any Ads' |trans }}</li>
+			  		</ul>	
+			  <p>{{ 'A variety of bonuses for taxi companies activity  - the leaders in public transport area' |trans }}:</p>
+			  	<ul class="mp-check">
+			  			<li>{{ 'Special prices for our main and value-added services' |trans }}</li>
+			  			<li>{{ 'Free participation in Weekly California Lottery (calottery.com) and the most active taxi drivers will be awarded by American Lottery Tickets' |trans }}</li>
+			  		</ul>	
 			</div>
 			<div class="video">
 				<div class="videoWrapper">
 					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
 				</div>
-				<button class="book-ride uk-button uk-button-success">Pick up a lot of passenger now!</button>
+				<button class="book-ride uk-button uk-button-success">{{ 'Pick up a lot of passenger now' |trans }}!</button>
 			</div>
 			<div class="otziv">
 				<div class="rate-review">
@@ -229,10 +245,10 @@
 		</div>
 	</div>
 	<div class="contact-buttons uk-grid uk-grid-small">
-		<a href="#" class="uk-button uk-button-primary">СМИ</a>
-		<a href="#" class="uk-button uk-button-primary">Соц. сети</a>
-		<a href="#" class="uk-button uk-button-primary">YouTube</a>
-		<a href="#" class="uk-button uk-button-primary">Клиенты</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'Press' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'Social media' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'YouTube' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'Customers' |trans }}</a>
 	</div>
 </div>
 

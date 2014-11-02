@@ -196,9 +196,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 }
 /*======================================== end of font ===============================*/
 /*-------------------------------------  header --------------------------------- */
-.header-wrapper {
-}
-	.header-wrapper .header-top {
+.header-wrapper .header-top {
 		width:100%;
 		background:#528ed3;
 		height:48px;
@@ -523,7 +521,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					.header-wrapper .header-bottom .header-bottom-in .breadcrumbs {
 						float:left;
 						list-style:none;
-						margin:3px 0 0 5px;
+						margin:2px 0 0 2%;
 						padding-left:0;
 					}
 						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li {
@@ -537,7 +535,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 								content:"";
 							}
 							.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.last {
-								line-height:25px;
+								  height: 24px !important;
 							}
 						.header-wrapper .header-bottom .header-bottom-in .breadcrumbs li a {
 							color:#fff;
@@ -560,6 +558,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						.header-wrapper .header-bottom .header-bottom-in  .lang{
 							float:right;
 							margin:0;
+							height:23px;
 						}
 							.header-wrapper .header-bottom .header-bottom-in  .lang a {
 								color:#fff;
@@ -596,7 +595,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	max-width:1000px;
 	margin:1px auto 0;
 	background-color:#f5f5f5;
-	padding:2px 0 155px 0;
+	padding:2px 0 180px;
 	
 }
 /*===================================    home ===========================================*/
@@ -672,15 +671,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				box-sizing:border-box;
 			}
 			.home .steps-1-2-3 .chois .first {
-  width: 36%;
+				  width: 36%;
 
 				} 
 			.home .steps-1-2-3 .chois .second {
-  width: 32.8%;
+				  width: 32.8%;
 
 				} 
 			.home .steps-1-2-3 .chois .last {
-  width: 31.2%;
+				  width: 31.2%;
 				
 			}
 			.home .steps-1-2-3 .chois  .uk-active .back {
@@ -758,10 +757,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						width: 0;
 						z-index: 50;
 					}
-	/*		.home .steps-1-2-3 .chois .first {
-				background: url('../images/arrowstep1.png') right no-repeat #fff;
-			}
-	*/
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
 				width:26px;
@@ -778,20 +773,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				right: -16px;
 				top: 0;
 			}
-	/*
-			.home .steps-1-2-3 .chois .uk-active {
-				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
-			}
-	*/
 			.home .steps-1-2-3 .chois .last.uk-active {
-				background:#ff4d61!important;
+				background:#ff4d61 !important;
 			}
-				.home .steps-1-2-3 .chois .uk-active  a {
+				.home .steps-1-2-3 .chois .uk-active a {
 					cursor:default;
 					color:#fff;
 				}
-						.home .steps-1-2-3 .chois .uk-active  a :hover {
-							text-decoration:none!important;
+						.home .steps-1-2-3 .chois .uk-active  a:hover {
+							text-decoration:none !important;
 						}
 
 					.home .steps-1-2-3 .chois .uk-active  a .on {
@@ -888,8 +878,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		.destination .nav-over .add-another .caption {
 			position:relative;
-			top:-3px;
+			top:-1px;
 			font-size:14px;
+			display: inline-block;
+			vertical-align: middle;
 		}
 		.destination .nav-over .nextbutt {
 			margin-top:19px;
@@ -899,6 +891,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 			.destination .nav-over .add-another span.mp-icon-point-plus {
 				font-size:22px;
+				display: inline-block;
+				vertical-align: middle;
 			}
 		
 	
@@ -908,8 +902,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		
-		
 	}
 	.home .inputs .select {
 		margin:0 0 0 4px;
@@ -1375,7 +1367,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}	
 /*===========================  table styles in home  ==================================*/
 .table-over {
-	box-shadow: 0 1px 1px 0px #b4b4b4;
+	box-shadow: 0 1px 1px #b4b4b4;
 	margin-top: -6px;
 }
 .office-driver .table-over {
@@ -1386,20 +1378,20 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 .serv .under-head .questiontooltip {
 	display:none;
 }
-.table-over .serv th:nth-child(2), .table-over .serv td:nth-child(2) {
+.table-over .serv > tbody > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
 	width:16%;
 }
-.table-over .serv th:nth-child(3), .table-over .serv td:nth-child(3) {
+.table-over .serv > tbody > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	min-width:60px;
 	max-width:200px;
 }
-.table-over .serv th:nth-child(8), .table-over .serv td:nth-child(8) {
+.table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
 }
-.table-over .serv th:nth-child(7), .table-over .serv td:nth-child(7) {
+.table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
 }
-.table-over .serv th:nth-child(6), .table-over .serv td:nth-child(6) {
+.table-over .serv > tbody > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6) {
   width: 13%;
 
 }
@@ -1411,7 +1403,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border-radius:6px 6px 0 0;
 		
 	}
-		.table-over .serv th {
+		.table-over .serv > tbody > tr > th {
 			color:#fff;
 			background:#528ed3;
 			font-size:16px;
@@ -1420,7 +1412,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			padding:7px 2px;
 			position:relative;
 		}
-		.table-over .serv td {
+		.table-over .serv > tbody > tr > td {
 			background:#fff;
 			padding:7px 2px;
 			text-align:center;
@@ -3656,6 +3648,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 			padding:2px 4%;
 		}
 
+
+.header-wrapper .header-top .header-top-in .topmenu .book-store {
+    height: 48px !important;
 }
  @media only screen and (max-width: 830px) {
 	.home .steps-1-2-3 .chois li a {
@@ -3729,23 +3724,30 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 	
 }
+@media only screen and (max-width: 850px) {
+	.header-wrapper .header-top .header-top-in .topmenu .book-store a:first-child {
+		padding: 15px 13px 15px 5px;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu .book-store a:nth-child(2) {
+		padding: 15px 5px 15px 5px;
+	}
+}
 @media only screen and (max-width: 610px) {
 	
 	.header-wrapper .header-top .header-top-in .topmenu .book-store {
 		font-size:14px;
 		width:62px;
-		display:inline-block;
-		
 	}
 	.header-wrapper .header-top .header-top-in .topmenu .book-store a {
 		width:62px;
-		padding:2px 0!important;
+		padding: 3px 0 3px 0 !important;
+		line-height: 18px;
 	}
 	
 	
 	
 	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child  {
-		width:20%!important;
+		width:20% !important;
 	}
 		.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child .uk-button {
 			padding:0;
@@ -4250,11 +4252,14 @@ div.datepicker a {
 	outline: none;
 }
 div.datepicker table td {
-	
-	padding: 4px 2px!important;
+	background: #fff;
+	padding: 4px 2px !important;
 	font-size:14px;
 	margin: 0;
 }
+div.datepicker table .datepickerViewDays .datepickerGoNext a,
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoPrev a{display: none;}
+div.datepicker table .datepickerSpace + td .datepickerViewDays .datepickerGoNext a{display: block;}
 div.datepicker table td  table td a {
 	height:24px;
 	width:26px;
@@ -4307,8 +4312,8 @@ div.datepicker td.datepickerNotInMonth a:hover {
 	color: #999;
 }
 div.datepicker tbody th {
-	color:#666!important;
-	background-color:#fff!important;
+	color:#666 !important;
+	background-color:#fff !important;
 }
 
 .datepickerGoNext a,
@@ -4337,7 +4342,7 @@ div.datepicker tbody th {
 	top: auto;
 }
 #widgetCalendar div.datepicker:nth-child(2) {
-	display:none!important;
+	display:none !important;
 }
 
 #widgetCalendar .datepicker a:hover{
@@ -4375,7 +4380,7 @@ table.datepickerViewDays tbody.datepickerYears {
 	display: none;
 }
 .overflow {
-	overflow:visible!important;
+	overflow:visible !important;
 }
 /*end of datepicker        */
 
@@ -4433,9 +4438,9 @@ footer {
     clear: both;
     display: block;
     font-size: 1px;
+    margin: 0 0 -1px;
     height: 1px;
     line-height: 1px;
-    margin: 0 0 -1px;
 }
 /* /base styles*/
 .register label{
@@ -4451,7 +4456,7 @@ footer {
     background: #fff;
     color: #3d3d3d;
     text-align: center;
-    margin: 0 0 9px 0;
+    margin: 0px 0 9px 0;
     padding: 17px 0 10px 0; 
     font-size: 1.9em;
     line-height: 120%;
@@ -4504,7 +4509,6 @@ footer {
     border-radius: 4px;
     color: #fff;
 }
-.wrapper-content .register form *::-moz-placeholder {    color: #9b9b9b;}
 .wrapper-content .register form.fos_user_registration_register {margin-top: 8px;}
 .uk-form-password , .fos_user_registration_register .uk-form-password {display: block;}
  .register .uk-form-horizontal .twolabels, .register .uk-form-horizontal .uk-form-label {
@@ -5075,11 +5079,11 @@ body.register .main-content{
 }
 .changemail {
     text-align: left;
-    padding: 12px 12px 5px 118px;
+    padding: 12px 0.7% 5px 11.7%;
     margin: 0 auto;
     color: #000;
     min-width: 283px;
-    width:83.2%;
+    width:83.6%;
     background: #fff;
     font-size: 16px;
 }
@@ -5133,6 +5137,7 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
+	.register .wrap-content {background-image: none;}
     .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
 }
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
@@ -5184,8 +5189,9 @@ body.register .main-content{
 .register .uk-form-select.otherlang {margin-bottom: 14px;}
 
 /* breadcrumbs*/
-.register .header-wrapper .header-bottom .header-bottom-in {    height: auto;}
-.header-wrapper .header-bottom .header-bottom-in .breadcrumbs {height: 30px;}
+.register .header-wrapper .header-bottom .header-bottom-in {
+  height: 28px;}
+.header-wrapper .header-bottom .header-bottom-in .breadcrumbs {max-height: 24px !important;}
 .header-wrapper .header-bottom .header-bottom-in .breadcrumbs li.current span {line-height: 25px;}
 /* /breadcrumbs*/
 
@@ -5234,6 +5240,9 @@ body.register .main-content{
     .wrapper-content > .content.usedemail { padding: 14px 12px 20px 12px  !important; display: table;}
     .changemail {   padding: 12px 12px 5px 12px !important; display: table;}
     .changemail div.form-group .col-sm-9 {width: 56.6% !important;}
+}
+@media screen and (max-width: 460px) {
+    .changemail div.form-group .col-sm-9 {width: 91% !important;}
 }
 /* /mobile styles*/
 
@@ -5926,17 +5935,15 @@ About
 .about .buttom-swicher li{
     list-style: none;
     color: #fff;
-    vertical-align: middle;
+    vertical-align: top;
     display: table-cell;
-    padding-left: 5px;
-    padding-right: 5px;
+    width: 25%;
+    padding: 8px 5px;
 }
-.about .buttom-swicher li:first-child {
-  width: 23%;
-	
-}
-.about .buttom-swicher li:nth-child(2) {
-  width: 32%;
+@media (max-width: 840px) {
+	.about .buttom-swicher li:last-child {
+		display: none;
+	}
 }
 .about .buttom-swicher li.uk-active {
 	background-color: #fff;
@@ -6005,11 +6012,11 @@ About
   margin: -3px 0px 0px 0px;
   color: #ff4d61;
 }
-.about .text p {
-  margin-top: 22px;
+.about p {
+  margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 1px;;
+  margin-bottom: 14px;;
 }
 .about .text ol {
   margin-top: 4px;
@@ -6192,12 +6199,6 @@ About
 		width: 24%;
 		padding-left: 1%;
 		margin-right: 1% !important;;
-	}
-	.about .buttom-swicher li:first-child {
-	  width: 30% !important;
-	}
-	.about .buttom-swicher li:nth-child(2) {
-	  width: 30% !important;
 	}
 }
 @media (max-width: 650px) {
@@ -6440,6 +6441,146 @@ Help
 	.help .topic-faq .uk-list:last-child {
 		width: 100% !important;
 		margin-bottom: 10px;
-		min-height: 0px !important;
+		min-height: 0 !important;
 	}
+}
+
+.header-wrapper {
+  height: 76px !important;
+  margin: 0;
+  padding: 0;;
+}
+=======
+/* styles 31.10-01.11 */
+input{color: #000;}
+input:-moz-placeholder{color:#9b9b9b;}
+input::-moz-placeholder{color:#9b9b9b; opacity:1;}
+input:-ms-input-placeholder{color:#9b9b9b;}
+input::-webkit-input-placeholder{color:#9b9b9b;}
+
+.home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
+.home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
+.home .steps-1-2-3 .chois .complete .uk-icon-check{
+	display: block;
+	text-indent: 0;
+	float: left;
+	width: 100%;
+	line-height: 29px;
+}
+[class*="uk-icon-"]{
+	vertical-align: middle;
+}
+/* ===================
+View offices
+=================== */
+
+.view-office h2 {
+	padding: 8px 2.1% 1px 2.1%;
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 0;
+}
+.view-office .uk-table thead th {
+  background: #f5f5f5;
+  color: #3c3d45;
+}
+.view-office {
+  background: #fff;
+  margin-bottom: -12px;
+}
+.view-office .messege {
+  padding: 13px 2.1% 13px 2.1%;
+  font-size: 16px;
+}
+
+.view-office .uk-table td:nth-child(2) {
+	width: 26.4%;
+}
+.view-office .uk-table td:nth-child(3) {
+	width: 13.1%;
+	font-weight: 700;
+}
+.view-office .uk-table td:nth-child(4) {
+	width: 13%;
+}
+.view-office .uk-table td:nth-child(5) {
+	width: 18.1%;
+}
+.view-office .uk-table td:nth-child(6) {
+	width: 11.6%;
+}
+
+.view-office .uk-table td, .view-office .uk-table th {
+  text-align: center !important;
+  line-height: 20px;
+  vertical-align: middle;
+  border: #d0d0d0 1px solid;
+  padding: 7px 5px 9px 5px;;
+}
+.view-office .uk-table td {
+  padding: 0px 5px 0px 5px;
+  height: 35px;
+}
+.view-office .uk-table td select {
+  width: 94%;
+  font-size: 14px;
+  padding-left: 6px;
+  min-width: 84px;
+}
+.view-office a.uk-button {
+  padding: 4px;
+  font-size: 16px;
+  width: 100%;
+  min-width: 70px;
+  height: 37px;;
+}
+.view-office a.uk-button:hover {
+  opacity: 0.8;
+}
+.view-office .uk-button.buy {
+  color: #fff;
+  background: #27bf2e;;
+}
+.view-office .uk-button.free {
+  color: #27bf2e;
+  background: #fff;
+  padding: 2px 6px 2px 4px;
+}
+.view-office .uk-button.activate {
+  background: #ff4d61;
+  color: #fff;
+}
+
+
+
+/* ===================
+Lists whit icon check
+=================== */
+p.mp-check {
+  margin-top: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;;
+}
+ul.mp-check {
+	list-style: none;
+	display: table;
+	padding: 0;
+	margin: 0 0 20px 0;;
+}
+ul.mp-check li {
+	margin-bottom: 16px;
+	font-size: 14px;
+	color: #3c3d45;
+	line-height: 15px;
+}
+ul.mp-check li:before {
+	content: "\f00c";
+	font-family: FontAwesome;
+	font-size: 19px;
+	color: #27bf2e;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 16px;
 }
