@@ -671,15 +671,15 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				box-sizing:border-box;
 			}
 			.home .steps-1-2-3 .chois .first {
-  width: 36%;
+				  width: 36%;
 
 				} 
 			.home .steps-1-2-3 .chois .second {
-  width: 32.8%;
+				  width: 32.8%;
 
 				} 
 			.home .steps-1-2-3 .chois .last {
-  width: 31.2%;
+				  width: 31.2%;
 				
 			}
 			.home .steps-1-2-3 .chois  .uk-active .back {
@@ -757,10 +757,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						width: 0;
 						z-index: 50;
 					}
-	/*		.home .steps-1-2-3 .chois .first {
-				background: url('../images/arrowstep1.png') right no-repeat #fff;
-			}
-	*/
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
 				width:26px;
@@ -777,13 +773,8 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				right: -16px;
 				top: 0;
 			}
-	/*
-			.home .steps-1-2-3 .chois .uk-active {
-				background: url('../images/arrowed-done-bg.png') right no-repeat #ff4d61;
-			}
-	*/
 			.home .steps-1-2-3 .chois .last.uk-active {
-				background:#ff4d61!important;
+				background:#ff4d61 !important;
 			}
 				.home .steps-1-2-3 .chois .uk-active a {
 					cursor:default;
@@ -911,8 +902,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		
-		
 	}
 	.home .inputs .select {
 		margin:0 0 0 4px;
@@ -3659,6 +3648,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 			padding:2px 4%;
 		}
 
+
+.header-wrapper .header-top .header-top-in .topmenu .book-store {
+    height: 48px !important;
 }
  @media only screen and (max-width: 830px) {
 	.home .steps-1-2-3 .chois li a {
@@ -3732,6 +3724,14 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 	
 }
+@media only screen and (max-width: 850px) {
+	.header-wrapper .header-top .header-top-in .topmenu .book-store a:first-child {
+		padding: 15px 13px 15px 5px;
+	}
+	.header-wrapper .header-top .header-top-in .topmenu .book-store a:nth-child(2) {
+		padding: 15px 5px 15px 5px;
+	}
+}
 @media only screen and (max-width: 610px) {
 	
 	.header-wrapper .header-top .header-top-in .topmenu .book-store {
@@ -3742,13 +3742,14 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	}
 	.header-wrapper .header-top .header-top-in .topmenu .book-store a {
 		width:62px;
-		padding:2px 0!important;
+		padding: 3px 0 3px 0 !important;
+		line-height: 18px;
 	}
 	
 	
 	
 	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child  {
-		width:20%!important;
+		width:20% !important;
 	}
 		.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child .uk-button {
 			padding:0;
@@ -4254,7 +4255,7 @@ div.datepicker a {
 }
 div.datepicker table td {
 	background: #fff;
-	padding: 4px 2px!important;
+	padding: 4px 2px !important;
 	font-size:14px;
 	margin: 0;
 }
@@ -4313,8 +4314,8 @@ div.datepicker td.datepickerNotInMonth a:hover {
 	color: #999;
 }
 div.datepicker tbody th {
-	color:#666!important;
-	background-color:#fff!important;
+	color:#666 !important;
+	background-color:#fff !important;
 }
 
 .datepickerGoNext a,
@@ -4343,7 +4344,7 @@ div.datepicker tbody th {
 	top: auto;
 }
 #widgetCalendar div.datepicker:nth-child(2) {
-	display:none!important;
+	display:none !important;
 }
 
 #widgetCalendar .datepicker a:hover{
@@ -4381,7 +4382,7 @@ table.datepickerViewDays tbody.datepickerYears {
 	display: none;
 }
 .overflow {
-	overflow:visible!important;
+	overflow:visible !important;
 }
 /*end of datepicker        */
 
@@ -5080,11 +5081,11 @@ body.register .main-content{
 }
 .changemail {
     text-align: left;
-    padding: 12px 12px 5px 118px;
+    padding: 12px 0.7% 5px 11.7%;
     margin: 0 auto;
     color: #000;
     min-width: 283px;
-    width:83.2%;
+    width:83.6%;
     background: #fff;
     font-size: 16px;
 }
@@ -5241,6 +5242,9 @@ body.register .main-content{
     .wrapper-content > .content.usedemail { padding: 14px 12px 20px 12px  !important; display: table;}
     .changemail {   padding: 12px 12px 5px 12px !important; display: table;}
     .changemail div.form-group .col-sm-9 {width: 56.6% !important;}
+}
+@media screen and (max-width: 460px) {
+    .changemail div.form-group .col-sm-9 {width: 91% !important;}
 }
 /* /mobile styles*/
 
@@ -6523,6 +6527,7 @@ View offices
   width: 94%;
   font-size: 14px;
   padding-left: 6px;
+  min-width: 84px;
 }
 .view-office a.uk-button {
   padding: 4px;
