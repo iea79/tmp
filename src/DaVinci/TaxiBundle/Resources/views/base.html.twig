@@ -94,7 +94,11 @@
                                                     <div class="myid-drop">
                                                         <div class="myid-drop-top">
                                                             <div class="img">
-                                                                <img src="/bundles/davincitaxi/images/profile-photo2x.png" alt="" />
+                                                                {% if app.user.photo.path is defined %}
+                                                                    <img src="{{ app.user.photo.path| imagine_filter('menu_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} avatar" />
+                                                                {% else %}
+                                                                    <img src="/bundles/davincitaxi/images/profile-photo2x.png" alt="blank avatar" />
+                                                                {% endif %}
                                                             </div>
                                                             <ul class="uk-nav uk-nav-dropdown">
                                                                 <li>
