@@ -6,3 +6,7 @@ define(['jquery'], function($){
     //return jquery to use in other modules
     return $;
 });
+
+function setPreloader(selector){
+    selector.html('<i class="uk-icon-spinner uk-icon-spin"></i>');
+}

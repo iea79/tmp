@@ -59,13 +59,15 @@
         "friendsofsymfony/comment-bundle": "~2.0@dev",
 
         "mopa/bootstrap-bundle": "3.*@dev",
-        "twbs/bootstrap": "3.2.*@dev",
+        "twbs/bootstrap": "3.2.0",
 
         "a2lix/i18n-doctrine-bundle": "0.*@dev",
         "a2lix/translation-form-bundle": "2.*@dev",
         "leaseweb/api-caller-bundle": "1.0.*@dev",
         "hearsay/require-js-bundle": "2.0.*@dev",
-        "iphp/filestore-bundle":"dev-master"
+        "iphp/filestore-bundle":"dev-master",
+        "raulfraile/ladybug-bundle": "~1.0",
+        "liip/imagine-bundle": "1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

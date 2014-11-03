@@ -110,7 +110,7 @@
 						                </li>
 						            </ul>
 						            <div id="steps" class="uk-switcher uk-float-left">
-							                <div class="uk-active">
+							          {#      <div class="uk-active">
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
 							                </div>
 							                <div>
@@ -118,7 +118,7 @@
 							                </div>
 							                <div>
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
-							                </div>
+							                </div> #}
 						            </div>
 									{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
 								<div class="clear"></div>
@@ -1046,8 +1046,13 @@
 {# ========= Table ========= #}
 
 {# ========= profile ========= #}
-{% include "FOSUserBundle:Offices:office_passenger_profile_edit_dialog.html.twig" %}
-
+<script>
+    var office_passenger_profile = '{{ url('office_passenger_profile') }}';
+</script>
+<div id="Profile" class="uk-modal pop-up">
+    <div class="uk-modal-dialog passenger" id="profile-dialog"  data-uk-observe>
+    </div>
+</div>
 
 {# ========= rout ========== #}
 {% include "FOSUserBundle:Offices:office_passenger_profile_route_dialog.html.twig" %}

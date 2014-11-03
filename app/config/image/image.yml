@@ -1,0 +1,24 @@
+iphp_file_store:
+    mappings:
+       photo:
+           upload_dir:  %kernel.root_dir%/../web/photo
+           upload_path: /photo
+           directory_namer:
+               date:
+                  params: { field : createdAt, depth : month }
+           namer: ~
+           
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~ 
+          
+    cache: default
+    filter_sets:
+        menu_avatar:
+            #quality: 90
+            filters:
+                thumbnail: { size: [58, 58], mode: inset }
+        profile_avatar:
+            filters:
+                relative_resize: { widen: 159 }

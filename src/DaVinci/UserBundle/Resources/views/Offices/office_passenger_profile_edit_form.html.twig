@@ -1,0 +1,114 @@
+<a class="uk-modal-close uk-close"></a>
+{{ form_start(form, {'action': path('office_passenger_profile'),'attr': {'class': 'uk-form passenger-profile-form'}}) }}
+<div class="popup-head">{{ 'Begin you profile'|trans }}</div>
+<div class="pop-up uk-grid uk-grid-small">
+    <div class="block-foto-rate">
+        <div class="clientreviews">
+            <div class="photo">
+
+                {% if app.user.photo.path is defined %}
+                    <img src="{{ app.user.photo.path| imagine_filter('profile_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
+                {% else %}
+                    <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                {% endif %}
+            </div>
+            <div class="uk-form-file uk-width-1-1">
+                <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
+                {{ form_widget(form.photo) }}
+                {{ form_errors(form.photo) }}
+            </div>
+        </div>
+    </div>
+    <div class="profile">
+        <button  class="popup-head uk-button inbox">
+            {{ 'Personal information'|trans }}
+            <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+        </button>
+        <dl class="uk-width-1-1 uk-margin-bottom">
+            {{ form_errors(form) }}
+            <div class="myid">
+                <dt>My ID:</dt><dd>{{ app.user.id }} </dd><br />
+            </div>
+            <dt>{{ 'First Name:'|trans }}</dt>
+            <dd>
+                {{ form_widget(form.firstname, {'attr':{'tabindex':'1'} }) }}
+                {{ form_errors(form.firstname) }}
+            </dd><br />
+            <dt>{{ 'Last Name:'|trans }}</dt>
+            <dd>
+                {{ form_widget(form.lastname, {'attr':{'tabindex':'2'} }) }}
+                {{ form_errors(form.lastname) }}
+            </dd><br />
+            <dt>{{ 'E-mail:'|trans }}</dt>
+            <dd>
+                {{ form_widget(form.email, {'attr':{'tabindex':'3'} }) }}
+                {{ form_errors(form.email) }}
+            </dd><br />
+            <dt>{{ 'Skype:'|trans }}</dt><dd>
+                {{ form_widget(form.skype, {'attr':{'tabindex':'4'} }) }}
+                {{ form_errors(form.skype) }}
+            </dd><br />
+            <dt>{{ 'Mobile:'|trans }}</dt><dd>
+                {{ form_widget(form.phone, {'attr':{'tabindex':'5','class':'phoneinput'} }) }}
+                {{ form_errors(form.phone) }}
+            </dd><br />
+            <dt>{{ 'Birthday:'|trans }}</dt><dd>
+                <div class="birthday">                        
+                    {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'6','class':'dateofbirth'} }) }}
+                    {{ form_errors(form.dateOfBirth) }}
+                </div>
+            </dd><br />
+            <dt>{{ 'Gender:'|trans }}</dt><dd>
+                <div class="uk-button uk-form-select select " data-uk-form-select="">
+                    <span></span>
+                    <i class="uk-icon-caret-down"></i>
+                    {{ form_widget(form.gender, {'attr':{'tabindex':'7'} }) }}
+                    {{ form_errors(form.gender) }}
+                </div>
+            </dd>
+
+            <dt>{{ 'Password:'|trans }}</dt>
+            <dd>                  
+                {% if isPasswordExpired == true %}
+                    <div>{{ 'Password not changed more than 3 months!'|trans }}</div>
+                {% endif %}
+                <div class="uk-form-controls uk-form-password">
+                    {{ form_widget(form.current_password, {'attr':{'pattern':'.{3,}', 'title':'Minmimum 3 letters or numbers.'|trans, 'placeholder':'Old password'|trans, 'class': 'passfield', 'tabindex':'8' }}) }}
+                    <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
+                    {{ form_errors(form.current_password) }}
+                </div>
+            </dd>
+
+
+            <dt></dt>
+            <dd>
+                <div class="uk-form-controls uk-form-password">
+                    {{ form_widget(form.new.first, {'attr':{'pattern':'.{3,}', 'title':'Minmimum 3 letters or numbers.'|trans, 'placeholder':'New password'|trans, 'class': 'passfield', 'tabindex':'9' }}) }}
+                    <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
+                    {{ form_errors(form.new.first) }}
+                </div>
+            </dd>
+            <!-- End Line password  -->
+
+            <!-- Begin Line confirm password  -->
+            <dt></dt>
+            <dd>
+                <div class="uk-form-controls uk-form-password">{{ form_widget(form.new.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'placeholder':'Repeat new password'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'10' }}) }}
+                    <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
+                    {{ form_errors(form.new.second) }}
+                </div>
+            </dd>
+        </dl>
+        <div class="uk-margin confirmation">
+            <div class="uk-grid uk-grid-small">
+                <div class="uk-panel uk-width-1-2">
+                    <button type="submit" id="profile-form-submit" class="uk-button uk-button-success uk-width-1-1">{{ 'Save'|trans }}</button>
+                </div>
+                <div class="uk-panel uk-width-1-2">
+                    <button class="uk-button uk-button-warning uk-width-1-1 uk-modal-close">{{ 'Cancel'|trans }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

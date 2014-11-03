@@ -1,0 +1,14 @@
+diff a/src/DaVinci/TaxiBundle/Resources/public/css/styles.css b/src/DaVinci/TaxiBundle/Resources/public/css/styles.css	(rejected hunks)
+@@ -5901,10 +5901,10 @@
+   vertical-align: middle;
+   margin: 0;
+   text-align: left;
+-  width: 88.%;
++  width: 88%;
+   line-height: 20px;
+   font-size: 16px;
+-  font-weight: 700;;;
++  font-weight: 700;
+ }
+ /* ===================
+ poteriashki
