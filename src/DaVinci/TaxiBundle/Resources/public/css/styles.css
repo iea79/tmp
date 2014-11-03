@@ -324,16 +324,16 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						display:inline;
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item .mp-icon-person {
-						margin: 0px 2px 2px 2px;
+						margin: 0 2px 2px 2px;
 						font-size: 16px;
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in  > li .figur-item .mp-icon-taxi {
-						margin: 0px;
+						margin: 0;
 						font-size: 16px;
 						line-height: 20px;
 					}
 					.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
-						margin-left: 5.7%;;
+						margin-left: 5.7%;
 					}
 					@media only screen and (max-width: 695px) {
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li a:nth-child(3) {
@@ -369,7 +369,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 					padding:15px 21px 13px 15px;
 				}
 				.header-wrapper .header-top .header-top-in  .topmenu .book-store a:nth-child(2) {
-					padding:15px 0px 13px 13px;
+					padding:15px 0 13px 13px;
 				}
 			.header-wrapper .header-top .header-top-in  .topmenu .book-store .thumb {
 				background-color: #fff;
@@ -414,9 +414,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
                 text-align: left;
                 vertical-align: top;
                 /* border: 1px solid #d0d0d0; */
-                border-radius: 0px;
+                border-radius: 0;
                 background-color: #fff;
-                box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
+                box-shadow: -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
                 margin: 9px 0 0 0;
                 max-width: 600px;
                 min-width: 480px;
@@ -507,7 +507,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			/* ====================  the bottom part of header with breadcrumbs and languages ============================ */
 			.header-wrapper .header-bottom {
 				background-color:#8d8f98;
-				box-shadow: inset 0 1px 0px 1px #6d6f76;
+				box-shadow: inset 0 1px 0 1px #6d6f76;
 				max-height: 28px !important;
 			}
 				.header-wrapper .header-bottom .header-bottom-in {
@@ -649,7 +649,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.home .steps-1-2-3 {
 		background-color:#fff;
 		padding:9px 0;
-		box-shadow: 0 1px 1px 0px #b4b4b4;
+		box-shadow: 0 1px 1px 0 #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
 	}
@@ -729,7 +729,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						
 					}
 					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
-						background:#ff4d61;;
+						background:#ff4d61;
 					}
 					.home .steps-1-2-3 .chois li a .arrow  {
 						border-color: transparent black transparent #fff;
@@ -854,12 +854,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	.destination  .inputs .uk-form-icon {
 		width:100%;
 	}
-	.destination  .inputs .uk-form-icon i {
-  font-size: 22px;;
-	}
+	.destination  .inputs .uk-form-icon i {font-size: 22px;}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
-		padding:0px 30px 1px 5px!important;
+		padding:0 30px 1px 5px !important;
 	}
 		.destination  .inputs .uk-form-icon  i {
 			right:0;
@@ -968,7 +966,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		line-height:30px;
 		font-size:16px;
 		height:28px !important;
-		margin-bottom:-1px;;
+		margin-bottom:-1px;
 	}
 		.home .select.taxi-disabled {
 			border-color:#8d8f98;
@@ -978,17 +976,17 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		padding-right:12px;
 	}
 	.order-details .kids-pats-group .kids-pats-line .amount {
-		width:42px;;
+		width:42px;
 	}
 	.order-details .kids-pats-wrap {
 		padding:13px 0 12px 0;
 		display:table;
-		width:100%;;
+		width:100%;
 	}
 	.order-details .kids-pats-wrap.additional {
 		padding:15px 0 7px 0;
 		display:table;
-		width:100%;;
+		width:100%;
 	}
 	.order-details  .kids-pats-line .object {
 		width:57%;
@@ -1046,7 +1044,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			width:12px;
 			position:absolute;
 			top:0;
-			left:35px;;
+			left:35px;
 		}
 			.order-details-over .spinner .arrows a, .driv-over .spinner  .arrows a {
 				display:block;
@@ -1085,8 +1083,6 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			font-size:16px;
 			color:#528ed3;
 			margin-left:4px;
-
-			/* display: inline-block; */;;
 		}
 		.order-details-over h1  .uk-icon-question-circle  {
 			position:relative;
@@ -1292,7 +1288,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	overflow:hidden;
 	padding:15px 0;
 	border-radius:6px;
-	box-shadow: 0 1px 1px 0px #b4b4b4;
+	box-shadow: 0 1px 1px 0 #b4b4b4;
 }
 	.home .driv-over  .leftlabels{
 		float:left;
@@ -1591,7 +1587,7 @@ office passengers and driver
 	content: "\e609" !important;
 	font-family: icontaxi;
 	font-size: 18px;
-	margin: -5px -11px 0px 0px;
+	margin: -5px -11px 0 0;
 }
 .client-account .home {
 	margin-top: 0;
@@ -1614,7 +1610,7 @@ office passengers and driver
 }
 .client-account .order-status {
 	display:table;
-	margin: 0px auto -1px auto;
+	margin: 0 auto -1px auto;
 	font-size: 15px;
 	line-height: 18px;
 }
@@ -1674,7 +1670,7 @@ office passengers and driver
 .client-account .client-panel-list .clientid dd {
 	display: block;
     font-size: 14px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	margin-left: 5px;
 	float: left;
 }
@@ -1692,7 +1688,7 @@ office passengers and driver
 }
 @media (max-width: 1030px) {
 	.client-account .clientid {
-		padding-left: 7%;;
+		padding-left: 7%;
 	}
 	.client-panel-button {
 		margin-left: 1%;
@@ -1746,7 +1742,7 @@ office passengers and driver
 .client-account .button-skype {
 	line-height: 30px !important;
 	float: left !important;
-	margin-left: 0px;
+	margin-left: 0;
 	min-width: 135px !important;
 	width: 39.5%;
 	color: #fff !important;
@@ -1778,7 +1774,7 @@ office passengers and driver
 }
 /*=======================office tabs============================*/
 .client-account .main {
-    margin:1px 0 0px 0;
+    margin:1px 0 0 0;
     box-shadow:none;
     z-index:1000;
     border-radius:0 0 4px 4px;
@@ -1786,7 +1782,7 @@ office passengers and driver
 .client-account .button-swicher {
 	display:block;
     border-radius:0 0 4px 4px;
-	margin-left: 0px;
+	margin-left: 0;
 }
 	.client-account .uk-grid-small {
 	}
@@ -1808,7 +1804,7 @@ office passengers and driver
     color: #fff;
     background: #528ed3;
     border-radius: 4px 4px 0 0;
-    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
     font-size:20px;
     font-weight:bold;
     height:65px;
@@ -1826,13 +1822,13 @@ office passengers and driver
     background-color: #fff;
     color: #528ed3;
     text-shadow:none;
-	padding: 4px 0px 5px 10px;
+	padding: 4px 0 5px 10px;
 }
 /*========================office table===========================*/
 .shadow-main {
-    -webkit-box-shadow: -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
-    -moz-box-shadow:        -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
-    box-shadow:             -1px 1px 2px 0px rgba(50, 50, 50, 0.4);
+    -webkit-box-shadow: -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
+    -moz-box-shadow:        -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
+    box-shadow:             -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
 }
 .client-account .whitebg {
     background:#fff;
@@ -1891,7 +1887,7 @@ office passengers and driver
 }
 .client-account .message-graybg {
 	background:#f5f5f5;
-	padding: 4px 0px 8px 11px;
+	padding: 4px 0 8px 11px;
 	margin-bottom: -20px;
 }
 .client-account .message-graybg input,
@@ -2044,7 +2040,7 @@ width: 12.6%;
 	width: 15.7%;
 }
 .historyorder a.confirm-deal {
-	margin-top: 0px !important;
+	margin-top: 0 !important;
 	min-width: 115px;
 	width: 90%;
 	color: #fff;
@@ -2053,7 +2049,7 @@ width: 12.6%;
 .historyorder a.mp-icon-closed {
 	font-size: 19px;
 	display: block;
-	margin: 3px 0px 0px 4px;
+	margin: 3px 0 0 4px;
 }
 .client-account .openorder .allorder td {
 	line-height: 22px;
@@ -2096,7 +2092,7 @@ width: 12.6%;
 	line-height: 36px;
 }
 .findorder .table-over .under-head td {
-	padding-bottom: 0px;
+	padding-bottom: 0;
 }
 .client-account .uk-table td:nth-child(3),
 .client-account .uk-table th:nth-child(3) {
@@ -2134,7 +2130,7 @@ width: 12.6%;
 	.client-account .open-order-passenger .active-gray {
 		position: relative;
 		float: none;
-		margin: 0 auto 0px auto;
+		margin: 0 auto 0 auto;
 	}	
 }
 .client-account .open-order-passenger .driverlist {
@@ -2173,8 +2169,8 @@ table th .questiontooltip {
 	line-height: 11px;
 	position: absolute;
 	right: 0;
-	top: 0px;
-	cursor: default;;
+	top: 0;
+	cursor: default;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -2243,7 +2239,7 @@ table th .questiontooltip {
 }
 .open-order-passenger tr td:first-child, 
 .open-order-passenger tr td:nth-child(2){
-    padding:20px 0px 10px 0px;
+    padding:20px 0 10px 0;
 }
 .whitebg .uk-table td p {
     overflow:hidden;
@@ -2260,7 +2256,7 @@ table th .questiontooltip {
 	}
 }
 .open-order-passenger .route {
-	margin: 12px 0px 11px 0px;
+	margin: 12px 0 11px 0;
 	display: block;
 	float: left;
 }
@@ -2270,12 +2266,12 @@ table th .questiontooltip {
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
-    padding: 22px 20px 0px 17px;
+    padding: 22px 20px 0 17px;
     display: inline-block;
 }
 .driver-top  {
     overflow: hidden;
-	margin-bottom: 0px !important;
+	margin-bottom: 0 !important;
 }
 .driver-top div {
     float: left;
@@ -2346,14 +2342,12 @@ table th .questiontooltip {
 	min-width: 100px !important;
 	width: 48.4% !important;
 	text-transform: uppercase;
-	margin: 3px 0px 0px 0px !important;
+	margin: 3px 0 0 !important;
 	float: left !important;
 	line-height: 37px;
 	color: #fff;
 }
-    .profile .name {
-		 color:#528ed3;
-    }
+    .profile .name {color:#528ed3;}
     .profile .proffesion {
 		 font-size:14px;
 		 color:#8d8f98;
@@ -2371,7 +2365,7 @@ table th .questiontooltip {
 		 color:#3c3d45;
 		 font-weight: bold;
 		 line-height: 16px;
-		 margin-bottom: 8px;;;
+		 margin-bottom: 8px;
     }
     .vehicle span {
 		 color: #3c3d45;
@@ -2380,7 +2374,7 @@ table th .questiontooltip {
 		 margin-bottom: 6px;
 		 display: inline-block;
 		 margin-left: -1px;
-		 width: 55%;;
+		 width: 55%;
     }
     .vehicle i {
 		 color: #ff4d61;
@@ -2412,7 +2406,7 @@ table th .questiontooltip {
 		 background-color:#adafa8 !important;
     }
     td .driver-over p.about {
-		 margin: 5px 0px 7px 0px;
+		 margin: 5px 0 7px 0;
 		 padding: 0;
 		 line-height: 19px;
 		 color: #3c3d45;
@@ -2439,7 +2433,7 @@ footer {
 .footer-top {
 	width:100%;
 	background-color:#528ed3;
-	box-shadow: 0 1px 1px 0px #b4b4b4;
+	box-shadow: 0 1px 1px 0 #b4b4b4;
 	
 }
 	.footer-top .footer-in {
@@ -2454,7 +2448,7 @@ footer {
 			float:left;
 		}
 			.footer-top .footer-in .add-nav ul {
-				margin:15px 0 0px 17%;
+				margin:15px 0 0 17%;
 			}
 			@media only screen and (max-width: 520px) {
 				.footer-top .footer-in {
@@ -2468,7 +2462,7 @@ footer {
 					margin: 0 !important;
 				}
 				.footer-top .footer-in .add-nav ul {
-					margin:5px 0 0px 0;
+					margin:5px 0 0 0;
 				}
 				.footer-top .footer-in .add-nav ul li {
 					float: left;
@@ -2505,9 +2499,7 @@ footer {
 				text-align:center;
 				line-height:26px !important;
 			}
-			.footer-top .footer-in .social li:nth-child(n+2) {
-  margin-left: 4px;;;
-			}
+			.footer-top .footer-in .social li:nth-child(n+2) {margin-left: 4px;}
 			.footer-top .footer-in .social li .twitter {
 				background:#5dc8ff;
 				padding:4px 9px 2px 9px;
@@ -2530,7 +2522,7 @@ footer {
 				font-size: 31px;
 				margin-left: -9px;
 				margin-top: -1px;
-				margin-bottom: -4px;;
+				margin-bottom: -4px;
 			}
 .footer-bottom  {
 	clear:both;
@@ -2934,7 +2926,7 @@ footer {
 .pop-up textarea {
     min-height: 90px;
     width: 100%;
-    padding: 9px 7px 0px 7px;
+    padding: 9px 7px 0 7px;
     font-size: 14px;
     line-height: 17px;
 }
@@ -2943,7 +2935,7 @@ footer {
 	margin-left: -20px;
 	margin-top: -20px !important;
 	margin-bottom: 27px;
-	padding: 3px 20px 0px 19px;
+	padding: 3px 20px 0 19px;
 	background-color: #EBEBEB;
 	color:#3c3d45;
 	font-size:18px;
@@ -2965,7 +2957,7 @@ footer {
 	margin-top: -1px !important;
 	margin-bottom: 5px;
 	margin-left: 1px;
-	width: 99%;;
+	width: 99%;
 }
 .popup-head.inbox span {
   font-size: 13px;
@@ -2973,7 +2965,7 @@ footer {
   color: #528ed3;
 }
 .profile .popup-head.inbox .questiontooltip {
-	margin: -4px 0px 0px 6px;
+	margin: -4px 0 0 6px;
 }
 .driver-office .popup-head {
     padding-right: 13px;
@@ -3035,7 +3027,7 @@ footer {
     padding-right: 12px;
 }
 .pop-up .adphonik {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 .pop-up .twolabels span {
 	margin-top: 11px;
@@ -3155,14 +3147,14 @@ footer {
 	margin-bottom: 8px !important;
 }
 .pop-up .form-view dd.insurance {
-	margin-top: 0px !important;
+	margin-top: 0 !important;
 	margin-bottom: 15px !important;
 	display: inline;
 	font-size: 15px;
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
-	margin-top: 0px !important;
+	margin-top: 0 !important;
 	min-width: 120px;
 	width: 35%;
 	text-decoration: none;
@@ -3177,7 +3169,7 @@ footer {
 }
 .pop-up .form-change .car-info {
 	margin-top: 7px;
-	margin-bottom: 0px !important;
+	margin-bottom: 0 !important;
 	display: inline-block;
 }
 .pop-up .form-change .car-info dl {
@@ -3190,7 +3182,7 @@ footer {
 }
 .pop-up .form-change .confirmation {
 	margin-top: 14px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 	display: block;
 }
 .pop-up dl {
@@ -3268,13 +3260,13 @@ div.pop-up.uk-grid.uk-grid-small {
 @media (max-width:610px) {
 	.pop-up.route dt {
 		margin-bottom: -8px !important;
-		margin-top: 0px !important;
+		margin-top: 0 !important;
 	}
 }
 @media (max-width: 610px) {
 	.pop-up.route dt.last,
 	.pop-up.route dd.last {
-		margin-top: 0px !important;
+		margin-top: 0 !important;
 	}
 }
 .pop-up.route dt.fullsize {
@@ -3420,11 +3412,11 @@ div.pop-up.uk-grid.uk-grid-small {
 	vertical-align:top;
 }
 .pop-up dd.moretext {
-	padding-top: 0px;
+	padding-top: 0;
 }
 .pop-up h5 {
 	display: inline-block;
-	margin: 4px 5px 0px 0px;
+	margin: 4px 5px 0 0;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	font-weight: bold;
@@ -3435,12 +3427,8 @@ i.quest {
 	color: #0091ca;
 	font-size:18px;
 }
-.uk-modal {
-  z-index: 10000;;
-}
-.uk-tooltip {
-  z-index: 10300 !important;
-}
+.uk-modal {z-index: 10000;}
+.uk-tooltip {z-index: 10300 !important;}
 .uk-modal-dialog .pop-up.route {
     padding-top: 9px;
 	padding-right: 10px;
@@ -3533,13 +3521,13 @@ i.quest {
 	border: 5px #ebebeb solid;
 	border-radius: 4px;
 	margin-bottom: 14px;
-	margin-top: 0px;
+	margin-top: 0;
 	margin-left: -2px;
-	max-width: 160px;;
+	max-width: 160px;
 }
 .pop-up .clientreviews .photo {
 	border-bottom: 4px #ebebeb solid;
-/*	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;;*/
+/*	background: url('../images/phptpapparat.png') #fff no-repeat scroll center center;*/
 }
 .pop-up .button-add {
 	width: 100%;
@@ -3557,7 +3545,7 @@ i.quest {
 	font-size: 15px;
 }
 .pop-up .clientreviews .rate p {
-	margin: 0px auto;
+	margin: 0 auto;
 	padding-top: 1px;
 }
 .pop-up .clientreviews .rate p a:hover {
@@ -3592,13 +3580,13 @@ i.quest {
 
 .pop-up .rate-review i {
 	font-size: 18px;
-	letter-spacing: 0px;
+	letter-spacing: 0;
 	line-height: 17px !important;
 	margin-left: -2px;
 	float:left;
 }
 .pop-up .rate-review .name {
-	margin: 2px 0px -2px 0px;
+	margin: 2px 0 -2px;
 	font-size: 16px;
 	line-height: 20px;
 }
@@ -3610,8 +3598,8 @@ i.quest {
 .pop-up .rate-review .review {
 	line-height: 14px;
 	margin-top: 2px;
-	margin-bottom: 0px;
-	margin-left: 0px;
+	margin-bottom: 0;
+	margin-left: 0;
 }
 .pop-up  .rate-review .uk-grid-small .button-add {
 	margin-top: 11px;
@@ -3647,10 +3635,9 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.header-top .header-top-in .topmenu ul.topmenu-in  >li .texst-item {
 			padding:2px 4%;
 		}
-
-
-.header-wrapper .header-top .header-top-in .topmenu .book-store {
-    height: 48px !important;
+	.header-wrapper .header-top .header-top-in .topmenu .book-store {
+		height: 48px !important;
+		}
 }
  @media only screen and (max-width: 830px) {
 	.home .steps-1-2-3 .chois li a {
@@ -3719,21 +3706,16 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.header-top .header-top-in .topmenu ul.topmenu-in > li .texst-item {
 		font-size:17px;
 	}
-	
-	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {
-	}
-	
 }
 @media only screen and (max-width: 850px) {
 	.header-wrapper .header-top .header-top-in .topmenu .book-store a:first-child {
 		padding: 15px 13px 15px 5px;
 	}
 	.header-wrapper .header-top .header-top-in .topmenu .book-store a:nth-child(2) {
-		padding: 15px 5px 15px 5px;
+		padding: 15px 5px;
 	}
 }
 @media only screen and (max-width: 610px) {
-	
 	.header-wrapper .header-top .header-top-in .topmenu .book-store {
 		font-size:14px;
 		width:62px;
@@ -3743,27 +3725,16 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 		padding: 3px 0 3px 0 !important;
 		line-height: 18px;
 	}
-	
-	
-	
 	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child  {
 		width:20% !important;
 	}
-		.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child .uk-button {
-			padding:0;
-		}
-		
-	
-	
-	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {
-		
-		margin:0;
-		}
+	.header-top .header-top-in .topmenu ul.topmenu-in > li:last-child .uk-button {
+		padding:0;
+	}
+	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {margin:0;}
 }
 @media only screen and (min-width:761px) {
-#steps {
-	width:50%;
-}
+#steps {width:50%;}
 .home .destination {
 	float:left;
 	width:100%;
@@ -3795,7 +3766,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 @media only screen and (max-width: 760px) {
  .order-details .kids-pats-group .kids-pats-line .right-group  .amount {
 		float:right;
-		
 	}
 	
 	table.responsive { margin-bottom: 0; }
@@ -4195,7 +4165,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 
 .chznImage-container .chzn-single span {
-  background-position: 0px 45%;
+  background-position: 0 45%;
   padding-left: 42px;
   font-size: 16px;
   text-decoration: none;
@@ -4364,7 +4334,7 @@ color: #8d8f98;
 	position: absolute;
 	top: 26px;
 	left: 0;
-	height: 0px;
+	height: 0;
 	overflow: hidden;
 	width: 400px;
 	
@@ -4456,7 +4426,7 @@ footer {
     background: #fff;
     color: #3d3d3d;
     text-align: center;
-    margin: 0px 0 9px 0;
+    margin: 0 0 9px;
     padding: 17px 0 10px 0; 
     font-size: 1.9em;
     line-height: 120%;
@@ -4547,13 +4517,13 @@ footer {
     margin-bottom: 3px;
 }
 .verifi .uk-button-group {margin-top: 15px;}
-.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {margin-top: 0px;}
+.register .uk-form-horizontal .uk-form-row.addlangline, .register .uk-form-horizontal .uk-form-row.addphoneline    {margin-top: 0;}
 .register .uk-form-horizontal .addphoneareas {
     margin-bottom: 2px;
     width: 100%;
 }
 .register .uk-form-horizontal .uk-form-row.addphoneline    {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     width: 65%;
     float: right;
 }
@@ -4570,7 +4540,7 @@ footer {
     height:14px;
     text-align: center;
     color: #fff;
-    padding-top: 0px;
+    padding-top: 0;
     font-size: 10px;
     vertical-align: middle;
     line-height: 130%;
@@ -4734,7 +4704,7 @@ footer {
     text-align: center;
     font-size: 24px;
     font-weight: normal;
-    margin: 0px auto 36px auto;
+    margin: 0 auto 36px;
     padding: 22px 0 8px 0;
     text-transform: none;
 }
@@ -4910,7 +4880,7 @@ footer {
 .register fieldset .errors {
     position: relative;
     list-style: none outside none;
-    margin-top: 0px;
+    margin-top: 0;
     display: inline-block;
 }
 .register label .errors {
@@ -4924,8 +4894,8 @@ footer {
         position: relative;
         float: left;
         left: 0;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
         display: inline-block;
     }*/
 }
@@ -4939,7 +4909,7 @@ footer {
 }
 .register.mainpage fieldset  .errors {
     float: left;
-    margin-bottom: -7px !important;;
+    margin-bottom: -7px !important;
 }
 .register.mainpage fieldset  .errors li {
     margin-top: 2px;
@@ -4983,7 +4953,7 @@ footer {
 .authorizat p, .authoriz p {
     font-size: 14px;
     margin-bottom: 21px;
-    margin-top: 0px;
+    margin-top: 0;
 }
 .authorizat a, .authoriz a {    color: #528ed3;}
 .wrapper-content .register .authorizat .uk-button.nextbutt {
@@ -5170,7 +5140,7 @@ body.register .main-content{
     margin-top: 19px;
     margin-bottom: 0;
 }
-.register .uk-form-horizontal .checkregister  .uk-form-row.term  label{ margin: 0px;}
+.register .uk-form-horizontal .checkregister  .uk-form-row.term  label{ margin: 0;}
 /** /checkmail */
 .uk-form input[type="radio"] {border-radius: 50%;}
 .uk-form input[type="radio"], .uk-form input[type="checkbox"] {
@@ -5276,7 +5246,7 @@ Step-4
 	  margin-bottom: 5px !important;
 	}
 	.order-step-four .uk-icon-check {
-	  margin-left: 0px !important;
+	  margin-left: 0 !important;
 	}
 }
 .order-step-4 .whitebg {
@@ -5303,18 +5273,18 @@ Step-4
   padding: 10px 13px 13px 18px;
 }
 .check-order .passenger-info hr {
-  padding: 0px 0px 0px 0px;
-  margin: 5px 0px 14px 0px !important;
+  padding: 0;
+  margin: 5px 0 14px !important;
   color: #ff4d61;
   background: #ff4d61;
   height: 1px;
   width: 100%;
-  display: block;;;
+  display: block;
 }
 .check-order .passenger-info .tariff hr {
 }
 .check-order .passenger-info h1.labels {
-	margin: 0px;
+	margin: 0;
 	font-weight: bold;
 	display: block;
 }
@@ -5323,11 +5293,11 @@ Step-4
 	float: right;
 	display: inline-block;
 	line-height: 29px;
-	font-weight: normal;;
+	font-weight: normal;
 }
 .check-order .passenger-info h1 .uk-icon-question-circle {
-	top: 0px;
-	margin-left: 9px;;
+	top: 0;
+	margin-left: 9px;
 }
 .check-order .passenger-info dl {
 	display: table;
@@ -5346,7 +5316,7 @@ Step-4
 	line-height: 18px;
 	display: inline-block;
 	font-size: 16px;
-	margin: 0px;
+	margin: 0;
 	margin-bottom: 12px;
 }
 .check-order .passenger-info .quantity dt.photo {
@@ -5370,8 +5340,8 @@ Step-4
 .check-order .main-passenger-info .personal dl {
 	width: 100%;
 	display: inline-block;
-	margin-top: 0px;
-	margin-bottom: -10px;;
+	margin-top: 0;
+	margin-bottom: -10px;
 }
 .check-order .main-passenger-info .personal dt,
 .check-order .main-passenger-info .personal dd {
@@ -5402,7 +5372,7 @@ Step-4
 .check-order .passenger-info .tariff .payment {
 	float: left;
 	margin-bottom: 26px;
-	margin-top: 0px;
+	margin-top: 0;
 }
 .check-order .passenger-info .tariff .price {
 	width: 58%;
@@ -5439,7 +5409,7 @@ Step-4
 }
 .check-order .passenger-info .route-info dt, .check-order .route-info dd {
 	margin-bottom: 7px !important;
-	display: block;;
+	display: block;
 }
 .check-order .passenger-info .route-info dd {
 	width: 58%;
@@ -5449,7 +5419,7 @@ Step-4
 	width: 100%;
 	display: inline-block;
 	margin-top: 3px;
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 .check-order .passenger-info .vechicle dt {
     width: 39.5% !important;
@@ -5488,7 +5458,7 @@ Step-4
 }
 .check-order .passenger-info .kid-pat-bag dl.child-pet {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     margin-top: 21px;
 }
 .check-order .passenger-info .kid-pat-bag .child-pet dt {
@@ -5560,7 +5530,7 @@ Step-4
 }
 .check-order .passenger-info .more-details .comfort {    
     margin-bottom: 10px !important;
-    width: 100%;;
+    width: 100%;
 }
 .check-order .passenger-info .more-details .comfort dt,
 .check-order .passenger-info .more-details .comfort dd {
@@ -5587,7 +5557,7 @@ Step-4
   float: left;
 }
 .check-order .passenger-info .more-details .special {    
-    margin-bottom: 12px !important;;;
+    margin-bottom: 12px !important;
 }
 .check-order .passenger-info .more-details .special dd {    
     font-size: 14px;
@@ -5665,9 +5635,9 @@ Profit
   font-size: 16px;
 }
 .profit li .content {
-	padding: 23px 0% 16px 0%;
+	padding: 23px 0 16px;
 	display: inline-block;
-	width: 100%;;;
+	width: 100%;
 }
 .buttom-swicher {
 	background-color: #528ed3;
@@ -5737,7 +5707,7 @@ Profit
 }
 .profit li .content div {
   float: left;
-  padding: 0;;;
+  padding: 0;
 }
 .profit li .content .left {
   width: 23.6%;
@@ -5751,8 +5721,8 @@ Profit
 }
 .profit li .content .right {
   width: 32.6%;
-  padding: 5px 0px 2px 0px;
-  position: relative;;
+  padding: 5px 0 2px;
+  position: relative;
 }
 .profit li .content .left h2 {
   color: #ff4d61;
@@ -5770,17 +5740,17 @@ Profit
   margin-bottom: 16px;
   font-size: 14px;
   color: #3c3d45;
-  line-height: 15px;;;
+  line-height: 15px;
 }
 .profit li .content .left li:before {
-		content: "\f00c";
-		font-family: FontAwesome;
-		font-size: 19px;
-		color: #27bf2e;
-		display: block;
-		float: left;
-		margin-right: 5px;
-		margin-bottom: 16px;;;
+	content: "\f00c";
+	font-family: FontAwesome;
+	font-size: 19px;
+	color: #27bf2e;
+	display: block;
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 16px;
 }
 .profit li .content .left li i {
   font-size: 19px;
@@ -5788,12 +5758,12 @@ Profit
   display: inline-block;
 }
 .profit li .content .center h3 {
-  width: 100.1%;;
+  width: 100.1%;
   display: table;
   margin: 0;
   background: #ff4d61;
   color: #fff;
-  height: 50px;;
+  height: 50px;
 }
 
 .profit li .content .center h3 .mp-icon-good {
@@ -5806,26 +5776,26 @@ Profit
   width: 12%;
 }
 .profit li .content .center h4 {
-  padding: 13px 21px 0px 21px;
+  padding: 13px 21px 0 21px;
   font-weight: bold;
   margin: 0 0 -3px 0;
 }
 .profit li .content .center ol {
-  margin: 13px 0px 3px -7px;
-  padding-right: 0px;
+  margin: 13px 0 3px -7px;
+  padding-right: 0;
   counter-reset: li;
   width: 100%;
   display: inline-block;
 }
 .profit li .content .center ol > li {
   position:relative;
-  margin:0px 0 10px 18px;
-  padding:0px 10px 0px 0px;
+  margin:0 0 10px 18px;
+  padding:0 10px 0 0;
   list-style:none;
-  line-height:20px;;;
+  line-height:20px;
 }
 .profit li .content .center ol > li:before {
-		content:counter(li) !important; 
+	content:counter(li) !important; 
     counter-increment:li !important;
     position:absolute !important;
     width:2em !important;
@@ -5857,7 +5827,7 @@ Profit
   padding-top: 25px !important;
   float: none !important;
   width: 86.5%;
-  margin-left: 8%;;
+  margin-left: 8%;
 }
 .videoWrapper iframe {
   position: absolute;
@@ -5907,7 +5877,7 @@ Profit
   width: 88.%;
   line-height: 20px;
   font-size: 16px;
-  font-weight: 700;;;
+  font-weight: 700;
 }
 /* ===================
 poteriashki
@@ -5930,7 +5900,7 @@ About
 	max-width: 1000px;
 	display: table;
 	width: 100%;
-	height: 35px;;
+	height: 35px;
 }
 .about .buttom-swicher li{
     list-style: none;
@@ -5990,7 +5960,7 @@ About
 .about .otziv {
 	width: 97%;
 	display: table;
-	padding-top: 0px;
+	padding-top: 0;
 	margin-top: -1px;
 	padding-right: 1%;
 }
@@ -6006,17 +5976,17 @@ About
 .about .text h2 {
   color: #ff4d61;
   font-weight: 700;
-  margin: 0;;
+  margin: 0;
 }
 .about .text h3 {
-  margin: -3px 0px 0px 0px;
+  margin: -3px 0 0;
   color: #ff4d61;
 }
 .about p {
   margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 14px;;
+  margin-bottom: 14px;
 }
 .about .text ol {
   margin-top: 4px;
@@ -6036,11 +6006,11 @@ About
 }
 .about .text ol li {
   margin-top: 6px;
-  margin-bottom: 0px;
-  font-size: 16px;;
+  margin-bottom: 0;
+  font-size: 16px;
 }
 .about .text ol li span {
-  padding-right: 5px;;;
+  padding-right: 5px;
 }
 .about .text ol li:nth-child(n+2) {
   margin-top: 16px;
@@ -6050,7 +6020,7 @@ About
   padding-bottom: 49.6% !important;
 }
 .about .book-ride {
-  margin: 30px 0px 28px 8%;
+  margin: 30px 0 28px 8%;
   display: inline-block;
   min-height: 50px;
   width: 92%;
@@ -6061,7 +6031,7 @@ About
   max-width: 1000px;
   margin: 41px auto 14px auto;
   padding-left: 40px !important;
-  font-weight: 700;;
+  font-weight: 700;
 }
 .about .otziv .rate-review .name {
     font-size: 16px;
@@ -6097,13 +6067,13 @@ About
 }
 .about .driver .video {
     width: 43%;
-    padding-top: 2.1%;;
+    padding-top: 2.1%;
     margin-top: 0.6%;
 }
 .about .driver .otziv {
 	width: 97%;
 	display: table;
-	padding-top: 0px;
+	padding-top: 0;
 	margin-top: -1px;
 	padding-right: 1%;
 }
@@ -6161,16 +6131,14 @@ About
 .about .contact-buttons a {
   width: 17.7%;
   display: inline-table;
-  margin: 9px 6px 20px 0px;
+  margin: 9px 6px 20px 0;
   min-height: 38px;
   font-size: 16px;
   padding-left: 3px;
   font-weight: normal;
-  padding-top: 5px;;
+  padding-top: 5px;
 }
-.about .driver .video.bottom {
-	display: none;
-}
+.about .driver .video.bottom {display: none;}
 
 @media (max-width: 680px) {
 	.about .text,
@@ -6198,7 +6166,7 @@ About
 	.about .contact-buttons a {
 		width: 24%;
 		padding-left: 1%;
-		margin-right: 1% !important;;
+		margin-right: 1% !important;
 	}
 }
 @media (max-width: 650px) {
@@ -6231,11 +6199,11 @@ Help
 .help .search {
 	background: url(../images/searchbg.png) no-repeat right;
 	background-color: #e9f0ef;
-	padding: 15px 20px 0px 21px;
+	padding: 15px 20px 0 21px;
 	margin-left: 2%;
 	margin-right: 2%;
 	height: 50px;
-	background-size: 50%;;
+	background-size: 50%;
 }
 .help .uk-search:before {
   content: "";
@@ -6244,14 +6212,14 @@ Help
   content: "\e600";
   font-family: 'icontaxi';
   position: absolute;
-  top: 0px;
+  top: 0;
   width: 37px;
   line-height: 35px;
   text-align: center;
   font-size: 23px;
   color: #fff;
   background: #528ed3;
-  right: 0;;
+  right: 0;
 }
 .help input.uk-search-field {
   height: 35px;
@@ -6259,13 +6227,13 @@ Help
   width: 100%;
   padding-left: 9px;
   font-size: 16px;
-  background: #fff;;;;
+  background: #fff;
 }
 
 .help form.uk-search {
   width: 52.1%;
   margin-bottom: 0;
-  padding-bottom: 0;;
+  padding-bottom: 0;
 }
 .help .block-help {
 	padding: 20px 1.8% 20px 2.2%;
@@ -6276,7 +6244,7 @@ Help
 .block-help .uk-nav.guides {
   width: 37.4%;
   margin-right: 1.8%;
-  display: inline-block;;
+  display: inline-block;
 }
 .block-help .uk-nav .head {
   background: #528ed3;
@@ -6292,21 +6260,21 @@ Help
 .block-help .uk-nav {
   display: block;
     border: 1px solid #d0d0d0;
-    float: left;;
+    float: left;
 }
 .block-help .uk-nav.demo {
   width: 20.8%;
   border: 0;
   margin-left: 0.3% !important;
 }
-.block-help .uk-nav li {;;
+.block-help .uk-nav li {
   padding: 0;
-  border-bottom: 1px solid #d0d0d0;;
+  border-bottom: 1px solid #d0d0d0;
 }
 .block-help .uk-nav li a {
   line-height: 16px;
   padding: 10px 2px 8px 18px;
-  width: 91%;;;
+  width: 91%;
 }
 .block-help .uk-nav a.uk-button {
   margin: 17px auto 12px auto;
@@ -6324,7 +6292,7 @@ Help
 	border: 0;
 }
 .block-help .uk-nav li:nth-child(n+3) {
-  margin-top: -5px !important;;
+  margin-top: -5px !important;
 }
 .help .videoWrapper {
   width: 100%;
@@ -6348,7 +6316,7 @@ Help
   display: block;
   float: left;
   margin-bottom: 10px;
-  margin-top: 2px;;;
+  margin-top: 2px;
 }
 .block-help .uk-nav.demo li:nth-child(n+3) {
   margin-top: -9px !important;
@@ -6376,7 +6344,7 @@ Help
 }
 .help .topic-faq h2 {
   font-size: 20px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   font-weight: 700;
   display: block;
 }
@@ -6448,7 +6416,7 @@ Help
 .header-wrapper {
   height: 76px !important;
   margin: 0;
-  padding: 0;;
+  padding: 0;
 }
 =======
 /* styles 31.10-01.11 */
@@ -6515,10 +6483,10 @@ View offices
   line-height: 20px;
   vertical-align: middle;
   border: #d0d0d0 1px solid;
-  padding: 7px 5px 9px 5px;;
+  padding: 7px 5px 9px 5px;
 }
 .view-office .uk-table td {
-  padding: 0px 5px 0px 5px;
+  padding: 0 5px;
   height: 35px;
 }
 .view-office .uk-table td select {
@@ -6532,14 +6500,14 @@ View offices
   font-size: 16px;
   width: 100%;
   min-width: 70px;
-  height: 37px;;
+  height: 37px;
 }
 .view-office a.uk-button:hover {
   opacity: 0.8;
 }
 .view-office .uk-button.buy {
   color: #fff;
-  background: #27bf2e;;
+  background: #27bf2e;
 }
 .view-office .uk-button.free {
   color: #27bf2e;
@@ -6560,13 +6528,13 @@ p.mp-check {
   margin-top: 3px;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 14px;;
+  margin-bottom: 14px;
 }
 ul.mp-check {
 	list-style: none;
 	display: table;
 	padding: 0;
-	margin: 0 0 20px 0;;
+	margin: 0 0 20px 0;
 }
 ul.mp-check li {
 	margin-bottom: 16px;
