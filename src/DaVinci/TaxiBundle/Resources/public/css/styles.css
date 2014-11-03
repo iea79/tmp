@@ -2973,6 +2973,12 @@ footer {
 .pop-up .uk-parent a {
 	text-decoration: none !important;
 }
+.pop-up .uk-nav-parent-icon > .uk-parent > a:after {
+	content: "\f105";
+}
+.pop-up .uk-nav-parent-icon > .uk-parent.uk-open > a:after {
+	content: "\f107";
+}
 .pop-up ul.uk-nav-sub {
     padding: 0;
 }
@@ -3358,14 +3364,19 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile .classauto {
 	width: 46%;
 }
-.pop-up .birthday .row:first-child {
-	width: 100%;
+.pop-up .birthday .row select {
+  padding-left: 4px;
+}
+.pop-up .birthday .row select:first-child {
+	width: 23%;
+	margin-right: 4%;
 } 
-.pop-up .birthday .row:nth-child(2) {
-	width: 100%;
+.pop-up .birthday .row select:nth-child(2) {
+	width: 40%;
+	margin-right: 4%;
 } 
-.pop-up .birthday .row:last-child {
-	width: 100%;
+.pop-up .birthday .row select:last-child {
+	width: 29%;
 } 
 .pop-up .profile .month {
 	width: 52%;
