@@ -3631,21 +3631,17 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.header-top .header-top-in .topmenu ul.topmenu-in  >li .texst-item {
 			padding:2px 4%;
 		}
-<<<<<<< HEAD
-
-	.header-wrapper .header-top .header-top-in .topmenu .book-store {
+    .header-wrapper .header-top .header-top-in .topmenu .book-store {
 	    height: 48px !important;
 	}
 }
 
  @media only screen and (max-width: 830px) {
-=======
 	.header-wrapper .header-top .header-top-in .topmenu .book-store {
 		height: 48px !important;
 		}
 }
 @media only screen and (max-width: 830px) {
->>>>>>> 377bb454afea3cfdcfc91d3950cb91213e865c19
 	.home .steps-1-2-3 .chois li a {
 		font-size:15px;
 	}
@@ -4555,6 +4551,15 @@ footer {
     position: relative;
     top: 7px;
     z-index: 0;
+ }
+ .register .mp-icon-closed {
+ 	display: block;
+ 	float: left;
+ 	margin-top: 4px;
+ 	color: #ff4d61;
+ 	cursor: pointer;
+	margin-left: 3px;
+	font-size: 15px;
  }
  .uk-tooltip {
     background      : #ffffff; 
