@@ -41,6 +41,7 @@ imports:
     - { resource: sonata/sonata_basket.yml }
 
     - { resource: admin/admin_config.yml }
+    - { resource: image/image.yml }
     
     - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
     - { resource: requirejs/require_js.yml }
@@ -178,14 +179,3 @@ parameters:
         followlocation: true  # to follow any "Location: " header that the server sends.
         sslversion: 3  # set to 3 to avoid any bugs that relate to automatic version selection.
         fresh_connect: false  # set to true to force full reconnect every call.
-
-
-iphp_file_store:
-    mappings:
-       photo:
-           upload_dir:  %kernel.root_dir%/../web/photo
-           upload_path: /photo
-           directory_namer:
-               date:
-                  params: { field : date, depth : month }
-           namer: ~

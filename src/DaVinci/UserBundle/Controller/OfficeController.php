@@ -29,17 +29,20 @@ class OfficeController extends Controller
     {
         return $this->render('DaVinciUserBundle:Offices:office_company.html.twig');
     }
-    
+
     /**
-    * @Route("/office-passenger", name="office_passenger")
+    * @Route("/office-passenger-profile", name="office_passenger_profile")
     * @Security("has_role('ROLE_USER')")
     */
-    public function office_passengerAction(Request $request)
+    public function office_passenger_profileAciton(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (empty($user))
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
-               
+        
+       
+        $isPassExp = !$user->isPasswordNotExpired();
+         
         $form =$this->createForm(new OfficePassengerProfileType(), $user);
 
         if ('POST' === $request->getMethod()) {
@@ -48,21 +51,38 @@ class OfficeController extends Controller
             if ($form->isValid()) {
 
                 $usr = $form->getData();
+               
+                //set new password if added
+                if(!empty($form['current_password']->getData()))
+                {
+                    $user->setPlainPassword($form['new']->getData());
+                }
+                $this->container->get('fos_user.user_manager')->updateUser($usr);
                 
-                $em = $this->container->get('doctrine')->getManager();
-                $em->persist($usr->getUser());
-                $em->flush();
-                
-                $this->setFlash('fos_user_success', 'profile.flash.updated');
-
-                return new RedirectResponse($this->getRedirectionUrl($user));
+                return new \Symfony\Component\HttpFoundation\Response('success',200); ;
             }
         }
         
         
-        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig', array(
-                    'form' => $form->createView()
+        return $this->container->get('templating')->renderResponse('FOSUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
+                    'form' => $form->createView(),
+                    'isPasswordExpired' => $isPassExp
         ));
+    }
+    
+    
+    /**
+    * @Route("/office-passenger", name="office_passenger")
+    * @Security("has_role('ROLE_USER')")
+    */
+    public function office_passengerAction(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (null === $user) {
+            return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
+        }
+        
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig');
     }
 
     /**
