@@ -628,9 +628,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			background-color:#ff4d61;
 		}
 		
-		.home .tabtaxi .blue-drive  a{
-			background: url('../images/blue-tabs-left.png') left no-repeat,  url('../images/arrowblue.png') center top no-repeat, url('../images/blue-tabs-right.png') right no-repeat  #fff;
+		.home .tabtaxi .blue-drive a{
+			background: url('../images/blue-tabs-left.png') left no-repeat,  url('../images/arrowblue.svg') center top no-repeat, url('../images/blue-tabs-right.png') right no-repeat  #fff;
 			color:#528ed3;
+			background-size:auto;
 			}
 		
 		
@@ -2960,9 +2961,10 @@ footer {
 	width: 99%;
 }
 .popup-head.inbox span {
-  font-size: 13px;
+  font-size: 15px;
   margin-left: 5px;
   color: #528ed3;
+  margin-top: -3px;
 }
 .profile .popup-head.inbox .questiontooltip {
 	margin: -4px 0 0 6px;
@@ -5235,6 +5237,9 @@ body.register .main-content{
 }
 @media screen and (max-width: 460px) {
     .changemail div.form-group .col-sm-9 {width: 91% !important;}
+    .register .changemail div:nth-child(2) {width: 100% !important;}
+    .register .changemail .btn {width: 100% !important}
+    .changemail div.form-group .col-sm-9 input {width: 91% !important;}
 }
 /* /mobile styles*/
 
@@ -6590,4 +6595,7 @@ Spinner
     z-index: 10400;
     text-align: center;
     padding-top: 20%;
+}
+.mp-spinner.none {
+	display: none;
 }
