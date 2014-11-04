@@ -396,19 +396,34 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				line-height:0.5;
 				
 			}
+            .header-wrapper .header-top .header-top-in  .topmenu .loading .throb-group{
+				display:inline !important;
+			}
+            
+            .header-wrapper .header-top .header-top-in  .topmenu .loading .uk-icon-caret-down{
+				display:none !important;
+			}
+            
+            .header-wrapper .header-top .header-top-in  .topmenu .loading .ownship{
+				display:none !important;
+			}
+            
+            
 			.header-wrapper .header-top .header-top-in  .topmenu .autorized:hover {
 				text-decoration:none;
 			}
-				.header-wrapper .header-top .header-top-in  .topmenu .autorized .ownship {
+			.header-wrapper .header-top .header-top-in  .topmenu .autorized .ownship {
 					color:#ff4d61;
 					font-size:12px;
 					padding:0 10px 0 0;
 			}
-				.header-wrapper .header-top .header-top-in  .topmenu .autorized .caption {
-					position:relative;
-					font-size:16px;
-					top:-6px;
-				}
+            .header-wrapper .header-top .header-top-in  .topmenu .autorized .caption {
+                position:relative;
+                font-size:16px;
+                top:-6px;
+            }
+            
+            
 			/*====================== styles of drop down menu =======================================*/
 			.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown {
                 text-align: left;
@@ -6597,4 +6612,80 @@ Spinner
 }
 .mp-spinner.none {
 	display: none;
+}
+
+/* ===================
+ 3 points spinner
+=================== */
+@-moz-keyframes throbber {
+  0% {
+    color: #333;
+  }
+  40% {
+    color: #ccc;
+  }
+  100% {
+    color: #ccc;
+  }
+}
+@-webkit-keyframes throbber {
+  0% {
+    color: #333;
+  }
+  40% {
+    color: #ccc;
+  }
+  100% {
+    color: #ccc;
+  }
+}
+@keyframes throbber {
+  0% {
+    color: #333;
+  }
+  40% {
+    color: #ccc;
+  }
+  100% {
+    color: #ccc;
+  }
+}
+
+.fa-square:before {
+    content: "\f0c8"
+}
+
+.throb-group .fa-square {
+  display: inline-block;
+  -moz-animation: throbber 0.6s infinite;
+  -webkit-animation: throbber 0.6s infinite;
+  animation: throbber 0.6s infinite;
+  font-size: 10px;
+  color: #ccc;
+}
+
+.throb-group .fa-square:nth-child(1) {
+  -moz-animation-delay: 0s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+.throb-group .fa-square:nth-child(2) {
+  -moz-animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+
+.throb-group .fa-square:nth-child(3) {
+  -moz-animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+
+.throb-group {
+  margin: 1px auto;
+  width: 100%;
+  text-align: center;
+  /*dont display by default*/
+  display:none;
 }

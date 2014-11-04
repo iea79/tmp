@@ -1,9 +1,10 @@
 require(['pages/common'], function ($) {
     require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput'], function () {
         
-        setPreloader($('#profile-dialog'));
+        
 
         function initProfileForm() {
+            
             $('.passenger-profile-form').submit(function (e) {
                
                 e.preventDefault();
@@ -17,7 +18,7 @@ require(['pages/common'], function ($) {
                     }
 
                 });
-                setPreloader($('#profile-dialog'));
+                togglePreloader($('#profile-dialog'));
             });
 
             selector = $(".phoneinput");
@@ -39,12 +40,14 @@ require(['pages/common'], function ($) {
         }
         $('#Profile').on({
             'uk.modal.show': function () {
+                togglePreloader(document.body);
                 $('#profile-dialog').load(office_passenger_profile, function () {
+                    togglePreloader(document.body);
                     initProfileForm();
                 });
             },
             'uk.modal.hide': function () {
-                setPreloader($('#profile-dialog'));
+                togglePreloader($('#profile-dialog'));
                 
                 //TODO: find all username/sirname/photos on  the page
                 
@@ -74,5 +77,7 @@ require(['pages/common'], function ($) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+        //remove preloader
+        togglePreloader(document.body,false);
     });
 });

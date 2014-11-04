@@ -6,5 +6,8 @@ require(["pages/common"], function ($) {
             disable_search_threshold: 10
         });
     });
+    
+        //remove preloader
+        togglePreloader(document.body,false);
    });
 });

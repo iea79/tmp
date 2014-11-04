@@ -55,8 +55,16 @@
                                     <li>
                                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                             <div data-uk-dropdown="" class="uk-button-dropdown">
-                                                <button class="uk-button  uk-button-link autorized">
-                                                    <span class="caption">{{ 'My account'|trans }}</span> <i class="uk-icon-caret-down uk-margin-small-left"></i><br/><span class="ownship">passenger</span>
+                                                <button class="uk-button  uk-button-link autorized loading">
+                                                    <span class="caption">{{ 'My account'|trans }}</span> 
+                                                    <i class="uk-icon-caret-down uk-margin-small-left"></i>
+                                                    <br/>
+                                                    <span class="ownship">passenger</span>
+                                                    <div class="throb-group">
+                                                        <i class="fa fa-square"></i>
+                                                        <i class="fa fa-square"></i>
+                                                        <i class="fa fa-square"></i>
+                                                    </div>
                                                 </button>
                                                 <div class="uk-dropdown uk-dropdown-width-3 shadow-main">
                                                     <div class="myaccount-drop">
@@ -238,7 +246,7 @@
                 <div class="footer-bottom">
                     <p>&copy; {{ "now"|date("Y") }}  TaxiMyPrice</p>
                 </div>
-
+                <div class="mp-spinner"><div class="uk-icon-spinner uk-icon-spin"><div></div>
             </footer>
         {% endblock %}
         
