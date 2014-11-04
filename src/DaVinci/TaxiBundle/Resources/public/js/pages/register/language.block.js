@@ -7,4 +7,11 @@ require(["jquery"], function($){
         $('.addotherlanguage').before(lang_proto);
         return false;
     });
+    $('.addlangline').on('click','.lang-close',function(){
+        $(this).prev('select').remove();
+        
+        $(this).remove();
+        return false;
+    })
+    
 });
