@@ -8,5 +8,6 @@ define(['jquery'], function($){
 });
 
 function setPreloader(selector){
-    selector.html('<i class="uk-icon-spinner uk-icon-spin"></i>');
+    //selector.html('<i class="uk-icon-spinner uk-icon-spin"></i>');
+    selector.append('<div class="mp-spinner"><div class="uk-icon-spinner uk-icon-spin"><div></div>');
 }
