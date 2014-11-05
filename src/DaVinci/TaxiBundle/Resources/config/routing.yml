@@ -23,3 +23,6 @@ help:
 view_offices:
     pattern:  /view-offices
     defaults: { _controller: DaVinciTaxiBundle:Home:view_offices }    
+video:
+    pattern:  /video
+    defaults: { _controller: DaVinciTaxiBundle:Home:video }    

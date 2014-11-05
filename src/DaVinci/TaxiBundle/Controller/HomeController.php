@@ -87,4 +87,9 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:view_offices.html.twig');
     }
 
+    public function videoAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:video.html.twig');
+    }
+
 }
