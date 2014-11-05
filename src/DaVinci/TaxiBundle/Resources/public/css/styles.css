@@ -1638,12 +1638,6 @@ office passengers and driver
         width: 100%;
         letter-spacing: 0.2px;
 }
-.client-panel-list .uk-grid-small .uk-panel:first-child {
-	min-width: 167px;
-}
-.client-panel-list .uk-grid-small .uk-panel:nth-child(2) {
-	min-width: 165px;
-}
 .client-account dl {
         margin: 1em 0;
 }
@@ -1763,14 +1757,9 @@ office passengers and driver
 .client-panel-list {
 	margin-bottom: 28px;
 }
-.client-panel-list .uk-grid-small .uk-panel:first-child {
-	min-width: 164px;
-}
-.client-panel-list .uk-grid-small .uk-panel:nth-child(2) {
+.client-panel-list .uk-grid-small .uk-panel {
 	min-width: 166px;
-}
-.client-panel-list .uk-grid-small .uk-panel:last-child {
-	min-width: 160px;
+	width: 16.3%;
 }
 /*=======================office tabs============================*/
 .client-account .main {
@@ -6218,11 +6207,11 @@ Help
 		padding-right: 0;
 		padding-left: 0;
 }
-.help .message {
+.main-content .message {
 	padding: 21px 20px 19px 20px;
 	font-size: 16px;
 }
-.help .search {
+.main-content .search {
 	background: url(../images/searchbg.png) no-repeat right;
 	background-color: #e9f0ef;
 	padding: 15px 20px 0 21px;
@@ -6231,10 +6220,10 @@ Help
 	height: 50px;
 	background-size: 50%;
 }
-.help .uk-search:before {
+.main-content .uk-search:before {
   content: "";
 }
-.help .uk-search:after {
+.main-content .uk-search:after {
   content: "\e600";
   font-family: 'icontaxi';
   position: absolute;
@@ -6247,7 +6236,7 @@ Help
   background: #528ed3;
   right: 0;
 }
-.help input.uk-search-field {
+.main-content input.uk-search-field {
   height: 35px;
   border: 1px solid #d0d0d0;
   width: 100%;
@@ -6256,7 +6245,7 @@ Help
   background: #fff;
 }
 
-.help form.uk-search {
+.main-content form.uk-search {
   width: 52.1%;
   margin-bottom: 0;
   padding-bottom: 0;
@@ -6585,8 +6574,8 @@ Spinner
     background: #fff;
     color: #000;
     opacity: 0.5;
-    font-size: 90px;
-    position: fixed;
+    font-size: 70px;
+    position: absolute;
     top: 75px;
     left: 0; 
     width: 100%;

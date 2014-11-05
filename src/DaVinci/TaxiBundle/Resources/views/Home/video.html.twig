@@ -1,0 +1,34 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'video' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# ======= Swicher button ========= #}
+	<div class="shadow-main">
+		<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#video'}">
+			<div class="uk-panel uk-width-1-2">
+				<button class="uk-width-1-1 uk-button"><i class="mp-icon-person"></i>{{ ' Passenger help'|trans }}</button>
+			</div>
+			<div class="uk-panel uk-width-1-2">
+				<button class="uk-width-1-1 uk-button"><i class="mp-icon-taxi"></i>{{' Driver help'|trans}}</button>
+			</div>
+		</div>
+			<div class="message">
+				<span>{{' Внимание!'|trans}}</span> {{' Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}
+			</div>
+			<div class="search">
+				<form class="uk-search" data-uk-search>
+				    <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
+				</form>
+			</div>
+		<ul id="video" class="uk-switcher">
+			<li class="uk-active">
+			    {% include 'DaVinciTaxiBundle:Home:profit_passenger.html.twig' %}
+			</li>
+			<li>
+			    {% include 'DaVinciTaxiBundle:Home:profit_driver.html.twig' %}
+			</li>
+		</ul>
+	</div>
+{% endblock %}
