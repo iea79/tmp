@@ -5619,7 +5619,7 @@ Tab - button-swicher
   margin-top: 4px;
 }
 .button-swicher .uk-panel:first-child {
-		padding-right: 0.3%;
+		padding-right: 0.5%;
 }
 .button-swicher .uk-panel:last-child {
 		padding-left: 0.2%;
@@ -5856,8 +5856,6 @@ Profit
   padding-bottom: 44.25% !important; /* 16:9 */
   padding-top: 25px !important;
   float: none !important;
-  width: 86.5%;
-  margin-left: 8%;
 }
 .videoWrapper iframe {
   position: absolute;
@@ -6218,13 +6216,98 @@ About
 /* ===================
 Help
 =================== */
-.help .uk-grid-small > * {
-		padding-right: 0;
-		padding-left: 0;
+.button-swicher.uk-grid.uk-grid-small {
+	padding-right: 0;
+	padding-left: 0;
+	margin-left: 0;
+}
+.button-swicher.uk-grid.uk-grid-small > * {
+	padding-left: 0;
+}
+.help-content {
+	width: 77%;
+	float: left;
+	margin-right: 2%;
+}
+.help-sidebar {
+	width: 21%;
+	float: left;
+}
+.help-content .uk-nav.demo {
+    width: 32.1% !important;
+    margin-right: 1.8%;
+}
+.help-content .uk-nav.demo:nth-child(3n+4) {
+  margin-right: 0;
+}
+.help-content h3 {
+    font-size: 20px;
+    line-height: 20px;
+    font-weight: 700;
+    margin-bottom: 17px;
+}
+.help-content .support {
+	padding: 1.9% 2.4% 1.6% 2.4%;
+	background: url(../images/supportbg.png) right no-repeat;
+	background-color: #e9f0ef;
+	background-size: 17%;
+	margin-bottom: 13px;
+	display: inline-block;;
+}
+.help-content .support span {
+  font-size: 16px;
+  width: 52.7%;
+  float: left;
+  line-height: 18px;
+  position: relative;;
+
+}
+.help-content .support a.uk-button {
+  min-width: 160px !important;
+  width: 28.3%;
+  font-weight: 700;
+  min-height: 39px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.help-content a.uk-button {
+  height: 39px;
+  margin-bottom: 32px;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 3px;
+	
+}
+.help-content .uk-nav.demo li.link {
+	margin-bottom: 13px;
+}
+.block-help .help-sidebar .uk-nav {
+    border: none;
+    margin-bottom: 31px;
+    width: 100%;
+}
+.block-help .help-sidebar .uk-nav li {
+	border-bottom: none;
+}
+.block-help .help-sidebar .uk-nav li a {
+	border-bottom: none;
+	padding: 10px 0 4px 0;
+	line-height: 17px;
+	margin: 0;
+	width: 100%;
+}
+.block-help .help-sidebar .uk-nav li.head {
+    padding-left: 11% !important;
+    padding-right: 11% !important;
 }
 .main-content .message {
 	padding: 21px 20px 19px 20px;
 	font-size: 16px;
+	background: #fff;
 }
 .main-content .search {
 	background: url(../images/searchbg.png) no-repeat right;
@@ -6265,8 +6348,8 @@ Help
   margin-bottom: 0;
   padding-bottom: 0;
 }
-.help .block-help {
-	padding: 20px 1.8% 20px 2.2%;
+.main-content .block-help {
+	padding: 20px 2% 20px 2%;
 	display: inline-block;
 
 }
@@ -6282,6 +6365,7 @@ Help
   font-size: 16px;
   max-height: 30px;
   display: block;
+  font-weight: 700;
 }
 .block-help .uk-nav .head a {
   color: #fff;
@@ -6293,9 +6377,8 @@ Help
     float: left;
 }
 .block-help .uk-nav.demo {
-  width: 20.8%;
+  width: 33.3%;
   border: 0;
-  margin-left: 0.3% !important;
 }
 .block-help .uk-nav li {
   padding: 0;
@@ -6305,10 +6388,11 @@ Help
   line-height: 16px;
   padding: 10px 2px 8px 18px;
   width: 91%;
+  letter-spacing: 0.0001em;
 }
 .block-help .uk-nav a.uk-button {
   margin: 17px auto 12px auto;
-  width: 89%;
+  width: 100%;
   height: 38px;
   font-size: 14px;
   text-transform: uppercase;
@@ -6316,13 +6400,11 @@ Help
   font-weight: 700;
 }
 .block-help .uk-nav.demo li a {
-  width: 100%;
 }
 .block-help .uk-nav.demo li {
 	border: 0;
 }
 .block-help .uk-nav li:nth-child(n+3) {
-  margin-top: -5px !important;
 }
 .help .videoWrapper {
   width: 100%;
@@ -6363,9 +6445,8 @@ Help
 }
 .block-help .uk-nav.demo li.link a {
   display: table;
-  padding-top: 13px;
+  padding-top: 12px;
   padding-bottom: 6px;
-  width: 90%;
 }
 .help .topic-faq {
   display: inline-block;
@@ -6468,6 +6549,40 @@ input::-webkit-input-placeholder{color:#9b9b9b;}
 [class*="uk-icon-"]{
 	vertical-align: middle;
 }
+@media (max-width: 800px) {
+	.help-content {
+		width: 100% !important;
+		margin-right: 0 !important;
+	}
+	.help-sidebar {
+		width: 100% !important;
+	}
+}
+@media (max-width: 640px) {
+	.help-content .uk-nav.demo {
+		width: 100% !important;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.help-content .support span {
+		width: 70% !important;
+		margin-bottom: 10px;
+	}
+	.help-content .support a.uk-button {
+		width: 70% !important;
+	}
+	.help-content .support {
+		background-position: right bottom;
+		background-size: 23%;
+	}
+}
+/* ===================
+Help video
+=================== */
+.help-content .block-help .uk-nav.demo {
+	width: 33.3%;
+}
+
 /* ===================
 View offices
 =================== */
@@ -6681,3 +6796,5 @@ Spinner
   /*dont display by default*/
   display:none;
 }
+
+
