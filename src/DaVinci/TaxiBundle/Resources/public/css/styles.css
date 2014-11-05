@@ -6589,15 +6589,19 @@ Spinner
     background: #fff;
     color: #000;
     opacity: 0.5;
-    font-size: 70px;
+    font-size: 60px;
     position: absolute;
     top: 75px;
+    bottom: 0;
     left: 0; 
     width: 100%;
-    height: 100%;
+    height: 80%;
     z-index: 10400;
     text-align: center;
     padding-top: 20%;
+}
+.mp-spinner div {
+	position: fixed;
 }
 .mp-spinner.none {
 	display: none;
