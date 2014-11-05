@@ -6,7 +6,7 @@ require(['pages/common'], function ($) {
         function initProfileForm() {
             
             $('.passenger-profile-form').submit(function (e) {
-               
+                togglePreloader(document.body,false);
                 e.preventDefault();
                 var form = $('.passenger-profile-form').ajaxSubmit( function (data) {
                     if (data == 'success')
@@ -16,7 +16,7 @@ require(['pages/common'], function ($) {
                         $('#profile-dialog').html(data);
                         initProfileForm();
                     }
-
+                    togglePreloader(document.body,false);
                 });
                 togglePreloader($('#profile-dialog'));
             });
@@ -40,9 +40,9 @@ require(['pages/common'], function ($) {
         }
         $('#Profile').on({
             'uk.modal.show': function () {
-                togglePreloader(document.body);
+                togglePreloader(document.getElementById('Profile'));
                 $('#profile-dialog').load(office_passenger_profile, function () {
-                    togglePreloader(document.body);
+                    togglePreloader(document.getElementById('Profile'));
                     initProfileForm();
                 });
             },
