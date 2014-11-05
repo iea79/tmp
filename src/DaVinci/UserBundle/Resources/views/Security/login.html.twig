@@ -42,3 +42,10 @@
 </div>
 </div>
 {% endblock fos_user_content %}
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/without_js.js'
+    %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+    {% endjavascripts %}
+{% endblock %}
