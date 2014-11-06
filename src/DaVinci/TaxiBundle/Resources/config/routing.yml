@@ -26,3 +26,6 @@ view_offices:
 video:
     pattern:  /video
     defaults: { _controller: DaVinciTaxiBundle:Home:video }    
+instructions:
+    pattern:  /instructions
+    defaults: { _controller: DaVinciTaxiBundle:Home:instructions }    

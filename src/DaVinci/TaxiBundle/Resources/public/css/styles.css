@@ -5853,9 +5853,8 @@ Profit
 }
 .videoWrapper {
   position: relative;
-  padding-bottom: 44.25% !important; /* 16:9 */
-  padding-top: 25px !important;
-  float: none !important;
+  width: 100%;
+  padding-bottom: 56.25% !important;
 }
 .videoWrapper iframe {
   position: absolute;
@@ -5863,6 +5862,11 @@ Profit
   left: 0;
   width: 100%;
   height: 100%;
+}
+.help-sidebar .videoWrapper {
+  padding-top: 25px !important;
+  margin-top: 20px;
+  padding-bottom: 42.25% !important;
 }
 @media (max-width: 995px) {
 	.profit li .content .left,
@@ -6233,6 +6237,9 @@ Help
 	width: 21%;
 	float: left;
 }
+.help-content .see-all {
+	margin-top: 0px;
+}
 .help-content .uk-nav.demo {
     width: 32.1% !important;
     margin-right: 1.8%;
@@ -6261,7 +6268,6 @@ Help
   float: left;
   line-height: 18px;
   position: relative;;
-
 }
 .help-content .support a.uk-button {
   min-width: 160px !important;
@@ -6274,20 +6280,19 @@ Help
   margin-bottom: 0;
   margin-top: 0;
 }
-.help-content a.uk-button {
+.help-content a.see-all {
   height: 39px;
   margin-bottom: 32px;
   font-size: 16px;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 3px;
-	
 }
 .help-content .uk-nav.demo li.link {
 	margin-bottom: 13px;
 }
 .block-help .help-sidebar .uk-nav {
-    border: none;
+    border: none !important;
     margin-bottom: 31px;
     width: 100%;
 }
@@ -6300,10 +6305,11 @@ Help
 	line-height: 17px;
 	margin: 0;
 	width: 100%;
+	font-size: 14px;
 }
 .block-help .help-sidebar .uk-nav li.head {
-    padding-left: 11% !important;
-    padding-right: 11% !important;
+  padding-left: 11% !important;
+  padding-right: 11% !important;
 }
 .main-content .message {
 	padding: 21px 20px 19px 20px;
@@ -6363,40 +6369,64 @@ Help
 .block-help .uk-nav.top-faq {
 	margin-right: 2%;
 }
+.block-help .uk-nav.only-link {
+	margin-top: -12px;
+	margin-bottom: 8px;
+}
+.block-help .uk-nav.only-link a {
+  font-size: 16px;
+  line-height: 18px !important;
+  margin-bottom: 3px;
+}
+.block-help .uk-nav.top-faq li.head,
+.block-help .uk-nav.guides li.head {
+	padding-top: 18px !important;
+	padding-bottom: 16px !important;
+}
+.block-help .top-faq li a,
+.block-help .guides li a {
+	font-size: 15px;
+	padding: 0;
+	margin-bottom: 1px;
+}
 .block-help .uk-nav li.head {
   background: #528ed3;
-  padding: 10px 1% 12px 1% !important;
   font-size: 16px;
   max-height: 30px;
   display: block;
   font-weight: 700;
+  padding: 8px 5.1% 14px 5.1% !important;
 }
 .block-help .uk-nav .head a {
   color: #fff;
   border: 0;
+  font-size: 16px !important;
 }
 .block-help .uk-nav {
-  display: block;
-    border: 1px solid #d0d0d0;
+    display: block;
+    border: 0;
     float: left;
+}
+.block-help .uk-nav li a {
+  line-height: 16px;
+  width: 89.8%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.help .block-help .uk-nav {
+    border: 1px solid #d0d0d0;
 }
 .help .block-help .uk-nav li {
   padding: 0;
   border-bottom: 1px solid #d0d0d0;
-}
-.block-help .uk-nav li a {
-  line-height: 16px;
   padding: 9px 5.1% 6px 5.1%;
-  width: 89.8%;
-  letter-spacing: 0.0001em;
 }
 .help .guides a.uk-button,
 .help .top-faq a.uk-button {
   margin-top: 13px !important;
-  width: 88.4% !important;
 }
 .block-help .uk-nav a.uk-button {
-  margin: 17px auto 12px;
+  margin: 17px 0 12px;
   width: 100%;
   height: 38px;
   font-size: 14px;
@@ -6404,16 +6434,12 @@ Help
   padding: 12px 2%;
   font-weight: 700;
 }
-.block-help .uk-nav.demo li a {
+.block-help .help-sidebar .uk-nav li {
+	border-bottom: none !important;
+	padding: 0;
 }
 .block-help .uk-nav.demo li {
 	border: 0;
-}
-.help .videoWrapper {
-  width: 100%;
-  margin-left: 0;
-  margin-top: 20px;
-  padding-bottom: 43.25% !important;
 }
 
 .block-help .uk-nav.demo li.link a:before {
@@ -6440,10 +6466,11 @@ Help
   margin-top: -3px !important;
 }
 .block-help .uk-nav.demo li a.uk-button {
-	margin-top: 17px !important;
+	margin-top: 16px !important;
 }
 .block-help .uk-nav li:last-child {
   border-bottom: 0;
+  margin-top: 6px;
 }
 .block-help .uk-nav.demo li.link a {
   display: table;
@@ -6490,8 +6517,9 @@ Help
 .help .whitebg {
   margin-bottom: 37px;
 }
-.block-help .uk-nav li:nth-child(9) {
-  padding-bottom: 3px;
+.block-help .top-faq .uk-nav li:last-child,
+.block-help .guides .uk-nav li:last-child {
+	padding: 0 !important;
 }
 @media (max-width: 912px) {
 	.block-help .uk-nav.top-faq,
@@ -6583,9 +6611,6 @@ input::-webkit-input-placeholder{color:#9b9b9b;}
 		background-size: 23%;
 	}
 }
-/* ===================
-Help video
-=================== */
 .help-content .block-help .uk-nav.demo {
 	width: 33.3%;
 }
@@ -6670,8 +6695,6 @@ View offices
   background: #ff4d61;
   color: #fff;
 }
-
-
 
 /* ===================
 Lists whit icon check
@@ -6803,6 +6826,5 @@ Spinner
   /*dont display by default*/
   display:none;
 }
-
 
 
