@@ -10,7 +10,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\RoutePoint;
-use Doctrine\Common\Collections\ArrayCollection;
+use DaVinci\TaxiBundle\Entity\Tariff;
+use DaVinci\TaxiBundle\Entity\Vehicle;
 
 class HomeController extends Controller {
 	
@@ -23,7 +24,13 @@ class HomeController extends Controller {
     	
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
+    		$flow->saveCurrentStepData($form);
     		
+    		if ($flow->nextStep()) {
+    			$form = $flow->createForm();
+    		} else {
+    			$flow->reset();
+    		}
     	}
     	
     	return $this->render(
@@ -39,24 +46,6 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
     }
     
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-     */
-    private function spawnPassengerRequest() {
-    	$request = new PassengerRequest();
-    	
-    	$actualTime = new \DateTime();
-    	
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->setCreateDate($actualTime);
-    	$request->setPickUp($actualTime);
-    	$request->setReturn($actualTime);    	
-    	    	
-    	return $request;
-    }
-    
-
     public function profitAction()
     {
         return $this->render('DaVinciTaxiBundle:Home:profit.html.twig');
@@ -82,4 +71,23 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:help.html.twig');
     }
 
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    private function spawnPassengerRequest() {
+    	$request = new PassengerRequest();
+    	 
+    	$actualTime = new \DateTime();
+    	 
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->setCreateDate($actualTime);
+    	$request->setPickUp($actualTime);
+    	$request->setReturn($actualTime);
+    	$request->setTariff(new Tariff());
+    	$request->setVehicle(new Vehicle());
+    
+    	return $request;
+    }
+    
 }
