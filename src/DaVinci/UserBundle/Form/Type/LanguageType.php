@@ -16,7 +16,6 @@ class LanguageType extends AbstractType
     }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $propertyPathToCity = 'city';
         
         $builder
             ->add('level', 'choice', array(
@@ -30,6 +29,7 @@ class LanguageType extends AbstractType
                     'options'      =>array(
                     'empty_value' => 'form.please_select'),
                     'allow_add'    => true,
+                    'allow_delete' => true,
                     'translation_domain' => 'FOSUserBundle'
                 ));
 

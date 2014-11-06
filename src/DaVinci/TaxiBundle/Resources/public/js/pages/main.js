@@ -114,6 +114,9 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
             });
 //simbols left in textarea in step 2 homepage
             var text_area_len = 200;
+            
+            //remove preloader
+            togglePreloader(document.body,false);
         });
     });
 

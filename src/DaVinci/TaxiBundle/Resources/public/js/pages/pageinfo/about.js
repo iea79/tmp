@@ -6,14 +6,14 @@ require(["pages/common"], function($){
 	            	parts: {
 	            		0:'passenger',
 	            		1:'driver',
-	            		2:'company',
-	            		3:'end'
+	            		2:'company'
 	            	},
 	            	itemClass: 'menuitem',
 	            	itemHover: 'uk-active'
 	            });
 	        });
 	    });
-        
+        //remove preloader
+        togglePreloader(document.body,false);
     });
 });

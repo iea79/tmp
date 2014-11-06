@@ -48,7 +48,6 @@ class AppKernel extends Kernel
             // MEDIA
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            // new Liip\ImagineBundle\LiipImagineBundle(),
             
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             
@@ -121,6 +120,10 @@ class AppKernel extends Kernel
             new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
             
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
+            //ladybug_dump() ==== var_dump
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            //thumbnail maker
+            new Liip\ImagineBundle\LiipImagineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

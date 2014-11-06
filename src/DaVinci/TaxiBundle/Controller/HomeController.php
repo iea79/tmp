@@ -90,4 +90,14 @@ class HomeController extends Controller {
     	return $request;
     }
     
+    public function view_officesAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:view_offices.html.twig');
+    }
+
+    public function videoAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:video.html.twig');
+    }
+
 }

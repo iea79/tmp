@@ -31,3 +31,7 @@ sonata_user:
 news:
     resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
     prefix: /news
+    
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

@@ -3,4 +3,6 @@ require(["pages/common"], function($){
         e.preventDefault();
         $('#change_email_block').show();
     });
+    //remove preloader
+    togglePreloader(document.body,false);
 });

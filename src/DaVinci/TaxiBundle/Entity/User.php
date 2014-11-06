@@ -18,6 +18,8 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
  */
 class User extends BaseUser
 {
+    private $timeToUpdatePassword = 7889231; //3 months
+    
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -112,13 +114,37 @@ class User extends BaseUser
         
 //        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    
+    //override fosuser function
+    public function setPlainPassword($password)
+    {
+        parent::setPlainPassword($password);
+        
+        $this->setPasswordUpdatedAt();
+    }
+    
+    //override fosuser function
+    public function setPassword($password)
+    {
+        parent::setPassword($password);
+        
+        $this->setPasswordUpdatedAt();
+    }
+    
+    public function isPasswordNotExpired($expTime = false)
+    {
+        if(!$expTime) $expTime = $this->timeToUpdatePassword;
 
-    public function setPasswordUpdatedAt($passwordUpdatedAt)
+        return $this->passwordUpdatedAt instanceof \DateTime &&
+               $this->passwordUpdatedAt->getTimestamp() + $expTime > time();
+    }
+    
+    public function setPasswordUpdatedAt($passwordUpdatedAt = false)
     {        
-        if(!$passwordUpdatedAt){
+        if(!$passwordUpdatedAt)
             $this->passwordUpdatedAt = new \DateTime();
-        }
-        $this->passwordUpdatedAt = $passwordUpdatedAt;
+        else
+            $this->passwordUpdatedAt = $passwordUpdatedAt;
     }
 
     public function getPasswordUpdatedAt()
