@@ -6236,6 +6236,7 @@ Help
 .help-content .uk-nav.demo {
     width: 32.1% !important;
     margin-right: 1.8%;
+    border: none;
 }
 .help-content .uk-nav.demo:nth-child(3n+4) {
   margin-right: 0;
@@ -6355,13 +6356,16 @@ Help
 }
 .block-help .uk-nav.top-faq,
 .block-help .uk-nav.guides {
-  width: 37.4%;
-  margin-right: 1.8%;
+  width: 48.7%;
+  float: left;
   display: inline-block;
 }
-.block-help .uk-nav .head {
+.block-help .uk-nav.top-faq {
+	margin-right: 2%;
+}
+.block-help .uk-nav li.head {
   background: #528ed3;
-  padding: 10px 4px 12px 4px !important;
+  padding: 10px 1% 12px 1% !important;
   font-size: 16px;
   max-height: 30px;
   display: block;
@@ -6376,35 +6380,34 @@ Help
     border: 1px solid #d0d0d0;
     float: left;
 }
-.block-help .uk-nav.demo {
-  width: 33.3%;
-  border: 0;
-}
-.block-help .uk-nav li {
+.help .block-help .uk-nav li {
   padding: 0;
   border-bottom: 1px solid #d0d0d0;
 }
 .block-help .uk-nav li a {
   line-height: 16px;
-  padding: 10px 2px 8px 18px;
-  width: 91%;
+  padding: 9px 5.1% 6px 5.1%;
+  width: 89.8%;
   letter-spacing: 0.0001em;
 }
+.help .guides a.uk-button,
+.help .top-faq a.uk-button {
+  margin-top: 13px !important;
+  width: 88.4% !important;
+}
 .block-help .uk-nav a.uk-button {
-  margin: 17px auto 12px auto;
+  margin: 17px auto 12px;
   width: 100%;
   height: 38px;
   font-size: 14px;
   text-transform: uppercase;
-  padding: 12px 5px;
+  padding: 12px 2%;
   font-weight: 700;
 }
 .block-help .uk-nav.demo li a {
 }
 .block-help .uk-nav.demo li {
 	border: 0;
-}
-.block-help .uk-nav li:nth-child(n+3) {
 }
 .help .videoWrapper {
   width: 100%;
@@ -6423,9 +6426,8 @@ Help
   width: 14px;
   border-radius: 50%;
   margin-right: 7px;
-  margin-left: -16px;
   text-align: center;
-  display: block;
+  display: table-cell;
   float: left;
   margin-bottom: 10px;
   margin-top: 2px;
@@ -6447,6 +6449,11 @@ Help
   display: table;
   padding-top: 12px;
   padding-bottom: 6px;
+}
+.video .block-help .uk-nav.demo li.link a {
+	width: 100% !important;
+	padding-right: 0;
+	padding-left: 0;
 }
 .help .topic-faq {
   display: inline-block;
@@ -6486,22 +6493,22 @@ Help
 .block-help .uk-nav li:nth-child(9) {
   padding-bottom: 3px;
 }
-@media (max-width: 830px) {
+@media (max-width: 912px) {
 	.block-help .uk-nav.top-faq,
 	.block-help .uk-nav.guides {
-		width: 48.7%;
+		width: 48.6%;
 		margin-bottom: 20px;
 	}
-	.block-help .uk-nav.guides {
-	  margin-right: 0%;
+	.help .help-sidebar .uk-nav.demo {
+		width: 100% !important;
 	}
-	.block-help .uk-nav.demo {
-		width: 100%;
-	}
+}
+@media (max-width: 710px) {
 	.help .topic-faq .uk-list,
 	.help .topic-faq .uk-list:last-child {
-	  min-height: 205px;
-	  width: 50%;
+		width: 100% !important;
+		margin-bottom: 10px;
+		min-height: 0 !important;
 	}
 }
 @media (max-width: 681px) {
@@ -6510,17 +6517,17 @@ Help
 	  min-height: 250px;
 	}
 }
-@media (max-width: 540px) {
+@media (max-width: 580px) {
 	.block-help .uk-nav.top-faq,
 	.block-help .uk-nav.guides {
-		width: 99.5%;
+		width: 100%;
 		margin-right: 0;
+		margin-bottom: 20px;
 	}
-	.help .topic-faq .uk-list,
-	.help .topic-faq .uk-list:last-child {
-		width: 100% !important;
-		margin-bottom: 10px;
-		min-height: 0 !important;
+}
+@media (max-width: 420px) {
+	.help form.uk-search {
+		width: 70%;
 	}
 }
 
@@ -6796,5 +6803,6 @@ Spinner
   /*dont display by default*/
   display:none;
 }
+
 
 
