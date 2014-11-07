@@ -6614,7 +6614,30 @@ input::-webkit-input-placeholder{color:#9b9b9b;}
 .help-content .block-help .uk-nav.demo {
 	width: 33.3%;
 }
-
+.one-help {
+	margin-bottom: 10px;
+}
+.one-help h3 {
+	font-size: 18px;
+	margin-top: -3px;
+	color: #3399ff;
+	margin-bottom: 12px;
+}
+.one-help h2 {
+	margin-top: 22px;
+	margin-bottom: 11px;
+}
+.one-help p {
+	margin-top: 0;
+	line-height: 17px;
+	margin-bottom: 23px;
+}
+.one-help img {
+	padding-bottom: 31px;
+}
+.one-help .videoWrapper {
+	padding-bottom: 55.7% !important;
+}
 /* ===================
 View offices
 =================== */

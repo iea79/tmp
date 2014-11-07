@@ -29,3 +29,6 @@ video:
 instructions:
     pattern:  /instructions
     defaults: { _controller: DaVinciTaxiBundle:Home:instructions }    
+one_help:
+    pattern:  /one-help
+    defaults: { _controller: DaVinciTaxiBundle:Home:one_help }    
