@@ -32,3 +32,6 @@ instructions:
 one_help:
     pattern:  /one-help
     defaults: { _controller: DaVinciTaxiBundle:Home:one_help }    
+FAQs:
+    pattern:  /FAQs
+    defaults: { _controller: DaVinciTaxiBundle:Home:FAQs }    
