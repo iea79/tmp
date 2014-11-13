@@ -16,6 +16,7 @@
     {% endblock form_errors %}
 
     {% block title %}
+        {% include 'DaVinciTaxiBundle::banner.html.twig' %}
         <div class="wrapper-content title">
             <span>{{ 'Taxi Company: Business Office'|trans}}</span>
             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{% trans %}Make more money from international passengers{% endtrans %}" data-cached-title="{% trans %}Make more money from international passengers{% endtrans %}"></div>

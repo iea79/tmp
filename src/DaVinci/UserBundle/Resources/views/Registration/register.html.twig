@@ -3,6 +3,7 @@
 {% block theme 'register' %}
 
     {% block title %}
+        {% include 'DaVinciTaxiBundle::banner.html.twig' %}
     {% if flow.getCurrentStepNumber() == 1 %}
         <div class="wrapper-content title">
             <div class="clear"></div>

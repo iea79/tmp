@@ -1737,7 +1737,7 @@ office passengers and driver
 	min-width: 140px;
     width: 16.8%;
 }
-@media (max-width:400px) {
+@media (max-width:450px) {
 	.client-account .client-panel-button .uk-panel {
 		width:100%;
 	}
@@ -2804,6 +2804,7 @@ footer {
 /*============end style dropdown block (driver list) Alla=============*/
 /*================pop-up office===================*/
 /* === Main pop-up style === */
+
 .pop-up .uk-modal-dialog {
 	width: 690px !important;
 }
@@ -2837,6 +2838,11 @@ footer {
     padding: 9px 7px 0 7px;
     font-size: 14px;
     line-height: 17px;
+}
+.pop-up a.uk-form-password-toggle {
+  top: 15px;
+  text-decoration: none;
+	
 }
 .popup-head {
 	width: 100%;
@@ -2900,10 +2906,12 @@ footer {
 	margin-bottom: -2px;
     font-size: 14px !important;
     line-height: 16px !important;
+    display: inline-block;;
 }
 .passenger .pop-up .profile .myid dt,
 .passenger .pop-up .profile .myid dd {
-	margin-bottom: -5px;
+	margin-bottom: -7px;
+	margin-top: 0;
 }
 .pop-up .confirmation .uk-button {
 	line-height: 50px;
@@ -2971,8 +2979,8 @@ footer {
 }
 @media (max-width: 710px) {
 	.profile.form-view {
-		padding-left: 10px !important;
-		width: 100%;
+		padding-left: 7px !important;
+		width: 99.8%;
 	}
 }
 .pop-up .form-view .about-driver {
@@ -3074,6 +3082,22 @@ footer {
 	width: 35%;
 	text-decoration: none;
 }
+@media (max-width: 450px) {
+	.pop-up .form-view .button-skype {
+		width: 99%;
+		margin-left: 0.5%;
+	}
+	.driver-top .y-no button {
+		width: 100% !important;
+	}
+	.open-order-passenger .call-driver,.open-order-passenger .call-driver a {
+		width: 100%;
+	}
+	.client-account .open-order-passenger .active-gray,.client-account .open-order-passenger .driverlist {
+		width: 100%;
+		margin-left: 20px;
+	}
+}
 .pop-up .form-view .button-add,
 .pop-up .block-rate .button-add {
 	line-height: 38px;
@@ -3100,19 +3124,17 @@ footer {
 	margin-bottom: 0;
 	display: block;
 }
-.pop-up dl {
-  display: inline-block;
-}
 .pop-up dt, 
 .pop-up dd {
 	min-height:30px;
+    display: inline-block;
 }
 .pop-up dt {
     color:#8d8f98;
     font-size:16px;
     font-weight:normal;
-    float:left;
     margin-bottom:6px;
+    float:left;
 }
 .pop-up dd {
     color:#3c3d45;
@@ -3416,7 +3438,7 @@ i.quest {
 }
 @media (max-width: 450px) {
 	.pop-up .block-foto {
-		width: 80%;
+		width: 95.1%;
 		margin-bottom: 5px;
 	}
 }
