@@ -5766,11 +5766,14 @@ Profit
 }
 .profit li .content .right .book-ride {
   width: 86%;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   margin: 22px auto;
   margin-left: 8%;
-  min-height: 50px;
+  line-height: 26px;
+  height: 50px;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 .profit li .content .right iframe {
 }
@@ -5785,6 +5788,11 @@ Profit
   left: 0;
   width: 100%;
   height: 100%;
+}
+.profit li .content .videoWrapper {
+	width: 86%;
+	margin-left: 8%;
+	padding-bottom: 50.4% !important;
 }
 .help-sidebar .videoWrapper {
   padding-top: 25px !important;
@@ -5829,7 +5837,7 @@ Profit
   vertical-align: middle;
   margin: 0;
   text-align: left;
-  width: 88.%;
+  width: 88%;
   line-height: 20px;
   font-size: 16px;
   font-weight: 700;;;
@@ -6063,11 +6071,13 @@ About
 .about .company .text ol {
 	margin-top: 7px;
 }
-.about .company .videoWrapper {
-	width: 93.4%;
+.about .company .videoWrapper,
+.about .passenger .videoWrapper {
+	width: 93.5%;
 	margin-left: 6.4%;
 }
-.about .company .book-ride {
+.about .company .book-ride,
+.about .passenger .book-ride {
 	width: 93.4%;
 	margin-left: 6.4%;
 }
@@ -6187,10 +6197,11 @@ Help
 }
 .help-content .support span {
   font-size: 16px;
-  width: 52.7%;
+  width: 50.7%;
   float: left;
   line-height: 18px;
-  position: relative;;
+  position: relative;
+  margin-right: 2%;
 }
 .help-content .support a.uk-button {
   min-width: 160px !important;
