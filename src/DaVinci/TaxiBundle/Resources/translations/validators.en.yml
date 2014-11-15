@@ -1,6 +1,8 @@
 independent:
     experience:
         blank: Please select how many years Drivers Licence
+    about:
+        long: "[-Inf,Inf]The username is too long"
 
 language:
     level:

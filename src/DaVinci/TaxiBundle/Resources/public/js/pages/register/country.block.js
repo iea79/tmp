@@ -34,6 +34,4 @@ require(["jquery"], function ($) {
             }
         });
     });
-    //remove preloader
-    togglePreloader(document.body,false);
 });

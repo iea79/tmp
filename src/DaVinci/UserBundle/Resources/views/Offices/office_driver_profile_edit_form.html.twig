@@ -1,0 +1,567 @@
+<a class="uk-modal-close uk-close"></a>
+{{ form_start(form, {'action': path('office_driver_profile'),'attr': {'class': 'uk-form driver-profile-form'}}) }}
+<div class="popup-head">{{'Begin you profile'|trans}}</div>
+<div class="uk-grid uk-grid-small driver-profile">
+    <div class="block-foto-rate">
+        <div class="uk-grid uk-grid-small">
+            <div class="block-foto">
+                <div class="clientreviews">
+                    <div class="photo">
+                        {% if app.user.photo.path is defined %}
+                            <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" />
+                        {% else %}
+                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                        {% endif %}
+                    </div>
+                    <div class="rate">
+                        <p>{{'Rate this driver'|trans}}</p>
+                        <p>
+                            <a><i class="mp-icon-star uk-text-danger"></i></a>
+                            <a><i class="mp-icon-star uk-text-danger"></i></a>
+                            <a><i class="mp-icon-star uk-text-danger"></i></a>
+                            <a><i class="mp-icon-star uk-text-danger"></i></a>
+                            <a><i class="mp-icon-star uk-text-warning"></i></a>
+                        </p>
+                        <p><i class="mp-icon-person uk-text-warning"></i>217</p>
+                    </div>
+                </div>
+                <div class="">
+                    <a class="uk-button uk-button-success button-add">Write a review</a>
+                </div>
+            </div>
+            <div class="block-rate">
+                <div class="rate-review">
+                    <div class="uk-grid uk-grid-small uk-margin-small">
+                        <div class="uk-width-1-1 uk-margin-small">
+                            <div class="uk-width-1-1 uk-text-primary name">{{ app.user.firstname }} {{ app.user.lastname }}</div>
+                            <div class="uk-width-1-1 rate">
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-warning"></i></a>
+                                / 09.01.2014
+                            </div>
+                            <div class="uk-width-1-1 review">
+                                {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+                            </div>
+                        </div>
+                        <div class="uk-width-1-1 uk-margin-small">
+                            <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+                            <div class="uk-width-1-1 rate">
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                <a><i class="mp-icon-star uk-text-warning"></i></a>
+                                / 09.01.2014
+                            </div>
+                            <div class="uk-width-1-1 review">
+                                {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+                            </div>
+                        </div>
+                        <div class="uk-hidden" id="review">
+                            <div class="uk-width-1-1 uk-margin-small">
+                                <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+                                <div class="uk-width-1-1 rate">
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-warning"></i></a>
+                                    / 09.01.2014
+                                </div>
+                                <div class="uk-width-1-1 review">
+                                    {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+                                </div>
+                            </div>
+                            <div class="uk-width-1-1 uk-margin-small">
+                                <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
+                                <div class="uk-width-1-1 rate">
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
+                                    <a><i class="mp-icon-star uk-text-warning"></i></a>
+                                    / 09.01.2014
+                                </div>
+                                <div class="uk-width-1-1 review">
+                                    {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
+            </div>
+        </div>
+    </div>
+    <div class="profile form-change">
+        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+            <li class="uk-parent">
+                <a class="popup-head uk-button inbox" href="#">{{'Personal information'|trans}}
+                    <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+                </a>
+                <ul class="uk-nav-sub">
+                    <li>
+                        <div class="personal-info">
+                            <dl class="uk-width-1-1 uk-margin-bottom">
+                                <div class="myid">
+                                    <dt>{{ 'My ID:'|trans }}</dt><dd>{{ app.user.id }}</dd><br />
+                                </div>
+                                <dt>{{'First Name:'|trans}}<dd>
+                                    {{ form_widget(form.firstname, {'attr':{'tabindex':'1'} }) }}
+                                    {{ form_errors(form.firstname) }}
+                                </dd></dt><br />
+                                <dt>{{'Last Name:'|trans}}<dd>
+                                    {{ form_widget(form.lastname, {'attr':{'tabindex':'2'} }) }}
+                                    {{ form_errors(form.lastname) }}
+                                </dd></dt><br />
+                                <dt>{{'E-mail:'|trans}}<dd>
+                                    {{ form_widget(form.email, {'attr':{'tabindex':'3'} }) }}
+                                    {{ form_errors(form.email) }}
+                                </dd></dt><br />
+                                <dt>{{'Country:'|trans}}
+                                <dd>
+                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        {{ form_widget(form.address.country,
+                                        {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
+                                                 'tabindex':'4'}}) }}
+                                    </div>
+                                    {{ form_errors(form.address.country) }}
+                                </dd></dt><br />
+                                <dt>{{'City:'|trans}}
+                                <dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        {{ form_widget(form.address.city,
+                                            {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
+                                                     'tabindex':'5'}}) }}
+                                    </div>
+                                    {{ form_errors(form.address.city) }}
+                                </dd></dt><br />
+                                <dt>{{'English:'|trans}}
+                                <dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        {{ form_widget(form.language.level,
+                            {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'6'}}) }}
+                                    </div>
+                                        
+                                {{ form_errors(form.language.level) }}
+                                </dd></dt><br />
+                                <dt>{{'Other language:'|trans}}
+                                <dd class="addlangline">
+                                    <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
+                                    {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}<div class='mp-icon-closed lang-close'></div>">
+                                    <div class="uk-form-controls">
+                                        <div class="uk-width-1-1 style1">
+                                            <div class="style2">
+                                                {% for lang in form.language.languages %}
+                                                    {{ form_widget(lang,
+                                                    {'attr':{'class': 'float_left'}}) }}
+                                                    <div class='mp-icon-closed lang-close'></div>
+                                                    {{ form_errors(lang) }}
+                                                {% endfor %}
+                                                {% do form.language.setRendered() %}
+                                            </div>
+                                            <div class="addotherlanguage button-add-lang uk-button uk-button-primary uk-width-1-1">{{'Add language'|trans}}</div>
+                                        </div>
+                                    </div>
+                                </dd></dt><br />
+                                <dt>{{'Driving Experience:'|trans}}
+                                <dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                         {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'7'}}) }}
+                                    </div>
+                                </dd></dt><br />
+                                <dt>{{'Skype:'|trans}}<dd>{{ form_widget(form.skype, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 'tabindex':'8'}}) }}</dd></dt><br />
+                                <label class="addphoneline uk-form-row">
+                                    <dt class="twolabels uk-width-2-5">
+                                    {{'Mobile:'|trans}}<br>
+                                    <span class="uk-hidden-small">{{'Mark if you have:'|trans}}</span>
+                                    </dt>
+                                    <dd class="uk-form-controls addphoneareas">
+                                        {% for phones in form.phones %}  
+                                            {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
+                                        {% endfor %}     
+                                        <div class="addphone uk-width-1-1">
+                                            <span class="uk-float-left">
+                                                {{'Add mobile'|trans}}
+                                            </span>
+                                        </div>
+                                    </dd>
+                                </label>
+                                        <input hidden id="phone_prototype" value = "{{ form_widget(form.phones.vars.prototype.phone,
+            {'attr':{'class': 'uk-width-1-1 float_left phoneinput',
+                     'tabindex':'9'}})|e }}">
+                                        <input hidden id="internet_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_internet,
+            {'attr':{'tabindex':'10'}})|e }}">
+                                        <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
+            {'attr':{'tabindex':'11'}})|e }}">
+                                        <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">            
+                                            
+                                <dt>{{'Birthday:'|trans}}<dd>
+                                    <div class="birthday">                        
+                                        {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
+                                        {{ form_errors(form.dateOfBirth) }}
+                                    </div>
+                                </dd></dt><br />
+                                <dt>{{'Gender:'|trans}}<dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        {{ form_widget(form.gender, {'attr':{'tabindex':'13'} }) }}
+                                        {{ form_errors(form.gender) }}
+                                    </div>
+                                </dd></dt>
+                                <dt class="example">{{'About me:'|trans}}<br><a href="">{{'example'|trans}}</a>
+                                <dd>
+                                    {% set example = 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans %}
+                                    <script>
+                                        var example = '{{ example }}';
+                                    </script>
+                                    {{ form_widget(form.about, {'attr':{'tabindex':'14'} }) }}
+                                    {{ form_errors(form.about) }}
+                                    <span class="uk-text-small">{{'symbols left'|trans}} <span id="symb-left"></span></span>
+                                </dd></dt>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+            <li class="uk-parent">
+                <a class="popup-head uk-button inbox" href="#">{{'Car information'|trans}}
+                    <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+                </a>
+                <ul class="uk-nav-sub">
+                    <li>
+                        <div class="car-info">
+                            <dl>
+                                <dt>{{'Brand:'|trans}}<dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        <select name="brand" >
+                                            <option value="ac">AC</option>
+                                            <option value="am_general">AM General</option>
+                                            <option value="acura">Acura</option>
+                                            <option value="alfa_romeo">Alfa Romeo</option>
+                                            <option value="alpine">Alpine</option>
+                                            <option value="american_motors">American Motors</option>
+                                            <option value="aston_martin">Aston Martin</option>
+                                            <option value="audi">Audi</option>
+                                            <option value="austin">Austin</option>
+                                            <option value="avanti">Avanti</option>
+                                            <option value="bmw">BMW</option>
+                                            <option value="bentley">Bentley</option>
+                                            <option value="bitter">Bitter</option>
+                                            <option value="bristol">Bristol</option>
+                                            <option value="bugatti">Bugatti</option>
+                                            <option value="buick">Buick</option>
+                                            <option value="cadillac">Cadillac</option>
+                                            <option value="checker">Checker</option>
+                                            <option value="chevrolet">Chevrolet</option>
+                                            <option value="chrysler">Chrysler</option>
+                                            <option value="citroen">Citroen</option>
+                                            <option value="clenet">Clenet</option>
+                                            <option value="daewoo">Daewoo</option>
+                                            <option value="daihatsu">Daihatsu</option>
+                                            <option value="daimler">Daimler</option>
+                                            <option value="datsun">Datsun</option>
+                                            <option value="de_tomaso">De Tomaso</option>
+                                            <option value="delorean">Delorean</option>
+                                            <option value="dodge">Dodge</option>
+                                            <option value="eagle">Eagle</option>
+                                            <option value="excalibur">Excalibur</option>
+                                            <option value="ferrari">Ferrari</option>
+                                            <option value="fiat">Fiat</option>
+                                            <option value="fisker">Fisker</option>
+                                            <option value="ford">Ford</option>
+                                            <option value="freightliner">Freightliner</option>
+                                            <option value="gmc">GMC</option>
+                                            <option value="geo">Geo</option>
+                                            <option value="ginetta">Ginetta</option>
+                                            <option value="hawk">Hawk</option>
+                                            <option value="honda">Honda</option>
+                                            <option value="hummer">Hummer</option>
+                                            <option value="hyundai">Hyundai</option>
+                                            <option value="infiniti">Infiniti</option>
+                                            <option value="isuzu">Isuzu</option>
+                                            <option value="jaguar">Jaguar</option>
+                                            <option value="jeep">Jeep</option>
+                                            <option value="kia">Kia</option>
+                                            <option value="koenigsegg">Koenigsegg</option>
+                                            <option value="lada">Lada</option>
+                                            <option value="laforza">Laforza</option>
+                                            <option value="lamborghini">Lamborghini</option>
+                                            <option value="lancia">Lancia</option>
+                                            <option value="land_rover">Land Rover</option>
+                                            <option value="lexus">Lexus</option>
+                                            <option value="lincoln">Lincoln</option>
+                                            <option value="lotus">Lotus</option>
+                                            <option value="mg">MG</option>
+                                            <option value="maserati">Maserati</option>
+                                            <option value="maybach">Maybach</option>
+                                            <option value="mazda">Mazda</option>
+                                            <option value="mclaren">Mclaren</option>
+                                            <option value="mercedes_benz">Mercedes-Benz</option>
+                                            <option value="mercury">Mercury</option>
+                                            <option value="merkur">Merkur</option>
+                                            <option value="mini">Mini</option>
+                                            <option value="mitsubishi">Mitsubishi</option>
+                                            <option value="morgan">Morgan</option>
+                                            <option value="mosler">Mosler</option>
+                                            <option value="nissan">Nissan</option>
+                                            <option value="oldsmobile">Oldsmobile</option>
+                                            <option value="opel">Opel</option>
+                                            <option value="pagani">Pagani</option>
+                                            <option value="panoz">Panoz</option>
+                                            <option value="panther">Panther</option>
+                                            <option value="peugeot">Peugeot</option>
+                                            <option value="pilgrim">Pilgrim</option>
+                                            <option value="plymouth">Plymouth</option>
+                                            <option value="pontiac">Pontiac</option>
+                                            <option value="porsche">Porsche</option>
+                                            <option value="ram">Ram</option>
+                                            <option value="reliant">Reliant</option>
+                                            <option value="renault">Renault</option>
+                                            <option value="rolls_royce">Rolls-Royce</option>
+                                            <option value="rover">Rover</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="saturn">Saturn</option>
+                                            <option value="scion">Scion</option>
+                                            <option value="seat">Seat</option>
+                                            <option value="skoda">Skoda</option>
+                                            <option value="smart">Smart</option>
+                                            <option value="spyker">Spyker</option>
+                                            <option value="sterling">Sterling</option>
+                                            <option value="stutz">Stutz</option>
+                                            <option value="subaru">Subaru</option>
+                                            <option value="suzuki">Suzuki</option>
+                                            <option value="tvr">TVR</option>
+                                            <option value="talbot">Talbot</option>
+                                            <option value="tata">Tata</option>
+                                            <option value="tesla">Tesla</option>
+                                            <option value="thexclaimnk">Th!nk</option>
+                                            <option value="toyota">Toyota</option>
+                                            <option value="triumph">Triumph</option>
+                                            <option value="vpg">VPG</option>
+                                            <option value="vauxhall">Vauxhall</option>
+                                            <option value="venturi">Venturi</option>
+                                            <option value="volkswagen">Volkswagen</option>
+                                            <option value="volvo">Volvo</option>
+                                            <option value="yugo">Yugo</option>
+                                            <option value="zastava">Zastava</option>
+                                            <option value="zimmer">Zimmer</option>
+                                            <option value="zimmer">{{'Other'|trans}}</option>
+                                        </select>
+                                    </div>
+                                </dd></dt>
+                                <dt>{{'Model:'|trans}}<dd>
+                                    <div class="uk-button uk-form-select select" data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        <select name="model" >
+                                            <option></option>
+                                            <option>{{'Focus'|trans}}</option>
+                                        </select>
+                                    </div>
+                                </dd></dt>
+                                <dt>{{'Year:'|trans}}<dd>
+                                    <div class="uk-button uk-form-select select region" data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        <select name="year" class="" >
+                                            <option></option>
+                                            <option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
+                                            <option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option>
+                                            <option>2000</option><option>2001</option><option>2002</option><option>2003</option><option>2004</option>
+                                            <option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option>
+                                            <option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
+                                        </select>
+                                    </div>
+                                </dd></dt>
+                                <dt>{{'Color:'|trans}}<dd>
+                                    <select data-placeholder="Choose a color..." class="my-select">
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/black.png') }}">{% trans %}Black{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/beige.png') }}">{% trans %}Beige{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/blue.png') }}">{% trans %}Blue{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/brown.png') }}">{% trans %}Brown{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/burgundy.png') }}">{% trans %}Burgundy{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/charcoal.png') }}">{% trans %}Charcoal{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/gold.png') }}">{% trans %}Gold{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/gray.png') }}">{% trans %}Gray{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/green.png') }}">{% trans %}Green{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/off-white.png') }}">{% trans %}Off-white{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/orange.png') }}">{% trans %}Orange{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/pink.png') }}">{% trans %}Pink{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/purple.png') }}">{% trans %}Purple{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/red.png') }}">{% trans %}Red{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/silver.png') }}">{% trans %}Silver{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/tan.png') }}">{% trans %}Tan{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/turquoise.png') }}">{% trans %}Turquoise{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/white.png') }}">{% trans %}White{% endtrans %}</option>
+                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/yellow.png') }}">{% trans %}Yellow{% endtrans %}</option>
+                                    </select>
+                                </dd></dt>
+                                <dt>{{'Number plate:'|trans}}<dd><input type="text" name="plate" value="" ></dd></dt>
+                                <dt>{{'Class:'|trans}}
+                                <dd>
+                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
+                                        <span></span>
+                                        <i class="uk-icon-caret-down"></i>
+                                        <select name="number" class="" >
+                                            <option></option>
+                                            <option>{{'Economy'|trans}}</option>
+                                            <option>{{'Compact'|trans}}</option>
+                                            <option>{{'Midsize'|trans}}</option>
+                                            <option>{{'Standart'|trans}}</option>
+                                            <option>{{'Full Size'|trans}}</option>
+                                            <option>{{'Premium'|trans}}</option>
+                                            <option>{{'Midsize SUV'|trans}}</option>
+                                            <option>{{'Standart Convertible'|trans}}</option>
+                                            <option>{{'Premium Pickup'|trans}}</option>
+                                            <option>{{'Mini Van'|trans}}</option>
+                                            <option>{{'Standart SUV'|trans}}</option>
+                                            <option>{{'Standart Van'|trans}}</option>
+                                            <option>{{'Full Size Pickup'|trans}}</option>
+                                            <option>{{'Full Size SUV'|trans}}</option>
+                                            <option>{{'Standart Pickup'|trans}}</option>
+                                            <option>{{'Full Size Van'|trans}}</option>
+                                            <option>{{'Special Van'|trans}}</option>
+                                            <option>{{'Premium Van'|trans}}</option>
+                                            <option>{{'Luxury'|trans}}</option>
+                                            <option>{{'Premium Special'|trans}}</option>
+                                            <option>{{'Premium SUV'|trans}}</option>
+                                            <option>{{'Special'|trans}}</option>
+                                        </select>
+                                    </div>
+                                </dd></dt>
+                                <dt>{{'Other:'|trans}}
+                                <dd>
+                                    <div class="other">
+                                        <div class="uk-panel">
+                                            <i class="mp-icon-person uk-text-danger"></i>
+                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+                                                <span></span>
+                                                <i class="uk-icon-caret-down"></i>
+                                                <select name="day" class="">
+                                                    <option></option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-panel">
+                                            <i class="mp-icon-bug uk-text-danger"></i>
+                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+                                                <span></span>
+                                                <i class="uk-icon-caret-down"></i>
+                                                <select name="day" class="">
+                                                    <option></option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-panel">
+                                            <i class="mp-icon-door uk-text-danger"></i>
+                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
+                                                <span></span>
+                                                <i class="uk-icon-caret-down"></i>
+                                                <select name="day" class="">
+                                                    <option></option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                    <option>7</option>
+                                                    <option>8</option>
+                                                    <option>9</option>
+                                                    <option>10</option>
+                                                    <option>11</option>
+                                                    <option>12</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </dd></dt>
+                                <dt> Photo: </dt>
+                                <dd>
+                                    <div class="uk-margin-small-bottom uk-margin-small-top">
+                                        <div class="uk-form-file uk-width-1-1 uk-float-left">
+                                            <button class="uk-button uk-button-primary uk-width-1-1 button-add-lang">{{'Add photo'|trans}}</button>
+                                            <input type="file">
+                                        </div>
+                                    </div>
+                                </dd>
+                                <dt class="example">{{'Short description:'|trans}}<br><a href="">{{'example'|trans}}</a></dt>
+                                <dd>
+                                    <textarea rows="4" maxlength="200" class="uk-width-1-1">{{'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans}}</textarea>
+                                    <span class="uk-text-small">{{'symbols left 200'|trans}}</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+            <li class="uk-parent">
+                <a class="popup-head uk-button inbox" href="#">{{'Insurance'|trans}}
+                    <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Getting the right cover is essential{% endtrans %}"></span>
+                </a>
+                <ul class="uk-nav-sub">
+                    <li>
+                        <div class="insurance">
+                            <input type="checkbox" class="uk-float-left uk-margin-small-right">
+                            {{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="uk-margin confirmation">
+            <div class="uk-grid uk-grid-small">
+                <div class="uk-panel uk-width-1-2">
+                    <button class="uk-button uk-button-success uk-width-1-1">{{'Save'|trans}}</button>
+                </div>
+                <div class="uk-panel uk-width-1-2">
+                    <button class="uk-button uk-button-warning uk-width-1-1">{{'Cancel'|trans}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

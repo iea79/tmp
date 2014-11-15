@@ -1,3 +1,10 @@
+DaVinci\TaxiBundle\Entity\Driver:
+    properties:
+        street:
+            - Length:
+                max: 200
+                maxMessage: independent.about.long
+                
 DaVinci\TaxiBundle\Entity\Address:
     properties:
         country:
