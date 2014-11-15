@@ -4,7 +4,7 @@ require(['pages/common'], function ($) {
         function initProfileForm() {
             
             $('.passenger-profile-form').submit(function (e) {
-                togglePreloader(document.body,false);
+                togglePreloader($('#profile-dialog'),false);
                 e.preventDefault();
                 var form = $('.passenger-profile-form').ajaxSubmit( function (data) {
                     if (data == 'success')
@@ -14,7 +14,7 @@ require(['pages/common'], function ($) {
                         $('#profile-dialog').html(data);
                         initProfileForm();
                     }
-                    togglePreloader(document.body,false);
+                    togglePreloader($('#profile-dialog'),false);
                 });
                 togglePreloader($('#profile-dialog'));
             });
