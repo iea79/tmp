@@ -144,6 +144,15 @@
                     {% block breadcrumbs %}
                         <div class="header-bottom">
                             <nav class="header-bottom-in">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <div class="notif-button">
+                                        <i class="mp-icon-message"></i>
+                                        <a href="">
+                                            {{ 'Notification'|trans }}
+                                        </a>
+                                        <b>5</b>
+                                    </div>
+                                {% endif %} 
                                 {{ knp_menu_render('breadcrumb',{'currentAsLink':false} ) }}
                                 <ul class="uk-subnav uk-subnav-pill lang">
                                     <li data-uk-dropdown{#="{mode:'click'}" class=""#}>

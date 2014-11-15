@@ -35,3 +35,6 @@ one_help:
 FAQs:
     pattern:  /FAQs
     defaults: { _controller: DaVinciTaxiBundle:Home:FAQs }    
+notifications:
+    pattern:  /notifications
+    defaults: { _controller: DaVinciTaxiBundle:Home:notifications }    
