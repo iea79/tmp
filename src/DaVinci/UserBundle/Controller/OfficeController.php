@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
 use Symfony\Component\HttpFoundation\Request;
+use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
 
 class OfficeController extends Controller
 {
@@ -64,7 +65,7 @@ class OfficeController extends Controller
         }
         
         
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
                     'form' => $form->createView(),
                     'isPasswordExpired' => $isPassExp
         ));
@@ -85,6 +86,38 @@ class OfficeController extends Controller
         return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig');
     }
 
+        /**
+    * @Route("/office-driver-profile", name="office_driver_profile")
+    * @Security("has_role('ROLE_TAXIDRIVER')")
+    */
+    public function office_driver_profileAciton(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (empty($user))
+            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+        
+        $form =$this->createForm(new OfficeDriverProfileType(), $user->getDriver());
+
+        if ('POST' === $request->getMethod()) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+
+                $usr = $form->getData();
+               
+
+                $this->container->get('fos_user.user_manager')->updateUser($usr);
+                
+                return new \Symfony\Component\HttpFoundation\Response('success',200); ;
+            }
+        }
+        
+        
+        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_driver_profile_edit_form.html.twig', array(
+                    'form' => $form->createView()
+        ));
+    }
+    
     /**
     * @Route("/office-driver", name="office_driver")
     * @Security("has_role('ROLE_TAXIDRIVER')")
