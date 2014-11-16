@@ -38,3 +38,6 @@ FAQs:
 notifications:
     pattern:  /notifications
     defaults: { _controller: DaVinciTaxiBundle:Home:notifications }    
+information:
+    pattern:  /information
+    defaults: { _controller: DaVinciTaxiBundle:Home:information }    

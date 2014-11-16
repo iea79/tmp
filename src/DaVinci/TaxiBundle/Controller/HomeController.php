@@ -112,4 +112,9 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
     }
 
+    public function informationAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Information:information.html.twig');
+    }
+
 }
