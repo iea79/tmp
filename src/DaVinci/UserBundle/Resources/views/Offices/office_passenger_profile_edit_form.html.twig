@@ -27,7 +27,7 @@
         <dl class="uk-width-1-1 uk-margin-bottom">
             {{ form_errors(form) }}
             <div class="myid">
-                <dt>My ID:</dt><dd>{{ app.user.id }} </dd><br />
+                <dt>{{ 'My ID:'|trans }}</dt><dd>{{ app.user.id }} </dd><br />
             </div>
             <dt>{{ 'First Name:'|trans }}</dt>
             <dd>
@@ -59,7 +59,7 @@
                 </div>
             </dd><br />
             <dt>{{ 'Gender:'|trans }}</dt><dd>
-                <div class="uk-button uk-form-select select " data-uk-form-select="">
+                <div class="uk-button uk-form-select select" data-uk-form-select="">
                     <span></span>
                     <i class="uk-icon-caret-down"></i>
                     {{ form_widget(form.gender, {'attr':{'tabindex':'7'} }) }}
@@ -93,7 +93,7 @@
             <!-- Begin Line confirm password  -->
             <dt></dt>
             <dd>
-                <div class="uk-form-controls uk-form-password">{{ form_widget(form.new.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'placeholder':'Repeat new password'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'10' }}) }}
+                <div class="uk-form-controls uk-form-password">{{ form_widget(form.new.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'placeholder':'Repeat new password'|trans, 'class': 'uk-width-1-1 passfield2', 'tabindex':'10' }}) }}
                     <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                     {{ form_errors(form.new.second) }}
                 </div>

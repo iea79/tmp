@@ -99,5 +99,30 @@ class HomeController extends Controller {
     {
         return $this->render('DaVinciTaxiBundle:Home:video.html.twig');
     }
+    
+    public function instructionsAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:instructions.html.twig');
+    }
+
+    public function one_helpAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:one_help.html.twig');
+    }
+
+    public function FAQsAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:FAQs.html.twig');
+    }
+
+    public function notificationsAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
+    }
+
+    public function informationAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Information:information.html.twig');
+    }
 
 }

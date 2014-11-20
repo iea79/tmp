@@ -26,3 +26,18 @@ view_offices:
 video:
     pattern:  /video
     defaults: { _controller: DaVinciTaxiBundle:Home:video }    
+instructions:
+    pattern:  /instructions
+    defaults: { _controller: DaVinciTaxiBundle:Home:instructions }    
+one_help:
+    pattern:  /one-help
+    defaults: { _controller: DaVinciTaxiBundle:Home:one_help }    
+FAQs:
+    pattern:  /FAQs
+    defaults: { _controller: DaVinciTaxiBundle:Home:FAQs }    
+notifications:
+    pattern:  /notifications
+    defaults: { _controller: DaVinciTaxiBundle:Home:notifications }    
+information:
+    pattern:  /information
+    defaults: { _controller: DaVinciTaxiBundle:Home:information }    

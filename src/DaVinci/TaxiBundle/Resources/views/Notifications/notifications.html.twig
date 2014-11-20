@@ -1,0 +1,42 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'notifications' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+<div class="whitebg shadow-main">
+   	<div class="buttom-swicher">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#notifications'}">
+            <li class="uk-active"><a href="#">{{ 'All' |trans }}</a><b>5</b></li>
+            <li><a href="#">{{ 'TMP Order Status' |trans }}</a><b>2</b></li>
+            <li><a href="#">{{ 'TMP All Orders' |trans }}</a><b>2</b></li>
+            <li><a href="#">{{ 'TMP Payments' |trans }}</a></li>
+            <li><a href="#">{{ 'My Wallet' |trans }}</a></li>
+            <li><a href="#">{{ 'Support' |trans }}</a><b>1</b></li>
+        </ul>
+    </div>
+{# ======= About ========= #}
+	<ul id="notifications" class="uk-switcher">
+		<li class="uk-active">
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_all.html.twig' %}
+		</li>
+		<li>
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_order_status.html.twig' %}
+		</li>
+		<li>
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_all_orders.html.twig' %}
+		</li>
+		<li>
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_payments.html.twig' %}
+		</li>
+		<li>
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_wallet.html.twig' %}
+		</li>
+		<li>
+			{% include 'DaVinciTaxiBundle:Notifications:notifications_support.html.twig' %}
+		</li>
+	</ul>
+
+</div>
+
+{% endblock %}

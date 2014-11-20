@@ -1,0 +1,168 @@
+<div class="message"><a class="mp-icon-trash"></a><span>Внимание! </span>Информационная строка</div>
+   	<div class="buttom-swicher support">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#support'}">
+            <li class="uk-active"><a href="#">{{ 'New' |trans }}</a></li>
+            <li><a href="#">{{ 'Open' |trans }}</a></li>
+            <li><a href="#">{{ 'History' |trans }}</a></li>
+        </ul>
+    </div>
+	<ul id="support" class="uk-switcher">
+		<li class="uk-active new">
+			<div class="block-help">
+				<h3>{{ 'New message' |trans }}</h3>
+				<p>{{ 'Please indicate the topic of your question!' |trans }}</p>
+					<dl class="first">
+						<dt>Select the person:</dt>
+						<dd>
+							<div class="uk-form-select" data-uk-form-select>
+							    <span></span>
+							    <i class="uk-icon-caret-down"></i>
+							    <select>
+							        <option value="">passenger</option>
+							        <option value="">driver</option>
+							    </select>
+							</div>
+						</dd>
+						<dt>Select a theme question:</dt>
+						<dd>
+							<div class="uk-form-select" placeholder="не выбрано" data-uk-form-select>
+							    <span></span>
+							    <i class="uk-icon-caret-down"></i>
+							    <select>
+							        <option value="">passenger</option>
+							        <option value="">driver</option>
+							    </select>
+							</div>
+						</dd>
+						<dt>Select refinement question:</dt>
+						<dd>
+							<div class="uk-form-select" placeholder="не выбрано" data-uk-form-select>
+							    <span></span>
+							    <i class="uk-icon-caret-down"></i>
+							    <select>
+							        <option value="">passenger</option>
+							        <option value="">driver</option>
+							    </select>
+							</div>
+						</dd>
+					</dl>
+					<dl class="fullsize">
+						<dt>Subject question:</dt>
+						<dd><input type="text" placeholder="не указано"></dd>
+						<dt>Body:</dt>
+						<dd><textarea name="" id="" cols="30" rows="10"></textarea>
+							<h6>simbols left 200</h6>
+						</dd>
+					</dl>
+					<div class="uk-form-file">
+	                    <button class="uk-button uk-button-primary add-file"><i class="mp-icon-clip"></i>Прикрепить файл</button>
+	                    <input id="form-file" type="file">
+	                </div><br>
+					<a href="" class="uk-button uk-button-success send">Send message</a>
+				</div>
+		</li>
+		<li class="open">
+			<table class="uk-table support">
+				<thead>
+					<tr>
+						<th>Ticket ID</th>
+						<th>Status</th>
+						<th>Subject</th>
+						<th>Date</th>
+					</tr>
+					<tbody>
+						<tr>
+							<td>1125471</td>
+							<td>open</td>
+							<td><a href="#">Мне не удается вывести деньги со своего счета, выдает ошибку №000000</a></td>
+							<td>11 OKT 14</td>
+						</tr>
+						<tr>
+							<td>1125471</td>
+							<td>pending</td>
+							<td><a href="#" data-uk-toggle="{target:'#tiket'}">Мне не удается вывести деньги со своего счета, выдает ошибку №000000</a></td>
+							<td>11 OKT 14</td>
+						</tr>
+						<tr id="tiket" class="uk-hidden notifmessage">
+							<td colspan="6" class="chat">
+								<div class="messagechat">
+									<div class="avatar"><img src="{{ asset('bundles/davincitaxi/images/avatar.png') }}" alt="" width="26px" height="26px"></div>
+										<div class="topchat">
+											<span>(28.10.2014   04:41 PM)</span>
+											<div class="textchat">
+												Добрый день! Пытаюсь вывести деньги методом Banking service, после заполнения всех полей и проверки информации, нажимаю кнопку подтверждения и выдает окошко “Error #000000”. Раньше выводил деньги этим же методом и данной проблемы не было. Пожалуйста напишите в чем проблема.
+											</div>
+											<div class="download">
+												<a href="#" download=""><i class="mp-icon-clip"></i>screen.jpg</a><span>(312476 байт)</span>
+											</div>
+										</div>
+								</div>
+								<div class="messagechat">
+									<div class="avatar mp-icon-good"></div>
+										<div class="topchatsupport">
+											<span>(28.10.2014   04:41 PM)</span>
+											<div class="textchat">
+												Здравствуйте! Ваша проблема связана с блокировкой офиса независимого водителя, так как вы не отреагировали на запрос информации по жалобе пассажира <a href="">заявка №128182812</a>. После того как вы отправите нужную информацию в арбитраж, денежные операции для вас опять станут доступны.
+											</div>
+										</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</thead>
+			</table>
+			<div class="block-help">
+				<dl class="fullsize">
+					<textarea name="" id="" cols="30" rows="10" maxlength="200"></textarea>
+					<h6>simbols left 200</h6>
+				</dl>
+				<div class="uk-form-file">
+	                <button class="uk-button uk-button-primary add-file"><i class="mp-icon-clip"></i>Прикрепить файл</button>
+	                <input id="form-file" type="file">
+	            </div><br>
+				<a href="" class="uk-button uk-button-success send">Send message</a>
+			</div>
+
+		</li>
+		<li class="history">
+			<table class="uk-table support">
+				<thead>
+					<tr>
+						<th><input type="checkbox"></th>
+						<th>Ticket ID</th>
+						<th>Status</th>
+						<th>Subject</th>
+						<th>Date</th>
+					</tr>
+					<tbody>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>1125471</td>
+							<td>closed</td>
+							<td><a href="#">Мне не удается вывести деньги со своего счета, выдает ошибку №000000</a></td>
+							<td>11 OKT 14</td>
+						</tr>
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>1125471</td>
+							<td>closed</td>
+							<td><a href="#">Мне не удается вывести деньги со своего счета, выдает ошибку №000000</a></td>
+							<td>11 OKT 14</td>
+						</tr>
+					</tbody>
+				</thead>
+			</table>
+			<div class="block-help">
+				<dl class="fullsize">
+					<textarea name="" id="" cols="30" rows="10" maxlength="200"></textarea>
+					<h6>осталось 200 символов</h6>
+				</dl>
+				<div class="uk-form-file">
+	                <button class="uk-button uk-button-primary add-file"><i class="mp-icon-clip"></i>Прикрепить файл</button>
+	                <input id="form-file" type="file">
+	            </div><br>
+				<a href="" class="uk-button uk-button-success send">Send message</a>
+			</div>
+		</li>
+	</ul>
+
