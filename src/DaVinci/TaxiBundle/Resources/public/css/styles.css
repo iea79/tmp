@@ -2408,27 +2408,51 @@ footer {
 				text-align:center;
 				line-height:26px !important;
 			}
+			.social li a:hover {
+				color: #fff;
+				opacity: 0.9;
+			}
 			.footer-top .footer-in .social li:nth-child(n+2) {margin-left: 4px;}
 			.social li .facebook {
 				background:#587aca;
 				padding:4px 12px 2px 12px;
 			}
+			.social li .facebook:hover {
+				background:#587aca;
+			}
 			.social li .google {
 				background:#5b5b5b;
 				padding:4px 8px 2px 9px;
+			}
+			.social li .google:hover {
+				background:#5b5b5b;
 			}
 			.social li .linkedin {
 				background:#2967ad;
 				padding:4px 10px 2px 9px;
 			}
+			.social li .linkedin:hover {
+				background:#2967ad;
+			}
 			.social li .youtube {
 				background: transparent;
-				color: #ff4d61;
+				color: #ff4d61 !important;
 				font-size: 31px;
 				margin-left: -9px;
 				margin-top: -1px;
 				margin-bottom: -4px;
 			}
+			.social li .youtube:hover {
+				color: #ff4d61;
+			}
+			.social li .twitter {
+			    background: #5dc8ff;
+	    		padding: 4px 9px 2px 9px;
+     		}
+			.social li .twitter:hover {
+			    background: #5dc8ff;
+     		}
+
 .footer-bottom  {
 	clear:both;
 	width:100%;
@@ -2617,6 +2641,7 @@ footer {
 		padding:6px 5px;
 		
 	 }
+
 	 .footer-top .footer-in .social {
 		
 		margin: 8px 3% 8px 0;
@@ -5593,67 +5618,44 @@ Profit
 	display: table;
 	width: 100%;
 }
-.buttom-swicher .uk-panel button {
-	background-color: #528ed3;
-	border-radius: 0;
-	color: #fff;
-	font-size: 16px;
-	min-height: 35px;
-	border-top: 1px #528ed3 solid;
-	padding: 0 1%;
-	display: table-cell;
-	vertical-align: middle;
-	line-height: 18px;
-	height: 100%;
-}
-@media (max-width: 520px) {
-	.buttom-swicher .uk-panel button {
-		font-size: 14px;
-	}
-}
-.buttom-swicher .uk-panel.uk-active button {
-	background-color: #fff;
-	color: #528ed3;
-	height: 100%;
-}
 .profit .wh {
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-.profit-passenger .buttom-swicher .uk-panel:first-child {
-	  width: 11%;
+.profit-passenger .buttom-swicher li:first-child {
+	  width: 13.1%;
 }
-.profit-passenger .buttom-swicher .uk-panel:nth-child(2) {
-  width: 18.5%;
+.profit-passenger .buttom-swicher li:nth-child(2) {
+  width: 20.5%;
 
 }
-.profit-passenger .buttom-swicher .uk-panel:nth-child(3) {
-  width: 20.3%;
+.profit-passenger .buttom-swicher li:nth-child(3) {
+  width: 21%;
 
 }
-.profit-passenger .buttom-swicher .uk-panel:nth-child(4) {
-  width: 20.9%;
+.profit-passenger .buttom-swicher li:nth-child(4) {
+  width: 21.9%;
 
 }
-.profit-passenger .buttom-swicher .uk-panel:last-child {
-  width: 26.6%;
+.profit-passenger .buttom-swicher li:last-child {
+  width: 22.6%;
 }
 
 
-.profit-driver .buttom-swicher .uk-panel:first-child {
+.profit-driver .buttom-swicher li:first-child {
   width: 14%;
 }
-.profit-driver .buttom-swicher .uk-panel:nth-child(2) {
+.profit-driver .buttom-swicher li:nth-child(2) {
   width: 15.7%;
 }
-.profit-driver .buttom-swicher .uk-panel:nth-child(3) {
-  width: 14.6%;
+.profit-driver .buttom-swicher li:nth-child(3) {
+  width: 17%;
 }
-.profit-driver .buttom-swicher .uk-panel:nth-child(4) {
-  width: 26.4%;
+.profit-driver .buttom-swicher li:nth-child(4) {
+  width: 29.4%;
 }
-.profit-driver .buttom-swicher .uk-panel:last-child {
-  width: 29.3%;
+.profit-driver .buttom-swicher li:last-child {
+  width: 29.6%;
 }
 .profit li .content div {
   float: left;
@@ -5860,15 +5862,15 @@ About
 	width: 100%;
 	text-align: left;
 	max-width: 1000px;
-	display: inline-block;
 	min-height: 35px;
 }
 .buttom-swicher li{
     list-style: none;
     color: #fff;
-    text-align: center;
-    display: inline-table;
-    padding: 7px 3px;
+    text-align: center;
+
+    padding: 7px 10px;
+    display: table-cell;
 }
 .buttom-swicher li b {
   background: #ff4d61;
@@ -5887,7 +5889,7 @@ About
 }
 @media (max-width: 840px) {
 	.buttom-swicher li {
-		width: auto !important;
+  width: auto !important;
 	}
 }
 .buttom-swicher li.uk-active {
@@ -5912,6 +5914,17 @@ About
     top: 0;
     left: 0;
     width: 100%;
+}
+.about .buttom-swicher li:first-child {
+  width: 160px;
+
+}
+.about .buttom-swicher li:nth-child(2) {
+  width: 190px;
+	
+}
+.about .buttom-swicher li:nth-child(3) {
+	
 }
 .about .empty {
 	padding-top: 30px;
@@ -6241,6 +6254,7 @@ Help
     border: none !important;
     margin-bottom: 31px;
     width: 100%;
+    display: inline-block;
 }
 .block-help .help-sidebar .uk-nav li {
 	border-bottom: none;
@@ -6916,42 +6930,36 @@ Notifications
 	text-align: left !important;
 	padding-left: 1.2%;
 }
-.notifications tr.notifmessage {
-}
-.notifications .notifmessage td {
-	color: #84858a;
-	line-height: 18px;
-	padding: 16px 2%;
-}
-.notifications .new dl {
+.notifications .new dl,.information .new dl {
 	display: inline-block;
 	width: 50%;
 }
-.notifications .new h3 {
+.notifications .new h3,.information .new h3 {
 	font-size: 20px;
 	margin-bottom: 10px !important;
 	font-weight: 700;
 }
-.notifications .new p {
+.notifications .new p,.information .new p {
   margin-top: 0;
   font-size: 16px;
   margin-bottom: 11px;
-	
 }
-.notifications .new dt,.notifications .new dd {
+.notifications .new dt,.information .new dt {
 	font-weight: normal;
 	font-size: 16px;
 	float: left;
 	margin-bottom: 12px;
-}
-.notifications .new dt {
 	width: 43%;
 	padding-top: 4px;
 }
-.notifications .new dd {
+.notifications .new dd,.information .new dd {
 	width: 57%;
+	display: inline-block;
+	margin-top: -2px;
+	margin-bottom: 14px;
 }
-.notifications .new .uk-form-select,.notifications .new select,.notifications .new input,.notifications .new textarea {
+.notifications .new .uk-form-select,.notifications .new select,.notifications .new input,.notifications .new textarea,
+.information .new .uk-form-select,.information .new select,.information .new input,.information .new textarea {
 	background-color:#fff;
 	border: 1px solid #8e9099;
 	border-radius: 3px;
@@ -6960,83 +6968,85 @@ Notifications
 	height: 29px;
 	width: 100%;
 }
-.notifications .uk-form-select .uk-icon-caret-down {
+.notifications .uk-form-select .uk-icon-caret-down,.information .uk-form-select .uk-icon-caret-down {
 	float: right;
 	margin-top: 3px;
 }
-.notifications form {
+.notifications form,.information form {
 	width: 100% !important;
 	margin-bottom: 58px;
 }
-.notifications .new dl.first {
-	width: 50%;
-	margin-bottom: -4px;
+.notifications .new dl.first,.information .new dl.first {
+  width: 50%;
+  margin-bottom: 0;
 }
-.notifications .new dl.fullsize,.notifications .new dl.fullsize dt,.notifications .new dl.fullsize dd {
+.notifications .new dl.fullsize,.notifications .new dl.fullsize dt,.notifications .new dl.fullsize dd,
+.information .new dl.fullsize,.information .new dl.fullsize dt,.information .new dl.fullsize dd {
 	width: 100% !important;
 	margin-top: 0;
 }
-.notifications .new dl.fullsize {
-	margin-bottom: -10px;
+.notifications .new dl.fullsize,.information .new dl.fullsize {
+	display: inline-block;
+	margin-bottom: -8px;
 }
-.notifications .fullsize dt {
+.notifications .fullsize dt,.information .fullsize dt {
 	margin-bottom: 5px;
 }
-.notifications .fullsize dd {
-	margin-bottom: 12px;
+.notifications .fullsize dd,.information .fullsize dd {
+	margin-bottom: 13px;
 }
-.notifications .fullsize h6 {
+.notifications .fullsize h6,.information .fullsize h6 {
 	margin-top: 0;
 	color: #84858a;
-	margin-bottom: 0;
+	margin-bottom: 3px;
 }
-.notifications .fullsize textarea {
+.notifications .fullsize textarea,.information .fullsize textarea {
 	height: 88px !important;
 	margin-bottom: 7px;
 	width: 100%;
 }
-.notifications .uk-form-file {
-  width: 27%;;
+.notifications .uk-form-file,.information .uk-form-file {
+  width: 27%;
 
 }
-.notifications .add-file i {
+.notifications .add-file i,.information .add-file i {
 	margin-right: 4%;
 }
-.notifications .send {
+.notifications .send,.information .send {
   width: 27%;
   height: 51px;
   font-size: 24px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 24px;
 }
-.notifications .add-file {
+.notifications .add-file,.information .add-file {
   width: 100%;
   font-size: 16px;
   line-height: 18px;
   min-height: 28px;
+  margin-bottom: 23px;
 }
 @media (max-width: 960px) {
-	.notifications .new dl.first {
+	.notifications .new dl.first,.information .new dl.first {
 		width: 70%;
 	}
-	.notifications .uk-form-file,.notifications .send {
+	.notifications .uk-form-file,.notifications .send,.information .uk-form-file,.information .send {
 		width: 50%;
 	}
 }
 @media (max-width: 680px) {
-	.notifications .new dl.first {
+	.notifications .new dl.first,.information .new dl.first {
 		width: 100%;
 	}
 }
 @media (max-width: 490px) {
-	.notifications .new .first dt,.notifications .new .first dd {
+	.notifications .new .first dt,.notifications .new .first dd,.information .new .first dt,.information .new .first dd {
 		width: 100%;
 	}
-	.notifications .new .first dt {
+	.notifications .new .first dt,.information .new .first dt {
 		margin-bottom: 5px;
 	}
-	.notifications .uk-form-file,.notifications .send {
+	.notifications .uk-form-file,.notifications .send,.information .uk-form-file,.information .send {
 		width: 100%;
 	}
 }
@@ -7068,30 +7078,34 @@ Notifications
 .notifications .history th:last-child {
   width: auto !important;
 }
- {
-	width: auto !importan.notifications .history tdt;
+.notifications .history td {;
 	text-align: center !important;
 }
-.notifications .topchat,.notifications .topchatsupport {
+.notifications .notifmessage td {
+	color: #84858a;
+	line-height: 18px;
+	padding: 16px 2%;
+}
+.topchat,.topchatsupport {
 	display: inline-block;
 	width: 91%;
 	padding: 0 1% 0.8%;
 	margin-top: 2px;
 }
-.notifications .topchatsupport {
+.topchatsupport {
 	background: #fbeff1;
 }
-.notifications .textchat a {
+.textchat a {
 	padding-top: 0;
 }
-.notifications .topchat a {
+.topchat a {
   font-size: 12px;
   float: left;
   padding-top: 4px;
   display: inline-block;
   margin-right: 5px;
 }
-.notifications .topchat a i {
+.topchat a i {
 	margin-right: 8px;
 	font-size: 16px;
 	margin-top: 2px;
@@ -7100,8 +7114,7 @@ Notifications
 	float: left;
 	color: #84858a;
 }
-.notifications .chat span {
-
+.chat span {
 	font-size: 12px;
 	border-bottom: 1px #ddd solid;
 	display: block;
@@ -7109,21 +7122,46 @@ Notifications
 	width: 100%;
 	margin-bottom: 6px;
 }
-.notifications .chat .textchat {
+.chat a.name {
+  color: #528ed3 !important;
+  line-height: 16px !important;
+  font-size: 16px;
+  margin-left: -1px;
+  margin: -2px 2px 0 -1px;
+}
+.chat .textchat {
   color: #3c3d45;
   line-height: 17px;
 }
-.notifications .textchat .download {
+.textchat .download {
 	display: inline-block;
 	width: 100%;
 }
-.notifications .chat .download span {
+.chat .download span {
   padding-top: 4px;
   color: #3c3d45;
   border-bottom: 0;
 }
-.notifications .chat .messagechat {
+.chat .messagechat {
 	margin-bottom: -6px;
+}
+.chat .avatar {
+  height: 26px;
+  display: block;
+  min-width: 26px !important;
+  background: #ff4d61;
+  margin-right: 0.9%;
+  text-align: center;
+  font-size: 20px;
+  line-height: 23px;
+  color: #fff;
+  width: 26px;
+  float: left;
+  margin-top: 3px;
+}
+.chat .avatar:before {
+	display: block;
+	margin-top: 1px;
 }
 
 /* ===================
@@ -7180,27 +7218,375 @@ Notifications button in main menu
 .notifications .support .history th:last-child {
   width: auto !important;
 }
+.main-content .button-swicher .uk-active button {
+	background-image: none !important; 
+}
+.main-content .social .buttom-swicher li {
+	padding-top: 3px;
+	padding-bottom: 5px;
+	display: table-cell;
+}
+.main-content .social .buttom-swicher li:first-child {
+	width: 55px;;
+}
+.main-content .social .buttom-swicher li:nth-child(n+2) {
+  padding: 5px 0 5px;
+  width: 65px;
+}
+.main-content .social .facebook,.main-content .social .twitter,.main-content .social .google,.main-content .social .youtube,.main-content .social .facebook {
+  width: 24px;
+  font-size: 12px;
+  line-height: 24px !important;
+  margin: 0 auto;
+  padding: 0;
+  color: #fff !important;
+}
+.main-content .social .google {
+	font-size: 10px;
+	background: #ec6851 !important;
+	padding-top: 1px;
+}
+.main-content .social .youtube {
+	background: #eb2e1d !important;
+}
+.main-content .social .youtube i {
+	background: #fff;
+	border-radius: 50%;
+    padding: 0px 6px;
+    font-size: 16px;
+    margin-top: -1px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.main-content .social .youtube i:before {
+	content: "\f0da";
+	font-family: FontAwesome;
+	margin-right: -1px;
 
-.footer-top .footer-in .social li .twitter {
-  background: #5dc8ff;
-  padding: 4px 9px 2px 9px;
+	line-height: 15px;
+	color: #ff4d61;
 }
 
-.chat .avatar {
-  height: 26px;
-  display: block;
-  min-width: 26px !important;
-  background: #ff4d61;
-  margin-right: 0.9%;
-  text-align: center;
-  font-size: 20px;
-  line-height: 23px;
-  color: #fff;
-  width: 26px;
-  float: left;
-  margin-top: 3px;
+/* ===================
+Social page
+=================== */
+
+.social .soc-block {
+    width: 48.9%;
+    margin-top: 13px;
+    margin-bottom: 7px;
 }
-.chat .avatar:before {
+.social .soc-block .text {
+    position: absolute;
+    bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+    padding: 4%;
+}
+.social .soc-block .text a {
+    float: left;
+    margin-right: 2.3%;
+}
+
+.social .soc-block .text h3 {
+    width: 90%;
+    display: inline-block;
+    margin-top: 1px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.social .soc-block .text p {
+    margin: 7px 0 14px 0;
+    font-size: 16px;
+}
+
+.social .soc-block .text .uk-button {
+    width: 59%;
+    min-height: 39px;
+    color: #fff !important;
+    font-size: 18px;
+    min-width: 220px;
+}
+.facebook-block h3 {
+    color: #587aca;
+}
+.twitter-block h3 {
+    color: #5dc8ff;
+}
+.google-block h3 {
+    color: #ec6851;
+}
+.youtube-block h3 {
+    color: #eb2e1d;
+}
+
+.facebook-block button {
+    background: #587aca !important;
+}
+
+.twitter-block button {
+    background: #5dc8ff !important;
+}
+
+.google-block button {
+    background: #ec6851 !important;
+}
+
+.youtube-block button {
+    background: #eb2e1d !important;
+}
+.social .soc-block .text .uk-button:hover {
+	opacity: 0.9;
+}
+
+
+@media (max-width: 850px) {
+	.information .social .buttom-swicher li {
+		width: 10% !important;
+	}
+	.social .soc-block {
+		width: 100%;
+	}
+	.social .soc-block img {
+		width: 99%;
+	}
+	.social .soc-block .text .uk-button {
+		width: 99%;
+	}
+}
+
+
+.soc-top {
+	background: url(../images/soc-top.png) no-repeat center center;
+	background-size: 100%;
+    background-color: rgba(88, 122, 202, 0.85);
+    color: #fff !important;
+    overflow: hidden;
+    height: 149px;
+    padding-top: 23px;
+    margin: 11px 0 38px;;
+}
+
+.soc-top div {
+    display: inline-block;
+}
+
+.soc-top .logo {
+    background: #ff4d61;
+    border: 4px #fff solid;
+    margin: 0 13px -10px;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+    display: inline-table;
+    height: 160px;
+    width: 162px;
+    text-align: center;
+    vertical-align: middle;
+    z-index: 80;
+    position: absolute;;
+}
+
+.soc-top .logo img {
+    width: 109px;
+    margin-top: 35%;
+    margin-left: -10px;
+}
+.soc-top div {
+    float: left;
+}
+.soc-top div.text {
+    width: auto;
+    padding-right: 2%;
+}
+
+.soc-top div.uk-icon-facebook-square,.soc-top div.uk-icon-twitter-square,
+.soc-top div.uk-icon-google-plus-square,.soc-top div.uk-icon-youtube-square {
+    font-size: 152px;
+    margin-top: -10px;
+    float: right;
+    margin-right: 2%;
+}
+.soc-top .text p {
+    font-size: 16px;
+    margin-bottom: 13px;
+}
+
+.soc-top .text select {
+    height: 31px;
+    width: 85.7%;
+    color: #3c3d45;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.soc-top .text h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 16px 0 5px;
+}
+
+.soc-top .text h5 {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 0;
+}
+.soc-top div.logo-inner {
+    display: block;
+    width: 193px;
+    height: 162px;
+}
+
+.information .textchat {
+    line-height: 16px;
+    margin-bottom: 22px;
+    width: 105%;
+}
+.information .chat span {
+    width: 105%;
+}
+.uk-button.more {
+    width: 100%;
+    font-weight: 700;
+    height: 39px;
+    margin-top: 4px;
+    color: #8d8f98;
+}
+.uk-button.more span {
+    font-weight: normal;
+}
+@media (max-width: 820px) {
+	
+}
+
+/* ===================
+Reviews page
+=================== */
+
+.reviews .buttom-swicher li:first-child {
+  width: 71px;
+}
+.reviews .buttom-swicher li:nth-child(2) {
+  width: 154px;
+}
+.reviews .buttom-swicher li:nth-child(3) {
+  width: 95px;
+}
+.reviews .buttom-swicher li:nth-child(4) {
+  width: 152px;
+}
+.reviews .stories .first,.reviews .stories .second {
+	height: 372px;
+	background-size: 100%;
 	display: block;
-	margin-top: 1px;
+}
+.stories {
+	margin-bottom: -4px;
+}
+.reviews .stories .first {
+	background: url(../images/rev-firstbg.jpg) no-repeat center center;
+}
+.reviews .stories .second {
+	background: url(../images/rev-secondbg.jpg) no-repeat center center;
+}
+.any-rev {
+	display: inline-block;
+
+}
+.any-rev .photo {
+	display: block;;
+	width: 89px;
+	padding-right: 10px;
+	float: left;;;
+}
+.any-rev h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 18px;
+    margin-bottom: 12px;
+}
+.any-rev p {
+   line-height: 18px;
+}
+.any-rev h3,.any-rev p {
+    margin-top: 0;
+    display: inline-block;
+    width: 82%;
+}
+.first .any-rev {
+	width: 65%;
+	padding-right: 2%;
+	float: right;
+	margin-top: 136px;
+}
+.second .any-rev {
+	width: 81%;
+	margin-top: 102px;
+	margin-left: 2%;
+}
+.reviews .topchat,.reviews .topchatsupport {
+}
+.reviews .new {
+	margin-top: 22px;
+}
+
+/* ===================
+Blog page
+=================== */
+
+.blog h6 {
+    background: #3399ff;  color: #ffffff;
+    margin: 0;
+    padding: 2% 8% 3.4%;
+    font-size: 14px;
+}
+
+.blog .tarif {
+    margin: 11px 0 22px 0;
+}
+
+.blog .wide h5 {
+    margin: 0 0 6px 2.3%;
+    font-size: 12px;
+    color: #8d8f98;
+}
+
+.help-sidebar .uk-search {
+    margin-top: 11px;
+    margin-bottom: 20px !important;
+}
+
+.blog .wide p {
+    margin: 0 0 5px 2.3%;
+    line-height: 17px;
+}
+
+.blog .wide a {
+    font-size: 16px;
+    line-height: 17px;
+    margin: -2px 0 0 2.3%;
+    display: block;
+}
+
+.blog .uk-grid.uk-grid-small.top > * {
+    padding-left: 11px;
+}
+
+.blog .wide {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+.blog .buttom-swicher li:first-child {
+  width: 103px;
+}
+.blog .buttom-swicher li:nth-child(2) {
+  width: 67px;
+}
+.blog .buttom-swicher li:nth-child(3) {
+  width: 79px;
+}
+.blog .buttom-swicher li:nth-child(4) {
+  width: 77px;
 }
