@@ -147,7 +147,7 @@
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     <div class="notif-button">
                                         <i class="mp-icon-message"></i>
-                                        <a href="">
+                                        <a href="{{ url('notification') }}">
                                             {{ 'Notification'|trans }}
                                         </a>
                                         <b>5</b>

@@ -5080,7 +5080,7 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
-.register .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 @media (max-width: 767px) {
 	.register .wrap-content {background-image: none;}
     .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
@@ -5774,6 +5774,10 @@ Profit
   padding-left: 1%;
   padding-right: 1%;
 }
+.profit li .profit-driver .content .right .book-ride {
+    font-size: 20px;
+}
+
 .profit li .content .right iframe {
 }
 .videoWrapper {
@@ -6477,9 +6481,6 @@ Help
 .help .topic-faq .uk-list:last-child {
   width: 23.5%;
 }
-.help .whitebg {
-  margin-bottom: 37px;
-}
 .block-help .top-faq .uk-nav li:last-child,
 .block-help .guides .uk-nav li:last-child {
 	padding: 0 !important;
@@ -6869,25 +6870,25 @@ Notifications
 	width: auto;
 }
 .notifications .buttom-swicher li:first-child {
-    width: 7.4%;
+    width: 53px;
 }
 .notifications .buttom-swicher li:nth-child(2) {
-    width: 15%;
+    width: 150px;
 }
 .notifications .buttom-swicher li:nth-child(3) {
-    width: 15%;
+    width: 133px;
 }
 .notifications .buttom-swicher li:nth-child(4) {
-    width: 13%;
+    width: 115px;
 }
 .notifications .buttom-swicher li:nth-child(5) {
-    width: 11%;
+    width: 110px;
 }
 .notifications .buttom-swicher li:last-child {
-	width: 10%;
+	width: 85px;
 }
 .notifications .buttom-swicher.support li {
-	width: 7.2%;
+	width: 50px;
 }
 .notifications table {
 	font-size: 16px;
@@ -6923,10 +6924,14 @@ Notifications
 	border-bottom: #d0d0d0 1px solid;
 	padding: 10px 5px 9px 5px;
 }
+.notifications .notifmessage td {
+	border-bottom: none;
+}
+
 .notifications td:nth-child(5),.notifications td:nth-child(6),.notifications tr.notifmessage {
 	font-size: 14px;
 }
-.notifications td:nth-child(4),.notifications td:nth-child(5),.notifications tr.notifmessage {
+.notifications td:nth-child(5),.notifications tr.notifmessage {
 	text-align: left !important;
 	padding-left: 1.2%;
 }
@@ -7078,19 +7083,19 @@ Notifications
 .notifications .history th:last-child {
   width: auto !important;
 }
-.notifications .history td {;
+.notifications .history td:last-child {;
 	text-align: center !important;
 }
 .notifications .notifmessage td {
 	color: #84858a;
 	line-height: 18px;
-	padding: 16px 2%;
+	padding: 16px 2% 23px;
 }
 .topchat,.topchatsupport {
 	display: inline-block;
-	width: 91%;
-	padding: 0 1% 0.8%;
-	margin-top: 2px;
+	width: 94%;
+	padding: 3px 1% 1.3%;
+	margin-bottom: -5px;
 }
 .topchatsupport {
 	background: #fbeff1;
@@ -7143,7 +7148,7 @@ Notifications
   border-bottom: 0;
 }
 .chat .messagechat {
-	margin-bottom: -6px;
+	margin-bottom: -7px;
 }
 .chat .avatar {
   height: 26px;
@@ -7152,7 +7157,7 @@ Notifications
   background: #ff4d61;
   margin-right: 0.9%;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 23px;
   color: #fff;
   width: 26px;
