@@ -1,115 +1,98 @@
 	<div class="wrap-left">
 		 <div class="order-details-over">
-			
 			<h1>Tariff <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></h1>
-			
 			<div class="order-details padding-top">
-				<p class="note"><span>Note!</span> increase interest in his warrant</p>
-					<div class="pers-data">
-						<div class="tarif-line">
-							<div class="tarif-line-group first">
-								<label class="tarif-line-adapt-wrap">
-									<span class="uk-form-controls">Price&nbsp;</span>
-									<input type="checkbox" />
-								</label>		
-								<span class="recommend"> Market $100.00</span>
-							</div>
-							<div class="tarif-line-group second">
-								<label class="tarif-line-adapt-wrap">
-									<input type="checkbox" /> <span class="uk-form-controls">Your</span>
-								</label>
-								<span class="overinput"><span class="dollar">$</span><input type="text" placeholder="0.00"/></span>
-							</div>
-							<div class="tarif-line-group third">
-								<label class="tarif-line-adapt-wrap">
-									<span class="uk-form-controls">Payment:</span>
-								</label>
-								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
-									<span>escrow</span>
-									<i class="uk-icon-caret-down"></i>
-										<select>
-											<option value="1">escrow</option>
-											<option value="2">cash</option>
-										</select>
-								</div>
-							</div>
+				<p class="note">
+					<span>Note!</span> Increase interest in his warrant
+				</p>
+				<div class="pers-data">
+					<div class="tarif-line">
+						<div class="tarif-line-group first">
+							<label for="passenger_info_tariff_market_price" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">Price&nbsp;</span>
+								<input id="passenger_info[tariff][market_price]" name="passenger_info[tariff][market_price]" type="checkbox" />
+							</label>		
+							<span class="recommend"> Market $100.00</span>
 						</div>
-						<div class="tarif-line">
-							<div class="tarif-line-group first">
-								<label class="tarif-line-adapt-wrap">
-									<span class="uk-form-controls">Tips &nbsp;</span>
-									<input type="checkbox" /> 
-								</label>
-								<span class="recommend">Market $10.00</span>
-							</div>
-							<div class="tarif-line-group second">
-								<label class="tarif-line-adapt-wrap">
-									<input type="checkbox" /> <span class="uk-form-controls">Your</span>
-								</label>
-								<span class="overinput"><span class="dollar">$</span><input type="text" placeholder="0.00"/></span>
-								
-							</div>
-							<div class="tarif-line-group third">
-								<label class="tarif-line-adapt-wrap">
-									<span class="uk-form-controls">Payment:</span>
-								</label>
-								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
-									<span>escrow</span>
-									<i class="uk-icon-caret-down"></i>
-										<select>
-											<option value="1">escrow</option>
-											<option value="2">cash</option>
-										</select>
-								</div>
-							</div>
+						<div class="tarif-line-group second">
+							<label class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">Your</span>
+							</label>
+							<span class="overinput">
+								<span class="dollar">$</span>
+								<input id="passenger_info[tariff][your_price]" name="passenger_info[tariff][your_price]" type="text" placeholder="0.00"/>
+							</span>
 						</div>
-						
-							
-						
-						
 					</div>
-					
-					
+					<div class="tarif-line">
+						<div class="tarif-line-group first">
+							<label for="passenger_info_tariff_market_tips" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">Tips &nbsp;</span>
+								<input id="passenger_info[tariff][market_tips]" name="passenger_info[tariff][market_tips]" type="checkbox" /> 
+							</label>
+							<span class="recommend">Market $10.00</span>
+						</div>
+						<div class="tarif-line-group second">
+							<label class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">Your</span>
+							</label>
+							<span class="overinput">
+								<span class="dollar">$</span>
+								<input id="passenger_info[tariff][your_tips]" name="passenger_info[tariff][your_tips]" type="text" placeholder="0.00" />
+							</span>
+						</div>
+					</div>
+					<div class="tarif-line-group third">
+						<label for="passenger_info_tariff_payment_method" class="tarif-line-adapt-wrap">
+							<span class="uk-form-controls">Payment:</span>
+						</label>
+						<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
+							<i class="uk-icon-caret-down"></i>
+							{{ form_widget(form.tariff.payment_method) }}
+						</div>
+					</div>						
+				</div>
 			</div>
 		</div>
-		 <div class="order-details-over">
+		<div class="order-details-over">
 			<h1 class="pass-info">Passenger info <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></h1>
-			
 			<div class="order-details">
 				<p class="quantity-header">Quantity</p>
 			<div class="quantity-over">
 				<div class="tarif-line">
 					<div class="tarif-line-group">
 						<div class="spin-1">
-							<label>Adult</label>
+							<label for="passenger_info_passenger_detail_adult">Adult</label>
 							<div class="spinner" id="spin-1" data-trigger="spinner">
-							  <input type="text" data-rule="quantity" value="1"  data-max="12">
-							  <div class="arrows">
-								<a class="up" data-spin="up" href="javascript:;">▲</a>
-								<a class="down" data-spin="down" href="javascript:;">▼</a>
-							</div>
+								<input id="passenger_info[passenger_detail][adult]" name="passenger_info[passenger_detail][adult]" type="text" data-rule="quantity" value="1" data-max="12">
+							  	<div class="arrows">
+									<a class="up" data-spin="up" href="javascript:;">▲</a>
+									<a class="down" data-spin="down" href="javascript:;">▼</a>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="tarif-line-group center-group">
 					<div class="spin-3">
-						<label>Children </label>
+						<label for="passenger_info_passenger_detail_children">Children</label>
 						<div class="spinner" id="spin-3" data-trigger="spinner">
-						  <input type="text" data-rule="quantity" value="1" data-max="12">
-						 <div class="arrows"><a class="up" data-spin="up" href="javascript:;">▲</a>
-						  <a class="down" data-spin="down" href="javascript:;">▼</a></div>
+							<input id="passenger_info[passenger_detail][children]" name="passenger_info[passenger_detail][children]" type="text" data-rule="quantity" value="1" data-max="12">
+						 	<div class="arrows">
+						 		<a class="up" data-spin="up" href="javascript:;">▲</a>
+						  		<a class="down" data-spin="down" href="javascript:;">▼</a>
+						  	</div>
 						</div>
 					</div>
-					</div>
-					<div class="tarif-line-group right-group">
+				</div>
+				<div class="tarif-line-group right-group">
 					<div class="spin-2">
-						<label>Seniors</label>
+						<label for="passenger_info_passenger_detail_seniors">Seniors</label>
 						<div class="spinner" id="spin-2" data-trigger="spinner">
-						  <input type="text" data-rule="quantity" value="1"  data-max="12">
+							<input id="passenger_info[passenger_detail][seniors]" name="passenger_info[passenger_detail][seniors]" type="text" data-rule="quantity" value="1" data-max="12">
 							<div class="arrows">
 								<a class="up" data-spin="up" href="javascript:;">▲</a>
 								<a class="down" data-spin="down" href="javascript:;">▼</a>
-							 </div>
+							</div>
 						</div>
 					</div>
 					</div>
@@ -188,8 +171,8 @@
 				</div>
 
 				<div class="uk-button-group uk-width-1-1">
-					<a href="#" class="uk-button uk-button-warning float_left">&lt; Back</a>
-					<a href="#" class="uk-button uk-button-danger float_right">Submit &gt;</a>
+					<!--a href="#" class="uk-button uk-button-warning float_left">&lt; Back</a>
+					<a href="#" class="uk-button uk-button-danger float_right">Submit &gt;</a-->
 				</div>
 			</div>
 		</div>

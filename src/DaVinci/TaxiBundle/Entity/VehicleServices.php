@@ -75,7 +75,7 @@ class VehicleServices {
 	/**
 	 * @ORM\Column(type="string", length=255)
 	 */
-	private $diseases;
+	private $disease;
 	
 	/**
 	 * @ORM\OneToOne(targetEntity="PassengerRequest")
@@ -348,26 +348,26 @@ class VehicleServices {
     }
 
     /**
-     * Set diseases
+     * Set disease
      *
-     * @param string $diseases
+     * @param string $disease
      * @return VehicleServices
      */
-    public function setDiseases($diseases)
+    public function setDisease($disease)
     {
-        $this->diseases = $diseases;
+        $this->disease = $disease;
 
         return $this;
     }
 
     /**
-     * Get diseases
+     * Get disease
      *
      * @return string 
      */
-    public function getDiseases()
+    public function getDisease()
     {
-        return $this->diseases;
+        return $this->disease;
     }
 
     /**

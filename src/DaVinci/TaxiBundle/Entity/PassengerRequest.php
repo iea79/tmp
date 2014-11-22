@@ -48,6 +48,26 @@ class PassengerRequest {
 	 */
 	private $vehicle;
 	
+	/**
+	 * @var \DaVinci\TaxiBundle\Entity\VehicleOptions
+	 */
+	private $vehicleOptions;
+	
+	/**
+	 * @var \DaVinci\TaxiBundle\Entity\VehicleServices
+	 */
+	private $vehicleServices;
+
+	/**
+	 * @var \DaVinci\TaxiBundle\Entity\VehicleDriverConditions
+	 */
+	private $vehicleDriverConditions;
+	
+	/**
+	 * @var \DaVinci\TaxiBundle\Entity\PassengerDetail
+	 */
+	private $passengerDetail;
+	
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
 	}
@@ -208,5 +228,97 @@ class PassengerRequest {
     public function getVehicle()
     {
         return $this->vehicle;
+    }
+    
+    /**
+     * Set vehicleOptions
+     *
+     * @param \DaVinci\TaxiBundle\Entity\VehicleOptions $options
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setVehicleOptions(\DaVinci\TaxiBundle\Entity\VehicleOptions $options)
+    {
+    	$this->vehicleOptions = $options;
+    	
+    	return $this;
+    }
+    
+    /**
+     * Get vehicleOptions
+     * 
+     * @return \DaVinci\TaxiBundle\Entity\VehicleOptions
+     */
+    public function getVehicleOptions()
+    {
+    	 return $this->vehicleOptions;
+    }
+    
+    /**
+     * Set vehicleServices
+     *
+     * @param \DaVinci\TaxiBundle\Entity\VehicleServices $services
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setVehicleServices(\DaVinci\TaxiBundle\Entity\VehicleServices $services)
+    {
+    	$this->vehicleServices = $services;
+    	 
+    	return $this;
+    }
+    
+    /**
+     * Get vehicleServices
+     *
+     * @return \DaVinci\TaxiBundle\Entity\VehicleServices
+     */
+    public function getVehicleServices()
+    {
+    	return $this->vehicleServices;
+    }
+    
+    /**
+     * Set vehicleDriverConditions
+     *
+     * @param \DaVinci\TaxiBundle\Entity\VehicleDriverConditions $driverConditions
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setVehicleDriverConditions(\DaVinci\TaxiBundle\Entity\VehicleDriverConditions $driverConditions)
+    {
+    	$this->vehicleDriverConditions = $driverConditions;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get vehicleDriverConditions
+     *
+     * @return \DaVinci\TaxiBundle\Entity\VehicleDriverConditions
+     */
+    public function getVehicleDriverConditions()
+    {
+    	return $this->vehicleDriverConditions;
+    }
+    
+    /**
+     * Set passengerDetail
+     *
+     * @param \DaVinci\TaxiBundle\Entity\PassengerDetail $passengerDetail
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setPassengerDetail(\DaVinci\TaxiBundle\Entity\PassengerDetail $passengerDetail)
+    {
+    	$this->passengerDetail = $passengerDetail;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get passengerDetail
+     *
+     * @return \DaVinci\TaxiBundle\Entity\PassengerDetail
+     */
+    public function getPassengerDetail()
+    {
+    	return $this->passengerDetail;
     }
 }
