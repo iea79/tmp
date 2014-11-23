@@ -41,6 +41,12 @@ class Driver
      */
     private $user;
 
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $insuranceAccepted = false;
+    
     /**
      * Get id
      *
@@ -142,4 +148,15 @@ class Driver
     {
         return $this->user;
     }
+    
+    public function getInsuranceAccepted()
+    {
+        return $this->insuranceAccepted;
+    }
+
+    public function setInsuranceAccepted ($insuranceAccepted)
+    {
+        $this->insuranceAccepted = (Boolean) $insuranceAccepted;
+    }
+    
 }

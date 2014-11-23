@@ -144,7 +144,7 @@ class RegistrationController extends BaseController {
                     } else {
                         $user->setEnabled(true);
                     }
-
+                    $user->addRole('ROLE_USER');
                     $userManager->updateUser($user);
 
                     $process = true;
