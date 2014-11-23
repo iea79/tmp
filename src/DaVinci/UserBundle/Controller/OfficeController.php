@@ -95,9 +95,9 @@ class OfficeController extends Controller
     {
         
         $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user))
+        if (null === $user || !is_object($user))
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
-        var_dump($user->getIndependentDriver()->getAddress()->getCity());exit;
+
         $form =$this->createForm(new OfficeDriverProfileType(), $user->getIndependentDriver());
         $form->get('user')->setData($user);
 
