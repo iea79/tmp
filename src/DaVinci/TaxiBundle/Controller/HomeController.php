@@ -10,7 +10,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\RoutePoint;
-use Doctrine\Common\Collections\ArrayCollection;
+use DaVinci\TaxiBundle\Entity\Tariff;
+use DaVinci\TaxiBundle\Entity\Vehicle;
+use DaVinci\TaxiBundle\Entity\VehicleOptions;
+use DaVinci\TaxiBundle\Entity\VehicleChildSeat;
+use DaVinci\TaxiBundle\Entity\VehiclePetCage;
 
 class HomeController extends Controller {
 	
@@ -23,12 +27,18 @@ class HomeController extends Controller {
     	
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
-    		
+    		$flow->saveCurrentStepData($form);
+
+    		if ($flow->nextStep()) {
+    			$form = $flow->createForm();
+    		} else {
+    			$flow->reset();
+    		}
     	}
-    	
+    	   	
     	return $this->render(
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
-    		array (	
+    		array(	
 	    		'form' => $form->createView(),
 	    		'flow' => $flow	
     		)		
@@ -39,24 +49,6 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
     }
     
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-     */
-    private function spawnPassengerRequest() {
-    	$request = new PassengerRequest();
-    	
-    	$actualTime = new \DateTime();
-    	
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->setCreateDate($actualTime);
-    	$request->setPickUp($actualTime);
-    	$request->setReturn($actualTime);    	
-    	    	
-    	return $request;
-    }
-    
-
     public function profitAction()
     {
         return $this->render('DaVinciTaxiBundle:Home:profit.html.twig');
@@ -82,6 +74,37 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:help.html.twig');
     }
 
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    private function spawnPassengerRequest() {
+    	$request = new PassengerRequest();
+    	 
+    	$actualTime = new \DateTime();
+    	
+    	$vehicleOptions = new VehicleOptions();
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    	 
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->setCreateDate($actualTime);
+    	$request->setPickUp($actualTime);
+    	$request->setReturn($actualTime);
+    	$request->setVehicle(new Vehicle());
+    	$request->setVehicleOptions($vehicleOptions);
+    	$request->setTariff(new Tariff());
+    	
+       	return $request;
+    }
+    
     public function view_officesAction()
     {
         return $this->render('DaVinciTaxiBundle:Home:view_offices.html.twig');

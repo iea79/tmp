@@ -11,6 +11,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Tariff {
 	
+	const PAYMENT_METHOD_CASH = 'cash';
+	const PAYMENT_METHOD_ESCROW = 'escrow';
+	
 	/**
 	 * @ORM\Id
 	 * @ORM\Column(type="integer")
@@ -33,12 +36,16 @@ class Tariff {
 	private $tips = 0.00;
 	
 	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('cash', 'escrow')", name="payment_method", length=15)
+	 */
+	private $paymentMethod;
+	
+	/**
 	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="tariff")
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;
 	
-
     /**
      * Get id
      *
@@ -93,6 +100,41 @@ class Tariff {
     public function getTips()
     {
         return $this->tips;
+    }
+    
+    /**
+     * Set paymentMethod
+     * 
+     * @param string $paymentMethod
+     * @throws \InvalidArgumentException
+     * @return \DaVinci\TaxiBundle\Entity\Tariff
+     */
+    public function setPaymentMethod($paymentMethod) {
+    	if (!in_array($paymentMethod, self::getPaymentMethods())) {
+    		throw new \InvalidArgumentException("Undefined payment method :: {$paymentMethod}");
+    	}
+    
+    	$this->paymentMethod = $paymentMethod;
+    	
+    	return $this;
+    }
+    
+    /**
+     * Get paymentMethod
+     *
+     * @return string
+     */
+    public function getPaymentMethod()
+    {
+    	return $this->paymentMethod;
+    }
+    
+    public static function getPaymentMethods()
+    {
+    	return array(
+    		self::PAYMENT_METHOD_CASH,
+    		self::PAYMENT_METHOD_ESCROW	
+    	);
     }
 
     /**

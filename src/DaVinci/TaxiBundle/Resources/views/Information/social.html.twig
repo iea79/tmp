@@ -1,12 +1,305 @@
 <div class="social">
    	<div class="buttom-swicher">
-        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#notifications'}">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#social'}">
             <li class="uk-active"><a href="#">{{ 'All' |trans }}</a></li>
             <li><a class="facebook" href="#"><i class="uk-icon-facebook"></i></a></li>
-            <li><a href="#"><a class="twitter" href="#"><i class="uk-icon-twitter"></i></a></a></li>
+            <li><a class="twitter" href="#"><i class="uk-icon-twitter"></i></a></li>
             <li><a class="google" href="#" title="google+"><i class="uk-icon-google-plus"></i></a></li>
             <li><a class="youtube" href="#"><i class="uk-icon-youtube"></i></a></li>
         </ul>
     </div>
+        <ul id="social" class="uk-switcher">
+            <li class="uk-active">
+                <div class="block-help">
+                    <div class="uk-grid uk-grid-small">
+                        <div class="uk-panel soc-block">
+                            <img src="{{ asset('bundles/davincitaxi/images/facebok-bg.png') }}" alt="">
+                                <div class="facebook-block text">
+                                    <a class="facebook" href="#"><i class="uk-icon-facebook"></i></a>
+                                    <h3>TaxiMyPrice in Facebook</h3>
+                                    <p>Все свежие новости нашего сервиса, а так же информацию о нас вы сможете просматривать в привычной для вас среде Twitter. </p>
+                                    <button class="uk-button">Go to TMP in Facebook</button>
+                                </div>
+                        </div>
+                        <div class="uk-panel soc-block">
+                            <img src="{{ asset('bundles/davincitaxi/images/twitter-bg.png') }}" alt="">
+                                <div class="twitter-block text">
+                                    <a class="twitter" href="#"><i class="uk-icon-twitter"></i></a>
+                                    <h3>TaxiMyPrice in Twitter</h3>
+                                    <p>Все свежие новости нашего сервиса, а так же информацию о нас вы сможете просматривать в привычной для вас среде Twitter. </p>
+                                    <button class="uk-button">Go to TMP in Twitter</button>
+                                </div>
+                        </div>
+                        <div class="uk-panel soc-block">
+                            <img src="{{ asset('bundles/davincitaxi/images/google-bg.png') }}" alt="">
+                                <div class="google-block text">
+                                    <a class="google" href="#" title="google+"><i class="uk-icon-google-plus"></i></a>
+                                    <h3>TaxiMyPrice in Google+</h3>
+                                    <p>Все свежие новости нашего сервиса, а так же информацию о нас вы сможете просматривать в привычной для вас среде Twitter. </p>
+                                    <button class="uk-button">Go to TMP in Google+</button>
+                                </div>
+                        </div>
+                        <div class="uk-panel soc-block">
+                            <img src="{{ asset('bundles/davincitaxi/images/youtube-bg.png') }}" alt="">
+                                <div class="youtube-block text">
+                                    <a class="youtube" href="#"><i class="uk-icon-youtube"></i></a>
+                                    <h3>TaxiMyPrice in Youtube</h3>
+                                    <p>Все свежие новости нашего сервиса, а так же информацию о нас вы сможете просматривать в привычной для вас среде Twitter. </p>
+                                    <button class="uk-button">Go to TMP in Youtube</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="block-help">
+                    <div class="soc-top">
+                        <div class="logo-inner">
+                            <div class="logo"><img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt=""></div>
+                        </div>
+                        <div class="text">
+                            <p>Выберите страничку для просмотра:</p>
+                            <select name="" id="">
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                            </select>
+                            <h3>Официальная группа TaxiMyPrice</h3>
+                            <h5>Сообщество</h5>
+                        </div>
+                        <div class="uk-icon-facebook-square"></div>
+                    </div>
+                    <div class="chat">
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+               </div>
+            </li>
+            <li>
+                <div class="block-help">
+                    <div class="soc-top">
+                        <div class="logo-inner">
+                            <div class="logo"><img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt=""></div>
+                        </div>
+                        <div class="text">
+                            <p>Выберите страничку для просмотра:</p>
+                            <select name="" id="">
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                            </select>
+                            <h3>Официальная группа TaxiMyPrice</h3>
+                            <h5>Сообщество</h5>
+                        </div>
+                        <div class="uk-icon-twitter-square"></div>
+                    </div>
+                    <div class="chat">
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+               </div>
+            </li>
+            <li>
+                <div class="block-help">
+                    <div class="soc-top">
+                        <div class="logo-inner">
+                            <div class="logo"><img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt=""></div>
+                        </div>
+                        <div class="text">
+                            <p>Выберите страничку для просмотра:</p>
+                            <select name="" id="">
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                            </select>
+                            <h3>Официальная группа TaxiMyPrice</h3>
+                            <h5>Сообщество</h5>
+                        </div>
+                        <div class="uk-icon-google-plus-square"></div>
+                    </div>
+                    <div class="chat">
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+               </div>
+            </li>
+            <li>
+                <div class="block-help">
+                    <div class="soc-top">
+                        <div class="logo-inner">
+                            <div class="logo"><img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt=""></div>
+                        </div>
+                        <div class="text">
+                            <p>Выберите страничку для просмотра:</p>
+                            <select name="" id="">
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                                <option value="">Официальная группа TaxiMyPrice</option>
+                            </select>
+                            <h3>Официальная группа TaxiMyPrice</h3>
+                            <h5>Сообщество</h5>
+                        </div>
+                        <div class="uk-icon-youtube-square"></div>
+                    </div>
+                    <div class="chat">
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26px" height="26px"></div>
+                                <div class="topchat">
+                                    <a class="name">Дима Ковпак</a>
+                                    <span>(11 MAR 14   04:41 PM)</span>
+                                    <div class="textchat">
+                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+               </div>
+            </li>
+        </ul>
+
 			
 </div>

@@ -2,23 +2,15 @@
 			<div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
 
 		<div class="profit-driver">
-			<div class="buttom-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#profdriver'}">
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Daily profit! '|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Weekly profit!'|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'$5000 profit '|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Extra money for kind service'|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Extra money for smart service'|trans}}</button>
-				</div>
-			</div>
+		   	<div class="buttom-swicher">
+		        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#profdriver'}">
+		            <li class="uk-active"><a href="#">{{ 'Daily profit!' |trans }}</a></li>
+		            <li><a href="#">{{ 'Weekly profit!' |trans }}</a></li>
+		            <li><a href="#">{{ '$5000 profit' |trans }}</a></li>
+		            <li><a href="#">{{ 'Extra money for kind service' |trans }}</a></li>
+		            <li><a href="#">{{ 'Extra money for smart service' |trans }}</a></li>
+		        </ul>
+		    </div>
 			<ul id="profdriver" class="uk-switcher">
 {# ==== Block 1 ===== #}
 				<li class="uk-active">

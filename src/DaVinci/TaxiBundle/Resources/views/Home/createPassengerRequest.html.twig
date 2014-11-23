@@ -50,15 +50,24 @@
                 </li>
             </ul>
             <div id="steps" class="uk-switcher">
-            	<form method="post">
+            	<form action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
+            		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
             		{{ form_errors(form) }}
-
-				    {% if flow.getCurrentStepNumber() == 1 %}
-				        <div>
-				            {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
-				        </div>
-				    {% endif %}
-            	</form>
+            		
+            		<div>
+	            		{% if flow.getCurrentStepNumber() == 1 %}
+					        {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
+					    {% elseif flow.getCurrentStepNumber() == 2 %}
+					    	{% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
+					    {% elseif flow.getCurrentStepNumber() == 3 %}
+					    	{% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
+					    {% elseif flow.getCurrentStepNumber() == 4 %}
+					    	{% include 'DaVinciTaxiBundle:Home:order_step_4.html.twig' %}
+					    {% endif %}
+					    
+					    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+				    </div>
+				</form>
             </div>
 			{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
 		<div class="clear"></div>
@@ -67,12 +76,3 @@
     </div>
 {% endblock %}
 
-{% block javascripts %}
-	{% javascripts filter='?requirejs' 
-	'@DaVinciTaxiBundle/Resources/public/js/pages/main.js' 
-	%}
-
-    {{ require_js_initialize({ 'main' : asset_url })}}
-
-    {% endjavascripts %}
-{% endblock %}

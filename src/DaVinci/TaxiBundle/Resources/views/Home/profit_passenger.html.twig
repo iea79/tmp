@@ -2,23 +2,15 @@
 			<div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
 
 		<div class="profit-passenger">
-			<div class="buttom-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#profpassenger'}">
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{ 'Family'|trans }}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Business group'|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Baggage and pets'|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Additional services'|trans}}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-width-1-1 uk-button">{{'Additional drivers conditions'|trans}}</button>
-				</div>
-			</div>
+		   	<div class="buttom-swicher">
+		        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#profpassenger'}">
+		            <li class="uk-active"><a href="#">{{ 'Family' |trans }}</a></li>
+		            <li><a href="#">{{ 'Business group' |trans }}</a></li>
+		            <li><a href="#">{{ 'Baggage and pets' |trans }}</a></li>
+		            <li><a href="#">{{ 'Additional services' |trans }}</a></li>
+		            <li><a href="#">{{ 'Additional drivers conditions' |trans }}</a></li>
+		        </ul>
+		    </div>
 			<ul id="profpassenger" class="uk-switcher">
 {# ==== Block 1 ===== #}
 				<li class="uk-active">

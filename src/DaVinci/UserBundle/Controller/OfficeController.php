@@ -61,7 +61,7 @@ class OfficeController extends Controller
                 }
                 $this->container->get('fos_user.user_manager')->updateUser($usr);
                 
-                return new \Symfony\Component\HttpFoundation\Response('success',200); ;
+                return new \Symfony\Component\HttpFoundation\Response('success', 200);
             }
         }
         
