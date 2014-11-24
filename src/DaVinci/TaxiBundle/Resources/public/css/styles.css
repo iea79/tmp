@@ -5069,10 +5069,12 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
-.register .addlangline .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
 	.register .wrap-content {background-image: none;}
     .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
+    .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 93.2%;}
+
 }
 .register .uk-form-horizontal .uk-width-4-7 {width: 92.8%;}
 .register .uk-form-horizontal .uk-button.uk-width-4-10 {width: 49.6%;}
