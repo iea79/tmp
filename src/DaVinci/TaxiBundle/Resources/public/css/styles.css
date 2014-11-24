@@ -7264,7 +7264,13 @@ Notifications button in main menu
 /* ===================
 Social page
 =================== */
+.social .uk-grid.uk-grid-small {
+    margin-left: -2%;
+}
 
+.social .uk-grid.uk-grid-small > * {
+    padding-left: 2%;
+}
 .social .soc-block {
     width: 48%;
     margin-top: 13px;
@@ -7602,9 +7608,6 @@ Litle stars for rate
   line-height: 17px !important;
   margin-left: -2px;
   float: left;
-}
-
-.pop-up .rate-review .rate i {
 }
 
 .reviews .rate-review {
