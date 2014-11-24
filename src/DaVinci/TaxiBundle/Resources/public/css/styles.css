@@ -5069,7 +5069,7 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
 .register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
-.addlangline .register .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
+.register .addlangline .uk-form-horizontal select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
 	.register .wrap-content {background-image: none;}
     .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
