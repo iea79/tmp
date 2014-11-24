@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="">
-                    <a class="uk-button uk-button-success button-add">Write a review</a>
+                    <a class="uk-button uk-button-success button-add">{{ 'Write a review'|trans }}</a>
                 </div>
             </div>
             <div class="block-rate">
@@ -110,16 +110,16 @@
                                     <dt>{{ 'My ID:'|trans }}</dt><dd>{{ app.user.id }}</dd><br />
                                 </div>
                                 <dt>{{'First Name:'|trans}}<dd>
-                                    {{ form_widget(form.firstname, {'attr':{'tabindex':'1'} }) }}
-                                    {{ form_errors(form.firstname) }}
+                                    {{ form_widget(form.user.firstname, {'attr':{'tabindex':'1'} }) }}
+                                    {{ form_errors(form.user.firstname) }}
                                 </dd></dt><br />
                                 <dt>{{'Last Name:'|trans}}<dd>
-                                    {{ form_widget(form.lastname, {'attr':{'tabindex':'2'} }) }}
-                                    {{ form_errors(form.lastname) }}
+                                    {{ form_widget(form.user.lastname, {'attr':{'tabindex':'2'} }) }}
+                                    {{ form_errors(form.user.lastname) }}
                                 </dd></dt><br />
                                 <dt>{{'E-mail:'|trans}}<dd>
-                                    {{ form_widget(form.email, {'attr':{'tabindex':'3'} }) }}
-                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.user.email, {'attr':{'tabindex':'3'} }) }}
+                                    {{ form_errors(form.user.email) }}
                                 </dd></dt><br />
                                 <dt>{{'Country:'|trans}}
                                 <dd>
@@ -181,16 +181,17 @@
                                          {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'7'}}) }}
                                     </div>
                                 </dd></dt><br />
-                                <dt>{{'Skype:'|trans}}<dd>{{ form_widget(form.skype, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 'tabindex':'8'}}) }}</dd></dt><br />
+                                <dt>{{'Skype:'|trans}}<dd>{{ form_widget(form.user.skype, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 'tabindex':'8'}}) }}</dd></dt><br />
                                 <label class="addphoneline uk-form-row">
                                     <dt class="twolabels uk-width-2-5">
                                     {{'Mobile:'|trans}}<br>
-                                    <span class="uk-hidden-small">{{'Mark if you have:'|trans}}</span>
+                                   {# <span class="uk-hidden-small">{{'Mark if you have:'|trans}}</span>#}
                                     </dt>
                                     <dd class="uk-form-controls addphoneareas">
                                         {% for phones in form.phones %}  
                                             {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
                                         {% endfor %}     
+                                        {% do form.phones.setRendered() %}
                                         <div class="addphone uk-width-1-1">
                                             <span class="uk-float-left">
                                                 {{'Add mobile'|trans}}
@@ -209,16 +210,16 @@
                                             
                                 <dt>{{'Birthday:'|trans}}<dd>
                                     <div class="birthday">                        
-                                        {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
-                                        {{ form_errors(form.dateOfBirth) }}
+                                        {{ form_widget(form.user.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
+                                        {{ form_errors(form.user.dateOfBirth) }}
                                     </div>
                                 </dd></dt><br />
                                 <dt>{{'Gender:'|trans}}<dd>
                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        {{ form_widget(form.gender, {'attr':{'tabindex':'13'} }) }}
-                                        {{ form_errors(form.gender) }}
+                                        {{ form_widget(form.user.gender, {'attr':{'tabindex':'13'} }) }}
+                                        {{ form_errors(form.user.gender) }}
                                     </div>
                                 </dd></dt>
                                 <dt class="example">{{'About me:'|trans}}<br><a href="">{{'example'|trans}}</a>

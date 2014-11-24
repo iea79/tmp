@@ -6,7 +6,7 @@ require(["pages/common"], function ($) {
             
             function initProfileForm() {
                 $('.driver-profile-form').submit(function (e) {
-                    togglePreloader(document.body, false);
+                    togglePreloader(document.getElementById('Profile'), false);
                     e.preventDefault();
                     var form = $('.driver-profile-form').ajaxSubmit(function (data) {
                         if (data == 'success')
@@ -16,9 +16,9 @@ require(["pages/common"], function ($) {
                             $('#profile-dialog').html(data);
                             initProfileForm();
                         }
-                        togglePreloader(document.body, false);
+                        togglePreloader(document.getElementById('Profile'), false);
                     });
-                    togglePreloader($('#profile-dialog'));
+                    togglePreloader(document.getElementById('Profile'));
                 });
 
                 selector = $(".phoneinput");
@@ -31,14 +31,14 @@ require(["pages/common"], function ($) {
             }
             $('#Profile').on({
                 'uk.modal.show': function () {
-                    togglePreloader(document.getElementById('Profile'));
+                    togglePreloader(document.getElementById('Profile'), true);
                     $('#profile-dialog').load(office_passenger_profile, function () {
-                        togglePreloader(document.getElementById('Profile'));
+                        togglePreloader(document.getElementById('Profile'),false);
                         initProfileForm();
                     });
                 },
                 'uk.modal.hide': function () {
-                    togglePreloader($('#profile-dialog'));
+                    togglePreloader(document.getElementById('Profile'),false);
 
                     //TODO: find all username/sirname/photos on  the page
 

@@ -53,14 +53,15 @@ class OfficeController extends Controller
 
                 $usr = $form->getData();
                
+                $pass = $form['current_password']->getData();
                 //set new password if added
-                if(!empty($form['current_password']->getData()))
+                if(!empty($pass))
                 {
                     $user->setPlainPassword($form['new']->getData());
                 }
                 $this->container->get('fos_user.user_manager')->updateUser($usr);
                 
-                return new \Symfony\Component\HttpFoundation\Response('success',200); ;
+                return new \Symfony\Component\HttpFoundation\Response('success', 200);
             }
         }
         
@@ -92,11 +93,13 @@ class OfficeController extends Controller
     */
     public function office_driver_profileAciton(Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user))
-            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
         
-        $form =$this->createForm(new OfficeDriverProfileType(), $user->getDriver());
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if (null === $user || !is_object($user))
+            throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+
+        $form =$this->createForm(new OfficeDriverProfileType(), $user->getIndependentDriver());
+        $form->get('user')->setData($user);
 
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);

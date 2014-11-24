@@ -11,7 +11,7 @@ class PhoneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('phone')
+            ->add('phone','text')
             ->add('has_internet','checkbox',array(
                 'label'=>'form.internet', 
                 'translation_domain' => 'FOSUserBundle',

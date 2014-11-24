@@ -7,7 +7,7 @@
 				<div class="inputs">
 					<div class="uk-form-icon">
 						<i class="mp-icon-nord-star"></i>
-						<input id="route_info_route_points_0_place" name="route_info[route_points][0][place]" class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text" />
+						{{ form_widget(form.route_points[0].place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
 					</div>
 				</div>
 			</div>
@@ -18,7 +18,7 @@
 				<div class="inputs">
 					<div class="uk-form-icon">
 						<i class="mp-icon-nord-star"></i>
-						<input id="route_info_route_points_1_place" name="route_info[route_points][1][place]" class="flex-input date-pick" placeholder="Enter postcode, Venue or Place" type="text" />
+						{{ form_widget(form.route_points[1].place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
 					</div>
 				</div>
 			</div>
@@ -38,19 +38,11 @@
 			<div class="inputs">
 				<div class="uk-form-controls">
 					{{ form_widget(form.pick_up_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-					<div class="uk-button uk-form-select data-uk-form-select">
-						<span>10</span>
-						<i class="uk-icon-caret-down"></i>
-						{{ form_widget(form.pick_up_hour) }}
-	                </div>
-	                <div class="uk-button uk-form-select data-uk-form-select">
-	                    <span>00</span>
-	                    <i class="uk-icon-caret-down"></i>
-                        {{ form_widget(form.pick_up_minute) }}
-	                </div>
-				</div>
+					&nbsp;
+					{{ form_widget(form.pick_up_time) }}
+	            </div>
 				<div class="check-box">
-					<input id="route_info_round_trip" name="route_info_round_trip" type="checkbox" /><label for="route_info_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+					<input id="route_info_round_trip" name="route_info[round_trip]" type="checkbox" /><label for="route_info_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
@@ -64,25 +56,15 @@
 			<div class="inputs">
 				<div class="uk-form-controls">
 					{{ form_widget(form.return_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-					<div class="uk-button uk-form-select data-uk-form-select">
-						<span>10</span>
-						<i class="uk-icon-caret-down"></i>
-						{{ form_widget(form.return_hour) }}
-	                </div>
-	                <div class="uk-button uk-form-select data-uk-form-select">
-	                    <span>00</span>
-	                    <i class="uk-icon-caret-down"></i>
-                        {{ form_widget(form.return_minute) }}
-	                </div>
-				</div>
+					&nbsp;
+					{{ form_widget(form.return_time) }}
+	            </div>
 			</div>
 		</div>
 	        
 		<div class="nav-over">
-	        <a href="#">
-			<div class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
+			<!--button class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
 	            Next &gt; 
-	        </div>
-			</a>
+	        </button-->
 		</div>
 	</div>
