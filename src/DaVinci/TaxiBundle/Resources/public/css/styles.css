@@ -4967,6 +4967,8 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
     min-width: 40%;
     margin: 0 auto;
     padding: 4px 10px 10px 10px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
 }
 body.register .main-content{
     background: none;
