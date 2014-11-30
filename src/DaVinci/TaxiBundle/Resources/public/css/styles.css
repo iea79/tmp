@@ -203,22 +203,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 /*======================================== end of font ===============================*/
 /*=================   Placeholder styles  ===========================*/
 ::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
-::-moz-placeholder                {line-height: 20px;  transition: line-height 0.5s ease;}
-:-moz-placeholder                 {line-height: 20px;  transition: line-height 0.5s ease;}
-:-ms-input-placeholder            {line-height: 20px;  transition: line-height 0.5s ease;}
+::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
+:-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
+:-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
 :focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
 :focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
 :focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
 :focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
-
-.input::-webkit-input-placeholder       {line-height: 20px;  transition: line-height 0.5s ease;}
-.input::-moz-placeholder                {line-height: 20px;  transition: line-height 0.5s ease;}
-.input:-moz-placeholder                 {line-height: 20px;  transition: line-height 0.5s ease;}
-.input:-ms-input-placeholder            {line-height: 20px;  transition: line-height 0.5s ease;}
-.input:focus::-webkit-input-placeholder {line-height: 100px; transition: line-height 0.5s ease;}
-.input:focus::-moz-placeholder          {line-height: 100px; transition: line-height 0.5s ease;}
-.input:focus:-moz-placeholder           {line-height: 100px; transition: line-height 0.5s ease;}
-.input:focus:-ms-input-placeholder      {line-height: 100px; transition: line-height 0.5s ease;}
 
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
