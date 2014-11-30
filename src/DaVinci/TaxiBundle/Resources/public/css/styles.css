@@ -774,7 +774,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 						display: block;
 						height: 0;
 						position: absolute;
-						right: -15px;
+						right: -14px;
 						top: -1px;
 						width: 0;
 						z-index: 50;
@@ -792,7 +792,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 				width:19px;
 				height:52px;
 				position: absolute;
-				right: -16px;
+				right: -15px;
 				top: 0;
 			}
 			.home .steps-1-2-3 .chois .last.uk-active {
@@ -922,6 +922,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
+		height: 27px;
 	}
 	.home .inputs .select {
 		margin:0 0 0 4px;
@@ -2853,6 +2854,9 @@ footer {
 }
 .pop-up input[type="checkbox"] {
   height: 20px;
+  display: block !important;
+  border-radius: 0;
+  margin-top: 2px !important;
 }
 .pop-up textarea {
     min-height: 90px;
@@ -4862,6 +4866,9 @@ footer {
         display: inline-block;
     }*/
 }
+.register .authorizat .errors.top {
+    top: 33px;
+}
 .register .authorizat  .errors {
     float: left;
     position: absolute;
@@ -5063,9 +5070,9 @@ body.register .main-content{
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;}
 .register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
-.register .uk-form-horizontal .uk-width-4-5 {width: 98.4%;}
+.register .uk-form-horizontal .uk-width-4-5 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
-.register .uk-form-horizontal .uk-width-4-8 {width: 96.8%;}
+.register .uk-form-horizontal .uk-width-4-8 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
@@ -5764,8 +5771,7 @@ Profit
   margin-left: 8%;
   line-height: 26px;
   height: 50px;
-  padding-left: 1%;
-  padding-right: 1%;
+  padding: 11px 1%;
 }
 .profit li .profit-driver .content .right .book-ride {
     font-size: 20px;
@@ -6762,6 +6768,8 @@ Spinner
 }
 .mp-spinner div {
 	position: fixed;
+	left: 50%;
+	margin-left: -30px;
 }
 .mp-spinner.none {
 	display: none;
