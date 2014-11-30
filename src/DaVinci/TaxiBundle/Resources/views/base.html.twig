@@ -129,9 +129,7 @@
                                                 </div>
                                             </div>
                                         {% else %}
-                                            <button class="uk-button  uk-button-link nonautorized">
-                                                <a href="{{ url('fos_user_security_login') }}" class="uk-button uk-button-link">{{ 'Hello, Sign in'|trans }}</a>
-                                            </button>
+                                            <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Sign in'|trans }}</a>
                                         {% endif %}
 
                                     </li>
