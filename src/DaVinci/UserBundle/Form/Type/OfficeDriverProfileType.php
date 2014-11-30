@@ -55,7 +55,10 @@ class OfficeDriverProfileType extends AbstractType {
                         ->add('about','textarea', array(
                             'required' => false
                         ))
-                        ->add('user', new OfficeDriversPassengerFormType());
+                        ->add('user', new OfficeDriversPassengerFormType())
+                        ->add('insuranceAccepted','checkbox', array(
+                                        'required' => true
+                                    ));
 
     }
     

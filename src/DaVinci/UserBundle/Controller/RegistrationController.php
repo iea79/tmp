@@ -299,6 +299,10 @@ class RegistrationController extends BaseController {
                     $user->addRole('ROLE_TAXIDRIVER');
                     //$formData->setUser($user);
                     $em = $this->container->get('doctrine')->getManager();
+                    
+                    \Doctrine\Common\Util\Debug::dump($formData); exit;
+
+                    
                     $em->persist($formData);
                     $em->flush();
 

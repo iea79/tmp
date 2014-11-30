@@ -21,8 +21,8 @@ class AddressType extends AbstractType
         $propertyPathToCity = 'city';
 
         $builder
-            ->add('country', 'entity', array(
-                            'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
+            ->add('country', 'choice', array(
+                            //'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
                             'property' => 'country',
                             'empty_value' => 'form.please_select',
                             'translation_domain' => 'FOSUserBundle',

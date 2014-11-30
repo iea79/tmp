@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
 use Symfony\Component\HttpFoundation\Request;
 use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OfficeController extends Controller
 {

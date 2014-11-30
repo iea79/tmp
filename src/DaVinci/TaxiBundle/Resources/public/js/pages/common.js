@@ -9,7 +9,10 @@ function togglePreloader(selector, show){
     if(spin !== undefined||((show !=undefined)&&!show))
     {
         if(spin.parentNode === undefined)
-            document.body.removeChild(spin);
+        {
+            if(spin !== undefined)
+                document.body.removeChild(spin);
+        }
         else
             spin.parentNode.removeChild(spin);
     }
