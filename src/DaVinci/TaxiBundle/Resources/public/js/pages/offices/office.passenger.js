@@ -50,6 +50,7 @@ require(['pages/common'], function ($) {
                         success: function(data) {
                           togglePreloader(document.getElementById('Profile'), false);
                           $("#profile-dialog").html(data);
+                          initProfileForm();
                         }
                       });
             },

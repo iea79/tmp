@@ -546,7 +546,9 @@
                 <ul class="uk-nav-sub">
                     <li>
                         <div class="insurance">
-                            <input type="checkbox" class="uk-float-left uk-margin-small-right">
+                            {{ form_widget(form.insuranceAccepted,
+                            {'attr':{'class': 'uk-float-left uk-margin-small-right'}}) }}
+                            {{ form_errors(form.insuranceAccepted) }}
                             {{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}
                         </div>
                     </li>

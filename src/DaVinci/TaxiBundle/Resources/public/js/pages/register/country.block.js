@@ -1,10 +1,10 @@
 require(["jquery"], function ($) {
 
     var country = $('.country_selector');
-    $(".country_selector").val($(".country_selector option:first").val());
+    country.val($(".country_selector option:first").val());
     var xhr;
     // When country gets selected ...
-    country.change(function () {
+    $('body').on('change',".country_selector",function () {
         // ... retrieve the corresponding form.
         var $form = $(this).closest('form');
         // Simulate form data, but only include the selected sport value.
