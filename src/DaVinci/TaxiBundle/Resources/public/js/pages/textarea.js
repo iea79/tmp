@@ -2,7 +2,7 @@ require(["pages/common"], function($){
     require(['charCount'], function(){
 	    jQuery(function($) {
 	        $(document).ready( function() {
-				$("#simbols-left").charCount();
+				$(".charcount").charCount();
 	        });
 	    });
         //remove preloader

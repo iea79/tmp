@@ -191,23 +191,23 @@
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
                                     {{ 'Hello!'|trans}} 
                                 {% else %} 
-                                    {{ 'Sing Up'|trans}}<i class="uk-icon-sign-in"></i>
+                                    <a href="{{ url('fos_user_security_login') }}">{{ 'Sing Up '|trans}}<i class="uk-icon-sign-in"></i></a>
                                 {% endif %}
                             </a></li>
                         
                         <li class="uk-parent"><a href="#">Your passanger</a>
                             <ul class="uk-nav-sub">
                                 <li><a href="">Book</a></li>
-                                <li><a href="">Profit</a></li>
-                                <li><a href="">Help</a></li>
+                                <li><a href="{{ url('profit') }}">Profit</a></li>
+                                <li><a href="{{ url('help') }}">Help</a></li>
 
                             </ul>
                         </li>
                         <li class="uk-parent"><a href="#">Your driver</a>
                             <ul class="uk-nav-sub">
                                 <li><a href="">TMP market</a></li>
-                                <li><a href="">Profit</a></li>
-                                <li><a href="">Help</a></li>                   
+                                <li><a href="{{ url('profit') }}">Profit</a></li>
+                                <li><a href="{{ url('help') }}">Help</a></li>                   
 
                             </ul>
                         </li>
@@ -216,11 +216,11 @@
                                 <li><a href="">For passanger</a></li>
                                 <li><a href="">For driver</a></li>
                                 <li><a href="">General</a></li>
-                                <li><a href="">Help</a></li>                   
+                                <li><a href="{{ url('help') }}">Help</a></li>                   
 
                             </ul>
                         </li>
-                        <li class="uk-active"><a href="">About TMP</a></li>
+                        <li class="uk-active"><a href="{{ url('about') }}">About TMP</a></li>
                         <li class="uk-active"><a href="">TMP agreements</a></li>
                         <li class="uk-active"><a href="">Media</a></li>
                         <li class="uk-active"><a href="">Log out <i class="mp-icon-logout"></i></a></li>
@@ -239,6 +239,7 @@
                         <nav class="add-nav">
                             <ul class="uk-subnav uk-subnav-pill uk-list">
                                 <li><a href="#">{{ 'Privacy policy'|trans }}</a></li>
+                                <li><a href="#">{{ 'Reviews'|trans }}</a></li>
                                 <li><a href="#">{{ 'Blog'|trans }}</a></li>
                             </ul>
                         </nav>

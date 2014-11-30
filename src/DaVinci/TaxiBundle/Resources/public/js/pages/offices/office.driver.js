@@ -1,6 +1,6 @@
 require(["pages/common"], function ($) {
 
-    require(['pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput'], function () {
+    require(['pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'charCount'], function () {
 
         require(['pages/register/phone.block'], function () {
             
@@ -45,6 +45,14 @@ require(["pages/common"], function ($) {
 
                 }
             });
+
+            // sibols left in textarea
+            jQuery(function($) {
+                $(document).ready( function() {
+                    $(".charcount").charCount();
+                });
+            });
+
 
             //Выбор цвета авто ////////////////////////
             $(window).bind("load", function () {
