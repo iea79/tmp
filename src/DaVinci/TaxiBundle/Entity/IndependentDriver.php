@@ -61,6 +61,13 @@ class IndependentDriver
 	 */
     private $phones;
     
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $insuranceAccepted = false;
+    
+    
     /**
      * Get id
      *
@@ -211,5 +218,16 @@ class IndependentDriver
     public function getPhones()
     {
         return $this->phones;
+    }
+    
+    
+    public function getInsuranceAccepted()
+    {
+        return $this->insuranceAccepted;
+    }
+
+    public function setInsuranceAccepted($insuranceAccepted) 
+    {
+        $this->insuranceAccepted = (Boolean) $insuranceAccepted;
     }
 }

@@ -4,7 +4,7 @@ require(['pages/common'], function ($) {
         function initProfileForm() {
             
             $('.passenger-profile-form').submit(function (e) {
-                togglePreloader($('#profile-dialog'),false);
+                togglePreloader(document.getElementById('Profile'),true);
                 e.preventDefault();
                 var form = $('.passenger-profile-form').ajaxSubmit( function (data) {
                     if (data == 'success')
@@ -14,9 +14,9 @@ require(['pages/common'], function ($) {
                         $('#profile-dialog').html(data);
                         initProfileForm();
                     }
-                    togglePreloader($('#profile-dialog'),false);
+                    togglePreloader(document.getElementById('Profile'),false);
                 });
-                togglePreloader($('#profile-dialog'));
+                
             });
 
             selector = $(".phoneinput");
@@ -36,16 +36,26 @@ require(['pages/common'], function ($) {
                 $('.passfield2').attr('pattern', this.value);
             });
         }
+        
+        var ajx;
         $('#Profile').on({
             'uk.modal.show': function () {
-                togglePreloader(document.getElementById('Profile'));
-                $('#profile-dialog').load(office_passenger_profile, function () {
-                    togglePreloader(document.getElementById('Profile'));
-                    initProfileForm();
-                });
+                togglePreloader(document.getElementById('Profile'), true);
+                if($.active > 0){ 
+                    ajx.abort();//where ajx is ajax variable
+                }
+                ajx = $.ajax({
+                        url: office_passenger_profile,
+                        dataType: "html",
+                        success: function(data) {
+                          togglePreloader(document.getElementById('Profile'), false);
+                          $("#profile-dialog").html(data);
+                          initProfileForm();
+                        }
+                      });
             },
             'uk.modal.hide': function () {
-                togglePreloader($('#profile-dialog'));
+                togglePreloader(document.getElementById('Profile'), false);
                 
                 //TODO: find all username/sirname/photos on  the page
                 

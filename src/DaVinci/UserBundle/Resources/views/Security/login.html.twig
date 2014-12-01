@@ -6,7 +6,7 @@
 <div class="wrapper-content"><div class="content register">
     <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post"><fieldset>
 			{% if error %}
-			<ul classs="errors">
+			<ul class="errors top">
 				<li>{{ error|trans }}</li>
 			</ul>
 			{% endif %}
