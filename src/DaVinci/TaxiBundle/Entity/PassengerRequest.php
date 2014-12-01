@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -29,12 +30,46 @@ class PassengerRequest {
 	private $pickUp;
 	
 	/**
+	 * @var \DateTime
+	 * @Assert\NotBlank()
+	 * @Assert\Time()
+	 */
+	private $pickUpTime;
+	
+	/**
+	 * @var \DateTime
+	 * @Assert\NotBlank()
+	 * @Assert\Date()
+	 */
+	private $pickUpDate;
+	
+	/**
 	 * @ORM\Column(type="datetimetz", nullable=true)
 	 */
 	private $return;
 	
 	/**
+	 * @var \DateTime
+	 * @Assert\NotBlank()
+	 * @Assert\Time()
+	 */
+	private $returnTime;
+	
+	/**
+	 * @var \DateTime
+	 * @Assert\NotBlank()
+	 * @Assert\Date()
+	 */
+	private $returnDate;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="round_trip")
+	 */
+	private $roundTrip = false;
+	
+	/**
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
+	 * @Assert\Valid()
 	 */
 	private $routePoints;
 	
@@ -127,6 +162,52 @@ class PassengerRequest {
     {
         return $this->pickUp;
     }
+    
+    /**
+     * Set pickUpTime
+     *
+     * @param \DateTime $pickUpTime
+     * @return PassengerRequest
+     */
+    public function setPickUpTime($pickUpTime)
+    {
+    	$this->pickUpTime = $pickUpTime;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get pickUpTime
+     *
+     * @return \DateTime
+     */
+    public function getPickUpTime()
+    {
+    	return $this->pickUpTime;
+    }
+    
+    /**
+     * Set pickUpDate
+     *
+     * @param \DateTime $pickUpDate
+     * @return PassengerRequest
+     */
+    public function setPickUpDate($pickUpDate)
+    {
+    	$this->pickUpDate = $pickUpDate;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get pickUpDate
+     *
+     * @return \DateTime
+     */
+    public function getPickUpDate()
+    {
+    	return $this->pickUpDate;
+    }
 
     /**
      * Set return
@@ -149,6 +230,75 @@ class PassengerRequest {
     public function getReturn()
     {
         return $this->return;
+    }
+    
+    /**
+     * Set returnTime
+     *
+     * @param \DateTime $returnTime
+     * @return PassengerRequest
+     */
+    public function setReturnTime($returnTime)
+    {
+    	$this->returnTime = $returnTime;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get returnTime
+     *
+     * @return \DateTime
+     */
+    public function getReturnTime()
+    {
+    	return $this->returnTime;
+    }
+    
+    /**
+     * Set returnDate
+     *
+     * @param \DateTime $returnDate
+     * @return PassengerRequest
+     */
+    public function setReturnDate($returnDate)
+    {
+    	$this->returnDate = $returnDate;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get returnDate
+     *
+     * @return \DateTime
+     */
+    public function getReturnDate()
+    {
+    	return $this->returnDate;
+    }
+    
+    /**
+     * Set roundTrip
+     *
+     * @param boolean $roundTrip
+     * @return PassengerRequest
+     */
+    public function setRoundTrip($roundTrip)
+    {
+    	$this->roundTrip = $roundTrip;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get roundTrip
+     *
+     * @return boolean
+     */
+    public function getRoundTrip()
+    {
+    	return $this->roundTrip;
     }
 
     /**

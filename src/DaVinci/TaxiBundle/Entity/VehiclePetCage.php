@@ -31,7 +31,7 @@ class VehiclePetCage {
 	private $petCageNumber = 0;
 		
 	/**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('0-12 months', '1-3 years', '4-7 years', '8-12 years')", name="pet_cage_type", length=20)
+	 * @ORM\Column(type="string", columnDefinition="ENUM('10 pounds', '50 pounds', '100 pounds')", name="pet_cage_type", length=20)
 	 */
 	private $petCageType;
 	
