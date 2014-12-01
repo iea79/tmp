@@ -52,17 +52,19 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
              });
              }); */
 //Карта для главной страницы
-            var map;
-            (function initialize() {
-                var mapOptions = {
-                    zoom: 8,
-                    center: new gMaps.LatLng(55.752, 37.615),
-                    scrollwheel: false
-                };
-                map = new gMaps.Map(document.getElementById('map-canvas'),
-                        mapOptions);
-            })();
-
+            if(document.getElementById('map-canvas') != null)
+            {
+                var map;
+                (function initialize() {
+                    var mapOptions = {
+                        zoom: 8,
+                        center: new gMaps.LatLng(55.752, 37.615),
+                        scrollwheel: false
+                    };
+                    map = new gMaps.Map(document.getElementById('map-canvas'),
+                            mapOptions);
+                })();
+            }
             //gMaps.event.addDomListener(window, 'load', initialize);
 
 //accordeon for buttoons in step 2 of homepage

@@ -1,7 +1,7 @@
 //copy of coommon.js togglePreloader function
 function togglePreloader(selector, show){
     if(selector === undefined) selector = document.body;
-    else if(selector instanceof jQuery) selector = selector[0];
+    else if(typeof jQuery !== undefined && selector instanceof jQuery) selector = selector[0];
     
     var spin_arr = selector.getElementsByClassName("mp-spinner");
     if(spin_arr.length>0)

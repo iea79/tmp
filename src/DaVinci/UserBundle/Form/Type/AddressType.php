@@ -10,8 +10,14 @@ use Doctrine\ORM\EntityRepository;
 
 class AddressType extends AbstractType
 {
+    
+    /**
+     * @var ObjectManager
+     */
+    private $om;
+    
     private $with_street;
-    public function __construct($with_street = true)
+    public function __construct($with_street = true, ObjectManager $om = null)
     {
         $this->with_street = $with_street;
     }
@@ -21,8 +27,8 @@ class AddressType extends AbstractType
         $propertyPathToCity = 'city';
 
         $builder
-            ->add('country', 'choice', array(
-                            //'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
+            ->add('country', 'entity', array(
+                            'class' => 'DaVinci\TaxiBundle\Entity\Admin\CountryCity',
                             'property' => 'country',
                             'empty_value' => 'form.please_select',
                             'translation_domain' => 'FOSUserBundle',
