@@ -13,15 +13,15 @@ class PassengerDetailType extends AbstractType {
 			->add('adult', 'number')
 			->add('children', 'number')
 			->add('seniors', 'number')
-			->add('my_self', 'checkbox')
+			->add('not_my_self', 'checkbox')
 			->add('name', 'text')
 			->add('email', 'text')
 			->add('skype', 'text')
 			->add('mobile_code', 'integer')
-			->add('mobile_code', 'integer')
+			->add('mobile_phone', 'text')
 			->add('mobile_has_wifi', 'checkbox')
 			->add('mobile_has_whatsapp', 'checkbox')
-			->add('about', 'text');
+			->add('about', 'textarea');
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {

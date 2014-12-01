@@ -33,9 +33,9 @@ class PassengerDetail {
 	private $seniors = 0;
 	
 	/**
-	 * @ORM\Column(type="boolean", name="my_self")
+	 * @ORM\Column(type="boolean", name="not_my_self")
 	 */
-	private $mySelf = false;
+	private $notMySelf = false;
 	
 	/**
 	 * @ORM\Column(type="string", length=255)
@@ -164,26 +164,26 @@ class PassengerDetail {
     }
     
     /**
-     * Set mySelf
+     * Set notMySelf
      *
-     * @param boolean $mySelf
+     * @param boolean $notMySelf
      * @return PassengerRelated
      */
-    public function setMySelf($mySelf)
+    public function setNotMySelf($notMySelf)
     {
-    	$this->mySelf = $mySelf;
+    	$this->notMySelf = $notMySelf;
     
     	return $this;
     }
     
     /**
-     * Get mySelf
+     * Get notMySelf
      *
      * @return boolean
      */
-    public function getMySelf()
+    public function getNotMySelf()
     {
-    	return $this->mySelf;
+    	return $this->notMySelf;
     }
 
     /**

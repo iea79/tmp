@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -196,5 +197,17 @@ class RoutePoint {
     public function getPassengerRequest()
     {
         return $this->passengerRequest;
+    }
+    
+    /**
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context)
+    {
+    	if ($this->getPlace() && !trim($this->getPlace())) {
+    		$context->buildViolation('This field must be filled!')
+    			->atPath('place')
+    			->addViolation();
+    	}
     }
 }

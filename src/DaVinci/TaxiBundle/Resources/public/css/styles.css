@@ -201,6 +201,16 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	margin-left:5px;
 }
 /*======================================== end of font ===============================*/
+/*=================   Placeholder styles  ===========================*/
+::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
+::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
+:-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
+:-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
+:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
+:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
+:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
+:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
 		width:100%;
@@ -393,6 +403,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			}
 			.header-wrapper .header-top .header-top-in  .topmenu .nonautorized {
 				color:#ff4d61;
+				background:#fff;
 			}
 				.header-wrapper .header-top .header-top-in  .topmenu .nonautorized a {
 					color:#ff4d61;

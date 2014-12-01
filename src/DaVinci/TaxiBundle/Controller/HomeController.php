@@ -15,6 +15,7 @@ use DaVinci\TaxiBundle\Entity\Vehicle;
 use DaVinci\TaxiBundle\Entity\VehicleOptions;
 use DaVinci\TaxiBundle\Entity\VehicleChildSeat;
 use DaVinci\TaxiBundle\Entity\VehiclePetCage;
+use DaVinci\TaxiBundle\Entity\PassengerDetail;
 
 class HomeController extends Controller {
 	
@@ -22,9 +23,21 @@ class HomeController extends Controller {
 	 * @Route("/", name="da_vinci_taxi_homepage")
 	 */
     public function indexAction() {
-        $flow = $this->container->get('taxi.passengerRequest.form.flow');
-    	$flow->bind($this->spawnPassengerRequest());
+    	$passengerRequest = $this->spawnPassengerRequest();
     	
+        $flow = $this->container->get('taxi.passengerRequest.form.flow');
+    	$flow->bind($passengerRequest);
+    	/*
+    	$metadata = $this->container
+    		->get('validator')
+    		->getMetadataFactory()
+    		->getMetadataFor("DaVinci\TaxiBundle\Entity\PassengerRequest");
+    	
+    	echo '<pre>';
+    	var_dump($metadata);
+    	echo '</pre>';
+    	die();
+    	*/
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
     		$flow->saveCurrentStepData($form);
@@ -32,10 +45,15 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			$this->saveRequest($passengerRequest);    			    			
     			$flow->reset();
+    			
+    			return new RedirectResponse(
+    				$this->container->get('router')->generate('passenger_request_made')
+    			);
     		}
     	}
-    	   	
+    	    	   	
     	return $this->render(
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     		array(	
@@ -74,37 +92,6 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Home:help.html.twig');
     }
 
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-     */
-    private function spawnPassengerRequest() {
-    	$request = new PassengerRequest();
-    	 
-    	$actualTime = new \DateTime();
-    	
-    	$vehicleOptions = new VehicleOptions();
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    	 
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->setCreateDate($actualTime);
-    	$request->setPickUp($actualTime);
-    	$request->setReturn($actualTime);
-    	$request->setVehicle(new Vehicle());
-    	$request->setVehicleOptions($vehicleOptions);
-    	$request->setTariff(new Tariff());
-    	
-       	return $request;
-    }
-    
     public function view_officesAction()
     {
         return $this->render('DaVinciTaxiBundle:Home:view_offices.html.twig');
@@ -138,6 +125,46 @@ class HomeController extends Controller {
     public function informationAction()
     {
         return $this->render('DaVinciTaxiBundle:Information:information.html.twig');
+    }
+    
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    private function spawnPassengerRequest() {
+    	$request = new PassengerRequest();
+    
+    	$actualTime = new \DateTime();
+    	
+    	$vehicleOptions = new VehicleOptions();
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    	$vehicleOptions->addPetCage(new VehiclePetCage());
+    
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->addRoutePoint(new RoutePoint());
+    	$request->setCreateDate($actualTime);
+    	$request->setPickUp($actualTime);
+    	$request->setReturn($actualTime);
+    	$request->setVehicle(new Vehicle());
+    	$request->setVehicleOptions($vehicleOptions);
+    	$request->setTariff(new Tariff());
+    	$request->setPassengerDetail(new PassengerDetail());
+    	 
+    	return $request;
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+     * @return void
+     */
+    private function saveRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	$em->persist($request);
+    	$em->flush();
     }
 
 }
