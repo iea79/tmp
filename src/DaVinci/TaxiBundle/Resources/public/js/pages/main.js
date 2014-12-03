@@ -1,5 +1,5 @@
 require(["gmaps", "pages/common"], function (gMaps , $) {
-    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery', 'pages/table.resize', 'jquery.html5support.min'], function () {
+    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery', 'pages/table.resize'], function () {
         require(['chosenImage.jquery'], function () {
 
             //Добавление доролнительных направлений 
@@ -115,15 +115,7 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
             
 //simbols left in textarea in step 2 homepage
             var text_area_len = 200;
-//placeholder IE7-8-9
-            $(document).ready(function() {
-              $.html5support();
 
-              /*/ or you can also run only support for what you want
-              $.placeholder();
-              // - or -
-              $.autofocus();*/
-            });            
             //remove preloader
             togglePreloader(document.body,false);
         });
