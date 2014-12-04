@@ -21,13 +21,15 @@ function togglePreloader(selector, show){
 }
 
 
-define(['jquery'], function($){
+define(['jquery', 'placeholder'], function($){
     require(['uikit'],function(UI){
         
         //remove my account button loading
         $('.autorized').removeClass('loading');
         
         require(['addons/form-select','addons/form-password']);
+    
+
     });
     
     //return jquery to use in other modules
