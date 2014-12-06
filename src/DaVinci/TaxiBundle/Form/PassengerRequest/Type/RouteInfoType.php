@@ -23,7 +23,7 @@ class RouteInfoType extends AbstractType {
 				'cascade_validation' => true
 			))
 			->add('round_trip', 'checkbox')
-			->add('pick_up_date', 'date', array(
+			->add('pickUpDate', 'date', array(
 				'widget' => 'single_text', 
 				'format' => 'MM/dd/yy',
 				'required' => false
