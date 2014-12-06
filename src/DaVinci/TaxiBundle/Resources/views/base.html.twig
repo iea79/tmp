@@ -258,8 +258,13 @@
                 </div>
             </footer>
         {% endblock %}
-        
-        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lt IE 10 ]>
+            <style type="text/css">
+                .placeholder { color: gray;}
+            </style>
+        <![endif]-->
+        <!--[if lt IE 9 ]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         {% block javascripts %}
        	    {% javascripts filter='?requirejs'
                 '@DaVinciTaxiBundle/Resources/public/js/pages/just_page.js'
