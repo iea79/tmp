@@ -88,13 +88,18 @@ class OfficeController extends Controller
         return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig');
     }
 
-        /**
+    // ->this doesnt work yet....
+    // @Security("has_role('ROLE_TAXIDRIVER')", message="You have to be logged in as a driver")
+    /**
     * @Route("/office-driver-profile", name="office_driver_profile")
-    * @Security("has_role('ROLE_TAXIDRIVER')")
     */
     public function office_driver_profileAciton(Request $request)
     {
-        
+        //-> so now doing like that
+        if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            throw new AccessDeniedException('You have to be logged in as a driver');
+        }
+    
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (null === $user || !is_object($user))
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
