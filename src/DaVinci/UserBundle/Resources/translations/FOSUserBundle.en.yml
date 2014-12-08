@@ -11,6 +11,7 @@ group:
         created: The group has been created
         deleted: The group has been deleted
 
+"Invalid CSRF token": Invalid CSRF token. Please reload.
 
 # Security
 "Bad credentials": Invalid username or password

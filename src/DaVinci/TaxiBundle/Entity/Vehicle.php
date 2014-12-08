@@ -66,7 +66,7 @@ class Vehicle {
 	private $id;
 	
 	/**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('Economy', 'Compact', 'Midsize', 'Standart', 'Full Size', 'Premium', 'Midsize SUV', 'Standart Convertible', 'Premium Pickup', 'Mini Van', Standart SUV', 'Standart Van', 'Full Size Pickup', 'Full Size SUV', 'Standart Pickup', 'Full Size Van', 'Special Van', 'Premium Van', 'Luxury', 'Premium Special', 'Premium SUV', 'Special')", name="vehicle_class", length=255)
+	 * @ORM\Column(type="string",  name="vehicle_class", length=255)
 	 */
 	private $vehicleClass;
 	

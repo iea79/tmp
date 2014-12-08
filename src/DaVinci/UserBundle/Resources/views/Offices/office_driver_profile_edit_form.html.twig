@@ -137,11 +137,11 @@
                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        {{ form_widget(form.address.city,
+                                        {{ form_widget(form.address.countrycity,
                                             {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
                                                      'tabindex':'5'}}) }}
                                     </div>
-                                    {{ form_errors(form.address.city) }}
+                                    {{ form_errors(form.address.countrycity) }}
                                 </dd></dt><br />
                                 <dt>{{'English:'|trans}}
                                 <dd>
@@ -222,11 +222,12 @@
                                         {{ form_errors(form.user.gender) }}
                                     </div>
                                 </dd></dt>
-                                <dt class="example">{{'About me:'|trans}}<br><a href="">{{'example'|trans}}</a>
+                                <dt class="example">{{'About me:'|trans}}<br><a href="#" id="about_me_example">{{'example'|trans}}</a>
                                 <dd>
                                     {% set example = 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans %}
                                     <script>
-                                        var example = '{{ example }}';
+                                        var example_about = '{{ example }}';
+                                        var saved_text = '';
                                     </script>
                                     {{ form_widget(form.about, {'attr':{'tabindex':'14'} }) }}
                                     {{ form_errors(form.about) }}

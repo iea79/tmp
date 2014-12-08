@@ -300,9 +300,6 @@ class RegistrationController extends BaseController {
                     //$formData->setUser($user);
                     $em = $this->container->get('doctrine')->getManager();
                     
-                    \Doctrine\Common\Util\Debug::dump($formData); exit;
-
-                    
                     $em->persist($formData);
                     $em->flush();
 

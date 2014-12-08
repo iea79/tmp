@@ -1,5 +1,5 @@
 require(["jquery"], function($){
-    $('.addotherlanguage').click(function () {
+    $('body').on('click', ".addotherlanguage", function () {
         var num = $('.addlangline select').length;
 
         // Get the data-prototype
@@ -7,7 +7,7 @@ require(["jquery"], function($){
         $('.addotherlanguage').before(lang_proto);
         return false;
     });
-    $('.addlangline').on('click','.lang-close',function(){
+    $('body').on('click','.lang-close',function(){
         $(this).prev('select').remove();
         
         $(this).remove();

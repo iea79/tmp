@@ -19,19 +19,21 @@ class AddCityFieldSubscriber implements EventSubscriberInterface {
     public static function getSubscribedEvents() {
         return array(
             FormEvents::PRE_SUBMIT => 'preSetData',
-            FormEvents::POST_SET_DATA => 'postSetData'
+            FormEvents::POST_SET_DATA => 'preSetData'
         );
     }
 
-    private function addCityForm($form, $country) {
+    private function addCityForm($form, $country,$countrycity = null) {
         $formOptions = array(
             'class' => 'DaVinciTaxiBundle:Admin\CountryCity',
             'empty_value' => ($country == NULL) ? 'form.select_country_first' : 'form.please_select',
             'translation_domain' => 'FOSUserBundle',
             'property' => 'city',
+            'data' => $countrycity,
             'query_builder' => function (EntityRepository $repository) use ($country) {
                 if ($country == NULL)
                     $countyr = '';
+
 
                 if (is_numeric($country)) {
                     $result= $repository->createQueryBuilder('c')
@@ -41,7 +43,6 @@ class AddCityFieldSubscriber implements EventSubscriberInterface {
                             ->setParameter('ctr', $country)->getQuery()->getSingleResult(); 
                     $country = $result['countryCode'];
                 }
-
 
                 return $repository->createQueryBuilder('c')
                                 ->select('c')
@@ -55,32 +56,34 @@ class AddCityFieldSubscriber implements EventSubscriberInterface {
     }
 
     public function preSetData(FormEvent $event) {
-        $data = $event->getData();
-        $form = $event->getForm();
-
-        if (!$data['country']) {
-            return;
-        }
-
-        $this->addCityForm($form, $data['country']);
-    }
-
-    public function postSetData(FormEvent $event) {
         $form = $event->getForm();
         $data = $event->getData();
 
         $country = NULL;
+        $countrycity = NULL;
         if (isset($data)) {
-
             if ($data instanceof \DaVinci\TaxiBundle\Entity\Address)
-                $country = $data->getCountry();
+            {
+                $countrycity = $data->getCountrycity();
+                if($countrycity)
+                     $country = $countrycity->getCountryCode();
+                else
+                    $country = '';
+                
+                
+            }
             else
+            {
                 $country = $data['country'];
+                $countrycity = isset($data['countrycity'])?$data['countrycity']:NULL;
+            }
         }
 
-        if (!$form->has($this->propertyPathToCity)) {
-            $this->addCityForm($form, $country);
-        }
+        if ($form->has($this->propertyPathToCity )) 
+            $form->remove($this->propertyPathToCity);
+            
+        $this->addCityForm($form, $country,$countrycity);
+        
     }
 
 }
