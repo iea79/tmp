@@ -28,7 +28,6 @@ define(['jquery', 'placeholder'], function($){
         $('.autorized').removeClass('loading');
         
         require(['addons/form-select','addons/form-password']);
-    
 
     });
     
