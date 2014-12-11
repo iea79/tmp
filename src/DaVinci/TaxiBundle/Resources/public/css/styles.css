@@ -210,6 +210,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 :focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
 :focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
 :focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+input:valid 					  { color: #3D3D3D !important;}
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
 		width:100%;
@@ -3452,9 +3453,6 @@ i.quest {
     display: block;
     font-size: 12px;
 }
-.pop-up .profile .example-active{
-    color:red;
-}
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;
@@ -4880,7 +4878,8 @@ footer {
     }*/
 }
 .register .authorizat .errors.top {
-    top: 33px;
+    top: 0;
+    position: relative;
 }
 .register .authorizat  .errors {
     float: left;
