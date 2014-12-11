@@ -145,6 +145,7 @@ class RegistrationController extends BaseController {
                         $user->setEnabled(true);
                     }
                     $user->addRole('ROLE_USER');
+
                     $userManager->updateUser($user);
 
                     $process = true;
@@ -296,18 +297,23 @@ class RegistrationController extends BaseController {
                     $form = $flow->createForm();
                 } else {
 
-                    $user->addRole('ROLE_TAXIDRIVER');
-                    //$formData->setUser($user);
+                    
+
                     $em = $this->container->get('doctrine')->getManager();
                     
-                    $em->persist($formData);
+                    $em->merge($formData);
                     $em->flush();
 
                     $flow->reset(); // remove step data from the session
-
+                    
+                    $user->addRole('ROLE_TAXIDRIVER');
+                    $this->container->get('fos_user.user_manager')->updateUser($user);
+                    
                     $url = $this->container->get('router')->generate('office_driver');
 
-                    return new RedirectResponse($url);
+                    $response = new RedirectResponse($url);
+					$this->authenticateUser($user, $response);
+					return $response;
                 }
             }
         }

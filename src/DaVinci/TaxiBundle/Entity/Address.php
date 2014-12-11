@@ -21,8 +21,9 @@ class Address
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Admin\CountryCity")
-     */
+     * @ORM\ManyToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Admin\CountryCity", inversedBy="address")
+     * @ORM\JoinColumn(name="countrycity_id", referencedColumnName="id")
+     **/
     private $countrycity;
 
     /**

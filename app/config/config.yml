@@ -9,7 +9,7 @@ imports:
     #- { resource: fos/fos_elastica.yml }
     
     # Mopa Bootstrap
-    - { resource: mopa/mopa_bootstrap.yml }
+    #- { resource: mopa/mopa_bootstrap.yml }
 
     # Knp Paginator
     - { resource: knp/knp_paginator.yml }
