@@ -4,6 +4,7 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
