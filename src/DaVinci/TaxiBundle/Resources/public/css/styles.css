@@ -1891,7 +1891,8 @@ office passengers and driver
   min-height: 30px;
   width: 100%;
   max-width: 102px;
-  font-size: 14px;
+  font-size: 14px;
+
   color: #fff !important;
   padding: 6px 5px;
   line-height: 16px;
@@ -2888,6 +2889,32 @@ footer {
     padding: 9px 7px 0 7px;
     font-size: 14px;
     line-height: 17px;
+}
+.pop-up .addlangline select {
+    width: 93.6%;
+    margin-right: 1%;
+}
+@media (max-width: 710px) {
+    .pop-up .addlangline select {
+        width: 95%;
+        margin-right: 1%;
+    }    
+}
+
+.pop-up .addlangline .lang-close:before {
+    color: #FF4D61;
+    display: block;
+    padding-top: 5px;
+    height: 30px;
+    margin-bottom: 7px;
+}
+.pop-up .addphoneareas .intl-tel-input {
+    width: 93.4%;
+    margin-right: 1%;    
+}
+.pop-up .forphoneinput .utooltip {
+    
+    margin-left: 0;
 }
 .pop-up a.uk-form-password-toggle {
   top: 15px;
