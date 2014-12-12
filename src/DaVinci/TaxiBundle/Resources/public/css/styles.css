@@ -1890,9 +1890,11 @@ office passengers and driver
 .client-account .uk-table a.rescue {
   min-height: 30px;
   width: 100%;
-  max-width: 100px;
-  font-size: 14px;
+  max-width: 102px;
+  font-size: 14px;
   color: #fff !important;
+  padding: 6px 5px;
+  line-height: 16px;
 }
 .client-account .uk-table tr {
     border: #d0d0d0 1px solid;
