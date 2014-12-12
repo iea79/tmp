@@ -1887,6 +1887,13 @@ office passengers and driver
 .client-account .uk-table a:hover {
 	text-decoration: none;
 }
+.client-account .uk-table a.rescue {
+  min-height: 30px;
+  width: 100%;
+  max-width: 100px;
+  font-size: 14px;
+  color: #fff !important;
+}
 .client-account .uk-table tr {
     border: #d0d0d0 1px solid;
 }
@@ -1945,6 +1952,10 @@ width: 12.6%;
 	border:0;
 	background:transparent;
 	color:black;
+}
+.allorder .rescue-driver img {
+  margin-left: 3px;
+
 }
 .allorder .edit-close .mp-icon-edit,
 .allorder .edit-close .mp-icon-closed  {
