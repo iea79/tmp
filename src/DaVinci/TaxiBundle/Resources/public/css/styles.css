@@ -202,15 +202,14 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 }
 /*======================================== end of font ===============================*/
 /*=================   Placeholder styles  ===========================*/
-::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
+/*::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
 ::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
 :-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
 :-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
 :focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
 :focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
 :focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
-:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
-input:valid 					  { color: #3D3D3D !important;}
+:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}*/
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
 		width:100%;
@@ -681,7 +680,7 @@ input:valid 					  { color: #3D3D3D !important;}
 
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:9px 0;
+		padding:9px 0 20px;
 		box-shadow: 0 1px 1px 0 #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
@@ -823,7 +822,7 @@ input:valid 					  { color: #3D3D3D !important;}
 					}
 /*==========================  styles of booking step 1  in homepage =================================*/
 .destination {
-	margin:40px 0 20px 0;
+	margin:41px 0 17px;
 }
 	.destination .nav-over {
 		padding:0 20px;
@@ -834,7 +833,7 @@ input:valid 					  { color: #3D3D3D !important;}
 			background-color:#ff4d61;
 			border:none;
 			height:1px;
-			margin:20px 0 18px 0;
+			margin:21px 0 18px;
 		}
 		.destination .nav-over .uk-button {
 			margin:1px 0;
@@ -873,24 +872,22 @@ input:valid 					  { color: #3D3D3D !important;}
 	.destination  .inputs .date-input {
 		max-width:92px;
 	}
-	.destination  .inputs .check-box {
-		margin-top:5px;
-	}
+	.destination  .inputs .check-box {margin-top:6px;}
 	.destination  .inputs .date-pick {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		height: 30px;
-		vertical-align: bottom;
+		height: 29px;
+		display: inline-block;
+		vertical-align: middle;
 		padding-left:8px;
+		margin: 0 4px 0 0;
 	}
-	.destination  .inputs .uk-form-icon {
-		width:100%;
-	}
+	.destination  .inputs .uk-form-icon { width:100%; }
 	.destination  .inputs .uk-form-icon i {font-size: 22px;}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
-		padding:0 30px 1px 5px !important;
+		padding:0 30px 0 5px !important;
 	}
 		.destination  .inputs .uk-form-icon  i {
 			right:0;
@@ -902,8 +899,8 @@ input:valid 					  { color: #3D3D3D !important;}
 		.destination .nav-over .add-another {
 			color:#3c3d45;
 			font-weight:bold;
-			min-height:21px;
-			line-height:21px;
+			min-height:0;
+			line-height:26px;
 			border:1px solid #d3d3d3;
 			cursor:pointer;
 		}
@@ -1118,10 +1115,6 @@ input:valid 					  { color: #3D3D3D !important;}
 			color:#528ed3;
 			margin-left:4px;
 		}
-		.order-details-over h1  .uk-icon-question-circle  {
-			position:relative;
-			top:-3px;
-			}
 		.order-details-over .note {
 			margin:0 0 12px;
 		}
@@ -1380,21 +1373,20 @@ input:valid 					  { color: #3D3D3D !important;}
 				margin:0 5px 0 0;
 			}
 		.disloc-in .map-container {
-		position: relative;
-		padding-bottom: 85%;
-		padding-top: 80px;
-		height: 0;
-		overflow: hidden;
+			position: relative;
+			padding-bottom: 85%;
+			padding-top: 80px;
+			height: 0;
+			overflow: hidden;
 		}
-
-			.disloc-in .map-container #map-canvas {
+		.disloc-in .map-container #map-canvas {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			border-radius: 5px;
-			}	
+		}
 /*===========================  table styles in home  ==================================*/
 .table-over {
 	box-shadow: 0 1px 1px #b4b4b4;
@@ -3493,6 +3485,9 @@ i.quest {
     display: block;
     font-size: 12px;
 }
+.pop-up .profile .example-active{
+    color:red;
+}
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;
@@ -3743,7 +3738,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {margin:0;}
 }
 @media only screen and (min-width:761px) {
-#steps {width:50%;}
+#steps {
+	width:50%;
+	float: left;
+}
 .home .destination {
 	float:left;
 	width:100%;
@@ -3755,11 +3753,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .home .disloc {
 	float:right;
 	width:50%;
+	padding: 40px 20px 0 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
-	.home .disloc .disloc-in {
-		margin:40px 20px 0 10px;
-	}
-	
 	.destination .form-block-wrap {
 		margin:0 10px 10px 0;
 	}
@@ -4543,7 +4540,6 @@ footer {
     float: left;
     text-align: left;
     margin-left: 1px;
-    background: url("../images/tooltip.png") no-repeat scroll 0 0 transparent;
     display: block;
     width: 13px;
     height:14px;
@@ -7679,3 +7675,42 @@ Litle stars for rate
   margin: 0 5px;
   float: left;;
 }
+
+/* =================
+08.12.2014 by aglovlyuk
+================= */
+select{
+	border: 1px solid #8e9099;
+	border-radius: 3px;
+	height: 29px;
+	line-height: 29px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.destination select.form-control{
+	margin: 0 7px 0 0;
+	width: 54px;
+}
+.craue_formflow_buttons{
+	overflow: hidden;
+	clear: both;
+}
+.craue_formflow_buttons{
+	padding: 0 10px 0 20px;
+}
+.craue_formflow_buttons .craue_formflow_button_last{
+	background: #ff4d61;
+	color: #fff;
+	text-align: center;
+	display: block;
+	font-size: 24px;
+	line-height: 51px;
+	height: 51px;
+	text-shadow: 0 1px #rgba(0,0,0,.3);
+	width: 100%;
+	border: 0;
+	border-radius: 3px;
+}
+.destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
+#map-canvas{height: 100%;}
+#map-canvas img{height: 100%;}
