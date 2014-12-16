@@ -38,9 +38,9 @@
 				{{ form_label(form.pickUpDate, 'Pick up:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls">
+				<div class="uk-form-controls uk-form-horizontal">
 					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-					&nbsp;
+
 					{{ form_widget(form.pick_up_time) }}
 					{{ form_errors(form.pickUpDate) }}
 	            </div>
@@ -59,15 +59,15 @@
 			<div class="inputs">
 				<div class="uk-form-controls">
 					{{ form_widget(form.return_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-					&nbsp;
+
 					{{ form_widget(form.return_time) }}
 	            </div>
 			</div>
 		</div>
 	        
-		<div class="nav-over">
-			<!--button class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
+<!-- 		<div class="nav-over">
+	button class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
 	            Next &gt; 
-	        </button-->
-		</div>
+	        </button
+</div> -->
 	</div>
