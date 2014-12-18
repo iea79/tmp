@@ -1,10 +1,10 @@
 require(["jquery"], function ($) {
 
     var country = $('.country_selector');
-    country.val($(".country_selector option:first").val());
+
     var xhr;
     // When country gets selected ...
-    $('body').on('change',".country_selector",function () {
+    $('body').on('change', ".country_selector", function () {
         // ... retrieve the corresponding form.
         var $form = $(this).closest('form');
         // Simulate form data, but only include the selected sport value.
@@ -12,7 +12,9 @@ require(["jquery"], function ($) {
         data[country.attr('name')] = country.val();
         // Submit data via AJAX to the form's action path.
 
+        //clear uikit dropdown
         $('.city_selector option').remove();
+        $(".city_selector").parent().find('span').html('');
 
         if (typeof xhr != 'undefined')
             xhr.abort();
@@ -23,7 +25,7 @@ require(["jquery"], function ($) {
             success: function (html) {
                 //stupid hack to reload uikit select
                 $(".city_selector").parent().find('span').html($(html).find('.city_selector option:first').html());
-                
+
                 // ReplaceReplace current position field ...
                 $('.city_selector').append(
                         // ... with the returned one from the AJAX response.

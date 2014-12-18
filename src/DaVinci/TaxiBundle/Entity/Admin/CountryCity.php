@@ -5,6 +5,7 @@ use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\Index;
 use Symfony\Component\Intl\Intl;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @author Mykola Sedletskyi <icevita@gmail.com>
@@ -38,6 +39,15 @@ class CountryCity
     private $status;
 
     protected $translations;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="\DaVinci\TaxiBundle\Entity\Address", mappedBy="countrycity")
+     **/
+    private $address;
+    
+    public function __construct() {
+        $this->address = new ArrayCollection();
+    }
 
     public function __contruct()
     {

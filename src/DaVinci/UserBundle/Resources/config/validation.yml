@@ -7,11 +7,7 @@ DaVinci\TaxiBundle\Entity\Driver:
                 
 DaVinci\TaxiBundle\Entity\Address:
     properties:
-        country:
-            - NotBlank: 
-                groups: [ "flow_taxi_company_registration_step1", "flow_taxi_independent_driver_registration_step1"]
-                message: address.country.blank
-        city:
+        countrycity:
             - NotBlank: 
                 groups: [ "flow_taxi_company_registration_step1", "flow_taxi_independent_driver_registration_step1"]
                 message: address.city.blank

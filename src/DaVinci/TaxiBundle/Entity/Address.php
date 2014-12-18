@@ -21,19 +21,16 @@ class Address
     private $id;
 
     /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $city;
+     * @ORM\ManyToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Admin\CountryCity", inversedBy="address")
+     * @ORM\JoinColumn(name="countrycity_id", referencedColumnName="id")
+     **/
+    private $countrycity;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      */
     private $street;
     
-    /**
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $country;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
@@ -56,50 +53,36 @@ class Address
         return $this->id;
     }
 
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return Address
-     */
-    public function setCity($city)
+    
+    public function getCountry()
     {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
+        return $this->countrycity->getCountry();
     }
     
     /**
-     * Set street
+     * Set countrycit
      *
-     * @param string $country
+     * @param string $countrycity
      * @return Address
      */
-    public function setCountry($country)
+    public function setCountrycity($countrycity)
     {
-        $this->country = $country;
+        $this->countrycity = $countrycity;
+
         return $this;
     }
 
     /**
-     * Get country
+     * Get countrycit
      *
-     * @return string 
+     * @return CountryCity
      */
-    public function getCountry()
+    public function getCountrycity()
     {
-        return $this->country;
+        return $this->countrycity;
     }
+    
+
 
     /**
      * Set street

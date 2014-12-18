@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#ff4d61">
         {{ sonata_seo_title() }}
         {{ sonata_seo_metadatas() }}
         {% block stylesheets %}
@@ -257,8 +258,13 @@
                 </div>
             </footer>
         {% endblock %}
-        
-        <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+        <!--[if lt IE 10 ]>
+            <style type="text/css">
+                .placeholder { color: gray;}
+            </style>
+        <![endif]-->
+        <!--[if lt IE 9 ]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         {% block javascripts %}
        	    {% javascripts filter='?requirejs'
                 '@DaVinciTaxiBundle/Resources/public/js/pages/just_page.js'

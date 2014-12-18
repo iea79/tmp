@@ -94,6 +94,6 @@ vehicle:
 vehicleChildSeat:
     childSeatType:
         unexpectedType: "Child seat type is undefined"
-    	wrongNumber: "The number of seats must be integer"
+        wrongNumber: "The number of seats must be integer"
         
         

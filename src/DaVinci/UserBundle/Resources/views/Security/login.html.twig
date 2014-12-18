@@ -5,12 +5,12 @@
 {% block fos_user_content %}
 <div class="wrapper-content"><div class="content register">
     <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post"><fieldset>
+            <h3>{{ 'Login or Register'|trans}}</h3>
 			{% if error %}
 			<ul class="errors top">
 				<li>{{ error|trans }}</li>
 			</ul>
 			{% endif %}
-			<h3>{{ 'Login or Register'|trans}}</h3>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 

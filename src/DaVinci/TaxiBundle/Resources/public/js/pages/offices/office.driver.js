@@ -28,6 +28,27 @@ require(["pages/common"], function ($) {
                     autoFormat: true,
                     responsiveDropdown: true,
                 });
+                
+                $('#about_me_example').click(function(){
+                    var cur_text = $('#taxi_driver_office_profile_about').val()
+                    
+                    //switch state 
+                    $(this).toggleClass('example-active');
+                    
+                    //if user didn't change example.
+                    if(example_about == cur_text)
+                    {
+                        //remove example
+                        //saved_text - variable in office_driver_profile_edit_form.html.twig
+                        $('#taxi_driver_office_profile_about').val(saved_text);
+                    }else
+                    {
+                        //add example
+                        saved_text = cur_text;
+                        $('#taxi_driver_office_profile_about').val(example_about);
+                        
+                    }
+                })
             }
             $('#Profile').on({
                 'uk.modal.show': function () {
