@@ -70,3 +70,30 @@ fos_user:
         latin: English/Latin characters only
     gender:
         valid: "Choose a valid gender."
+
+passengerRequest:
+    pickUpTime:
+        blank: "Please enter pick up time"
+        wrongFormat: "Pick up time has wrong format"
+    pickUpDate:
+        blank: "Please enter pick up date"
+        wrongFormat: "Pick up date has wrong format"
+    returnTime:
+        wrongFormat: "Return time has wrong format"
+    returnDate:
+        wrongFormat: "Return date has wrong format"
+ 
+routePoint:
+    place:
+        blank: "Destination point is empty"
+        
+vehicle:
+    vehicleClass:
+        unexpectedTypeClass: "Vehicle class is undefined"
+
+vehicleChildSeat:
+    childSeatType:
+        unexpectedType: "Child seat type is undefined"
+    	wrongNumber: "The number of seats must be integer"
+        
+        

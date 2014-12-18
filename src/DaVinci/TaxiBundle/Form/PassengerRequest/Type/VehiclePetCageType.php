@@ -24,7 +24,7 @@ class VehiclePetCageType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'pet_cage';
+		return 'petCage';
 	}
 	
 }

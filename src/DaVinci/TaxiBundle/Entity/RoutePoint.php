@@ -36,6 +36,7 @@ class RoutePoint {
 	
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="routePoint.place.blank")
 	 */
 	private $place;
 	
@@ -197,17 +198,5 @@ class RoutePoint {
     public function getPassengerRequest()
     {
         return $this->passengerRequest;
-    }
-    
-    /**
-     * @Assert\Callback
-     */
-    public function validate(ExecutionContextInterface $context)
-    {
-    	if ($this->getPlace() && !trim($this->getPlace())) {
-    		$context->buildViolation('This field must be filled!')
-    			->atPath('place')
-    			->addViolation();
-    	}
-    }
+    }    
 }
