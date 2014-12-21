@@ -22,6 +22,10 @@
 .uk-dropdown {
 	border-radius:4px;
 }
+input,select,textarea {
+	border-radius: 3px;
+	border-style: solid;
+}
 .uk-modal-dialog {
 	border-radius:8px;
 }
@@ -200,16 +204,27 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	float:right;
 	margin-left:5px;
 }
+.uk-form-icon > [class*='uk-icon-'] {
+	font-size: 18px;
+	margin-top: -9px;
+}
 /*======================================== end of font ===============================*/
-/*=================   Placeholder styles  ===========================*/
-/*::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
+/*=================  Input and placeholder styles and animation  ===========================*/
+
+input:-moz-placeholder{color:#9b9b9b;}
+input::-moz-placeholder{color:#9b9b9b; opacity:1;}
+input:-ms-input-placeholder{color:#9b9b9b;}
+input::-webkit-input-placeholder{color:#9b9b9b;}
+
+::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
 ::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
 :-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
 :-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
-:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
-:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
-:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
-:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}*/
+input[type="text"]:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
 		width:100%;
@@ -868,6 +883,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.destination  .inputs .uk-primary {
 		color:#528ed3;
+		margin-top:-1px;
 	}
 	.destination  .inputs .date-input {
 		max-width:92px;
@@ -985,13 +1001,13 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
 		float:left;
-		margin-bottom:7px;
+		margin-bottom:7px;;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls { 
-		width:68.7% !important;
+		width:75.7% !important;
 	}
 	.order-details  .kids-pats-line .left-group  .uk-form-controls {
-		width: 50%;
+		width: 56%;
 	}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
 	}
@@ -1108,44 +1124,59 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin:6px 0 2px;
 		cursor:pointer;
 	}
-	.order-details .spec-request .uk-parent a {
-		color:#3c3d45;
-		text-decoration:none;
+		.order-details .spec-request .uk-parent a {
+			color:#3c3d45;
+			text-decoration:none;
 		}
 		.order-details-over  .uk-icon-question-circle  {
 			font-size:16px;
 			color:#528ed3;
 			margin-left:4px;
+			margin-top:-1px;
 		}
 		.order-details-over .note {
-			margin:3px 0 11px;
+			margin:4px 0 10px;
 		}
 			.order-details-over .note  span {
 				color:#ff4d61;
 			}
 		
 		.tarif-line {
-			display:table-row;
-			margin: 0 0 11px 0;
+			display:table-row;
+			margin: 0px 0 11px 0;
+			line-height: 1.5;
 		}
 		.tarif-line	.tarif-line-group 	{
 			display:table-cell;
-			padding:5px 0 9px 0;
+			padding:5px 0 7px 0;
+			font-size:16px;
+		}
+		.tarif-line	.tarif-line-group.first {
+   			width: 30%;
+		}
+		.tarif-line	.tarif-line-group.first label.tarif-line-adapt-wrap span {
+			display: inline-block;
+			width: 25%;;;
 		}
 		.tarif-line	.second  {
-			width:25%;
-			text-align:right;
-			
+			text-align:left;
+			width:20%;
+		}
+		.tarif-line	.second .tarif-line-adapt-wrap span {
+			margin-right: 1px;
 		}
 		.tarif-line	.second   .uk-form-controls {
 			margin-right:5px;
 		}
 		.tarif-line .third {
-			width:33%;
+			width:27%;
 			text-align:right;
 		}
 		.tarif-line	.tarif-line-group input[type="text"]{
 			width:100%;
+		}
+		.tarif-line	.tarif-line-group input[type="checkbox"]{
+			vertical-align: middle;
 		}
 		.tarif-line	.tarif-line-group .select {
 			width:47%;
@@ -1211,7 +1242,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		margin:0 0 5px 20px;
 	}
 	.order-details  input[type="text"], .driv-over  input[type="text"] {
-		padding:0 0 0 15px;
+		padding:0 0 0 6px;
 		border-radius:4px;
 		border: 1px solid #8e9099;
 		height:28px;
@@ -1229,9 +1260,11 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		text-align:right;
 	}
 	.order-details .tarif-line-group  .overinput {
-		width:45%;
-		float:right;
-		top:-3px;
+		width:63px;
+		top:-2px;
+	}
+	.order-details .tarif-line-group .overinput input[type="text"] {
+		padding-left: 20px;
 	}
 	.order-details .overinput {
 		position:relative;
@@ -1240,9 +1273,10 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	}
 		.order-details .overinput .dollar {
 			position:absolute;
-			left:5px;
+			left:7px;
 			top:4px;
 			color:#9b9b9b;
+			font-size:14px;
 		}
 		.order-details-over .quantity-over {
 			display:table;
@@ -1274,7 +1308,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		}
 		 .order-details  .pers-data .right input[type="text"]{
 			width:100%;
-			min-height:29px;
+			min-height:30px;
 			text-align:left;
 		}
 		.order-details  .pers-data .right .select {
@@ -1309,6 +1343,9 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 		.order-details .about-passenger p {
 			font-size:16px;
 			margin:0 1px 6px 0;
+		}
+		.order-details input {
+		    vertical-align: middle;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {
@@ -1540,6 +1577,7 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 			.table-over .serv .under-head .mp-icon-nord-star {
 				right:2px;
 				width:20px;
+				font-size:20px;
 			}
 			.table-over .serv .under-head .uk-icon-calendar {
 				right:2px;
@@ -1933,8 +1971,8 @@ office passengers and driver
 	width: 24.3%;
 }
 .client-account .allorder th[class="status"] {
-min-width: 70px;
-width: 12.6%;
+	min-width: 70px;
+	width: 12.6%;
 }
 .client-account .allorder th[class="price"] {
 	min-width: 65px;
@@ -1951,7 +1989,7 @@ width: 12.6%;
 	color:black;
 }
 .allorder .rescue-driver img {
-  margin-left: 3px;
+    margin-left: 3px;
 
 }
 .allorder .edit-close .mp-icon-edit,
@@ -2133,21 +2171,21 @@ table th .questiontooltip {
 	min-width: 90px;
 }
 /*================scroll table====================*/
-.client-account .table-container
+.table-container
 {
   width: 100%;
   overflow-y: auto;
   _overflow: auto;
   margin: 0 0 1em;
 }
-.client-account .table-container::-webkit-scrollbar
+.table-container::-webkit-scrollbar
 {
   -webkit-appearance: none;
   width: 14px;
   height: 14px;
 }
 
-.client-account .table-container::-webkit-scrollbar-thumb
+.table-container::-webkit-scrollbar-thumb
 {
   border-radius: 8px;
   border: 3px solid #fff;
@@ -3741,8 +3779,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 @media only screen and (min-width:761px) {
 #steps {
-	width:50%;
 	float: left;
+	width: 50%;
 }
 .home .destination {
 	float:left;
@@ -4538,24 +4576,22 @@ footer {
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
 .utooltip {
-    position: relative;
-    float: left;
-    text-align: left;
-    margin-left: 1px;
-    display: block;
-    width: 13px;
+    width: 14px;
     height:14px;
-    text-align: center;
     color: #fff;
     padding-top: 0;
     font-size: 10px;
-    vertical-align: middle;
     line-height: 130%;
     padding-right: 1px;
     margin-lefT: 4px;
     position: relative;
-    top: 7px;
-    z-index: 0;
+    background: #3399ff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: default;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
  }
  .register .mp-icon-closed {
  	display: block;
@@ -5251,7 +5287,6 @@ Step-4
 ========================= */
 
 .order-step-four {
-  width: 50%;
 }
 .order-step-four .uk-icon-check {
   margin-left: -10px;
@@ -5359,34 +5394,34 @@ Step-4
 	height: 113px;
 	width: 110px;
 }
-.check-order .main-passenger-info dd.personal {
+.check-order dd.personal {
 	min-width: 250px;
 	width: 74%;
 	margin-top: -3px;
 	margin-bottom: 11px !important;
 }
-.check-order .main-passenger-info .personal dl {
+.check-order .personal dl {
 	width: 100%;
 	display: inline-block;
 	margin-top: 0;
 	margin-bottom: -10px;
 }
-.check-order .main-passenger-info .personal dt,
-.check-order .main-passenger-info .personal dd {
+.check-order .personal dt,
+.check-order .personal dd {
 	margin-bottom: 2.1% !important;
 	margin-right: 0 !important;
 }
-.check-order .passenger-info .main-passenger-info .personal dt {
+.check-order .passenger-info .personal dt {
 	width: 55%;
 }
-.check-order .passenger-info .main-passenger-info .personal dd {
+.check-order .passenger-info .personal dd {
 	width: 45%;
 }
-.check-order .main-passenger-info dt[class="about"] {
+.check-order dt[class="about"] {
 	margin-bottom: 2px !important;
 	width: 100%;
 }
-.check-order .passenger-info .main-passenger-info dd[class="about"] {
+.check-order .passenger-info dd[class="about"] {
 	font-size: 14px !important;
 	line-height: 16px;
 	margin-bottom: 11px !important;
@@ -5616,11 +5651,11 @@ Tab - button-swicher
 .button-swicher {
   margin-top: 4px;
 }
-.button-swicher .uk-panel:first-child {
-  padding-right: 0.3%;
+.button-swicher .uk-panel {
+  padding-right: 0.6%;
 }
 .button-swicher .uk-panel:last-child {
-		padding-left: 0.3% !important;
+  padding-right: 0;
 }
 .button-swicher button {
 	  padding: 3px 12px;
@@ -6579,11 +6614,6 @@ Help
 }
 
 /* styles 31.10-01.11 */
-input{color: #000;}
-input:-moz-placeholder{color:#9b9b9b;}
-input::-moz-placeholder{color:#9b9b9b; opacity:1;}
-input:-ms-input-placeholder{color:#9b9b9b;}
-input::-webkit-input-placeholder{color:#9b9b9b;}
 
 .home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
 .home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
@@ -6729,9 +6759,9 @@ View offices
 .view-office .uk-table td, .view-office .uk-table th {
   text-align: center !important;
   line-height: 20px;
-  vertical-align: middle;
   border: #d0d0d0 1px solid;
   padding: 7px 5px 9px 5px;
+  vertical-align: middle;
 }
 .view-office .uk-table td {
   padding: 0 5px;
@@ -7678,9 +7708,11 @@ Litle stars for rate
   float: left;;
 }
 
-/* =================
-08.12.2014 by aglovlyuk
-================= */
+/* ================================================
+08.12.2014 by aglovlyuk          *=== Unsorted ===*
+================================================= */
+
+
 .order-details .aditional-driver .kids-pats-line label.interp {
     display: inline-block;
     width: 32%;
@@ -7726,7 +7758,7 @@ select{
 	overflow: hidden;
 }
 .craue_formflow_buttons{
-	padding: 9px 10px 0 20px;
+	padding: 9px 6px 0 19px;
 	margin-bottom: -4px;
 }
 .craue_formflow_buttons button {
@@ -7736,13 +7768,17 @@ select{
 	font-size: 24px;
 	line-height: 51px;
 	height: 51px;
-	text-shadow: 0 1px #rgba(0,0,0, 0.3);
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	border: 0;
 	border-radius: 3px;
 	width: 100%;
-}.craue_formflow_buttons .craue_formflow_button_last{
+	text-transform: capitalize;
+}
+.craue_formflow_buttons .craue_formflow_button_last {
 	background: #ff4d61;
 	width: 100%;
+}
+.craue_formflow_buttons .craue_formflow_button_last:after {
 }
 .craue_formflow_button_count_3 button:first-child {
     width: 49%;
@@ -7753,12 +7789,21 @@ select{
 
 .craue_formflow_button_count_3 button:nth-child(2) {
     width: 49%;
-    background: #ff4d61;  color: #fff;  text-align: center;  display: inline-block;  font-size: 24px;  
-    line-height: 51px;  height: 51px;  text-shadow: 0 1px #rgba(0,0,0, 0.3);    border: 0;  border-radius: 3px;
+    background: #ff4d61;
 }
+
+/* Hidden button "start over" */
 
 button.craue_formflow_button_first {
     display: none;
+}
+
+/* Textarea toggle in order steps */
+
+button.textarea-toggle {
+    border: 0;
+    padding: 0;
+    background: transparent;
 }
 
 .order-details .kids-pats-line .hold {
@@ -7781,3 +7826,155 @@ button.craue_formflow_button_first {
 }
 #map-canvas{height: 100%;}
 #map-canvas img{height: 100%;}
+
+
+.content-wrap {
+	padding: 10px 20px;
+}
+
+h6.counter {
+    color: #9b9b9b;  font-size: 12px;
+    /* line-height: 20px; */
+    margin: 2px 0;
+}
+h6.counter.warning {
+    color: #3c3d45;
+    font-weight: bold;
+}
+h6.counter.exceeded {
+    font-weight: bold;
+    color: #FF4D61;
+}
+
+/* ===================
+Addcard
+=================== */
+
+.addcard h3 {
+    font-size: 20px;
+    margin: 9px 0 14px;
+}
+
+.addcard .uk-form-row {
+    margin-top: 11px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.addcard .uk-form-label {
+    width: 123px;
+}
+
+.addcard .uk-form-controls {
+    margin: 0;
+    width: 39%;
+    min-width: 240px;
+    display: inline-block;
+}
+
+.addcard input[type="text"] {
+    width: 86.8%;
+}
+
+.addcard .buttom-swicher li {
+    padding: 4px 16px;
+}
+.addcard .uk-form-select.select {
+  padding-right: 20px;
+  width: 86.8%;
+  max-height: 30px;
+  border: 1px solid #8e9099;
+  min-width: 200px;
+}
+.addcard .year .uk-form-select.select,.addcard .amount input[type="text"],.addcard .cwcvc input[type="text"] {
+  width: 31.3%;
+  float: left;
+  min-width: 90px;
+}
+.addcard .amount .uk-form-select.select {
+  width: 52.4%;
+  margin-left: 3%;
+  min-width: 100px;;
+}
+.addcard label span {
+    font-size: 12px;
+    display: block;
+    margin: -6px 0 -6px;
+    color: #8d8f98;
+}
+.addcard .uk-button {
+    width: 100%;
+    max-width: 470px;
+    font-size: 24px;
+    height: 50px;
+    margin: 21px 0 13px;
+}
+@media (min-width: 541px) {
+	.addcard .uk-form-horizontal .uk-form-label {
+		display: inline-block;
+		font-weight: normal;
+	}
+}
+@media (max-width: 540px) {
+	.addcard .uk-form-horizontal .uk-form-label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+	.addcard .uk-form-controls {
+		width: 100%;
+	}
+}
+.uk-table.thead-gray th.daterange {
+	padding: 0 1%;
+	width: 21%;
+}
+.uk-table.thead-gray th.daterange input {
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid;
+  max-width: 170px;
+}
+.history .uk-table th:first-child {
+  width: 4%;;
+}
+.history .uk-table th:nth-child(2) {
+  width: 14%;;
+}
+.history .uk-table th:nth-child(4) {
+  width: 38%;
+}
+.history .uk-table th:nth-child(5) {
+  width: 12%;
+}
+.history .uk-table th:nth-child(6) {
+  width: 12%;
+}
+span.uk-icon-question-circle {
+    color: #528ED3;
+    margin-left: 4px;
+}
+
+.uk-table.thead-gray {
+	text-align: center;
+}
+.uk-table.thead-gray th {
+	background: #f5f5f5;
+	color: #3c3d45;
+	line-height: 20px;
+	vertical-align: middle;
+	border: #d0d0d0 1px solid;
+	padding: 6px 5px;
+	text-align: center;
+	font-weight: normal;;
+	width: auto;
+}
+.uk-table td {
+	border: #d0d0d0 1px solid;
+	padding: 17px 5px;
+}
+.uk-table {
+	font-size: 16px;
+}
+.uk-table th.daterange div {;;
+}

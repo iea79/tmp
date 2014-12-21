@@ -45,14 +45,17 @@
 					{{ form_errors(form.pickUpDate) }}
 	            </div>
 				<div class="check-box">
-					<input id="createPassengerRequestStep1_round_trip" name="createPassengerRequestStep1[round_trip]" type="checkbox" /><label for="createPassengerRequestStep1_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+					<button class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
+						<input id="createPassengerRequestStep1_round_trip" name="createPassengerRequestStep1[round_trip]" type="checkbox" />
+					</button>
+					<label for="createPassengerRequestStep1_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
 		
 		<div class="clr"></div>	
        	   
-		<div class="form-block-wrap last">
+		<div id="round_trip" class="form-block-wrap last uk-hidden">
 			<div class="labels">
 				{{ form_label(form.return_date, 'Return:') }}
 			</div>
