@@ -24,7 +24,7 @@ class VehicleChildSeatType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'child_seat';
+		return 'childSeat';
 	}
 	
 }

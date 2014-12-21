@@ -31,7 +31,7 @@ class PassengerDetailType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'passenger_detail_type';
+		return 'passengerDetail';
 	}
 	
 }

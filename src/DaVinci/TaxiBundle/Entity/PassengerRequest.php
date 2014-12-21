@@ -6,11 +6,23 @@ use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
+use DaVinci\TaxiBundle\Services\PassengerRequest\BeforeOpenState;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="passenger_request")
  */
 class PassengerRequest {
+	
+	const STATE_BEFORE_OPEN = 'before-open'; 
+	const STATE_OPEN = 'open';
+	const STATE_PENDING = 'pending'; 
+	const STATE_SOLD = 'sold';
+	const STATE_RESCUE = 'rescue'; 
+	const STATE_RESCUE_PENDING = 'rescue-pending'; 
+	const STATE_RESCUE_CLOSED = 'rescue-closed';
+	const STATE_COMPLETED = 'completed';
+	const STATE_CANCELED = 'canceled';
 	
 	/**
 	 * @ORM\Id
@@ -31,15 +43,15 @@ class PassengerRequest {
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank()
-	 * @Assert\Time()
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.blank")
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.wrongFormat")
 	 */
 	private $pickUpTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank()
-	 * @Assert\Date()
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.blank")
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.wrongFormat")
 	 */
 	private $pickUpDate;
 	
@@ -50,15 +62,19 @@ class PassengerRequest {
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank()
-	 * @Assert\Time()
+	 * @Assert\Time(
+	 * 		message="passengerRequest.returnTime.wrongFormat",
+	 * 		groups={"flow_createPassengerRequest_step1"}, 
+	 * )
 	 */
 	private $returnTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank()
-	 * @Assert\Date()
+	 * @Assert\Date(
+	 * 		message="passengerRequest.returnDate.wrongFormat",
+	 * 		groups={"flow_createPassengerRequest_step1"}, 
+	 * )
 	 */
 	private $returnDate;
 	
@@ -69,7 +85,10 @@ class PassengerRequest {
 	
 	/**
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
-	 * @Assert\Valid()
+	 * @Assert\Valid() 
+	 * @Assert\All({
+	 * 		@Assert\NotBlank()
+     * })
 	 */
 	private $routePoints;
 	
@@ -82,6 +101,16 @@ class PassengerRequest {
 	 * @ORM\OneToOne(targetEntity="Vehicle", mappedBy="passengerRequest")
 	 */
 	private $vehicle;
+	
+	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('before-open', 'open', 'pending', 'sold', 'rescue', 'rescue-pending', 'rescue-closed', 'completed', 'canceled')", name="state_value", length=20)
+	 */
+	private $stateValue;
+	
+	/**
+	 * @var \DaVinci\TaxiBundle\Services\PassengerRequestState
+	 */
+	private $state;
 	
 	/**
 	 * @var \DaVinci\TaxiBundle\Entity\VehicleOptions
@@ -381,6 +410,66 @@ class PassengerRequest {
     }
     
     /**
+     * Set state
+     *
+     * @param string $stateValue
+     * @return PassengerRequest
+     */
+    public function setStateValue($stateValue)
+    {
+    	if (!in_array($stateValue, self::getStateList())) {
+    		throw new \InvalidArgumentException("Undefined passenger request state :: {$stateValue}");
+    	}
+    	
+    	$this->stateValue = $stateValue;
+    	$this->setState($stateValue);
+    
+    	return $this;
+    }
+        
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getStateValue()
+    {
+    	return $this->stateValue;
+    }
+    
+    /**
+     * @param string $state
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setState($state) 
+    {
+    	$this->state = $this->spawnState($state);
+    	
+    	return $this;
+    }
+    
+    /**
+     * @return \DaVinci\TaxiBundle\Services\State
+     */
+    public function getState() 
+    {
+    	if (is_null($this->state)) {
+    		$this->state = $this->spawnState($this->stateValue);
+    	}
+    	
+    	return $this->state;
+    }
+    
+    /**
+     * @return void
+     */
+    public function changeState()
+    {
+    	$this->state->handle();
+    	$this->setStateValue($this->state->getName()); 
+    }
+    
+    /**
      * Set vehicleOptions
      *
      * @param \DaVinci\TaxiBundle\Entity\VehicleOptions $options
@@ -470,5 +559,81 @@ class PassengerRequest {
     public function getPassengerDetail()
     {
     	return $this->passengerDetail;
+    }
+    
+    public static function getStateList() 
+    {    	
+    	return array(
+    		self::STATE_BEFORE_OPEN,
+    		self::STATE_OPEN,
+    		self::STATE_PENDING,
+    		self::STATE_SOLD,
+    		self::STATE_RESCUE,
+    		self::STATE_RESCUE_PENDING,
+    		self::STATE_RESCUE_CLOSED,
+    		self::STATE_COMPLETED,
+    		self::STATE_CANCELED								
+    	);
+    }
+    
+    /**
+     * @param string $stateValue
+     * @return \DaVinci\TaxiBundle\Entity\State
+     */
+    private function spawnState($stateValue)
+    {
+    	switch ($stateValue) {
+    		case self::STATE_BEFORE_OPEN: {
+    			$state = new BeforeOpenState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_OPEN: {
+    			$state = new OpenState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_PENDING: {
+    			$state = new PendingState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_SOLD: {
+    			$state = new SoldState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_RESCUE: {
+    			$state = new RescueState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_RESCUE_PENDING: {
+    			$state = new RescuePendingState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_RESCUE_CLOSED: {
+    			$state = new RescueClosedState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_COMPLETED: {
+    			$state = new CompletedState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_CANCELED: {
+    			$state = new CanceledState($this);
+    			break;
+    		}
+    		
+    		default:
+    			throw new \InvalidArgumentException("Undefined passenger request state :: {$stateValue}");
+    	}
+    	
+    	$state->setName($stateValue);
+    	
+    	return $state;
     }
 }

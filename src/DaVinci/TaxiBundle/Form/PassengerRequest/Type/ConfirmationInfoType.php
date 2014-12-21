@@ -20,7 +20,7 @@ class ConfirmationInfoType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'confirmation_info';
+		return 'confirmationInfo';
 	}
 	
 }

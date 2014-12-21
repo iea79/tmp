@@ -31,7 +31,7 @@ class VehicleServicesType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'vehicle_services';
+		return 'vehicleServices';
 	}
 	
 }

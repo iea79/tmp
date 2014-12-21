@@ -1,29 +1,19 @@
 	<div class="destination">
 		<div class="desticlone">
-			<div class="form-block-wrap">	
-				<div class="labels">
-					<label for="createPassengerRequestStep1_route_points_0_place"><i class="mp-icon-point-a"></i> From:</label>
-				</div>
-				<div class="inputs">
-					<div class="uk-form-icon">
-						<i class="mp-icon-nord-star"></i>
-						{{ form_widget(form.route_points[0].place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
-						{{ form_errors(form.route_points[0].place) }}
+			{% for routePoints in form.routePoints %}
+				<div class="form-block-wrap">	
+					<div class="labels">
+						<label for="createPassengerRequestRouteInfo_routePoints_0_place"><i class="mp-icon-point-a"></i> From:</label>
 					</div>
-				</div>
-			</div>
-			<div class="form-block-wrap to">		
-				 <div class="labels">   
-					<label for="createPassengerRequestStep1_route_points_1_place"><i class="mp-icon-point-b"></i> To:</label>
-				</div>
-				<div class="inputs">
-					<div class="uk-form-icon">
-						<i class="mp-icon-nord-star"></i>
-						{{ form_widget(form.route_points[1].place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
-						{{ form_errors(form.route_points[1].place) }}
+					<div class="inputs">
+						<div class="uk-form-icon">
+							<i class="mp-icon-nord-star"></i>
+							{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+							{{ form_errors(routePoints.place) }}
+						</div>
 					</div>
-				</div>
-			</div>
+				</div>	       
+            {% endfor %}
 		</div>
 		
 		<div class="clr"></div>	
@@ -38,33 +28,37 @@
 				{{ form_label(form.pickUpDate, 'Pick up:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls uk-form-horizontal">
-					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-
-					{{ form_widget(form.pick_up_time) }}
+				<div class="uk-form-controls">
+					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker'}}) }}
+					&nbsp;
+					{{ form_widget(form.pickUpTime) }}
+					<br/>
 					{{ form_errors(form.pickUpDate) }}
+					<br/>
+					{{ form_errors(form.pickUpTime) }}
 	            </div>
 				<div class="check-box">
-					<button class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
-						<input id="createPassengerRequestStep1_round_trip" name="createPassengerRequestStep1[round_trip]" type="checkbox" />
-					</button>
-					<label for="createPassengerRequestStep1_round_trip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+					<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" /><label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
 		
 		<div class="clr"></div>	
        	   
-		<div id="round_trip" class="form-block-wrap last uk-hidden">
+		<div class="form-block-wrap last">
 			<div class="labels">
-				{{ form_label(form.return_date, 'Return:') }}
+				{{ form_label(form.returnDate, 'Return:') }}
 			</div>
 			<div class="inputs">
 				<div class="uk-form-controls">
-					{{ form_widget(form.return_date, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm/dd/yy', 'id': 'datepicker'}}) }}
-
-					{{ form_widget(form.return_time) }}
-	            </div>
+					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker'}}) }}
+					&nbsp;
+					{{ form_widget(form.returnTime) }}
+					<br/>
+					{{ form_errors(form.returnDate) }}
+					<br/>
+					{{ form_errors(form.returnTime) }}
+				</div>
 			</div>
 		</div>
 	        

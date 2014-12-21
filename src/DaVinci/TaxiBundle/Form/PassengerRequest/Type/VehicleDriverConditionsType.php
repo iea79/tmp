@@ -26,7 +26,7 @@ class VehicleDriverConditionsType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'vehicle_driver_conditions';
+		return 'vehicleDriverConditions';
 	}
 	
 }
