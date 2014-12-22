@@ -122,6 +122,11 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Finoffice:financial_office.html.twig');
     }
     
+    public function storeAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Store:store.html.twig');
+    }
+    
     /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
      */

@@ -44,3 +44,6 @@ information:
 financial_office:
     pattern:  /financial-office
     defaults: { _controller: DaVinciTaxiBundle:Home:financial_office }    
+store:
+    pattern:  /store
+    defaults: { _controller: DaVinciTaxiBundle:Home:store }    

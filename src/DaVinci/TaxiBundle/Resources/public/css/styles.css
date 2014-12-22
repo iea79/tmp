@@ -5652,7 +5652,7 @@ Tab - button-swicher
   margin-top: 4px;
 }
 .button-swicher .uk-panel {
-  padding-right: 0.6%;
+  padding-right: 6px;
 }
 .button-swicher .uk-panel:last-child {
   padding-right: 0;
@@ -5681,6 +5681,14 @@ Tab - button-swicher
 .button-swicher .mp-icon-person {
   font-size: 18px;
   margin-right: 0.3%;
+}
+.button-swicher.red-button button {
+	  background-color: #ff4d61 !important;
+}
+.main-content .button-swicher.red-button .uk-active button {
+		background: url('../images/shashki-red-left.png') left no-repeat, url('../images/shashki-red-right.png') right no-repeat !important;
+		background-color: #fff !important;
+		color: #ff4d61 !important;
 }
 /* ==========================
 Profit
@@ -7828,10 +7836,12 @@ button.textarea-toggle {
 #map-canvas img{height: 100%;}
 
 
-.content-wrap {
+.content-padding{
 	padding: 10px 20px;
 }
-
+.store .content-padding {
+  padding: 41px 20px 28px;
+}
 h6.counter {
     color: #9b9b9b;  font-size: 12px;
     /* line-height: 20px; */
@@ -7977,4 +7987,85 @@ span.uk-icon-question-circle {
 	font-size: 16px;
 }
 .uk-table th.daterange div {;;
+}
+
+/* ====================
+Store
+==================== */
+
+.store .content-padding .uk-grid.uk-grid-small {
+  margin-left: -20px;
+}
+.store .content-padding .uk-grid.uk-grid-small > * {
+  padding-left: 20px;;
+}
+.store .uk-panel .sales-box {
+    background: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 0;
+}
+.store .uk-panel .sales-box h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.store .uk-panel .sales-box h2.solid {
+  margin: 0 3px 0 0;
+  padding-left: 9px;
+  display: inline-block;
+}
+.store .uk-panel .sales-box h5 {
+  margin: 20px 0 9px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.store .uk-panel .sales-box .mp-check {
+  margin-bottom: 2px;
+}
+.store .uk-panel .sales-box p {
+  display: inline;
+}
+.store .uk-panel .sales-box a {
+  height: 36px;
+  width: 100%;
+  font-size: 18px;
+  padding: 3px;
+}
+.store .uk-panel .sales-box a.buy {
+  margin: 17px 0 0;
+  height: 51px;
+  font-size: 24px;
+  padding: 10px 5px;
+}
+.store .uk-panel .sales-box .uk-form-select {
+	width: 100%;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #8e9099;
+	font-size: 16px;
+	line-height: 19px;
+	padding: 4px 6px;
+	max-height: 30px;
+	box-sizing: border-box;
+	margin-bottom: 5px;;
+}
+.store .uk-panel .sales-box .uk-form-select i.uk-icon-caret-down {
+    float: right;
+    margin-top: 2px;
+}
+.store .uk-panel .sales-box input {
+}
+@media (max-width: 500px) {
+	.store .uk-panel .sales-box p {
+		display: block;
+		margin: 0 0 15px 10px;
+	}
+}
+@media (max-width: 479px) {
+	.store .uk-panel .sales-box p {
+		display: inline;
+		margin: 15px 0 15px 0;
+	}
 }
