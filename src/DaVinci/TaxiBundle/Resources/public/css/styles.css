@@ -1288,12 +1288,13 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		.order-details .contactpassenger  .nottravel .book-for-another {
 			font-size:16px;
 			padding:0 0 0 7px;
+			vertical-align:text-top;;;;;
 		}
 		
 		.order-details  .left  {
-			float:left;
 			width:41%;
-			padding:4px 0 0;
+			padding:2px 0 0;
+			float:left;;
 			
 		}
 		.order-details .quantity-header {
@@ -1345,7 +1346,9 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 			margin:0 1px 6px 0;
 		}
 		.order-details input {
-		    vertical-align: middle;
+		    vertical-align: middle;
+		
+		    display: inline-block;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {
@@ -4921,13 +4924,17 @@ footer {
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 .register label, .register fieldset {    position: relative;}
 /** errors */
-.register .errors {
+.errors {
     color: #ff4d61;
     margin: 0;
     padding: 0;
     font-size: 0.7em;
     width: 100%;
-    display: inline-block;
+}
+.errors ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .register fieldset .errors {
     position: relative;
@@ -6375,6 +6382,11 @@ Help
 .main-content .message span {
 	color: #ff4d61;
 }
+.main-content .message .message-drop {
+}
+.main-content .message .message-drop span {
+	color: #3c3d45;
+}
 .main-content .search {
 	background: url(../images/searchbg.png) no-repeat right;
 	background-color: #e9f0ef;
@@ -7808,10 +7820,16 @@ button.craue_formflow_button_first {
 
 /* Textarea toggle in order steps */
 
-button.textarea-toggle {
+a.textarea-toggle {
     border: 0;
     padding: 0;
     background: transparent;
+    text-decoration: none !important;
+    outline: none;
+}
+a.textarea-toggle input {
+	border: 1px solid #8e9099;
+	outline: none;
 }
 
 .order-details .kids-pats-line .hold {
@@ -8069,3 +8087,8 @@ Store
 		margin: 15px 0 15px 0;
 	}
 }
+
+
+/* Hidden block CSS */
+
+.hidden-check:not(:checked) + .mp-hidden { display: none; }
