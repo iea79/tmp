@@ -7,8 +7,10 @@
 				<div class="uk-button uk-form-select select object " data-uk-form-select="">
             		<i class="uk-icon-caret-down"></i>
                     {{ form_widget(form.vehicle.vehicle_class, {'attr': {'class': 'chosen'}}) }}
-                    {{ form_errors(form.vehicle.vehicle_class) }}
                 </div>
+				<div class="errors">
+                    {{ form_errors(form.vehicle.vehicle_class) }}
+				</div>
 			</div>
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">For kids, pats and baggage<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
 			<div class="uk-hidden kids-pats-wrap" id="baggage">
@@ -219,7 +221,9 @@
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						{{ form_errors(form.vehicle_services.air_conditioner) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_services.air_conditioner) }}
+						</div>
 						<label for="createPassengerRequestStep2[vehicle_services][air_conditioner]">
 							<input name="createPassengerRequestStep2_vehicle_services_air_conditioner" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;air conditioner</span>
@@ -248,7 +252,7 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#cool_drinks'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#cool_drinks'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;cool drinks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="cool_drinks" class="wishes-1 uk-hidden">
@@ -257,7 +261,7 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#snacks_textarea'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#snacks_textarea'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;snacks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="snacks_textarea" class="wishes-1 uk-hidden">
@@ -266,7 +270,7 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#dvd_textarea'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#dvd_textarea'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;dvd <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="dvd_textarea" class="wishes-1 uk-hidden">
@@ -275,7 +279,7 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#gadgets_chargers'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#gadgets_chargers'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;gadgets chargers <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="gadgets_chargers" class="wishes-1 uk-hidden">
@@ -284,7 +288,7 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#disabled_transportation_tools'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#disabled_transportation_tools'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;disabled transportation tools <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="disabled_transportation_tools" class="wishes-1 uk-hidden">
@@ -293,12 +297,14 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<button class="textarea-toggle" data-uk-toggle="{target:'#passenger_has_an_disease'}"><input type="checkbox" /></button>
+						<a class="textarea-toggle" data-uk-toggle="{target:'#passenger_has_an_disease'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;passenger has an disease <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<div id="passenger_has_an_disease" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-						{{ form_errors(form.vehicle_services.disease) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_services.disease) }}
+						</div>
 					</div>
 				</div>
 			</div>
@@ -312,6 +318,8 @@
 					<!--div class="uk-button uk-form-select select choose-lang" data-uk-form-select=""-->
 					<div class="wishes-1">
 						{{ form_widget(form.vehicle_driver_conditions.interpreter_lang, {'attr': {'placeholder': "Choose a language"}}) }}
+					</div>
+					<div class="errors">
 						{{ form_errors(form.vehicle_driver_conditions.interpreter_lang) }}
 					</div>
 				</div>
@@ -321,14 +329,18 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][educator]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;educator</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.educator) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.educator) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][medical_liscence]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;medical liscence</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.medical_license) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.medical_license) }}
+						</div>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -337,14 +349,18 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][body_guard]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;bodyguard</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.body_guard) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.body_guard) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][animal_trainer]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;animal trainer</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.animal_trainer) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.animal_trainer) }}
+						</div>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -353,14 +369,18 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][carrier]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;carrier</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.carrier) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.carrier) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][guide]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;guide</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.guide) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.guide) }}
+						</div>
 					</div>
 				</div>
 			</div>
