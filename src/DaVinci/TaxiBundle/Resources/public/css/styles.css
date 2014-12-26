@@ -1346,8 +1346,10 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 			margin:0 1px 6px 0;
 		}
 		.order-details input {
-		    vertical-align: middle;
-		
+		    vertical-align: middle;
+
+		
+
 		    display: inline-block;
 		}
 /*======================================   driver's page ====================================*/
@@ -7936,7 +7938,39 @@ Addcard
     font-size: 24px;
     height: 50px;
     margin: 21px 0 13px;
+    display: block;
 }
+.addcard .complete {
+  font-size: 16px;
+  list-style: none;
+  padding-left: 0;
+  max-width: 470px;
+  line-height: 1;
+  width: 100%;
+  margin: 8px 0 -9px;
+  display: inline-block;;
+}
+.addcard .complete li {
+  border-bottom: 1px dotted #9b9b9b;
+  padding: 0;
+  margin-bottom: 18px;
+  height: 12px;
+}
+.addcard .complete label {
+  background: #fff;
+  margin: 0 0 -4px;
+  float: left;
+  padding: 0 3px 0 0;
+}
+.addcard .complete span {
+  color: #9b9b9b;
+  float: right;
+  background: #fff;
+  margin-bottom: -4px;
+  display: block;
+  padding: 0 0 1px 3px;;
+}
+
 @media (min-width: 541px) {
 	.addcard .uk-form-horizontal .uk-form-label {
 		display: inline-block;
