@@ -7104,13 +7104,9 @@ Notifications
 	margin-bottom: 13px;
 }
 .notifications .fullsize h6,.information .fullsize h6 {
-	margin-top: 0;
-	color: #84858a;
-	margin-bottom: 3px;
 }
 .notifications .fullsize textarea,.information .fullsize textarea {
 	height: 88px !important;
-	margin-bottom: 7px;
 	width: 100%;
 }
 .notifications .uk-form-file,.information .uk-form-file {
@@ -7862,12 +7858,20 @@ a.textarea-toggle input {
 .store .content-padding {
   padding: 41px 20px 28px;
 }
-h6.counter {
+h6.counter,h6.precounter {
     color: #9b9b9b;  font-size: 12px;
     /* line-height: 20px; */
     margin: 2px 0;
+    display: inline-flex;
 }
-h6.counter.warning {
+h6.precounter {
+  margin-right: 4px;
+  float: left;
+}
+/* h6.counter:nth-child(2) {
+	display: none;
+}
+ */h6.counter.warning {
     color: #3c3d45;
     font-weight: bold;
 }
@@ -8031,7 +8035,7 @@ span.uk-icon-question-circle {
 	font-weight: normal;;
 	width: auto;
 }
-.uk-table td {
+.history .uk-table td {
 	border: #d0d0d0 1px solid;
 	padding: 17px 5px;
 }

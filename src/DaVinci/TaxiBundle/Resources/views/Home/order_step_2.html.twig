@@ -257,6 +257,7 @@
 					</label>
 					<div id="cool_drinks" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.cool_drinks, {'attr': {'placeholder': "For example: аллергия на шерсть или диабет.",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -266,6 +267,7 @@
 					</label>
 					<div id="snacks_textarea" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.snacks, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -275,6 +277,7 @@
 					</label>
 					<div id="dvd_textarea" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.dvd, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -284,6 +287,7 @@
 					</label>
 					<div id="gadgets_chargers" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.gadgets, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -293,6 +297,7 @@
 					</label>
 					<div id="disabled_transportation_tools" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+						<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -302,6 +307,7 @@
 					</label>
 					<div id="passenger_has_an_disease" class="wishes-1 uk-hidden">
 						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+						<h6 class="precounter">simbols left:</h6>
 						<div class="errors">
 							{{ form_errors(form.vehicle_services.disease) }}
 						</div>
@@ -387,6 +393,7 @@
 			<div class="wishes-2">
 				<h4>Special requirements</h4>
 				{{ form_widget(form.vehicle.special_requirements, {'attr': {'placeholder': 'For example: ',  'class': "charcount"}}) }}
+				<h6 class="precounter">simbols left:</h6>
 			</div>
 <!-- 			<div class="uk-button-group uk-width-1-1">
 	button class="uk-button uk-button-warning float_left">&lt; Back</button>
