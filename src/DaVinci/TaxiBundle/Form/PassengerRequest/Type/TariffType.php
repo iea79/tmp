@@ -27,7 +27,7 @@ class TariffType extends AbstractType {
 	}
 	
 	public function getName() {
-		return 'tariff_type';
+		return 'tariff';
 	}
 	
 }

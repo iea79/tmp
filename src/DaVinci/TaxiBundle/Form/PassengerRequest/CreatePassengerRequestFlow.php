@@ -21,19 +21,19 @@ class CreatePassengerRequestFlow extends FormFlow {
 	protected function loadStepsConfig() {
 		return array(
 			array(
-				'label' => 'route_info',
+				'label' => 'routeInfo',
 				'type' => new RouteInfoType()	
 			),
 			array(
-				'label' => 'vehicle_info',
+				'label' => 'vehicleInfo',
 				'type' => new VehicleInfoType()
 			),
 			array(
-				'label' => 'passenger_info',
+				'label' => 'passengerInfo',
 				'type' => new PassengerInfoType()
 			),
 			array(
-				'label' => 'confirm_action',
+				'label' => 'confirmAction',
 				'type' => new ConfirmationInfoType()	
 			)
 		);

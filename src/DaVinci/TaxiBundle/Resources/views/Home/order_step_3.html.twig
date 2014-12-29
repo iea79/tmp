@@ -7,50 +7,61 @@
 				</p>
 				<div class="pers-data">
 					<div class="tarif-line">
-						<div class="tarif-line-group first">
-							<label for="createPassengerRequestStep3_tariff_market_price" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Price&nbsp;</span>
-								<input id="createPassengerRequestStep3[tariff][market_price]" name="createPassengerRequestStep3[tariff][market_price]" type="checkbox" />
-							</label>		
-							<span class="recommend"> Market $100.00</span>
-						</div>
-						<div class="tarif-line-group second">
-							<label class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Your</span>
-							</label>
-							<span class="overinput">
-								<span class="dollar">$</span>
-								<input id="createPassengerRequestStep3[tariff][your_price]" name="createPassengerRequestStep3[tariff][your_price]" type="text" placeholder="0.00"/>
-							</span>
-						</div>
+							<div class="tarif-line-group first">
+								<label for="createPassengerRequestStep3_tariff_market_price" class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Price&nbsp;</span>
+								</label>		
+									<input id="createPassengerRequestStep3[tariff][market_price]" name="createPassengerRequestStep3[tariff][market_price]" type="radio" checked="checked" />
+								<span class="recommend"> Market $100.00</span>
+							</div>
+							<div class="tarif-line-group second">
+								<input type="radio" name="createPassengerRequestStep3[tariff][market_price]">
+								<label class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Your</span>
+								</label>
+								<span class="overinput">
+									<span class="dollar">$</span>
+									<input id="createPassengerRequestStep3[tariff][your_price]" name="createPassengerRequestStep3[tariff][your_price]" type="text" placeholder="0.00"/>
+								</span>
+							</div>
+							<div class="tarif-line-group third">
+								<label for="createPassengerRequestStep3_tariff_payment_method" class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Payment:</span>
+								</label>
+								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
+									<i class="uk-icon-caret-down"></i>
+									{{ form_widget(form.tariff.payment_method) }}
+								</div>
+							</div>
 					</div>
 					<div class="tarif-line">
-						<div class="tarif-line-group first">
-							<label for="createPassengerRequestStep3_tariff_market_tips" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Tips &nbsp;</span>
-								<input id="createPassengerRequestStep3[tariff][market_tips]" name="createPassengerRequestStep3[tariff][market_tips]" type="checkbox" /> 
-							</label>
-							<span class="recommend">Market $10.00</span>
-						</div>
-						<div class="tarif-line-group second">
-							<label class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Your</span>
-							</label>
-							<span class="overinput">
-								<span class="dollar">$</span>
-								<input id="createPassengerRequestStep3[tariff][your_tips]" name="createPassengerRequestStep3[tariff][your_tips]" type="text" placeholder="0.00" />
-							</span>
-						</div>
+							<div class="tarif-line-group first">
+								<label for="createPassengerRequestStep3_tariff_market_tips" class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Tips &nbsp;</span>
+								</label>
+									<input id="createPassengerRequestStep3[tariff][market_tips]" name="createPassengerRequestStep3[tariff][market_tips]" type="radio" checked="checked" /> 
+								<span class="recommend">Market $10.00</span>
+							</div>
+							<div class="tarif-line-group second">
+								<input type="radio" name="createPassengerRequestStep3[tariff][market_tips]">
+								<label class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Your</span>
+								</label>
+								<span class="overinput">
+									<span class="dollar">$</span>
+									<input id="createPassengerRequestStep3[tariff][your_tips]" name="createPassengerRequestStep3[tariff][your_tips]" type="text" placeholder="0.00" />
+								</span>
+							</div>
+							<div class="tarif-line-group third">
+								<label for="createPassengerRequestStep3_tariff_payment_method" class="tarif-line-adapt-wrap">
+									<span class="uk-form-controls">Payment:</span>
+								</label>
+								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
+									<i class="uk-icon-caret-down"></i>
+									{{ form_widget(form.tariff.payment_method) }}
+								</div>
+							</div>	
 					</div>
-					<div class="tarif-line-group third">
-						<label for="createPassengerRequestStep3_tariff_payment_method" class="tarif-line-adapt-wrap">
-							<span class="uk-form-controls">Payment:</span>
-						</label>
-						<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
-							<i class="uk-icon-caret-down"></i>
-							{{ form_widget(form.tariff.payment_method) }}
-						</div>
-					</div>						
 				</div>
 			</div>
 		</div>
@@ -158,7 +169,7 @@
 									<span class="uk-form-controls">&nbsp;&nbsp;wi-fi <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
 									</span>
 								</label>
-								<label for="createPassengerRequestStep3_passenger_detail_mobile_has_whatsapp">
+								<label for="createPassengerRequestStep3_passenger_detail_mobile_has_whatsapp" class="right-group">
 									<input id="createPassengerRequestStep3_passenger_detail_mobile_has_whatsapp" name="createPassengerRequestStep3[passenger_detail][mobile_has_whatsapp]" type="checkbox" />
 									<span class="right-group">
 										<span class="uk-form-controls">&nbsp;&nbsp;whatsapp <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
@@ -168,16 +179,16 @@
 						</div>
 						<div class="about-passenger">
 							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></p>
-							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket'}}) }}
-							<div class=" helptext">symbols left 200</div>
+							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket',  'class': "charcount"}}) }}
 						</div>
+						<h6>simbols left:</h6>
 					</div>
 				</div>
 
-				<div class="uk-button-group uk-width-1-1">
-					<!--a href="#" class="uk-button uk-button-warning float_left">&lt; Back</a>
-					<a href="#" class="uk-button uk-button-danger float_right">Submit &gt;</a-->
-				</div>
+<!-- 				<div class="uk-button-group uk-width-1-1">
+	a href="#" class="uk-button uk-button-warning float_left">&lt; Back</a>
+	<a href="#" class="uk-button uk-button-danger float_right">Submit &gt;</a
+</div> -->
 			</div>
 		</div>
     </div>

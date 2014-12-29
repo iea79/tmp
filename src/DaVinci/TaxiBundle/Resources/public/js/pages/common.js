@@ -20,12 +20,19 @@ function togglePreloader(selector, show){
 }
 
 define(['jquery', 'placeholder'], function($){
-    require(['uikit'],function(UI){
+    require(['uikit', 'charCount'],function(UI){
         
         //remove my account button loading
         $('.autorized').removeClass('loading');
         
         require(['addons/form-select','addons/form-password']);
+
+        jQuery(function($) {
+            $(document).ready( function() {
+                $(".charcount").charCount();
+            });
+        });
+
 
     });
     

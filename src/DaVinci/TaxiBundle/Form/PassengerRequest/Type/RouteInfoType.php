@@ -15,42 +15,43 @@ class RouteInfoType extends AbstractType {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
-			->add('route_points', 'collection', array(
+			->add('routePoints', 'collection', array(
 				'type' => new RoutePointType(),
-				'required' => false,	
-				'allow_add'    => true,
 				'error_bubbling' => false,
+				'allow_add'    => true,
+				'by_reference' => false,
 				'cascade_validation' => true
 			))
-			->add('round_trip', 'checkbox')
+			->add('roundTrip', 'checkbox')
 			->add('pickUpDate', 'date', array(
-				'widget' => 'single_text', 
-				'format' => 'MM/dd/yy',
+				'widget' => 'single_text',
+				'format' => 'MM-dd-yy',
 				'required' => false
 			))
-			->add('pick_up_time', 'time', array(
+			->add('pickUpTime', 'time', array(
 				'widget' => 'choice',
 				'required' => false
 			))
-			->add('return_date', 'date', array(
+			->add('returnDate', 'date', array(
 				'widget' => 'single_text', 
-				'format' => 'MM/dd/yy',
+				'format' => 'MM-dd-yy',
 				'required' => false
 			))
-			->add('return_time', 'time', array(
+			->add('returnTime', 'time', array(
 				'widget' => 'choice',
 				'required' => false
 			));
 	}
 	
 	public function getName() {
-		return 'createPassengerRequestStep1';
+		return 'createPassengerRequestRouteInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
-			'csrf_protection' => false,
+			'validation_groups' => array('flow_createPassengerRequest_step1'),
+			'csrf_protection' => false
 		));
 	}
 	

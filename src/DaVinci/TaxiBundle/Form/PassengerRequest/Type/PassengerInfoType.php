@@ -14,15 +14,15 @@ class PassengerInfoType extends AbstractType {
 			->add('passenger_detail', new PassengerDetailType());
 	}
 	
-	public function setDefaultOptions(OptionsResolverInterface $resolver) {
-		$resolver->setDefaults(array(
-			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
-			'csrf_protection' => false,
-		));
-	}
-	
 	public function getName() {
 		return 'createPassengerRequestStep3';
+	}
+	
+	public function setDefaultOptions(OptionsResolverInterface $resolver) {
+		$resolver->setDefaults(array(
+				'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
+				'csrf_protection' => false,
+		));
 	}
 	
 }

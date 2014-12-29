@@ -22,6 +22,10 @@
 .uk-dropdown {
 	border-radius:4px;
 }
+input,select,textarea {
+	border-radius: 3px;
+	border-style: solid;
+}
 .uk-modal-dialog {
 	border-radius:8px;
 }
@@ -200,17 +204,27 @@ input[class^="mp-icon-"], input[class*=" mp-icon-"] {
 	float:right;
 	margin-left:5px;
 }
+.uk-form-icon > [class*='uk-icon-'] {
+	font-size: 18px;
+	margin-top: -9px;
+}
 /*======================================== end of font ===============================*/
-/*=================   Placeholder styles  ===========================*/
+/*=================  Input and placeholder styles and animation  ===========================*/
+
+input:-moz-placeholder{color:#9b9b9b;}
+input::-moz-placeholder{color:#9b9b9b; opacity:1;}
+input:-ms-input-placeholder{color:#9b9b9b;}
+input::-webkit-input-placeholder{color:#9b9b9b;}
+
 ::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
 ::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
 :-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
 :-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
-:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
-:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
-:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
-:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
-input:valid 					  { color: #3D3D3D !important;}
+input[type="text"]:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
 		width:100%;
@@ -681,7 +695,7 @@ input:valid 					  { color: #3D3D3D !important;}
 
 	.home .steps-1-2-3 {
 		background-color:#fff;
-		padding:9px 0;
+		padding:9px 0 20px;
 		box-shadow: 0 1px 1px 0 #b4b4b4;
 		overflow:hidden;
 		border-radius:6px;
@@ -823,7 +837,7 @@ input:valid 					  { color: #3D3D3D !important;}
 					}
 /*==========================  styles of booking step 1  in homepage =================================*/
 .destination {
-	margin:40px 0 20px 0;
+	margin:41px 0 17px;
 }
 	.destination .nav-over {
 		padding:0 20px;
@@ -834,7 +848,7 @@ input:valid 					  { color: #3D3D3D !important;}
 			background-color:#ff4d61;
 			border:none;
 			height:1px;
-			margin:20px 0 18px 0;
+			margin:21px 0 18px;
 		}
 		.destination .nav-over .uk-button {
 			margin:1px 0;
@@ -869,28 +883,27 @@ input:valid 					  { color: #3D3D3D !important;}
 	}
 	.destination  .inputs .uk-primary {
 		color:#528ed3;
+		margin-top:-1px;
 	}
 	.destination  .inputs .date-input {
 		max-width:92px;
 	}
-	.destination  .inputs .check-box {
-		margin-top:5px;
-	}
+	.destination  .inputs .check-box {margin-top:9px;margin-bottom:-3px;}
 	.destination  .inputs .date-pick {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		height: 30px;
-		vertical-align: bottom;
+		height: 29px;
+		display: inline-block;
+		vertical-align: middle;
 		padding-left:8px;
+		margin: 0 2% 0 0;
 	}
-	.destination  .inputs .uk-form-icon {
-		width:100%;
-	}
+	.destination  .inputs .uk-form-icon { width:100%; }
 	.destination  .inputs .uk-form-icon i {font-size: 22px;}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
-		padding:0 30px 1px 5px !important;
+		padding:0 30px 0 5px !important;
 	}
 		.destination  .inputs .uk-form-icon  i {
 			right:0;
@@ -902,8 +915,8 @@ input:valid 					  { color: #3D3D3D !important;}
 		.destination .nav-over .add-another {
 			color:#3c3d45;
 			font-weight:bold;
-			min-height:21px;
-			line-height:21px;
+			min-height:0;
+			line-height:26px;
 			border:1px solid #d3d3d3;
 			cursor:pointer;
 		}
@@ -976,23 +989,25 @@ input:valid 					  { color: #3D3D3D !important;}
 	}
 	.order-details .kids-pats-group {
 		margin-bottom:10px;
+		display:inline-block;
+		width:100%;
 		
 	}
 	.order-details  .kids-pats-line .right-group {
-		width: 42%
+		width: 43%
 	}
 	.order-details  .kids-pats-line .left-group {
-		width: 58%
+		width: 57%
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
 		float:left;
-		margin-bottom:5px;
+		margin-bottom:7px;;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls { 
-		width:69.6% !important;
+		width:75.7% !important;
 	}
 	.order-details  .kids-pats-line .left-group  .uk-form-controls {
-		width: 51%;
+		width: 56%;
 	}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
 	}
@@ -1035,7 +1050,7 @@ input:valid 					  { color: #3D3D3D !important;}
 	.order-details .kids-pats-line .label-header {
 		font-size:18px;
 		display:inline-block;
-		width:42%;
+		width:41%;
 	}
 	.order-details  .kids-pats-line input[type=checkbox]{
 		display:inline-block;
@@ -1106,24 +1121,21 @@ input:valid 					  { color: #3D3D3D !important;}
 		line-height:30px;
 		font-size:16px;
 		font-weight:bold;
-		margin:3px 0;
+		margin:6px 0 2px;
 		cursor:pointer;
 	}
-	.order-details .spec-request .uk-parent a {
-		color:#3c3d45;
-		text-decoration:none;
+		.order-details .spec-request .uk-parent a {
+			color:#3c3d45;
+			text-decoration:none;
 		}
 		.order-details-over  .uk-icon-question-circle  {
 			font-size:16px;
 			color:#528ed3;
 			margin-left:4px;
+			margin-top:-1px;
 		}
-		.order-details-over h1  .uk-icon-question-circle  {
-			position:relative;
-			top:-3px;
-			}
 		.order-details-over .note {
-			margin:0 0 12px;
+			margin:4px 0 10px;
 		}
 			.order-details-over .note  span {
 				color:#ff4d61;
@@ -1131,26 +1143,40 @@ input:valid 					  { color: #3D3D3D !important;}
 		
 		.tarif-line {
 			display:table-row;
-			margin:0 0 11px 0;
+			margin: 0px 0 11px 0;
+			line-height: 1.5;
 		}
 		.tarif-line	.tarif-line-group 	{
 			display:table-cell;
-			padding:5px 0 9px 0;
+			padding:5px 0 7px 0;
+			font-size:16px;
+		}
+		.tarif-line	.tarif-line-group.first {
+   			width: 30%;
+		}
+		.tarif-line	.tarif-line-group.first label.tarif-line-adapt-wrap span {
+			display: inline-block;
+			width: 25%;;;
 		}
 		.tarif-line	.second  {
-			width:25%;
-			text-align:right;
-			
+			text-align:left;
+			width:20%;
+		}
+		.tarif-line	.second .tarif-line-adapt-wrap span {
+			margin-right: 1px;
 		}
 		.tarif-line	.second   .uk-form-controls {
 			margin-right:5px;
 		}
 		.tarif-line .third {
-			width:33%;
+			width:27%;
 			text-align:right;
 		}
 		.tarif-line	.tarif-line-group input[type="text"]{
 			width:100%;
+		}
+		.tarif-line	.tarif-line-group input[type="checkbox"]{
+			vertical-align: middle;
 		}
 		.tarif-line	.tarif-line-group .select {
 			width:47%;
@@ -1200,7 +1226,7 @@ input:valid 					  { color: #3D3D3D !important;}
 			font-size:12px;
 		}
 		.order-details .uk-button-group {
-			margin:11px 0 7px 0;
+			margin:1px 0 7px 0;
 		}
 		.order-details .uk-button-group a {
 			min-height:48px;
@@ -1216,7 +1242,7 @@ input:valid 					  { color: #3D3D3D !important;}
 		margin:0 0 5px 20px;
 	}
 	.order-details  input[type="text"], .driv-over  input[type="text"] {
-		padding:0 0 0 15px;
+		padding:0 0 0 6px;
 		border-radius:4px;
 		border: 1px solid #8e9099;
 		height:28px;
@@ -1234,9 +1260,11 @@ input:valid 					  { color: #3D3D3D !important;}
 		text-align:right;
 	}
 	.order-details .tarif-line-group  .overinput {
-		width:45%;
-		float:right;
-		top:-3px;
+		width:63px;
+		top:-2px;
+	}
+	.order-details .tarif-line-group .overinput input[type="text"] {
+		padding-left: 20px;
 	}
 	.order-details .overinput {
 		position:relative;
@@ -1245,9 +1273,10 @@ input:valid 					  { color: #3D3D3D !important;}
 	}
 		.order-details .overinput .dollar {
 			position:absolute;
-			left:5px;
+			left:7px;
 			top:4px;
 			color:#9b9b9b;
+			font-size:14px;
 		}
 		.order-details-over .quantity-over {
 			display:table;
@@ -1259,12 +1288,13 @@ input:valid 					  { color: #3D3D3D !important;}
 		.order-details .contactpassenger  .nottravel .book-for-another {
 			font-size:16px;
 			padding:0 0 0 7px;
+			vertical-align:text-top;;;;;
 		}
 		
 		.order-details  .left  {
-			float:left;
 			width:41%;
-			padding:4px 0 0;
+			padding:2px 0 0;
+			float:left;;
 			
 		}
 		.order-details .quantity-header {
@@ -1279,7 +1309,7 @@ input:valid 					  { color: #3D3D3D !important;}
 		}
 		 .order-details  .pers-data .right input[type="text"]{
 			width:100%;
-			min-height:29px;
+			min-height:30px;
 			text-align:left;
 		}
 		.order-details  .pers-data .right .select {
@@ -1314,6 +1344,13 @@ input:valid 					  { color: #3D3D3D !important;}
 		.order-details .about-passenger p {
 			font-size:16px;
 			margin:0 1px 6px 0;
+		}
+		.order-details input {
+		    vertical-align: middle;
+
+		
+
+		    display: inline-block;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {
@@ -1380,21 +1417,20 @@ input:valid 					  { color: #3D3D3D !important;}
 				margin:0 5px 0 0;
 			}
 		.disloc-in .map-container {
-		position: relative;
-		padding-bottom: 85%;
-		padding-top: 80px;
-		height: 0;
-		overflow: hidden;
+			position: relative;
+			padding-bottom: 85%;
+			padding-top: 80px;
+			height: 0;
+			overflow: hidden;
 		}
-
-			.disloc-in .map-container #map-canvas {
+		.disloc-in .map-container #map-canvas {
 			position: absolute;
 			top: 0;
 			left: 0;
 			width: 100%;
 			height: 100%;
 			border-radius: 5px;
-			}	
+		}
 /*===========================  table styles in home  ==================================*/
 .table-over {
 	box-shadow: 0 1px 1px #b4b4b4;
@@ -1546,6 +1582,7 @@ input:valid 					  { color: #3D3D3D !important;}
 			.table-over .serv .under-head .mp-icon-nord-star {
 				right:2px;
 				width:20px;
+				font-size:20px;
 			}
 			.table-over .serv .under-head .uk-icon-calendar {
 				right:2px;
@@ -1887,6 +1924,16 @@ office passengers and driver
 .client-account .uk-table a:hover {
 	text-decoration: none;
 }
+.client-account .uk-table a.rescue {
+  min-height: 30px;
+  width: 100%;
+  max-width: 102px;
+  font-size: 14px;
+
+  color: #fff !important;
+  padding: 6px 5px;
+  line-height: 16px;
+}
 .client-account .uk-table tr {
     border: #d0d0d0 1px solid;
 }
@@ -1929,8 +1976,8 @@ office passengers and driver
 	width: 24.3%;
 }
 .client-account .allorder th[class="status"] {
-min-width: 70px;
-width: 12.6%;
+	min-width: 70px;
+	width: 12.6%;
 }
 .client-account .allorder th[class="price"] {
 	min-width: 65px;
@@ -1945,6 +1992,10 @@ width: 12.6%;
 	border:0;
 	background:transparent;
 	color:black;
+}
+.allorder .rescue-driver img {
+    margin-left: 3px;
+
 }
 .allorder .edit-close .mp-icon-edit,
 .allorder .edit-close .mp-icon-closed  {
@@ -2125,21 +2176,21 @@ table th .questiontooltip {
 	min-width: 90px;
 }
 /*================scroll table====================*/
-.client-account .table-container
+.table-container
 {
   width: 100%;
   overflow-y: auto;
   _overflow: auto;
   margin: 0 0 1em;
 }
-.client-account .table-container::-webkit-scrollbar
+.table-container::-webkit-scrollbar
 {
   -webkit-appearance: none;
   width: 14px;
   height: 14px;
 }
 
-.client-account .table-container::-webkit-scrollbar-thumb
+.table-container::-webkit-scrollbar-thumb
 {
   border-radius: 8px;
   border: 3px solid #fff;
@@ -2875,6 +2926,32 @@ footer {
     padding: 9px 7px 0 7px;
     font-size: 14px;
     line-height: 17px;
+}
+.pop-up .addlangline select {
+    width: 93.6%;
+    margin-right: 1%;
+}
+@media (max-width: 710px) {
+    .pop-up .addlangline select {
+        width: 95%;
+        margin-right: 1%;
+    }    
+}
+
+.pop-up .addlangline .lang-close:before {
+    color: #FF4D61;
+    display: block;
+    padding-top: 5px;
+    height: 30px;
+    margin-bottom: 7px;
+}
+.pop-up .addphoneareas .intl-tel-input {
+    width: 93.4%;
+    margin-right: 1%;    
+}
+.pop-up .forphoneinput .utooltip {
+    
+    margin-left: 0;
 }
 .pop-up a.uk-form-password-toggle {
   top: 15px;
@@ -3706,7 +3783,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.header-top .header-top-in .topmenu ul.topmenu-in .nest span {margin:0;}
 }
 @media only screen and (min-width:761px) {
-#steps {width:50%;}
+#steps {
+	float: left;
+	width: 50%;
+}
 .home .destination {
 	float:left;
 	width:100%;
@@ -3718,11 +3798,10 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 .home .disloc {
 	float:right;
 	width:50%;
+	padding: 40px 20px 0 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
-	.home .disloc .disloc-in {
-		margin:40px 20px 0 10px;
-	}
-	
 	.destination .form-block-wrap {
 		margin:0 10px 10px 0;
 	}
@@ -4502,25 +4581,22 @@ footer {
 .register .uk-form-horizontal .addlangline .uk-form-label   {margin-top: 0;}
 .addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
 .utooltip {
-    position: relative;
-    float: left;
-    text-align: left;
-    margin-left: 1px;
-    background: url("../images/tooltip.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    width: 13px;
+    width: 14px;
     height:14px;
-    text-align: center;
     color: #fff;
     padding-top: 0;
     font-size: 10px;
-    vertical-align: middle;
     line-height: 130%;
     padding-right: 1px;
     margin-lefT: 4px;
     position: relative;
-    top: 7px;
-    z-index: 0;
+    background: #3399ff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: default;
+    vertical-align: middle;
+    display: inline-block;
+    text-align: center;
  }
  .register .mp-icon-closed {
  	display: block;
@@ -4850,13 +4926,17 @@ footer {
 .uk-button-group div .nextbutt.twobuttnext, #buttons .nextbutt .twobuttnext {    float: right;}
 .register label, .register fieldset {    position: relative;}
 /** errors */
-.register .errors {
+.errors {
     color: #ff4d61;
     margin: 0;
     padding: 0;
     font-size: 0.7em;
     width: 100%;
-    display: inline-block;
+}
+.errors ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .register fieldset .errors {
     position: relative;
@@ -5216,7 +5296,6 @@ Step-4
 ========================= */
 
 .order-step-four {
-  width: 50%;
 }
 .order-step-four .uk-icon-check {
   margin-left: -10px;
@@ -5324,34 +5403,34 @@ Step-4
 	height: 113px;
 	width: 110px;
 }
-.check-order .main-passenger-info dd.personal {
+.check-order dd.personal {
 	min-width: 250px;
 	width: 74%;
 	margin-top: -3px;
 	margin-bottom: 11px !important;
 }
-.check-order .main-passenger-info .personal dl {
+.check-order .personal dl {
 	width: 100%;
 	display: inline-block;
 	margin-top: 0;
 	margin-bottom: -10px;
 }
-.check-order .main-passenger-info .personal dt,
-.check-order .main-passenger-info .personal dd {
+.check-order .personal dt,
+.check-order .personal dd {
 	margin-bottom: 2.1% !important;
 	margin-right: 0 !important;
 }
-.check-order .passenger-info .main-passenger-info .personal dt {
+.check-order .passenger-info .personal dt {
 	width: 55%;
 }
-.check-order .passenger-info .main-passenger-info .personal dd {
+.check-order .passenger-info .personal dd {
 	width: 45%;
 }
-.check-order .main-passenger-info dt[class="about"] {
+.check-order dt[class="about"] {
 	margin-bottom: 2px !important;
 	width: 100%;
 }
-.check-order .passenger-info .main-passenger-info dd[class="about"] {
+.check-order .passenger-info dd[class="about"] {
 	font-size: 14px !important;
 	line-height: 16px;
 	margin-bottom: 11px !important;
@@ -5562,10 +5641,10 @@ Step-4
     font-weight: bold;
     margin-top: -3px;
 }
-.order-details .kids-pats-wrap.aditional-driver {
-  padding: 11px 0 27px 0;
-  display: table;
+.order-details .aditional-driver {
+  padding: 6px 0 0 0;
   width: 100%;
+  margin: 0 0 -6px 0;
 }
 /* ==========================
 Tab - button-swicher 
@@ -5581,11 +5660,11 @@ Tab - button-swicher
 .button-swicher {
   margin-top: 4px;
 }
-.button-swicher .uk-panel:first-child {
-  padding-right: 0.3%;
+.button-swicher .uk-panel {
+  padding-right: 6px;
 }
 .button-swicher .uk-panel:last-child {
-		padding-left: 0.3% !important;
+  padding-right: 0;
 }
 .button-swicher button {
 	  padding: 3px 12px;
@@ -5611,6 +5690,14 @@ Tab - button-swicher
 .button-swicher .mp-icon-person {
   font-size: 18px;
   margin-right: 0.3%;
+}
+.button-swicher.red-button button {
+	  background-color: #ff4d61 !important;
+}
+.main-content .button-swicher.red-button .uk-active button {
+		background: url('../images/shashki-red-left.png') left no-repeat, url('../images/shashki-red-right.png') right no-repeat !important;
+		background-color: #fff !important;
+		color: #ff4d61 !important;
 }
 /* ==========================
 Profit
@@ -6297,6 +6384,11 @@ Help
 .main-content .message span {
 	color: #ff4d61;
 }
+.main-content .message .message-drop {
+}
+.main-content .message .message-drop span {
+	color: #3c3d45;
+}
 .main-content .search {
 	background: url(../images/searchbg.png) no-repeat right;
 	background-color: #e9f0ef;
@@ -6544,11 +6636,6 @@ Help
 }
 
 /* styles 31.10-01.11 */
-input{color: #000;}
-input:-moz-placeholder{color:#9b9b9b;}
-input::-moz-placeholder{color:#9b9b9b; opacity:1;}
-input:-ms-input-placeholder{color:#9b9b9b;}
-input::-webkit-input-placeholder{color:#9b9b9b;}
 
 .home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
 .home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
@@ -6694,9 +6781,9 @@ View offices
 .view-office .uk-table td, .view-office .uk-table th {
   text-align: center !important;
   line-height: 20px;
-  vertical-align: middle;
   border: #d0d0d0 1px solid;
   padding: 7px 5px 9px 5px;
+  vertical-align: middle;
 }
 .view-office .uk-table td {
   padding: 0 5px;
@@ -7017,13 +7104,9 @@ Notifications
 	margin-bottom: 13px;
 }
 .notifications .fullsize h6,.information .fullsize h6 {
-	margin-top: 0;
-	color: #84858a;
-	margin-bottom: 3px;
 }
 .notifications .fullsize textarea,.information .fullsize textarea {
 	height: 88px !important;
-	margin-bottom: 7px;
 	width: 100%;
 }
 .notifications .uk-form-file,.information .uk-form-file {
@@ -7642,3 +7725,408 @@ Litle stars for rate
   margin: 0 5px;
   float: left;;
 }
+
+/* ================================================
+08.12.2014 by aglovlyuk          *=== Unsorted ===*
+================================================= */
+
+
+.order-details .aditional-driver .kids-pats-line label.interp {
+    display: inline-block;
+    width: 32%;
+}
+
+.order-details .aditional-driver .kids-pats-line label.interp input[type="checkbox"] {
+    display: inline-block;
+}
+
+.order-details .aditional-driver .kids-pats-line label.interp span.uk-form-controls {
+    width: 80%;
+}
+
+.order-details .aditional-driver .kids-pats-line .wishes-1 {
+    display: inline-flex;
+    width: 67%;
+}
+
+.order-details .aditional-driver .kids-pats-line .wishes-1 input {
+    width: 100%;
+}
+
+.order-details .aditional-driver .kids-pats-line {
+    margin-bottom: 3px;
+}
+
+.order-details .aditional-driver .wishes-2 {}
+
+select{
+	border: 1px solid #8e9099;
+	border-radius: 3px;
+	height: 29px;
+	line-height: 29px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.destination select.form-control{
+	margin: 0 7px 0 0;
+	width: 54px;
+}
+.craue_formflow_buttons{
+	clear: both;
+	overflow: hidden;
+}
+.craue_formflow_buttons{
+	padding: 9px 6px 0 19px;
+	margin-bottom: -4px;
+}
+.craue_formflow_buttons button {
+	color: #fff;
+	text-align: center;
+	display: inline-block;
+	font-size: 24px;
+	line-height: 51px;
+	height: 51px;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+	border: 0;
+	border-radius: 3px;
+	width: 100%;
+	text-transform: capitalize;
+}
+.craue_formflow_buttons .craue_formflow_button_last {
+	background: #ff4d61;
+	width: 100%;
+}
+.craue_formflow_buttons .craue_formflow_button_last:after {
+}
+.craue_formflow_button_count_3 button:first-child {
+    width: 49%;
+    margin-right: 1%;
+    background: #8D8F9C;
+    float: right;
+}
+
+.craue_formflow_button_count_3 button:nth-child(2) {
+    width: 49%;
+    background: #ff4d61;
+}
+
+/* Hidden button "start over" */
+
+button.craue_formflow_button_first {
+    display: none;
+}
+
+/* Textarea toggle in order steps */
+
+a.textarea-toggle {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    text-decoration: none !important;
+    outline: none;
+}
+a.textarea-toggle input {
+	border: 1px solid #8e9099;
+	outline: none;
+}
+
+.order-details .kids-pats-line .hold {
+    width: 32%;
+    display: inline-block;
+}
+
+.order-details .kids-pats-line .hold span {
+    width: auto;
+}
+
+.destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
+.destination .inputs .uk-form-controls div {
+    display: inline-block;
+    min-width: 95px;
+    width: 39%;
+}
+.destination .inputs .uk-form-controls div select {
+  width: 47%;
+}
+#map-canvas{height: 100%;}
+#map-canvas img{height: 100%;}
+
+
+.content-padding{
+	padding: 10px 20px;
+}
+.store .content-padding {
+  padding: 41px 20px 28px;
+}
+h6.counter,h6.precounter {
+    color: #9b9b9b;  font-size: 12px;
+    /* line-height: 20px; */
+    margin: 2px 0;
+    display: inline-flex;
+}
+h6.precounter {
+  margin-right: 4px;
+  float: left;
+}
+/* h6.counter:nth-child(2) {
+	display: none;
+}
+ */h6.counter.warning {
+    color: #3c3d45;
+    font-weight: bold;
+}
+h6.counter.exceeded {
+    font-weight: bold;
+    color: #FF4D61;
+}
+
+/* ===================
+Addcard
+=================== */
+
+.addcard h3 {
+    font-size: 20px;
+    margin: 9px 0 14px;
+}
+
+.addcard .uk-form-row {
+    margin-top: 11px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.addcard .uk-form-label {
+    width: 123px;
+}
+
+.addcard .uk-form-controls {
+    margin: 0;
+    width: 39%;
+    min-width: 240px;
+    display: inline-block;
+}
+
+.addcard input[type="text"] {
+    width: 86.8%;
+}
+
+.addcard .buttom-swicher li {
+    padding: 4px 16px;
+}
+.addcard .uk-form-select.select {
+  padding-right: 20px;
+  width: 86.8%;
+  max-height: 30px;
+  border: 1px solid #8e9099;
+  min-width: 200px;
+}
+.addcard .year .uk-form-select.select,.addcard .amount input[type="text"],.addcard .cwcvc input[type="text"] {
+  width: 31.3%;
+  float: left;
+  min-width: 90px;
+}
+.addcard .amount .uk-form-select.select {
+  width: 52.4%;
+  margin-left: 3%;
+  min-width: 100px;;
+}
+.addcard label span {
+    font-size: 12px;
+    display: block;
+    margin: -6px 0 -6px;
+    color: #8d8f98;
+}
+.addcard .uk-button {
+    width: 100%;
+    max-width: 470px;
+    font-size: 24px;
+    height: 50px;
+    margin: 21px 0 13px;
+    display: block;
+}
+.addcard .complete {
+  font-size: 16px;
+  list-style: none;
+  padding-left: 0;
+  max-width: 470px;
+  line-height: 1;
+  width: 100%;
+  margin: 8px 0 -9px;
+  display: inline-block;;
+}
+.addcard .complete li {
+  border-bottom: 1px dotted #9b9b9b;
+  padding: 0;
+  margin-bottom: 18px;
+  height: 12px;
+}
+.addcard .complete label {
+  background: #fff;
+  margin: 0 0 -4px;
+  float: left;
+  padding: 0 3px 0 0;
+}
+.addcard .complete span {
+  color: #9b9b9b;
+  float: right;
+  background: #fff;
+  margin-bottom: -4px;
+  display: block;
+  padding: 0 0 1px 3px;;
+}
+
+@media (min-width: 541px) {
+	.addcard .uk-form-horizontal .uk-form-label {
+		display: inline-block;
+		font-weight: normal;
+	}
+}
+@media (max-width: 540px) {
+	.addcard .uk-form-horizontal .uk-form-label {
+		display: block;
+		margin-bottom: 5px;
+		font-weight: bold;
+	}
+	.addcard .uk-form-controls {
+		width: 100%;
+	}
+}
+.uk-table.thead-gray th.daterange {
+	padding: 0 1%;
+	width: 21%;
+}
+.uk-table.thead-gray th.daterange input {
+  font-size: 14px;
+  padding: 4px;
+  border: 1px solid;
+  max-width: 170px;
+}
+.history .uk-table th:first-child {
+  width: 4%;;
+}
+.history .uk-table th:nth-child(2) {
+  width: 14%;;
+}
+.history .uk-table th:nth-child(4) {
+  width: 38%;
+}
+.history .uk-table th:nth-child(5) {
+  width: 12%;
+}
+.history .uk-table th:nth-child(6) {
+  width: 12%;
+}
+span.uk-icon-question-circle {
+    color: #528ED3;
+    margin-left: 4px;
+}
+
+.uk-table.thead-gray {
+	text-align: center;
+}
+.uk-table.thead-gray th {
+	background: #f5f5f5;
+	color: #3c3d45;
+	line-height: 20px;
+	vertical-align: middle;
+	border: #d0d0d0 1px solid;
+	padding: 6px 5px;
+	text-align: center;
+	font-weight: normal;;
+	width: auto;
+}
+.history .uk-table td {
+	border: #d0d0d0 1px solid;
+	padding: 17px 5px;
+}
+.uk-table {
+	font-size: 16px;
+}
+.uk-table th.daterange div {;;
+}
+
+/* ====================
+Store
+==================== */
+
+.store .content-padding .uk-grid.uk-grid-small {
+  margin-left: -20px;
+}
+.store .content-padding .uk-grid.uk-grid-small > * {
+  padding-left: 20px;;
+}
+.store .uk-panel .sales-box {
+    background: #f5f5f5;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 0;
+}
+.store .uk-panel .sales-box h2 {
+  text-align: center;
+  margin-bottom: 8px;
+}
+.store .uk-panel .sales-box h2.solid {
+  margin: 0 3px 0 0;
+  padding-left: 9px;
+  display: inline-block;
+}
+.store .uk-panel .sales-box h5 {
+  margin: 20px 0 9px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+.store .uk-panel .sales-box .mp-check {
+  margin-bottom: 2px;
+}
+.store .uk-panel .sales-box p {
+  display: inline;
+}
+.store .uk-panel .sales-box a {
+  height: 36px;
+  width: 100%;
+  font-size: 18px;
+  padding: 3px;
+}
+.store .uk-panel .sales-box a.buy {
+  margin: 17px 0 0;
+  height: 51px;
+  font-size: 24px;
+  padding: 10px 5px;
+}
+.store .uk-panel .sales-box .uk-form-select {
+	width: 100%;
+	background: #fff;
+	border-radius: 3px;
+	border: 1px solid #8e9099;
+	font-size: 16px;
+	line-height: 19px;
+	padding: 4px 6px;
+	max-height: 30px;
+	box-sizing: border-box;
+	margin-bottom: 5px;;
+}
+.store .uk-panel .sales-box .uk-form-select i.uk-icon-caret-down {
+    float: right;
+    margin-top: 2px;
+}
+.store .uk-panel .sales-box input {
+}
+@media (max-width: 500px) {
+	.store .uk-panel .sales-box p {
+		display: block;
+		margin: 0 0 15px 10px;
+	}
+}
+@media (max-width: 479px) {
+	.store .uk-panel .sales-box p {
+		display: inline;
+		margin: 15px 0 15px 0;
+	}
+}
+
+
+/* Hidden block CSS */
+
+.hidden-check:not(:checked) + .mp-hidden { display: none; }

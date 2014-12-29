@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <div id="steps" class="uk-switcher">
-            	<form action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
+            	<form novalidate action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
             		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
             		{{ form_errors(form) }}
             		

@@ -7,15 +7,17 @@
 				<div class="uk-button uk-form-select select object " data-uk-form-select="">
             		<i class="uk-icon-caret-down"></i>
                     {{ form_widget(form.vehicle.vehicle_class, {'attr': {'class': 'chosen'}}) }}
-                    {{ form_errors(form.vehicle.vehicle_class) }}
                 </div>
+				<div class="errors">
+                    {{ form_errors(form.vehicle.vehicle_class) }}
+				</div>
 			</div>
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">For kids, pats and baggage<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
 			<div class="uk-hidden kids-pats-wrap" id="baggage">
 				<div class="kids-pats-group">
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_child_seats_0_child_seat_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_0_child_seat_number">
+							<span class="uk-form-controls">child seat </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -32,8 +34,8 @@
 						</div>
 					</div>
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_child_seats_1_child_seat_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_1_child_seat_number">
+							<span class="uk-form-controls">child seat </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -50,8 +52,8 @@
 						</div>
 					</div>
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_child_seats_2_child_seat_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;child seat </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_2_child_seat_number">
+							<span class="uk-form-controls">child seat </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -70,8 +72,8 @@
 				</div>
 				<div class="kids-pats-group">
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_pet_cages_0_pet_cage_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;pet cage </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_0_pet_cage_number">
+							<span class="uk-form-controls">pet cage </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -88,8 +90,8 @@
 						</div>
 					</div>
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_pet_cages_1_pet_cage_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;pet cage </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_1_pet_cage_number">
+							<span class="uk-form-controls">pet cage </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -106,8 +108,8 @@
 						</div>
 					</div>
 					<div class="kids-pats-line">
-						<label for="createPassengerRequestStep2_vehicle_options_pet_cages_2_pet_cage_number">
-							<span class="uk-form-controls">&nbsp;&nbsp;pet cage </span>
+						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_2_pet_cage_number">
+							<span class="uk-form-controls">pet cage </span>
 						</label>
 						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 							<i class="uk-icon-caret-down"></i>
@@ -128,7 +130,7 @@
 					<div class="kids-pats-line">
 						<div class="left-group">
 							<label for="createPassengerRequestStep2_vehicle_options_cycle_rack">
-								<span class="uk-form-controls">&nbsp;&nbsp;cycle rack </span>
+								<span class="uk-form-controls">cycle rack </span>
 							</label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<i class="uk-icon-caret-down"></i>
@@ -142,7 +144,7 @@
 						</div>
 						<div class="right-group">
 							<label for="createPassengerRequestStep2_vehicle_options_ski_rack">
-								<span class="uk-form-controls">&nbsp;&nbsp;ski rack </span>
+								<span class="uk-form-controls">ski rack </span>
 							</label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<i class="uk-icon-caret-down"></i>
@@ -158,7 +160,7 @@
 					<div class="kids-pats-line">
 						<div class="left-group">
 							<label for="createPassengerRequestStep2_vehicle_options_stroller_place">
-								<span class="uk-form-controls">&nbsp;&nbsp;place for strollers </span>
+								<span class="uk-form-controls">place for strollers </span>
 							</label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<i class="uk-icon-caret-down"></i>
@@ -172,7 +174,7 @@
 						</div>
 						<div class="right-group">
 							<label for="createPassengerRequestStep2_vehicle_options_wheel_chair_place">
-								<span class="uk-form-controls">&nbsp;&nbsp;wheelchairs place </span>
+								<span class="uk-form-controls">wheelchairs place </span>
 							</label>
 							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
 								<i class="uk-icon-caret-down"></i>
@@ -219,7 +221,9 @@
 				</div>
 				<div class="kids-pats-line">
 					<div class="left-group">
-						{{ form_errors(form.vehicle_services.air_conditioner) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_services.air_conditioner) }}
+						</div>
 						<label for="createPassengerRequestStep2[vehicle_services][air_conditioner]">
 							<input name="createPassengerRequestStep2_vehicle_services_air_conditioner" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;air conditioner</span>
@@ -248,76 +252,80 @@
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#cool_drinks'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;cool drinks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.cool_drinks, {'attr': {'placeholder': "For example: аллергия на шерсть или диабет."}}) }}
-						<div class="helptext">simbols left 200</div>
+					<div id="cool_drinks" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.cool_drinks, {'attr': {'placeholder': "For example: аллергия на шерсть или диабет.",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#snacks_textarea'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;snacks <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.snacks, {'attr': {'placeholder': "For example: "}}) }}
-						<div class="helptext">simbols left 200</div>
+					<div id="snacks_textarea" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.snacks, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#dvd_textarea'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;dvd <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.dvd, {'attr': {'placeholder': "For example: "}}) }}
-						<div class="helptext">simbols left 200</div>
+					<div id="dvd_textarea" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.dvd, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#gadgets_chargers'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;gadgets chargers <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.gadgets, {'attr': {'placeholder': "For example: "}}) }}
-						<div class="helptext">simbols left 200</div>
+					<div id="gadgets_chargers" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.gadgets, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+					<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#disabled_transportation_tools'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;disabled transportation tools <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "For example: "}}) }}
-						<div class="helptext">simbols left 200</div>
+					<div id="disabled_transportation_tools" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+						<h6 class="precounter">simbols left:</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<label>
-						<input type="checkbox" />
+						<a class="textarea-toggle" data-uk-toggle="{target:'#passenger_has_an_disease'}"><input type="checkbox" /></a>
 						<span class="uk-form-controls">&nbsp;&nbsp;passenger has an disease <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<div class="wishes-1">
-						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: "}}) }}
-						<div class="helptext">simbols left 200</div>
-						{{ form_errors(form.vehicle_services.disease) }}
+					<div id="passenger_has_an_disease" class="wishes-1 uk-hidden">
+						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
+						<h6 class="precounter">simbols left:</h6>
+						<div class="errors">
+							{{ form_errors(form.vehicle_services.disease) }}
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#drivers-conditions'}"><span class="uk-parent">Additional drivers conditions <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span></div>
-			<div class="kids-pats-group uk-hidden kids-pats-wrap aditional-driver" id="drivers-conditions">
+			<div class="kids-pats-group uk-hidden aditional-driver" id="drivers-conditions">
 				<div class="kids-pats-line">
-					<label>
+					<label class="interp">
 						<input type="checkbox" />
 						<span class="uk-form-controls">&nbsp;&nbsp;interpreter <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
 					<!--div class="uk-button uk-form-select select choose-lang" data-uk-form-select=""-->
 					<div class="wishes-1">
 						{{ form_widget(form.vehicle_driver_conditions.interpreter_lang, {'attr': {'placeholder': "Choose a language"}}) }}
+					</div>
+					<div class="errors">
 						{{ form_errors(form.vehicle_driver_conditions.interpreter_lang) }}
 					</div>
 				</div>
@@ -327,14 +335,18 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][educator]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;educator</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.educator) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.educator) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][medical_liscence]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;medical liscence</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.medical_license) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.medical_license) }}
+						</div>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -343,14 +355,18 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][body_guard]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;bodyguard</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.body_guard) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.body_guard) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][animal_trainer]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;animal trainer</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.animal_trainer) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.animal_trainer) }}
+						</div>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -359,26 +375,30 @@
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][carrier]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;carrier</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.carrier) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.carrier) }}
+						</div>
 					</div>
 					<div class="right-group">
 						<label>
 							<input name="createPassengerRequestStep2[vehicle_driver_conditions][guide]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;guide</span>
 						</label>
-						{{ form_errors(form.vehicle_driver_conditions.guide) }}
+						<div class="errors">
+							{{ form_errors(form.vehicle_driver_conditions.guide) }}
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="wishes-2">
 				<h4>Special requirements</h4>
-				{{ form_widget(form.vehicle.special_requirements, {'attr': {'placeholder': 'For example: '}}) }}
-				<div class="helptext">simbols left 200</div>
+				{{ form_widget(form.vehicle.special_requirements, {'attr': {'placeholder': 'For example: ',  'class': "charcount"}}) }}
+				<h6 class="precounter">simbols left:</h6>
 			</div>
-			<div class="uk-button-group uk-width-1-1">
-				<!--button class="uk-button uk-button-warning float_left">&lt; Back</button>
-				<button class="uk-button uk-button-danger float_right">Next &gt;</button-->
-			</div>
+<!-- 			<div class="uk-button-group uk-width-1-1">
+	button class="uk-button uk-button-warning float_left">&lt; Back</button>
+	<button class="uk-button uk-button-danger float_right">Next &gt;</button
+</div> -->
 		</div>
     </div>
 </div>

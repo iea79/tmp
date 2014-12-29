@@ -27,17 +27,7 @@ class HomeController extends Controller {
     	
         $flow = $this->container->get('taxi.passengerRequest.form.flow');
     	$flow->bind($passengerRequest);
-    	/*
-    	$metadata = $this->container
-    		->get('validator')
-    		->getMetadataFactory()
-    		->getMetadataFor("DaVinci\TaxiBundle\Entity\PassengerRequest");
     	
-    	echo '<pre>';
-    	var_dump($metadata);
-    	echo '</pre>';
-    	die();
-    	*/
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
     		$flow->saveCurrentStepData($form);
@@ -53,7 +43,7 @@ class HomeController extends Controller {
     			);
     		}
     	}
-    	    	   	
+    	
     	return $this->render(
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     		array(	
@@ -126,6 +116,16 @@ class HomeController extends Controller {
     {
         return $this->render('DaVinciTaxiBundle:Information:information.html.twig');
     }
+
+    public function financial_officeAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Finoffice:financial_office.html.twig');
+    }
+    
+    public function storeAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Store:store.html.twig');
+    }
     
     /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
@@ -152,6 +152,7 @@ class HomeController extends Controller {
     	$request->setVehicleOptions($vehicleOptions);
     	$request->setTariff(new Tariff());
     	$request->setPassengerDetail(new PassengerDetail());
+    	$request->setStateValue(PassengerRequest::STATE_BEFORE_OPEN);
     	 
     	return $request;
     }
