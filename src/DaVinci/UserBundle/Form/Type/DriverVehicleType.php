@@ -71,12 +71,14 @@ class DriverVehicleType extends AbstractType {
             if (isset($data)) {
                 if ($data instanceof \DaVinci\TaxiBundle\Entity\DriverVehicle) {
                     $model = $data->getModel();
-                    $make = $model->getMake();
+                    $make = $data->getMake();
                 } else {
                     $make = $data['make'];
                     $model = isset($data['model']) ? $data['model'] : NULL;
                 }
-            }
+            } 
+            
+           // var_dump($model,$make);
             if ($form->has('model'))
                 $form->remove('model');
 
@@ -97,7 +99,7 @@ class DriverVehicleType extends AbstractType {
                     return $repository->createQueryBuilder('v')
                                     ->select('v')
                                     ->where("replace( LOWER(v.make) ,  ' ',  '' ) = :make")
-                                    ->groupBy('v.make')
+                                    ->groupBy('v.model')
                                     ->setParameter('make', $make);
                 }
             ));

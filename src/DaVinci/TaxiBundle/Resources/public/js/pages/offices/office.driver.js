@@ -5,6 +5,10 @@ require(["pages/common"], function ($) {
         require(['pages/register/phone.block'], function () {
 
             function initProfileForm() {
+                
+                $('option:selected', '#taxi_driver_office_profile_vehicle_model').removeAttr('selected')
+                $('#taxi_driver_office_profile_vehicle_model option:contains("'+selected_model+'")').attr('selected', 'selected');
+ 
                 $('.driver-profile-form').submit(function (e) {
                     togglePreloader(document.getElementById('Profile'), false);
                     e.preventDefault();
@@ -108,7 +112,6 @@ require(["pages/common"], function ($) {
                         }
                     });
                 });
-                $("#taxi_driver_office_profile_vehicle_make").change();
                 $("#taxi_driver_office_profile_vehicle_photo").change(function () {
                     readURL(this);
                 });

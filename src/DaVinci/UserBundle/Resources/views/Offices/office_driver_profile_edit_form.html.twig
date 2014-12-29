@@ -261,6 +261,10 @@
                                         <i class="uk-icon-caret-down"></i>
                                             {{ form_widget(form.vehicle.model, {'attr':{'tabindex':'16'} }) }}
                                             {{ form_errors(form.vehicle.model) }}
+                                            
+                                            <script>
+                                                var selected_model = '{{ form.vars.value.vehicle.model }}';
+                                            </script>
                                     </div>
                                    {#     <script>
                                             var get_model_ajax_url = '{{ path('ajax_car_by_maker') }}';

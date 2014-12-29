@@ -89,7 +89,7 @@ class IndependentDriver
      */
     function setVehicle($vehicle) {
         $this->vehicle = $vehicle;
-        
+        $this->vehicle->setDriver($this);
         return $this;
     }
     

@@ -11,6 +11,7 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="DriverVehicle")
  * @FileStore\Uploadable
  */
@@ -98,7 +99,12 @@ class DriverVehicle
     private $about;
     
     /**
-     * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\IndependentDriver", inversedBy="vehicle")
+     * @ORM\Column(type="datetime")
+     */
+    protected $createdAt;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="IndependentDriver", inversedBy="vehicle")
      * @ORM\JoinColumn(name="driver_id", referencedColumnName="id")
      **/
     private $driver;
@@ -386,5 +392,29 @@ class DriverVehicle
     public function getAbout()
     {
         return $this->about;
+    }
+    
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+    
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+    
+    /**
+     * Now we tell doctrine that before we persist or update we call the updatedTimestamps() function.
+     *
+     * @ORM\PrePersist
+     */
+    public function updatedTimestamps()
+    {
+        if($this->getCreatedAt() == null)
+        {
+            $this->setCreatedAt(new \DateTime(date('Y-m-d H:i:s')));
+        }
     }
 }
