@@ -3453,6 +3453,9 @@ i.quest {
     display: block;
     font-size: 12px;
 }
+.pop-up .profile .example-active{
+    color:red;
+}
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;

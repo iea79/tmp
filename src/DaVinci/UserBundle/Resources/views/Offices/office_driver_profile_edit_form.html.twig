@@ -7,8 +7,8 @@
             <div class="block-foto">
                 <div class="clientreviews">
                     <div class="photo">
-                        {% if app.user.photo.path is defined %}
-                            <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" />
+                        {% if app.user.independentDriver.vehicle is not null and app.user.independentDriver.vehicle.photo.path is defined %}
+                            <img src="{{ app.user.independentDriver.vehicle.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" id="avatar-image"/>
                         {% else %}
                             <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
                         {% endif %}
@@ -229,9 +229,8 @@
                                         var example_about = '{{ example }}';
                                         var saved_text = '';
                                     </script>
-                                    {{ form_widget(form.about, {'attr':{'tabindex':'14'} }) }}
+                                    {{ form_widget(form.about, {'attr':{'tabindex':'14','rows':'4','maxlength':'200','class':'charcount'} }) }}
                                     {{ form_errors(form.about) }}
-                                    <span class="uk-text-small">{{'symbols left'|trans}} <span id="symb-left"></span></span>
                                 </dd></dt>
                             </dl>
                         </div>
@@ -240,7 +239,7 @@
             </li>
         </ul>
         <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
-            <li class="uk-parent">
+            <li class="uk-parent uk-active">
                 <a class="popup-head uk-button inbox" href="#">{{'Car information'|trans}}
                     <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
                 </a>
@@ -252,200 +251,44 @@
                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        <select name="brand" >
-                                            <option value="ac">AC</option>
-                                            <option value="am_general">AM General</option>
-                                            <option value="acura">Acura</option>
-                                            <option value="alfa_romeo">Alfa Romeo</option>
-                                            <option value="alpine">Alpine</option>
-                                            <option value="american_motors">American Motors</option>
-                                            <option value="aston_martin">Aston Martin</option>
-                                            <option value="audi">Audi</option>
-                                            <option value="austin">Austin</option>
-                                            <option value="avanti">Avanti</option>
-                                            <option value="bmw">BMW</option>
-                                            <option value="bentley">Bentley</option>
-                                            <option value="bitter">Bitter</option>
-                                            <option value="bristol">Bristol</option>
-                                            <option value="bugatti">Bugatti</option>
-                                            <option value="buick">Buick</option>
-                                            <option value="cadillac">Cadillac</option>
-                                            <option value="checker">Checker</option>
-                                            <option value="chevrolet">Chevrolet</option>
-                                            <option value="chrysler">Chrysler</option>
-                                            <option value="citroen">Citroen</option>
-                                            <option value="clenet">Clenet</option>
-                                            <option value="daewoo">Daewoo</option>
-                                            <option value="daihatsu">Daihatsu</option>
-                                            <option value="daimler">Daimler</option>
-                                            <option value="datsun">Datsun</option>
-                                            <option value="de_tomaso">De Tomaso</option>
-                                            <option value="delorean">Delorean</option>
-                                            <option value="dodge">Dodge</option>
-                                            <option value="eagle">Eagle</option>
-                                            <option value="excalibur">Excalibur</option>
-                                            <option value="ferrari">Ferrari</option>
-                                            <option value="fiat">Fiat</option>
-                                            <option value="fisker">Fisker</option>
-                                            <option value="ford">Ford</option>
-                                            <option value="freightliner">Freightliner</option>
-                                            <option value="gmc">GMC</option>
-                                            <option value="geo">Geo</option>
-                                            <option value="ginetta">Ginetta</option>
-                                            <option value="hawk">Hawk</option>
-                                            <option value="honda">Honda</option>
-                                            <option value="hummer">Hummer</option>
-                                            <option value="hyundai">Hyundai</option>
-                                            <option value="infiniti">Infiniti</option>
-                                            <option value="isuzu">Isuzu</option>
-                                            <option value="jaguar">Jaguar</option>
-                                            <option value="jeep">Jeep</option>
-                                            <option value="kia">Kia</option>
-                                            <option value="koenigsegg">Koenigsegg</option>
-                                            <option value="lada">Lada</option>
-                                            <option value="laforza">Laforza</option>
-                                            <option value="lamborghini">Lamborghini</option>
-                                            <option value="lancia">Lancia</option>
-                                            <option value="land_rover">Land Rover</option>
-                                            <option value="lexus">Lexus</option>
-                                            <option value="lincoln">Lincoln</option>
-                                            <option value="lotus">Lotus</option>
-                                            <option value="mg">MG</option>
-                                            <option value="maserati">Maserati</option>
-                                            <option value="maybach">Maybach</option>
-                                            <option value="mazda">Mazda</option>
-                                            <option value="mclaren">Mclaren</option>
-                                            <option value="mercedes_benz">Mercedes-Benz</option>
-                                            <option value="mercury">Mercury</option>
-                                            <option value="merkur">Merkur</option>
-                                            <option value="mini">Mini</option>
-                                            <option value="mitsubishi">Mitsubishi</option>
-                                            <option value="morgan">Morgan</option>
-                                            <option value="mosler">Mosler</option>
-                                            <option value="nissan">Nissan</option>
-                                            <option value="oldsmobile">Oldsmobile</option>
-                                            <option value="opel">Opel</option>
-                                            <option value="pagani">Pagani</option>
-                                            <option value="panoz">Panoz</option>
-                                            <option value="panther">Panther</option>
-                                            <option value="peugeot">Peugeot</option>
-                                            <option value="pilgrim">Pilgrim</option>
-                                            <option value="plymouth">Plymouth</option>
-                                            <option value="pontiac">Pontiac</option>
-                                            <option value="porsche">Porsche</option>
-                                            <option value="ram">Ram</option>
-                                            <option value="reliant">Reliant</option>
-                                            <option value="renault">Renault</option>
-                                            <option value="rolls_royce">Rolls-Royce</option>
-                                            <option value="rover">Rover</option>
-                                            <option value="saab">Saab</option>
-                                            <option value="saturn">Saturn</option>
-                                            <option value="scion">Scion</option>
-                                            <option value="seat">Seat</option>
-                                            <option value="skoda">Skoda</option>
-                                            <option value="smart">Smart</option>
-                                            <option value="spyker">Spyker</option>
-                                            <option value="sterling">Sterling</option>
-                                            <option value="stutz">Stutz</option>
-                                            <option value="subaru">Subaru</option>
-                                            <option value="suzuki">Suzuki</option>
-                                            <option value="tvr">TVR</option>
-                                            <option value="talbot">Talbot</option>
-                                            <option value="tata">Tata</option>
-                                            <option value="tesla">Tesla</option>
-                                            <option value="thexclaimnk">Th!nk</option>
-                                            <option value="toyota">Toyota</option>
-                                            <option value="triumph">Triumph</option>
-                                            <option value="vpg">VPG</option>
-                                            <option value="vauxhall">Vauxhall</option>
-                                            <option value="venturi">Venturi</option>
-                                            <option value="volkswagen">Volkswagen</option>
-                                            <option value="volvo">Volvo</option>
-                                            <option value="yugo">Yugo</option>
-                                            <option value="zastava">Zastava</option>
-                                            <option value="zimmer">Zimmer</option>
-                                            <option value="zimmer">{{'Other'|trans}}</option>
-                                        </select>
+                                            {{ form_widget(form.vehicle.make, {'attr':{'tabindex':'15'} }) }}
+                                            {{ form_errors(form.vehicle.make) }}
                                     </div>
                                 </dd></dt>
                                 <dt>{{'Model:'|trans}}<dd>
                                     <div class="uk-button uk-form-select select" data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        <select name="model" >
-                                            <option></option>
-                                            <option>{{'Focus'|trans}}</option>
-                                        </select>
+                                            {{ form_widget(form.vehicle.model, {'attr':{'tabindex':'16'} }) }}
+                                            {{ form_errors(form.vehicle.model) }}
                                     </div>
+                                   {#     <script>
+                                            var get_model_ajax_url = '{{ path('ajax_car_by_maker') }}';
+                                        </script> #}
                                 </dd></dt>
                                 <dt>{{'Year:'|trans}}<dd>
                                     <div class="uk-button uk-form-select select region" data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        <select name="year" class="" >
-                                            <option></option>
-                                            <option>1990</option><option>1991</option><option>1992</option><option>1993</option><option>1994</option>
-                                            <option>1995</option><option>1996</option><option>1997</option><option>1998</option><option>1999</option>
-                                            <option>2000</option><option>2001</option><option>2002</option><option>2003</option><option>2004</option>
-                                            <option>2005</option><option>2006</option><option>2007</option><option>2008</option><option>2009</option>
-                                            <option>2010</option><option>2011</option><option>2012</option><option>2013</option><option>2014</option>
-                                        </select>
+                                        {{ form_widget(form.vehicle.year, {'attr':{'tabindex':'17'} }) }}
+                                        {{ form_errors(form.vehicle.year) }}
                                     </div>
                                 </dd></dt>
                                 <dt>{{'Color:'|trans}}<dd>
-                                    <select data-placeholder="Choose a color..." class="my-select">
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/black.png') }}">{% trans %}Black{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/beige.png') }}">{% trans %}Beige{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/blue.png') }}">{% trans %}Blue{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/brown.png') }}">{% trans %}Brown{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/burgundy.png') }}">{% trans %}Burgundy{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/charcoal.png') }}">{% trans %}Charcoal{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/gold.png') }}">{% trans %}Gold{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/gray.png') }}">{% trans %}Gray{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/green.png') }}">{% trans %}Green{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/off-white.png') }}">{% trans %}Off-white{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/orange.png') }}">{% trans %}Orange{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/pink.png') }}">{% trans %}Pink{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/purple.png') }}">{% trans %}Purple{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/red.png') }}">{% trans %}Red{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/silver.png') }}">{% trans %}Silver{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/tan.png') }}">{% trans %}Tan{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/turquoise.png') }}">{% trans %}Turquoise{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/white.png') }}">{% trans %}White{% endtrans %}</option>
-                                        <option data-img-src="{{ asset('bundles/davincitaxi/images/yellow.png') }}">{% trans %}Yellow{% endtrans %}</option>
-                                    </select>
+                                    {{ form_widget(form.vehicle.color, {'attr':{'tabindex':'18'} }) }}
+                                    {{ form_errors(form.vehicle.color) }}
                                 </dd></dt>
-                                <dt>{{'Number plate:'|trans}}<dd><input type="text" name="plate" value="" ></dd></dt>
+                                <dt>{{'Number plate:'|trans}}<dd>
+                                    {{ form_widget(form.vehicle.plate, {'attr':{'tabindex':'19'} }) }}
+                                        {{ form_errors(form.vehicle.plate) }}
+                                </dd></dt>
                                 <dt>{{'Class:'|trans}}
                                 <dd>
                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
                                         <span></span>
                                         <i class="uk-icon-caret-down"></i>
-                                        <select name="number" class="" >
-                                            <option></option>
-                                            <option>{{'Economy'|trans}}</option>
-                                            <option>{{'Compact'|trans}}</option>
-                                            <option>{{'Midsize'|trans}}</option>
-                                            <option>{{'Standart'|trans}}</option>
-                                            <option>{{'Full Size'|trans}}</option>
-                                            <option>{{'Premium'|trans}}</option>
-                                            <option>{{'Midsize SUV'|trans}}</option>
-                                            <option>{{'Standart Convertible'|trans}}</option>
-                                            <option>{{'Premium Pickup'|trans}}</option>
-                                            <option>{{'Mini Van'|trans}}</option>
-                                            <option>{{'Standart SUV'|trans}}</option>
-                                            <option>{{'Standart Van'|trans}}</option>
-                                            <option>{{'Full Size Pickup'|trans}}</option>
-                                            <option>{{'Full Size SUV'|trans}}</option>
-                                            <option>{{'Standart Pickup'|trans}}</option>
-                                            <option>{{'Full Size Van'|trans}}</option>
-                                            <option>{{'Special Van'|trans}}</option>
-                                            <option>{{'Premium Van'|trans}}</option>
-                                            <option>{{'Luxury'|trans}}</option>
-                                            <option>{{'Premium Special'|trans}}</option>
-                                            <option>{{'Premium SUV'|trans}}</option>
-                                            <option>{{'Special'|trans}}</option>
-                                        </select>
+                                        {{ form_widget(form.vehicle.vehicleClass, {'attr':{'tabindex':'20'} }) }}
+                                        {{ form_errors(form.vehicle.vehicleClass) }}
                                     </div>
                                 </dd></dt>
                                 <dt>{{'Other:'|trans}}
@@ -456,21 +299,8 @@
                                             <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
                                                 <span></span>
                                                 <i class="uk-icon-caret-down"></i>
-                                                <select name="day" class="">
-                                                    <option></option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                </select>
+                                                {{ form_widget(form.vehicle.seats, {'attr':{'tabindex':'21'} }) }}
+                                                {{ form_errors(form.vehicle.seats) }}
                                             </div>
                                         </div>
                                         <div class="uk-panel">
@@ -478,21 +308,8 @@
                                             <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
                                                 <span></span>
                                                 <i class="uk-icon-caret-down"></i>
-                                                <select name="day" class="">
-                                                    <option></option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                </select>
+                                                {{ form_widget(form.vehicle.luggages, {'attr':{'tabindex':'22'} }) }}
+                                                {{ form_errors(form.vehicle.luggages) }}
                                             </div>
                                         </div>
                                         <div class="uk-panel">
@@ -500,21 +317,8 @@
                                             <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
                                                 <span></span>
                                                 <i class="uk-icon-caret-down"></i>
-                                                <select name="day" class="">
-                                                    <option></option>
-                                                    <option>1</option>
-                                                    <option>2</option>
-                                                    <option>3</option>
-                                                    <option>4</option>
-                                                    <option>5</option>
-                                                    <option>6</option>
-                                                    <option>7</option>
-                                                    <option>8</option>
-                                                    <option>9</option>
-                                                    <option>10</option>
-                                                    <option>11</option>
-                                                    <option>12</option>
-                                                </select>
+                                                {{ form_widget(form.vehicle.doors, {'attr':{'tabindex':'23'} }) }}
+                                                {{ form_errors(form.vehicle.doors) }}
                                             </div>
                                         </div>
                                     </div>
@@ -524,14 +328,20 @@
                                     <div class="uk-margin-small-bottom uk-margin-small-top">
                                         <div class="uk-form-file uk-width-1-1 uk-float-left">
                                             <button class="uk-button uk-button-primary uk-width-1-1 button-add-lang">{{'Add photo'|trans}}</button>
-                                            <input type="file">
+                                             {{ form_widget(form.vehicle.photo, {'attr':{'tabindex':'24'} }) }}
+                                             {{ form_errors(form.vehicle.photo) }}
                                         </div>
                                     </div>
                                 </dd>
-                                <dt class="example">{{'Short description:'|trans}}<br><a href="">{{'example'|trans}}</a></dt>
+                                <dt class="example">{{'Short description:'|trans}}<br><a href="#" id="about_vehicle_example">{{'example'|trans}}</a></dt>
                                 <dd>
-                                    <textarea rows="4" maxlength="200" class="charcount uk-width-1-1">{{'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans}}</textarea>
-                                    <span class="uk-text-small">{{'symbols left 200'|trans}}</span>
+                                    {% set example_vehicle = 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans %}
+                                    <script>
+                                        var example_vehicle_about = '{{ example_vehicle }}';
+                                        var saved_vehicle_text = '';
+                                    </script>
+                                    {{ form_widget(form.vehicle.about, {'attr':{'tabindex':'25','rows':'4','maxlength':'200','class':'charcount'} }) }}
+                                    {{ form_errors(form.vehicle.about) }}
                                 </dd>
                             </dl>
                         </div>
@@ -540,7 +350,7 @@
             </li>
         </ul>
         <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
-            <li class="uk-parent">
+            <li class="uk-parent uk-active">
                 <a class="popup-head uk-button inbox" href="#">{{'Insurance'|trans}}
                     <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Getting the right cover is essential{% endtrans %}"></span>
                 </a>
@@ -548,7 +358,7 @@
                     <li>
                         <div class="insurance">
                             {{ form_widget(form.insuranceAccepted,
-                            {'attr':{'class': 'uk-float-left uk-margin-small-right'}}) }}
+                            {'attr':{'tabindex':'26','class': 'uk-float-left uk-margin-small-right'}}) }}
                             {{ form_errors(form.insuranceAccepted) }}
                             {{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}
                         </div>
@@ -559,7 +369,7 @@
         <div class="uk-margin confirmation">
             <div class="uk-grid uk-grid-small">
                 <div class="uk-panel uk-width-1-2">
-                    <button class="uk-button uk-button-success uk-width-1-1">{{'Save'|trans}}</button>
+                    <button type="submit" class="uk-button uk-button-success uk-width-1-1">{{'Save'|trans}}</button>
                 </div>
                 <div class="uk-panel uk-width-1-2">
                     <button class="uk-button uk-button-warning uk-width-1-1">{{'Cancel'|trans}}</button>

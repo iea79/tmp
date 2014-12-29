@@ -145,4 +145,17 @@ class Language
 
         return array_map(array(Intl::getLanguageBundle(),"getLanguageName"),$this->languages);
     }
+
+    /**
+     * Set languages
+     *
+     * @param array $languages
+     * @return Language
+     */
+    public function setLanguages($languages)
+    {
+        $this->languages = $languages;
+
+        return $this;
+    }
 }

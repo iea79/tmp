@@ -7,7 +7,7 @@
             <div class="photo">
 
                 {% if app.user.photo.path is defined %}
-                    <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
+                    <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" id="avatar-image" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
                 {% else %}
                     <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
                 {% endif %}

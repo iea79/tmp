@@ -48,7 +48,7 @@ class User extends BaseUser
     private $skype;
 
     /**
-     * @Assert\File( maxSize="20M")
+     * @Assert\File( maxSize="20M", groups={"full"})
      * @FileStore\UploadableField(mapping="photo")
      * @ORM\Column(type="array")
      */

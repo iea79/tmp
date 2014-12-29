@@ -118,6 +118,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
+        
+        #meta_cache_driver: apc
+        #query_cache_driver: apc    
+        #result_cache_driver: apc    
 
         entity_managers:
             default:
@@ -126,7 +130,10 @@ doctrine:
                 filters:
                     oneLocale:
                         class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
-                        enabled: true
+                        enabled: true           
+                dql:
+                    string_functions:
+                        replace: DaVinci\TaxiBundle\DQL\replaceFunction
 
 jms_i18n_routing:
     default_locale: en
