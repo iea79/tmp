@@ -264,7 +264,7 @@
                                             {{ form_errors(form.vehicle.model) }}
                                             
                                             <script>
-                                                var selected_model = '{{ form.vars.value.vehicle.model }}';
+                                                var selected_model = '{% if form.vars.value.vehicle is not null %}{{ form.vars.value.vehicle.model }}{% endif %}';
                                             </script>
                                     </div>
                                    {#     <script>
