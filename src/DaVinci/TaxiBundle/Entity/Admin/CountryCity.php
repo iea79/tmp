@@ -47,10 +47,6 @@ class CountryCity
     
     public function __construct() {
         $this->address = new ArrayCollection();
-    }
-
-    public function __contruct()
-    {
         $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
@@ -127,5 +123,38 @@ class CountryCity
             return $translations->getCity();
         else
             return '';
+    }
+
+    /**
+     * Add address
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $address
+     * @return CountryCity
+     */
+    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    {
+        $this->address[] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Remove address
+     *
+     * @param \DaVinci\TaxiBundle\Entity\Address $address
+     */
+    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+    {
+        $this->address->removeElement($address);
+    }
+
+    /**
+     * Get address
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }

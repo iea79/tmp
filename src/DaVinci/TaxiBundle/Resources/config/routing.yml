@@ -1,5 +1,5 @@
 da_vinci_taxi_homepage:
-    resource: "@DaVinciTaxiBundle/Controller/HomeController.php"
+    resource: "@DaVinciTaxiBundle/Controller"
     type: annotation
     
 main_driver:

@@ -9,7 +9,7 @@
 		<div class="client-panel-button">
 			<div class="uk-grid uk-grid-small">
 				<div class="uk-panel">
-					<button class="uk-button uk-button-primary uk-button-profile" data-uk-modal="{target:'#Profile'}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
+					<button class="uk-button uk-button-primary uk-button-profile" id="open-profile-button" data-uk-modal="{target:'#Profile',bgclose:false}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
 				</div>
 				<div class="uk-panel">
 					<button class="uk-button uk-button-success uk-button-profile"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
@@ -424,6 +424,8 @@
 
 {# ========= profile ========= #}
 <script>
+    
+    var is_filled = '{{ app.user.independentDriver.insuranceAccepted }}';
     var office_passenger_profile = '{{ url('office_driver_profile') }}';
 </script>
 <div id="Profile" class="uk-modal pop-up driver-office">

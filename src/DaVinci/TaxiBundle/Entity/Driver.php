@@ -40,7 +40,7 @@ class Driver
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-
+    
     
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -56,7 +56,7 @@ class Driver
     {
         return $this->id;
     }
-
+        
     /**
      * Set about
      *

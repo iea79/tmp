@@ -40,6 +40,7 @@ require(['pages/common'], function ($) {
         var ajx;
         $('#Profile').on({
             'uk.modal.show': function () {
+                $("#profile-dialog").html('');
                 togglePreloader(document.getElementById('Profile'), true);
                 if($.active > 0){ 
                     ajx.abort();//where ajx is ajax variable
