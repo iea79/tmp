@@ -4,7 +4,8 @@
 		<div class="order-details">
 			<div class="kids-pats-line top-group">
 				<label for="createPassengerRequestStep2_vehicle_vehicle_class" class="label-header">Class:</label>
-				<div class="uk-button uk-form-select select object " data-uk-form-select="">
+				<div class="uk-button uk-form-select select object ">
+					<span></span>
             		<i class="uk-icon-caret-down"></i>
                     {{ form_widget(form.vehicle.vehicle_class, {'attr': {'class': 'chosen'}}) }}
                 </div>
@@ -19,7 +20,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_0_child_seat_number">
 							<span class="uk-form-controls">child seat </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][child_seats][0][child_seat_number]">
 								<option value="0">0</option>
@@ -28,7 +29,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 	       				</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.child_seats[0].child_seat_type) }}
 						</div>
@@ -37,7 +38,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_1_child_seat_number">
 							<span class="uk-form-controls">child seat </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][child_seats][1][child_seat_number]">
 								<option value="0">0</option>
@@ -46,7 +47,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 						</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.child_seats[1].child_seat_type) }}
 						</div>
@@ -55,7 +56,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_child_seats_2_child_seat_number">
 							<span class="uk-form-controls">child seat </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][child_seats][2][child_seat_number]">
 								<option value="0">0</option>
@@ -64,7 +65,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 						</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.child_seats[2].child_seat_type) }}
 						</div>
@@ -75,7 +76,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_0_pet_cage_number">
 							<span class="uk-form-controls">pet cage </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][pet_cages][0][pet_cage_number]">
 								<option value="0">0</option>
@@ -84,7 +85,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 	       				</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.pet_cages[0].pet_cage_type) }}
 						</div>
@@ -93,7 +94,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_1_pet_cage_number">
 							<span class="uk-form-controls">pet cage </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][pet_cages][1][pet_cage_number]">
 								<option value="0">0</option>
@@ -102,7 +103,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 	       				</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.pet_cages[1].pet_cage_type) }}
 						</div>
@@ -111,7 +112,7 @@
 						<label class="hold" for="createPassengerRequestStep2_vehicle_options_pet_cages_2_pet_cage_number">
 							<span class="uk-form-controls">pet cage </span>
 						</label>
-						<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+						<div class="uk-button uk-form-select select amount">
 							<i class="uk-icon-caret-down"></i>
 							<select name="createPassengerRequestStep2[vehicle_options][pet_cages][2][pet_cage_number]">
 								<option value="0">0</option>
@@ -120,7 +121,7 @@
 	                            <option value="3">3</option>
 	                        </select>
 	       				</div>
-						<div class="uk-button uk-form-select select object" data-uk-form-select="">
+						<div class="uk-button uk-form-select select object">
 							<i class="uk-icon-caret-down"></i>
 							{{ form_widget(form.vehicle_options.pet_cages[2].pet_cage_type) }}
 						</div>
@@ -132,7 +133,7 @@
 							<label for="createPassengerRequestStep2_vehicle_options_cycle_rack">
 								<span class="uk-form-controls">cycle rack </span>
 							</label>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+							<div class="uk-button uk-form-select select amount">
 								<i class="uk-icon-caret-down"></i>
 								<select id="createPassengerRequestStep2_vehicle_options_cycle_rack" name="createPassengerRequestStep2[vehicle_options][cycle_rack]">
 									<option value="0">0</option>
@@ -146,7 +147,7 @@
 							<label for="createPassengerRequestStep2_vehicle_options_ski_rack">
 								<span class="uk-form-controls">ski rack </span>
 							</label>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+							<div class="uk-button uk-form-select select amount">
 								<i class="uk-icon-caret-down"></i>
 								<select id="createPassengerRequestStep2_vehicle_options_ski_rack" name="createPassengerRequestStep2[vehicle_options][ski_rack]">
 									<option value="0">0</option>
@@ -162,7 +163,7 @@
 							<label for="createPassengerRequestStep2_vehicle_options_stroller_place">
 								<span class="uk-form-controls">place for strollers </span>
 							</label>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+							<div class="uk-button uk-form-select select amount">
 								<i class="uk-icon-caret-down"></i>
 								<select name="createPassengerRequestStep2[vehicle_options][stroller_place]">
 									<option value="0">0</option>
@@ -176,7 +177,7 @@
 							<label for="createPassengerRequestStep2_vehicle_options_wheel_chair_place">
 								<span class="uk-form-controls">wheelchairs place </span>
 							</label>
-							<div class="uk-button uk-form-select select amount" data-uk-form-select="">
+							<div class="uk-button uk-form-select select amount">
 								<i class="uk-icon-caret-down"></i>
 								<select name="createPassengerRequestStep2[vehicle_options][wheel_chair_place]">
 									<option value="0">0</option>
@@ -321,7 +322,7 @@
 						<input type="checkbox" />
 						<span class="uk-form-controls">&nbsp;&nbsp;interpreter <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
 					</label>
-					<!--div class="uk-button uk-form-select select choose-lang" data-uk-form-select=""-->
+					<!--div class="uk-button uk-form-select select choose-lang"-->
 					<div class="wishes-1">
 						{{ form_widget(form.vehicle_driver_conditions.interpreter_lang, {'attr': {'placeholder': "Choose a language"}}) }}
 					</div>

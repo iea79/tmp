@@ -19,12 +19,12 @@ function togglePreloader(selector, show){
         selector.insertAdjacentHTML('beforeend','<div class="mp-spinner"><div class="uk-icon-spinner uk-icon-spin"><div></div>');
 }
 
-define(['jquery', 'placeholder'], function($){
+define(['jquery', 'placeholder', 'jquery.formstyler'], function($){
     require(['uikit', 'charCount'],function(UI){
         
+        $('select').styler();
         //remove my account button loading
         $('.autorized').removeClass('loading');
-        
         require(['addons/form-select','addons/form-password']);
 
         jQuery(function($) {

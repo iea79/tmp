@@ -216,7 +216,7 @@ input::-moz-placeholder{color:#9b9b9b; opacity:1;}
 input:-ms-input-placeholder{color:#9b9b9b;}
 input::-webkit-input-placeholder{color:#9b9b9b;}
 
-::-webkit-input-placeholder       {line-height: 16px;  transition: line-height 0.5s ease;}
+::-webkit-input-placeholder       {  transition: line-height 0.5s ease;}
 ::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
 :-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
 :-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
@@ -224,6 +224,10 @@ input[type="text"]:focus::-webkit-input-placeholder {line-height: 60px; transiti
 input[type="text"]:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
 input[type="text"]:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
 input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+input[type="checkbox"] {border: 1px solid #8e9099; outline: none;}
+
+input[type="text"]:valid {color: #3d3d3d;}
+input[type="text"]:invalid {color: #ff4d61;}
 
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
@@ -318,6 +322,9 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 								margin-left:3px;
 							}
 							.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child a:hover {
+								background: transparent;
+							}
+							.header-top .header-top-in  .topmenu ul.topmenu-in > li:first-child a:active {
 								background: transparent;
 							}
 						.header-top .header-top-in  .topmenu ul.topmenu-in > li:nth-child(2) {
@@ -855,7 +862,6 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		}
 	.destination .form-block-wrap {
 		margin:0 20px 10px 0;
-		overflow:hidden;
 	}
 	.destination .labels {
 		width:39%;
@@ -941,13 +947,6 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		
 	
 	/*========  it is relatively global, because styles all select in the homepage, what consists from 3 pages  ========*/	
-	.home  .select {
-		background-color:#fff;
-		border: 1px solid #8e9099;
-		border-radius: 3px;
-		box-sizing: border-box;
-		height: 27px;
-	}
 	.home .inputs .select {
 		margin:0 0 0 4px;
 		width:18%;
@@ -984,8 +983,10 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		margin:19px 0 27px 0!important;
 	}
 	.order-details  .kids-pats-line {
-		margin-bottom:7px;
 		width:100%;
+		display:inline-block;
+		line-height:1;
+		margin-bottom:6px;;
 	}
 	.order-details .kids-pats-group {
 		margin-bottom:10px;
@@ -1000,8 +1001,7 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		width: 57%
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
-		float:left;
-		margin-bottom:7px;;
+		float:left;;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls { 
 		width:75.7% !important;
@@ -1012,9 +1012,7 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
 	}
 	.order-details .kids-pats-line .select {
-		line-height:30px;
-		font-size:16px;
-		height:28px !important;
+		display:inline-block;
 		margin-bottom:-1px;
 	}
 		.home .select.taxi-disabled {
@@ -1023,6 +1021,9 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		}
 	.order-details .select span {
 		padding-right:12px;
+		width:100%;
+		position:relative;
+		z-index:100;
 	}
 	.order-details .kids-pats-group .kids-pats-line .amount {
 		width:42px;
@@ -1072,7 +1073,7 @@ input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transiti
 		margin:12px 0 5px 0;
 	}
 	.order-details-over .order-details .wishes-1 {
-		margin: 7px 0 9px 0;
+		margin: 7px 0 7px 0;
 	}
 	.order-details-over .order-details .wishes-2 {
 		margin:3px 0 8px 0;
@@ -3374,13 +3375,14 @@ div.pop-up.uk-grid.uk-grid-small {
 }
 /*==== class select for script (Global) =========*/
 .select {
-    line-height:30px;
+    line-height:28px;
 	padding:0 8px;
-	border: 2px solid #d5d3dc;
+	border: 1px solid #8e9099;
 	color:#3d3d3d;
 	border-radius: 3px;
 	box-sizing: border-box;
 	background:#fff;
+	font-size:16px;
 }
 .select .uk-icon-caret-down {
 	position:absolute;
@@ -3804,6 +3806,8 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 }
 	.destination .form-block-wrap {
 		margin:0 10px 10px 0;
+		display:inline-block;
+		width:98%;;;
 	}
 	.destination  .form-block-wrap.last {
 		position:relative;
@@ -7745,7 +7749,7 @@ Litle stars for rate
 }
 
 .order-details .aditional-driver .kids-pats-line .wishes-1 {
-    display: inline-flex;
+    display: inline-block;
     width: 67%;
 }
 
@@ -7761,11 +7765,9 @@ Litle stars for rate
 
 select{
 	border: 1px solid #8e9099;
-	border-radius: 3px;
 	height: 29px;
 	line-height: 29px;
 	display: inline-block;
-	vertical-align: middle;
 }
 .destination select.form-control{
 	margin: 0 7px 0 0;
@@ -7842,8 +7844,16 @@ a.textarea-toggle input {
 .destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
 .destination .inputs .uk-form-controls div {
     display: inline-block;
-    min-width: 95px;
     width: 39%;
+}
+.destination .inputs .uk-form-controls div.jq-selectbox {
+	width: 47%;
+}
+.destination .inputs .uk-form-controls div.jq-selectbox__select {
+	width: 97%;
+}
+.destination .inputs .uk-form-controls div.jq-selectbox__dropdown {
+
 }
 .destination .inputs .uk-form-controls div select {
   width: 47%;
@@ -7860,18 +7870,17 @@ a.textarea-toggle input {
 }
 h6.counter,h6.precounter {
     color: #9b9b9b;  font-size: 12px;
-    /* line-height: 20px; */
     margin: 2px 0;
-    display: inline-flex;
+    display: inline;
 }
 h6.precounter {
   margin-right: 4px;
   float: left;
 }
-/* h6.counter:nth-child(2) {
+h6.counter:last-child {
 	display: none;
 }
- */h6.counter.warning {
+h6.counter.warning {
     color: #3c3d45;
     font-weight: bold;
 }
@@ -8130,3 +8139,182 @@ Store
 /* Hidden block CSS */
 
 .hidden-check:not(:checked) + .mp-hidden { display: none; }
+
+
+/* Jquerly form styler */
+
+/* .jq-checkbox {
+	top: -1px;
+	width: 13px;
+	height: 13px;
+	border: 1px solid #C3C3C3;
+	border-radius: 3px;
+	background: #F6F6F6 url(data:image/gif;base64,R0lGODlhAQAMALMAAPHx8f7+/vv7+/j4+PX19fLy8vz8/Pn5+fb29vPz8/39/ff39wAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABAAwAAAQJMCgjzliIpAIiADs=) repeat-x;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset -1px -1px #FFF, inset 1px -1px #FFF;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.jq-checkbox.checked .jq-checkbox__div {
+	width: 9px;
+	height: 9px;
+	margin: 2px 0 0 2px;
+	border-radius: 2px;
+	background: #666;
+	box-shadow: inset 0 -3px 6px #AAA;
+}
+.jq-checkbox.focused {
+	border: 1px solid #08C;
+}
+.jq-checkbox.disabled {
+	opacity: 0.55;
+	filter: alpha(opacity=55);
+}
+
+ */
+/* .jq-radio {
+	width: 12px;
+	height: 12px;
+	border: 1px solid #C3C3C3;
+	border-radius: 50%;
+	background: #F6F6F6 url(data:image/gif;base64,R0lGODlhAQAMALMAAPHx8f7+/vv7+/j4+PX19fLy8vz8/Pn5+fb29vPz8/39/ff39wAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABAAwAAAQJMCgjzliIpAIiADs=) 0 -1px repeat-x;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset -1px -1px #FFF, inset 1px -1px #FFF;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.jq-radio.checked .jq-radio__div {
+	width: 6px;
+	height: 6px;
+	margin: 3px 0 0 3px;
+	border-radius: 50%;
+	background: #666;
+}
+.jq-radio.focused {
+	border: 1px solid #08C;
+}
+.jq-radio.disabled {
+	opacity: 0.55;
+	filter: alpha(opacity=55);
+}
+
+
+.jq-file {
+	width: 270px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+	border-radius: 4px;
+}
+.jq-file input {
+	cursor: pointer;
+	height: auto;
+	line-height: 1em;
+}
+.jq-file__name {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	width: 100%;
+	height: 32px;
+	padding: 0 80px 0 10px;
+	color: #333;
+	font: 14px/30px Arial, sans-serif;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	border: 1px solid #CCC;
+	border-bottom-color: #B3B3B3;
+	border-radius: 4px;
+	box-shadow: inset 1px 1px #F1F1F1;
+	background: #FFF;
+}
+.focused .jq-file__name {
+	border: 1px solid #5794BF;
+}
+.jq-file__browse {
+	position: absolute;
+	top: 1px;
+	right: 1px;
+	padding: 0 10px;
+	border-left: 1px solid #CCC;
+	border-radius: 0 4px 4px 0;
+	background: #F1F1F1 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAeCAIAAABi9+OQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABdJREFUeNpi+v//PxM2zMDAQEtxgAADAF2uTe9L4getAAAAAElFTkSuQmCC) repeat-x;
+	box-shadow: inset 1px -1px #F1F1F1, inset -1px 0 #F1F1F1, 0 1px 2px rgba(0,0,0,0.1);
+	color: #333;
+	text-shadow: 1px 1px #FFF;
+	font: 14px/30px Arial, sans-serif;
+}
+.jq-file:hover .jq-file__browse {
+	background-color: #E6E6E6;
+	background-position: 0 -10px;
+}
+.jq-file:active .jq-file__browse {
+	background: #F5F5F5;
+	box-shadow: inset 1px 1px 3px #DDD;
+}
+.jq-file.disabled .jq-file__name {
+	color: #888;
+}
+.jq-file.disabled,
+.jq-file.disabled .jq-file__browse {
+	border-color: #CCC;
+	background: #F5F5F5;
+	box-shadow: none;
+	color: #888;
+} */
+.jq-selectbox__select {
+	border: 1px solid #8e9099;
+	border-radius: 3px;
+	height: 28px;
+	line-height: 28px;
+	display: inline-block;
+	vertical-align: middle;
+	color: #3c3d45;
+	padding: 0 6px;
+	box-sizing: border-box;
+	position: relative;
+}
+.jq-selectbox {
+}
+.jq-selectbox__select {
+	max-width: 100%;
+}
+.jq-selectbox__trigger {
+  width: 10px !important;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 3px;;
+}
+.jq-selectbox__trigger-arrow:before {
+	content: "\f0d7";
+	font-family: FontAwesome;
+	color: #3c3d45;
+	font-size: 14px;
+}
+.jq-selectbox__dropdown {
+	background: #fff;
+	border: 1px solid #8e9099;
+	width: 100% !important;
+	z-index: 100;
+	box-sizing: border-box;
+	border-top: 0;
+	
+}
+.jq-selectbox ul {
+	margin: 0;
+	padding: 0;
+	z-index: 200;
+	max-height: 250px;
+}
+.jq-selectbox li {
+	min-height: 18px;
+	padding: 2px 6px 2px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-o-user-select: none;
+	white-space: nowrap;
+	color: #231F20;
+}
+.jq-selectbox li:hover {
+	background: #528ed3;
+	color: #fff;
+}

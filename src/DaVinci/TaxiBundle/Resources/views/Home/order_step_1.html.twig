@@ -14,14 +14,14 @@
 							{{ form_errors(routePoints.place, {'attr': {'class': 'errors'}}) }}
 						</div>
 					</div>
-				</div>	       
-            {% endfor %}
+				</div>
+             {% endfor %}
 		</div>
 		
 		<div class="clr"></div>	
         
         <div class="nav-over add-lang">    
-     		<div class="uk-button-large uk-button uk-width-1-1 add-another"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
+     		<div class="uk-button-large uk-button uk-width-1-1 add-another" data-uk-toggle="{target:'#second-rout'}"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
 			<hr />
 		</div>
 		
@@ -30,8 +30,8 @@
 				{{ form_label(form.pickUpDate, 'Pick up:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls">
-					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker'}}) }}
+				<div class="uk-form-controls select-group">
+					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"MM.DD.YY"'}}) }}
 					&nbsp;
 					{{ form_widget(form.pickUpTime) }}
 	            </div>
@@ -55,8 +55,8 @@
 				{{ form_label(form.returnDate, 'Return:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls">
-					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker'}}) }}
+				<div class="uk-form-controls select-group">
+					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"MM.DD.YYYY"'}}) }}
 					&nbsp;
 					{{ form_widget(form.returnTime) }}
 				</div>
