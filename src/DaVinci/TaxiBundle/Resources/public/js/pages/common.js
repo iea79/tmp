@@ -19,7 +19,7 @@ function togglePreloader(selector, show){
     }
 }
 
-define(['jquery', 'placeholder', 'jquery.formstyler'], function($){
+define(['jquery', 'jquery.formstyler'], function($){
     require(['uikit', 'charCount'],function(UI){
         
         $('select').styler();
