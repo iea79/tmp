@@ -209,7 +209,7 @@
                                         <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">            
                                             
                                 <dt>{{'Birthday:'|trans}}<dd>
-                                    <div class="birthday">                        
+                                    <div class="birthday select-group">                        
                                         {{ form_widget(form.user.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
                                         {{ form_errors(form.user.dateOfBirth) }}
                                     </div>
@@ -230,6 +230,7 @@
                                         var saved_text = '';
                                     </script>
                                     {{ form_widget(form.about, {'attr':{'tabindex':'14','rows':'4','maxlength':'200','class':'charcount'} }) }}
+                                    <h6 class="precounter">simbols left:</h6>
                                     {{ form_errors(form.about) }}
                                 </dd></dt>
                             </dl>
@@ -345,6 +346,7 @@
                                         var saved_vehicle_text = '';
                                     </script>
                                     {{ form_widget(form.vehicle.about, {'attr':{'tabindex':'25','rows':'4','maxlength':'200','class':'charcount'} }) }}
+                                    <h6 class="precounter">simbols left:</h6>
                                     {{ form_errors(form.vehicle.about) }}
                                 </dd>
                             </dl>

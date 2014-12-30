@@ -2951,8 +2951,8 @@ footer {
     margin-right: 1%;    
 }
 .pop-up .forphoneinput .utooltip {
+  margin-left: 0;
     
-    margin-left: 0;
 }
 .pop-up a.uk-form-password-toggle {
   top: 15px;
@@ -4586,22 +4586,21 @@ footer {
 .addphoniklast .utooltip, .addphoniklast .questiontooltip {display: none;}
 .utooltip {
     width: 14px;
-    height:14px;
-    color: #fff;
-    padding-top: 0;
-    font-size: 10px;
-    line-height: 130%;
-    padding-right: 1px;
+    color: #3399ff;
+    font-size: 14px;
     margin-lefT: 4px;
-    position: relative;
-    background: #3399ff;
-    border-radius: 50%;
     box-sizing: border-box;
     cursor: default;
     vertical-align: middle;
     display: inline-block;
-    text-align: center;
+    content: "\f059";
+    font-family: FontAwesome;
+    height: 100%;
+    line-height: 30зч;
  }
+ .utooltip:before {
+  content: "\f059";
+}
  .register .mp-icon-closed {
  	display: block;
  	float: left;
