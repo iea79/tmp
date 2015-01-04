@@ -5,7 +5,7 @@
 				<p class="note">
 					<span>Note!</span> Increase interest in his warrant
 				</p>
-				<div class="pers-data">
+				<div class="pers-data select-group">
 					<div class="tarif-line">
 							<div class="tarif-line-group first">
 								<label for="createPassengerRequestStep3_tariff_market_price" class="tarif-line-adapt-wrap">
@@ -28,8 +28,7 @@
 								<label for="createPassengerRequestStep3_tariff_payment_method" class="tarif-line-adapt-wrap">
 									<span class="uk-form-controls">Payment:</span>
 								</label>
-								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
-									<i class="uk-icon-caret-down"></i>
+								<div class="choose-lang">
 									{{ form_widget(form.tariff.payment_method) }}
 								</div>
 							</div>
@@ -56,8 +55,7 @@
 								<label for="createPassengerRequestStep3_tariff_payment_method" class="tarif-line-adapt-wrap">
 									<span class="uk-form-controls">Payment:</span>
 								</label>
-								<div class="uk-button uk-form-select select choose-lang" data-uk-form-select="">
-									<i class="uk-icon-caret-down"></i>
+								<div class="choose-lang">
 									{{ form_widget(form.tariff.payment_method) }}
 								</div>
 							</div>	

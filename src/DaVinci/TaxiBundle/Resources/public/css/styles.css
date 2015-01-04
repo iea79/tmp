@@ -32,7 +32,8 @@ input,select,textarea {
 .uk-text-dark {
 	color:#3d3d3d;
 }
-
+.uk-form-select select {
+}
 
 body, html {
 	background-color:#f5f5f5;
@@ -216,14 +217,16 @@ input::-moz-placeholder{color:#9b9b9b; opacity:1;}
 input:-ms-input-placeholder{color:#9b9b9b;}
 input::-webkit-input-placeholder{color:#9b9b9b;}
 
-::-webkit-input-placeholder       {  transition: line-height 0.5s ease;}
+::-webkit-input-placeholder       {transition: line-height 0.5s ease;}
 ::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
 :-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
 :-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
+
 input[type="text"]:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
 input[type="text"]:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
 input[type="text"]:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
 input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+
 input[type="checkbox"] {border: 1px solid #8e9099; outline: none;}
 
 input[type="text"]:valid {color: #3d3d3d;}
@@ -1012,8 +1015,8 @@ input[type="text"]:invalid {color: #ff4d61;}
 	.order-details  .kids-pats-line .right-group input[type=checkbox] {
 	}
 	.order-details .kids-pats-line .select {
-		display:inline-block;
 		margin-bottom:-1px;
+		display:inline-block;
 	}
 		.home .select.taxi-disabled {
 			border-color:#8d8f98;
@@ -1022,11 +1025,11 @@ input[type="text"]:invalid {color: #ff4d61;}
 	.order-details .select span {
 		padding-right:12px;
 		width:100%;
-		position:relative;
-		z-index:100;
+		height:100%;
 	}
 	.order-details .kids-pats-group .kids-pats-line .amount {
 		width:42px;
+		display:inline-block;
 	}
 	.order-details .kids-pats-wrap {
 		padding:13px 0 12px 0;
@@ -1041,6 +1044,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 	.order-details  .kids-pats-line .object {
 		width:57%;
 		text-align:left;
+		display:inline-block;
 	}
 	.order-details .kids-pats-group .kids-pats-line .choose-lang {
 		width:66%;
@@ -1143,25 +1147,31 @@ input[type="text"]:invalid {color: #ff4d61;}
 			}
 		
 		.tarif-line {
-			display:table-row;
-			margin: 0px 0 11px 0;
+			display:block;
+			margin: 0px 0 1px 0;
 			line-height: 1.5;
+			width: 100%;
 		}
 		.tarif-line	.tarif-line-group 	{
-			display:table-cell;
 			padding:5px 0 7px 0;
 			font-size:16px;
+			display:inline-block;
+			box-sizing:border-box;
+
+		
+
+			/* width: 33%; */;;
 		}
 		.tarif-line	.tarif-line-group.first {
-   			width: 30%;
+   			width: 36%;
 		}
 		.tarif-line	.tarif-line-group.first label.tarif-line-adapt-wrap span {
-			display: inline-block;
-			width: 25%;;;
+			width: 23%;
+			display: inline;;;;
 		}
 		.tarif-line	.second  {
 			text-align:left;
-			width:20%;
+			width:28%;
 		}
 		.tarif-line	.second .tarif-line-adapt-wrap span {
 			margin-right: 1px;
@@ -1170,7 +1180,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 			margin-right:5px;
 		}
 		.tarif-line .third {
-			width:27%;
+			width:33%;
 			text-align:right;
 		}
 		.tarif-line	.tarif-line-group input[type="text"]{
@@ -1179,17 +1189,10 @@ input[type="text"]:invalid {color: #ff4d61;}
 		.tarif-line	.tarif-line-group input[type="checkbox"]{
 			vertical-align: middle;
 		}
-		.tarif-line	.tarif-line-group .select {
-			width:47%;
-			text-align:left;
-			float:right;
-			margin-left:5px;
-			min-height:28px;
-			line-height:26px;
-			position:relative;
-			top:-3px;
-			display:inline-flex;
-			padding:0 3px;
+		.tarif-line	.tarif-line-group .select,.tarif-line	.tarif-line-group .choose-lang {
+			width:48%;
+			display:inline-block;
+			margin-top:-1px;;;
 		}
 		.tarif-line	.tarif-line-group .select span {
 			display: inline-block;
@@ -1198,12 +1201,13 @@ input[type="text"]:invalid {color: #ff4d61;}
 			line-height:26px;
 		}
 		.order-details-over .select i, .home .driv-over  .leftlabels .select i{
-			position:absolute;
-			right:7px;
-			top:6px;
 		}
 		.order-details-over .select .uk-icon-caret-down {
 			color: #3d3d3d;
+		}
+		.quantity-over .tarif-line	.tarif-line-group {
+			width: 33%;
+			float: left;
 		}
 	.order-details .checks {
 		width:100%;
@@ -1240,19 +1244,20 @@ input[type="text"]:invalid {color: #ff4d61;}
 		padding-top:9px;
 	}
 	.order-details-over .pass-info {
-		margin:0 0 5px 20px;
+		margin:5px 0 5px 20px;
 	}
 	.order-details  input[type="text"], .driv-over  input[type="text"] {
 		padding:0 0 0 6px;
 		border-radius:4px;
 		border: 1px solid #8e9099;
 		height:28px;
-		color:#9b9b9b;
 		font-size:14px;
 	}
 	.order-details  .recommend {
 		font-size:14px;
 		color:#3c3d45;
+		white-space:nowrap;
+		display:inline-block;
 	}
 	.quantity-over .tarif-line .center-group {
 		text-align:center;
@@ -1262,10 +1267,11 @@ input[type="text"]:invalid {color: #ff4d61;}
 	}
 	.order-details .tarif-line-group  .overinput {
 		width:63px;
-		top:-2px;
+		top:-1px;
 	}
 	.order-details .tarif-line-group .overinput input[type="text"] {
 		padding-left: 20px;
+		box-sizing: border-box;
 	}
 	.order-details .overinput {
 		position:relative;
@@ -1335,9 +1341,14 @@ input[type="text"]:invalid {color: #ff4d61;}
 			margin:0;
 		}
 		.order-details  .pers-data {
-			padding:5px 0;
-			overflow:hidden;
+
+			/* overflow:hidden; */
+
 			color:#8d8f98;
+			padding:5px 0;
+			display:inline-block;
+			width:100%;
+			margin-bottom:-5px;
 		}
 		.order-details .about-passenger {
 			margin:17px 0 9px 0;
@@ -1348,10 +1359,8 @@ input[type="text"]:invalid {color: #ff4d61;}
 		}
 		.order-details input {
 		    vertical-align: middle;
-
-		
-
 		    display: inline-block;
+		    border: 1px;
 		}
 /*======================================   driver's page ====================================*/
 .home .driv-over {
@@ -1525,21 +1534,30 @@ input[type="text"]:invalid {color: #ff4d61;}
 			font-size:22px;
 		}
 		.table-over .serv .under-head select, .table-over .serv .under-head .select {
-			min-height:25px;
-			line-height:25px;
+			min-height:27px;
+			line-height:1.5;
+		}
+		.table-over .serv .under-head .trust .select {
+			font-family: 'icontaxi';
+			line-height: 1.2;
+			color: #8d8f98;
+		}
+		.table-over .serv .under-head .trust .select .uk-icon-caret-down {
+  color: #3d3d3d;
 		}
 		.table-over .serv .under-head .select {
-			padding:0 3px;
-			display:inline-flex;
-			width:76%;
+				padding:0 6px;
+				width:76%;
+				display:inline-block;
+				text-align:left;
 			}
 			.table-over .serv .under-head select {
 				width:100%!important;
 			}
 		.table-over .serv .under-head .select span {
-			display:inline-block;
 			margin-right:9px;
-			overflow:hidden;
+			display:inline-block;
+			vertical-align:middle;;
 		}
 		.table-over .serv .under-head .select i {
 			position:absolute;
@@ -2180,9 +2198,9 @@ table th .questiontooltip {
 .table-container
 {
   width: 100%;
-  overflow-y: auto;
   _overflow: auto;
   margin: 0 0 1em;
+  overflow-y: auto;
 }
 .table-container::-webkit-scrollbar
 {
@@ -2525,17 +2543,49 @@ footer {
 }
 
 /*===================adaptaciya===========================*/
+
+@media (max-width: 985px) {
+	.tarif-line	.tarif-line-group label {
+	}
+	.order-details .recommend,.order-details .tarif-line-group .overinput,.tarif-line	.tarif-line-group .choose-lang {
+		  width: 100%;
+		  max-width: 110px;
+	}
+	.tarif-line .tarif-line-group .choose-lang {
+	}
+}
+@media (max-width: 890px) and (min-width: 761px) {
+	.quantity-over .tarif-line	.tarif-line-group .spinner,.quantity-over .tarif-line	.tarif-line-group label {
+		display: block;
+		margin-left: 0;
+		text-align: left;
+	}
+}
+@media (max-width: 450px) {
+	.quantity-over .tarif-line	.tarif-line-group .spinner,.quantity-over .tarif-line	.tarif-line-group label {
+		display: block;
+		margin-left: 0;
+		text-align: left;
+	}
+}
 @media only screen and (max-width:650px) {
-   	 .driver-top img {
-   		 float:none;
-   		 display:block;
-   	 }
-   	 .vehicle i.uk-icon-male {
-   		 margin-left:0;
-   	 }
-	 .header-top .header-top-in .topmenu ul.topmenu-in .nest span {
-		font-size:16px;
-	 }
+	   	 .driver-top img {
+	   		 float:none;
+	   		 display:block;
+	   	 }
+	   	 .vehicle i.uk-icon-male {
+	   		 margin-left:0;
+	   	 }
+		 .header-top .header-top-in .topmenu ul.topmenu-in .nest span {
+			font-size:16px;
+		 }
+		 .order-details .tarif-line-group.second .overinput {
+		 	max-width: 63px;
+		 }
+		 .tarif-line .tarif-line-group.third .choose-lang {
+	   		 width:48%;
+
+		 }
     }
 	
 @media only screen and (max-width: 985px) and (min-width: 761px)  {
@@ -2558,44 +2608,40 @@ footer {
 }
 @media only screen and (max-width: 900px) and (min-width: 761px) {
 	.tarif-line-adapt-wrap {
-		display:block;
-		margin:0 0 5px 0;
 	}
 	.order-details .tarif-line-group .overinput {
 		width:60%;
-		float:left;
 	}
-	.tarif-line	.tarif-line-group .select {
+	.tarif-line	.tarif-line-group .select,.tarif-line .tarif-line-group .choose-lang {
 		width:55%;
-		float:left;
 		margin-left:0;
 	}
 	.tarif-line .tarif-line-group {
-		text-align:left;
 	}
 	.order-details .recommend {
-		line-height:35px;
 	}
 }
+@media (max-width: 530px) {
+	.order-details  .tarif-line-group.first .recommend,.order-details .tarif-line-group.second .overinput,.tarif-line .tarif-line-group.third .choose-lang {
+		  width: 100%;
+		  max-width: 114px;
+	}
+}
+
 @media only screen and (max-width: 500px) {
 	.tarif-line-adapt-wrap {
-		display:block;
 		margin:0 0 5px 0;
 	}
 	.order-details .tarif-line-group .overinput {
 		width:60%;
-		float:left;
 	}
-	.tarif-line	.tarif-line-group .select {
+	.tarif-line	.tarif-line-group .select,.tarif-line	.tarif-line-group .choose-lang {
 		width:55%;
-		float:left;
 		margin-left:0;
 	}
 	.tarif-line .tarif-line-group {
-		text-align:left;
 	}
 	.order-details .recommend {
-		line-height:35px;
 	}
 }
 @media only screen and (max-width: 760px) and (min-width: 521px) {
@@ -3377,17 +3423,22 @@ div.pop-up.uk-grid.uk-grid-small {
 .select {
     line-height:28px;
 	padding:0 8px;
-	border: 1px solid #8e9099;
-	color:#3d3d3d;
 	border-radius: 3px;
 	box-sizing: border-box;
-	background:#fff;
 	font-size:16px;
+	min-height:28px;
+	text-align:left;
+	position:relative;
+	z-index:2;
+	color:#3d3d3d;
+	border:1px solid #8e9099;
+	background:#fff;
 }
 .select .uk-icon-caret-down {
 	position:absolute;
-	right:5px;
+	right:7px;
 	top:25%;
+	z-index:2;
 }
 .pop-up .select {
     line-height:32px;
@@ -5667,7 +5718,6 @@ Tab - button-swicher
   padding-right: 6px;
 }
 .button-swicher .uk-panel:last-child {
-  padding-right: 0;
 }
 .button-swicher button {
 	  padding: 3px 12px;
@@ -5706,12 +5756,9 @@ Tab - button-swicher
 Profit
 ========================== */
 .profit .uk-grid-small > * {
-		padding-right: 0;
-		padding-left: 0;
 }
 .profit .uk-grid.uk-grid-small,
 .help .uk-grid.uk-grid-small {
-  margin-left: 0;
 }
 .profit li .content {
 	padding: 23px 0 16px;
@@ -5895,6 +5942,7 @@ Profit
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 99;
 }
 .profit li .content .videoWrapper {
 	width: 86%;
@@ -6287,12 +6335,9 @@ About
 Help
 =================== */
 .button-swicher.uk-grid.uk-grid-small {
-	padding-right: 0;
-	padding-left: 0;
-	margin-left: 0;
+  margin-left: 6px;
 }
 .button-swicher.uk-grid.uk-grid-small > * {
-	padding-left: 0;
 }
 .help-content {
 	width: 77%;
@@ -6792,11 +6837,9 @@ View offices
   padding: 0 5px;
   height: 35px;
 }
-.view-office .uk-table td select {
+.view-office .uk-table td .jq-selectbox,.view-office .uk-table td select {
   width: 94%;
   font-size: 14px;
-  padding-left: 6px;
-  min-width: 84px;
 }
 .view-office a.uk-button {
   padding: 4px;
@@ -7763,10 +7806,10 @@ Litle stars for rate
 .order-details .aditional-driver .wishes-2 {}
 
 select{
-	border: 1px solid #8e9099;
 	height: 29px;
-	line-height: 29px;
 	display: inline-block;
+	border: 1px solid #8e9099;
+	line-height: 26px;
 }
 .destination select.form-control{
 	margin: 0 7px 0 0;
@@ -7841,7 +7884,7 @@ a.textarea-toggle input {
 }
 
 .destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
-.destination .inputs .uk-form-controls div {
+.destination .inputs .uk-form-controls .time {
     display: inline-block;
     width: 39%;
 }
@@ -7867,10 +7910,14 @@ a.textarea-toggle input {
 .store .content-padding {
   padding: 41px 20px 28px;
 }
+textarea.charcount {
+    margin-bottom: 2px;
+}
 h6.counter,h6.precounter {
     color: #9b9b9b;  font-size: 12px;
-    margin: 2px 0;
+    margin: 0;
     display: inline;
+    vertical-align: super;
 }
 h6.precounter {
   margin-right: 4px;
@@ -8134,12 +8181,6 @@ Store
 	}
 }
 
-
-/* Hidden block CSS */
-
-.hidden-check:not(:checked) + .mp-hidden { display: none; }
-
-
 /* Jquerly form styler */
 
 /* .jq-checkbox {
@@ -8260,19 +8301,23 @@ Store
 .jq-selectbox__select {
 	border: 1px solid #8e9099;
 	border-radius: 3px;
-	height: 28px;
+	height: 29px;
 	line-height: 28px;
 	display: inline-block;
 	vertical-align: middle;
 	color: #3c3d45;
-	padding: 0 6px;
+	padding: 0 16px 0 6px;
 	box-sizing: border-box;
 	position: relative;
+	width: 100%;
+	text-align: left;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .jq-selectbox {
+  width: 100%;
 }
 .jq-selectbox__select {
-	max-width: 100%;
 }
 .jq-selectbox__trigger {
   width: 10px !important;
@@ -8294,6 +8339,7 @@ Store
 	z-index: 100;
 	box-sizing: border-box;
 	border-top: 0;
+	text-align: left;
 	
 }
 .jq-selectbox ul {
@@ -8312,8 +8358,20 @@ Store
 	-o-user-select: none;
 	white-space: nowrap;
 	color: #231F20;
+	cursor: default;
 }
 .jq-selectbox li:hover {
 	background: #528ed3;
 	color: #fff;
+}
+.jq-selectbox__select-text {
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.jq-selectbox__select-text.placeholder {
+  color: #8e9099;
 }
