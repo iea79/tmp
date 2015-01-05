@@ -283,8 +283,8 @@ input[type="text"]:invalid {color: #ff4d61;}
 								}
 							}
 						.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5) {
-														width:20.4%;
-														text-align:right;
+							width:20.4%;
+							text-align:right;
 						} 
 						.header-top .header-top-in  .topmenu ul .nest a {
 							padding: 0 1px;
@@ -350,6 +350,9 @@ input[type="text"]:invalid {color: #ff4d61;}
 							text-align:center;
 							padding:2px 6%;
 							color:#3d3d3d;
+						}
+						.header-top .uk-subnav-pill > li > a:hover, .header-top .uk-subnav-pill > li > a:focus {
+							background: transparent;
 						}
 					.header-wrapper .header-top .header-top-in  .topmenu  ul.topmenu-in > li .text-item {
 						color:#3d3d3d;
@@ -2014,6 +2017,8 @@ office passengers and driver
 }
 .allorder .rescue-driver img {
     margin-left: 3px;
+    width: 26px;
+    height: 26px;
 
 }
 .allorder .edit-close .mp-icon-edit,
@@ -2707,19 +2712,19 @@ footer {
 		right:0;
 	}
 	
-.header-top .header-top-in .topmenu ul li:nth-child(2) {
-	display:block!important;
-	width:90px!important;
-	height:48px;
-	margin:0;
-}
-.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(3), .header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(4),
- .header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5), .header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(6) {
-	display:none;
-}
-    .whitebg .uk-table td p button  {
-   	 padding:0 10px;
-   	 font-size:14px;
+	.header-top .header-top-in .topmenu ul li:nth-child(2) {
+		display:block!important;
+		width:90px!important;
+		height:48px;
+		margin:0;
+	}
+	.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(3), .header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(4),
+	.header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(5), .header-top .header-top-in .topmenu ul.topmenu-in > li:nth-child(6) {
+		display:none;
+	}
+	    .whitebg .uk-table td p button  {
+	   	 padding:0 10px;
+	   	 font-size:14px;
     }
    	 .profile .name, .vehicle ,name {
    		 font-size:14px;
@@ -3400,7 +3405,8 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up input[type="text"],
 .pop-up input[type="email"],
 .pop-up input[type="password"],
-.pop-up select {
+.pop-up select,
+.pop-up .jq-selected {
 	border: 2px solid #d5d3dc !important;
 	color:#3d3d3d;
 	width:100%;
@@ -4647,7 +4653,7 @@ footer {
     content: "\f059";
     font-family: FontAwesome;
     height: 100%;
-    line-height: 30зч;
+    line-height: 30px;
  }
  .utooltip:before {
   content: "\f059";
@@ -4672,7 +4678,7 @@ footer {
 .title .utooltip, .title .questiontooltip {
     position: reltive;
     display: inline-block;
-    font-size: 11px;
+/*     font-size: 11px; */
     float: none;
     text-transform: none;
     margin-left: 5px;
