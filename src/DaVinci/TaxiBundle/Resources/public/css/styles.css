@@ -1466,6 +1466,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 }
 .table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
+	vertical-align:middle;
 }
 .table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
@@ -1546,21 +1547,27 @@ input[type="text"]:invalid {color: #ff4d61;}
 			color: #8d8f98;
 		}
 		.table-over .serv .under-head .trust .select .uk-icon-caret-down {
-  color: #3d3d3d;
+		    color: #3d3d3d;
 		}
 		.table-over .serv .under-head .select {
-				padding:0 6px;
-				width:76%;
-				display:inline-block;
-				text-align:left;
+				padding: 0 6px;
+				width: 76%;
+				display: inline-block;
+				text-align: left;
 			}
 			.table-over .serv .under-head select {
-				width:100%!important;
+				width: 100%!important;
 			}
 		.table-over .serv .under-head .select span {
-			margin-right:9px;
-			display:inline-block;
-			vertical-align:middle;;
+			margin-right: 9px;
+			vertical-align: middle;
+			display: inline-block;
+			width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			-moz-text-overflow: ellipsis;
+			-ms-text-overflow: ellipsis;
+			text-overflow: ellipsis;
 		}
 		.table-over .serv .under-head .select i {
 			position:absolute;
@@ -1570,7 +1577,6 @@ input[type="text"]:invalid {color: #ff4d61;}
 		}
 		
 		.table-over .serv  .select {
-			 
 			white-space:nowrap;
 			margin:0 auto;
 		}
@@ -5710,8 +5716,7 @@ Step-4
 Tab - button-swicher 
 ========================== */
 .profit .uk-grid-small > * {
-		padding-right: 0;
-		padding-left: 0;
+		padding-left: 6px;
 }
 .profit .uk-grid.uk-grid-small,
 .help .uk-grid.uk-grid-small {
@@ -5719,14 +5724,14 @@ Tab - button-swicher
 }
 .button-swicher {
   margin-top: 4px;
+  width: 100.6%;
 }
 .button-swicher .uk-panel {
-  padding-right: 6px;
 }
 .button-swicher .uk-panel:last-child {
 }
 .button-swicher button {
-	  padding: 3px 12px;
+	  padding: 3px 5px;
 	  border-radius: 4px 4px 0 0;
 	  font-weight: bold;
 	  text-align: center;
@@ -5736,6 +5741,17 @@ Tab - button-swicher
 	  font-size: 20px;
 	  line-height: 22px;
 	  height: 64px;
+}
+@media (max-width: 520px) {
+	.button-swicher button {
+		font-size: 18px;
+		line-height: 1;
+	}
+}
+@media (max-width: 420px) {
+	.button-swicher i {
+		display: none;
+	}
 }
 .button-swicher .uk-active button {
 		background: url('../images/blue-tabs-left.png') left no-repeat, url('../images/blue-tabs-right.png') right no-repeat !important;
@@ -6048,6 +6064,7 @@ About
   min-width: 15px;
   vertical-align: text-top;
   font-weight: normal;
+  cursor: pointer;
 }
 @media (max-width: 840px) {
 	.buttom-swicher li {
@@ -6341,9 +6358,10 @@ About
 Help
 =================== */
 .button-swicher.uk-grid.uk-grid-small {
-  margin-left: 6px;
+  margin-left: -6px;
 }
 .button-swicher.uk-grid.uk-grid-small > * {
+  padding-left: 6px;
 }
 .help-content {
 	width: 77%;
@@ -7342,7 +7360,7 @@ Notifications button in main menu
     color: #3399ff !important;
     font-size: 13px;
     padding-left: 0 !important;
-    padding-right: 0 !important;;
+    padding-right: 0 !important;
 }
 
 .notif-button b {
@@ -7359,6 +7377,7 @@ Notifications button in main menu
     vertical-align: text-top;
     text-align: center;
     font-weight: normal;
+    cursor: pointer;
 }
 .notifications .support .history th:first-child {
   width: 10.5%;
@@ -7826,7 +7845,7 @@ select{
 	overflow: hidden;
 }
 .craue_formflow_buttons{
-	padding: 9px 6px 0 19px;
+	padding: 9px 6px 20px 19px;
 	margin-bottom: -4px;
 }
 .craue_formflow_buttons button {
