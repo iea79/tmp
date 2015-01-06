@@ -123,34 +123,22 @@
                                 </dd></dt><br />
                                 <dt>{{'Country:'|trans}}
                                 <dd>
-                                     <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.address.country,
                                         {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
                                                  'tabindex':'4'}}) }}
-                                    </div>
                                     {{ form_errors(form.address.country) }}
                                 </dd></dt><br />
                                 <dt>{{'City:'|trans}}
                                 <dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.address.countrycity,
                                             {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
                                                      'tabindex':'5'}}) }}
-                                    </div>
                                     {{ form_errors(form.address.countrycity) }}
                                 </dd></dt><br />
                                 <dt>{{'English:'|trans}}
                                 <dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.language.level,
                             {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'6'}}) }}
-                                    </div>
                                         
                                 {{ form_errors(form.language.level) }}
                                 </dd></dt><br />
@@ -175,11 +163,7 @@
                                 </dd></dt><br />
                                 <dt>{{'Driving Experience:'|trans}}
                                 <dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                          {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'7'}}) }}
-                                    </div>
                                 </dd></dt><br />
                                 <dt>{{'Skype:'|trans}}<dd>{{ form_widget(form.user.skype, {'attr':{'class': 'uk-width-1-1 float_left', 'data-errormessage-value-missing': 'Please enter your Skype',  'data-errormessage': 'Please enter your Skype', 'tabindex':'8'}}) }}</dd></dt><br />
                                 <label class="addphoneline uk-form-row">
@@ -215,12 +199,8 @@
                                     </div>
                                 </dd></dt><br />
                                 <dt>{{'Gender:'|trans}}<dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.user.gender, {'attr':{'tabindex':'13'} }) }}
                                         {{ form_errors(form.user.gender) }}
-                                    </div>
                                 </dd></dt>
                                 <dt class="example">{{'About me:'|trans}}<br><a href="#" id="about_me_example">{{'example'|trans}}</a>
                                 <dd>
@@ -249,35 +229,23 @@
                         <div class="car-info">
                             <dl>
                                 <dt>{{'Brand:'|trans}}<dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                             {{ form_widget(form.vehicle.make, {'attr':{'tabindex':'15'} }) }}
                                             {{ form_errors(form.vehicle.make) }}
-                                    </div>
                                 </dd></dt>
                                 <dt>{{'Model:'|trans}}<dd>
-                                    <div class="uk-button uk-form-select select" data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                             {{ form_widget(form.vehicle.model, {'attr':{'tabindex':'16'} }) }}
                                             {{ form_errors(form.vehicle.model) }}
                                             
                                             <script>
                                                 var selected_model = '{% if form.vars.value.vehicle is not null %}{{ form.vars.value.vehicle.model }}{% endif %}';
                                             </script>
-                                    </div>
                                    {#     <script>
                                             var get_model_ajax_url = '{{ path('ajax_car_by_maker') }}';
                                         </script> #}
                                 </dd></dt>
                                 <dt>{{'Year:'|trans}}<dd>
-                                    <div class="uk-button uk-form-select select region" data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.vehicle.year, {'attr':{'tabindex':'17'} }) }}
                                         {{ form_errors(form.vehicle.year) }}
-                                    </div>
                                 </dd></dt>
                                 <dt>{{'Color:'|trans}}<dd>
                                     {{ form_widget(form.vehicle.color, {'attr':{'tabindex':'18'} }) }}
@@ -289,42 +257,26 @@
                                 </dd></dt>
                                 <dt>{{'Class:'|trans}}
                                 <dd>
-                                    <div class="uk-button uk-form-select select " data-uk-form-select="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
                                         {{ form_widget(form.vehicle.vehicleClass, {'attr':{'tabindex':'20'} }) }}
                                         {{ form_errors(form.vehicle.vehicleClass) }}
-                                    </div>
                                 </dd></dt>
                                 <dt>{{'Other:'|trans}}
                                 <dd>
                                     <div class="other">
                                         <div class="uk-panel">
                                             <i class="mp-icon-person uk-text-danger"></i>
-                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
-                                                <span></span>
-                                                <i class="uk-icon-caret-down"></i>
                                                 {{ form_widget(form.vehicle.seats, {'attr':{'tabindex':'21'} }) }}
                                                 {{ form_errors(form.vehicle.seats) }}
-                                            </div>
                                         </div>
                                         <div class="uk-panel">
                                             <i class="mp-icon-bug uk-text-danger"></i>
-                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
-                                                <span></span>
-                                                <i class="uk-icon-caret-down"></i>
                                                 {{ form_widget(form.vehicle.luggages, {'attr':{'tabindex':'22'} }) }}
                                                 {{ form_errors(form.vehicle.luggages) }}
-                                            </div>
                                         </div>
                                         <div class="uk-panel">
                                             <i class="mp-icon-door uk-text-danger"></i>
-                                            <div class="uk-button uk-form-select select classauto" data-uk-form-select="">
-                                                <span></span>
-                                                <i class="uk-icon-caret-down"></i>
                                                 {{ form_widget(form.vehicle.doors, {'attr':{'tabindex':'23'} }) }}
                                                 {{ form_errors(form.vehicle.doors) }}
-                                            </div>
                                         </div>
                                     </div>
                                 </dd></dt>

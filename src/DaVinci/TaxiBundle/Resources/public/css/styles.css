@@ -8428,6 +8428,6 @@ Store
 	background: #fff;
 }
 
-.dateofbirth,.dateofbirth:focus,.dateofbirth:active,.birthday {
+.birthday {
 	outline: none;
 }
