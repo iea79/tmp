@@ -76,7 +76,9 @@ require(["pages/common"], function ($) {
                 })
                 
                 $(".charcount").charCount({counterElement: 'h6', css: 'counter'});
-                
+
+                $('select').styler()
+        
                 $("#taxi_driver_office_profile_vehicle_make").change(function(){
                     
                      // ... retrieve the corresponding form.

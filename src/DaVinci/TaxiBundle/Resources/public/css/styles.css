@@ -171,7 +171,7 @@ body, html {
 	font-style: normal;
 }
 
-[class^="mp-icon-"], [class*=" mp-icon-"] {
+[class^="mp-icon-"], [class*="mp-icon-"] {
 	font-family: 'icontaxi';
 	speak: none;
 	font-style: normal;
@@ -1876,15 +1876,12 @@ office passengers and driver
 	}
 	.client-account .button-swicher .uk-panel {
 		padding-left:2px;
-		padding-right:2px;
 		border:0;
 	}
 	.client-account .button-swicher .uk-panel:first-child {
-		padding-left:0px;
-		padding-right:2px;
+		padding-left:6px;
 	}
 	.client-account .button-swicher .uk-panel:last-child {
-		padding-left:2px;
 		padding-right:0px;
 	}
 .client-account .button-swicher .uk-panel button {
@@ -2968,9 +2965,6 @@ footer {
 .pop-up select,
 .pop-up .uk-form input,
 .pop-up .uk-form select {
-	border-radius:4px;
-	border: 1px #8e9099 solid;
-	height:30px;
 }
 .pop-up input[type="checkbox"] {
   height: 20px;
@@ -3413,7 +3407,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up input[type="password"],
 .pop-up select,
 .pop-up .jq-selected {
-	border: 2px solid #d5d3dc !important;
+	border: 2px solid #d5d3dc;
 	color:#3d3d3d;
 	width:100%;
 	padding:3px 5px 3px 9px;
@@ -8323,6 +8317,9 @@ Store
 	box-shadow: none;
 	color: #888;
 } */
+.jq-selectbox {
+    width: 100%;
+}
 .jq-selectbox__select {
 	border: 1px solid #8e9099;
 	border-radius: 3px;
@@ -8335,21 +8332,19 @@ Store
 	box-sizing: border-box;
 	position: relative;
 	width: 100%;
-	text-align: left;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+	box-sizing: border-box;
+	cursor: pointer;
+	background: #fff;
 }
-.jq-selectbox {
-  width: 100%;
-}
-.jq-selectbox__select {
+.jq-selectbox:hover,.jq-selectbox:focus {
+	background: #f5f5f5;
 }
 .jq-selectbox__trigger {
-  width: 10px !important;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  right: 3px;;
+    width: 10px !important;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 3px;;
 }
 .jq-selectbox__trigger-arrow:before {
 	content: "\f0d7";
@@ -8396,7 +8391,43 @@ Store
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 }
 .jq-selectbox__select-text.placeholder {
-  color: #8e9099;
+    color: #8e9099;
+    display: block;
+}
+
+
+
+
+
+.pop-up select {
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    cursor: default;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pop-up select[name*='[month]'],.pop-up .jq-selectbox[id*='_month-styler'] {
+	width: 42%;
+}
+.pop-up select[name*='[day]'],.pop-up .jq-selectbox[id*='_day-styler'] {
+	width: 26%;
+}
+.pop-up select[name*='[year]'],.pop-up .jq-selectbox[id*='_year-styler'] {
+	width: 30%;
+}
+.pop-up select:nth-child(n+2),.pop-up .jq-selectbox:nth-child(n+2) {
+	margin-left: 1%;
+}
+.pop-up .jq-selectbox__select {
+	border: 2px solid #d5d3dc;
+	border-radius: 4px;
+	outline: none;
+	background: #fff;
+}
+
+.dateofbirth,.dateofbirth:focus,.dateofbirth:active,.birthday {
+	outline: none;
 }
