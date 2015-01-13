@@ -40,7 +40,7 @@ class ResettingController extends BaseController
 
         if ($process) {
             $this->setFlash('fos_user_success', 'resetting.flash.success');
-            $response = new RedirectResponse($this->getRedirectionUrl($user));
+            $response = new RedirectResponse($this->container->get('router')->generate('da_vinci_taxi_homepage'));
             $this->authenticateUser($user, $response);
 
             return $response;
