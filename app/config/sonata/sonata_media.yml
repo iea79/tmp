@@ -3,6 +3,10 @@
 #
 sonata_media:
     db_driver:       doctrine_orm # | doctrine_mongodb
+    class:   
+       media:              Application\Sonata\MediaBundle\Entity\Media
+       gallery:            Application\Sonata\MediaBundle\Entity\Gallery
+       gallery_has_media:  Application\Sonata\MediaBundle\Entity\GalleryHasMedia    
     default_context: default
     contexts:
         default:  # the default context is mandatory
@@ -89,7 +93,7 @@ sonata_media:
 
     pixlr:
         enabled:  true
-        referrer: Demo - Sonata Project
+        referrer: TaxiMyPrice - Sonata Project
 
     resizer:
         simple:
@@ -173,10 +177,10 @@ sonata_media:
 
 
 # Enable Doctrine to map the provided entities
-doctrine:
-    orm:
-        entity_managers:
-            default:
-                mappings:
-                    ApplicationSonataMediaBundle: ~
-                    SonataMediaBundle: ~
+#doctrine:
+#    orm:
+#        entity_managers:
+#            default:
+#                mappings:
+#                    ApplicationSonataMediaBundle: ~
+#                    SonataMediaBundle: ~

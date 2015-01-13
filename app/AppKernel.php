@@ -41,9 +41,11 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new DaVinci\UserBundle\DaVinciUserBundle(),
             
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            
             // NEWS
-            new Sonata\NewsBundle\SonataNewsBundle(),
-            new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
+            //new Sonata\NewsBundle\SonataNewsBundle(),
+            //new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
             
             // MEDIA
             new Sonata\MediaBundle\SonataMediaBundle(),
@@ -52,35 +54,14 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-           
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
-            
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+
             // API
             new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Lsw\ApiCallerBundle\LswApiCallerBundle(),
-            
-            // E-COMMERCE
-            new Sonata\BasketBundle\SonataBasketBundle(),
-            new Application\Sonata\BasketBundle\ApplicationSonataBasketBundle(),
-            new Sonata\CustomerBundle\SonataCustomerBundle(),
-            new Application\Sonata\CustomerBundle\ApplicationSonataCustomerBundle(),
-            new Sonata\DeliveryBundle\SonataDeliveryBundle(),
-            new Application\Sonata\DeliveryBundle\ApplicationSonataDeliveryBundle(),
-            new Sonata\InvoiceBundle\SonataInvoiceBundle(),
-            new Application\Sonata\InvoiceBundle\ApplicationSonataInvoiceBundle(),
-            new Sonata\OrderBundle\SonataOrderBundle(),
-            new Application\Sonata\OrderBundle\ApplicationSonataOrderBundle(),
-            new Sonata\PaymentBundle\SonataPaymentBundle(),
-            new Application\Sonata\PaymentBundle\ApplicationSonataPaymentBundle(),
-            new Sonata\ProductBundle\SonataProductBundle(),
-            new Application\Sonata\ProductBundle\ApplicationSonataProductBundle(),
-            new Sonata\PriceBundle\SonataPriceBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle($this),
-            new FOS\CommentBundle\FOSCommentBundle(),
-            new Sonata\CommentBundle\SonataCommentBundle(),
-            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
             // SONATA CORE & HELPER BUNDLES
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
@@ -91,19 +72,33 @@ class AppKernel extends Kernel
             new Sonata\CacheBundle\SonataCacheBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\SeoBundle\SonataSeoBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Sonata\NotificationBundle\SonataNotificationBundle(),
+            new Symfony\Cmf\Bundle\SeoBundle\CmfSeoBundle(),
+            new \Burgov\Bundle\KeyValueFormBundle\BurgovKeyValueFormBundle(),
+            new Liip\SearchBundle\LiipSearchBundle(),
+            new Sonata\NotificationBundle\SonataNotificationBundle(),        
+            new Sonata\TranslationBundle\SonataTranslationBundle(),
             new Application\Sonata\NotificationBundle\ApplicationSonataNotificationBundle(),
-            new Application\Sonata\SeoBundle\ApplicationSonataSeoBundle(),            
+            
  
             // CMF Integration
+            new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
+            new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
             new Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle(),
+            new Symfony\Cmf\Bundle\CreateBundle\CmfCreateBundle(),
+            new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
+            new Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle(),
+            new Symfony\Cmf\Bundle\BlockBundle\CmfBlockBundle(),
+            new Symfony\Cmf\Bundle\SimpleCmsBundle\CmfSimpleCmsBundle(),
+            new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle(),
+            new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
+            new Symfony\Cmf\Bundle\SearchBundle\CmfSearchBundle(),
+            new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
+            new FM\ElfinderBundle\FMElfinderBundle(),
             
             // Disable this if you don't want the timeline in the admin
             new Spy\TimelineBundle\SpyTimelineBundle(),
             new Sonata\TimelineBundle\SonataTimelineBundle(),
-            new Application\Sonata\TimelineBundle\ApplicationSonataTimelineBundle(), // easy extends integration
+            new Application\Sonata\TimelineBundle\ApplicationSonataTimelineBundle(),
             
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             
@@ -117,6 +112,7 @@ class AppKernel extends Kernel
             new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             // not required, but recommended for better extraction
             new JMS\TranslationBundle\JMSTranslationBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
             
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
@@ -124,6 +120,9 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             //thumbnail maker
             new Liip\ImagineBundle\LiipImagineBundle(),
+            
+            // language switcher
+            new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
