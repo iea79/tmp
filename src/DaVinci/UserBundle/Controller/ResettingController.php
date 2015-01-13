@@ -2,10 +2,6 @@
 
 namespace DaVinci\UserBundle\Controller;
 
-
-
-namespace FOS\UserBundle\Controller;
-
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -13,10 +9,12 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccountStatusException;
 use FOS\UserBundle\Model\UserInterface;
 
+use FOS\UserBundle\Controller\ResettingController as BaseController;
+
 /**
  * fosuderbundle ResettingController overload
  */
-class ResettingController extends ContainerAware
+class ResettingController extends BaseController
 {
 
     /**
