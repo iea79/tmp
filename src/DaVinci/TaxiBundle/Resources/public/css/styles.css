@@ -158,6 +158,7 @@ body, html {
 .mp-icon-arrow-right:before {
 	content: "\e60e";
 }
+
 /*==============================    end of icons   ========================================*/
 /*========================font icontaxi for disign Evgeny=======================*/
 @font-face {
@@ -183,6 +184,9 @@ body, html {
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+a[class*="mp-icon-"] {
+    text-decoration: none !important;
 }
 /*=================   iconed select  ===========================*/
 .iconed-drop {
@@ -1788,7 +1792,10 @@ office passengers and driver
 		margin-right: 1%;
 		width: 98%;
 	}
-}
+
+.office-company .client-account .clientid {
+  padding-left: 10px;
+}}
 @media (max-width: 530px) {
 	.client-account .clientid {
 		padding-bottom: 7px;
@@ -2170,6 +2177,10 @@ table th .questiontooltip {
 	right: 0;
 	top: 0;
 	cursor: default;
+}
+table.thead-gray th .questiontooltip {
+  color: #3c3d45;
+  background: #d0d0d0;
 }
 .uk-table th .sort i:first-child {
 	color:#3c3d45 !important;
@@ -5735,6 +5746,8 @@ Tab - button-swicher
 	  font-size: 20px;
 	  line-height: 22px;
 	  height: 64px;
+	  border: 0;
+	  outline: none;
 }
 @media (max-width: 520px) {
 	.button-swicher button {
@@ -6446,6 +6459,9 @@ Help
 	padding: 21px 20px 19px 20px;
 	font-size: 16px;
 	background: #fff;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
 }
 .main-content .message span {
 	color: #ff4d61;
@@ -8108,6 +8124,7 @@ span.uk-icon-question-circle {
 	text-align: center;
 	font-weight: normal;;
 	width: auto;
+	position: relative;
 }
 .history .uk-table td {
 	border: #d0d0d0 1px solid;
@@ -8116,7 +8133,7 @@ span.uk-icon-question-circle {
 .uk-table {
 	font-size: 16px;
 }
-.uk-table th.daterange div {;;
+.uk-table th.daterange div {
 }
 
 /* ====================
@@ -8319,6 +8336,7 @@ Store
 } */
 .jq-selectbox {
     width: 100%;
+    background: transparent;
 }
 .jq-selectbox__select {
 	border: 1px solid #8e9099;
@@ -8366,7 +8384,7 @@ Store
 	margin: 0;
 	padding: 0;
 	z-index: 200;
-	max-height: 250px;
+	max-height: 193px !important;
 }
 .jq-selectbox li {
 	min-height: 18px;
@@ -8428,6 +8446,298 @@ Store
 	background: #fff;
 }
 
+.pop-up .other .jq-selectbox {
+    max-width: 47px;
+
+}
+
 .birthday {
 	outline: none;
+}
+
+/* ===========================
+Taxi company styles
+=========================== */
+.office-company .uk-button {
+    font-size: 16px;
+    line-height: 28px;
+    min-height: 28px;
+}
+.office-company .company-panel {
+  margin-bottom: 22px;
+}
+.office-company .client-account .client-panel-list .clientid a.uk-button {
+	width: 93%;
+	margin-bottom: 12px;
+}
+.office-company .client-panel-list {
+	margin-bottom: -19px;
+}
+.office-company .company-panel .client-panel-list .uk-grid-small {
+	margin-left: 0;
+}
+.office-company .company-panel .uk-grid-small {
+	margin-left: 0;
+}
+.office-company .company-panel .uk-grid.uk-grid-small > * {
+	box-sizing: border-box;
+	padding-left: 0;
+}
+.office-company .client-account .clientid {
+	width: 24%;
+	border-right: 1px solid #d0d0d0;
+	box-sizing: border-box;
+}
+.office-company .client-account .clientid dl {
+	margin-bottom: 7px;
+}
+.office-company .client-account .client-panel-list .clientid dt, .office-company .client-account .client-panel-list .clientid dd {
+	margin: 0;
+}
+.office-company .client-account .client-panel-list .clientid dd {
+	font-size: 16px;
+	margin-top: -1px;
+	margin-left: 2px;
+}
+
+.office-company .offises-block {
+	width: 76%;
+	padding-left: 1.6% !important;
+}
+
+.office-company .offises-block .button-choose,.office-company .offises-block .message {
+	border-bottom: 1px solid #d0d0d0;
+	width: 100%;
+	padding: 0px 0 9px 0;;
+}
+.office-company .offises-block .message {
+	padding: 15px 0 12px;
+	font-size: 14px;
+	width: 100%;
+	margin-left: 0;
+	display: table;
+	vertical-align: middle;;
+}
+.office-company .offises-block .message .text {
+	width: 79.2%;
+	float: left;
+}
+.office-company .offises-block .message span {
+	font-size: 16px;
+}
+.office-company .offises-block .message .uk-button {
+	width: 20.8%;
+	margin-top: -5px;
+	display: inline-block;
+	float: right;
+}
+.office-company .choose-office {
+	width: 53%;
+	padding-left: 0;
+	float: left;
+	display: inline-block;;
+}
+.office-company .choose-office label {
+	font-size: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 1%;
+}
+.office-company .choose-office select,.office-company .choose-office .jq-selectbox  {
+	width: 52.6%;
+	margin-right: 0.5%;
+}
+.office-company .choose-office .uk-button {
+	padding: 0 9px;
+	display: inline-block;
+}
+.office-company .buttons-office {
+	text-align: right;
+	width: 47%;
+	display: inline-block;
+}
+.office-company .buttons-office .uk-button {
+	width: 44.1%;
+}
+.office-company .money-block {
+	width: 100%;
+}
+.office-company .money,.office-company .balance,.office-company .history {
+	padding-top: 10px;
+	min-height: 30px;
+	margin-right: 15px;
+}
+.office-company .balance {
+	float: left;
+}
+.office-company .history {
+	border-right: 1px solid #d0d0d0;
+	padding-right: 13px;
+	float: left;
+}
+.office-company .history .mp-icon-basket {
+	display: block;
+	font-size: 21px;
+}
+.office-company .balance .uk-button,.office-company .history .uk-button {
+	padding: 0 3px;
+	width: 46px;
+}
+.office-company .balance .uk-button:last-child {
+	width: auto;
+	padding: 0 8px;
+}
+.office-company .balance span,.office-company .history span {
+	font-size: 16px;
+	margin-right: 12px;
+	line-height: 28px;
+}
+.office-company .balance span {
+	margin-right: 5px;
+}
+.office-company .money {
+	display: inline-block;
+}
+.office-company .money dl {
+	margin: 0;
+	font-weight: normal;
+	padding-right: 8px;
+	display: inline-block;
+}
+.office-company .money dt,.office-company .money dd {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 28px;
+}
+.office-company .money dt {
+	font-weight: normal;
+	color: #8d8f98;
+}
+.office-company .money dd {
+	font-size: 16px;
+}
+
+.office-company .uk-table td {
+	border: #d0d0d0 1px solid;
+	vertical-align: middle;
+}
+
+.office-company a.avatar {
+	display: block;
+	margin: 0 auto;
+}
+table th a.mp-icon-arrow-up {
+	color: #3c3d45 !important;
+}
+table th a.mp-icon-arrow-up:hover {
+	opacity: 0.9;
+	text-decoration: none;
+}
+
+.office-company .open-order .uk-button {
+  line-height: 38px;
+  min-height: 38px;
+  display: block;
+}
+.office-company .control-room .uk-button {
+  display: block;
+  max-width: 140px;
+  margin: 0 auto;
+  min-width: 131px;
+}
+
+@media (max-width: 1030px) {
+	.office-company .client-account .clientid {
+		padding-left: 0;
+	}
+}
+@media (max-width: 999px) {
+	.office-company .history {
+		border: 0;
+	}
+}
+@media (max-width: 661px) {
+	.office-company .choose-office {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.office-company .buttons-office {
+		width: 88.5%;
+		text-align: left;
+	}
+	.office-company .offises-block .message .text {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	.office-company .offises-block .message .uk-button {
+		width: 40%;
+		float: left;
+	}
+}
+@media (max-width: 470px) {
+	.office-company .client-account .clientid {
+		width: 100%;
+		border-right: 0;
+		border-bottom: 1px solid #d0d0d0;
+		margin-bottom: 10px;
+	}
+	.office-company .offises-block {
+		width: 100%;
+	}
+	.office-company .client-account .client-panel-list .clientid a.uk-button {
+		width: 81%;
+	}
+	.office-company .balance .uk-button, .office-company .history .uk-button {
+		width: 43px;
+	}
+	.office-company .balance .uk-button:last-child {
+		padding: 0 3px;
+	}
+	.office-company .money dl {
+	}
+	.office-company .money dd {
+		font-size: 14px;
+	}
+}
+
+
+.message form.uk-search {
+  width: 29.2%;
+  float: left;
+  margin: -3px 1% 0 0;
+}
+.message .uk-search input.uk-search-field {
+  height: 28px;
+  border: 1px solid #8d8f98;
+  width: 100%;
+  padding-left: 5px;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 3px;
+}
+.message form.uk-search:after {
+  width: 28px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 18px;
+  color: #8d8f98;
+  background: transparent;
+}
+.message .search-fillter {
+  padding: 5px 9% 0 0;
+  float: left;
+  display: inline-block;
+}
+.message .daterange {
+  display: inline-block;
+  width: 18%;
+  margin-top: -3px;
+  font-size: 14px;
+  float: right;
+}
+.message .daterange input[type="text"] {
+  height: 28px;
+  border: 1px solid #8d8f98;
+  width: 100%;
+  padding-left: 5px;
 }
