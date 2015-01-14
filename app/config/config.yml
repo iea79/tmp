@@ -22,28 +22,30 @@ imports:
     - { resource: sonata/sonata_timeline.yml }
     - { resource: sonata/sonata_intl.yml }
     - { resource: sonata/sonata_core.yml }
-
+        
+    - { resource: sonata/sonata_translation.yml }
+        
    # Sonata Feature Bundles
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_media.yml }
-    - { resource: sonata/sonata_news.yml }
+#    - { resource: sonata/sonata_news.yml }
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_notification.yml }
       
     # Sonata e-commerce bundles
-    - { resource: sonata/sonata_price.yml }
-    - { resource: sonata/sonata_order.yml }
-    - { resource: sonata/sonata_payment.yml }
-    - { resource: sonata/sonata_product.yml }
-    - { resource: sonata/sonata_invoice.yml }
-    - { resource: sonata/sonata_delivery.yml }
-    - { resource: sonata/sonata_customer.yml }
-    - { resource: sonata/sonata_basket.yml }
+   # - { resource: sonata/sonata_price.yml }
+   # - { resource: sonata/sonata_order.yml }
+   # - { resource: sonata/sonata_payment.yml }
+   # - { resource: sonata/sonata_product.yml }
+   # - { resource: sonata/sonata_invoice.yml }
+   # - { resource: sonata/sonata_delivery.yml }
+   # - { resource: sonata/sonata_customer.yml }
+   # - { resource: sonata/sonata_basket.yml }
 
     - { resource: admin/admin_config.yml }
     - { resource: image/image.yml }
     
-    - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
+   # - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
     - { resource: requirejs/require_js.yml }
     
 framework:
@@ -67,7 +69,7 @@ framework:
         save_path:           %kernel.root_dir%/cache/sessions
     fragments:       ~
     http_method_override: true
-    default_locale: en
+    default_locale: %locale%
 
 # Twig Configuration
 twig:
@@ -111,14 +113,13 @@ doctrine:
         # path:     "%database_path%"
         types:
            json: Sonata\Doctrine\Types\JsonType
-           currency: Sonata\Component\Currency\CurrencyDoctrineType
         mapping_types:
-            currency: currency
             enum:       string 
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
-        
+
+
         #meta_cache_driver: apc
         #query_cache_driver: apc    
         #result_cache_driver: apc    
@@ -186,3 +187,116 @@ parameters:
         followlocation: true  # to follow any "Location: " header that the server sends.
         sslversion: 3  # set to 3 to avoid any bugs that relate to automatic version selection.
         fresh_connect: false  # set to true to force full reconnect every call.
+
+
+
+#######CMF###############
+cmf_core:
+    multilang:
+        locales: %locales%
+    persistence:
+        phpcr:
+            enabled: true
+cmf_routing:
+    chain:
+        routers_by_id:
+            router.default: 200
+            cmf_routing.dynamic_router: 100
+    dynamic:
+        enabled: true
+        route_collection_limit: 10
+
+        controllers_by_class:
+            Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
+
+        templates_by_class:
+            Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:  CmfSimpleCmsBundle:Page:index.html.twig
+            DaVinci\TaxiBundle\Document\ProfitPage: DaVinciTaxiBundle:Home:profit.html.twig
+
+        persistence:
+            phpcr:
+                enabled: true
+cmf_create:
+    editor_base_path: /bundles/cmfcreate/vendor/ckeditor/
+
+
+#    object_mapper_service_id: cmf_create.persistence.orm.object_mapper
+
+#services:
+#    cmf_create.persistence.orm.object_mapper:
+#        class: Midgard\CreatePHP\Mapper\DoctrineOrmMapper
+#        arguments:
+#            - "%cmf_create.map%"
+#            - "@doctrine"
+
+doctrine_cache:
+    providers:
+        phpcr_meta:
+            type: file_system
+        phpcr_nodes:
+            type: file_system
+
+doctrine_phpcr:
+    session:
+        backend:
+            type: doctrinedbal
+            # connection: default
+            
+            caches:
+                meta: doctrine_cache.providers.phpcr_meta
+                nodes: doctrine_cache.providers.phpcr_nodes
+        workspace: default
+        username: %phpcr_user%
+        password: %phpcr_pass%    
+    odm:
+        auto_mapping: true
+        auto_generate_proxy_classes: "%kernel.debug%"
+        mappings:
+            ApplicationSonataMediaBundle:
+                prefix: Sonata\MediaBundle\PHPCR
+            SonataMediaBundle:
+                prefix: Sonata\MediaBundle\PHPCR
+
+# alternative locales to look up if a document is not translated
+        locales:
+            en: 
+                - ru    
+            ru: 
+                - en    
+
+            
+cmf_seo:
+    title: TaxiMyPrice - %%content_title%%
+    description: TaxiMyPrice - %%content_description%%
+    alternate_locale: ~
+    
+liip_search:
+    restrict_by_language: true;
+
+cmf_search:
+    persistence:
+        phpcr:
+            search_fields:
+                title: title
+                summary: body
+                
+lunetics_locale:
+    strict_mode: true
+    guessing_order:
+        - router
+        - cookie
+        - browser
+    allowed_locales: %locales%
+    
+
+fm_elfinder:
+    locale: %locale%
+    editor: ckeditor
+    connector:
+        roots:
+            media:
+                driver: cmf_media.adapter.elfinder.phpcr_driver
+                path: %cmf_media.persistence.phpcr.media_basepath%
+                upload_allow: ['all']
+                upload_max_size: 2M
+

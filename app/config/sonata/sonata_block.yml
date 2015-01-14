@@ -6,7 +6,11 @@ sonata_block:
 
     menus:
         "SonataDemoBundle:Builder:mainMenu": "Main Menu"
-
+    
+    blocks_by_class:
+        Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\RssBlock:
+            cache: cmf.block.cache.js_async
+                
     blocks:
         sonata.admin.block.admin_list:
             contexts:   [admin]
@@ -18,6 +22,11 @@ sonata_block:
         sonata.admin.block.search_result:
             contexts:   [admin]
 
+        sonata_admin_doctrine_phpcr.tree_block:
+            settings:
+                id: '/cms'
+            contexts:   [admin]
+                
         #sonata.admin_doctrine_orm.block.audit:
         #    contexts:   [admin]
 

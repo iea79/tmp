@@ -159,7 +159,7 @@
                                         <a href="#" class="uk-button uk-button-link">
 
                                             {% if app.request.locale =='en' %} Eng {%elseif app.request.locale =='ru'%} Rus {% endif %}
-
+{#!!!!!!!!!!!!!!!!!!!!{{ locale_switcher() }} #}
                                             <i class="uk-icon-caret-down"></i></a>
                                         <div class="uk-dropdown uk-dropdown-small">
                                             <ul class="uk-nav uk-nav-dropdown">
@@ -274,5 +274,6 @@
             {{ require_js_initialize({ 'main' : asset_url })}}
             {% endjavascripts %}
         {% endblock %}
+        {% render(controller("cmf_create.jsloader.controller:includeJSFilesAction")) %}
     </body>
 </html>

@@ -4,6 +4,11 @@
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 {% endblock%}
 {% block body %}
+    
+    <h1>{{ cmfMainContent.title }}</h1>
+    <div>{{ cmfMainContent.body }}</div>
+    
+    
 {# ======= Swicher button ========= #}
 	<div class="shadow-main">
 		<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#profit'}">

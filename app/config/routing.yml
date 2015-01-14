@@ -9,6 +9,14 @@ userbundle:
 taxibundle:
     resource: '@DaVinciTaxiBundle/Resources/config/routing.yml'
 
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+
 #admin panel
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
@@ -22,16 +30,47 @@ _sonata_admin:
 fos_user_group:
     resource: "@FOSUserBundle/Resources/config/routing/group.xml"
     prefix: /group
-    
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
     
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
     
-news:
-    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
-    prefix: /news
+#news:
+#    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
+#    prefix: /news
     
     
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
+    
+liip_search:
+    resource: "@CmfSearchBundle/Resources/config/routing/phpcr/search.xml"
+    
+create:
+    resource: "@CmfCreateBundle/Resources/config/routing/rest.xml"
+
+create_image:
+    resource: "@CmfCreateBundle/Resources/config/routing/image.xml"    
+
+#symfony_cmf:
+#    resource: @CmfCreateBundle/Resources/config/routing/rest_no_locale.xml    
+    
+block_cache:
+    resource: "@CmfBlockBundle/Resources/config/routing/cache.xml"
+    prefix: /
+
+cmf_media_file:
+    resource: "@CmfMediaBundle/Resources/config/routing/file.xml"
+
+cmf_media_image:
+    resource: "@CmfMediaBundle/Resources/config/routing/image.xml"
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'
