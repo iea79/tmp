@@ -7,7 +7,7 @@
             <div class="photo">
 
                 {% if app.user.photo.path is defined %}
-                    <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
+                    <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" id="avatar-image" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
                 {% else %}
                     <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
                 {% endif %}
@@ -53,18 +53,14 @@
                 {{ form_errors(form.phone) }}
             </dd><br />
             <dt>{{ 'Birthday:'|trans }}</dt><dd>
-                <div class="birthday">                        
+                <div class="birthday select-group">                        
                     {{ form_widget(form.dateOfBirth, {'attr':{'tabindex':'6','class':'dateofbirth'} }) }}
                     {{ form_errors(form.dateOfBirth) }}
                 </div>
             </dd><br />
-            <dt>{{ 'Gender:'|trans }}</dt><dd>
-                <div class="uk-button uk-form-select select" data-uk-form-select="">
-                    <span></span>
-                    <i class="uk-icon-caret-down"></i>
+            <dt>{{ 'Gender:'|trans }}</dt><dd class="select-group">
                     {{ form_widget(form.gender, {'attr':{'tabindex':'7'} }) }}
                     {{ form_errors(form.gender) }}
-                </div>
             </dd>
 
             <dt>{{ 'Password:'|trans }}</dt>

@@ -1,0 +1,11 @@
+imports:
+    - { resource: '@SonataTranslationBundle/Resources/config/config.yml'}
+
+sonata_translation:
+    locales: [ru, en]
+    default_locale: en
+    # here enable the types you need
+    gedmo:
+        enabled: true
+    phpcr:
+        enabled: true

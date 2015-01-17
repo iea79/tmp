@@ -3,6 +3,32 @@ independent:
         blank: Please select how many years Drivers Licence
     about:
         long: "[-Inf,Inf]The username is too long"
+    insurance:
+        true: "You must accept insurance"
+    about:
+        max: "About maximum size is 200 characters"
+        
+vehicle:
+    year:
+        blank: Choose a valid year
+    make:
+        blank: Choose a valid brand
+    model:
+        blank: Choose a valid model
+    color:
+        blank: Choose a valid color
+    plate:
+        blank: Please enter a number plate
+    vehicleClass:
+        blank: Choose a valid vehicleClass    
+    seats:
+        blank: Choose a valid seats    
+    luggages:
+        blank: Choose a valid luggages            
+    doors:
+        blank: Choose a valid doors
+    about:
+        max: "About maximum size is 200 characters"
 
 language:
     level:

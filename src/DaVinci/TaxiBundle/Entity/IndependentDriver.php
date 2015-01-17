@@ -67,6 +67,31 @@ class IndependentDriver
      */
     protected $insuranceAccepted = false;
     
+    /**
+     * @ORM\OneToOne(targetEntity="DriverVehicle", mappedBy="driver", cascade={"persist", "remove"})
+     **/
+    private $vehicle;
+    
+    /**
+     * Get vehicle
+     *
+     * @return DriverVehicle 
+     */
+    function getVehicle() {
+        return $this->vehicle;
+    }
+
+    /**
+     * Set vehicle
+     *
+     * @param DriverVehicle $vehicle
+     * @return Driver
+     */
+    function setVehicle($vehicle) {
+        $this->vehicle = $vehicle;
+        $this->vehicle->setDriver($this);
+        return $this;
+    }
     
     /**
      * Get id

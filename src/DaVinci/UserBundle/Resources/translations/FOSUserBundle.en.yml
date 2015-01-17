@@ -154,6 +154,8 @@ form:
     loading: "loading..."
     select_country_first: "select a country first"
     
+    select_maker_first: "select a brand first"
+    
 fos_user:    
     firstname:
         latin: English/Latin characters only

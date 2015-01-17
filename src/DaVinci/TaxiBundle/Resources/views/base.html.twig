@@ -45,6 +45,7 @@
                                             <span class="uk-button-primary figur-item"><i class="mp-icon-taxi"></i></span>
                                         </a>
                                     </li>
+                                    <li>
                                         <div class="book-store">
                                             <a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
                                             <a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
@@ -158,7 +159,7 @@
                                         <a href="#" class="uk-button uk-button-link">
 
                                             {% if app.request.locale =='en' %} Eng {%elseif app.request.locale =='ru'%} Rus {% endif %}
-
+{#!!!!!!!!!!!!!!!!!!!!{{ locale_switcher() }} #}
                                             <i class="uk-icon-caret-down"></i></a>
                                         <div class="uk-dropdown uk-dropdown-small">
                                             <ul class="uk-nav uk-nav-dropdown">
@@ -263,6 +264,7 @@
             <style type="text/css">
                 .placeholder { color: gray;}
             </style>
+            <script src="{{ asset('bundles/davincitaxi/js/placeholder.js') }}"></script>
         <![endif]-->
         <!--[if lt IE 9 ]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         {% block javascripts %}
@@ -272,5 +274,6 @@
             {{ require_js_initialize({ 'main' : asset_url })}}
             {% endjavascripts %}
         {% endblock %}
+        {% render(controller("cmf_create.jsloader.controller:includeJSFilesAction")) %}
     </body>
 </html>

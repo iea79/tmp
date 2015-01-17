@@ -25,7 +25,7 @@
 			counterElement: 'h6',
 			cssWarning: 'warning',
 			cssExceeded: 'exceeded',
-			counterText: 'simbols left '
+			counterText: ''
 		}; 
 			
 		var options = $.extend(defaults, options); 

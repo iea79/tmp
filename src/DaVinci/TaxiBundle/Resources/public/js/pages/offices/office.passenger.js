@@ -35,11 +35,15 @@ require(['pages/common'], function ($) {
             $(".passfield").change(function () {
                 $('.passfield2').attr('pattern', this.value);
             });
+
+            $('select').styler()
+
         }
         
         var ajx;
         $('#Profile').on({
             'uk.modal.show': function () {
+                $("#profile-dialog").html('');
                 togglePreloader(document.getElementById('Profile'), true);
                 if($.active > 0){ 
                     ajx.abort();//where ajx is ajax variable

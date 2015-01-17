@@ -27,10 +27,10 @@ sonata_notification:
 #                port:     5672
 #                vhost:    /
 
-doctrine:
-    orm:
-        entity_managers:
-            default:
-                mappings:
-                    SonataNotificationBundle: ~
-                    ApplicationSonataNotificationBundle: ~
+#doctrine:
+#    orm:
+#        entity_managers:
+#            default:
+#                mappings:
+#                    SonataNotificationBundle: ~
+#                    ApplicationSonataNotificationBundle: ~

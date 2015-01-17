@@ -7,18 +7,17 @@ function togglePreloader(selector, show){
     if(spin_arr.length>0)
         var spin = spin_arr[0];
     
-    if(spin === undefined) return;
-    
-    if(((show !== undefined)&&!show))
+    if(spin === undefined && ((show === undefined)||show)) //there is no spin
+    {
+        selector.insertAdjacentHTML('beforeend','<div class="mp-spinner"><div class="uk-icon-spinner uk-icon-spin"><div></div>');
+        return;
+    }else if( spin !== undefined && (show !== undefined)&&!show)
     {
         if(spin.parentNode === undefined)
             document.body.removeChild(spin);
         else
             spin.parentNode.removeChild(spin);
     }
-    else if((show === undefined)||show)
-        selector.insertAdjacentHTML('beforeend','<div class="mp-spinner"><div class="uk-icon-spinner uk-icon-spin"><div></div>');
 }
-
 
 togglePreloader(document.body,false);

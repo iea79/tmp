@@ -48,7 +48,7 @@ class User extends BaseUser
     private $skype;
 
     /**
-     * @Assert\File( maxSize="20M")
+     * @Assert\File( maxSize="20M", groups={"full"})
      * @FileStore\UploadableField(mapping="photo")
      * @ORM\Column(type="array")
      */
@@ -60,11 +60,6 @@ class User extends BaseUser
 //     */
 //    private $addresses;
 //    
-    
-    /** 
-     * @ORM\OneToMany(targetEntity="Application\Sonata\CustomerBundle\Entity\Customer", mappedBy="user")
-     */   
-    protected $customers;
     
      /**
      * @ORM\OneToOne(targetEntity="Language", cascade={"persist", "remove"})
@@ -91,14 +86,6 @@ class User extends BaseUser
      */
     private $independentDriver;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Currency", inversedBy="user")
-     * @ORM\JoinColumn(name="currency_id", referencedColumnName="id")
-     */
-    private $currency;
-    
-    
-    
     /**
      *
      * @ORM\Column(type="datetime", nullable = true)
@@ -251,7 +238,7 @@ class User extends BaseUser
     /**
      * Set language
      *
-     * @param \DaVinci\TaxiBundle\Entity\Language  $currency
+     * @param \DaVinci\TaxiBundle\Entity\Language  $lnguage
      * @return User
      */
     public function setLanguage(\DaVinci\TaxiBundle\Entity\Language  $language)
@@ -261,30 +248,6 @@ class User extends BaseUser
         return $this;
     }
 
-
-    /**
-     * Set currency
-     *
-     * @param \DaVinci\TaxiBundle\Entity\Currency $currency
-     * @return User
-     */
-    public function setCurrency(\DaVinci\TaxiBundle\Entity\Currency $currency = null)
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Get currency
-     *
-     * @return \DaVinci\TaxiBundle\Entity\Currency 
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
-    
     /**
      * Sets the email.
      *
