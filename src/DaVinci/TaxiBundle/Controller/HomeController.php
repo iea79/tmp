@@ -17,6 +17,8 @@ use DaVinci\TaxiBundle\Entity\VehicleChildSeat;
 use DaVinci\TaxiBundle\Entity\VehiclePetCage;
 use DaVinci\TaxiBundle\Entity\PassengerDetail;
 
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 class HomeController extends Controller {
 	
 	/**
@@ -35,11 +37,11 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			$this->saveRequest($passengerRequest);    			    			
+    			$this->saveRequest($passengerRequest);
     			$flow->reset();
     			
     			return new RedirectResponse(
-    				$this->container->get('router')->generate('passenger_request_made')
+    				$this->container->get('router')->generate('passenger_request_generated')
     			);
     		}
     	}
@@ -51,6 +53,13 @@ class HomeController extends Controller {
 	    		'flow' => $flow	
     		)		
     	);
+    }
+    
+    /**
+     * @Route("/generated", name="passenger_request_generated")
+     */
+    public function requestGeneratedAction() {
+    	return $this->render("DaVinciTaxiBundle:Home:requestGenerated.html.twig");
     }
     
     public function main_driverAction() {
@@ -155,6 +164,23 @@ class HomeController extends Controller {
     {
     	$em = $this->container->get('doctrine')->getManager();
     	$em->persist($request);
+    	
+    	$vehicleOptions = $request->getVehicleOptions();
+    	foreach ($vehicleOptions->getChildSeats() as $seat) {
+    		$em->persist($seat);
+    	}
+    	foreach ($vehicleOptions->getPetCages() as $cage) {
+    		$em->persist($cage);
+    	}
+    	    	
+    	foreach ($request->getRoutePoints() as $routePoint) {
+    		$em->persist($routePoint);
+    	}
+    	    	
+    	$em->persist($request->getVehicle());
+    	$em->persist($request->getTariff());
+    	$em->persist($request->getPassengerDetail());
+    	
     	$em->flush();
     }
 
