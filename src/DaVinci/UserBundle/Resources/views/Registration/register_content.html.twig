@@ -45,7 +45,7 @@
                     <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password'|trans }}: 
                             </label>
                         <div class="uk-form-controls uk-form-password">
-                            {{ form_widget(form.plainPassword.first, {'attr':{'pattern':'.{3,}', 'title':'Minmimum 3 letters or numbers.'|trans, 'class': 'uk-width-1-1 float_left passfield', 'tabindex':'4' }}) }}
+                            {{ form_widget(form.plainPassword.first, {'attr':{'pattern':'.{3,32}', 'maxlength':'32', 'title':'From 3 to 32 characters.'|trans, 'class': 'uk-width-1-1 float_left passfield', 'tabindex':'4' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}" data-cached-title="{{ '3-32 characters. Use numbers, upper and lowercase letters!'|trans }}"></div>{{ form_errors(form.plainPassword.first) }}
                         </div>
@@ -56,7 +56,7 @@
 					<!-- Begin Line confirm password  -->
                     <div class="uk-form-row"><label class="uk-form-label  text">{{ 'form.password_confirmation'|trans }}:
                         </label>
-                        <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second, {'attr':{'pattern':'.{3,}',	'title':'Passwords must match.'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'5' }}) }}
+                        <div class="uk-form-controls uk-form-password">{{ form_widget(form.plainPassword.second, {'attr':{'pattern':'.{3,32}','maxlength':'32', 'title':'Passwords must match.'|trans, 'class': 'uk-width-1-1 float_left passfield2', 'tabindex':'5' }}) }}
                             <a href="#" class="uk-form-password-toggle" data-uk-form-password="{lblShow:'{{ 'Show'|trans }}', lblHide:'{{ 'Hide'|trans }}'}">{{ 'Show'|trans }}</a>
                             <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Should match combination above.'|trans }}" data-cached-title="{{ 'Should match combination above.'|trans }}"></div>{{ form_errors(form.plainPassword.second) }}
                         </div>

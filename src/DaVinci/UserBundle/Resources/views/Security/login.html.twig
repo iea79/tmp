@@ -18,7 +18,7 @@
 				<input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" autofocus/>
 			</label>
             <label class="uk-form-row">
-				<input class="uk-width-1-1" type="password" id="password" name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
+				<input class="uk-width-1-1" type="password" id="password" maxlength= '32' name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
 			</label>
             <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
 			
