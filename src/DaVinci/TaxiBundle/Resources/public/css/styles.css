@@ -6602,7 +6602,7 @@ Help
     width: 100%;
     padding: 0;
 }
-.block-help .uk-nav.demo li a.preview-video:hover {
+a.preview-video:hover {
     opacity: 0.9;
 }
 .block-help .uk-nav.demo li.link a:before {
