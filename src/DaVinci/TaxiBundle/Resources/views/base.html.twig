@@ -82,10 +82,10 @@
                                                             <li class="uk-nav-header">My office</li>
                                                             <li><span>
                                                                     {% if is_granted('ROLE_USER') %}
-                                                                    {{ 'Passenger'|trans }} 
+                                                                    <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_TAXIDRIVER') %}
-                                                                    <br />{{ 'Independent driver'|trans }}
+                                                                    <br /><a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_COMPANYDRIVER') %}
                                                                     <br />{{ 'Company driver'|trans }}

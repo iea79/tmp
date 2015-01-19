@@ -3,14 +3,15 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
-use DaVinci\TaxiBundle\Services\PassengerRequest\BeforeOpenState;
+use Symfony\Component\Validator\Constraints as Assert;
+use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="passenger_request")
+ * @DaVinciAssert\RouteInfo()
  */
 class PassengerRequest {
 	
@@ -56,25 +57,17 @@ class PassengerRequest {
 	private $pickUpDate;
 	
 	/**
-	 * @ORM\Column(type="datetimetz", nullable=true)
+	 * @ORM\Column(type="datetimetz", name="return_value", nullable=true)
 	 */
 	private $return;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Time(
-	 * 		message="passengerRequest.returnTime.wrongFormat",
-	 * 		groups={"flow_createPassengerRequest_step1"}, 
-	 * )
 	 */
 	private $returnTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Date(
-	 * 		message="passengerRequest.returnDate.wrongFormat",
-	 * 		groups={"flow_createPassengerRequest_step1"}, 
-	 * )
 	 */
 	private $returnDate;
 	
@@ -584,47 +577,47 @@ class PassengerRequest {
     {
     	switch ($stateValue) {
     		case self::STATE_BEFORE_OPEN: {
-    			$state = new BeforeOpenState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\BeforeOpenState($this);
     			break;
     		}
     		
     		case self::STATE_OPEN: {
-    			$state = new OpenState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\OpenState($this);
     			break;
     		}
     		
     		case self::STATE_PENDING: {
-    			$state = new PendingState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\PendingState($this);
     			break;
     		}
     		
     		case self::STATE_SOLD: {
-    			$state = new SoldState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\SoldState($this);
     			break;
     		}
     		
     		case self::STATE_RESCUE: {
-    			$state = new RescueState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\RescueState($this);
     			break;
     		}
     		
     		case self::STATE_RESCUE_PENDING: {
-    			$state = new RescuePendingState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\RescuePendingState($this);
     			break;
     		}
     		
     		case self::STATE_RESCUE_CLOSED: {
-    			$state = new RescueClosedState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\RescueClosedState($this);
     			break;
     		}
     		
     		case self::STATE_COMPLETED: {
-    			$state = new CompletedState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\CompletedState($this);
     			break;
     		}
     		
     		case self::STATE_CANCELED: {
-    			$state = new CanceledState($this);
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\CanceledState($this);
     			break;
     		}
     		
