@@ -73,7 +73,7 @@
                                                         <ul class="uk-nav uk-nav-dropdown">
                                                             <li class="uk-nav-header">{{ 'My account'|trans }}</li>
                                                             <li><a href="{{ url('office_passenger')}}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
-                                                            <li><a href=""><i class="uk-icon-envelope"></i> {{ 'Messages'|trans }}</a></li>
+                                                            <li><a href=""><i class="uk-icon-envelope"></i> {{ 'Notification'|trans }}</a></li>
                                                             <li><a href="{{ url('fos_user_security_logout') }}"><i class="uk-icon-sign-out"></i> {{ 'Log Out'|trans }}</a></li>
                                                         </ul>
                                                     </div>
@@ -146,11 +146,15 @@
                             <nav class="header-bottom-in">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                                     <div class="notif-button">
-                                        <i class="mp-icon-message"></i>
-                                        <a href="{{ url('notifications') }}">
-                                            {{ 'Notification'|trans }}
+                                        <a class="link" href="{{ url('notifications') }}">
+                                            <i class="mp-icon-message"></i>
+                                                {{ 'Notification'|trans }}
+                                            <b>5</b>
                                         </a>
-                                        <b>5</b>
+                                        <a href="{{ url('notifications') }}" class="mobile-link">
+                                            <i class="mp-icon-message"></i>
+                                            <b>5</b>
+                                        </a>
                                     </div>
                                 {% endif %} 
                                 {{ knp_menu_render('breadcrumb',{'currentAsLink':false} ) }}

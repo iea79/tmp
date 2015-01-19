@@ -185,7 +185,7 @@ body, html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-a[class*="mp-icon-"] {
+a[class*="mp-icon-"],a i[class*="mp-icon-"] {
     text-decoration: none !important;
 }
 /*=================   iconed select  ===========================*/
@@ -342,6 +342,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 							width:13.5%;
 							margin:0;
 							text-align:center;
+							white-space:nowrap;
 						}
 							.header-top .header-top-in  .topmenu ul.topmenu-in  > li:last-child a {
 								padding:0;
@@ -482,10 +483,10 @@ input[type="text"]:invalid {color: #ff4d61;}
                 box-shadow: -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
                 margin: 9px 0 0 0;
                 max-width: 600px;
-                min-width: 480px;
                 right: -7px;
                 left: auto;
                 z-index: 10420;
+                min-width: 570px;
 			}
 				.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown div {
 					float:left;
@@ -507,6 +508,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 						border-left:1px solid #d0d0d0;
 						padding:0 0 0 15px;
 						height:120px;
+						display:inline-block;
 					}
 					.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord {
 						margin:15px 0 0 0;
@@ -996,7 +998,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 		width:100%;
 		display:inline-block;
 		line-height:1;
-		margin-bottom:6px;;
+		margin-bottom:6px;
 	}
 	.order-details .kids-pats-group {
 		margin-bottom:10px;
@@ -1011,7 +1013,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 		width: 57%
 	}
 	.order-details  .kids-pats-line .right-group, .order-details  .kids-pats-line .left-group {
-		float:left;;
+		float:left;
 	}
 	.order-details  .kids-pats-line .right-group .uk-form-controls { 
 		width:75.7% !important;
@@ -1167,14 +1169,14 @@ input[type="text"]:invalid {color: #ff4d61;}
 
 		
 
-			/* width: 33%; */;;
+			/* width: 33%; */;
 		}
 		.tarif-line	.tarif-line-group.first {
    			width: 36%;
 		}
 		.tarif-line	.tarif-line-group.first label.tarif-line-adapt-wrap span {
 			width: 23%;
-			display: inline;;;;
+			display: inline;
 		}
 		.tarif-line	.second  {
 			text-align:left;
@@ -1199,7 +1201,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 		.tarif-line	.tarif-line-group .select,.tarif-line	.tarif-line-group .choose-lang {
 			width:48%;
 			display:inline-block;
-			margin-top:-1px;;;
+			margin-top:-1px;
 		}
 		.tarif-line	.tarif-line-group .select span {
 			display: inline-block;
@@ -1302,13 +1304,13 @@ input[type="text"]:invalid {color: #ff4d61;}
 		.order-details .contactpassenger  .nottravel .book-for-another {
 			font-size:16px;
 			padding:0 0 0 7px;
-			vertical-align:text-top;;;;;
+			vertical-align:text-top;
 		}
 		
 		.order-details  .left  {
 			width:41%;
 			padding:2px 0 0;
-			float:left;;
+			float:left;
 			
 		}
 		.order-details .quantity-header {
@@ -2721,7 +2723,7 @@ footer {
 	.header-wrapper .header-top .header-top-in .logo, .header-top-in .uk-navbar-toggle {
 		display:block;
 		top:0;
-		color:#528ed3;
+		color:#fff;
 		position:absolute;
 		right:0;
 	}
@@ -3083,7 +3085,7 @@ footer {
 	margin-bottom: -2px;
     font-size: 14px !important;
     line-height: 16px !important;
-    display: inline-block;;
+    display: inline-block;
 }
 .passenger .pop-up .profile .myid dt,
 .passenger .pop-up .profile .myid dd {
@@ -3354,6 +3356,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	}
 .header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown {
 	font-size:14px;
+	min-width:480px;
 }	
 .header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myoffice-drop {
 	padding:0 0 0 5px;
@@ -3875,7 +3878,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	.destination .form-block-wrap {
 		margin:0 10px 10px 0;
 		display:inline-block;
-		width:98%;;;
+		width:98%;
 	}
 	.destination  .form-block-wrap.last {
 		position:relative;
@@ -5751,7 +5754,7 @@ Tab - button-swicher
 }
 @media (max-width: 520px) {
 	.button-swicher button {
-		font-size: 18px;
+		font-size: 15px;
 		line-height: 1;
 	}
 }
@@ -5978,10 +5981,9 @@ Profit
 	margin-left: 8%;
 	padding-bottom: 50.4% !important;
 }
-.help-sidebar .videoWrapper {
+.help-sidebar .preview-video {
   padding-top: 25px !important;
   margin-top: 20px;
-  padding-bottom: 42.25% !important;
 }
 @media (max-width: 995px) {
 	.profit li .content .left,
@@ -6024,7 +6026,7 @@ Profit
   width: 88%;
   line-height: 20px;
   font-size: 16px;
-  font-weight: 700;;;
+  font-weight: 700;
 }
 /* ===================
 poteriashki
@@ -6087,7 +6089,7 @@ About
     text-decoration: none;
     color: #fff;
     font-size: 16px;
-    width: 100%;;
+    width: 100%;
 }
 .buttom-swicher li.uk-active a {
 	color: #528ed3;
@@ -6402,7 +6404,7 @@ Help
 	background-color: #e9f0ef;
 	background-size: 17%;
 	margin-bottom: 13px;
-	display: inline-block;;
+	display: inline-block;
 }
 .help-content .support span {
   font-size: 16px;
@@ -6596,7 +6598,13 @@ Help
 .block-help .uk-nav.demo li {
 	border: 0;
 }
-
+.block-help .uk-nav.demo li a.preview-video {
+    width: 100%;
+    padding: 0;
+}
+.block-help .uk-nav.demo li a.preview-video:hover {
+    opacity: 0.9;
+}
 .block-help .uk-nav.demo li.link a:before {
   content: "\f0da";
   font-family: FontAwesome;
@@ -7357,32 +7365,63 @@ Notifications button in main menu
     background: #f5f5f5;
     width: 12.3%;
     /* margin-left: -2.7%; */
-    max-height: 28px !important;
     color: #3399ff;
     padding: 4px 0.6% 2px;
     float: right;
     margin-left: 0;
+    max-height: 28px !important;
+    height: 100%;
 }
 .notif-button .mp-icon-message {
     padding-left: 8.6%;
+    font-size: 13px;
 }
-.notif-button a {
+.notif-button a.link {
     color: #3399ff !important;
     font-size: 13px;
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-
+.notif-button a.mobile-link {
+	display: none;
+}
+@media (max-width: 960px) {
+	.notif-button a.link {
+	    font-size: 10px;
+	}
+	.notif-button .link b {
+		margin-top: -3px;
+	}
+}
+@media (max-width: 830px) {
+	.notif-button {
+		width: auto;
+		white-space: nowrap;
+	}
+	.notif-button a.link {
+	    display: none;
+	}
+	.notif-button a.mobile-link {
+		display: block;
+		text-decoration: none;
+		height: 22px;
+	}
+	.header-bottom-in .notif-button b {
+		margin: -4px 0 0 -9px;
+		min-width: 12px;
+		font-size: 10px;
+		line-height: 12px !important;
+	}
+}
 .notif-button b {
     background: #ff4d61;
     color: #fff;
     border-radius: 50%;
     font-size: 12px;  
-    margin: 2px 0 0 0;  
+    margin: 0 0 0 0;  
     display: inline-block;
     line-height: 14px !important;  
     -moz-box-sizing: border-box;
-    box-sizing: border-box;
     min-width: 15px;
     vertical-align: text-top;
     text-align: center;
@@ -7413,7 +7452,7 @@ Notifications button in main menu
 	display: table-cell;
 }
 .main-content .social .buttom-swicher li:first-child {
-	width: 44px;;
+	width: 44px;
 }
 .main-content .social .buttom-swicher li:nth-child(n+2) {
   padding: 5px 0 5px;
@@ -7560,7 +7599,7 @@ Social page
     overflow: hidden;
     height: 149px;
     padding-top: 23px;
-    margin: 11px 0 38px;;
+    margin: 11px 0 38px;
 }
 
 .soc-top div {
@@ -7578,7 +7617,7 @@ Social page
     text-align: center;
     vertical-align: middle;
     z-index: 80;
-    position: absolute;;
+    position: absolute;
 }
 
 .soc-top .logo img {
@@ -7690,10 +7729,10 @@ Reviews page
 
 }
 .any-rev .photo {
-	display: block;;
+	display: block;
 	width: 89px;
 	padding-right: 10px;
-	float: left;;;
+	float: left;
 }
 .any-rev h3 {
     font-size: 20px;
@@ -7804,7 +7843,7 @@ Litle stars for rate
 
 .reviews .rate-review {
   margin: 0 5px;
-  float: left;;
+  float: left;
 }
 
 /* ================================================
@@ -8002,6 +8041,7 @@ Addcard
 
 .addcard .buttom-swicher li {
     padding: 4px 16px;
+    display: inline-block;
 }
 .addcard .uk-form-select.select {
   padding-right: 20px;
@@ -8018,7 +8058,7 @@ Addcard
 .addcard .amount .uk-form-select.select {
   width: 52.4%;
   margin-left: 3%;
-  min-width: 100px;;
+  min-width: 100px;
 }
 .addcard label span {
     font-size: 12px;
@@ -8027,7 +8067,7 @@ Addcard
     color: #8d8f98;
 }
 .addcard .uk-button {
-    width: 100%;
+    width: 94%;
     max-width: 470px;
     font-size: 24px;
     height: 50px;
@@ -8042,7 +8082,7 @@ Addcard
   line-height: 1;
   width: 100%;
   margin: 8px 0 -9px;
-  display: inline-block;;
+  display: inline-block;
 }
 .addcard .complete li {
   border-bottom: 1px dotted #9b9b9b;
@@ -8062,7 +8102,7 @@ Addcard
   background: #fff;
   margin-bottom: -4px;
   display: block;
-  padding: 0 0 1px 3px;;
+  padding: 0 0 1px 3px;
 }
 
 @media (min-width: 541px) {
@@ -8092,10 +8132,10 @@ Addcard
   max-width: 170px;
 }
 .history .uk-table th:first-child {
-  width: 4%;;
+  width: 4%;
 }
 .history .uk-table th:nth-child(2) {
-  width: 14%;;
+  width: 14%;
 }
 .history .uk-table th:nth-child(4) {
   width: 38%;
@@ -8122,7 +8162,7 @@ span.uk-icon-question-circle {
 	border: #d0d0d0 1px solid;
 	padding: 6px 5px;
 	text-align: center;
-	font-weight: normal;;
+	font-weight: normal;
 	width: auto;
 	position: relative;
 }
@@ -8144,7 +8184,7 @@ Store
   margin-left: -20px;
 }
 .store .content-padding .uk-grid.uk-grid-small > * {
-  padding-left: 20px;;
+  padding-left: 20px;
 }
 .store .uk-panel .sales-box {
     background: #f5f5f5;
@@ -8196,7 +8236,7 @@ Store
 	padding: 4px 6px;
 	max-height: 30px;
 	box-sizing: border-box;
-	margin-bottom: 5px;;
+	margin-bottom: 5px;
 }
 .store .uk-panel .sales-box .uk-form-select i.uk-icon-caret-down {
     float: right;
@@ -8362,7 +8402,7 @@ Store
     cursor: pointer;
     position: absolute;
     top: 0;
-    right: 3px;;
+    right: 3px;
 }
 .jq-selectbox__trigger-arrow:before {
 	content: "\f0d7";
@@ -8508,7 +8548,7 @@ Taxi company styles
 .office-company .offises-block .button-choose,.office-company .offises-block .message {
 	border-bottom: 1px solid #d0d0d0;
 	width: 100%;
-	padding: 0px 0 9px 0;;
+	padding: 0px 0 9px 0;
 }
 .office-company .offises-block .message {
 	padding: 15px 0 12px;
@@ -8516,7 +8556,7 @@ Taxi company styles
 	width: 100%;
 	margin-left: 0;
 	display: table;
-	vertical-align: middle;;
+	vertical-align: middle;
 }
 .office-company .offises-block .message .text {
 	width: 79.2%;
@@ -8535,7 +8575,7 @@ Taxi company styles
 	width: 53%;
 	padding-left: 0;
 	float: left;
-	display: inline-block;;
+	display: inline-block;
 }
 .office-company .choose-office label {
 	font-size: 16px;
