@@ -85,16 +85,16 @@
                                                                     <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_TAXIDRIVER') %}
-                                                                    <br /><a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
+                                                                    <a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_COMPANYDRIVER') %}
-                                                                    <br />{{ 'Company driver'|trans }}
+                                                                    {{ 'Company driver'|trans }}
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_TAXIMANAGER') %}
-                                                                    <br />{{ 'Manager'|trans }}
+                                                                    {{ 'Manager'|trans }}
                                                                     {% endif %}
                                                                     {% if is_granted('ROLE_TAXICOMPANY') %}
-                                                                    <br />{{ 'Company'|trans }}
+                                                                    {{ 'Company'|trans }}
                                                                     {% endif %}
                                                                 </span>
                                                             </li>

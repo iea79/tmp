@@ -4606,14 +4606,14 @@ footer {
 .wrapper-content .register .uk-button {
     font-size: 22px;
     padding: 10px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: middle;
-  text-decoration: none;
-  text-align: center;
-  border: none;
-  background: #27bf2e;
-  color: #fff;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	vertical-align: middle;
+	text-decoration: none;
+	text-align: center;
+	border: none;
+	background: #27bf2e;
+	color: #fff;
 }
 .wrapper-content .register input[type="submit"] {
     border: medium none;
@@ -4737,11 +4737,11 @@ footer {
     background: #8c8e96;
 }
 .wrapper-content .register .uk-button:hover, .wrapper-content .register .uk-button:focus {
-  background-color: rgba(39, 191, 46, 0.68);
-  color: #fff;
-  outline: none;
-  text-decoration: none;
-  border-color: rgba(0, 0, 0, 0.16);
+	background-color: rgba(39, 191, 46, 0.68);
+	color: #fff;
+	outline: none;
+	text-decoration: none;
+	border-color: rgba(0, 0, 0, 0.16);
 }
 .wrapper-content .register .uk-button.backbutt:hover, .wrapper-content .register .uk-button.backbutt:focus {  background-color: rgba(140, 142, 150, 0.68);}
 .wrapper-content .register .uk-button:active, .wrapper-content .register .uk-button.uk-active {  background-color: rgba(39, 191, 46, 0.4);}
@@ -5158,7 +5158,7 @@ a.logintw {    background: url("../images/googlec.png") no-repeat scroll 0 0 tra
     min-width: 40%;
     margin: 0 auto;
     padding: 4px 10px 10px 10px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 4px;
 }
 body.register .main-content{
