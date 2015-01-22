@@ -11,7 +11,7 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 /**
  * @ORM\Entity
  * @ORM\Table(name="passenger_request")
- * @DaVinciAssert\RouteInfo()
+ * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
  */
 class PassengerRequest {
 	

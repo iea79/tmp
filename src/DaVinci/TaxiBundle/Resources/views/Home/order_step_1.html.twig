@@ -1,4 +1,5 @@
-	<div class="destination">
+{{ form_errors(form) }}	
+<div class="destination">
 		<div class="desticlone">
 			{% for routePoints in form.routePoints %}
 				<div class="form-block-wrap">	
@@ -44,6 +45,7 @@
 					<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
 						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
 					</a>
+                    {{ form_widget(form.roundTrip) }}
 					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
