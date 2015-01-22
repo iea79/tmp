@@ -10,18 +10,12 @@ use Symfony\Component\Validator\Constraint;
 class RouteInfo extends Constraint 
 {
 	
-	public $message = 'Error message';
+	public $message = 'Route info has incorrect value: ';
 	
 	public function getTargets()
 	{
-       // return self::CLASS_CONSTRAINT;
-		return array(self::CLASS_CONSTRAINT, self::PROPERTY_CONSTRAINT);
+    	return array(self::CLASS_CONSTRAINT, self::PROPERTY_CONSTRAINT);
 	}
-	
-	/*public function validatedBy()
-	{
-		return 'taxi.passengerRequest.validator.route_info';
-	}*/
 			
 }
 

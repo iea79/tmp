@@ -108,10 +108,10 @@ services:
         scope: request
 
 #passenger request custom validator
-    taxi.passengerRequest.validator.route_info:
-        class: DaVinci\TaxiBundle\Validator\Constraints\RouteInfoValidator
-        tags:
-            - { name: validator.constraint_validator, alias: route_info }
+#    taxi.passengerRequest.validator.route_info:
+#        class: DaVinci\TaxiBundle\Validator\Constraints\RouteInfoValidator
+#        tags:
+#            - { name: validator.constraint_validator, alias: route_info }
         
         
 # PaymentGlobalNetwork---------------------------------------------------------

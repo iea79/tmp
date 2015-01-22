@@ -1,10 +1,11 @@
-{{ form_errors(form) }}	
 <div class="destination">
 		<div class="desticlone">
 			{% for routePoints in form.routePoints %}
 				<div class="form-block-wrap">	
 					<div class="labels">
-						<label for="createPassengerRequestRouteInfo_routePoints_0_place"><i class="mp-icon-point-a"></i> From:</label>
+						<label for="createPassengerRequestRouteInfo_routePoints_0_place"><i class="mp-icon-point-a"></i>
+						{% if loop.index == 1 %} From{% else %} To{% endif %}:
+ 						</label>
 					</div>
 					<div class="inputs">
 						<div class="uk-form-icon">
@@ -45,7 +46,7 @@
 					<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
 						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
 					</a>
-                    {{ form_widget(form.roundTrip) }}
+                    
 					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>

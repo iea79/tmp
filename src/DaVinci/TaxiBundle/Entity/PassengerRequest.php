@@ -63,11 +63,13 @@ class PassengerRequest {
 	
 	/**
 	 * @var \DateTime
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnTime.wrongFormat")
 	 */
 	private $returnTime;
 	
 	/**
 	 * @var \DateTime
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnDate.wrongFormat")
 	 */
 	private $returnDate;
 	
