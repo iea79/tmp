@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div  class="home">
+<div  class="home exchange-filter-page">
 	<div class="shadow-main whitebg">
 		<div class="tabtaxi">
 			<ul class="uk-tab uk-tab-grid">
@@ -78,17 +78,17 @@
 										<div class="uk-panel">
 											<label for="">{{'from'|trans}}</label>
 			                                <select name="" placeholder="Не выбрано">
-			                                	<option value="">$0</option>
-			                                	<option value="">$10</option>
-			                                	<option value="">$20</option>
+			                                	<option>$0</option>
+			                                	<option>$10</option>
+			                                	<option>$20</option>
 			                                </select>
 			                            </div>
 										<div class="uk-panel">
 											<label for="">{{'to'|trans}}</label>
 			                                <select name="" placeholder="Не выбрано">
-			                                	<option value="">$0</option>
-			                                	<option value="">$10</option>
-			                                	<option value="">$20</option>
+			                                	<option value="0">$0</option>
+			                                	<option value="10">$10</option>
+			                                	<option value="20">$20</option>
 			                                </select>
 			                            </div>
 		                            </div>
@@ -98,8 +98,8 @@
 								<label class="uk-form-label">{{'Payment method:'|trans}}</label>
 								<div class="uk-form-controls">
 									<select name="" placeholder="escro">
-										<option value="">{{'escro'|trans}}</option>
-										<option value="">{{'cash'|trans}}</option>}
+										<option value="escro">{{'escro'|trans}}</option>
+										<option value="cash">{{'cash'|trans}}</option>}
 									</select>
 	                            </div>
 							</div>

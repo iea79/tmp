@@ -8800,7 +8800,9 @@ table th a.mp-icon-arrow-up:hover {
 /* ==========================
 Main driver page filter
 ========================== */
-
+.exchange-filter-page tr.under-head {
+	display: none;
+}
 .filter.content {
 	padding: 3px 2%;
 	margin-bottom: 20px;
@@ -8922,8 +8924,6 @@ Main driver page filter
 	.filter.content .duble-shoice .uk-panel {
 		width: 50%;
 	}
-}
-@media (max-width: 767px) {
 }
 @media (max-width: 477px) {
 	.filter.content .uk-button {
