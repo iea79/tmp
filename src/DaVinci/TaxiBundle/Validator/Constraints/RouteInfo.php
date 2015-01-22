@@ -14,7 +14,12 @@ class RouteInfo extends Constraint
 	
 	public function getTargets()
 	{
-		return self::CLASS_CONSTRAINT;
+		return array(self::CLASS_CONSTRAINT, self::PROPERTY_CONSTRAINT);
+	}
+	
+	public function validatedBy()
+	{
+		return 'route_info';
 	}
 			
 }
