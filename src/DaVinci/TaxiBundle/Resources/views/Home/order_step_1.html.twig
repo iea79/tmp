@@ -31,20 +31,20 @@
 			</div>
 			<div class="inputs">
 				<div class="uk-form-controls select-group">
-					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"MM.DD.YY"'}}) }}
-					<div class="time">
-						{{ form_widget(form.pickUpTime) }}
-					</div>
-	            </div>
+					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"DD.MM.YY"'}}) }}
+				</div>
+	            <div class="time">
+					{{ form_widget(form.pickUpTime) }}
+				</div>
 				<div class="errors">
 					{{ form_errors(form.pickUpDate) }}
 					{{ form_errors(form.pickUpTime) }}
 				</div>
 				<div class="check-box">
-						<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
-							<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
-						</a>
-						<label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+					<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
+						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
+					</a>
+					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
@@ -57,10 +57,10 @@
 			</div>
 			<div class="inputs">
 				<div class="uk-form-controls select-group">
-					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'mm-dd-yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"MM.DD.YYYY"'}}) }}
-					<div class="time">
-						{{ form_widget(form.returnTime) }}
-					</div>
+					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"DD.MM.YYYY"'}}) }}
+				</div>
+				<div class="time">
+					{{ form_widget(form.returnTime) }}
 				</div>
 				<div class="errors">
 					{{ form_errors(form.returnDate, {'attr': {'class': 'errors'}}) }}

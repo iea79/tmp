@@ -25,7 +25,7 @@ class RouteInfoType extends AbstractType {
 			->add('roundTrip', 'checkbox')
 			->add('pickUpDate', 'date', array(
 				'widget' => 'single_text',
-				'format' => 'MM-dd-yy',
+				'format' => 'dd.MM.yy',
 				'required' => false
 			))
 			->add('pickUpTime', 'time', array(
@@ -34,7 +34,7 @@ class RouteInfoType extends AbstractType {
 			))
 			->add('returnDate', 'date', array(
 				'widget' => 'single_text', 
-				'format' => 'MM-dd-yy',
+				'format' => 'dd.MM.yy',
 				'required' => false
 			))
 			->add('returnTime', 'time', array(
