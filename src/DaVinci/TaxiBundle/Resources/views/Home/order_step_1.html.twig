@@ -32,10 +32,10 @@
 				{{ form_label(form.pickUpDate, 'Pick up:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls select-group">
+				<div class="uk-form-controls">
 					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"DD.MM.YY"'}}) }}
 				</div>
-	            <div class="time">
+	            <div class="time select-group">
 					{{ form_widget(form.pickUpTime) }}
 				</div>
 				<div class="errors">
@@ -47,7 +47,7 @@
 						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
 					</a>
                     
-					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="uk-form-controls">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
@@ -59,10 +59,10 @@
 				{{ form_label(form.returnDate, 'Return:') }}
 			</div>
 			<div class="inputs">
-				<div class="uk-form-controls select-group">
+				<div class="uk-form-controls">
 					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"DD.MM.YYYY"'}}) }}
 				</div>
-				<div class="time">
+				<div class="time select-group">
 					{{ form_widget(form.returnTime) }}
 				</div>
 				<div class="errors">

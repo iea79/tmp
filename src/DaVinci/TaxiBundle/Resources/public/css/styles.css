@@ -3891,7 +3891,7 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 	box-sizing: border-box;
 }
 	.destination .form-block-wrap {
-		margin:0 10px 10px 0;
+		margin:0 10px 5px 0;
 		display:inline-block;
 		width:98%;
 	}
@@ -7973,21 +7973,24 @@ a.textarea-toggle input {
 }
 
 .destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
-.destination .inputs .uk-form-controls .time {
+.destination .inputs .time {
     display: inline-block;
     width: 39%;
 }
-.destination .inputs .uk-form-controls div.jq-selectbox {
+.destination .inputs .uk-form-controls {
+	width: 33%;
+	display: inline-block;
+}
+.destination .inputs .time div.jq-selectbox,.destination .inputs .time div select {
 	width: 47%;
 }
-.destination .inputs .uk-form-controls div.jq-selectbox__select {
+.destination .inputs .time div.jq-selectbox__select {
 	width: 97%;
 }
-.destination .inputs .uk-form-controls div.jq-selectbox__dropdown {
+.destination .inputs .time div.jq-selectbox__dropdown {
 
 }
-.destination .inputs .uk-form-controls div select {
-  width: 47%;
+.destination .inputs .rounded {
 }
 #map-canvas{height: 100%;}
 #map-canvas img{height: 100%;}
