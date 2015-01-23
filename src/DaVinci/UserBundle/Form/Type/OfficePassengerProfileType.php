@@ -29,7 +29,7 @@ class OfficePassengerProfileType extends AbstractType {
                             'required'=>false))
                         ->add('phone')
                         ->add('dateOfBirth', 'birthday', array('label' => 'form.dateOfBirth', 'translation_domain' => 'FOSUserBundle',
-                            'empty_value' =>'form.please_select',
+                            'placeholder' =>'form.please_select',
                             'required' => false))             
                         ->add('gender', 'choice', array(
                             'choices' => array(
@@ -37,7 +37,7 @@ class OfficePassengerProfileType extends AbstractType {
                                 '0' => 'form.female'
                             ),
                             'required' => false,
-                            'empty_value' => 'form.choosegender',
+                            'placeholder' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
                         ->add('photo','file', array('required' => false,'data_class'=>null))

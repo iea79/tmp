@@ -36,7 +36,7 @@ require(['pages/common'], function ($) {
                 $('.passfield2').attr('pattern', this.value);
             });
 
-            $('select').styler()
+                $('#Profile select').styler({'selectSearch':0});
 
         }
         
