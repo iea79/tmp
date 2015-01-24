@@ -221,20 +221,49 @@ input::-moz-placeholder{color:#9b9b9b; opacity:1;}
 input:-ms-input-placeholder{color:#9b9b9b;}
 input::-webkit-input-placeholder{color:#9b9b9b;}
 
-::-webkit-input-placeholder       {transition: line-height 0.5s ease;}
-::-moz-placeholder                {line-height: 16px;  transition: line-height 0.5s ease;}
-:-moz-placeholder                 {line-height: 16px;  transition: line-height 0.5s ease;}
-:-ms-input-placeholder            {line-height: 16px;  transition: line-height 0.5s ease;}
+::-webkit-input-placeholder       {transition: 0.5s;}
+::-moz-placeholder                {-moz-transition: 0.5s;}
+:-moz-placeholder                 {-moz-transition: 0.5s;}
+:-ms-input-placeholder            {-ms-transition: 0.5s;}
 
-input[type="text"]:focus::-webkit-input-placeholder {line-height: 60px; transition: line-height 0.5s ease;}
-input[type="text"]:focus::-moz-placeholder          {line-height: 60px; transition: line-height 0.5s ease;}
-input[type="text"]:focus:-moz-placeholder           {line-height: 60px; transition: line-height 0.5s ease;}
-input[type="text"]:focus:-ms-input-placeholder      {line-height: 60px; transition: line-height 0.5s ease;}
+input:focus::-webkit-input-placeholder {line-height: 70px; -webkit-transition: 0.5s;}
+input:focus::-moz-placeholder          {line-height: 70px; -moz-transition: 0.5s;}
+input:focus:-moz-placeholder           {line-height: 70px; -moz-transition: 0.5s;}
+input:focus:-ms-input-placeholder      {line-height: 70px; -ms-transition: 0.5s;}
 
-input[type="checkbox"] {border: 1px solid #8e9099; outline: none;}
+input[type="checkbox"] {
+	border: 1px solid #8e9099;
+	outline: none;
+}
 
-input[type="text"]:valid {color: #3d3d3d;}
-input[type="text"]:invalid {color: #ff4d61;}
+input[type="text"]:valid,
+input[type="password"]:valid,
+input[type="email"]:valid,
+input[type="date"]:valid,
+input[type="datetime"]:valid,
+input[type="number"]:valid,
+input[type="tel"]:valid,
+input[type="time"]:valid,
+input[type="url"]:valid,
+input[type="month"]:valid,
+input[type="week"]:valid,
+input[type="search"]:valid {
+	color: #3d3d3d;
+}
+input[type="text"]:invalid 
+input[type="password"]:invalid,
+input[type="email"]:invalid,
+input[type="date"]:invalid,
+input[type="datetime"]:invalid,
+input[type="number"]:invalid,
+input[type="tel"]:invalid,
+input[type="time"]:invalid,
+input[type="url"]:invalid,
+input[type="month"]:invalid,
+input[type="week"]:invalid,
+input[type="search"]:invalid {
+	color: #ff4d61;
+}
 
 /*-------------------------------------  header --------------------------------- */
 .header-wrapper .header-top {
@@ -525,7 +554,12 @@ input[type="text"]:invalid {color: #ff4d61;}
 					    color: #3c3d45;
 					    line-height: 1;
 					}
-							.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a:hover {
+					.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown div .mp-icon-message {
+						font-size: 12px;
+						margin-left: -2px;
+
+					}
+						.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a:hover {
 								color:#fff;
 								background-color:#528ed3;
 								text-decoration:none;
@@ -725,7 +759,6 @@ input[type="text"]:invalid {color: #ff4d61;}
 		background-color:#fff;
 		padding:9px 0 20px;
 		box-shadow: 0 1px 1px 0 #b4b4b4;
-		overflow:hidden;
 		border-radius:6px;
 	}
 		.home .steps-1-2-3 .chois {
@@ -931,6 +964,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
 		padding:0 30px 0 5px !important;
+		line-height:28px;
 	}
 		.destination  .inputs .uk-form-icon  i {
 			right:0;
@@ -1211,6 +1245,7 @@ input[type="text"]:invalid {color: #ff4d61;}
 			width:48%;
 			display:inline-block;
 			margin-top:-1px;
+			text-align: left;
 		}
 		.tarif-line	.tarif-line-group .select span {
 			display: inline-block;
@@ -4576,11 +4611,16 @@ footer {
 }
 
 /* form styles*/
-.register .uk-form-select, .register select, .register  textarea, .register input[type="email"], .register  input[type="password"], .register  input[type="text"], .register input[type="date"] {
+.register .uk-form-select,
+.register select,
+.register  textarea,
+.register input[type="email"],
+.register  input[type="password"],
+.register  input[type="text"],
+.register input[type="date"] {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #d1d1d1;
     border-radius: 3px;
-    color: #8e9099;
     font-size: 15px;
     box-sizing: border-box;
     display: inline-block;
