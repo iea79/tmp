@@ -46,8 +46,7 @@
 					<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
 						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
 					</a>
-                    
-					<label for="createPassengerRequestRouteInfo_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
+                    <label for="createPassengerRequestRouteInfo_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
 		</div>
@@ -62,7 +61,7 @@
 				<div class="uk-form-controls">
 					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'id': 'datepicker', 'data-uk-datepicker': 'format:"DD.MM.YYYY"'}}) }}
 				</div>
-				<div class="time select-group">
+				<div class="time">
 					{{ form_widget(form.returnTime) }}
 				</div>
 				<div class="errors">

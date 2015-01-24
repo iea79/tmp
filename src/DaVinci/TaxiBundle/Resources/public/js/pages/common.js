@@ -19,21 +19,13 @@ function togglePreloader(selector, show){
     }
 }
 
-define(['jquery', 'jquery.formstyler'], function($){
-    require(['uikit', 'charCount'],function(UI){
+define(['jquery'], function($){
+    require(['uikit', 'jquery.formstyler'],function(UI){
         
-        $('select').styler();
+        $('select').styler({'selectSearch':0});
         //remove my account button loading
         $('.autorized').removeClass('loading');
         require(['addons/form-select','addons/form-password']);
-
-        jQuery(function($) {
-            $(document).ready( function() {
-                $(".charcount").charCount();
-            });
-        });
-
-
     });
     
     //return jquery to use in other modules

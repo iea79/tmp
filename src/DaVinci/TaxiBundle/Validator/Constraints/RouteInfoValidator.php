@@ -11,28 +11,52 @@ class RouteInfoValidator extends ConstraintValidator
 	
 	public function validate($value, Constraint $constraint)
 	{
-		$currentDate = new \DateTime('now');
-		
-		$pickUp = \DateTime::createFromFormat(
-			'Y-m-d H:i:s',
-			$value->getPickUpDate()->format('Y-m-d') . ' ' . $value->getPickUpTime()->format('H:i:s')
-		);
-		if (1 == $currentDate->diff($pickUp)->invert) {
-			$this->context->buildViolation($constraint->message . $pickUp->format('Y-m-d H:i:s'))
-				->atPath('pickUp')
-				->addViolation();
+		if (!$this->hasPickUp($value)) {
+			return;
 		}
 		
-		$return = \DateTime::createFromFormat(
-			'Y-m-d H:i:s',
-			$value->getReturnDate()->format('Y-m-d') . ' ' . $value->getReturnTime()->format('H:i:s')
-		);
-				
-        if ($value->getRoundTrip() && 1 == $pickUp->diff($return)->invert) {
-        	$this->context->buildViolation($constraint->message)
-				->atPath('return')
-				->addViolation();
+		if ($value->getRoundTrip()) {
+			$currentDate = new \DateTime('now');
+			
+			$pickUp = \DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$value->getPickUpDate()->format('Y-m-d') . ' ' . $value->getPickUpTime()->format('H:i:s')
+			);
+			if (1 == $currentDate->diff($pickUp)->invert) {
+				$this->addViolation('pickUp', $constraint->message . 'pick up value is less than current');
+				return;
+			}
+			
+			if (!$this->hasReturn($value)) {
+				$this->addViolation('return', $constraint->message . 'return value is empty');
+				return;
+			}
+			$return = \DateTime::createFromFormat(
+				'Y-m-d H:i:s',
+				$value->getReturnDate()->format('Y-m-d') . ' ' . $value->getReturnTime()->format('H:i:s')
+			);
+			
+			if (1 == $pickUp->diff($return)->invert) {
+				$this->addViolation('return', $constraint->message);
+			}
         }
+	}
+	
+	private function hasPickUp($value)
+	{
+		return $value->getPickUpDate() && $value->getPickUpTime();			
+	}
+	
+	private function hasReturn($value)
+	{
+		return $value->getReturnDate() && $value->getReturnTime();
+	}
+	
+	private function addViolation($field, $message)
+	{
+		$this->context->buildViolation($message)
+			->atPath($field)
+			->addViolation();
 	}
 		
 }
