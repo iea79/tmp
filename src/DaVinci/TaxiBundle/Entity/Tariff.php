@@ -31,14 +31,39 @@ class Tariff {
 	private $price = 0.00;
 	
 	/**
+	 * @var float
+	 */
+	private $marketPrice;
+	
+	/**
+	 * @var float
+	 */
+	private $yourPrice;
+	
+	/**
 	 * @ORM\Column(type="float")
 	 */
 	private $tips = 0.00;
 	
 	/**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('cash', 'escrow')", name="payment_method", length=15)
+	 * @var float
 	 */
-	private $paymentMethod;
+	private $marketTips;
+	
+	/**
+	 * @var float
+	 */
+	private $yourTips;
+	
+	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('cash', 'escrow')", name="price_payment_method", length=15)
+	 */
+	private $pricePaymentMethod;
+	
+	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('cash', 'escrow')", name="tips_payment_method", length=15)
+	 */
+	private $tipsPaymentMethod;
 	
 	/**
 	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="tariff")
@@ -103,30 +128,91 @@ class Tariff {
     }
     
     /**
-     * Set paymentMethod
+     * Set pricePaymentMethod
      * 
      * @param string $paymentMethod
      * @throws \InvalidArgumentException
      * @return \DaVinci\TaxiBundle\Entity\Tariff
      */
-    public function setPaymentMethod($paymentMethod) {
-    	if (!in_array($paymentMethod, self::getPaymentMethods())) {
-    		throw new \InvalidArgumentException("Undefined payment method :: {$paymentMethod}");
-    	}
-    
-    	$this->paymentMethod = $paymentMethod;
+    public function setPricePaymentMethod($paymentMethod) {
+    	$this->checkPaymentMethod($paymentMethod, 'price');
+       	$this->pricePaymentMethod = $paymentMethod;
     	
     	return $this;
     }
     
     /**
-     * Get paymentMethod
+     * Get pricePaymentMethod
      *
      * @return string
      */
-    public function getPaymentMethod()
+    public function getPricePaymentMethod()
     {
-    	return $this->paymentMethod;
+    	return $this->pricePaymentMethod;
+    }
+    
+    public function setMarketPrice($price)
+    {
+    	$this->marketPrice = $price;
+    }
+    
+    public function getMarketPrice()
+    {
+    	 $this->marketPrice;
+    }
+    
+    public function setYourPrice($price)
+    {
+    	$this->yourPrice = $price;
+    }
+    
+    public function getYourPrice()
+    {
+    	$this->yourPrice;
+    }
+        
+    /**
+     * Set pricePaymentMethod
+     *
+     * @param string $paymentMethod
+     * @throws \InvalidArgumentException
+     * @return \DaVinci\TaxiBundle\Entity\Tariff
+     */
+    public function setTipsPaymentMethod($paymentMethod) {
+    	$this->checkPaymentMethod($paymentMethod, 'tips');
+       	$this->tipsPaymentMethod = $paymentMethod;
+    	 
+    	return $this;
+    }
+    
+    /**
+     * Get pricePaymentMethod
+     *
+     * @return string
+     */
+    public function getTipsPaymentMethod()
+    {
+    	return $this->tipsPaymentMethod;
+    }
+    
+    public function setMarketTips($tips)
+    {
+    	$this->marketTips = $tips;
+    }
+    
+    public function getMarketTips()
+    {
+    	$this->marketTips;
+    }
+    
+    public function setYourTips($tips)
+    {
+    	$this->yourTips = $tips;
+    }
+    
+    public function getYourTips()
+    {
+    	$this->yourTips;
     }
     
     public static function getPaymentMethods()
@@ -158,5 +244,12 @@ class Tariff {
     public function getPassengerRequest()
     {
         return $this->passengerRequest;
+    }
+    
+    private function checkPaymentMethod($paymentMethod, $type)
+    {
+    	if (!in_array($paymentMethod, self::getPaymentMethods())) {
+    		throw new \InvalidArgumentException("Undefined {$type} payment method :: {$paymentMethod}");
+    	}
     }
 }
