@@ -40,11 +40,9 @@
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
+                                    <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.address.country,
-    {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
+    {'attr':{'class': 'float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
              'tabindex':'1'}}) }}
                                     </div>
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
@@ -54,11 +52,9 @@
 
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
+                                    <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.address.countrycity,
-    {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
+    {'attr':{'class': 'float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
              'tabindex':'2'}}) }}
                                     </div>
                                 {{ form_errors(form.address.countrycity) }}
@@ -66,9 +62,7 @@
                             </label>
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
+                                    <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.language.level,
                             {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'3'}}) }}
                                     </div>
@@ -94,9 +88,7 @@
                             </label>
                             <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
                                 <div class="uk-form-controls">
-                                    <div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-                                        <span></span>
-                                        <i class="uk-icon-caret-down"></i>
+                                    <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'5'}}) }}
                                     </div>
 
@@ -217,7 +209,7 @@
             var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
         </script>
         {% javascripts filter='?requirejs'
-'@DaVinciTaxiBundle/Resources/public/js/pages/register/register.independent.driver.js'
+            '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.independent.driver.js'
         %}
 
         {{ require_js_initialize({ 'main' : asset_url })}}

@@ -25,12 +25,10 @@
 			<div class="uk-form-row">
 				<label class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</label>
 				<div class="uk-form-controls">
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-						<span>Please select...</span>
-						<i class="uk-icon-caret-down"></i>
+					<div class="uk-width-1-1 float_left" data-uk-observe="">
 						<select required="" id="country" name="country"  data-errormessage-value-missing="Country is required" data-errormessage="Country is required">
-							<option value=""></option>
-							<option value="Russia" >Russia</option>
+							<option value="Russia">Russia</option>
+							<option value="" ></option>
 						</select>
 					</div>
 					<div class="utooltip" data-uk-tooltip="{pos:'left'}" title="Region/State, City" data-cached-title="Region/State, City"></div>
@@ -42,9 +40,7 @@
 			<div class="uk-form-row">
 				<label class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</label>
 				<div class="uk-form-controls">
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-						<span>Please select...</span>
-						<i class="uk-icon-caret-down"></i>
+					<div class="uk-width-1-1 float_left" data-uk-observe="">
 						<select required="" id="city" name="city"  data-errormessage-value-missing="City is required" data-errormessage="City is required">
 							<option>Moscow</option>
 							<option>St. Petersburg</option>
@@ -72,9 +68,7 @@
 				<label class="uk-form-label uk-width-2-5 text"></label>
 				<div class="uk-form-controls">
 					<div class="float_left uk-width-1-1 "><input type="radio" name="cc" id="cn"  /> 
-						<div class="select uk-form-select select uk-width-4-7 float_right" data-uk-form-select="" data-uk-observe="">
-							<span>Please select...</span>
-							<i class="uk-icon-caret-down"></i>
+						<div class="uk-width-4-7 float_right" data-uk-observe="">
 							<select required="" id="choose" name="Choose by name" class="">
 								<option>Choose by name</option>
 								<option>Choose by name 2</option>
@@ -90,9 +84,7 @@
 			<div class="uk-form-row">
 				<label class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</label>
 				<div class="uk-form-controls">
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-						<span>Please select...</span>
-						<i class="uk-icon-caret-down"></i>
+					<div class="uk-width-1-1 float_left" data-uk-observe="">
 						<select required="" id="english" name="english"    data-errormessage-value-missing="Please select an option" data-errormessage="Please select an option">
 							<option>Level</option>
 							<option>No</option>
@@ -115,9 +107,7 @@
 				<div class="uk-form-controls">
 					<div class="uk-width-1-1 style1">
 						<div class="style2">
-							<div class="uk-form-select select uk-width-1-0 float_left display_none" data-uk-form-select="" data-uk-observe="">
-								<span>Please select...</span>
-								<i class="uk-icon-caret-down"></i>
+							<div class="uk-width-1-0 float_left display_none" data-uk-observe="">
 								<select required="" id="lang" name="lang" class="">
 									<option>Russian</option><option>Adyghe</option>	<option>Afrikaans</option><option>Akan</option><option>Albanian</option>
 									<option>Amharic</option><option>Arabic</option>	<option>Aragonese</option>	<option>Armenian </option>	<option>Assamese</option>
@@ -165,9 +155,7 @@
 			<div class="uk-form-row">
 				<label class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</label>
 				<div class="uk-form-controls">
-					<div class="uk-form-select select uk-width-1-1 float_left" data-uk-form-select="" data-uk-observe="">
-						<span>Please select...</span>
-						<i class="uk-icon-caret-down"></i>
+					<div class="uk-width-1-1 float_left" data-uk-observe="">
 						<select required="" id="experience" name="experience"  data-errormessage-value-missing="Please select how many years Drivers Licence" data-errormessage="Please select how many years Drivers Licence">
 							<option>&nbsp;</option>
 							<option>less than 4 years</option>
@@ -197,9 +185,7 @@
 				<div class="uk-form-controls addphoneareas">
 					<div class="uk-width-1-0 adphonik">
 						<div class="float_left uk-width-1-1">
-							<div class="uk-form-select select uk-width-4-10 phonecode" data-uk-form-select="" data-uk-observe="">
-								<span>Please select...</span>
-								<i class="uk-icon-caret-down"></i>
+							<div class="uk-width-4-10 phonecode" data-uk-observe="">
 								<select required="" id="phonecode" name="phonecode" class="">
 									<option>&nbsp;</option>		<option>1 (US)</option>		<option>7 (RU)</option>		<option>376 (AD)</option>		<option>971 (AE)</option>
 									<option>1 (AG)</option>		<option>1 (AI)</option>		<option>355 (AL)</option>		<option>374 (AM)</option>		<option>599 (AN)</option>

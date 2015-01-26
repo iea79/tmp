@@ -148,15 +148,13 @@
                                     {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}<div class='mp-icon-closed lang-close'></div>">
                                     <div class="uk-form-controls">
                                         <div class="uk-width-1-1 style1">
-                                            <div class="style2">
-                                                {% for lang in form.language.languages %}
-                                                    {{ form_widget(lang,
-                                                    {'attr':{'class': 'float_left'}}) }}
-                                                    <div class='mp-icon-closed lang-close'></div>
-                                                    {{ form_errors(lang) }}
-                                                {% endfor %}
-                                                {% do form.language.setRendered() %}
-                                            </div>
+                                            {% for lang in form.language.languages %}
+                                                {{ form_widget(lang,
+                                                {'attr':{'class': 'float_left'}}) }}
+                                                <div class='mp-icon-closed lang-close'></div>
+                                                {{ form_errors(lang) }}
+                                            {% endfor %}
+                                            {% do form.language.setRendered() %}
                                             <div class="addotherlanguage button-add-lang uk-button uk-button-primary uk-width-1-1">{{'Add language'|trans}}</div>
                                         </div>
                                     </div>
@@ -193,7 +191,7 @@
                                         <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">            
                                             
                                 <dt>{{'Birthday:'|trans}}<dd>
-                                    <div class="birthday select-group">                        
+                                    <div class="birthday">                        
                                         {{ form_widget(form.user.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
                                         {{ form_errors(form.user.dateOfBirth) }}
                                     </div>

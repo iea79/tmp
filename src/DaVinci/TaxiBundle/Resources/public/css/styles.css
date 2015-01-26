@@ -551,8 +551,8 @@ input[type="search"]:invalid {
 					.header-top .header-top-in .topmenu .uk-dropdown .myoffice-drop ul.uk-nav li span a {
 					    margin: 0 0 5px;
 					    display :block;
-					    color: #3c3d45;
 					    line-height: 1;
+					    color: #528ed3;
 					}
 					.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown div .mp-icon-message {
 						font-size: 12px;
@@ -611,7 +611,7 @@ input[type="search"]:invalid {
 								color:#fff;
 								}
 								.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown  .myaccount-drop ul li a i {
-									width:15px;
+									width:15px;;
 								}
 			/* ====================  the bottom part of header with breadcrumbs and languages ============================ */
 			.header-wrapper .header-bottom {
@@ -953,11 +953,11 @@ input[type="search"]:invalid {
 		border: 1px solid #8e9099;
 		border-radius: 3px;
 		box-sizing: border-box;
-		height: 29px;
 		display: inline-block;
 		vertical-align: middle;
-		padding-left:8px;
 		margin: 0 2% 0 0;
+		padding-left: 5px;
+		height: 29px;
 	}
 	.destination  .inputs .uk-form-icon { width:100%; }
 	.destination  .inputs .uk-form-icon i {font-size: 22px;}
@@ -1272,7 +1272,6 @@ input[type="search"]:invalid {
 		
 		.order-details textarea {
 			width:100%;
-			color:#9b9b9b;
 			border: 1px solid #8e9099;
 			border-radius:4px;
 			font-size:14px;
@@ -1512,11 +1511,9 @@ input[type="search"]:invalid {
 }
 .table-over .serv > tbody > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	min-width:60px;
-	max-width:200px;
 }
 .table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
-	vertical-align:middle;
 }
 .table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
@@ -1550,10 +1547,9 @@ input[type="search"]:invalid {
 		.table-over .serv .under-head > td {
 			background-color:#f5f5f5;
 			vertical-align:top;
-			padding:5px 1%;
+			padding:7px 5px 1px;
 		}
 			 .table-over .serv .under-head input{
-			height:27px;
 		}
 		.table-over .serv .under-head .uk-button-link {
 			padding:0;
@@ -1577,19 +1573,16 @@ input[type="search"]:invalid {
 			width:5.7%;
 		}
 		.table-over .serv .under-head .destinations_list .uk-form-icon {
-			position:relative;
-			top:2px;
-			margin:0;
+  width: 100%;
 		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
-			padding:7px 0;
 		}
 		.table-over .serv .under-head .mp-icon-taxi {
-			font-size:22px;
+  font-size: 22px;
+  color: #528ed3;
 		}
 		.table-over .serv .under-head select, .table-over .serv .under-head .select {
 			min-height:27px;
-			line-height:1.5;
 		}
 		.table-over .serv .under-head .trust .select {
 			font-family: 'icontaxi';
@@ -1637,7 +1630,8 @@ input[type="search"]:invalid {
 			width:20%;
 		}
 		.table-over .serv .fixed-column {
-			min-width:90%;
+			min-width: 90%;
+			white-space: normal;
 		
 		}
 		.table-over .serv .under-head input{ 
@@ -1645,10 +1639,10 @@ input[type="search"]:invalid {
 			border:1px solid #8e9099;
 			padding:0 20px 0 5px!important;
 			width:100%;
+			height:29px;
+			box-sizing:border-box;
 		}
 		.table-over .serv .under-head .uk-form-icon {
-			display:block;
-			margin:0 8px;
 		}
 		.table-over .serv .under-head .sort {
 			font-size:14px;
@@ -1682,19 +1676,26 @@ input[type="search"]:invalid {
 		}
 		.table-over .serv .aligment {
 			float:left;
-			height:27px;
+			line-height:27px;
+		}
+		.table-over .serv .aligment.fit-in {
+		    width: 75%;
 		}
 		.table-over .serv .cancell-filters {
 			border:none;
 			padding-right:0;
 			width:18%;
 			margin-left:6%;
+			display:inline-block;
+			vertical-align:middle;
+			margin-top:2px;
 		}
 		.table-over .serv .cancell-filters:hover {
 			text-decoration:none;
 		}
 		.table-over .serv  .bascket-opt {
-			width:80%;
+			width:76%;
+			text-align:left;
 		}
 		.table-over .serv .blue-bg {
 			width:20px;
@@ -1708,7 +1709,7 @@ input[type="search"]:invalid {
 			font-size:20px;
 		}
 		.table-over .serv .mp-icon-closed:before {
-			font-size:18px;
+				font-size:18px;
 			}
 		.table-over .serv .mp-icon-basket:before {
 			font-size:22px;
@@ -3532,6 +3533,9 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile .classauto {
 	width: 46%;
 }
+.pop-up .birthday .dateofbirth:focus {
+	outline: none !important;
+}
 .pop-up .birthday .row select {
   padding-left: 4px;
 }
@@ -4498,8 +4502,8 @@ div.datepicker tbody th {
 #widgetField a {
 display: block;
 position: absolute;
-top: 12%;
-right: 2px;
+top: 13%;
+right: 4px;
 text-decoration: none;
 font-family: icontaxi;
 font-size: 16px;
@@ -4613,6 +4617,7 @@ footer {
 /* form styles*/
 .register .uk-form-select,
 .register select,
+.register .jq-selectbox__select,
 .register  textarea,
 .register input[type="email"],
 .register  input[type="password"],
@@ -4621,11 +4626,6 @@ footer {
     background: none repeat scroll 0 0 #fff;
     border: 1px solid #d1d1d1;
     border-radius: 3px;
-    font-size: 15px;
-    box-sizing: border-box;
-    display: inline-block;
-    margin: 0;
-    padding: 4px 11px 4px 9px;
  }
 .register .uk-form-select span  {
     display: inline-block;
@@ -4684,8 +4684,13 @@ footer {
     floaT: left;
     width: 65.2%;
 }
-.register .uk-form-horizontal .uk-form-controls select, .register .uk-form-horizontal .uk-form-controls textarea, .register .uk-form-horizontal .uk-form-controls input[type="text"], .register .uk-form-horizontal .uk-form-controls input[type="password"], 
-.register .uk-form-horizontal .uk-form-controlsinput[type="email"] {    height: 28px;}
+.register .uk-form-horizontal .uk-form-controls select, .register .uk-form-horizontal .uk-form-controls input[type="text"], .register .uk-form-horizontal .uk-form-controls input[type="password"], 
+.register .uk-form-horizontal .uk-form-controlsinput[type="email"] {
+  height: 28px;
+}
+.register .uk-form-horizontal .uk-form-controls select {
+	width: 100%;
+}
 .register .uk-form-horizontal .uk-form-row  {
     margin-top: 13px;
     margin-bottom: 13px;
@@ -5300,7 +5305,8 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal .uk-width-1-1 {
+  width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
@@ -7421,11 +7427,10 @@ Notifications button in main menu
     width: 12.3%;
     /* margin-left: -2.7%; */
     color: #3399ff;
-    padding: 4px 0.6% 2px;
+    padding: 4px 0.6% 4px;
     float: right;
     margin-left: 0;
     max-height: 28px !important;
-    height: 100%;
 }
 .notif-button .mp-icon-message {
     padding-left: 8.6%;
@@ -7938,7 +7943,7 @@ select{
 	height: 29px;
 	display: inline-block;
 	border: 1px solid #8e9099;
-	line-height: 26px;
+	line-height: 29px;
 }
 .destination select.form-control{
 	margin: 0 7px 0 0;
@@ -8056,7 +8061,7 @@ h6.precounter {
   float: left;
 }
 h6.counter:last-child {
-	display: none;
+  display: none;
 }
 h6.counter.warning {
     color: #3c3d45;
@@ -8437,22 +8442,24 @@ Store
     background: transparent;
 }
 .jq-selectbox__select {
+	background: #fff;
+	color: #3c3d45;
 	border: 1px solid #8e9099;
 	border-radius: 3px;
 	height: 29px;
 	line-height: 28px;
 	display: inline-block;
 	vertical-align: middle;
-	color: #3c3d45;
 	padding: 0 16px 0 6px;
 	box-sizing: border-box;
 	position: relative;
 	width: 100%;
-	box-sizing: border-box;
 	cursor: pointer;
-	background: #fff;
+	text-align: left;
+	-webkit-transition: all linear 0.2s;
+	transition: all linear 0.2s;
 }
-.jq-selectbox:hover,.jq-selectbox:focus {
+.jq-selectbox__select:hover,.jq-selectbox__select:focus {
 	background: #f5f5f5;
 }
 .jq-selectbox__trigger {
@@ -8471,11 +8478,11 @@ Store
 .jq-selectbox__dropdown {
 	background: #fff;
 	border: 1px solid #8e9099;
-	width: 100% !important;
 	z-index: 100;
 	box-sizing: border-box;
 	border-top: 0;
 	text-align: left;
+	width: 100% !important;
 	
 }
 .jq-selectbox ul {
@@ -8495,6 +8502,8 @@ Store
 	white-space: nowrap;
 	color: #231F20;
 	cursor: default;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .jq-selectbox li:hover {
 	background: #528ed3;
@@ -8513,7 +8522,9 @@ Store
     color: #8e9099;
     display: block;
 }
-
+.jq-selectbox__search {
+	display: none;
+}
 
 
 
@@ -8976,4 +8987,34 @@ Main driver page filter
 		display: block;
 		max-width: 293px;
 	}
+}
+
+
+
+
+.table-over .auto-tip .car .jq-selectbox .jq-selectbox__dropdown {
+	width: auto !important;
+	min-width: 110px;
+}
+.jq-selectbox.mp-icon-taxi .jq-selectbox__select {
+	border: 0;
+	background: transparent;
+	position: relative;
+	color: blue;
+}
+.jq-selectbox.mp-icon-taxi .jq-selectbox__dropdown {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.jq-selectbox.mp-icon-taxi:before {
+	position: absolute;
+	z-index: 10;
+	top: 3px;
+	margin-left: 4px;;
+}
+.jq-selectbox.mp-icon-taxi .jq-selectbox__trigger-arrow {
+  line-height: 20px;
+}
+.jq-selectbox li.mp-icon-taxi.sel {
+	display: none !important;
 }
