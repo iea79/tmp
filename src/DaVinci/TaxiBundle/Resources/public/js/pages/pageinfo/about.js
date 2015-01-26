@@ -1,7 +1,5 @@
 require(["pages/common"], function($){
     require(['pages/pageinfo/stickUp'], function(){
-	    jQuery(function($) {
-	        $(document).ready( function() {
 	            $('.buttom-swicher').stickUp({
 	            	parts: {
 	            		0:'passenger',
@@ -11,8 +9,6 @@ require(["pages/common"], function($){
 	            	itemClass: 'menuitem',
 	            	itemHover: 'uk-active'
 	            });
-	        });
-	    });
         //remove preloader
         togglePreloader(document.body,false);
     });

@@ -75,7 +75,7 @@ require(["pages/common"], function ($) {
                     }
                 })
                 
-                $(".charcount").charCount({counterElement: 'h6', css: 'counter'});
+                $(".charcount").charCount();
 
                 $('#Profile select').styler({'selectSearch':0});
 

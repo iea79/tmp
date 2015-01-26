@@ -1,5 +1,5 @@
 require(["gmaps", "pages/common"], function (gMaps , $) {
-    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery', 'pages/table.resize'], function () {
+    require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery', 'pages/table.resize', 'charCount'], function () {
         require(['chosenImage.jquery'], function () {
 
             //Добавление доролнительных направлений 
@@ -9,6 +9,10 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
 
 
 
+
+//simbols left in textarea in step 2 homepage
+
+            $(".charcount").charCount();
 
 
 
@@ -115,9 +119,6 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
                 return false;
             });
             
-//simbols left in textarea in step 2 homepage
-            var text_area_len = 200;
-
             //remove preloader
             togglePreloader(document.body,false);
         });
