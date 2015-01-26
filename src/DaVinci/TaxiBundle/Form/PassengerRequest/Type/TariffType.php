@@ -15,7 +15,10 @@ class TariffType extends AbstractType {
 			->add('your_price', 'money', array('mapped' => false))
 			->add('market_tips', 'checkbox', array('mapped' => false))
 			->add('your_tips', 'money', array('mapped' => false))
-			->add('payment_method', 'choice', array(
+			->add('price_payment_method', 'choice', array(
+				'choices' => Tariff::getPaymentMethods()
+			))
+			->add('tips_payment_method', 'choice', array(
 				'choices' => Tariff::getPaymentMethods()
 			));
 	}
