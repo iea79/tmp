@@ -79,38 +79,38 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
 //show and hide texareas on step 2 of homepage
             $(function () {
                 $('.kids-pats-line .wishes-1').hide();
-                $('.kids-pats-line label input[type=checkbox]:checked').each(function () {
-                    $(this).parent().parent().find('.wishes-1').show();
+                $('.kids-pats-line input[type=checkbox]:checked').each(function () {
+                    $(this).parent().find('.wishes-1').show();
                 });
-                $('.kids-pats-line label input[type=checkbox]').each(function () {
-                    var checked = this.checked;
-                    if (!checked)
-                        $(this).parent().parent().find('select').prop('disabled', true).parent().addClass("taxi-disabled");
+                // $('.kids-pats-line input[type=checkbox]').each(function () {
+                //     var checked = this.checked;
+                //     if (!checked)
+                //         $(this).parent().find('select').prop('disabled', true).parent().addClass("taxi-disabled");
 
-                    else
-                        $(this).parent().parent().find('select').prop('disabled', false).parent().removeClass("taxi-disabled");
+                //     else
+                //         $(this).parent().find('select').prop('disabled', false).parent().removeClass("taxi-disabled");
 
 
-                });
+                // });
 
             });
-            $(".kids-pats-line  label input[type=checkbox]").click(function () {
+            $(".kids-pats-line input[type=checkbox]").click(function () {
                 var checked = this.checked;
-                var targetBlock = $(this).parent().parent().find('.wishes-1');
+                var targetBlock = $(this).parent().find('.wishes-1');
                 if (checked)
                     targetBlock.show();
                 else
                     targetBlock.hide();
                 //disable - abanle selects on step 2
-                var targetSelect = $(this).parent().parent().find('.select');
-                if (!checked) {
-                    targetSelect.find('select').prop('disabled', true);
-                    targetSelect.parent().find('.select').addClass("taxi-disabled");
-                }
-                else {
-                    targetSelect.parent().find('.select').removeClass("taxi-disabled");
-                    targetSelect.find('select').prop('disabled', false);
-                }
+                // var targetSelect = $(this).parent().find('.select');
+                // if (!checked) {
+                //     targetSelect.find('select').prop('disabled', true);
+                //     targetSelect.parent().find('.select').addClass("taxi-disabled");
+                // }
+                // else {
+                //     targetSelect.parent().find('.select').removeClass("taxi-disabled");
+                //     targetSelect.find('select').prop('disabled', false);
+                // }
 
             });
 

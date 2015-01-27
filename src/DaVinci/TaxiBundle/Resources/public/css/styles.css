@@ -934,6 +934,9 @@ input[type="search"]:invalid {
 			font-size:22px;
 			line-height:17px;
 		}
+		.destination .form-block-wrap:nth-child(2) .labels .mp-icon-point-a:before {
+			content: "\e60c";
+		}
 	.destination  .inputs {
 		width:61%;
 		float:right;
@@ -1120,7 +1123,7 @@ input[type="search"]:invalid {
 		font-size:16px;
 	}
 	.order-details .additional  .kids-pats-line  .uk-form-controls {
-		width:auto;
+  width: auto;
 		}
 	.order-details-over .order-details h4 {
 		font-size:15px;
@@ -1365,6 +1368,7 @@ input[type="search"]:invalid {
 		.order-details  .right {
 			float:right;
 			width:58.5%;
+			position:relative;;
 		}
 		 .order-details  .pers-data .right input[type="text"]{
 			width:100%;
@@ -4733,13 +4737,15 @@ footer {
   content: "\f059";
 }
  .register .mp-icon-closed {
- 	display: block;
+ 	display: inline-block;
  	float: left;
  	margin-top: 4px;
  	color: #ff4d61;
  	cursor: pointer;
 	margin-left: 3px;
-	font-size: 15px;
+	margin-bottom: 12px;
+	font-size: 14px;
+	line-height: 28px;
  }
  .uk-tooltip {
     background      : #ffffff; 
@@ -7914,6 +7920,7 @@ Litle stars for rate
 .order-details .aditional-driver .kids-pats-line label.interp {
     display: inline-block;
     width: 32%;
+    line-height: 27px;
 }
 
 .order-details .aditional-driver .kids-pats-line label.interp input[type="checkbox"] {
@@ -7922,11 +7929,12 @@ Litle stars for rate
 
 .order-details .aditional-driver .kids-pats-line label.interp span.uk-form-controls {
     width: 80%;
+    white-space: nowrap;
 }
 
 .order-details .aditional-driver .kids-pats-line .wishes-1 {
     display: inline-block;
-    width: 67%;
+    width: 63%;
 }
 
 .order-details .aditional-driver .kids-pats-line .wishes-1 input {
@@ -7969,6 +7977,9 @@ select{
 	border-radius: 3px;
 	width: 100%;
 	text-transform: capitalize;
+}
+.craue_formflow_buttons button:hover {
+	opacity: 0.9;
 }
 .craue_formflow_buttons .craue_formflow_button_last {
 	background: #ff4d61;
@@ -8550,17 +8561,11 @@ Store
 }
 .pop-up .jq-selectbox__select {
 	border: 2px solid #d5d3dc;
-	border-radius: 4px;
-	outline: none;
-	background: #fff;
 }
-
 .pop-up .other .jq-selectbox {
     max-width: 47px;
-
 }
-
-.birthday {
+.pop-up .birthday {
 	outline: none;
 }
 
@@ -8991,7 +8996,11 @@ Main driver page filter
 
 
 
-
+.table-over .auto-tip .car .jq-selectbox {
+	-webkit-transition: 0s;
+	-o-transition: 0s;
+	transition: 0s;
+}
 .table-over .auto-tip .car .jq-selectbox .jq-selectbox__dropdown {
 	width: auto !important;
 	min-width: 110px;
@@ -9010,11 +9019,29 @@ Main driver page filter
 	position: absolute;
 	z-index: 10;
 	top: 3px;
-	margin-left: 4px;;
+	margin-left: 4px;
 }
 .jq-selectbox.mp-icon-taxi .jq-selectbox__trigger-arrow {
   line-height: 20px;
 }
 .jq-selectbox li.mp-icon-taxi.sel {
 	display: none !important;
+}
+
+
+
+
+.order-details .right input[id*="_mobile_code"] {
+	position: absolute;
+	left: 0;
+	z-index: 2;
+	background: transparent;
+	line-height: 27px;
+	padding-left: 10px;
+	width: 50px;
+}
+.order-details .right input[id*="_mobile_phone"] {
+	position: absolute;
+	left: 0;
+	padding-left: 50px;
 }
