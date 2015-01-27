@@ -15,6 +15,7 @@ class ConfirmationInfoType extends AbstractType {
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {
 		$resolver->setDefaults(array(
+			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
 			'csrf_protection' => false,
 		));
 	}

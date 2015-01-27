@@ -6,20 +6,22 @@
 						<dl class="quantity">
 					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 					        <hr>
-								<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} (2), {{'children'|trans}} (2), {{'seniors'|trans}} (1)</dd>
-								<dd class="uk-width-1-1">{{'I am making this booking on anofer\'s behalf.'|trans}}</dd>
-								<dt class="photo"><img src="{{ asset('bundles/davincitaxi/images/girl-photo.png') }}" height="104px" width="101px"></dt>
-								<dd class="personal">
-									<dl>
-										<dt>{{'Name'|trans}}:</dt><dd>{{'Boris'|trans}}</dd>
-										<dt>{{'E-mail'|trans}}:</dt><dd>boris@gmail.com</dd>
-										<dt>{{'Skype'|trans}}:</dt><dd>borigsmail.com</dd>
-										<dt>{{'Mobile'|trans}}:</dt><dd>+1 343 34 34 342</dd>
-										<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
-									</dl>
-								</dd>
-								<dt class="about">{{'About passenger'|trans}}</dt>
-								<dd class="about">Женщина 45 лет, высокая, в зеленой шубе и красной шляпе. Буду ждать на главном выходе аэропорта.</dd>
+								<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} ({{ passengerRequest.passengerDetail.adult }}), {{'children'|trans}} ({{ passengerRequest.passengerDetail.children }}), {{'seniors'|trans}} ({{ passengerRequest.passengerDetail.seniors }})</dd>
+								{% if passengerRequest.passengerDetail.notMySelf == true %}
+									<dd class="uk-width-1-1">{{'I am making this booking on anofer\'s behalf.'|trans}}</dd>
+									<dt class="photo"><img src="{{ asset('bundles/davincitaxi/images/girl-photo.png') }}" height="104px" width="101px"></dt>
+									<dd class="personal">
+										<dl>
+											<dt>{{'Name'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.name }}</dd>
+											<dt>{{'E-mail'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.email }}</dd>
+											<dt>{{'Skype'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.skype }}</dd>
+											<dt>{{'Mobile'|trans}}:</dt><dd>+{{ passengerRequest.passengerDetail.mobileCode }} {{ passengerRequest.passengerDetail.mobilePhone }}</dd>
+											<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
+										</dl>
+									</dd>
+									<dt class="about">{{'About passenger'|trans}}</dt>
+									<dd class="about">Женщина 45 лет, высокая, в зеленой шубе и красной шляпе. Буду ждать на главном выходе аэропорта.</dd>
+								{% endif %}
 						</dl>
 						<div class="tariff">
 						<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>

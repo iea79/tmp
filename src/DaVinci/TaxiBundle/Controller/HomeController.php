@@ -50,7 +50,8 @@ class HomeController extends Controller {
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     		array(	
 	    		'form' => $form->createView(),
-	    		'flow' => $flow	
+	    		'flow' => $flow,
+    			'passengerRequest' => $passengerRequest		
     		)		
     	);
     }
