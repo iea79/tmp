@@ -153,9 +153,10 @@
 							<div class="left">
 								<label>Mobile</label>
 							</div>
-							<div class="forphoneinput">
-								+ {{ form_widget(form.passenger_detail.mobile_code, {'attr': {'style': 'width:10%;', 'placeholder': '1'}}) }}
-								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'style': 'width:25%;', 'tabindex':'5'}}) }}
+							<div class="right forphoneinput">
+								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'tabindex':'5', 'class':'mobile-phone'}}) }}
+								{{ form_widget(form.passenger_detail.mobile_code, {'attr': {'placeholder': '1', 'class':'mobile-code'}}) }}
+								<span>+</span>  
 							</div>
 						</div> 
 						<div class="pers-data"><div class="left">

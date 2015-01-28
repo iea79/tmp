@@ -9030,18 +9030,25 @@ Main driver page filter
 
 
 
-
-.order-details .right input[id*="_mobile_code"] {
+.order-details .right input.mobile-code {
 	position: absolute;
 	left: 0;
-	z-index: 2;
 	background: transparent;
-	line-height: 27px;
-	padding-left: 10px;
-	width: 50px;
+	line-height: 28px;
+	padding-left: 15px;
+	width: 60px;
 }
-.order-details .right input[id*="_mobile_phone"] {
+.order-details .right input.mobile-phone {
 	position: absolute;
 	left: 0;
-	padding-left: 50px;
+	padding-left: 60px;
+}
+.order-details .right input.mobile-code:before {
+	content: "+";
+}
+.order-details .right.forphoneinput span {
+  position: absolute;
+  line-height: 29px;
+  left: 5px;
+  font-size: 16px;
 }
