@@ -27,12 +27,12 @@
 						<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl class="price">
-								<dt>{{'Price'|trans}}:</dt><dd>{{'market'|trans}} $100</dd>
-								<dt>{{'Tips'|trans}}:</dt><dd>{{'market'|trans}} $10</dd>
+								<dt>{{'Price'|trans}}:</dt><dd> ${{ passengerRequest.tariff.price }}</dd>
+								<dt>{{'Tips'|trans}}:</dt><dd> ${{ passengerRequest.tariff.tips }}</dd>
 							</dl>
 							<dl class="payment">
-								<dt>{{'Payment'|trans}}:</dt><dd>{{'escrow'|trans}}</dd>
-								<dt>{{'Payment'|trans}}:</dt><dd>{{'escrow'|trans}}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.pricePaymentMethod }}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.tipsPaymentMethod }}</dd>
 							</dl>
 						</div>
 						<div class="route-info">
@@ -40,10 +40,10 @@
 							<a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl>
-								<dt>{{'From'|trans}}:</dt><dd>{{'Russia'|trans}}, {{'Moscow'|trans}}, {{'Точный адрес'|trans}}</dd>
-								<dt>{{'To'|trans}}:</dt><dd>{{'Russia'|trans}}, {{'Ufa'|trans}}, {{'Riharda'|trans}} 65 {{'street'|trans}}, {{'hotel Tan'|trans}}</dd>
-								<dt>{{'Pick up'|trans}}:</dt><dd>12 {{'Oct'|trans}} 2014, 18:00</dd>
-								<dt>{{'Return'|trans}}:</dt><dd>13 {{'Oct'|trans}} 2014, 05:30</dd>
+								<dt>{{'From'|trans}}:</dt><dd>{{ passengerRequest.routePoints[0].place }}</dd>
+								<dt>{{'To'|trans}}:</dt><dd>{{ passengerRequest.routePoints[1].place }}</dd>
+								<dt>{{'Pick up'|trans}}:</dt><dd>{{ passengerRequest.pickUpDate|date("d M Y") }}, {{ passengerRequest.pickUpTime|date("H:i") }}</dd>
+								<dt>{{'Return'|trans}}:</dt><dd>{{ passengerRequest.returnDate|date("d M Y") }}, {{ passengerRequest.returnTime|date("H:i") }}</dd>
 							</dl>
 						</div>
 						<div class="vechicle">
