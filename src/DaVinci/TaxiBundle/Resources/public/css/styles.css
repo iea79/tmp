@@ -8153,7 +8153,6 @@ Addcard
 .addcard .jq-selectbox,.addcard select {
 	width: 86.8%;
 	min-width: 200px;
-	margin-right: 5px;
 }
 .addcard .year .jq-selectbox,.addcard .year select,.addcard .amount input[type="text"],.addcard .cwcvc input[type="text"] {
 	width: 31.3%;
