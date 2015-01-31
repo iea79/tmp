@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -44,6 +45,10 @@ class PassengerDetail {
 	
 	/**
 	 * @ORM\Column(type="string", length=255)
+	 * @Assert\Email(
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     * 		message="The email '{{ value }}' is not a valid email."
+     * )
 	 */
 	private $email;
 	
@@ -59,6 +64,12 @@ class PassengerDetail {
 	
 	/**
 	 * @ORM\Column(type="string", name="mobile_phone", length=20)
+	 * @Assert\Regex(
+	 *		groups={"flow_createPassengerRequest_step3"}, 		
+     *     	pattern="/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/",
+     *     	match=true,
+     *     	message="Your phone number has incorrect format"
+     * )
 	 */
 	private $mobilePhone;
 	

@@ -4,7 +4,6 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 use Symfony\Component\Validator\Constraints as Assert;
 use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 
@@ -124,6 +123,7 @@ class PassengerRequest {
 	
 	/**
 	 * @var \DaVinci\TaxiBundle\Entity\PassengerDetail
+	 * @Assert\Valid()
 	 */
 	private $passengerDetail;
 	

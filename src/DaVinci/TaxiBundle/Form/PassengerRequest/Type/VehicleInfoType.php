@@ -19,12 +19,13 @@ class VehicleInfoType extends AbstractType {
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
+			'validation_groups' => array('flow_createPassengerRequest_step2'),
 			'csrf_protection' => false,
 		));
 	}
 	
 	public function getName() {
-		return 'createPassengerRequestStep2';
+		return 'createPassengerRequestStepVehicleInfo';
 	}
 	
 }

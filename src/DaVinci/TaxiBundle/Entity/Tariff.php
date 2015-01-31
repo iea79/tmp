@@ -223,6 +223,16 @@ class Tariff {
     	);
     }
 
+    public static function getPriceTypes()
+    {
+    	return array('market_price', 'your_price');
+    }
+    
+    public static function getTipsTypes()
+    {
+    	return array('market_tips', 'your_tips');
+    }
+
     /**
      * Set passengerRequest
      *
@@ -245,7 +255,7 @@ class Tariff {
     {
         return $this->passengerRequest;
     }
-    
+        
     private function checkPaymentMethod($paymentMethod, $type)
     {
     	if (!in_array($paymentMethod, self::getPaymentMethods())) {
