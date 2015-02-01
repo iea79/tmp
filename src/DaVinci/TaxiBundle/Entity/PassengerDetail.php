@@ -54,12 +54,12 @@ class PassengerDetail {
 	private $notMySelf = false;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $name;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\Email(
 	 * 		groups={"flow_createPassengerRequest_step3"},
      * 		message="The email '{{ value }}' is not a valid email."
@@ -68,7 +68,7 @@ class PassengerDetail {
 	private $email;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $skype;
 	
