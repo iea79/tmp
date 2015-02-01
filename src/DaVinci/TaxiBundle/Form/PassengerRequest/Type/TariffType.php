@@ -13,12 +13,12 @@ class TariffType extends AbstractType {
 		$builder
 			->add('price_type', 'choice', array(
 				'mapped' => false,
-				'choices' => Tariff::getPriceTypes()	
+				'choices' => Tariff::getTypes()	
 			))
 			->add('your_price', 'money', array('mapped' => false))
 			->add('tips_type', 'choice', array(
 				'mapped' => false,
-				'choices' => Tariff::getTipsTypes()
+				'choices' => Tariff::getTypes()
 			))
 			->add('your_tips', 'money', array('mapped' => false))
 			->add('price_payment_method', 'choice', array(

@@ -81,11 +81,12 @@ class Vehicle {
      * @return \DaVinci\TaxiBundle\Entity\Vehicle
      */
     public function setVehicleClass($vehicleClass) {
-    	if (!in_array($vehicleClass, self::getChoices())) {
+    	$choices = self::getChoices();    	
+    	if (!array_key_exists($vehicleClass, $choices)) {
     		throw new \InvalidArgumentException("Invalid vehicle class :: {$vehicleClass}");
     	}
     
-    	$this->vehicleClass = $vehicleClass;
+    	$this->vehicleClass = $choices[$vehicleClass];
     	
     	return $this;
     }

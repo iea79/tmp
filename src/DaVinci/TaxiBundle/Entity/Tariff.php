@@ -11,8 +11,14 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Tariff {
 	
+	const MAIN_PAYMENT = 'price';
+	const TIPS_PAYMENT = 'tips';
+	
 	const PAYMENT_METHOD_CASH = 'cash';
 	const PAYMENT_METHOD_ESCROW = 'escrow';
+	
+	const PRICE_TYPE_MARKET = 'market';
+	const PRICE_TYPE_YOUR = 'your';
 	
 	/**
 	 * @ORM\Id
@@ -135,8 +141,10 @@ class Tariff {
      * @return \DaVinci\TaxiBundle\Entity\Tariff
      */
     public function setPricePaymentMethod($paymentMethod) {
-    	$this->checkPaymentMethod($paymentMethod, 'price');
-       	$this->pricePaymentMethod = $paymentMethod;
+    	$methods = self::getPaymentMethods();
+    	
+    	$this->checkPaymentMethod($paymentMethod, self::MAIN_PAYMENT);
+       	$this->pricePaymentMethod = $methods[$paymentMethod];
     	
     	return $this;
     }
@@ -179,8 +187,10 @@ class Tariff {
      * @return \DaVinci\TaxiBundle\Entity\Tariff
      */
     public function setTipsPaymentMethod($paymentMethod) {
-    	$this->checkPaymentMethod($paymentMethod, 'tips');
-       	$this->tipsPaymentMethod = $paymentMethod;
+    	$methods = self::getPaymentMethods();
+    	
+    	$this->checkPaymentMethod($paymentMethod, self::TIPS_PAYMENT);
+       	$this->tipsPaymentMethod = $methods[$paymentMethod];
     	 
     	return $this;
     }
@@ -223,14 +233,12 @@ class Tariff {
     	);
     }
 
-    public static function getPriceTypes()
+    public static function getTypes()
     {
-    	return array('market_price', 'your_price');
-    }
-    
-    public static function getTipsTypes()
-    {
-    	return array('market_tips', 'your_tips');
+    	return array(
+    		self::PRICE_TYPE_MARKET,
+    		self::PRICE_TYPE_YOUR	
+    	);
     }
 
     /**
@@ -258,7 +266,7 @@ class Tariff {
         
     private function checkPaymentMethod($paymentMethod, $type)
     {
-    	if (!in_array($paymentMethod, self::getPaymentMethods())) {
+    	if (!array_key_exists($paymentMethod, self::getPaymentMethods())) {
     		throw new \InvalidArgumentException("Undefined {$type} payment method :: {$paymentMethod}");
     	}
     }
