@@ -145,6 +145,11 @@ class HomeController extends Controller {
         return $this->render('DaVinciTaxiBundle:Store:store.html.twig');
     }
     
+    public function sale_pageAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Store:sale_page.html.twig');
+    }
+    
     /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
      */

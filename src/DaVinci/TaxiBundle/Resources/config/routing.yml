@@ -52,3 +52,6 @@ financial_office:
 store:
     pattern:  /store
     defaults: { _controller: DaVinciTaxiBundle:Home:store }    
+sale_page:
+    pattern:  /sale-page
+    defaults: { _controller: DaVinciTaxiBundle:Home:sale_page }    

@@ -34,6 +34,11 @@ input,select,textarea {
 }
 .uk-form-select select {
 }
+.uk-close:after {
+	content: "\e609";
+	font-family: icontaxi;
+	font-size: 18px;
+}
 
 body, html {
 	background-color:#f5f5f5;
@@ -5495,6 +5500,7 @@ Step-4
   display: block;
 }
 .check-order .passenger-info .tariff hr {
+  margin: 5px 0 14px !important;
 }
 .check-order .passenger-info h1.labels {
 	margin: 0;
@@ -5514,9 +5520,12 @@ Step-4
 }
 .check-order .passenger-info dl {
 	display: table;
+
+	width: 100%;
 }
 .check-order .passenger-info dl[class="quantity"] {
 	margin-bottom: 16px;
+	width: 100%;
 }
 .check-order .passenger-info dt {
 	color: #8d8f98;
@@ -6794,8 +6803,12 @@ a.preview-video img:hover {
 
 /* styles 31.10-01.11 */
 
-.home .steps-1-2-3 .chois .complete .on{text-indent: -9999px;}
-.home .steps-1-2-3 .chois li .uk-icon-check{display: none;}
+.home .steps-1-2-3 .chois .complete .on {
+	text-indent: -9999px;
+}
+.home .steps-1-2-3 .chois li .uk-icon-check {
+	display: none;
+}
 .home .steps-1-2-3 .chois .complete .uk-icon-check{
 	display: block;
 	text-indent: 0;
@@ -8028,6 +8041,26 @@ a.textarea-toggle input {
     width: auto;
 }
 
+.order-details .right input.mobile-code {
+	position: absolute;
+	left: 0;
+	background: transparent;
+	line-height: 28px;
+	padding-left: 15px;
+	width: 60px;
+}
+.order-details .right input.mobile-phone {
+	position: absolute;
+	left: 0;
+	padding-left: 60px;
+}
+.order-details .right.forphoneinput span {
+  position: absolute;
+  line-height: 29px;
+  left: 5px;
+  font-size: 16px;
+}
+
 .destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
 .destination .inputs .time {
     display: inline-block;
@@ -8117,22 +8150,20 @@ Addcard
     padding: 4px 16px;
     display: inline-block;
 }
-.addcard .uk-form-select.select {
-  padding-right: 20px;
-  width: 86.8%;
-  max-height: 30px;
-  border: 1px solid #8e9099;
-  min-width: 200px;
+.addcard .jq-selectbox,.addcard select {
+	width: 86.8%;
+	min-width: 200px;
 }
-.addcard .year .uk-form-select.select,.addcard .amount input[type="text"],.addcard .cwcvc input[type="text"] {
-  width: 31.3%;
-  float: left;
-  min-width: 90px;
+.addcard .year .jq-selectbox,.addcard .year select,.addcard .amount input[type="text"],.addcard .cwcvc input[type="text"] {
+	width: 31.3%;
+	min-width: 90px;
+	float: left;
+	margin-right: 5px;
 }
-.addcard .amount .uk-form-select.select {
-  width: 52.4%;
-  margin-left: 3%;
-  min-width: 100px;
+.addcard .amount .jq-selectbox,.addcard .amount select {
+	min-width: 90px;
+	max-width: 204px;
+	width: 56%;
 }
 .addcard label span {
     font-size: 12px;
@@ -8300,21 +8331,9 @@ Store
   font-size: 24px;
   padding: 10px 5px;
 }
-.store .uk-panel .sales-box .uk-form-select {
+.store .uk-panel .sales-box .jq-selectbox__select,.store .uk-panel .sales-box select {
 	width: 100%;
-	background: #fff;
-	border-radius: 3px;
-	border: 1px solid #8e9099;
-	font-size: 16px;
-	line-height: 19px;
-	padding: 4px 6px;
-	max-height: 30px;
-	box-sizing: border-box;
 	margin-bottom: 5px;
-}
-.store .uk-panel .sales-box .uk-form-select i.uk-icon-caret-down {
-    float: right;
-    margin-top: 2px;
 }
 .store .uk-panel .sales-box input {
 }
@@ -8471,7 +8490,7 @@ Store
 	transition: all linear 0.2s;
 }
 .jq-selectbox__select:hover,.jq-selectbox__select:focus {
-	background: #f5f5f5;
+	background: #f5fbfe;
 }
 .jq-selectbox__trigger {
     width: 10px !important;
@@ -8479,12 +8498,15 @@ Store
     position: absolute;
     top: 0;
     right: 3px;
+    height: 100%;
+    line-height: 1.8;
 }
 .jq-selectbox__trigger-arrow:before {
 	content: "\f0d7";
 	font-family: FontAwesome;
 	color: #3c3d45;
 	font-size: 14px;
+	height: 100%;;
 }
 .jq-selectbox__dropdown {
 	background: #fff;
@@ -9028,27 +9050,261 @@ Main driver page filter
 	display: none !important;
 }
 
+/* =====================
+Payment window
+====================== */
 
-
-.order-details .right input.mobile-code {
-	position: absolute;
-	left: 0;
+#sales_modal .uk-modal-dialog {
+	width: 650px;
+	padding: 10px 0;
+}
+#sales_modal .uk-modal-dialog > .uk-close:first-child {
+	margin: -6px 4px 0 0;
+}
+#sales_modal .check-order .passenger-info {
+	padding: 5px 9px 5px 9px;
+	border: 1px solid #EAEAEA;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+#sales_modal h2.orderid {
+	margin-left: 10px;
+	font-size: 17px;
+	font-weight: 100;
+	margin-bottom: 9px;
+}
+#sales_modal h2.orderid span {
+}
+#sales_modal .check-order .passenger-info h1.labels {
+	font-size: 16px;
+	line-height: 1.2;
+}
+#sales_modal .check-order .passenger-info h1.labels:after {
+	content: '';
+	border-bottom: 1px solid;
+	display: block;
+	margin: 2px 0 5px;
+}
+.check-order .sale-page .passenger-info dl {
+	margin: 2px 0 !important;
+	display: inline-block;
+}
+.check-order .sale-page .passenger-info dt,.check-order .sale-page .passenger-info dd {
+	font-size: 14px;
+	margin-bottom: 2px !important;
+}
+.check-order .sale-page .passenger-info .route-info,
+.check-order .sale-page .passenger-info .tariff {
+	margin-bottom: 5px !important;
+}
+.check-order .sale-page .passenger-info .quantity {
+  margin-bottom: 15px !important;
+}
+.check-order .sale-page .passenger-info .vechicle {
+  margin-bottom: 0px !important;
+}
+.check-order .sale-page .passenger-info .tariff .price {
+	width: 42%;
+	max-width: 500px;
+}
+.check-order .sale-page .passenger-info .tariff .payment {
+	width: 40%;
+}
+.sale-page .order-details .spec-request {
+	font-weight: normal;
+}
+.sale-page .order-details .more-details,.sale-page .order-details .kid-pat-bag {
+	margin: 10px 0;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+}
+.check-order .sale-page .passenger-info .more-details .special {
+	margin: 10px 0 0 !important;
+}
+.check-order .sale-page .passenger-info .more-details .special dd {
+	margin: 0 !important;
+}
+.check-order .sale-page .passenger-info .more-details .message {
+	margin: 0 0 10px;
+}
+.check-order .sale-page .passenger-info .more-details .comfort > dd:last-of-type {
+	margin-bottom: 0 !important;
+}
+.check-order .sale-page .passenger-info .more-details .comfort {
+  margin-bottom: 0 !important;
+}
+.check-order .sale-page .passenger-info .vechicle dl i {
+	font-size: 14px;
+}
+.sale-page .price {
+	margin: 20px 10px 0;
+	width: 100%;
+	max-width: 206px;
+}
+.sale-page .price p {
+	margin: 0;
+	font-size: 13px;
+	line-height: 17px;
+}
+.sale-page .price p > span,.sale-page .price h2 > span {
+	float: right;
+}
+.sale-page .price h2 {
+	margin: 8px 0 0;
+	font-size: 22px;
+}
+.sale-page .price h2 span {
+	color: #ff4d61;
+}
+.payment.home .steps-1-2-3 {
+	box-shadow: none;
 	background: transparent;
-	line-height: 28px;
-	padding-left: 15px;
-	width: 60px;
+	padding: 0;
+	margin-bottom: 15px;
 }
-.order-details .right input.mobile-phone {
-	position: absolute;
-	left: 0;
-	padding-left: 60px;
+
+.payment.home .steps-1-2-3 .chois,.payment.home .steps-1-2-3 .chois li {
+	height: 26px;
 }
-.order-details .right input.mobile-code:before {
-	content: "+";
+
+.payment.home .steps-1-2-3 .chois li a .arrow {
+	border-width: 26px 0 26px 18px;
+	top: -12px;
 }
-.order-details .right.forphoneinput span {
-  position: absolute;
-  line-height: 29px;
-  left: 5px;
-  font-size: 16px;
+.payment.home .steps-1-2-3 .chois li a .middle {
+	height: 28px;
+	right: -20px;
+}
+.payment.home .steps-1-2-3 .chois li.uk-active a .middle {
+	right: -15px;
+}
+.payment.home .steps-1-2-3 .chois li a .arrow_box {
+	height: 100%;
+	margin: 0;
+	padding: 3px 0;
+}
+.payment.home .steps-1-2-3 .chois li a {
+	font-size: 16px;
+}
+
+.payment .card-pay,.payment .pay-balance,.payment .i-pay {
+	margin: 0 0 13px;
+	line-height: 1;
+	padding: 0 10px 18px;
+	border-bottom: 1px solid #ddd;
+}
+.payment .card-pay h4,.payment .pay-balance h4,.payment .i-pay h4 {
+	font-size: 17px;
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+.payment .pay-balance .private,.payment .pay-balance .business {
+	display: inline-block;
+	margin-right: 6.5%;
+	white-space: nowrap;
+	line-height: 1.2;
+}
+.payment .pay-balance .private input,.payment .pay-balance .business input {
+	display: block;
+	margin-top: 2px;
+	float: left;
+	margin-right: 5px;
+}
+.payment .pay-balance .private .uk-icon-question-circle,.payment .pay-balance .business .uk-icon-question-circle {
+	/* display: inline-block;
+	vertical-align: middle; */
+}
+.payment .i-pay {
+	border-bottom: 0;
+	margin-bottom: 16px;
+	padding-bottom: 0;
+}
+.payment .uk-panel {
+	margin-top: 6px;
+}
+.payment .uk-panel span {
+	text-align: center;
+	font-size: 14px;
+	color: #528ed3;
+	display: block;
+	width: 83%;
+	white-space: nowrap;
+}
+.payment .uk-button {
+	line-height: 38px;
+	font-size: 18px;
+	white-space: nowrap;
+	margin: 0 1.5% 0;
+	max-width: 97%;
+}
+.payment .addcard {
+	padding: 0 11px 0;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+}
+.payment .addcard .uk-form-controls {
+	width: 60%;
+}
+.payment .addcard .uk-form .uk-form-row:last-child {
+	margin-bottom: 10px;
+}
+.payment .addcard button {
+	width: 49%;
+	display: inline-block;
+	margin-top: 5px;
+	float: left;
+	margin-left: 0;
+	margin-right: 2%;
+	line-height: 38px;
+	height: 38px;
+}
+.payment .addcard button:last-child {
+	margin-right: 0;
+	margin-bottom: 5px;
+}
+.payment .last-step .uk-form-row a {
+	color: #ff4d61;
+	text-decoration: underline;
+}
+.payment .last-step .uk-form-row a:hover {
+	text-decoration: none;
+}
+@media (max-width: 767px) {
+	.payment .uk-panel span {
+		max-width: 120px;
+		margin-bottom: 5px !important;
+		text-align: left;
+	}
+}
+
+@media (max-width: 520px) {
+	.check-order .sale-page .passenger-info dl.cheks1,
+	.check-order .sale-page .passenger-info dl.cheks2,
+	.check-order .sale-page .passenger-info .kid-pat-bag .rack-left,
+	.check-order .sale-page .passenger-info .kid-pat-bag .rack-right {
+		width: 100%;
+		max-width: 300px;
+	}
+	.check-order .sale-page .passenger-info dl.cheks1 dt,
+	.check-order .sale-page .passenger-info dl.cheks2 dt,
+	.check-order .sale-page .passenger-info .kid-pat-bag .rack-left dt,
+	.check-order .sale-page .passenger-info .kid-pat-bag .rack-right dt {
+		width: 90%;
+	}
+	.sale-page .addcard .amount .jq-selectbox,
+	.sale-page .addcard .amount select,
+	.sale-page .addcard .amount input,
+	.addcard .amount input[type="text"], 
+	.addcard .cwcvc input[type="text"],
+	.addcard .year .jq-selectbox,
+	.addcard .year select {
+		width: 86.8%;
+		max-width: 240px;
+		margin-top: 5px;
+	}
+	.sale-page .addcard .amount input {
+		margin-top: 0 !important;
+	}
 }
