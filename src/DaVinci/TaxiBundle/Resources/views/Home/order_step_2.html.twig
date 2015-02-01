@@ -239,8 +239,8 @@
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'cool drinks'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Tell your preferences'|trans}}"></span></span>
 					</label>
 					<div id="cool_drinks" class="wishes-1">
-						{{ form_widget(form.vehicle_services.cool_drinks, {'attr': {'placeholder': "For example: аллергия на шерсть или диабет.",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.cool_drinks, {'attr': {'placeholder': "For example: аллергия на шерсть или диабет.",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -249,8 +249,8 @@
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'snacks'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Tell your dietary needs'|trans}}"></span></span>
 					</label>
 					<div id="snacks_textarea" class="wishes-1">
-						{{ form_widget(form.vehicle_services.snacks, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.snacks, {'attr': {'placeholder': "For example: ",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -259,8 +259,8 @@
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'dvd'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Tell your preferences'|trans}}"></span></span>
 					</label>
 					<div id="dvd_textarea" class="wishes-1">
-						{{ form_widget(form.vehicle_services.dvd, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.dvd, {'attr': {'placeholder': "For example: ",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -269,8 +269,8 @@
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'gadgets chargers'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Tell type and brand'|trans}}"></span></span>
 					</label>
 					<div id="gadgets_chargers" class="wishes-1">
-						{{ form_widget(form.vehicle_services.gadgets, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.gadgets, {'attr': {'placeholder': "For example: ",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
@@ -279,18 +279,18 @@
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'disabled transportation tools'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Indicate special stuff'|trans}}"></span></span>
 					</label>
 					<div id="disabled_transportation_tools" class="wishes-1">
-						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "For example: ",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 					</div>
 				</div>
 				<div class="kids-pats-line">
 					<input type="checkbox" />
 					<label>
-						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has an disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
+						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
 					</label>
 					<div id="passenger_has_an_disease" class="wishes-1">
-						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: ",  'class': "charcount"}}) }}
-					<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "For example: ",  'class': "charcount", 'maxlength' : "200"}}) }}
+					<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 						<div class="errors">
 							{{ form_errors(form.vehicle_services.disease) }}
 						</div>
@@ -375,8 +375,8 @@
 			</div>
 			<div class="wishes-2">
 				<h4>Special requirements</h4>
-				{{ form_widget(form.vehicle.special_requirements, {'attr': {'placeholder': 'For example: ',  'class': "charcount"}}) }}
-				<h6 class="precounter">{{'simbols left:'|trans}}</h6>
+				{{ form_widget(form.vehicle.special_requirements, {'attr': {'placeholder': 'For example: ',  'class': "charcount", 'maxlength' : "200"}}) }}
+				<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 			</div>
 <!-- 			<div class="uk-button-group uk-width-1-1">
 	button class="uk-button uk-button-warning float_left">&lt; Back</button>

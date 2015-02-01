@@ -967,8 +967,16 @@ input[type="search"]:invalid {
 		padding-left: 5px;
 		height: 29px;
 	}
-	.destination  .inputs .uk-form-icon { width:100%; }
-	.destination  .inputs .uk-form-icon i {font-size: 22px;}
+	.destination .pick-up .date-pick {
+		text-align: center;
+		padding-left: 0;
+	}
+	.destination  .inputs .uk-form-icon {
+		width:100%;
+	}
+	.destination  .inputs .uk-form-icon i {
+		font-size: 22px;
+	}
 	.destination  .inputs .uk-form-icon .flex-input {
 		width:100%;
 		padding:0 30px 0 5px !important;
