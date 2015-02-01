@@ -48,32 +48,32 @@ class VehicleServices {
 	private $firstAidKit = false;
 		
 	/**
-	 * @ORM\Column(type="string", name="cool_drinks", length=255)
+	 * @ORM\Column(type="string", name="cool_drinks", length=255, nullable=true)
 	 */
 	private $coolDrinks;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $snacks;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $dvd;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $gadgets;
 	
 	/**
-	 * @ORM\Column(type="string", name="tools_for_disabled", length=255)
+	 * @ORM\Column(type="string", name="tools_for_disabled", length=255, nullable=true)
 	 */
 	private $toolsForDisabled;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	private $disease;
 	

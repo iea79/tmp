@@ -18,7 +18,7 @@ class VehicleDriverConditions {
 	private $id;
 	
 	/**
-	 * @ORM\Column(type="string", name="interpreter_lang", length=255)
+	 * @ORM\Column(type="string", name="interpreter_lang", length=255, nullable=true)
 	 */
 	private $interpreterLang;
 	

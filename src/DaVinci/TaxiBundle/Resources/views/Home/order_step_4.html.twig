@@ -15,12 +15,12 @@
 											<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>
 											<dt>{{'E-mail'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.email }}</dd>
 											<dt>{{'Skype'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.skype }}</dd>
-											<dt>{{'Mobile'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
+											<dt>{{'Mobile'|trans}}:</dt><dd>+{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
 											<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
 										</dl>
 									</dd>
 									<dt class="about">{{'About passenger'|trans}}</dt>
-									<dd class="about">Женщина 45 лет, высокая, в зеленой шубе и красной шляпе. Буду ждать на главном выходе аэропорта.</dd>
+									<dd class="about">{{ flow.formData.passengerDetail.about }}</dd>
 								{% endif %}
 						</dl>
 						<div class="tariff">
@@ -58,71 +58,126 @@
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pats and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
 								<div class="kid-pat-bag" id="toggle12">
 								    <dl class="child-pet">
-								        <dt>{{'child seat'|trans}}</dt><dd>1 (0-12 {{'months'|trans}})</dd>
-								        <dt>{{'child seat'|trans}}</dt><dd>2 (1-3 {{'years'|trans}})</dd>
-								        <dt>{{'pat cages'|trans}}</dt><dd>2 (10 {{'pound'|trans}})</dd>
+								    	{% for childSeat in flow.formData.vehicleOptions.childSeats %}
+								    		{% if childSeat.childSeatNumber > 0 %}
+								    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.childSeatType }})</dd>
+								    		{% endif %}	
+								    	{% endfor %}
+								    	{% for petCage in flow.formData.vehicleOptions.petCages %}
+								    		{% if petCage.petCageNumber > 0 %}
+								    			<dt>{{'child seat'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.petCageType }})</dd>
+								    		{% endif %}	
+								    	{% endfor %}
 								    </dl>
 								  <dl class="rack-left">
-								    <dt>{{'bicycle rack'|trans}}</dt><dd>2</dd>
-								    <dt>{{'place for strollers'|trans}}</dt><dd>2</dd>
-								    <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+								  	{% if flow.formData.vehicleOptions.cycleRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.cycleRack }}</dd>
+								  	{% endif %}
+								  	{% if flow.formData.vehicleOptions.strollerPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.strollerPlace }}</dd>
+								  	{% endif %}	
+								  	{% if flow.formData.vehicleOptions.roofRack == true %}
+								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+								  	{% endif %}
 								  </dl>
 								  <dl class="rack-right">
-								    <dt>{{'ski rack'|trans}}</dt><dd>2</dd>
-								    <dt>{{'wheelchairs place'|trans}}</dt><dd>1</dd>
-								    <dt>{{'trailer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+								  	{% if flow.formData.vehicleOptions.skiRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.skiRack }}</dd>
+								  	{% endif %}
+								  	{% if flow.formData.vehicleOptions.wheelChairPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.wheelChairPlace }}</dd>
+								  	{% endif %}	
+								  	{% if flow.formData.vehicleOptions.trailer == true %}
+								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+								  	{% endif %}
 								  </dl>
 								</div>
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}"><span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span></div>							
 									<div class="more-details" id="toggle11">
-									  <div class="message"><span class="uk-text-danger">{{'Напоминание'|trans}}! </span>{{'Цену на эти сервисы оговаривайте с водителем'|trans}}.</div>
+									  <div class="message"><span class="uk-text-danger">{{'Attention'|trans}}! </span>{{'All this items are optional. You should ask about a price a driver'|trans}}.</div>
 									  <dl class="cheks1">
-									    <dt>{{'internet'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+									  	{% if flow.formData.vehicleServices.wifi == true %}
+									  		<dt>{{'wi-fi'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleServices.airConditioner == true %}
+									  		<dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleServices.nonSmokers == true %}
+									  		<dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
 									  </dl>
 									  <dl class="cheks2">
-									    <dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+									  	{% if flow.formData.vehicleServices.gps == true %}
+									  		<dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleServices.sunRoof == true %}
+									  		<dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleServices.firstAidKit == true %}
+									  		<dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
 									  </dl>
 									  <dl class="comfort">
-									    <dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
-									    <dd class="uk-width-1-1">С нами будут ехать дети, надо для них взять яблочный сок 4 пачки (250 гр)</dd>
-									    <dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
-									    <dd class="uk-width-1-1">С нами будут ехать дети, надо для них взять 2 кг бананов и 10 кг апельсинов</dd>
-									    <dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
-									    <dd class="uk-width-1-1">С нами будут ехать дети, они обожают мультфильмы "oggi-i-tarakany" и "The Simpsons"</dd>
-									    <dt class="uk-width-1-1">{{'gadgets chargers'|trans}}</dt>
-									    <dd class="uk-width-1-1">Нужно зарядное устройство для Samsung GALAXY S5</dd>
-									    <dt class="uk-width-1-1">{{'passenger has and disease'|trans}}</dt>
-									    <dd class="uk-width-1-1">Человек болен на астму, важен свежий воздух в салоне автомобиля и возможность остановки при необходимости</dd>
+									  	{% if flow.formData.vehicleServices.coolDrinks != '' %}
+									    	<dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.coolDrinks }}</dd>
+									    {% endif %}
+									    {% if flow.formData.vehicleServices.snacks != '' %}
+									    	<dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.snacks }}</dd>
+									    {% endif %}
+									    {% if flow.formData.vehicleServices.dvd != '' %}
+									    	<dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.dvd }}</dd>
+									    {% endif %}
+									    {% if flow.formData.vehicleServices.gadgets != '' %}
+									    	<dt class="uk-width-1-1">{{'gadgets'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.gadgets }}</dd>
+									    {% endif %}
+									    {% if flow.formData.vehicleServices.toolsForDisabled != '' %}
+									    	<dt class="uk-width-1-1">{{'tools for disabled'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.toolsForDisabled }}</dd>
+									    {% endif %}
+									    {% if flow.formData.vehicleServices.disease != '' %}
+									    	<dt class="uk-width-1-1">{{'passenger has a disease'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.disease }}</dd>
+									    {% endif %}
 									  </dl>
 								</div>
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional drivers conditions'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
 									<div class="more-details" id="toggle10">
-									  <dl class="interpreter">
-									  	<dt>{{'interpreter'|trans}}</dt><dd>{{'English'|trans}}</dd>
-									  </dl> 
+									  {% if flow.formData.vehicleDriverConditions.interpreterLang != '' %}
+									  	<dt>{{'interpreter'|trans}}</dt><dd>{{ flow.formData.vehicleDriverConditions.interpreterLang }}</dd>	
+									  {% endif %}
 									  <dl class="cheks1">
-									    <dt>{{'edukator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+									  	{% if flow.formData.vehicleDriverConditions.educator == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleDriverConditions.bodyguard == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleDriverConditions.carrier == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
 									  </dl>
 									  <dl class="cheks2">
-									    <dt>{{'medical liscence'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
-									    <dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>
+									  	{% if flow.formData.vehicleDriverConditions.medicalLicense == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleDriverConditions.animalTrainer == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
+									  	{% if flow.formData.vehicleDriverConditions.guide == true %}
+									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  	{% endif %}
 									  </dl>
-									  <dl class="special">
-									    <dt class="uk-width-1-1 uk-text-danger">{{'Special recuirement'|trans}}</dt>
-									    <dd class="uk-width-1-1">Дети любят петь весёлые песни, потому водитель должен спокойно на это реагировать</dd>
-									  </dl>
+									  {% if flow.formData.vehicle.specialRequirements != '' %}
+									  	<dl class="special">
+									    	<dt class="uk-width-1-1">{{'Special requirements'|trans}}</dt>
+									    	<dd class="uk-width-1-1">{{ flow.formData.vehicle.specialRequirements }}</dd>
+									    </dl>	
+									  {% endif %}
 								</div>
-								<!--div class="uk-button-group uk-width-1-1">
-									<a href="#" class="uk-button uk-button-warning float_left"><span>&lt; {{'Edit'|trans}}</span></a>
-									<a href="#" class="uk-button uk-button-success float_right"><span>{{'Finish'|trans}}</span></a>
-								</div-->
 							</div>
 						</div>
 					</div>
