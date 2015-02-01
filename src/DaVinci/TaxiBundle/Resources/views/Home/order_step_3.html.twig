@@ -178,8 +178,8 @@
 						</div>
 						<div class="about-passenger">
 							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></p>
-							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket',  'class': 'charcount'}}) }}
-							<h6 class="precounter">simbols left:</h6>
+							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket',  'class': 'charcount', 'maxlength' : "200"}}) }}
+							<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 						</div>
 					</div>
 				</div>
