@@ -17,30 +17,12 @@ class PassengerDetailValidator extends ConstraintValidator
 			}
 			
 			if (
-				false === $this->checkMobileCode($value->getPassengerDetail()->getMobileCode())
-				&& false === $this->checkMobilePhone($value->getPassengerDetail()->getMobilePhone())
+				!$value->getPassengerDetail()->getMobileCode()
+				|| !$value->getPassengerDetail()->getMobilePhone()
 			) {
-				$this->addViolation('mobilePhone', $constraint->message . 'phone format mismatch');
+				$this->addViolation('mobilePhone', $constraint->message . 'phone must be filled');
 			}
 		}
-	}
-	
-	private function checkMobileCode($code)
-	{
-		return filter_var(
-			$code,
-			FILTER_VALIDATE_INT,
-			array('options' => array('min_range' => 1))
-		);
-	}
-	
-	private function checkMobilePhone($phone)
-	{
-		return filter_var(
-			$phone,
-			FILTER_VALIDATE_REGEXP,
-			array('options' => array('regexp' => '/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/'))
-		);
 	}
 	
 	private function addViolation($field, $message)
