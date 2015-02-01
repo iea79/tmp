@@ -147,7 +147,9 @@
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional drivers conditions'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
 									<div class="more-details" id="toggle10">
 									  {% if flow.formData.vehicleDriverConditions.interpreterLang != '' %}
-									  	<dt>{{'interpreter'|trans}}</dt><dd>{{ flow.formData.vehicleDriverConditions.interpreterLang }}</dd>	
+									  	<dl class="interpreter">
+									  		<dt>{{'interpreter'|trans}}</dt><dd>{{ flow.formData.vehicleDriverConditions.interpreterLang }}</dd>
+									  	</dl>		
 									  {% endif %}
 									  <dl class="cheks1">
 									  	{% if flow.formData.vehicleDriverConditions.educator == true %}
