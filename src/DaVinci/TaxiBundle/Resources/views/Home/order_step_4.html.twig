@@ -6,16 +6,16 @@
 						<dl class="quantity">
 					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 					        <hr>
-								<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} ({{ passengerRequest.passengerDetail.adult }}), {{'children'|trans}} ({{ passengerRequest.passengerDetail.children }}), {{'seniors'|trans}} ({{ passengerRequest.passengerDetail.seniors }})</dd>
-								{% if passengerRequest.passengerDetail.notMySelf == true %}
+								<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} ({{ flow.formData.passengerDetail.adult }}), {{'children'|trans}} ({{ flow.formData.passengerDetail.children }}), {{'seniors'|trans}} ({{ flow.formData.passengerDetail.seniors }})</dd>
+								{% if flow.formData.passengerDetail.notMySelf == true %}
 									<dd class="uk-width-1-1">{{'I am making this booking on anofer\'s behalf.'|trans}}</dd>
 									<dt class="photo"><img src="{{ asset('bundles/davincitaxi/images/girl-photo.png') }}" height="104px" width="101px"></dt>
 									<dd class="personal">
 										<dl>
-											<dt>{{'Name'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.name }}</dd>
-											<dt>{{'E-mail'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.email }}</dd>
-											<dt>{{'Skype'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.skype }}</dd>
-											<dt>{{'Mobile'|trans}}:</dt><dd>+{{ passengerRequest.passengerDetail.mobileCode }} {{ passengerRequest.passengerDetail.mobilePhone }}</dd>
+											<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>
+											<dt>{{'E-mail'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.email }}</dd>
+											<dt>{{'Skype'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.skype }}</dd>
+											<dt>{{'Mobile'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
 											<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
 										</dl>
 									</dd>
@@ -27,12 +27,12 @@
 						<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl class="price">
-								<dt>{{'Price'|trans}}:</dt><dd> ${{ passengerRequest.tariff.price }}</dd>
-								<dt>{{'Tips'|trans}}:</dt><dd> ${{ passengerRequest.tariff.tips }}</dd>
+								<dt>{{'Price'|trans}}:</dt><dd> ${{ flow.formData.tariff.price }}</dd>
+								<dt>{{'Tips'|trans}}:</dt><dd> ${{ flow.formData.tariff.tips }}</dd>
 							</dl>
 							<dl class="payment">
-								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.pricePaymentMethod }}</dd>
-								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.tipsPaymentMethod }}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ flow.formData.tariff.pricePaymentMethod }}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ flow.formData.tariff.tipsPaymentMethod }}</dd>
 							</dl>
 						</div>
 						<div class="route-info">
@@ -40,17 +40,17 @@
 							<a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl>
-								<dt>{{'From'|trans}}:</dt><dd>{{ passengerRequest.routePoints[0].place }}</dd>
-								<dt>{{'To'|trans}}:</dt><dd>{{ passengerRequest.routePoints[1].place }}</dd>
-								<dt>{{'Pick up'|trans}}:</dt><dd>{{ passengerRequest.pickUpDate|date("d M Y") }}, {{ passengerRequest.pickUpTime|date("H:i") }}</dd>
-								<dt>{{'Return'|trans}}:</dt><dd>{{ passengerRequest.returnDate|date("d M Y") }}, {{ passengerRequest.returnTime|date("H:i") }}</dd>
+								<dt>{{'From'|trans}}:</dt><dd>{{ flow.formData.routePoints[0].place }}</dd>
+								<dt>{{'To'|trans}}:</dt><dd>{{ flow.formData.routePoints[1].place }}</dd>
+								<dt>{{'Pick up'|trans}}:</dt><dd>{{ flow.formData.pickUpDate|date("d M Y") }}, {{ flow.formData.pickUpTime|date("H:i") }}</dd>
+								<dt>{{'Return'|trans}}:</dt><dd>{{ flow.formData.returnDate|date("d M Y") }}, {{ flow.formData.returnTime|date("H:i") }}</dd>
 							</dl>
 						</div>
 						<div class="vechicle">
 							<h1 class="labels">{{'Vechicle'|trans}}<a class="uk-float-right">{{'edit'|trans}}</a></h1>
 							<hr>
 							<dl>
-								<dt>{{'Class'|trans}}:</dt><dd><span>{{'Econom'|trans}}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
+								<dt>{{'Class'|trans}}:</dt><dd><span>{{ flow.formData.vehicle.vehicleClass }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
 							</dl>
 						</div>
 						<div class="other-passenger-details">

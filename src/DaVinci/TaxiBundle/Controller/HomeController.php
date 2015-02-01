@@ -21,6 +21,9 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class HomeController extends Controller {
 	
+	const DEFAULT_PRICE = 100.0;
+	const DEFAULT_TIPS = 10.0;
+		
 	/**
 	 * @Route("/", name="da_vinci_taxi_homepage")
 	 */
@@ -46,13 +49,18 @@ class HomeController extends Controller {
     		}
     	}
     	
+    	$data = array(	
+	    	'form' => $form->createView(),
+	    	'flow' => $flow		
+    	);
+    	if ($flow->getCurrentStepNumber() == 3) {
+    		$data['marketPrice'] = $this->getMarketPrice();
+    		$data['marketTips'] = $this->getMarketTips();
+    	}
+    	
     	return $this->render(
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
-    		array(	
-	    		'form' => $form->createView(),
-	    		'flow' => $flow,
-    			'passengerRequest' => $passengerRequest		
-    		)		
+    		$data		
     	);
     }
     
@@ -183,12 +191,18 @@ class HomeController extends Controller {
     	
     	$vehicleOptions = $request->getVehicleOptions();
     	foreach ($vehicleOptions->getChildSeats() as $seat) {
+    		if ($seat->getChildSeatNumber() <= 0) {
+    			continue;
+    		}
     		$em->persist($seat);
     	}
     	foreach ($vehicleOptions->getPetCages() as $cage) {
+    		if ($cage->getPetCageNumber() <= 0) {
+    			continue;
+    		}
     		$em->persist($cage);
     	}
-    	    	
+    	    	    	
     	foreach ($request->getRoutePoints() as $routePoint) {
     		$em->persist($routePoint);
     	}
@@ -196,8 +210,20 @@ class HomeController extends Controller {
     	$em->persist($request->getVehicle());
     	$em->persist($request->getTariff());
     	$em->persist($request->getPassengerDetail());
+    	$em->persist($request->getVehicleServices());
+    	$em->persist($request->getVehicleDriverConditions());
     	
     	$em->flush();
+    }
+    
+    private function getMarketPrice()
+    {
+    	return self::DEFAULT_PRICE;
+    }
+    
+    private function getMarketTips()
+    {
+    	return self::DEFAULT_TIPS;
     }
 
 }

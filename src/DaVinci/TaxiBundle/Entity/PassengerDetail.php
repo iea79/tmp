@@ -20,16 +20,31 @@ class PassengerDetail {
 	
 	/**
 	 * @ORM\Column(type="integer")
+	 * @Assert\Range(
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     * 		min=0,
+     *      minMessage="Number of adults have to be more or equal {{ limit }}"
+     * )
 	 */
 	private $adult = 0;
 	
 	/**
 	 * @ORM\Column(type="integer")
+	 * @Assert\Range(
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     * 		min=0,
+     *      minMessage="Number of children have to be more or equal {{ limit }}"
+     * )
 	 */
 	private $children = 0;
 	
 	/**
 	 * @ORM\Column(type="integer")
+	 * @Assert\Range(
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     * 		min=0,
+     *      minMessage="Number of seniors have to be more or equal {{ limit }}"
+     * )
 	 */
 	private $seniors = 0;
 	
@@ -84,7 +99,7 @@ class PassengerDetail {
 	private $mobileHasWhatsapp = false;
 	
 	/**
-	 * @ORM\Column(type="text")
+	 * @ORM\Column(type="text", nullable=true)
 	 */
 	private $about;
 	

@@ -44,7 +44,7 @@
 				</div>
 				<div class="check-box">
 					<a class="textarea-toggle" data-uk-toggle="{target:'#round_trip'}">
-						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox" />
+						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox"{% if flow.formData.roundTrip == true %} checked="checked" {% endif %}/>
 					</a>
                     <label for="createPassengerRequestRouteInfo_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
@@ -53,7 +53,7 @@
 		
 		<div class="clr"></div>	
        	   
-		<div id="round_trip" class="form-block-wrap last uk-hidden">
+		<div id="round_trip" class="form-block-wrap last {% if flow.formData.roundTrip == false %}uk-hidden{% endif %}">
 			<div class="labels">
 				{{ form_label(form.returnDate, 'Return:') }}
 			</div>
