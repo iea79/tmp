@@ -194,8 +194,12 @@ a[class*="mp-icon-"],a i[class*="mp-icon-"] {
     text-decoration: none !important;
 }
 /*=================   iconed select  ===========================*/
-.iconed-drop {
-	font-family: 'icontaxi', FontAwesome;
+.iconed-drop .jq-selectbox__select,li.iconed-drop,.iconed-drop {
+	font-family: 'icontaxi';
+	color: #528ed3 !important;
+}
+.jq-selectbox li.iconed-drop:hover {
+	color: #fff !important;
 }
     /* Icon in form ============= */
 .uk-form-icon > [class*='mp-icon-'] {
@@ -1563,14 +1567,19 @@ input[type="search"]:invalid {
 		}
 		.table-over .serv .under-head > td {
 			background-color:#f5f5f5;
+			padding:6px 5px 5px;
 			vertical-align:top;
-			padding:7px 5px 1px;
 		}
-			 .table-over .serv .under-head input{
+		.table-over .serv .under-head input,.table-over .serv .under-head .jq-selectbox,.table-over .serv .under-head .jq-selectbox__select,.table-over .serv .under-head select {
+			max-height: 28px;
+			height: 28px;
+			line-height:26px;
+			vertical-align:top;
 		}
 		.table-over .serv .under-head .uk-button-link {
 			padding:0;
 			border:none;
+			text-decoration:none;
 		}
 		.table-over .serv .under-head .uk-button-link:focus {
 			outline:none;
@@ -1590,16 +1599,16 @@ input[type="search"]:invalid {
 			width:5.7%;
 		}
 		.table-over .serv .under-head .destinations_list .uk-form-icon {
-  width: 100%;
+			width: 100%;
 		}
 		.table-over .serv .under-head .status, .table-over .serv .under-head .trust, .table-over .serv .under-head .daterange, .table-over .serv .under-head  .price, .table-over .serv .under-head .auto-tip{
 		}
 		.table-over .serv .under-head .mp-icon-taxi {
-  font-size: 22px;
-  color: #528ed3;
+			font-size: 22px;
+			color: #528ed3;
+			line-height: 22px;
 		}
 		.table-over .serv .under-head select, .table-over .serv .under-head .select {
-			min-height:27px;
 		}
 		.table-over .serv .under-head .trust .select {
 			font-family: 'icontaxi';
@@ -1662,8 +1671,8 @@ input[type="search"]:invalid {
 		.table-over .serv .under-head .uk-form-icon {
 		}
 		.table-over .serv .under-head .sort {
-			font-size:14px;
-			margin-top:0px;
+  font-size: 14px;
+  display: inline-block;
 		}
 		.table-over .sort i:last-child {
 			margin-left:-9px;
@@ -1686,14 +1695,14 @@ input[type="search"]:invalid {
 		}
 		.table-over .serv  .single-butt {
 			position:relative;
-			top:2px;
 		}
 		.table-over .serv .ov-trust {
-			
+			/* display: block; */
 		}
 		.table-over .serv .aligment {
 			float:left;
-			line-height:27px;
+			line-height:28px;
+			margin-bottom:-2px;
 		}
 		.table-over .serv .aligment.fit-in {
 		    width: 75%;
@@ -9027,9 +9036,12 @@ Main driver page filter
 
 
 .table-over .auto-tip .car .jq-selectbox {
-	-webkit-transition: 0s;
-	-o-transition: 0s;
-	transition: 0s;
+	-webkit-transition: none !important;
+	-o-transition: none !important;
+	-moz-transition: none !important;
+	-ms-transition: none !important;
+	transition: none  !important;
+	/* line-height: 22px; */
 }
 .table-over .auto-tip .car .jq-selectbox .jq-selectbox__dropdown {
 	width: auto !important;
