@@ -1,3 +1,8 @@
+cmf_block:
+    persistence:
+        phpcr:
+            block_basepath: /cms/content
+                
 sonata_block:
     default_contexts: [cms]
 

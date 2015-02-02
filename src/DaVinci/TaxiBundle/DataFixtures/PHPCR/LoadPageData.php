@@ -60,12 +60,13 @@ instance, instance of '$class' given.");
      */
     protected function createPage(DocumentManager $manager, $parent, $name, $label, $title, $body)
     {
-        $page = new Page();
+        $page = new Page(/*array('add_locale_pattern' => true)*/);
         $page->setPosition($parent, $name);
         $page->setLabel($label);
         $page->setTitle($title);
         $page->setBody($body);
         $manager->persist($page);
+        //$manager->bindTranslation($page, 'en');
         return $page;
     }
 }

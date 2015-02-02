@@ -12,13 +12,15 @@
             association mapping  : http://www.doctrine-project.org/projects/orm/2.0/docs/reference/association-mapping/en
     -->
 
-    <document name="Application\Sonata\MediaBundle\Document\Media"
-              repository-class="Application\Sonata\MediaBundle\Document\MediaRepository" >
+    <document name="Application\Sonata\MediaBundle\PHPCR\Media"
+              repository-class="Application\Sonata\MediaBundle\PHPCR\MediaRepository" referenceable="true" translator="attribute">
 
         <id name="id" type="id">
             <generator strategy="repository" />
         </id>
-
+        
+        <field name="size"               type="long" nullable="true"  />
+        <parentDocument name="parent" />
     </document>
 
 </doctrine-phpcr-mapping>

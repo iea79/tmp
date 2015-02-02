@@ -1,8 +1,10 @@
-parameters:
-#    da_vinci_taxi.example.class: DaVinci\TaxiBundle\Example
-
-# the menu builder service. Can be used for several menus
 services:
+
+    davinci_content.controller:
+        class: DaVinci\TaxiBundle\Controller\ContentController
+        parent: "cmf_content.controller"    
+    
+    
     davinci_locale.locale_listener:
         class: DaVinci\TaxiBundle\EventListener\LocaleListener
         arguments: ["%kernel.default_locale%"]
@@ -118,3 +120,13 @@ services:
     paygnet:
       class:     DaVinci\TaxiBundle\payGnetAPIcaller
       arguments: ["@api_caller"]      
+      
+# PHPCR PAGES NODES INITIALIZER
+# php app/console doctrine:phpcr:repository:init
+    davinci_taxi.phpcr.initializer:
+        class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
+        arguments:
+            - Pages initializer
+            - ["/cms/profit", "/cms/about", "/cms/faq"]
+        tags:
+            - { name: doctrine_phpcr.initializer }

@@ -38,7 +38,6 @@
         "symfony-cmf/routing": "~1.3",
         "symfony-cmf/create-bundle": "~1.2",
         "symfony-cmf/content-bundle": "~1.2",
-        "symfony-cmf/simple-cms-bundle": "~1.2",
         "symfony-cmf/seo-bundle": "1.1.*@dev",
         "liip/search-bundle": "1.0.*@dev",
         "symfony-cmf/search-bundle": "1.1.*",
@@ -52,6 +51,7 @@
         "jms/serializer": "0.16.0",
         "jms/i18n-routing-bundle": "1.1.*@dev",
 
+        "sonata-project/classification-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "2.2.*@dev",
         "sonata-project/easy-extends-bundle": "2.1.8",
         "sonata-project/seo-bundle": "1.1.8",
@@ -61,7 +61,7 @@
         "sonata-project/doctrine-orm-admin-bundle": "2.3.0",
         "sonata-project/notification-bundle": "~2.2",
         "sonata-project/block-bundle": "~2.2",
-        "sonata-project/media-bundle": "~2.3",
+        "sonata-project/media-bundle": "2.3.1",
         "sonata-project/user-bundle": "2.3.*@dev",
         "sonata-project/cache-bundle": "~2.1",
         "sonata-project/formatter-bundle": "2.3.3",
@@ -85,7 +85,6 @@
         "leaseweb/api-caller-bundle": "1.0.*@dev",
         "hearsay/require-js-bundle": "2.0.*@dev",
         "iphp/filestore-bundle":"dev-master",
-        "raulfraile/ladybug-bundle": "~1.0",
         "liip/imagine-bundle": "1.0.*@dev",
         "burgov/key-value-form-bundle": "~1.0"
     },
@@ -109,7 +108,7 @@
         ],
         "post-update-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Cmposer\\ScriptHandler::buildBootstrap",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
             "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",

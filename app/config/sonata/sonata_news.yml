@@ -1,13 +1,6 @@
 # 
 # more information can be found here http://sonata-project.org/bundles/news
 #
-
-sonata_classification:
-    class:
-        collection:     Application\Sonata\ClassificationBundle\Entity\Collection
-        tag:            Application\Sonata\ClassificationBundle\Entity\Tag
-        category:       Application\Sonata\ClassificationBundle\Entity\Category
-        
 sonata_news:
     title:        TaxiMyPrice blog
     link:         http://taximyprice.com/
@@ -25,8 +18,8 @@ sonata_news:
             template: 'SonataNewsBundle:Mail:comment_notification.txt.twig'
             
     class:
-        post:       Application\Sonata\NewsBundle\Entity\Post
-        comment:    Application\Sonata\NewsBundle\Entity\Comment
+ #       post:       Application\Sonata\NewsBundle\Entity\Post
+ #       comment:    Application\Sonata\NewsBundle\Entity\Comment
         media:      Application\Sonata\MediaBundle\Entity\Media
         user:       DaVinci\TaxiBundle\Entity\User
 

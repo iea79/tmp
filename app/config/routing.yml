@@ -16,7 +16,11 @@ gallery:
 media:
     resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
     prefix: /media
-
+        
+sonata_media_pixlr:
+    resource: '@SonataMediaBundle/Resources/config/routing/pixlr.xml'
+    prefix: /admin/media
+        
 #admin panel
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

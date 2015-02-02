@@ -19,3 +19,11 @@ spy_timeline:
 
 sonata_timeline:
     manager_type: orm
+    
+#doctrine:
+#    orm:
+#        entity_managers:
+#           default:
+#                mappings:
+#                    SonataTimelineBundle: ~    
+#                    ApplicationSonataTimelineBundle: ~

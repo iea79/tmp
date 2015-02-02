@@ -28,6 +28,7 @@ class Media extends BaseMedia
      */
     protected $id;
 
+    protected $parent;
     /**
      * Get id
      *
@@ -37,4 +38,16 @@ class Media extends BaseMedia
     {
         return $this->id;
     }
+    
+    public function getParent()
+    {
+        return $this->id;
+    }
+    
+    public function setParent($parent)
+    {
+        $this->parent = $parent;
+        return $this;
+    }
+
 }

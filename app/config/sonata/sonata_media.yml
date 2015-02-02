@@ -1,12 +1,15 @@
 #
 # more information can be found here http://sonata-project.org/bundles/media
 #
+parameters:
+    sonata.media.admin.media.class: Application\Sonata\MediaBundle\Admin\PHPCR\MediaAdmin
 sonata_media:
-    db_driver:       doctrine_orm # | doctrine_mongodb
+    db_driver:       doctrine_phpcr # | doctrine_mongodb
     class:   
-       media:              Application\Sonata\MediaBundle\Entity\Media
-       gallery:            Application\Sonata\MediaBundle\Entity\Gallery
-       gallery_has_media:  Application\Sonata\MediaBundle\Entity\GalleryHasMedia    
+        media: Application\Sonata\MediaBundle\PHPCR\Media
+        gallery: Application\Sonata\MediaBundle\PHPCR\Gallery
+        gallery_has_media: Application\Sonata\MediaBundle\PHPCR\GalleryHasMedia 
+
     default_context: default
     contexts:
         default:  # the default context is mandatory
@@ -22,7 +25,17 @@ sonata_media:
             formats:
                 small: { width: 100, quality: 100}
                 big:   { width: 970 , quality: 100}
+       
+        profit:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
 
+            formats:
+                abstract: { width: 150, quality: 95}
+                wide:     { width: 420, quality: 100}
+                    
         news:
             providers:
                 - sonata.media.provider.dailymotion
@@ -31,7 +44,7 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
-                wide:     { width: 500, quality: 90}
+                wide:     { width: 420, quality: 100}
 
         sonata_collection:
             providers:
@@ -92,8 +105,9 @@ sonata_media:
 #           thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
 
     pixlr:
-        enabled:  true
-        referrer: TaxiMyPrice - Sonata Project
+        enabled:  false
+        referrer: TaxiMyPrice
+        secret:   erg53g3h53th36h36h
 
     resizer:
         simple:
@@ -180,7 +194,38 @@ sonata_media:
 #doctrine:
 #    orm:
 #        entity_managers:
-#            default:
+#           default:
 #                mappings:
-#                    ApplicationSonataMediaBundle: ~
 #                    SonataMediaBundle: ~
+#                    ApplicationSonataMediaBundle: ~
+
+
+
+doctrine_phpcr:
+    odm:
+        document_managers:
+            default:  
+                mappings:
+                    ApplicationSonataMediaBundle:
+                        prefix: Application\Sonata\MediaBundle\PHPCR    
+                    SonataMediaBundle:
+                        mapping:              true
+                        prefix: Sonata\MediaBundle\PHPCR    
+
+
+services:
+       
+    sonata.media.admin.media:
+        class: %sonata.media.admin.media.class%
+        arguments: 
+            - ~ 
+            - %sonata.media.admin.media.entity%
+            - %sonata.media.admin.media.controller%
+            - @sonata.media.pool
+#            - @sonata.classification.manager.category
+        tags:
+            - {name: sonata.admin, manager_type: doctrine_phpcr, group: sonata_media, label_catalogue: "%sonata.media.admin.media.translation_domain%", label_translator_strategy: "sonata.admin.label.strategy.underscore", label: "media"}
+        calls:
+            - [setTranslationDomain, ["%sonata.media.admin.media.translation_domain%"]]
+            - [setTemplates, [{inner_list_row: SonataMediaBundle:MediaAdmin:inner_row_media.html.twig, base_list_field: SonataAdminBundle:CRUD:base_list_flat_field.html.twig, list: SonataMediaBundle:MediaAdmin:list.html.twig, edit: SonataMediaBundle:MediaAdmin:edit.html.twig}]]
+            - [setRouteBuilder, [@sonata.admin.route.path_info_slashes]]    

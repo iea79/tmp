@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
     
     # FriendOfSymfony Bundles
-    - { resource: fos/fos_comment.yml }
+    #- { resource: fos/fos_comment.yml }
     - { resource: fos/fos_rest.yml }
     - { resource: fos/fos_user.yml }
     #- { resource: fos/fos_elastica.yml }
@@ -26,8 +26,9 @@ imports:
     - { resource: sonata/sonata_translation.yml }
         
    # Sonata Feature Bundles
+    - { resource: sonata/sonata_media.yml }    
     - { resource: sonata/sonata_admin.yml }
-    - { resource: sonata/sonata_media.yml }
+    - { resource: sonata/sonata_classification.yml }    
 #    - { resource: sonata/sonata_news.yml }
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_notification.yml }
@@ -80,8 +81,8 @@ twig:
 
     form:
         resources:
-            - 'SonataFormatterBundle:Form:formatter.html.twig'
-            - 'SonataMediaBundle:Form:media_widgets.html.twig'
+           # - 'SonataFormatterBundle:Form:formatter.html.twig'
+           # - 'ApplicationSonataMediaBundle:Form:media_widgets.html.twig'
 
     exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
     
@@ -127,7 +128,9 @@ doctrine:
         entity_managers:
             default:
                 auto_mapping: true
-                mappings: ~
+                mappings: 
+                    DaVinciTaxiBundle: ~
+                    DaVinciUserBundle: ~   
                 filters:
                     oneLocale:
                         class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
@@ -138,14 +141,14 @@ doctrine:
 
 jms_i18n_routing:
     default_locale: en
-    locales: [en, ru]
+    locales: %locales%
     strategy: prefix_except_default
 
 a2lix_i18n_doctrine:
     manager_registry: doctrine
 
 a2lix_translation_form:
-    locales: [en, ru]       # [1]
+    locales: %locales%      # [1]
     required_locales: [en]      # [2]
     manager_registry: doctrine      # [3]
     templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
@@ -206,6 +209,9 @@ cmf_routing:
         enabled: true
         route_collection_limit: 10
 
+        controllers_by_type:
+            demo_type: davinci_content.controller:typeAction
+                
         controllers_by_class:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
 
@@ -249,18 +255,22 @@ doctrine_phpcr:
         username: %phpcr_user%
         password: %phpcr_pass%    
     odm:
-        auto_mapping: true
+        # crashes if true there a lot of buggy sonata bundles with thair old documents..
+        default_document_manager: default
         auto_generate_proxy_classes: "%kernel.debug%"
-        mappings:
-            ApplicationSonataMediaBundle:
-                prefix: Sonata\MediaBundle\PHPCR
-            SonataMediaBundle:
-                prefix: Sonata\MediaBundle\PHPCR
+        document_managers:
+            default:    
+                session: default
+                auto_mapping: false    
+                mappings:
+                    DaVinciTaxiBundle:
+                        prefix: DaVinci\TaxiBundle\Document\
+
 
 # alternative locales to look up if a document is not translated
         locales:
             en: 
-                - ru    
+                - ru
             ru: 
                 - en    
 

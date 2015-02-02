@@ -42,7 +42,7 @@ sonata_admin:
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }
-            - { position: left, type: sonata_admin_doctrine_phpcr.tree_block }    
+            - { position: right, type: sonata_admin_doctrine_phpcr.tree_block }    
 #            - { position: right, type: sonata.admin_doctrine_orm.block.audit}
             - { position: center, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> TaxiMyPrice admin panel"} }
             - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
@@ -65,10 +65,10 @@ sonata_admin:
                     - sonata.notification.admin.message   
                     - davinci.taxi.admin.countrycity
             
-            simplecms:
-                label: Simple CMS
-                items:
-                    - cmf_simple_cms.persistence.phpcr.admin.page
+           # simplecms:
+           #     label: Simple CMS
+           #     items:
+           #         - cmf_simple_cms.persistence.phpcr.admin.page
             routing:
                 label: URLs
                 items:
@@ -140,6 +140,7 @@ sonata_admin:
             cmf_core.admin_extension.child:
                 implements:
                     - Symfony\Cmf\Bundle\CoreBundle\Model\ChildInterface
+                    - Doctrine\ODM\PHPCR\HierarchyInterface    
             cmf_core.admin_extension.publish_workflow.time_period:
                 implements:
                     - Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishTimePeriodInterface
@@ -191,12 +192,15 @@ sonata_doctrine_phpcr_admin:
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ActionBlock
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\SlideshowBlock
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\RssBlock
-        Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:
-            valid_children:
-                - Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page
+#        Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:
+#            valid_children:
+#                - Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page
         Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route:
             valid_children:
                 - Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route
                 - Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute
         Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:
             valid_children: []
+        DaVinci\TaxiBundle\Document\ProfitPage:
+            valid_children:
+                - DaVinci\TaxiBundle\Document\ProfitPage  

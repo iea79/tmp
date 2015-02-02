@@ -24,7 +24,7 @@ require(['pages/common'], function ($) {
             selector.intlTelInput({
                 defaultCountry: "auto",
                 autoFormat: true,
-                responsiveDropdown: true,
+                responsiveDropdown: true
             });
             // just for formatting/placeholders/autoformat etc - set in template
             selector.intlTelInput("loadUtils", liphone_utils_path);
@@ -84,7 +84,7 @@ require(['pages/common'], function ($) {
 
                 reader.onload = function (e) {
                     $('#avatar-image').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }

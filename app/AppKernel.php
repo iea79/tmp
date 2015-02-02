@@ -47,6 +47,9 @@ class AppKernel extends Kernel
             //new Sonata\NewsBundle\SonataNewsBundle(),
             //new Application\Sonata\NewsBundle\ApplicationSonataNewsBundle(),
             
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+            
             // MEDIA
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
@@ -59,7 +62,7 @@ class AppKernel extends Kernel
 
             // API
             new FOS\RestBundle\FOSRestBundle(),
-            new FOS\CommentBundle\FOSCommentBundle(),
+            #new FOS\CommentBundle\FOSCommentBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Lsw\ApiCallerBundle\LswApiCallerBundle(),
 
@@ -88,7 +91,6 @@ class AppKernel extends Kernel
             new Symfony\Cmf\Bundle\CoreBundle\CmfCoreBundle(),
             new Symfony\Cmf\Bundle\ContentBundle\CmfContentBundle(),
             new Symfony\Cmf\Bundle\BlockBundle\CmfBlockBundle(),
-            new Symfony\Cmf\Bundle\SimpleCmsBundle\CmfSimpleCmsBundle(),
             new Symfony\Cmf\Bundle\TreeBrowserBundle\CmfTreeBrowserBundle(),
             new Sonata\DoctrinePHPCRAdminBundle\SonataDoctrinePHPCRAdminBundle(),
             new Symfony\Cmf\Bundle\SearchBundle\CmfSearchBundle(),
@@ -116,8 +118,6 @@ class AppKernel extends Kernel
             new Hearsay\RequireJSBundle\HearsayRequireJSBundle(),
             
             new Iphp\FileStoreBundle\IphpFileStoreBundle(),
-            //ladybug_dump() ==== var_dump
-            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             //thumbnail maker
             new Liip\ImagineBundle\LiipImagineBundle(),
             
@@ -129,6 +129,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
         }
 
         return $bundles;
