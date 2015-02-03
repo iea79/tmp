@@ -59,3 +59,6 @@ cmf_tree:
 sale_page:
     pattern:  /sale-page
     defaults: { _controller: DaVinciTaxiBundle:Home:sale_page }    
+letter_confirm:
+    pattern:  /letter-confirm
+    defaults: { _controller: DaVinciTaxiBundle:Home:letter_confirm }    

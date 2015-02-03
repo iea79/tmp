@@ -149,6 +149,11 @@ class HomeController extends Controller {
     {
         return $this->render('DaVinciTaxiBundle:Store:sale_page.html.twig');
     }
+
+    public function letter_confirmAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Email:letter_confirm.html.twig');
+    }
     
     /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
