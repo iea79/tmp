@@ -24,18 +24,30 @@
 					                    <tr>
 					                        <td colspan="2">
 
+						                {# message statrs #}
+							                {% block message %}
+
 					                        	<h3 style="font-size: 16px;margin-top: 22px;margin-bottom: 0;">Dear Dmitry Samorykov,</h3>
 					                        	<p style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
-								                {# message statrs #}
-									                {% block message %}{% endblock %}</p>
-							                    {# message end #}
-					                        	<a style="width: 277px; background-color: #27bf2e; color: #fff; text-decoration: none;font-size: 20px; padding: 10px 10px 8px; display: block; border-radius: 3px;text-align: center;margin-bottom: 13px;" href="#">Confirm Registration</a>
+
+								                {# message text statrs #}
+									                {% block message_text %}{% endblock %}</p>
+							                    {# message text end #}
+
+							                    {# button confirm statrs #}
+						                        	{% block button_confirm %}{% endblock %}
+							                    {# button confirm end #}
+
 					                        	<p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
 
 					                        	<p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Sincerely, <br>
 					                        	TaxiMyPrice Team <br>
 												<a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
 					                        	</p>
+
+					                        {% endblock %}</p>
+					                    {# message end #}
+
 					                        </td>
 					                    </tr>
 
@@ -47,7 +59,7 @@
 									        </td>
 									        <td colspan="" style="padding-left: 11px;background: #D2EDFF;">
 									        	<h3 style="font-size: 16px;margin-top: 19px;margin-bottom: 20px;">{% block banner_one_title %}{% endblock %}</h3>
-									        	<a style="width: 188px; background-color: #ff4d61; color: #fff; text-decoration: none;font-size: 16px; padding: 7px 10px 6px; display: block; border-radius: 3px;text-align: center;margin-bottom: 13px;" href="#">Узнать подробнее</a>
+									        	{% block button_banner %}{% endblock %}
 									        </td>
 									    </tr>
 
@@ -64,7 +76,7 @@
 									        </td>
 									        <td colspan="" style="padding-left: 11px;background: #D2EDFF;">
 									        	<h3 style="font-size: 16px;margin-top: 19px;margin-bottom: 20px;">{% block banner_two_title %}{% endblock %}</h3>
-									        	<a style="width: 188px; background-color: #ff4d61; color: #fff; text-decoration: none;font-size: 16px; padding: 7px 10px 6px; display: block; border-radius: 3px;text-align: center;margin-bottom: 13px;" href="#">Узнать подробнее</a>
+									        	{% block button_banner_two %}{% endblock %}
 									        </td>
 									    </tr>
 									{% endblock %}
@@ -72,15 +84,17 @@
 									</table>
 		                    	</td>
 		                    </tr>
-						{% block footer %}
 	                    <tr>
 	                        <td colspan="2" style="padding: 24px 0 20px;color: #8d8f98; font-size: 14px;">
+
+							{% block footer %}
 	                        	<p style="margin-bottom: 9px;">This message is an automated reply to your registration request. Please do not reply, the mailbox is not monitored.</p>
 	                        	<p style="margin: 0 0 9px;">If you have any questions, please contact the TaxiMyPrice Team  <a style="color: #528ed4; text-decoration: none;" href="mailto:support@tmp.com">support@tmp.com.</a></p>
 	                        	<p style="margin: 0;">If you believe you have received this email in error, or that an unauthorized person has accessed your account, please delete this email.</p>
+		                    {% endblock %}
+
 	                        </td>
 	                    </tr>
-	                    {% endblock %}
 	                </table>
 	            </td>
 	        </tr>
