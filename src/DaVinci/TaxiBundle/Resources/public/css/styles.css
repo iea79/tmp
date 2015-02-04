@@ -2007,7 +2007,7 @@ office passengers and driver
 .client-account .uk-table button,
 .client-account .uk-table a,
 .client-account .uk-table {
-  font-size: 16px;
+  font-size: 14px;
 }
 .client-account .uk-table thead th {
     font-weight: normal;
@@ -2033,20 +2033,28 @@ office passengers and driver
   min-height: 30px;
   width: 100%;
   max-width: 102px;
-  font-size: 14px;
-
   color: #fff !important;
   padding: 6px 5px;
   line-height: 16px;
+}
+.client-account .uk-table a.ticket {
+  width: 92%;
+  padding: 1px 5px;
+  line-height: 16px;
+  margin-bottom: 2px;
+  color: #fff !important;
+  min-width: 100px;
+  min-height: 18px;
 }
 .client-account .uk-table tr {
     border: #d0d0d0 1px solid;
 }
 .client-account .uk-table td {
     text-align: center;
-    line-height: 20px;
+    line-height: 16px;
     vertical-align: top;
     border: #d0d0d0 1px solid;
+    padding: 2px;
 }
 .client-account .uk-badge {
 	border-radius:3px;
@@ -2111,8 +2119,8 @@ office passengers and driver
 	display: inline-block;
 }
 .client-account .allorder td {
-	line-height: 19px;
-	font-size: 16px !important;
+	line-height: 16px;
+	font-size: 14px !important;
 }
 .client-account .historyorder th[class="left-time"] {
 	min-width: 113px;
@@ -6982,7 +6990,6 @@ View offices
 }
 .view-office a.uk-button {
   padding: 4px;
-  font-size: 16px;
   width: 100%;
   min-width: 70px;
   height: 37px;
@@ -7179,7 +7186,6 @@ Notifications
 	width: 50px;
 }
 .notifications table {
-	font-size: 16px;
 	text-align: center;
 }
 .notifications th {
@@ -8290,10 +8296,9 @@ span.uk-icon-question-circle {
 }
 .history .uk-table td {
 	border: #d0d0d0 1px solid;
-	padding: 17px 5px;
+	padding: 15px 5px;
 }
 .uk-table {
-	font-size: 16px;
 }
 .uk-table th.daterange div {
 }
