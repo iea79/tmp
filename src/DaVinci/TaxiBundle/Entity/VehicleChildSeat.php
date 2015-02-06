@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -38,6 +39,12 @@ class VehicleChildSeat {
 	private $childSeatType;
 	
 	/**
+     * @ORM\ManyToOne(targetEntity="VehicleOptions")
+     * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
+     */
+	private $vehicleOptions;
+	
+	/**
      * Get id
      *
      * @return integer 
@@ -68,6 +75,29 @@ class VehicleChildSeat {
     public function getChildSeatNumber()
     {
         return $this->childSeatNumber;
+    }
+    
+    /**
+     * Add vehicleOptions
+     *
+     * @param \DaVinci\TaxiBundle\Entity\VehicleOptions $vehicleOptions
+     * @return \DaVinci\TaxiBundle\Entity\VehicleChildSeat
+     */
+    public function setVehicleOptions(\DaVinci\TaxiBundle\Entity\VehicleOptions $vehicleOptions)
+    {
+    	$this->vehicleOptions = $vehicleOptions;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get vehicleOptions
+     *
+     * @return \DaVinci\TaxiBundle\Entity\VehicleOptions
+     */
+    public function getVehicleOptions()
+    {
+    	return $this->vehicleOptions;
     }
     
     /**

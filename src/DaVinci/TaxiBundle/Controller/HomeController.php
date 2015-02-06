@@ -36,7 +36,7 @@ class HomeController extends Controller {
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
     		$flow->saveCurrentStepData($form);
-
+    		
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
@@ -190,28 +190,49 @@ class HomeController extends Controller {
     	$em->persist($request);
     	
     	$vehicleOptions = $request->getVehicleOptions();
+    	$vehicleOptions->setPassengerRequest($request);
+    	$em->persist($vehicleOptions);
     	foreach ($vehicleOptions->getChildSeats() as $seat) {
     		if ($seat->getChildSeatNumber() <= 0) {
     			continue;
     		}
+    		
+    		$seat->setVehicleOptions($vehicleOptions);
     		$em->persist($seat);
     	}
     	foreach ($vehicleOptions->getPetCages() as $cage) {
     		if ($cage->getPetCageNumber() <= 0) {
     			continue;
     		}
+    		
+    		$cage->setVehicleOptions($vehicleOptions);
     		$em->persist($cage);
     	}
-    	    	    	
+    	    	    	    	
     	foreach ($request->getRoutePoints() as $routePoint) {
+    		$routePoint->setPassengerRequest($request);
     		$em->persist($routePoint);
     	}
-    	    	
-    	$em->persist($request->getVehicle());
-    	$em->persist($request->getTariff());
-    	$em->persist($request->getPassengerDetail());
-    	$em->persist($request->getVehicleServices());
-    	$em->persist($request->getVehicleDriverConditions());
+
+    	$vehicle = $request->getVehicle();
+    	$vehicle->setPassengerRequest($request);
+    	$em->persist($vehicle);
+    	
+    	$tariff = $request->getTariff();
+    	$tariff->setPassengerRequest($request);
+    	$em->persist($tariff);
+    	
+    	$passengerDetail = $request->getPassengerDetail();
+    	$passengerDetail->setPassengerRequest($request);
+    	$em->persist($passengerDetail);
+    	
+    	$vehicleServices = $request->getVehicleServices();
+    	$vehicleServices->setPassengerRequest($request);
+    	$em->persist($vehicleServices);
+    	
+    	$vehicleDriverConditions = $request->getVehicleDriverConditions();
+    	$vehicleDriverConditions->setPassengerRequest($request);
+    	$em->persist($vehicleDriverConditions);
     	
     	$em->flush();
     }

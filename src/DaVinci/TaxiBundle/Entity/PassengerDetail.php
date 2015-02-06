@@ -75,10 +75,10 @@ class PassengerDetail {
 	/**
 	 * @ORM\Column(type="integer", name="mobile_code")
 	 */
-	private $mobileCode;
+	private $mobileCode = 0;
 	
 	/**
-	 * @ORM\Column(type="string", name="mobile_phone", length=20)
+	 * @ORM\Column(type="string", name="mobile_phone", nullable=true, length=20)
 	 * @Assert\Regex(
 	 *		groups={"flow_createPassengerRequest_step3"}, 		
      *     	pattern="/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/",
@@ -193,7 +193,7 @@ class PassengerDetail {
      * Set notMySelf
      *
      * @param boolean $notMySelf
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setNotMySelf($notMySelf)
     {
@@ -216,7 +216,7 @@ class PassengerDetail {
      * Set name
      *
      * @param string $name
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setName($name)
     {
@@ -239,7 +239,7 @@ class PassengerDetail {
      * Set email
      *
      * @param string $email
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setEmail($email)
     {
@@ -262,7 +262,7 @@ class PassengerDetail {
      * Set skype
      *
      * @param string $skype
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setSkype($skype)
     {
@@ -285,10 +285,13 @@ class PassengerDetail {
      * Set mobileCode
      *
      * @param integer $mobileCode
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setMobileCode($mobileCode)
     {
+    	if (is_null($mobileCode)) {
+    		return $this;
+    	}
     	$this->mobileCode = $mobileCode;
     
     	return $this;
@@ -308,7 +311,7 @@ class PassengerDetail {
      * Set mobilePhone
      *
      * @param integer $mobilePhone
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setMobilePhone($mobilePhone)
     {
@@ -331,7 +334,7 @@ class PassengerDetail {
      * Set mobileHasWifi
      *
      * @param boolean $mobileHasWifi
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setMobileHasWifi($mobileHasWifi)
     {
@@ -354,7 +357,7 @@ class PassengerDetail {
      * Set mobileHasWhatsapp
      *
      * @param boolean $mobileHasWhatsapp
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setMobileHasWhatsapp($mobileHasWhatsapp)
     {
@@ -377,7 +380,7 @@ class PassengerDetail {
      * Set about
      *
      * @param string $about
-     * @return PassengerRelated
+     * @return PassengerDetail
      */
     public function setAbout($about)
     {

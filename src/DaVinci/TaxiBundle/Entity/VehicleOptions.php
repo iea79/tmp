@@ -19,20 +19,12 @@ class VehicleOptions {
 	private $id;
 
 	/**
-	 * @ORM\ManyToMany(targetEntity="VehicleChildSeat")
-	 * @ORM\JoinTable(name="vehicle_options_child_seats",
-	 * 		joinColumns={@ORM\JoinColumn(name="option_id", referencedColumnName="id")},
-	 * 		inverseJoinColumns={@ORM\JoinColumn(name="child_seat_id", referencedColumnName="id", unique=true)}
-	 * )
+	 * @var ArrayCollection
 	 */
 	private $childSeats;
 	
 	/**
-	 * @ORM\ManyToMany(targetEntity="VehiclePetCage")
-	 * @ORM\JoinTable(name="vehicle_options_pet_cages",
-	 * 		joinColumns={@ORM\JoinColumn(name="option_id", referencedColumnName="id")},
-	 * 		inverseJoinColumns={@ORM\JoinColumn(name="pet_cage_id", referencedColumnName="id", unique=true)}
-	 * )
+	 * @var ArrayCollection
 	 */
 	private $petCages;
 	
@@ -229,12 +221,12 @@ class VehicleOptions {
     /**
      * Add childSeats
      *
-     * @param \DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeats
+     * @param \DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeat
      * @return VehicleOptions
      */
-    public function addChildSeat(\DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeats)
+    public function addChildSeat(\DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeat)
     {
-        $this->childSeats[] = $childSeats;
+        $this->childSeats[] = $childSeat;
 
         return $this;
     }
@@ -244,9 +236,9 @@ class VehicleOptions {
      *
      * @param \DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeats
      */
-    public function removeChildSeat(\DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeats)
+    public function removeChildSeat(\DaVinci\TaxiBundle\Entity\VehicleChildSeat $childSeat)
     {
-        $this->childSeats->removeElement($childSeats);
+        $this->childSeats->removeElement($childSeat);
     }
 
     /**
@@ -265,9 +257,9 @@ class VehicleOptions {
      * @param \DaVinci\TaxiBundle\Entity\VehiclePetCage $petCages
      * @return VehicleOptions
      */
-    public function addPetCage(\DaVinci\TaxiBundle\Entity\VehiclePetCage $petCages)
+    public function addPetCage(\DaVinci\TaxiBundle\Entity\VehiclePetCage $petCage)
     {
-        $this->petCages[] = $petCages;
+        $this->petCages[] = $petCage;
 
         return $this;
     }
@@ -277,7 +269,7 @@ class VehicleOptions {
      *
      * @param \DaVinci\TaxiBundle\Entity\VehiclePetCage $petCages
      */
-    public function removePetCage(\DaVinci\TaxiBundle\Entity\VehiclePetCage $petCages)
+    public function removePetCage(\DaVinci\TaxiBundle\Entity\VehiclePetCage $petCage)
     {
         $this->petCages->removeElement($petCages);
     }

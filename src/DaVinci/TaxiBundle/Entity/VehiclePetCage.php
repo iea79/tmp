@@ -36,6 +36,12 @@ class VehiclePetCage {
 	private $petCageType;
 	
 	/**
+     * @ORM\ManyToOne(targetEntity="VehicleOptions")
+     * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
+     */
+	private $vehicleOptions;
+	
+	/**
      * Get id
      *
      * @return integer 
@@ -95,6 +101,29 @@ class VehiclePetCage {
     public function getPetCageType()
     {
         return $this->petCageType;
+    }
+    
+    /**
+     * Add vehicleOptions
+     *
+     * @param \DaVinci\TaxiBundle\Entity\VehicleOptions $vehicleOptions
+     * @return \DaVinci\TaxiBundle\Entity\VehicleChildSeat
+     */
+    public function setVehicleOptions(\DaVinci\TaxiBundle\Entity\VehicleOptions $vehicleOptions)
+    {
+    	$this->vehicleOptions = $vehicleOptions;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get vehicleOptions
+     *
+     * @return \DaVinci\TaxiBundle\Entity\VehicleOptions
+     */
+    public function getVehicleOptions()
+    {
+    	return $this->vehicleOptions;
     }
     
     public static function getChoices()

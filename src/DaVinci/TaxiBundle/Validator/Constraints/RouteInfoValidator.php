@@ -15,18 +15,18 @@ class RouteInfoValidator extends ConstraintValidator
 			return;
 		}
 		
-		if ($value->getRoundTrip()) {
-			$currentDate = new \DateTime('now');
+		$currentDate = new \DateTime('now');
 			
-			$pickUp = \DateTime::createFromFormat(
+		$pickUp = \DateTime::createFromFormat(
 				'Y-m-d H:i:s',
 				$value->getPickUpDate()->format('Y-m-d') . ' ' . $value->getPickUpTime()->format('H:i:s')
-			);
-			if (1 == $currentDate->diff($pickUp)->invert) {
-				$this->addViolation('pickUp', $constraint->message . 'pick up value is less than current');
-				return;
-			}
-			
+		);
+		if (1 == $currentDate->diff($pickUp)->invert) {
+			$this->addViolation('pickUp', $constraint->message . 'pick up value is less than current');
+			return;
+		}
+		
+		if ($value->getRoundTrip()) {
 			if (!$this->hasReturn($value)) {
 				$this->addViolation('return', $constraint->message . 'return value is empty');
 				return;
