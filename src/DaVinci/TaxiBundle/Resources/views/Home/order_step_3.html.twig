@@ -1,6 +1,6 @@
 	<div class="wrap-left">
 		 <div class="order-details-over">
-			<h1>Tariff <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></h1>
+			<h1>Tariff <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
 			<div class="order-details padding-top">
 				<p class="note">
 					<span>Note!</span> Increase interest in his warrant
@@ -64,7 +64,7 @@
 			</div>
 		</div>
 		<div class="order-details-over">
-			<h1 class="pass-info">Passenger info <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></h1>
+			<h1 class="pass-info">Passenger info <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'The information we’ll need to know is as follows'|trans}}"></span></h1>
 			<div class="order-details">
 				<p class="quantity-header">Quantity</p>
 				<div class="quantity-over">
@@ -112,7 +112,7 @@
 						<label for="createPassengerRequestStepPassengerInfo_passenger_detail_not_my_self">
 							<input id="createPassengerRequestStepPassengerInfo_passenger_detail_not_my_self" name="createPassengerRequestStepPassengerInfo[passenger_detail][not_my_self]" type="checkbox" />
 							<span class="book-for-another">I'm making this booking on another's behalf.</span>
-							<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+							<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Make reservation for others'|trans}}"></span>
 						</label>
 					</div>
 					<div class="another-wrap">
@@ -165,19 +165,19 @@
 							<div class="right">
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_wifi">
 									<input id="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_wifi" name="createPassengerRequestStepPassengerInfo[passenger_detail][mobile_has_wifi]" type="checkbox" />
-									<span class="uk-form-controls">&nbsp;&nbsp;wi-fi <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
+									<span class="uk-form-controls">&nbsp;&nbsp;wi-fi <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Any kind of connection'|trans}}"></span>
 									</span>
 								</label>
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_whatsapp" class="right-group">
 									<input id="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_whatsapp" name="createPassengerRequestStepPassengerInfo[passenger_detail][mobile_has_whatsapp]" type="checkbox" />
 									<span class="right-group">
-										<span class="uk-form-controls">&nbsp;&nbsp;whatsapp <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></span>
+										<span class="uk-form-controls">&nbsp;&nbsp;whatsapp <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Free communication program'|trans}}"></span></span>
 									</span>
 								</label>
 							</div>
 						</div>
 						<div class="about-passenger">
-							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span></p>
+							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Describe yourself. Help  driver to recognize you'|trans}}"></span></p>
 							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket',  'class': 'charcount', 'maxlength' : "200"}}) }}
 							<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 						</div>

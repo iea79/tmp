@@ -41,3 +41,13 @@
 
 {% endblock %}
 
+{% block javascripts %}
+ {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/notifications.js'
+    %}
+    {# actually we need to create different js file for that page #}
+    
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
