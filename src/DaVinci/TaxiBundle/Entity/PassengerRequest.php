@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="PassengerRequestRepository")
  * @ORM\Table(name="passenger_request")
  * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
  * @DaVinciAssert\PassengerDetail(groups={"flow_createPassengerRequest_step3"})
@@ -127,6 +127,18 @@ class PassengerRequest {
 	 * @Assert\Valid()
 	 */
 	private $passengerDetail;
+	
+	/**
+	 * @OneToOne(targetEntity="User")
+	 * @JoinColumn(name="user_id", referencedColumnName="id")
+	 */
+	private $user;
+		
+	/**
+	 * @OneToOne(targetEntity="GeneralDriver")
+	 * @JoinColumn(name="driver_id", referencedColumnName="id")
+	 */
+	private $driver;
 	
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
@@ -555,6 +567,52 @@ class PassengerRequest {
     public function getPassengerDetail()
     {
     	return $this->passengerDetail;
+    }
+    
+    /**
+     * Set user
+     *
+     * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setUser(\DaVinci\TaxiBundle\Entity\User $user)
+    {
+    	$this->user = $user;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get user
+     *
+     * @return \DaVinci\TaxiBundle\Entity\User
+     */
+    public function getUser()
+    {
+    	return $this->user;
+    }
+    
+    /**
+     * Set driver
+     *
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+     */
+    public function setDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
+    {
+    	$this->driver = $driver;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get driver
+     *
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    public function getDriver()
+    {
+    	return $this->driver;
     }
     
     public static function getStateList() 

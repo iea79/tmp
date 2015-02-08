@@ -6,28 +6,11 @@ use Doctrine\ORM\Mapping AS ORM;
  * @author Mykola Sedletskyi <icevita@gmail.com>
  */
 
-
 /**
  * @ORM\Entity
  */
-class Driver
+class Driver extends GeneralDriver
 {
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $about;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $experience;
 
     /**
      * @ORM\ManyToOne(targetEntity="TaxiCompany", inversedBy="driver")
@@ -40,69 +23,7 @@ class Driver
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
-    
-    
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    protected $insuranceAccepted = false;
-    
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
         
-    /**
-     * Set about
-     *
-     * @param string $about
-     * @return Driver
-     */
-    public function setAbout($about)
-    {
-        $this->about = $about;
-
-        return $this;
-    }
-
-    /**
-     * Get about
-     *
-     * @return string 
-     */
-    public function getAbout()
-    {
-        return $this->about;
-    }
-
-    /**
-     * Set experience
-     *
-     * @param integer $experience
-     * @return Driver
-     */
-    public function setExperience($experience)
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
-    /**
-     * Get experience
-     *
-     * @return integer 
-     */
-    public function getExperience()
-    {
-        return $this->experience;
-    }
-
     /**
      * Set taxiCompany
      *
@@ -148,15 +69,5 @@ class Driver
     {
         return $this->user;
     }
-    
-    public function getInsuranceAccepted()
-    {
-        return $this->insuranceAccepted;
-    }
-
-    public function setInsuranceAccepted ($insuranceAccepted)
-    {
-        $this->insuranceAccepted = (Boolean) $insuranceAccepted;
-    }
-    
+        
 }

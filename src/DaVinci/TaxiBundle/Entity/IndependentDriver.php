@@ -6,38 +6,14 @@ use Doctrine\ORM\Mapping AS ORM;
  * @author Mykola Sedletskyi <icevita@gmail.com>
  */
 
-
 /**
  * @ORM\Entity
  */
-class IndependentDriver
+class IndependentDriver extends GeneralDriver
 {
+	
     const LESS_THAN_4  = 0;
     const MORE_THAN_4 = 1;
-    
-    static public function getDriverExperienceOptions()
-    {
-         return array(
-            self::LESS_THAN_4 => 'less than 4 years',
-            self::MORE_THAN_4 => 'more than 4 years'
-         );
-    }
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $about;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $experience;
     
     /**
      * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Address", cascade={"persist", "remove"})
@@ -60,17 +36,19 @@ class IndependentDriver
 	 *      )
 	 */
     private $phones;
-    
-    
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    protected $insuranceAccepted = false;
-    
+        
     /**
      * @ORM\OneToOne(targetEntity="DriverVehicle", mappedBy="driver", cascade={"persist", "remove"})
      **/
     private $vehicle;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+    	$this->phones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     /**
      * Get vehicle
@@ -87,22 +65,13 @@ class IndependentDriver
      * @param DriverVehicle $vehicle
      * @return Driver
      */
-    function setVehicle($vehicle) {
+    public function setVehicle($vehicle) {
         $this->vehicle = $vehicle;
         $this->vehicle->setDriver($this);
+        
         return $this;
     }
     
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     /**
      * Get id
      *
@@ -126,52 +95,6 @@ class IndependentDriver
         return $this;
     }
     
-    /**
-     * Set about
-     *
-     * @param string $about
-     * @return IndependentDriver
-     */
-    public function setAbout($about)
-    {
-        $this->about = $about;
-
-        return $this;
-    }
-
-    /**
-     * Get about
-     *
-     * @return string 
-     */
-    public function getAbout()
-    {
-        return $this->about;
-    }
-
-    /**
-     * Set experience
-     *
-     * @param integer $experience
-     * @return IndependentDriver
-     */
-    public function setExperience($experience)
-    {
-        $this->experience = $experience;
-
-        return $this;
-    }
-
-    /**
-     * Get experience
-     *
-     * @return integer 
-     */
-    public function getExperience()
-    {
-        return $this->experience;
-    }
-
     /**
      * Get experience name
      *
@@ -204,14 +127,7 @@ class IndependentDriver
     {
         return $this->user;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->phones = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+    
     /**
      * Add phones
      *
@@ -245,14 +161,12 @@ class IndependentDriver
         return $this->phones;
     }
     
-    
-    public function getInsuranceAccepted()
+    static public function getDriverExperienceOptions()
     {
-        return $this->insuranceAccepted;
+    	return array(
+    			self::LESS_THAN_4 => 'less than 4 years',
+    			self::MORE_THAN_4 => 'more than 4 years'
+    	);
     }
-
-    public function setInsuranceAccepted($insuranceAccepted) 
-    {
-        $this->insuranceAccepted = (Boolean) $insuranceAccepted;
-    }
+        
 }
