@@ -1,3 +1,4 @@
+{% trans_default_domain 'FOSUserBundle' %}
 <div class="float_left adphonik">
     <div class="forphoneinput">
         {% if phones is defined %} 
@@ -14,7 +15,7 @@
     <div class="wicheck whicheck-1">
         <div class="float_left">
             {% if phones is defined %} 
-                {{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}
+                {{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}{{'form.internet'|trans}}
             {% else %}
                 <input hidden id="has_internet_input">
             {% endif %}
@@ -25,7 +26,7 @@
     <div class="wicheck whicheck-2">
         <div class="float_left">
             {% if phones is defined %}     
-                {{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9', 'data-errormessage-value-missing': 'Mobile is required',  'data-errormessage': 'Mobile is required'}}) }}
+                {{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9', 'data-errormessage-value-missing': 'Mobile is required',  'data-errormessage': 'Mobile is required'}}) }}{{'whatsapp'|trans}}
             {% else %}
                 <input hidden id="has_whatsapp_input">
             {% endif %}
