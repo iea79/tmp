@@ -12,10 +12,12 @@ require(["jquery"], function ($) {
         data[country.attr('name')] = country.val();
         // Submit data via AJAX to the form's action path.
 
-        //clear uikit dropdown
-        $('.city_selector option').remove();
-        $(".city_selector").parent().find('span').html('');
-
+        var city_selector = $("select.city_selector");
+        
+        //clear dropdown
+        city_selector.find('option').remove();
+        city_selector.trigger('refresh');
+        
         if (typeof xhr != 'undefined')
             xhr.abort();
         xhr = $.ajax({
@@ -23,16 +25,15 @@ require(["jquery"], function ($) {
             type: $form.attr('method'),
             data: data,
             success: function (html) {
-                //stupid hack to reload uikit select
-                $(".city_selector").parent().find('span').html($(html).find('.city_selector option:first').html());
 
+                var options = $(html).find('.city_selector option');
                 // ReplaceReplace current position field ...
-                $('.city_selector').append(
+                city_selector.append(
                         // ... with the returned one from the AJAX response.
-                        $(html).find('.city_selector option')
+                        options
                         );
-                $(".city_selector").val($(".city_selector option:first").val());
-
+                city_selector.val(options.first().val());
+                city_selector.trigger('refresh');
             }
         });
     });
