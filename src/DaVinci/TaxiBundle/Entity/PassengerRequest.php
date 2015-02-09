@@ -129,14 +129,14 @@ class PassengerRequest {
 	private $passengerDetail;
 	
 	/**
-	 * @OneToOne(targetEntity="User")
-	 * @JoinColumn(name="user_id", referencedColumnName="id")
+	 * @ORM\OneToOne(targetEntity="User")
+	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
 		
 	/**
-	 * @OneToOne(targetEntity="GeneralDriver")
-	 * @JoinColumn(name="driver_id", referencedColumnName="id")
+	 * @ORM\OneToOne(targetEntity="GeneralDriver")
+	 * @ORM\JoinColumn(name="driver_id", referencedColumnName="id")
 	 */
 	private $driver;
 	
