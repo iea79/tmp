@@ -34,7 +34,7 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
-                wide:     { width: 420, quality: 100}
+                small:     { width: 280, quality: 100}
                     
         news:
             providers:

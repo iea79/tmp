@@ -1,241 +1,37 @@
-
-    <p><em>We are on the homepage which uses a special template</em></p>
-
-    {% createphp cmfMainContent as="rdf" %}
-    {{ rdf|raw }}
-    {% endcreatephp %}
-
-    <hr/>
-
-    {{ sonata_block_render({ 'name': 'additionalInfoBlock' }, {
-        'divisible_by': 3,
-        'divisible_class': 'row',
-        'child_class': 'span3'
-    }) }}
-
-    <div class="row">
-        <div class="span3">
-            <h2>Some additional links:</h2>
-            <ul>
-                {% for child in cmf_children(cmf_find('/cms/simple')) %}
-                    <li>
-                        <a href="{{ path(child) }}">{{ child.title|striptags }}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="span3">
-        {{ sonata_block_render({
-            'name': 'rssBlock'
-        }) }}
-        </div>
-    </div>
-
-
-
-
 <div class="whitebg">
 			<div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
 
 		<div class="profit-passenger">
 		   	<div class="buttom-swicher">
 		        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#profpassenger'}">
-		            <li class="uk-active"><a href="#">{{ 'Family' |trans }}</a></li>
-		            <li><a href="#">{{ 'Business group' |trans }}</a></li>
-		            <li><a href="#">{{ 'Baggage and pets' |trans }}</a></li>
-		            <li><a href="#">{{ 'Additional services' |trans }}</a></li>
-		            <li><a href="#">{{ 'Additional drivers conditions' |trans }}</a></li>
+                    {% for dt in passenger_tabs %}
+                        <li {% if loop.first %}class="uk-active" {% endif %}><a href="#">{{ dt.title }}</a></li>
+                    {% endfor %}
 		        </ul>
 		    </div>
-			<ul id="profpassenger" class="uk-switcher">
-{# ==== Block 1 ===== #}
-				<li class="uk-active">
-					<div class="content">
-						<div class="left">
-							<h2>Family:</h2>
-							<ul class="uk-width-1-1">
-								<li>up to 6 people</li>
-								<li>Adults + children</li>
-								<li>Adults + seniors</li>
-								<li>Adults + disabled persons</li>
-								<li>Seniors + children</li>
-							</ul>
-						</div>
-						<div class="center">
-							<h3 class="uk-button-danger">
-						        <i class="mp-icon-good"></i>
-						        <span>Save money on safe trip!</span>
-						  	</h3>
-						  	<h4>Example</h4>
-						  	<ol class="uk-width-1-1">
-						        <li>Market Price: $100</li>
-   					    	    <li>You specified: $70</li>
-						        <li>You Save: 30% = $30</li>
-						        <li>Mosty (90% +) your offer will be accepted by driver.</li>
-						        <li>Our service costs you pnly $1</li>
-						        <li>Placing order - FREE, if there is no driver for you. We'll immediately return $1.</li>
-						  	</ol>
-						</div>
-						<div class="right">
-							<div class="videoWrapper">
-								<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-							</div>
-							<a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
-						</div>
-					</div>
-				</li>
-{# ==== Block 2 ===== #}
-				<li>
-					<div class="content">
-						<div class="left">
-							<h2>Business group:</h2>
-							<ul class="uk-width-1-1">
-								<li>up to 12 persons</li>
-								<li>businessmen</li>
-								<li>small groups</li>
-								<li>middle groups</li>
-							</ul>
-						</div>
-						<div class="center">
-							<h3 class="uk-button-danger">
-						        <i class="mp-icon-good"></i>
-						        <span>Bigger group - bigger $ saving!</span>
-						  	</h3>
-						  	<h4>Example</h4>
-						  	<ol class="uk-width-1-1">
-						        <li>Market Price: $150</li>
-   					    	    <li>You specified: $90</li>
-						        <li>You Save: 40% = $60</li>
-						        <li>Mosty (90% +) your offer will be accepted by driver.</li>
-						        <li>Our service costs you pnly $1</li>
-						        <li>Placing order - FREE, if there is no driver for you. We'll immediately return $1.</li>
-						  	</ol>
-						</div>
-						<div class="right">
-							<div class="videoWrapper">
-								<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-							</div>
-							<a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
-						</div>
-					</div>
-				</li>
-{# ==== Block 3 ===== #}
-				<li>
-					<div class="content">
-						<div class="left">
-							<h2>Baggage and pets:</h2>
-							<ul class="uk-width-1-1">
-								<li>Special service for any baggage</li>
-								<li>Pets</li>
-								<li>6+ luggages</li>
-								<li>uBicycles, skis</li>
-								<li>Wheelchairs, baby strollers</li>
-								<li>Box</li>
-								<li>Roof rack</li>
-								<li>Trailer</li>
-							</ul>
-						</div>
-						<div class="center">
-							<h3 class="uk-button-danger">
-						        <i class="mp-icon-good"></i>
-						        <span>Best comfort for your pets!</span>
-						  	</h3>
-						  	<ol class="uk-width-1-1">
-						        <li>Mark item while placing order.</li>
-   					    	    <li>Describe specifications.</li>
-						        <li>Talk to driver by skype before choose him.</li>
-						        <li>We will do a lot of things to make your trip comfortable and safe!</li>
-						  	</ol>
-						</div>
-						<div class="right">
-							<div class="videoWrapper">
-								<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-							</div>
-							<a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
-						</div>
-					</div>
-				</li>
-{# ==== Block 4 ===== #}
-				<li>
-					<div class="content">
-						<div class="left">
-							<h2>Additional services:</h2>
-							<ul class="uk-width-1-1">
-								<li>Make trip simple and feel luxury!</li>
-								<li>Share wonderful feelings with family and friends</li>
-								<li>You care about health, we help</li>
-								<li>Be boss on your traveling</li>
-								<li>Feel cozy with lovely video</li>
-								<li>Always feel fresh</li>
-								<li>Taste delicious snacks - enjoy trip</li>
-								<li>Be sure your child is safe</li>
-								<li>Feel special care during important trip</li>
-								<li>Your health is important. We understand</li>
-								<li>Create your own comfort zone</li>
-								<li>Enjoy luxury and fresh air</li>
-							</ul>
-						</div>
-						<div class="center">
-							<h3 class="uk-button-danger">
-						        <i class="mp-icon-good"></i>
-						        <span>Additional service - more luxury! Feel great!</span>
-						  	</h3>
-						  	<ol class="uk-width-1-1">
-						        <li>Mark item while placing order.</li>
-   					    	    <li>Describe specifications.</li>
-						        <li>Talk to driver by skype before choose him.</li>
-						        <li>We will do a lot of things to make your trip comfortable and safe!</li>
-						  	</ol>
-						</div>
-						<div class="right">
-							<div class="videoWrapper">
-								<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-							</div>
-							<a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
-						</div>
-					</div>
-				</li>
-{# ==== Block 5 ===== #}
-				<li>
-					<div class="content">
-						<div class="left">
-							<h2>Additional driver conditions:</h2>
-							<ul class="uk-width-1-1">
-								<li>2 services from 1 driver!</li>
-								<li>Excellent treat!</li>
-								<li>Speak to driver before hiring</li>
-								<li>Get 1 driver for all your needs</li>
-								<li>Driver helps you with local language</li>
-								<li>Special attention from licensed doctor or nurse</li>
-								<li>Nice attitude to your children's needs</li>
-								<li>Your animals will get special treatment</li>
-								<li>Feel enhanced safety during trip</li>
-								<li>It's smart to take local excursion from your driver</li>
-								<li>Pro carrier moves hard stuff easy and safe</li>
-							</ul>
-						</div>
-						<div class="center">
-							<h3 class="uk-button-danger">
-						        <i class="mp-icon-good"></i>
-						        <span>Special driver'll provide maximum comfort for your trip!</span>
-						  	</h3>
-						  	<ol class="uk-width-1-1">
-						        <li>Mark item while placing order.</li>
-   					    	    <li>Describe specifications.</li>
-						        <li>Talk to driver by skype before choose him.</li>
-						        <li>We will do a lot of things to make your trip comfortable and safe!</li>
-						  	</ol>
-						</div>
-						<div class="right">
-							<div class="videoWrapper">
-								<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-							</div>
-							<a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
-						</div>
-					</div>
-				</li>
-{# ==== End blocks ===== #}
-			</ul>
+            {% for dt in passenger_tabs %}
+                <ul id="profpassenger" class="uk-switcher">
+                    <li class="uk-active">
+                        <div class="content">
+                            <div class="left">
+                                {{ dt.block1|raw }}
+                            </div>
+                            <div class="center">
+                                <h3 class="uk-button-danger">
+                                    <i class="mp-icon-good"></i>
+                                    <span>{{ dt.block2Title }}</span>
+                                </h3>
+                                {{ dt.block2|raw }}
+                            </div>
+                            <div class="right">
+                                <div class="videoWrapper">
+                                    {% media dt.youtubeLink, 'small' %}
+                                </div>
+                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            {% endfor %}
 		</div>
 	</div>

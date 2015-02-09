@@ -8,7 +8,25 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 
 class ProfitPageAdmin extends Admin
 {
+    function getNewInstance()
+    {
+        //load some standart markup data
+        $instance = parent::getNewInstance();
+        $instance->setBlock1('<h2>Some title</h2>
+							<ul class="uk-width-1-1">
+								<li>list item 1</li>
+								<li>list item 2</li>
+							</ul>');
+        $instance->setBlock2Title('Block 2 title');
+        $instance->setBlock2('<ol class="uk-width-1-1">
+						        <li>list item 1</li>
+   					    	    <li>list item 2</li>
+						        <li>list item 3</li>
+						  	</ol>');
 
+        return $instance;
+    }
+    
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

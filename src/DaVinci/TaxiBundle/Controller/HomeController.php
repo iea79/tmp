@@ -77,7 +77,15 @@ class HomeController extends Controller {
     
     public function profitAction()
     {
-        return $this->render('DaVinciTaxiBundle:Home:profit.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $driverTabs= $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getDriverProfitTab();
+        $passengerTabs= $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getPassengerProfitTab();
+        
+        return $this->render('DaVinciTaxiBundle:Home:profit.html.twig',
+                array(
+                    'driver_tabs' => $driverTabs,
+                    'passenger_tabs' => $passengerTabs
+                ));
     }
 
     public function profit_passengerAction()

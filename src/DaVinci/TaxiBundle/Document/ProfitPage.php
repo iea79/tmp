@@ -4,11 +4,10 @@ namespace DaVinci\TaxiBundle\Document;
 
 
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
-use Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ContainerBlock;
 use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
 
 /**
- * @PHPCR\Document(translator="attribute", repositoryClass="ContentRepository")
+ * @PHPCR\Document(translator="attribute", repositoryClass="ProfitRepository")
  */
 class ProfitPage implements TranslatableInterface
 {

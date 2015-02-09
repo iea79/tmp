@@ -4,8 +4,19 @@ namespace DaVinci\TaxiBundle\Document;
 use Doctrine\ODM\PHPCR\Id\RepositoryIdInterface;
 use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
 
-class ContentRepository extends BaseDocumentRepository implements RepositoryIdInterface
+class ProfitRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
+    
+    public function getDriverProfitTab()
+    {
+        return $this->findBy(array('driverTab'=>true));
+    }
+    
+    public function getPassengerProfitTab()
+    {
+        return $this->findBy(array('driverTab'=>false));
+    }
+    
     /**
      * Generate a document id
      *
