@@ -2,12 +2,14 @@
 
 namespace DaVinci\TaxiBundle\Entity;
 
+use Doctrine\ORM\Mapping AS ORM;
+
 /**
- * @Entity
- * @Table(name="general_drivers")
- * @InheritanceType("JOINED")
- * @DiscriminatorColumn(type="string", name="discriminator_type")
- * @DiscriminatorMap({"driver"="Driver", "independent_driver"="IndepndentDriver"})
+ * @ORM\Entity
+ * @ORM\Table(name="general_drivers")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(type="string", name="discriminator_type")
+ * @ORM\DiscriminatorMap({"driver"="Driver", "independent_driver"="IndependentDriver"})
  */
 abstract class GeneralDriver 
 {
