@@ -8,7 +8,7 @@
                     <div class="form-view block-foto">
                         <div class="clientreviews">
                             <div class="photo">
-                                <img src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
+                                <img alt="" src="{{ asset('bundles/davincitaxi/images/driverphoto-big.png') }}" >
                             </div>
                             <div class="rate">
                                 <p>{{'Rate this driver'|trans}}</p>
@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></button></div>
+                        <div class="uk-width-1-1"><button class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <span class="uk-text-warning">(28)</span></button></div>
                     </div>
                 </div>
             </div>
@@ -101,20 +101,20 @@
                         </a>
                         <ul class="uk-nav-sub">
                             <li>
+                                <dl class="about-driver">
+                                    <dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd>
+                                </dl>
                                 <dl class="uk-width-1-1 about-driver">
-                                    <div class="myid">
-                                        <dt class="myid">{{ 'My ID:'|trans }}</dt><dd class="myid">2112121212</dd><br />
-                                    </div>
-                                    <dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd><br />
-                                    <dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd><br />
-                                    <dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd><br />
-                                    <dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd><br />
-                                    <dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd><br />
-                                    <dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd><br />
-                                    <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd><br />
-                                    <dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd><br />
-                                    <dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd><br />
-                                    <dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage.'|trans }}</dd><br />
+                                    <dt>{{ 'First Name:'|trans }}</dt><dd>{{ 'Boris'|trans }}</dd>
+                                    <dt>{{ 'Last Name:'|trans }}</dt><dd>{{ 'Ivanov'|trans }}</dd>
+                                    <dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd>
+                                    <dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd>
+                                    <dt>{{ 'English:'|trans }}</dt><dd>{{ 'beginner'|trans }}</dd>
+                                    <dt>{{ 'Other language:'|trans }}</dt><dd>{{ 'russian'|trans }}</dd>
+                                    <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ '4+ years'|trans }}</dd>
+                                    <dt>{{ 'Birthday:'|trans }}</dt><dd>11 {{ 'Oct'|trans }} 1988</dd>
+                                    <dt>{{ 'Gender:'|trans }}</dt><dd>{{ 'male'|trans }}</dd>
+                                    <dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage.'|trans }}</dd>
                                 </dl>
                             </li>
                         </ul>
@@ -128,21 +128,18 @@
                         <ul class="uk-nav-sub">
                             <li>
                                 <dl class="uk-width-1-1 about-car">
-                                    <dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd><br />
-                                    <dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd><br />
-                                    <dt>{{ 'Year:'|trans }}</dt><dd>2006</dd><br />
-                                    <dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd><br />
-                                    <dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd><br />
-                                    <dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd><br />
+                                    <dt>{{ 'Brand:'|trans }}</dt><dd>{{ 'Ford'|trans }}</dd>
+                                    <dt>{{ 'Model:'|trans }}</dt><dd>{{ 'Focus'|trans }}</dd>
+                                    <dt>{{ 'Year:'|trans }}</dt><dd>2006</dd>
+                                    <dt>{{ 'Color:'|trans }}</dt><dd>{{ 'black'|trans }}</dd>
+                                    <dt>{{ 'Number plate:'|trans }}</dt><dd>AB 666 777</dd>
+                                    <dt>{{ 'Class:'|trans }}</dt><dd>{{ 'bussines'|trans }}</dd>
                                     <dt>{{ 'Other:'|trans }}</dt><dd>
                                         <div class="other">
                                             <i class="mp-icon-person uk-text-danger"></i><span> 4 </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> 4 </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> 4 </span>
                                         </div>
-                                    </dd><br />
-                                    <dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a 
-														more interesting view of statistics about your 
-														browser usage. The current version includes 
-														graphs that illustrate trends in your browsing.'|trans }}</dd><br />
+                                    </dd>
+                                    <dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans }}</dd>
                                 </dl>
                             </li>
                         </ul>
@@ -156,7 +153,8 @@
                         <ul class="uk-nav-sub">
                             <li>
                                 <dl class="uk-width-1-1 insurance">
-                                    <dd class="fullsize insurance">{{ 'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans }}</dd><br /><br />
+                                    <dt></dt>
+                                    <dd class="fullsize insurance">{{ 'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans }}</dd>
                                 </dl>
                             </li>
                         </ul>

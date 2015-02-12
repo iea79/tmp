@@ -21,7 +21,7 @@
 					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
 				</div>
 				<div class="uk-panel">
-					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><b>5</b></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
 				</div>
 			</div>
 		</div>
@@ -30,8 +30,8 @@
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt>{{'My ID:'|trans}}</dt><dd class="data">  7687796059662 </dd><br />
-							<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd><br />
+							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">  7687796059662 </dd>
+							<dt>{{' Name:'|trans}}</dt><dd class="data">  Boris Ivanov </dd>
 							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
 						</dl>
 					</div>
@@ -39,27 +39,27 @@
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
-							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
-							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
+							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd>
+							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd>
+							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd>
 						</dl>
 					</div>
 				</div>
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
-							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
-							<dt><a href=""> {{'Extend'|trans}}</a></dt>
+							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd>
+							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd>
+							<dt><a href=""> {{'Extend'|trans}}</a></dt><dd></dd>
 						</dl>
 					</div>
 				</div>
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt> {{'Company offices:'|trans}}  </dt><dd id="" class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd><br />
-							<dt> {{'Renew:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
-							<dt><a href=""> {{'Extend'|trans}}</a></dt>
+							<dt> {{'Company offices:'|trans}}  </dt><dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
+							<dt> {{'Renew:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd>
+							<dt><a href=""> {{'Extend'|trans}}</a></dt><dd></dd>
 						</dl>
 					</div>
 				</div>
@@ -93,14 +93,12 @@
 					<td class="uk-text-success">{{ 'Free'|trans}}</td>
 					<td class="uk-text-success">{{ 'Free'|trans}}</td>
 					<td>
-						<div class="select-group">
-							<select name="" id="">
-								<option value="" selected="selected">{{ '1 month'|trans}}</option>
-								<option value="">{{ '3 months'|trans}}</option>
-								<option value="">{{ '6 months'|trans}}</option>
-								<option value="">{{ '12 months'|trans}}</option>
-							</select>
-						</div>
+						<select name="">
+							<option value="" selected="selected">{{ '1 month'|trans}}</option>
+							<option value="">{{ '3 months'|trans}}</option>
+							<option value="">{{ '6 months'|trans}}</option>
+							<option value="">{{ '12 months'|trans}}</option>
+						</select>
 					</td>
 					<td>3</td>
 					<td>
@@ -113,14 +111,12 @@
 					<td>{{ 'Active'|trans}}</td>
 					<td>12.10.2015</td>
 					<td>
-						<div class="select-group">
-							<select name="" id="">
-								<option value="" selected="selected">{{ '1 month'|trans}}</option>
-								<option value="">{{ '3 months'|trans}}</option>
-								<option value="">{{ '6 months'|trans}}</option>
-								<option value="">{{ '12 months'|trans}}</option>
-							</select>
-						</div>
+						<select name="">
+							<option value="" selected="selected">{{ '1 month'|trans}}</option>
+							<option value="">{{ '3 months'|trans}}</option>
+							<option value="">{{ '6 months'|trans}}</option>
+							<option value="">{{ '12 months'|trans}}</option>
+						</select>
 					</td>
 					<td>21</td>
 					<td>
@@ -133,14 +129,12 @@
 					<td class="uk-text-warning">{{ 'Closed'|trans}}</td>
 					<td>00,00,0000</td>
 					<td>
-						<div class="select-group">
-							<select name="" id="">
-								<option value="" selected="selected">{{ '1 month'|trans}}</option>
-								<option value="">{{ '3 months'|trans}}</option>
-								<option value="">{{ '6 months'|trans}}</option>
-								<option value="">{{ '12 months'|trans}}</option>
-							</select>
-						</div>
+						<select name="">
+							<option value="" selected="selected">{{ '1 month'|trans}}</option>
+							<option value="">{{ '3 months'|trans}}</option>
+							<option value="">{{ '6 months'|trans}}</option>
+							<option value="">{{ '12 months'|trans}}</option>
+						</select>
 					</td>
 					<td>6</td>
 					<td>
@@ -153,14 +147,12 @@
 					<td class="uk-text-warning">{{ 'Closed'|trans}}</td>
 					<td>00,00,0000</td>
 					<td>
-						<div class="select-group">
-							<select name="" id="">
-								<option value="" selected="selected">{{ '1 month'|trans}}</option>
-								<option value="">{{ '3 months'|trans}}</option>
-								<option value="">{{ '6 months'|trans}}</option>
-								<option value="">{{ '12 months'|trans}}</option>
-							</select>
-						</div>
+						<select name="">
+							<option value="" selected="selected">{{ '1 month'|trans}}</option>
+							<option value="">{{ '3 months'|trans}}</option>
+							<option value="">{{ '6 months'|trans}}</option>
+							<option value="">{{ '12 months'|trans}}</option>
+						</select>
 					</td>
 					<td>4</td>
 					<td>
@@ -173,14 +165,12 @@
 					<td class="uk-text-warning">{{ 'Closed'|trans}}</td>
 					<td>00,00,0000</td>
 					<td>
-						<div class="select-group">
-							<select name="" id="">
-								<option value="" selected="selected">{{ '1 month'|trans}}</option>
-								<option value="">{{ '3 months'|trans}}</option>
-								<option value="">{{ '6 months'|trans}}</option>
-								<option value="">{{ '12 months'|trans}}</option>
-							</select>
-						</div>
+						<select name="">
+							<option value="" selected="selected">{{ '1 month'|trans}}</option>
+							<option value="">{{ '3 months'|trans}}</option>
+							<option value="">{{ '6 months'|trans}}</option>
+							<option value="">{{ '12 months'|trans}}</option>
+						</select>
 					</td>
 					<td>3</td>
 					<td>

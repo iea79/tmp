@@ -21,7 +21,7 @@
 					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
 				</div>
 				<div class="uk-panel">
-					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><font>5</font></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
+					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><b>5</b></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
 				</div>
 			</div>
 		</div>
@@ -30,7 +30,7 @@
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt>{{'My ID:'|trans}}</dt><dd class="data">  {{ app.user.id }} </dd><br />
+							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">  {{ app.user.id }} </dd><br />
 							<dt>{{' Name:'|trans}}</dt><dd class="data">  {% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} </dd><br />
 							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
 						</dl>

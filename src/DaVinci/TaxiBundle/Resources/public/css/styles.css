@@ -39,7 +39,12 @@ input,select,textarea {
 	font-family: icontaxi;
 	font-size: 18px;
 }
-
+.uk-nav-offcanvas .offcanvas-haed {
+	padding: 14px 15px;
+	color: #fff;
+	text-align: center;
+	background: #7F8189;
+}
 body, html {
 	background-color:#f5f5f5;
 	height:100%;
@@ -481,6 +486,8 @@ input[type="search"]:invalid {
 			.header-wrapper .header-top .header-top-in  .topmenu .autorized {
 				color:#3c3d45;
 				line-height:0.5;
+				padding-top:6px;
+				cursor:pointer;
 				
 			}
             .header-wrapper .header-top .header-top-in  .topmenu .loading .throb-group{
@@ -605,6 +612,7 @@ input[type="search"]:invalid {
 							.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown .myoffice-drop .uk-button {
 								margin-top:15px;
 								font-size:16px;
+								padding:0 5px;
 							}
 							.header-wrapper .header-top .header-top-in  .topmenu .uk-button-dropdown .uk-dropdown .uk-nav-header {
 													font-size: 16px;
@@ -1838,7 +1846,8 @@ office passengers and driver
 }
 .client-account .client-panel-list .clientid dt,
 .client-account .client-panel-list .clientid dd {
-	display: block;
+	display: table-cell;
+
     font-size: 14px;
 	margin-bottom: 0;
 	margin-left: 5px;
@@ -1847,6 +1856,12 @@ office passengers and driver
 .client-account .client-panel-list .clientid dt {
 	color: #8d8f98;
 	font-weight: normal;
+}
+.client-account .client-panel-list .clientid dd {
+	min-width: 20%;
+}
+.client-account .client-panel-list .clientid dd.number-id {
+	min-width: 40%;
 }
 .client-account .clientid dd[id="balance"] {
 	color: #ff4d61;
@@ -2466,6 +2481,9 @@ table.thead-gray th .questiontooltip {
 		 display: inline-block;
 		 margin-left: -1px;
 		 width: 55%;
+    }
+    .vehicle span b {
+    	font-weight: normal;
     }
     .vehicle i {
 		 color: #ff4d61;
@@ -3165,6 +3183,7 @@ footer {
     font-size: 14px !important;
     line-height: 16px !important;
     display: inline-block;
+    vertical-align: top;
 }
 .passenger .pop-up .profile .myid dt,
 .passenger .pop-up .profile .myid dd {
@@ -3248,6 +3267,7 @@ footer {
 }
 .pop-up .form-view .about-driver dd {
 	font-size:14px;
+	vertical-align:top;
 }
 .pop-up .form-view .about-driver dd.moretext {
 	margin-top: -2px;
@@ -3257,6 +3277,7 @@ footer {
     margin-top: 11px;
 	margin-bottom: 6px !important;
     margin-left: 1px;
+    display: inline-block;
 }
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
@@ -3305,33 +3326,33 @@ footer {
 }
 .pop-up .form-view .insurance {
     margin-top: 11px;
-    margin-left: 1px;
+    display: inline-block;
 }
-.pop-up .form-view .insurance dt,
+.pop-up .form-view .insurance dt {
+	display: none;
+}
+/* .pop-up .form-view .insurance dt,
 .pop-up .form-view .insurance dd {
     line-height: 22px;
-}
+} */
 .pop-up .form-view dt,
 .pop-up .form-view dd {
 	line-height: 8px;
-	height: 16px !important;
 	margin-bottom: -4px;
 }
 .pop-up .form-view dd.moretext {
 	line-height: 17px !important;
 	margin-top: 2px;
-	margin-bottom: 15px;
-	display: inline-table;
 	font-size: 14px;
+	margin-bottom: 10px;
 }
 .pop-up .form-view .insurance .moretext {
 	margin-bottom: 8px !important;
 }
 .pop-up .form-view dd.insurance {
-	margin-top: 0 !important;
-	margin-bottom: 15px !important;
-	display: inline;
 	font-size: 15px;
+	margin: 0 !important;
+	line-height: 1.2;
 }
 .pop-up .form-view .button-skype {
 	line-height: 28px !important;
@@ -3500,6 +3521,7 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up.route dd.last {
     margin-top: -10px;
     margin-bottom: 13px;
+    vertical-align: top;
 }
 .pop-up input[type="text"],
 .pop-up input[type="email"],
@@ -5302,13 +5324,65 @@ body.register .main-content{
 }
 .changemail div.form-group {
     width: 37.4%;
-    white-spacE: nowrap;
+    white-space: nowrap;
+}
+.changemail div input[type="email"] {
+	line-height: 28px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 0 10px;
+	width: 77%;;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.changemail div#form {
+	width: 100%;
+}
+.changemail div#form div {
+	display: inline-block;
+	width: 38.3%;
+}
+.changemail div button {
+	background: #528ed3;
+	color: #fff;
+	line-height: 30px;
+	border: 0 solid;
+	border-radius: 3px;
+	white-space: nowrap;
+	padding: 0 5px;
+	width: 53%;
+}
+.changemail div button:hover,.changemail div button:active {
+	opacity: 0.8;
+}
+@media (max-width: 860px) {
+	.changemail div#form div {
+		width: 50%;
+	}
+     .changemail div button {
+		width: 94%;
+	}
+	.changemail div input[type="email"] {
+		width: 70%;
+	}
+}
+@media (max-width: 520px) {
+	.changemail div#form div {
+		width: 100%;
+	}
+     .changemail div button {
+		width: 94%;
+	}
+	.changemail div input[type="email"] {
+		width: 73%;
+	}
 }
 @media (max-width: 460px) {
     .changemail div.form-group {
         width: 90%;
     }
-    .register .changemail .btn {
+    .register .changemail button {
     	margin-left: 0 !important;
     }
 }
@@ -5346,7 +5420,7 @@ body.register .main-content{
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
-	.register .wrap-content {background-image: none;}
+	.checkmail,.register .wrap-content {background-image: none;}
     .register .uk-form-horizontal select.uk-width-1-1 {width: 93.3%;}
     .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 93.2%;}
 
@@ -6684,13 +6758,13 @@ Help
   margin-top: 13px !important;
 }
 .block-help .uk-nav a.uk-button {
-  margin: 17px 0 12px;
-  width: 100%;
-  height: 38px;
-  font-size: 14px;
-  text-transform: uppercase;
-  padding: 12px 2%;
-  font-weight: 700;
+	margin: 17px 0 12px;
+	width: 100%;
+	height: 38px;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 12px 2%;
+	font-weight: 700;
 }
 .block-help .help-sidebar .uk-nav li {
 	border-bottom: none !important;
@@ -6707,39 +6781,39 @@ a.preview-video img:hover {
     opacity: 0.9;
 }
 .block-help .uk-nav.demo li.link a:before {
-  content: "\f0da";
-  font-family: FontAwesome;
-  background: #528ed3;
-  color: #fff;
-  line-height: 14px;
-  font-size: 10px;
-  width: 14px;
-  border-radius: 50%;
-  margin-right: 7px;
-  text-align: center;
-  display: table-cell;
-  float: left;
-  margin-bottom: 10px;
-  margin-top: 2px;
+	content: "\f0da";
+	font-family: FontAwesome;
+	background: #528ed3;
+	color: #fff;
+	line-height: 14px;
+	font-size: 10px;
+	width: 14px;
+	border-radius: 50%;
+	margin-right: 7px;
+	text-align: center;
+	display: table-cell;
+	float: left;
+	margin-bottom: 10px;
+	margin-top: 2px;
 }
 .block-help .uk-nav.demo li:nth-child(n+3) {
-  margin-top: -9px !important;
+	margin-top: -9px !important;
 }
 
 .block-help .uk-nav.demo li.link {
-  margin-top: -3px !important;
+	margin-top: -3px !important;
 }
 .block-help .uk-nav.demo li a.uk-button {
 	margin-top: 16px !important;
 }
 .block-help .uk-nav li:last-child {
-  border-bottom: 0;
-  margin-top: 6px;
+	border-bottom: 0;
+	margin-top: 6px;
 }
 .block-help .uk-nav.demo li.link a {
-  display: table;
-  padding-top: 12px;
-  padding-bottom: 6px;
+	display: table;
+	padding-top: 12px;
+	padding-bottom: 6px;
 }
 .video .block-help .uk-nav.demo li.link a {
 	width: 100% !important;
@@ -6747,36 +6821,37 @@ a.preview-video img:hover {
 	padding-left: 0;
 }
 .help .topic-faq {
-  display: inline-block;
-  margin-top: 28px;
-  width: 100%;
+	display: inline-block;
+	margin-top: 28px;
+	width: 100%;
 }
 .help .topic-faq h2 {
-  font-size: 20px;
-  margin-bottom: 0;
-  font-weight: 700;
-  display: block;
+	font-size: 20px;
+	margin-bottom: 0;
+	font-weight: 700;
+	display: block;
 }
 .help .topic-faq .uk-list {
-  width: 25.5%;
-  float: left;
-  margin-bottom: 8px;
-  margin-top: 13px;
+	width: 25.5%;
+	float: left;
+	margin-bottom: 8px;
+	margin-top: 13px;
 }
-.help .topic-faq .uk-list h3 {
-  margin-bottom: 9px;
-  width: 95%;
+.help .topic-faq .uk-list li.head {
+	width: 95%;
+	font-size: 18px;
+	line-height: 24px;
 }
 .help .topic-faq .uk-list li a {
-  width: 94%;
-  display: block;
+	width: 94%;
+	display: block;
 }
 .help .topic-faq .uk-list li {
-  line-height: 18px;
-  margin-bottom: 11px;
+	line-height: 18px;
+	margin-bottom: 11px;
 }
 .help .topic-faq .uk-list:last-child {
-  width: 23.5%;
+	width: 23.5%;
 }
 .block-help .top-faq .uk-nav li:last-child,
 .block-help .guides .uk-nav li:last-child {

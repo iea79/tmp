@@ -27,20 +27,18 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
             });
 //Скрытие и открытие обратной даты на 1-м шаге главной
             $(function () {
-                var startCheck = $('.inputs input[type=checkbox]').prop("checked");
-                if (startCheck)
-                    $('.destination .last').show();
-                else
-                    $('.destination .last').hide();
-            });
-            $(function () {
-                $('.inputs input[type=checkbox]').click(function () {
-                    var checked = this.checked;
-                    if (checked)
-                        $('.destination .last').show();
-                    else
-                        $('.destination .last').hide();
+                $('#round_trip').hide();
+                $('.destination .check-box input[type=checkbox]:checked').each(function () {
+                    $('.destination #round_trip').show();
                 });
+            });
+            $(".destination .check-box input[type=checkbox]").click(function () {
+                var checked = this.checked;
+                var targetBlock = $('.destination').parent().find('#round_trip');
+                if (checked)
+                    targetBlock.show();
+                else
+                    targetBlock.hide();
             });
 //Скрытие и открытие данных для заказа другому человеку на 3-м шаге главной
             /* This is not applicable so far, but can be used any moment again 
@@ -82,17 +80,6 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
                 $('.kids-pats-line input[type=checkbox]:checked').each(function () {
                     $(this).parent().find('.wishes-1').show();
                 });
-                // $('.kids-pats-line input[type=checkbox]').each(function () {
-                //     var checked = this.checked;
-                //     if (!checked)
-                //         $(this).parent().find('select').prop('disabled', true).parent().addClass("taxi-disabled");
-
-                //     else
-                //         $(this).parent().find('select').prop('disabled', false).parent().removeClass("taxi-disabled");
-
-
-                // });
-
             });
             $(".kids-pats-line input[type=checkbox]").click(function () {
                 var checked = this.checked;
@@ -101,17 +88,6 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
                     targetBlock.show();
                 else
                     targetBlock.hide();
-                //disable - abanle selects on step 2
-                // var targetSelect = $(this).parent().find('.select');
-                // if (!checked) {
-                //     targetSelect.find('select').prop('disabled', true);
-                //     targetSelect.parent().find('.select').addClass("taxi-disabled");
-                // }
-                // else {
-                //     targetSelect.parent().find('.select').removeClass("taxi-disabled");
-                //     targetSelect.find('select').prop('disabled', false);
-                // }
-
             });
 
 //default disable for a in buttons 2 step
