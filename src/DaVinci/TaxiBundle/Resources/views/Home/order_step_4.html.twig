@@ -65,7 +65,7 @@
 								    	{% endfor %}
 								    	{% for petCage in flow.formData.vehicleOptions.petCages %}
 								    		{% if petCage.petCageNumber > 0 %}
-								    			<dt>{{'child seat'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.petCageType }})</dd>
+								    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.petCageType }})</dd>
 								    		{% endif %}	
 								    	{% endfor %}
 								    </dl>
@@ -156,21 +156,21 @@
 									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  	{% if flow.formData.vehicleDriverConditions.bodyguard == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  		<dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  	{% if flow.formData.vehicleDriverConditions.carrier == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  		<dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  </dl>
 									  <dl class="cheks2">
 									  	{% if flow.formData.vehicleDriverConditions.medicalLicense == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  		<dt>{{'medicalLicense'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  	{% if flow.formData.vehicleDriverConditions.animalTrainer == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  		<dt>{{'animalTrainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  	{% if flow.formData.vehicleDriverConditions.guide == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+									  		<dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
 									  </dl>
 									  {% if flow.formData.vehicle.specialRequirements != '' %}
