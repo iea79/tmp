@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -23,11 +24,17 @@ abstract class GeneralDriver
 	
 	/**
 	 * @ORM\Column(type="text", nullable=true)
+	 * @Assert\Length(
+	 * 		groups={"flow_taxi_independent_driver_registration_step1"},
+	 * 		max=200, 
+	 * 		maxMessage="independent.about.max"
+	 * )
 	 */
 	protected $about;
 	
 	/**
 	 * @ORM\Column(type="integer", nullable=true)
+	 * @Assert\NotBlank(groups={"flow_taxi_independent_driver_registration_step1"}, message="independent.experience.blank")
 	 */
 	protected $experience;
 	

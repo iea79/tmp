@@ -22,6 +22,7 @@ class Phone
     
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(groups={"flow_taxi_independent_driver_registration_step1"}, message="phones.phone.blank")
      */
     protected $phone;
     

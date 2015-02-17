@@ -1,6 +1,8 @@
 <?php
 namespace DaVinci\TaxiBundle\Entity;
+
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @author Mykola Sedletskyi <icevita@gmail.com>
@@ -8,6 +10,7 @@ use Doctrine\ORM\Mapping AS ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="independent_driver")
  */
 class IndependentDriver extends GeneralDriver
 {
@@ -16,30 +19,35 @@ class IndependentDriver extends GeneralDriver
     const MORE_THAN_4 = 1;
     
     /**
+     * @Assert\Valid()
      * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\Address", cascade={"persist", "remove"})
      */
     private $address;
-
     
     /**
+     * @Assert\Valid()
      * @ORM\OneToOne(targetEntity="User", inversedBy="independentDriver")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
     
-	 /**
-	 * 
+	/**
+	 * @Assert\Valid()
+	 * @Assert\All({
+	 * 		@Assert\NotBlank()
+     * })
 	 * @ORM\ManyToMany(targetEntity="Phone", cascade={"persist", "remove"})
 	 * @ORM\JoinTable(name="DriverPhone",
 	 *      joinColumns={@ORM\JoinColumn(name="company_id", referencedColumnName="id")},
 	 *      inverseJoinColumns={@ORM\JoinColumn(name="phone_id", referencedColumnName="id", unique=true)}
-	 *      )
+	 * )
 	 */
     private $phones;
         
     /**
+     * @Assert\Valid()
      * @ORM\OneToOne(targetEntity="DriverVehicle", mappedBy="driver", cascade={"persist", "remove"})
-     **/
+     */
     private $vehicle;
     
     /**
