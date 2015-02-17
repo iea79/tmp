@@ -4,7 +4,6 @@ services:
         class: DaVinci\TaxiBundle\Controller\ContentController
         parent: "cmf_content.controller"    
     
-    
     davinci_locale.locale_listener:
         class: DaVinci\TaxiBundle\EventListener\LocaleListener
         arguments: ["%kernel.default_locale%"]
@@ -127,6 +126,6 @@ services:
         class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
         arguments:
             - Pages initializer
-            - ["/cms/profit", "/cms/about", "/cms/faq"]
+            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake"]
         tags:
             - { name: doctrine_phpcr.initializer }

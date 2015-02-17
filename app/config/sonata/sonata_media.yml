@@ -34,8 +34,18 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
+                small:     { width: 400, quality: 100}
+        
+        about:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+
+            formats:
+                abstract: { width: 150, quality: 95}
                 small:     { width: 280, quality: 100}
-                    
+                                
         news:
             providers:
                 - sonata.media.provider.dailymotion

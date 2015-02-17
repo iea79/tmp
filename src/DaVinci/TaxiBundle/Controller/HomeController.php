@@ -100,7 +100,13 @@ class HomeController extends Controller {
 
     public function aboutAction()
     {
-        return $this->render('DaVinciTaxiBundle:Home:about.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allTabs= $dm->getRepository('DaVinciTaxiBundle:AboutPage')->findAll();
+        
+        return $this->render('DaVinciTaxiBundle:Home:about.html.twig',
+                array(
+                    'all_tabs' => $allTabs,
+                ));
     }
 
     public function helpAction()

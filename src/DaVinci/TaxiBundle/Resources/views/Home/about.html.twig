@@ -5,15 +5,16 @@
 	    <h4>{{ 'About TaxiMyPrice' |trans }}</h4>
 	    	<div class="buttom-swicher">
 	            <ul class="uk-width-1-1 uk-width-large-2-3">
-	                <li class="menuitem uk-active"><a href="#passenger"  data-uk-smooth-scroll>{{ 'For passengers' |trans }}</a></li>
-	                <li class="menuitem"><a href="#driver"  data-uk-smooth-scroll>{{ 'For independent drivers' |trans }}</a></li>
-	                <li class="menuitem"><a href="#company"  data-uk-smooth-scroll>{{ 'For taxi companies\' owners' |trans }}</a></li>
+                    {% for at in all_tabs %}
+                        <li {% if loop.first %}class="uk-active" {% endif %}><a href="#{{ at.title }}">{{ at.title }}</a></li>
+                    {% endfor %}
 	            </ul>
 	        </div>
 {% endblock%}
 {% block body %}
 {# ======= About ========= #}
 <div class="whitebg shadow-main">
+    {% for at in all_tabs %}
 	<div id="passenger" class="info-block passenger">
 		<div class="text">
 		  <p>{{ 'We offer you an unique taxi service' |trans }}:</p>
@@ -176,7 +177,7 @@
 	<div id="company" class="empty">
 		<div class="info-block company">
 			<div class="text">
-			  <p>{{ 'A significant additional source of income for taxi companies\' owners' |trans }}:</p>
+			  <p>{{ 'A significant additional source of income for taxi companies\ owners' |trans }}:</p>
 			  	<ul class="mp-check">
 			  			<li>{{ 'Your drivers can make more money for you every day' |trans }}!</li>
 			  			<li>{{ 'High rating of your drivers is the key to the huge income' |trans }}!</li>
@@ -242,7 +243,10 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
+            
+    {% endfor %}
 	<div class="contact-buttons uk-grid uk-grid-small">
 		<a href="#" class="uk-button uk-button-primary">{{ 'Press' |trans }}</a>
 		<a href="#" class="uk-button uk-button-primary">{{ 'Social media' |trans }}</a>
