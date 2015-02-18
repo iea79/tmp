@@ -3,8 +3,8 @@
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 	    <h4>{{ 'About TaxiMyPrice' |trans }}</h4>
-	    	<div class="buttom-swicher">
-	            <ul class="uk-width-1-1 uk-width-large-2-3">
+	    	<div class="buttom-swicher" data-uk-sticky>
+	            <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
                     {% for at in all_tabs %}
                         <li {% if loop.first %}class="uk-active" {% endif %}><a href="#{{ at.title }}">{{ at.title }}</a></li>
                     {% endfor %}
@@ -15,238 +15,53 @@
 {# ======= About ========= #}
 <div class="whitebg shadow-main">
     {% for at in all_tabs %}
-	<div id="passenger" class="info-block passenger">
-		<div class="text">
-		  <p>{{ 'We offer you an unique taxi service' |trans }}:</p>
-		  <ul class="mp-check">
-		  	<li>{{ 'You set a price for your ride' |trans }}</li>
-		  	<li>{{ 'The drivers like your price and send you an info about them and their cars' |trans }}</li>
-		  	<li>{{ 'You choose the driver you like' |trans }}</li>
-		  	<li>{{ 'You can skype the driver if you hire him or not' |trans }}</li>
-		  	<li>{{ 'You decide how much and when and in which way to pay a tip' |trans }}</li>
-		  	<li>{{ 'Mainly, the taxi drivers are customer-oriented and friendly' |trans }}</li>
-		  	<li>{{ 'Many cars are equiped for kids, disabled people, pets etc' |trans }}... </li>
-		  </ul>
-		  <p>{{ 'Extras' |trans }}:</p>
-		  <ul class="mp-check">
-		  	<li>{{ 'Some drivers can offer you Wi-Fi, chargers for gadgets' |trans }}</li>
-		  	<li>{{ 'Smoke free vehicles' |trans }}</li>
-		  	<li>{{ 'Equipment for outsized cargo transportation' |trans }}</li>
-		  	<li>{{ 'Refreshing drinks, snacks' |trans }}</li>
-		  </ul>
-		  <p>{{ 'Some drivers have additional skills' |trans }}:</p>
-		  <ul class="mp-check">
-		  	<li>{{ 'English' |trans }}</li>
-		  	<li>{{ 'Medical Practice License' |trans }}</li>
-		  	<li>{{ 'Guides' |trans }}</li>
-		  	<li>{{ 'Body Guard License' |trans }}</li>
-		  	<li>{{ 'Veterinery Practice License' |trans }}</li>
-		  </ul>
-		</div>
-		<div class="video">
-			<div class="videoWrapper">
-				<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-			</div>
-			<button class="book-ride uk-button uk-button-success">{{ 'Book ride now' |trans }}!</button>
-		</div>
-		<div class="otziv">
-			<div class="rate-review">
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
-						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
-						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
-					<div class="uk-width-1-1">
-						<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-						<div class="uk-width-1-1 rate">
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-danger"></i></a>
-							<a><i class="mp-icon-star uk-text-warning"></i></a>
-							/ 09.01.2014
-						</div>
-						<div class="uk-width-1-1 review">
-							Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-						</div>
-					</div>
-			</div>
-		</div>
-	</div>
-	<div id="driver" class="empty">
-		<div class="info-block driver">
-			<div class="video top">
-				<div class="videoWrapper">
-					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-				</div>
-				<button class="book-ride uk-button uk-button-success">{{ 'Choose passenger now' |trans }}!</button>
-			</div>
-			<div class="text">
-			  <p>{{ 'For independent taxi drivers' |trans }}:</p>
-			  	<ul class="mp-check">
-			  			<li>{{ 'You take as many orders as you need' |trans }}</li>
-			  			<li>{{ 'Your passengers are from many countries' |trans }}</li>
-			  			<li>{{ 'You have no other boss but you' |trans }}</li>
-			  			<li>{{ 'You do not need to pay any Dispatching Service' |trans }}</li>
-			  			<li>{{ 'Feel  free making money any time for any day!' |trans }}</li>
-			  			<li>{{ 'Getting a high rating from passengers increases chances for your income!' |trans }}</li>
-			  		</ul>	
-			  <p>{{ 'A range of bonuses for your activity' |trans }}:</p>
-			  	<ul class="mp-check">
-			  			<li>{{ 'Special prices for our main and value-added services' |trans }}</li>
-			  			<li>{{ 'Free participation in Weekly California Lottery (calottery.com) and the most active taxi drivers will be awarded by American Lottery Tickets' |trans }}</li>
-			  		</ul>	
-			</div>
-			<div class="video bottom">
-				<div class="videoWrapper">
-					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-				</div>
-				<button class="book-ride uk-button uk-button-success">Choose passenger now!</button>
-			</div>
-			<div class="otziv">
-				<div class="rate-review">
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="company" class="empty">
-		<div class="info-block company">
-			<div class="text">
-			  <p>{{ 'A significant additional source of income for taxi companies\ owners' |trans }}:</p>
-			  	<ul class="mp-check">
-			  			<li>{{ 'Your drivers can make more money for you every day' |trans }}!</li>
-			  			<li>{{ 'High rating of your drivers is the key to the huge income' |trans }}!</li>
-			  			<li>{{ 'You do not need to pay us for any Dispatching Service' |trans }}</li>
-			  			<li>{{ 'You do not need to pay for any Ads' |trans }}</li>
-			  		</ul>	
-			  <p>{{ 'A variety of bonuses for taxi companies activity  - the leaders in public transport area' |trans }}:</p>
-			  	<ul class="mp-check">
-			  			<li>{{ 'Special prices for our main and value-added services' |trans }}</li>
-			  			<li>{{ 'Free participation in Weekly California Lottery (calottery.com) and the most active taxi drivers will be awarded by American Lottery Tickets' |trans }}</li>
-			  		</ul>	
-			</div>
-			<div class="video">
-				<div class="videoWrapper">
-					<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=1;showinfo=0;autoplay=0;vq=hd720"></iframe>
-				</div>
-				<button class="book-ride uk-button uk-button-success">{{ 'Pick up a lot of passenger now' |trans }}!</button>
-			</div>
-			<div class="otziv">
-				<div class="rate-review">
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-						<div class="uk-width-1-1">
-							<div class="uk-width-1-1 uk-text-primary name">Александр Иванов</div>
-							<div class="uk-width-1-1 rate">
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-danger"></i></a>
-								<a><i class="mp-icon-star uk-text-warning"></i></a>
-								/ 09.01.2014
-							</div>
-							<div class="uk-width-1-1 review">
-								Воспользовался этим сервисом в первый раз, остался очень доволен. Заказал такси заранее, что бы водитель встретил меня на жд вокзале <a href="#">more</a>
-							</div>
-						</div>
-				</div>
-			</div>
-		</div>
+    <div id="{{ at.title }}" class="empty">
+		<div class="info-block">
+            <div class="info-block passenger">
+                {% if at.textToLeft %}
+                  <div class="text">
+                      {{ at.textBlock|raw }}
+                  </div>
+                {% endif %}
+                <div class="video">
+                    <div class="videoWrapper {% if not at.textToLeft %} top {% endif %}">
+                        {% media at.youtubeLink, 'small' %}
+                    </div>
+                    {% if at.buttonText %}
+                    <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                    {% endif %}
+                </div>
+                {% if not at.textToLeft %}
+                    <div class="text">
+                      {{ at.textBlock|raw }}
+                    </div>
+                {% endif %}
 
-	</div>
-            
+                {% if at.comments.count %}
+                    <div class="otziv">
+                        <div class="rate-review">
+                            {% for c in at.comments %}
+                                <div class="uk-width-1-1">
+                                    <div class="uk-width-1-1 uk-text-primary name">{{ c.authorName }}</div>
+                                    <div class="uk-width-1-1 rate">
+                                        {% for i in 1..5 %}
+                                            <a><i class="mp-icon-star {% if i <= c.value %}uk-text-danger{% else %}uk-text-warning{% endif %}"></i></a>
+                                        {% endfor %}
+                                        / {{ c.date|localizeddate('medium', 'none', app.request.locale) }}
+                                    </div>
+                                    <div class="uk-width-1-1 review">
+                                        {{ c.message }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>  
+                {% endif %} 
+            </div>
+        </div>
+    </div>
     {% endfor %}
+
 	<div class="contact-buttons uk-grid uk-grid-small">
 		<a href="#" class="uk-button uk-button-primary">{{ 'Press' |trans }}</a>
 		<a href="#" class="uk-button uk-button-primary">{{ 'Social media' |trans }}</a>

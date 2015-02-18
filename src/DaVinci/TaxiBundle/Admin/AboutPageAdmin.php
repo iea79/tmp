@@ -64,7 +64,9 @@ class AboutPageAdmin extends Admin
             ->end()
             ->with('Media data')    
                 ->add('buttonText', 'text',array('label' => 'Button text'))
-                ->add('buttonLink', 'url',array('label' => 'Button target URL'))
+                ->add('buttonLink', 'choice',array(
+                    'choices' => $this->getConfigurationPool()->getContainer()->get('davinci.utils.url')->getPagesRoutes(),
+                    'label' => 'Button target URL'))
                 ->add('youtubeLink', 'sonata_type_model_list', array(
                         'required' => false,
                         'label' => 'Youtube link (left empty if no video)',

@@ -3,14 +3,11 @@
 namespace Application\Sonata\CommentBundle\PHPCR;
 
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
-use DaVinci\TaxiBundle\Document\ContentTrait;
 
 /**
- * @PHPCR\Document(translator="attribute", referenceable=true)
+ * @PHPCR\Document(referenceable=true)
  */
 class FakeComment  {
-
-    use \DaVinci\TaxiBundle\Document\ContentTrait;
 
     /**
      * @PHPCR\Id(strategy="auto")
@@ -18,12 +15,12 @@ class FakeComment  {
     protected $id;
     
     /**
-     * @PHPCR\String(translated=true)
+     * @PHPCR\String
      */
     protected $authorName;
 
     /**
-     * @PHPCR\String(translated=true)
+     * @PHPCR\String
      */
     protected $message;
     
@@ -37,6 +34,11 @@ class FakeComment  {
      */
     protected $value;
     
+    /**
+     * @PHPCR\ParentDocument()
+     */
+    protected $parentDocument;
+
     public static function getValueList()
     {
         return array(
@@ -46,6 +48,28 @@ class FakeComment  {
             4 => '4 stars',
             5 => '5 stars',
         );
+    }
+    
+    /**
+     * Get the parent document of this document.
+     *
+     * @return object|null
+     */
+    public function getParentDocument()
+    {
+        return $this->parentDocument;
+    }
+
+    /**
+     * Set the parent document for this document.
+     *
+     * @param object $parent
+     *
+     * @return $this
+     */
+    public function setParentDocument($parent)
+    {
+        $this->parentDocument = $parent;
     }
     
     /**

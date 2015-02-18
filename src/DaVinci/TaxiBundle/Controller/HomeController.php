@@ -88,16 +88,6 @@ class HomeController extends Controller {
                 ));
     }
 
-    public function profit_passengerAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:profit_passenger.html.twig');
-    }
-
-    public function profit_driverAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:profit_driver.html.twig');
-    }
-
     public function aboutAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();

@@ -1,5 +1,10 @@
 services:
 
+    davinci.utils.url:
+        class: DaVinci\TaxiBundle\Utils\Url
+        arguments: [@service_container]
+        
+
     davinci_content.controller:
         class: DaVinci\TaxiBundle\Controller\ContentController
         parent: "cmf_content.controller"    
