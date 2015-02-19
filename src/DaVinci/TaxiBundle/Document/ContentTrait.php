@@ -5,10 +5,6 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 
 trait ContentTrait
 {
-    /**
-     * @PHPCR\Id(strategy="repository")
-     */
-    protected $id;
     
     /**
      * The language this document currently is in
@@ -20,12 +16,6 @@ trait ContentTrait
      * @PHPCR\ParentDocument()
      */
     protected $parentDocument;
-
-    
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Get the parent document of this document.

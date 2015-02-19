@@ -62,7 +62,7 @@ class AppKernel extends Kernel
 
             // API
             new FOS\RestBundle\FOSRestBundle(),
-            #new FOS\CommentBundle\FOSCommentBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Lsw\ApiCallerBundle\LswApiCallerBundle(),
 
@@ -81,8 +81,9 @@ class AppKernel extends Kernel
             new Sonata\NotificationBundle\SonataNotificationBundle(),        
             new Sonata\TranslationBundle\SonataTranslationBundle(),
             new Application\Sonata\NotificationBundle\ApplicationSonataNotificationBundle(),
+            new Sonata\CommentBundle\SonataCommentBundle(),
+            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
             
- 
             // CMF Integration
             new Doctrine\Bundle\PHPCRBundle\DoctrinePHPCRBundle(),
             new Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
@@ -123,6 +124,8 @@ class AppKernel extends Kernel
             
             // language switcher
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
+
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -56,6 +56,10 @@ sonata_admin:
                     - sonata.media.admin.media
                     - sonata.media.admin.gallery
                     - davinci.taxi.admin.profitpage    
+                    - davinci.taxi.admin.aboutpage       
+                    
+                    #- sonata.comment.admin.comment
+                    - sonata.comment.admin.thread   
             sonata.admin.group.administration:
                 label:           sonata_administration
                 label_catalogue: SonataAdminBundle
@@ -204,3 +208,6 @@ sonata_doctrine_phpcr_admin:
         DaVinci\TaxiBundle\Document\ProfitPage:
             valid_children:
                 - DaVinci\TaxiBundle\Document\ProfitPage  
+        DaVinci\TaxiBundle\Document\AboutPage:
+            valid_children:
+                - DaVinci\TaxiBundle\Document\AboutPage      
