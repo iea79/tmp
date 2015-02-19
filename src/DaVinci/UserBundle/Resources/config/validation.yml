@@ -27,35 +27,35 @@ DaVinci\TaxiBundle\Entity\Language:
                 groups: ["flow_taxi_independent_driver_registration_step1"]
                 message: language.level.blank
     
-DaVinci\TaxiBundle\Entity\IndependentDriver:
-    properties:
-        address:
-            - Valid: ~
-        user:
-            - Valid: ~
-        vehicle:
-            - Valid: ~
-        experience:
-            - NotBlank:
-                groups: ["flow_taxi_independent_driver_registration_step1"]
-                message: independent.experience.blank
-        phones:
-            - Collection:
-                fields:
-                    phone:
-                        - NotBlank:
-                            groups: [ "flow_taxi_independent_driver_registration_step1"]
-                            message: phones.phone.blank
-                allowMissingFields: false         
-        insuranceAccepted:
-            - NotBlank: 
-                message: independent.insurance.true
-            - 'True': 
-                message: independent.insurance.true
-        about:
-            - Length:
-                max: 200
-                maxMessage: independent.about.max
+#DaVinci\TaxiBundle\Entity\IndependentDriver:
+#    properties:
+#        address:
+#            - Valid: ~
+#        user:
+#            - Valid: ~
+#        vehicle:
+#            - Valid: ~
+#        experience:
+#            - NotBlank:
+#                groups: ["flow_taxi_independent_driver_registration_step1"]
+#                message: independent.experience.blank
+#        phones:
+#            - Collection:
+#                fields:
+#                    phone:
+#                        - NotBlank:
+#                            groups: [ "flow_taxi_independent_driver_registration_step1"]
+#                            message: phones.phone.blank
+#                allowMissingFields: false         
+#        insuranceAccepted:
+#            - NotBlank: 
+#                message: independent.insurance.true
+#            - 'True': 
+#                message: independent.insurance.true
+#        about:
+#            - Length:
+#                max: 200
+#                maxMessage: independent.about.max
                     
 DaVinci\TaxiBundle\Entity\DriverVehicle:
     properties:
