@@ -7386,8 +7386,8 @@ Notifications
   width: 27%;
   height: 51px;
   font-size: 24px;
-  padding-top: 10px;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
 .notifications .add-file,.information .add-file {
   width: 100%;
@@ -8191,6 +8191,8 @@ a.textarea-toggle input {
 }
 textarea.charcount {
     margin-bottom: 2px;
+    box-sizing: border-box;
+    padding: 4px;
 }
 h6.counter,h6.precounter {
     color: #9b9b9b;  font-size: 12px;

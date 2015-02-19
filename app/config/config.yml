@@ -3,7 +3,7 @@ imports:
     - { resource: security.yml }
     
     # FriendOfSymfony Bundles
-    #- { resource: fos/fos_comment.yml }
+    - { resource: fos/fos_comment.yml }
     - { resource: fos/fos_rest.yml }
     - { resource: fos/fos_user.yml }
     #- { resource: fos/fos_elastica.yml }
@@ -85,7 +85,13 @@ twig:
            # - 'ApplicationSonataMediaBundle:Form:media_widgets.html.twig'
 
     exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
-    
+
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+                
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"

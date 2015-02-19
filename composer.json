@@ -88,6 +88,7 @@
         "liip/imagine-bundle": "1.0.*@dev",
         "burgov/key-value-form-bundle": "~1.0",
         "ircmaxell/password-compat": "~1.0"
+        "stof/doctrine-extensions-bundle": "1.2.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",

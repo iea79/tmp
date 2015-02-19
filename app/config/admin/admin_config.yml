@@ -11,7 +11,7 @@ services:
     davinci.taxi.admin.profitpage:
         class: DaVinci\TaxiBundle\Admin\ProfitPageAdmin
         tags:
-            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Add profit tab" }
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Profit page tabs" }
         arguments:
             - ''
             - DaVinci\TaxiBundle\Document\ProfitPage
@@ -19,3 +19,15 @@ services:
         calls:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/profit']]     
+            
+    davinci.taxi.admin.aboutpage:
+        class: DaVinci\TaxiBundle\Admin\AboutPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "About page tabs" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\AboutPage
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/about']]     

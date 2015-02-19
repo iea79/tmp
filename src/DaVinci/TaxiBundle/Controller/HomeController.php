@@ -88,19 +88,15 @@ class HomeController extends Controller {
                 ));
     }
 
-    public function profit_passengerAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:profit_passenger.html.twig');
-    }
-
-    public function profit_driverAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Home:profit_driver.html.twig');
-    }
-
     public function aboutAction()
     {
-        return $this->render('DaVinciTaxiBundle:Home:about.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allTabs= $dm->getRepository('DaVinciTaxiBundle:AboutPage')->findAll();
+        
+        return $this->render('DaVinciTaxiBundle:Home:about.html.twig',
+                array(
+                    'all_tabs' => $allTabs,
+                ));
     }
 
     public function helpAction()

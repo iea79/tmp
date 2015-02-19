@@ -1,5 +1,5 @@
 require(["jquery"], function($){
-    $('body').on('click', ".addphone", function () {
+    $('body').on('click', "#addphone", function () {
 
         $('.addphone').addClass('display_none'); //don't if want more phones
         // get the new index

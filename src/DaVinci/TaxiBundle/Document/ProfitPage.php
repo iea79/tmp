@@ -14,6 +14,11 @@ class ProfitPage implements TranslatableInterface
     use ContentTrait;
 
     /**
+     * @PHPCR\Id(strategy="repository")
+     */
+    protected $id;
+    
+    /**
      * @PHPCR\String(translated=true)
      */
     protected $title;
@@ -44,6 +49,10 @@ class ProfitPage implements TranslatableInterface
     */
     protected $youtubeLink;  
     
+    function getId() {
+        return $this->id;
+    }
+
     public function getBlock1() {
         return $this->block1;
     }
