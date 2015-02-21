@@ -4790,14 +4790,13 @@ footer {
 }
  .register .mp-icon-closed {
  	display: inline-block;
- 	float: left;
- 	margin-top: 4px;
+ 	margin-top: 3px;
  	color: #ff4d61;
  	cursor: pointer;
-	margin-left: 3px;
-	margin-bottom: 12px;
-	font-size: 14px;
-	line-height: 28px;
+	margin-left: 4px;
+	margin-bottom: 13px;
+	font-size: 13px;
+	line-height: 24px;
  }
  .uk-tooltip {
     background      : #ffffff; 
@@ -5407,16 +5406,15 @@ body.register .main-content{
     display: table;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
-.register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;display: inline-block;vertical-align: baseline;margin-bottom: -1px;;;;}
-.register .uk-form-horizontal .uk-form-label.pinktext {color: #ff4d61;}
+.register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;display: inline-block;vertical-align: baseline;margin-bottom: -1px;}
+.register .uk-form-horizontal .pinktext {color: #ff4d61;padding-top: 5px;}
 .register .uk-form-horizontal .uk-width-4-5 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
 .register .uk-form-horizontal .uk-width-4-8 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
-.register .uk-form-horizontal .uk-width-1-1 {
-  width: 95%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {

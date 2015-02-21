@@ -38,7 +38,8 @@
                             </div>
                             <!-- End Line first name -->
 
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</label>
                                 <div class="uk-form-controls">
                                     <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.address.country,
@@ -48,9 +49,10 @@
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Region/State, City'|trans}}" data-cached-title="{{ 'Region/State, City'|trans}}"></div>
                                 {{ form_errors(form.address.country) }}
                                 </div>
-                            </label>   
+                            </div>   
 
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</span>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label uk-width-2-5 text">{{ 'form.company_city'|trans }}:</label>
                                 <div class="uk-form-controls">
                                     <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.address.countrycity,
@@ -59,8 +61,9 @@
                                     </div>
                                 {{ form_errors(form.address.countrycity) }}
                                 </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
+                            </div>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</label>
                                 <div class="uk-form-controls">
                                     <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.language.level,
@@ -69,10 +72,11 @@
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Choose the level'|trans}}:" data-cached-title="{{ 'Choose the level'|trans}}:"></div>
                                 {{ form_errors(form.language.level) }}
                                 </div>
-                            </label>
+                            </div>
                             <input hidden id="language_prototype" value = "{{ form_widget(form.language.languages.vars.prototype,
                             {'attr':{'class': 'uk-width-1-1 float_left'}})|e }}<div class='mp-icon-closed lang-close'></div>">
-                            <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
+                            <div class="addlangline  uk-form-row">
+                                <label class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</label>
                                 <div class="uk-form-controls">							
                                     {% for lang in form.language.languages %}
                                         {{ form_widget(lang,
@@ -85,8 +89,9 @@
 
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Mark additional language'|trans}}" data-cached-title="{{ 'Mark additional language'|trans}}"></div>
                                 </div>
-                            </label>
-                            <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
+                            </div>
+                            <div class="uk-form-row">
+                                <label class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</label>
                                 <div class="uk-form-controls">
                                     <div class="uk-width-1-1 float_left" data-uk-observe="">
                                         {{ form_widget(form.experience, {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select how many years Drivers Licence',  'data-errormessage': 'Please select how many years Drivers Licence','tabindex':'5'}}) }}
@@ -94,7 +99,7 @@
 
                                     <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Select an option'|trans}}" data-cached-title="{{ 'Select an option'|trans}}"></div>
                                 </div>
-                            </label>
+                            </div>
                             <!-- Begin Line skype -->
                             <div class="uk-form-row">
                                 <label class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</label>
@@ -135,29 +140,34 @@
                             {% elseif flow.getCurrentStepNumber() == 2 %}
 
                                 {{ form_errors(form) }}
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'Independent driver'|trans}}:</span>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'Independent driver'|trans}}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}</div>
                                     </div>
-                                </label>
+                                </div>
 
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</span>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.country'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.country }}</div>
                                     </div>
-                                </label>
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</span>
+                                </div>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.city'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.address.countrycity.city }}</div>
                                     </div>
-                                </label>
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</span>
+                                </div>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.english'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.user.language.levelNamed }}</div>
                                     </div>
-                                </label>
+                                </div>
 
-                                <label class="addlangline  uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</span>
+                                <div class="addlangline  uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">
                                             {% for lang in flow.formData.user.language.languagesNamed %} 
@@ -165,19 +175,22 @@
                                             {% endfor %}
                                         </div>
                                     </div>
-                                </label>
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</span>
+                                </div>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.experienceNamed }}</div>
                                     </div>
-                                </label>
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</span>
+                                </div>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.user.skype }}</div>
                                     </div>
-                                </label>
+                                </div>
 
-                                <label class="uk-form-row"><span class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</span>
+                                <div class="uk-form-row">
+                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left"> 
                                             {% for phones in flow.formData.phones %} 
@@ -185,7 +198,7 @@
                                             {% endfor %}
                                         </div>
                                     </div>
-                                </label>
+                                </div>
                                 <div class="uk-button-group uk-width-4-8">
                                     <button type='submit' class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans}}</button>
                                     <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate"> {{ 'Edit'|trans}}</button>

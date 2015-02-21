@@ -1,3 +1,4 @@
+{% extends 'DaVinciTaxiBundle:Email:letters.html.twig' %}
 {% trans_default_domain 'FOSUserBundle' %}
 {% block subject %}
 {% autoescape false %}
@@ -9,6 +10,6 @@
 {{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
 {% endautoescape %}
 {% endblock %}
-{% block body_html %}
-	{% include 'DaVinciTaxiBundle:Email:letters.html.twig' %}
+<!-- {% block body_html %}
 {% endblock %}
+ -->
