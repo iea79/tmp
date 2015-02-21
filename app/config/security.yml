@@ -39,6 +39,7 @@ security:
             logout:
                 path:           /admin/logout
             anonymous:          true
+            context: user
 
         # -> end custom configuration
 
@@ -57,7 +58,8 @@ security:
              #   default_target_path:            /
             logout: true
             anonymous:  true
-            
+            context: user
+                
             # Sonata User Impersonating
             switch_user: true
         
