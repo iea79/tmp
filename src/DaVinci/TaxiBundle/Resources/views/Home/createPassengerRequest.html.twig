@@ -48,6 +48,9 @@
                     <span class="back"></span>
                 </li>
             </ul>
+            {% if newRequestId != false %}
+            	<div>{{ 'New order is'|trans }}: <a href="{{ path('passenger_request_payment', {'id': newRequestId}) }}">{{ newRequestId }}</a></div>
+            {% endif %}
             <div id="steps" class="uk-switcher">
             	<form novalidate action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
             		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />

@@ -14,6 +14,17 @@ services:
         arguments: ["%kernel.default_locale%"]
         tags:
             - { name: kernel.event_subscriber }
+    
+    da_vinci_taxi.service.passenger_request_service:
+        class: DaVinci\TaxiBundle\Entity\PassengerRequestService
+    
+    da_vinci_taxi.repository.passenger_request_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.default_entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\PassengerRequest
+                        
 #menu---------------------------------------------------------------------------
     taxi.menu_builder:
         class: DaVinci\TaxiBundle\Menu\Breadcrumbs

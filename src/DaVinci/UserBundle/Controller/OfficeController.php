@@ -86,7 +86,10 @@ class OfficeController extends Controller
             return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
         }
         
-        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger.html.twig');
+        return $this->container->get('templating')->renderResponse(
+        	'DaVinciUserBundle:Offices:office_passenger.html.twig',
+        	array('newRequestId' => $this->getRequest()->getSession()->get('request_id'))	
+        );
     }
 
     // ->this doesnt work yet....
