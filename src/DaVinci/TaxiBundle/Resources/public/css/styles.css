@@ -1846,8 +1846,6 @@ office passengers and driver
 }
 .client-account .client-panel-list .clientid dt,
 .client-account .client-panel-list .clientid dd {
-	display: table-cell;
-
     font-size: 14px;
 	margin-bottom: 0;
 	margin-left: 5px;
@@ -3447,6 +3445,9 @@ div.pop-up.uk-grid.uk-grid-small {
 	width: 76%;
 	font-size: 14px;
 	line-height: 1.8em;
+}
+.pop-up.route dt.myid,.pop-up.route dd.myid {
+	margin-bottom: 15px;
 }
 @media (max-width:610px) {
 	.pop-up.route dt,
