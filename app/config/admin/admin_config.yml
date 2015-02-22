@@ -31,3 +31,15 @@ services:
         calls:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/about']]     
+            
+    davinci.taxi.admin.faqentry:
+        class: DaVinci\TaxiBundle\Admin\FaqEntryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "FAQs" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\FaqEntry
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/faq']]     
