@@ -1,56 +1,12 @@
 <div class="message"><a class="mp-icon-trash"></a><span>Внимание! </span>Информационная строка</div>
    	<div class="buttom-swicher support">
         <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#support'}">
-            <li class="uk-active"><a href="#">{{ 'New' |trans }}</a></li>
             <li><a href="#">{{ 'Open' |trans }}</a></li>
             <li><a href="#">{{ 'History' |trans }}</a></li>
         </ul>
     </div>
 	<ul id="support" class="uk-switcher">
-		<li class="uk-active new">
-			<div class="block-help">
-				<h3>{{ 'New message' |trans }}</h3>
-				<p>{{ 'Please indicate the topic of your question!' |trans }}</p>
-					<dl class="first">
-						<dt>Select the person:</dt>
-						<dd>
-						    <select>
-						        <option value="">passenger</option>
-						        <option value="">driver</option>
-						    </select>
-						</dd>
-						<dt>Select a theme question:</dt>
-						<dd>
-						    <select>
-						        <option value="">passenger</option>
-						        <option value="">driver</option>
-						    </select>
-						</dd>
-						<dt>Select refinement question:</dt>
-						<dd>
-						    <select>
-						        <option value="">passenger</option>
-						        <option value="">driver</option>
-						    </select>
-						</dd>
-					</dl>
-					<dl class="fullsize">
-						<dt>Subject question:</dt>
-						<dd><input type="text" placeholder="не указано"></dd>
-						<dt>Body:</dt>
-						<dd>
-							<textarea class="charcount" cols="30" rows="10" maxlength="200"></textarea>
-							<h6 class="precounter">symbols left:</h6>
-						</dd>
-					</dl>
-					<div class="uk-form-file">
-	                    <button class="uk-button uk-button-primary add-file"><i class="mp-icon-clip"></i>Прикрепить файл</button>
-	                    <input type="file">
-	                </div><br>
-					<a href="" class="uk-button uk-button-success send">Send message</a>
-				</div>
-		</li>
-		<li class="open">
+		<li class="open uk-active">
 			<table class="uk-table support">
 				<thead>
 					<tr>

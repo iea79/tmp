@@ -57,7 +57,7 @@ sonata_admin:
                     - sonata.media.admin.gallery
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
-                    
+                    - davinci.taxi.admin.faqentry   
                     #- sonata.comment.admin.comment
                     - sonata.comment.admin.thread   
             sonata.admin.group.administration:
@@ -87,7 +87,7 @@ sonata_admin:
                     - cmf_block.reference_admin
                     - cmf_block.action_admin
                     - cmf_block.imagine.slideshow_admin
-                    - cmf_block.imagine.imagine_admin    
+                    - cmf_block.imagine.imagine_admin     
     assets:
         stylesheets:
             # Defaults:
@@ -103,7 +103,7 @@ sonata_admin:
             - bundles/sonataadmin/css/styles.css
             - bundles/sonataadmin/css/layout.css
             - bundles/sonataadmin/css/tree.css
-
+            - bundles/sonatatranslation/css/sonata-translation.css 
             - bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css    
 
         javascripts:
@@ -124,58 +124,9 @@ sonata_admin:
             - bundles/sonataadmin/treeview.js  
             - bundles/davincitaxi/js/intl-tel-input-master/js/intlTelInput.js  
 
+            - bundles/ivoryckeditor/ckeditor.js
+            - bundles/a2lixtranslationform/js/a2lix_translation_bootstrap.js
             - bundles/davincitaxi/js/admin/custom.js      
-#    assets:
-#        stylesheets:
-            # The sandbox includes default pre-optimized version of some css and js
-            # So you can either use them, and add your custom assets here
-            #   ~ or ~
-            # tweak the assetic.yml and the following lines
-
-#            - bundles/sonataformatter/markitup/skins/sonata/style.css
-#            - bundles/sonataformatter/markitup/sets/markdown/style.css
-#            - bundles/sonataformatter/markitup/sets/html/style.css
-#
-#            - bundles/sonataadmin/vendor/bootstrap/dist/css/bootstrap.min.css
-#            - bundles/sonataadmin/vendor/AdminLTE/css/font-awesome.min.css
-#            - bundles/sonataadmin/vendor/AdminLTE/css/ionicons.min.css
-#            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css    
-#            - bundles/sonataadmin/vendor/AdminLTE/css/AdminLTE.css
-#            - bundles/sonataadmin/vendor/jqueryui/themes/flick/jquery-ui.min.css
-#            - bundles/sonataadmin/vendor/select2/select2.css
-#            - bundles/sonataadmin/vendor/select2/select2-bootstrap.css
-#            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap-editable/css/bootstrap-editable.css
-#            - bundles/sonataadmin/css/styles.css
-#            - bundles/sonataadmin/css/layout.css
-#            - bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css    
-#            - bundles/sonatatranslation/css/sonata-translation.css 
-#
-#        javascripts:
-#            - bundles/sonataadmin/vendor/jquery/dist/jquery.min.js
-#            - bundles/sonataadmin/vendor/jquery.scrollTo/jquery.scrollTo.min.js
-#            - bundles/sonatacore/vendor/moment/min/moment.min.js    
-#            - bundles/sonataadmin/vendor/bootstrap/dist/js/bootstrap.min.js    
-#            - bundles/sonataformatter/vendor/ckeditor/ckeditor.js
-#            - bundles/sonatacore/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js    
-#            - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.min.js
-#            - bundles/sonataadmin/vendor/jqueryui/ui/minified/jquery-ui.min.js
-#            - bundles/sonataadmin/vendor/jqueryui/ui/minified/i18n/jquery-ui-i18n.min.js    
-#            - bundles/sonataadmin/jquery/jquery.form.js    
-#            - bundles/sonataadmin/jquery/jquery.confirmExit.js    
-#            - bundles/sonataadmin/vendor/select2/select2.min.js
-#            - bundles/sonataadmin/App.js
-#            - bundles/sonataadmin/Admin.js
-#
-#            - bundles/ivoryckeditor/ckeditor.js
-#            - bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js
-#            - bundles/sonataformatter/markitup/sets/markdown/set.js
-#            - bundles/sonataformatter/markitup/sets/html/set.js
-#            - bundles/sonataformatter/markitup/sets/textile/set.js
-#            - bundles/a2lixtranslationform/js/a2lix_translation_bootstrap.js
-#            - bundles/davincitaxi/js/intl-tel-input-master/js/intlTelInput.js  
-#            
-#            - bundles/davincitaxi/js/admin/custom.js  
-            
 
     extensions:
             cmf_core.admin_extension.child:

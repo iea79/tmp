@@ -2,7 +2,7 @@
 {% block theme 'office-driver' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-{% endblock%}
+{% endblock %}
 {% block body %}
 {# ========= Account start ============= #}
 <div class="client-account">
@@ -30,26 +30,26 @@
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">  {{ app.user.id }} </dd><br />
-							<dt>{{' Name:'|trans}}</dt><dd class="data">  {% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} </dd><br />
-							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a></dd>
+							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">  {{ app.user.id }} </dd>
+							<dt>{{' Name:'|trans}}</dt><dd class="data">  {% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} </dd>
+							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a>
 						</dl>
 					</div>
 				</div>
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd><br />
-							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd><br />
-							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd><br />
+							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd>
+							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd>
+							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd>
 						</dl>
 					</div>
 				</div>
 				<div class="uk-panel">
 					<div class="clientid">
 						<dl>
-							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd><br />
-							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd><br />
+							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd>
+							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd>
 							<dt><a href=""> {{'Extend'|trans}}</a></dt>
 						</dl>
 					</div>
@@ -86,22 +86,22 @@
                             <div class="whitebg openorder">
                                     <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
                                     <table class="uk-table responsive allorder">
+                                                <thead>
+                                                        <tr>
+                                                                <th>#</th>
+																<th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
+																	<div class="questiontooltip">?</div>
+																<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Left time'|trans}}
+																	<div class="questiontooltip">?</div>
+																<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
+																	<div class="questiontooltip">?</div>
+																<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
+																	<div class="questiontooltip">?</div>
+																<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
+																	<div class="questiontooltip">?</div>
+                                                        </tr>
+                                                </thead>
                                                 <tbody>
-                                                    <thead>
-                                                            <tr>
-                                                                    <th>#</th>
-																	<th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
-																		<div class="questiontooltip">?</div>
-																	<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Left time'|trans}}
-																		<div class="questiontooltip">?</div>
-																	<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
-																		<div class="questiontooltip">?</div>
-																	<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
-																		<div class="questiontooltip">?</div>
-																	<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
-																		<div class="questiontooltip">?</div>
-                                                            </tr>
-                                                    </thead>
                                                     <tr>
                                                             <td>1</td><td class="timesent">0223240234</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
                                                             	<td>
@@ -396,25 +396,23 @@
                                           <h5>{{ 'USA: Даллас'|trans }} - {{ 'USA: Оклахома-сити'|trans }}</h5>
 											<div class="utooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Enter Name of organization{% endtrans %}"></div>
                                             <dl class="uk-width-1-1">
-	                                                    <div class="uk-margin">
 		                                                    <dt class="myid">{{ 'Order ID:'|trans }}</dt><dd class="myid">211212121221</dd>
-	                                                    </div><br />
-                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> {{ 'From:'|trans }}</span></dt><dd class="big">{{ 'Russia'|trans }}, {{ 'Moscow'|trans }}, {{ 'Lenina street'|trans }}, {{ 'building'|trans }} # 12</dd><br />
-                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> {{ 'To:'|trans }}</span></dt><dd class="big">{{ 'Ukraine'|trans }}, {{ 'Lvov'|trans }}, {{ 'Knazevskaja street'|trans }}, {{ 'building'|trans }} # 173</dd><br />
-                                                    <dt>{{ 'Pickup:'|trans }}</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd><br />
-                                                    <dt>{{ 'Return:'|trans }}</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd><br />
-                                                    <dt>{{ 'Passengers:'|trans }}</dt><dd>{{ 'Adults'|trans }}(2), {{ 'Kids'|trans }}(1), {{ 'Seniors'|trans }}(0)</dd><br />
-                                                    <dt>{{ 'Vehicle class:'|trans }}</dt><dd>{{ 'Economy'|trans }}</dd><br />
-                                                    <dt>{{ 'Language:'|trans }}</dt><dd>{{ 'Russian'|trans }}</dd><br />
-                                                    <dt>{{ 'Car special requests:'|trans }}</dt><dd>{{ 'Child seat'|trans }} (0 - 12 {{ 'months'|trans }}), wi-fi {{ 'connection'|trans }}</dd><br />
-                                                    <dt class="fullsize">{{ 'Special requirement of passenger:'|trans }} </dt><br>
+                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> {{ 'From:'|trans }}</span></dt><dd class="big">{{ 'Russia'|trans }}, {{ 'Moscow'|trans }}, {{ 'Lenina street'|trans }}, {{ 'building'|trans }} # 12</dd>
+                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> {{ 'To:'|trans }}</span></dt><dd class="big">{{ 'Ukraine'|trans }}, {{ 'Lvov'|trans }}, {{ 'Knazevskaja street'|trans }}, {{ 'building'|trans }} # 173</dd>
+                                                    <dt>{{ 'Pickup:'|trans }}</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd>
+                                                    <dt>{{ 'Return:'|trans }}</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd>
+                                                    <dt>{{ 'Passengers:'|trans }}</dt><dd>{{ 'Adults'|trans }}(2), {{ 'Kids'|trans }}(1), {{ 'Seniors'|trans }}(0)</dd>
+                                                    <dt>{{ 'Vehicle class:'|trans }}</dt><dd>{{ 'Economy'|trans }}</dd>
+                                                    <dt>{{ 'Language:'|trans }}</dt><dd>{{ 'Russian'|trans }}</dd>
+                                                    <dt>{{ 'Car special requests:'|trans }}</dt><dd>{{ 'Child seat'|trans }} (0 - 12 {{ 'months'|trans }}), wi-fi {{ 'connection'|trans }}</dd>
+                                                    <dt class="fullsize">{{ 'Special requirement of passenger:'|trans }} </dt>
                                                     <dd class="fullsize">{{ 'To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
 							                            72 hours prior to departure. A medical clearance is only valid for the flight(s) and date(s) specified in
 							                            the MEDIF. Granted medical clearance is only valid in normal circumstances. If a serious deterioration of
 							                            the medical condition took place in between the time of medical clearance and the actual flight, a new
-							                            clearance must be requested.'|trans }}</dd><br />
-                                                    <dt>{{ "Passenger\'s price:"|trans }}</dt><dd>$260</dd><br />
-                                                    <dt>{{ 'Tips:'|trans }}</dt><dd>$10</dd><br />
+							                            clearance must be requested.'|trans }}</dd>
+                                                    <dt>{{ "Passenger\'s price:"|trans }}</dt><dd>$260</dd>
+                                                    <dt>{{ 'Tips:'|trans }}</dt><dd>$10</dd>
                                             </dl>
                                     </div>
                                 <img class="uk-width-1-1 uk-margin-top" src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">

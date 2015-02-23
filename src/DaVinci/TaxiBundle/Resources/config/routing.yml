@@ -62,3 +62,6 @@ sale_page:
 letter_confirm:
     pattern:  /letter-confirm
     defaults: { _controller: DaVinciTaxiBundle:Home:letter_confirm }    
+new_ticket:
+    pattern:  /new-ticket
+    defaults: { _controller: DaVinciTaxiBundle:Home:new_ticket }    

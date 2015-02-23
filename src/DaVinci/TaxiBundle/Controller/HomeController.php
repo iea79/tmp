@@ -138,12 +138,23 @@ class HomeController extends Controller {
 
     public function FAQsAction()
     {
-        return $this->render('DaVinciTaxiBundle:Home:FAQs.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allFaqs= $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(array('published' => true));
+            
+        return $this->render('DaVinciTaxiBundle:Home:FAQs.html.twig',
+                array(
+                    'faqs' => $allFaqs,
+                ));
     }
 
     public function notificationsAction()
     {
         return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
+    }
+
+    public function new_ticketAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Notifications:new_ticket.html.twig');
     }
 
     public function informationAction()
