@@ -80,22 +80,23 @@ class OfficeController extends Controller
     
     
     /**
-    * @Route("/office-passenger", name="office_passenger")
-    * @Security("has_role('ROLE_USER')")
-    */
+     * @Route("/office-passenger", name="office_passenger")
+     * @Security("has_role('ROLE_USER')")
+     */
     public function office_passengerAction(Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (null === $user) {
-            return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
-        }
-        
+    	$user = $this->container->get('security.context')->getToken()->getUser();
+    	if (is_null($user)) {
+    		return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
+    	}
+    	        
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_passenger.html.twig',
         	array(
         		'newRequestId' => $this->getRequest()->getSession()->get('request_id'),
-        		'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByState(
-					$user->getId(), PassengerRequest::STATE_OPEN        	
+        		'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
+					$user->getId(), 
+        			array(PassengerRequest::STATE_BEFORE_OPEN, PassengerRequest::STATE_OPEN)        	
         		)	
         	)	
         );

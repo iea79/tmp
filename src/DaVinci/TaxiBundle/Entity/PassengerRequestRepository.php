@@ -91,4 +91,32 @@ class PassengerRequestRepository extends EntityRepository
 		return $query->getResult();
 	}
 	
+	public function getAllUserRequestsByStates($userId, array $states)
+	{
+		$bindValues = array();
+		foreach ($states as $key => $value) {
+			$bindValues[':stateValue' . $key] = $value;
+		}
+		$keys = implode(', ', array_keys($bindValues));
+		
+		$query = $this->_em->createQuery("
+			SELECT
+				req
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			JOIN
+				DaVinci\TaxiBundle\Entity\RoutePoint point
+			WHERE
+				req.user = :userId AND req.stateValue IN ({$keys})
+			ORDER BY
+				req.id DESC
+		");
+		$query->setParameters(array_merge(
+			array('userId' => $userId),
+			$bindValues	
+		));
+	
+		return $query->getResult();
+	}
+	
 }

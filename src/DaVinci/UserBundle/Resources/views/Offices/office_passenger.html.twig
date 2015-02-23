@@ -150,8 +150,11 @@
 																<div class="uk-float-left route">
 																	<a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a>
 																</div>
-																<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list1'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																<div class="uk-panel uk-panel-box uk-hidden" id="driver-list1">
+																{% if request.stateValue == 'before-open' %}
+																	<button onclick="location.href='{{ path('passenger_request_payment', {'id': newRequestId}) }}'" class="uk-button driverlist"><b>{{ 'Pay'|trans }}</b><span></span></button>
+																{% else %}
+																	<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																	<div class="uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																		<div class="driver-over">
 																				<div class="driver-top">
 																						<div class="profile">
@@ -232,7 +235,8 @@
 																				</div>
 																		</div>
 																		<div class="clr"></div>
-																</div>
+																	</div>
+																{% endif %}	
 															</td>
 														</tr>		
 													{% endfor %}

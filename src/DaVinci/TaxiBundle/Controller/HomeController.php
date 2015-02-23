@@ -71,6 +71,7 @@ class HomeController extends Controller {
     
     /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
+     * @Security("has_role('ROLE_USER')")
      */
     public function paymentAction() {
     	return $this->render("DaVinciTaxiBundle:Store:payment_page_1.html.twig");
