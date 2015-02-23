@@ -14,6 +14,7 @@ use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
+use Entity;
 
 class HomeController extends Controller {
 	
@@ -51,7 +52,7 @@ class HomeController extends Controller {
     		}
     	}
     	
-    	$data = array(	
+    	$data = array(
 	    	'form' => $form->createView(),
 	    	'flow' => $flow,
     		'newRequestId' => $this->getRequest()->getSession()->get('request_id')
@@ -184,7 +185,8 @@ class HomeController extends Controller {
      */
     private function saveRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
     {
-    	$this->container->get('da_vinci_taxi.repository.passenger_request_repository')->saveRequest($request);
+    	$em = $this->container->get('doctrine')->getManager();
+    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveRequest($request);
     }
     
     private function getMarketPrice()
