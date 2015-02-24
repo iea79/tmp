@@ -9,21 +9,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
-use DaVinci\TaxiBundle\Entity\RoutePoint;
-use DaVinci\TaxiBundle\Entity\Tariff;
-use DaVinci\TaxiBundle\Entity\Vehicle;
-use DaVinci\TaxiBundle\Entity\VehicleOptions;
-use DaVinci\TaxiBundle\Entity\VehicleChildSeat;
-use DaVinci\TaxiBundle\Entity\VehiclePetCage;
-use DaVinci\TaxiBundle\Entity\PassengerDetail;
+use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
+use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
+use Entity;
 
 class HomeController extends Controller {
 	
 	const DEFAULT_PRICE = 100.0;
 	const DEFAULT_TIPS = 10.0;
-		
+	
 	/**
 	 * @Route("/", name="da_vinci_taxi_homepage")
 	 */
@@ -43,17 +40,25 @@ class HomeController extends Controller {
     			$this->saveRequest($passengerRequest);
     			$flow->reset();
     			
-    			return new RedirectResponse(
-    				$this->container->get('router')->generate('passenger_request_generated')
-    			);
+    			$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
+    			    			    			
+    			$url = ($this->container->get('security.context')->isGranted('ROLE_USER'))
+    				? $this->generateUrl('passenger_request_payment', array(
+	    				'id' => $passengerRequest->getId()
+	    			))
+    				: $this->generateUrl('fos_user_security_login');
+    			
+    			return $this->redirect($url);
     		}
     	}
     	
-    	$data = array(	
+    	$data = array(
 	    	'form' => $form->createView(),
-	    	'flow' => $flow		
+	    	'flow' => $flow,
+    		'newRequestId' => $this->getRequest()->getSession()->get('request_id')
     	);
-    	if ($flow->getCurrentStepNumber() == 3) {
+    	
+    	if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
     		$data['marketPrice'] = $this->getMarketPrice();
     		$data['marketTips'] = $this->getMarketTips();
     	}
@@ -62,6 +67,14 @@ class HomeController extends Controller {
     		'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     		$data		
     	);
+    }
+    
+    /**
+     * @Route("/payment/request_id/{id}", name="passenger_request_payment")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function paymentAction() {
+    	return $this->render("DaVinciTaxiBundle:Store:payment_page_1.html.twig");
     }
     
     /**
@@ -126,7 +139,13 @@ class HomeController extends Controller {
 
     public function FAQsAction()
     {
-        return $this->render('DaVinciTaxiBundle:Home:FAQs.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allFaqs= $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(array('published' => true));
+            
+        return $this->render('DaVinciTaxiBundle:Home:FAQs.html.twig',
+                array(
+                    'faqs' => $allFaqs,
+                ));
     }
 
     public function notificationsAction()
@@ -167,31 +186,9 @@ class HomeController extends Controller {
     /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
      */
-    private function spawnPassengerRequest() {
-    	$request = new PassengerRequest();
-    
-    	$actualTime = new \DateTime();
-    	
-    	$vehicleOptions = new VehicleOptions();
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addChildSeat(new VehicleChildSeat());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    	$vehicleOptions->addPetCage(new VehiclePetCage());
-    
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->addRoutePoint(new RoutePoint());
-    	$request->setCreateDate($actualTime);
-    	$request->setPickUp($actualTime);
-    	$request->setReturn($actualTime);
-    	$request->setVehicle(new Vehicle());
-    	$request->setVehicleOptions($vehicleOptions);
-    	$request->setTariff(new Tariff());
-    	$request->setPassengerDetail(new PassengerDetail());
-    	$request->setStateValue(PassengerRequest::STATE_BEFORE_OPEN);
-    	 
-    	return $request;
+    private function spawnPassengerRequest() 
+    {
+    	return $this->container->get('da_vinci_taxi.service.passenger_request_service')->spawnRequest();
     }
     
     /**
@@ -201,54 +198,7 @@ class HomeController extends Controller {
     private function saveRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
     {
     	$em = $this->container->get('doctrine')->getManager();
-    	$em->persist($request);
-    	
-    	$vehicleOptions = $request->getVehicleOptions();
-    	$vehicleOptions->setPassengerRequest($request);
-    	$em->persist($vehicleOptions);
-    	foreach ($vehicleOptions->getChildSeats() as $seat) {
-    		if ($seat->getChildSeatNumber() <= 0) {
-    			continue;
-    		}
-    		
-    		$seat->setVehicleOptions($vehicleOptions);
-    		$em->persist($seat);
-    	}
-    	foreach ($vehicleOptions->getPetCages() as $cage) {
-    		if ($cage->getPetCageNumber() <= 0) {
-    			continue;
-    		}
-    		
-    		$cage->setVehicleOptions($vehicleOptions);
-    		$em->persist($cage);
-    	}
-    	    	    	    	
-    	foreach ($request->getRoutePoints() as $routePoint) {
-    		$routePoint->setPassengerRequest($request);
-    		$em->persist($routePoint);
-    	}
-
-    	$vehicle = $request->getVehicle();
-    	$vehicle->setPassengerRequest($request);
-    	$em->persist($vehicle);
-    	
-    	$tariff = $request->getTariff();
-    	$tariff->setPassengerRequest($request);
-    	$em->persist($tariff);
-    	
-    	$passengerDetail = $request->getPassengerDetail();
-    	$passengerDetail->setPassengerRequest($request);
-    	$em->persist($passengerDetail);
-    	
-    	$vehicleServices = $request->getVehicleServices();
-    	$vehicleServices->setPassengerRequest($request);
-    	$em->persist($vehicleServices);
-    	
-    	$vehicleDriverConditions = $request->getVehicleDriverConditions();
-    	$vehicleDriverConditions->setPassengerRequest($request);
-    	$em->persist($vehicleDriverConditions);
-    	
-    	$em->flush();
+    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveRequest($request);
     }
     
     private function getMarketPrice()

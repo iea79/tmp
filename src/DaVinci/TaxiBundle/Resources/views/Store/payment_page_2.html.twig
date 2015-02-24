@@ -1,0 +1,146 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# Price block #}
+	<div class="price">
+		<p>{{'Subtotal:'|trans}} <span>$5.00</span></p>
+		<p>{{'Commission services:'|trans}} <span>$0.10</span></p>
+		<p>0%VAT: <span>$0.00</span></p>
+		<h2>{{'Total cost:'|trans}} <span>$5.10</span></h2>
+	</div>
+{# Payment block #}						
+	<div class="payment home">
+		<div class="payment-swicher steps-1-2-3">
+			<ul class="chois" data-uk-tab="{connect:'#sale_steps'}">
+	            <li class="first uk-active">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}} </span>{{'method'|trans}}</span>
+	                    </div>
+	                    <span class="arrow"></span>
+	                    <span class="middle"></span>
+	                </a>
+	            </li>
+	            <li class="last">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}}  </span>info</span>
+	                    </div>
+	                    <span class="arrow"> </span>
+	                    <span class="middle"> </span>
+	                </a>
+	                <span class="back"></span>
+	            </li>
+			</ul>
+		</div>
+	
+		<div id="sale_steps" class="uk-switcher ">
+			{# Payment step 2 #}
+			<div>
+				<div class="addcard">
+		            <h3>{{'Пополнение счета с помощью'|trans}} VISA</h3>
+		            <form action="" class="uk-form uk-form-horizontal">
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Card number:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Persona:'|trans}}</label>
+		                    <div class="uk-form-controls">
+	                            <select name="" id="">
+	                                <option value="">Юридическое лицо</option>
+	                                <option value=""></option>
+	                                <option value=""></option>
+	                            </select>
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Company name:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'First name:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Last name:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Card number:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row month">
+		                    <label class="uk-form-label" for="">{{'Month:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                            <select name="" id="">
+		                                <option value="">Не выбрано</option>
+		                                <option value=""></option>
+		                                <option value=""></option>
+		                            </select>
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row year">
+		                    <label class="uk-form-label" for="">{{'Year:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                            <select name="" id="">
+		                                <option value="">Не выбрано</option>
+		                                <option value=""></option>
+		                                <option value=""></option>
+		                            </select>
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row cwcvc">
+		                    <label class="uk-form-label" for="">{{'CW/CVC:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row amount">
+		                    <label class="uk-form-label" for="">{{'Amount:'|trans}}</label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                            <select name="" id="">
+		                                <option value="">Не выбрано</option>
+		                                <option value=""></option>
+		                                <option value=""></option>
+		                            </select>
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		                <div class="uk-form-row">
+		                    <label class="uk-form-label" for="">{{'Note:'|trans}}<span>({{'not necessarity'|trans}})</span></label>
+		                    <div class="uk-form-controls">
+		                        <input type="text" id="" placeholder="">
+		                        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+		                    </div>
+		                </div>
+		            </form>
+	                <button class="uk-button uk-button-warning">{{'BACK'|trans}}</button>
+	                <button class="uk-button uk-button-success">{{'NEXT'|trans}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}	

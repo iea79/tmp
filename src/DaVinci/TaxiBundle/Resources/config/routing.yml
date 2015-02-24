@@ -1,11 +1,16 @@
 da_vinci_taxi_homepage:
     resource: "@DaVinciTaxiBundle/Controller"
     type: annotation
+
+passenger_request_payment:
+    pattern: /payment/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:payment }
+    methods:  [GET]
     
 passenger_request_generated:
     pattern: /generated
     defaults: { _controller: DaVinciTaxiBundle:Home:requestGenerated }
-    methods:  [GET]    
+    methods:  [GET]
     
 main_driver:
     pattern:  /main-driver
