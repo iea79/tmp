@@ -19,9 +19,9 @@
 				<div class="button-choose">
 					<div class="choose-office select-group">
 						<label>Office:</label>
-						<select>
-							<option class="active-office">Taxi company</option>
-							<option>Taxi company manager</option>
+						<select class="comments">
+							<option class="active-office">Taxi company manager</option>
+							<option>Taxi company</option>
 						</select>
 						<button class="uk-button uk-button-success">Swich</button>
 					</div>
@@ -227,7 +227,7 @@
 				</div>
 			   	<div class="buttom-swicher">
 			        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#control_room'}">
-			            <li class="uk-active"><a href="#">{{ 'Owner' |trans }}</a></li>
+			            <li class="uk-active"><a href="#">{{ 'Your' |trans }}</a></li>
 			            <li><a href="#">{{ 'Managers' |trans }}</a></li>
 			            <li><a href="#">{{ 'Drivers' |trans }}</a></li>
 			        </ul>
@@ -252,16 +252,19 @@
 						</div>
 						<table class="uk-table thead-gray">
 							<thead>
-								<th>{{ 'Managers' |trans }}
+								<th>{{ 'My ID' |trans }}
 									<div class="questiontooltip">?</div>
 								</th>
-								<th>{{ 'Drivers' |trans }}
+								<th>{{ 'My name' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Balance ($)' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Budget ($)' |trans }}
 									<div class="questiontooltip">?</div>
 								</th>
 								<th>{{ 'Deals' |trans }}
-									<div class="questiontooltip">?</div>
-								</th>
-								<th>{{ 'Payment' |trans }}
 									<div class="questiontooltip">?</div>
 								</th>
 								<th>{{ 'Profit ($)' |trans }}
@@ -273,12 +276,13 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>5</td>
-									<td>20</td>
-									<td>120</td>
-									<td>144</td>
-									<td>1,199.00</td>
-									<td>15.00</td>
+									<td>12133</td>
+									<td>Vfxim Galkin</td>
+									<td>1,255.00</td>
+									<td>500.00</td>
+									<td>255.00</td>
+									<td>255.00</td>
+									<td>3.00</td>
 								</tr>
 							</tbody>
 						</table>

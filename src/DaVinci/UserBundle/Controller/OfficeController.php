@@ -34,6 +34,15 @@ class OfficeController extends Controller
     }
 
     /**
+    * @Route("/office-manager-company", name="office_manager_company")
+    * @Security("has_role('ROLE_TAXICOMPANY')")
+    */
+    public function office_manager_companyAction()
+    {
+        return $this->render('DaVinciUserBundle:Offices:office_manager_company.html.twig');
+    }
+
+    /**
     * @Route("/office-passenger-profile", name="office_passenger_profile")
     * @Security("has_role('ROLE_USER')")
     */
