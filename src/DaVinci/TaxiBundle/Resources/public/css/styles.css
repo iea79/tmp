@@ -69,115 +69,161 @@ body, html {
 		  zoom: 1; /* ie 6/7 */
 		}
 /*======================================== our icons styles ==================================*/
-.mp-icon-clip:before {
-	content: "\e620";
+.mp-icon-dollar:before {
+	content: "\e621";
 }
-.mp-icon-trash:before {
-	content: "\e61f";
+
+.mp-icon-dollar-circle:before {
+	content: "\e622";
 }
-.mp-icon-cab:before {
-	content: "\e61e";
+
+.mp-icon-dollar-refresh:before {
+	content: "\e623";
 }
-.mp-icon-calculate:before {
-	content: "\e61d";
-}
-.mp-icon-timer:before {
-	content: "\e61c";
-}
-.mp-icon-pet:before {
-	content: "\e61a";
-}
-.mp-icon-child-seat:before {
-	content: "\e618";
-}
-.mp-icon-direction:before {
-	content: "\e619";
-}
-.mp-icon-door:before {
-	content: "\e606";
-}
-.mp-icon-trust-invert:before {
-	content: "\e614";
-}
-.mp-icon-trust:before {
-	content: "\e615";
-}
-.mp-icon-basket:before {
-	content: "\e613";
-}
-.mp-icon-gift:before {
-	content: "\e605";
-}
-.mp-icon-nord-star:before {
-	content: "\e612";
-}
-.mp-icon-calendar:before {
-	content: "\e610";
-}
-.mp-icon-clock:before {
-	content: "\e611";
-}
-.mp-icon-point-a:before {
-	content: "\e60b";
-}
-.mp-icon-point-b:before {
-	content: "\e60c";
-}
-.mp-icon-point-plus:before {
- content: "\e61b";
-}
-.mp-icon-edit:before {
-	content: "\e608";
-}
-.mp-icon-taxi:before {
-	content: "\e602";
-}
-.mp-icon-message:before {
-	content: "\e604";
-}
-.mp-icon-closed:before {
-	content: "\e609";
-}
-.mp-icon-logout:before {
-	content: "\e60a";
-}
-.mp-icon-circle:before {
-	content: "\e607";
-}
-.mp-icon-person:before {
-	content: "\e603";
-}
-.mp-icon-good:before {
-	content: "\e601";
-}
+
 .mp-icon-zoom:before {
 	content: "\e600";
 }
+
+.mp-icon-good:before {
+	content: "\e601";
+}
+
+.mp-icon-taxi:before {
+	content: "\e602";
+}
+
+.mp-icon-person:before {
+	content: "\e603";
+}
+
+.mp-icon-message:before {
+	content: "\e604";
+}
+
+.mp-icon-gift:before {
+	content: "\e605";
+}
+
+.mp-icon-door:before {
+	content: "\e606";
+}
+
+.mp-icon-circle:before {
+	content: "\e607";
+}
+
+.mp-icon-edit:before {
+	content: "\e608";
+}
+
+.mp-icon-closed:before {
+	content: "\e609";
+}
+
+.mp-icon-logout:before {
+	content: "\e60a";
+}
+
+.mp-icon-point-a:before {
+	content: "\e60b";
+}
+
+.mp-icon-point-b:before {
+	content: "\e60c";
+}
+
 .mp-icon-star:before {
 	content: "\e60d";
 }
-.mp-icon-bug:before {
-	content: "\e60f";
-}
-.mp-icon-arrow-down:before {
-	content: "\e616";
-}
-.mp-icon-arrow-up:before {
-	content: "\e617";
-}
+
 .mp-icon-arrow-right:before {
 	content: "\e60e";
 }
+
+.mp-icon-bug:before {
+	content: "\e60f";
+}
+
+.mp-icon-calendar:before {
+	content: "\e610";
+}
+
+.mp-icon-clock:before {
+	content: "\e611";
+}
+
+.mp-icon-nord-star:before {
+	content: "\e612";
+}
+
+.mp-icon-basket:before {
+	content: "\e613";
+}
+
+.mp-icon-trust-invert:before {
+	content: "\e614";
+}
+
+.mp-icon-trust:before {
+	content: "\e615";
+}
+
+.mp-icon-arrow-down:before {
+	content: "\e616";
+}
+
+.mp-icon-arrow-up:before {
+	content: "\e617";
+}
+
+.mp-icon-child-seat:before {
+	content: "\e618";
+}
+
+.mp-icon-direction:before {
+	content: "\e619";
+}
+
+.mp-icon-pet:before {
+	content: "\e61a";
+}
+
+.mp-icon-point-plus:before {
+	content: "\e61b";
+}
+
+.mp-icon-timer:before {
+	content: "\e61c";
+}
+
+.mp-icon-calculate:before {
+	content: "\e61d";
+}
+
+.mp-icon-cab:before {
+	content: "\e61e";
+}
+
+.mp-icon-trash:before {
+	content: "\e61f";
+}
+
+.mp-icon-clip:before {
+	content: "\e620";
+}
+
+
 
 /*==============================    end of icons   ========================================*/
 /*========================font icontaxi for disign Evgeny=======================*/
 @font-face {
 	font-family: 'icontaxi';
-	src:url('../fonts/icontaxi.eot?eio7im');
-	src:url('../fonts/icontaxi.eot?#iefixeio7im') format('embedded-opentype'),
-		url('../fonts/icontaxi.woff?eio7im') format('woff'),
-		url('../fonts/icontaxi.ttf?eio7im') format('truetype'),
-		url('../fonts/icontaxi.svg?eio7im#icontaxi') format('svg');
+	src:url('../fonts/icontaxi.eot');
+	src:url('../fonts/icontaxi.eot') format('embedded-opentype'),
+		url('../fonts/icontaxi.woff') format('woff'),
+		url('../fonts/icontaxi.ttf') format('truetype'),
+		url('../fonts/icontaxi.svg') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -528,7 +574,7 @@ input[type="search"]:invalid {
                 box-shadow: -1px 1px 2px 0 rgba(50, 50, 50, 0.4);
                 margin: 9px 0 0 0;
                 max-width: 600px;
-                right: -7px;
+                right: -3px;
                 left: auto;
                 z-index: 10420;
                 min-width: 570px;
@@ -1828,7 +1874,6 @@ office passengers and driver
 .client-account .clientid dl {
         font-size: 14px;
         font-weight: normal;
-        display: table;
         margin: 0;
 }
 .client-account .client-panel-list .clientid dl a{
@@ -1846,17 +1891,17 @@ office passengers and driver
 }
 .client-account .client-panel-list .clientid dt,
 .client-account .client-panel-list .clientid dd {
-    font-size: 14px;
 	margin-bottom: 0;
 	margin-left: 5px;
-	float: left;
 }
 .client-account .client-panel-list .clientid dt {
 	color: #8d8f98;
 	font-weight: normal;
+	float: left;
+	padding-right: 5px;
 }
 .client-account .client-panel-list .clientid dd {
-	min-width: 20%;
+	min-width: 40%;
 }
 .client-account .client-panel-list .clientid dd.number-id {
 	min-width: 40%;
@@ -7121,9 +7166,9 @@ Spinner
 =================== */
 .mp-spinner {
     background: #fff;
-    color: #000;
+    color: #3c3d45;
     opacity: 0.5;
-    font-size: 60px;
+    font-size: 40px;
     position: absolute;
     top: 75px;
     bottom: 0;
@@ -7137,7 +7182,7 @@ Spinner
 .mp-spinner div {
 	position: fixed;
 	left: 50%;
-	margin-left: -30px;
+	margin-left: -20px;
 }
 .mp-spinner.none {
 	display: none;
@@ -8597,7 +8642,7 @@ Store
     top: 0;
     right: 3px;
     height: 100%;
-    line-height: 1.8;
+    line-height: 2;
 }
 .jq-selectbox__trigger-arrow:before {
 	content: "\f0d7";
@@ -8701,7 +8746,7 @@ Taxi company styles
   margin-bottom: 22px;
 }
 .office-company .client-account .client-panel-list .clientid a.uk-button {
-	width: 93%;
+	width: 95%;
 	margin-bottom: 12px;
 }
 .office-company .client-panel-list {
@@ -8732,6 +8777,7 @@ Taxi company styles
 	font-size: 16px;
 	margin-top: -1px;
 	margin-left: 2px;
+	min-width: 62%;
 }
 
 .office-company .offises-block {
@@ -8813,13 +8859,32 @@ Taxi company styles
 	display: block;
 	font-size: 21px;
 }
+.office-company .company-panel .uk-icon-long-arrow-right {
+	margin: -11px 2px 0;
+	display: inline-block;
+	font-size: 14px;
+}
+.office-company .company-panel .mp-icon-dollar-circle,.office-company .company-panel .mp-icon-dollar-refresh {
+	font-size: 23px;
+}
 .office-company .balance .uk-button,.office-company .history .uk-button {
 	padding: 0 3px;
 	width: 46px;
+	text-align: center;
+	line-height: 28px;
+	height: 28px;
 }
-.office-company .balance .uk-button:last-child {
+.office-company .company-panel .active-office .jq-selectbox__select-text:before {
+	content: '';
+	height: 10px;
+	width: 10px;
+	background: #27BF2E;
+	display: inline-block;
+	margin-right: 2px;
+	border-radius: 10px;
+}
+.office-company .balance a.uk-button:nth-child(2),.office-company .balance a.uk-button:nth-child(3),.office-company .balance .uk-button:last-child {
 	width: auto;
-	padding: 0 8px;
 }
 .office-company .balance span,.office-company .history span {
 	font-size: 16px;
@@ -9409,3 +9474,4 @@ Payment window
 		margin-top: 0 !important;
 	}
 }
+
