@@ -51,7 +51,7 @@ class HomeController extends Controller {
     			return $this->redirect($url);
     		}
     	}
-    	
+
     	$data = array(
 	    	'form' => $form->createView(),
 	    	'flow' => $flow,

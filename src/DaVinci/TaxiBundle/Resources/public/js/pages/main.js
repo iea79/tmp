@@ -1,4 +1,4 @@
-require(["gmaps", "pages/common"], function (gMaps , $) {
+require(['pages/common', 'gmaps'], function ($, gmaps) {
     require(['timepicker', 'jquery.spinner', 'jquery.form', 'datarange', 'addons/datepicker', 'chosen.jquery', 'pages/table.resize', 'charCount'], function () {
         require(['chosenImage.jquery'], function () {
 
@@ -54,20 +54,27 @@ require(["gmaps", "pages/common"], function (gMaps , $) {
              });
              }); */
 //Карта для главной страницы
-            if(document.getElementById('map-canvas') != null)
-            {
-                var map;
-                (function initialize() {
-                    var mapOptions = {
-                        zoom: 8,
-                        center: new gMaps.LatLng(55.752, 37.615),
-                        scrollwheel: false
-                    };
-                    map = new gMaps.Map(document.getElementById('map-canvas'),
-                            mapOptions);
-                })();
-            }
-            //gMaps.event.addDomListener(window, 'load', initialize);
+            var initialize = function() {
+            	var mapOptions = {
+                    zoom: 9,
+                    center: new gmaps.LatLng(55.752, 37.615),
+                    panControl: true,
+        			zoomControl: true,
+        			scaleControl: true,
+        		    mapTypeId: gmaps.MapTypeId.ROADMAP
+                };
+            	
+                var map = new gmaps.Map(
+                	document.getElementById('map-canvas'),
+                    mapOptions
+                );
+            };
+            
+            gmaps.event.addDomListener(window, 'load', initialize);
+            
+            $(document).ready(function() {
+            	initialize();
+            });
 
 //accordeon for buttoons in step 2 of homepage
             $(".order-details .uk-nav-parent-icon").click(function () {
