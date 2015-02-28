@@ -5,6 +5,7 @@ namespace DaVinci\TaxiBundle\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class AboutPageAdmin extends Admin
 {
@@ -60,7 +61,7 @@ class AboutPageAdmin extends Admin
         $formMapper
             ->with('Main data')
                 ->add('title', 'text',array('label' => 'Tab title'))
-                ->add('textBlock', 'textarea',array('label' => 'Text block', 'attr'=>array('class'=>'ckeditor')))
+                ->add('textBlock', 'ckeditor',array('label' => 'Text block'))
             ->end()
             ->with('Media data')    
                 ->add('buttonText', 'text',array('label' => 'Button text'))
@@ -95,10 +96,27 @@ class AboutPageAdmin extends Admin
                 )
             ->end()
             ->with('Other',  array('collapsed' => true))
-                 ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/about', 'select_root_node' => '/cms/about', 'choice_list' => array(), 'select_root_node' => true))
+                // ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/about', 'select_root_node' => '/cms/about', 'choice_list' => array(), 'select_root_node' => true))
                  ->add('locale')
             ->end()
         ;
 
+    }
+    
+    public function prePersist($document)
+    {
+        $parent = $this->getModelManager()->find(null, '/cms/about');
+        $document->setParentDocument($parent);
+    }
+
+    
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('title', 'doctrine_phpcr_string');
+    }
+
+    public function getExportFormats()
+    {
+        return array();
     }
 }

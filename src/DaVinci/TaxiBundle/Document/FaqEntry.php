@@ -17,7 +17,6 @@ class FaqEntry implements TranslatableInterface
      */
     protected $id;
     
-    
     /**
      * @PHPCR\String(translated=true)
      */
@@ -33,7 +32,6 @@ class FaqEntry implements TranslatableInterface
      */
     protected $forPassenger  = true;  
     
-    
     /**
      * @PHPCR\Boolean()
      */
@@ -43,7 +41,10 @@ class FaqEntry implements TranslatableInterface
         return $this->id;
     }
     
-    
+    function setId($id) {
+        $this->id = $id;
+    }
+
     function getQuestion() {
         return $this->question;
     }

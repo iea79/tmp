@@ -55,6 +55,7 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
             
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
@@ -98,6 +99,8 @@ class AppKernel extends Kernel
             new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
             
+            new Symfony\Cmf\Bundle\RoutingAutoBundle\CmfRoutingAutoBundle,
+            
             // Disable this if you don't want the timeline in the admin
             new Spy\TimelineBundle\SpyTimelineBundle(),
             new Sonata\TimelineBundle\SonataTimelineBundle(),
@@ -112,7 +115,10 @@ class AppKernel extends Kernel
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
                         
-            new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            //looks like it gliches with symfony cmf
+            //new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
+            
+
             // not required, but recommended for better extraction
             new JMS\TranslationBundle\JMSTranslationBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),

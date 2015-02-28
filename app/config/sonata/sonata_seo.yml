@@ -7,7 +7,6 @@ sonata_seo:
         title: TaxiMyPrice
         metas:
             name:
-                keywords: "taxi, your price, cheap, advance booking, book, exchange, travel, tourism"
                 description: "Taxi my price"
                 robots:               index, follow
 

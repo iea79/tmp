@@ -6,8 +6,12 @@
         <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#ff4d61">
-        {{ sonata_seo_title() }}
-        {{ sonata_seo_metadatas() }}
+        {% block seoblock %}
+            {{ sonata_seo_metadatas() }}
+            {{ sonata_seo_link_canonical() }}
+            {{ sonata_seo_lang_alternates() }}
+            {{ sonata_seo_title() }}
+        {% endblock %}
         {% block stylesheets %}
             {% stylesheets 'bundles/davincitaxi/css/uikit.css'
 					'bundles/davincitaxi/css/addons/uikit.addons.css'

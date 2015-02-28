@@ -45,8 +45,8 @@ sonata_admin:
             - { position: right, type: sonata_admin_doctrine_phpcr.tree_block }    
 #            - { position: right, type: sonata.admin_doctrine_orm.block.audit}
             - { position: center, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> TaxiMyPrice admin panel"} }
-            - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
-            - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
+          #  - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
+          #  - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
 
         groups:
             sonata.admin.group.content:
@@ -58,6 +58,7 @@ sonata_admin:
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
                     - davinci.taxi.admin.faqentry   
+                    - davinci.taxi.admin.guidepage    
                     #- sonata.comment.admin.comment
                     - sonata.comment.admin.thread   
             sonata.admin.group.administration:
@@ -127,6 +128,7 @@ sonata_admin:
             - bundles/ivoryckeditor/ckeditor.js
             - bundles/a2lixtranslationform/js/a2lix_translation_bootstrap.js
             - bundles/davincitaxi/js/admin/custom.js      
+            - bundles/cmftreebrowser/js/admin_tree.js
 
     extensions:
             cmf_core.admin_extension.child:

@@ -3,6 +3,7 @@
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 {% endblock%}
+
 {% block body %}
 {# ======= Swicher button ========= #}
 	<div class="shadow-main whitebg">
@@ -28,7 +29,9 @@
 				<div class="block-help">
 					<div class="help-content">
 						<div class="one-help">
-							<h3>{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</h3>
+                            <h3>{{ page.title }}</h3>
+                           {{ page.body|raw }}
+							{#<h3>{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</h3>
 								<p>{{'Итак, вы хотите начать прользоваться TaxiMyPrice, тогда вам нужно пройти 3 простих шага регистрации и заполнения данных. Весь процесс займет всего 3 минуты и не требует специальных знаний или навыков. Для удобства вы можете посмотреть обучающее видео или воспользоваться текстовой инструкцией.'|trans}}</p>
 		                        	<div class="videoWrapper">
 										<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=0;showinfo=0;autoplay=0;vq=hd720"></iframe>
@@ -38,6 +41,7 @@
 											<img src="{{ asset('bundles/davincitaxi/images/screen-login.png') }}" alt="">
 											<p>{{'Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и нажмите FINISH. После регистрации на ваш e-mail будет выслано письмо с подтверждением. Для завершения регистрации пройдите по ссылке, которую мы вам вышлем в письме.'|trans}}</p>
 										<img src="{{ asset('bundles/davincitaxi/images/form.png') }}" alt="">
+                                        #}
 				    	</div>
 					    	<div class="support">
 					    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>

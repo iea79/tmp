@@ -17,51 +17,51 @@ main_driver:
     defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
 profit:
     pattern:  /profit
-    defaults: { _controller: DaVinciTaxiBundle:Home:profit }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:profit }    
 
 about:
     pattern:  /about
-    defaults: { _controller: DaVinciTaxiBundle:Home:about }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:about }    
 help:
     pattern:  /help
-    defaults: { _controller: DaVinciTaxiBundle:Home:help }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:help }    
 view_offices:
     pattern:  /view-offices
-    defaults: { _controller: DaVinciTaxiBundle:Home:view_offices }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:view_offices }    
 video:
     pattern:  /video
-    defaults: { _controller: DaVinciTaxiBundle:Home:video }    
-instructions:
-    pattern:  /instructions
-    defaults: { _controller: DaVinciTaxiBundle:Home:instructions }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:video }    
+guides:
+    pattern:  /guides
+    defaults: { _controller: DaVinciTaxiBundle:Information:guides }    
 one_help:
     pattern:  /one-help
-    defaults: { _controller: DaVinciTaxiBundle:Home:one_help }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:one_help }    
 FAQs:
     pattern:  /FAQs
-    defaults: { _controller: DaVinciTaxiBundle:Home:FAQs }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:FAQs }    
 notifications:
     pattern:  /notifications
-    defaults: { _controller: DaVinciTaxiBundle:Home:notifications }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:notifications }    
 information:
     pattern:  /information
-    defaults: { _controller: DaVinciTaxiBundle:Home:information }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:information }    
 financial_office:
     pattern:  /financial-office
-    defaults: { _controller: DaVinciTaxiBundle:Home:financial_office }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:financial_office }    
 store:
     pattern:  /store
-    defaults: { _controller: DaVinciTaxiBundle:Home:store }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:store }    
 
 cmf_tree:
     resource: .
     type: 'cmf_tree'
 sale_page:
     pattern:  /sale-page
-    defaults: { _controller: DaVinciTaxiBundle:Home:sale_page }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:sale_page }    
 letter_confirm:
     pattern:  /letter-confirm
-    defaults: { _controller: DaVinciTaxiBundle:Home:letter_confirm }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:letter_confirm }    
 new_ticket:
     pattern:  /new-ticket
-    defaults: { _controller: DaVinciTaxiBundle:Home:new_ticket }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:new_ticket }    
