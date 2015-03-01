@@ -28,220 +28,109 @@
                 <header  class="header-wrapper">
                     <div class="header-top">
                         <div class="header-top-in">
-<nav class="nav-head">
-    <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">
-        <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
-    </a>
-    <ul class="main-menu">
-        <li><a href="{{ url('about') }}">{{ 'About'|trans }}</a></li>
-        <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
-        <li>
-            <a class="uk-button-danger mp-icon-person"></a>
-            <a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a>
-            <a class="uk-button-primary mp-icon-taxi"></a>
-        </li>
-    </ul>
-    <ul class="sigin"> 
-        <li>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div data-uk-dropdown="" class="uk-button-dropdown">
-                    <div class="uk-button  uk-button-link autorized loading">
-                        <span class="caption">{{ 'My account'|trans }}</span> 
-                        <i class="uk-icon-caret-down uk-margin-small-left"></i>
-                        <br/>
-                        <span class="ownship">passenger</span>
-                        <div class="throb-group">
-                            <i class="fa fa-square"></i>
-                            <i class="fa fa-square"></i>
-                            <i class="fa fa-square"></i>
-                        </div>
-                    </div>
-                    <div class="uk-dropdown uk-dropdown-width-3 shadow-main">
-                        <div class="myaccount-drop">
-                            <ul class="uk-nav uk-nav-dropdown">
-                                <li class="uk-nav-header">{{ 'My account'|trans }}</li>
-                                <li><a href="{{ url('office_passenger')}}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
-                                <li><a href=""><i class="mp-icon-message"></i> {{ 'Notification'|trans }}</a></li>
-                                <li><a href="{{ url('fos_user_security_logout') }}"><i class="mp-icon-logout"></i> {{ 'Log Out'|trans }}</a></li>
-                            </ul>
-                        </div>
-                        <div class="myoffice-drop">
-                            <ul class="uk-nav uk-nav-dropdown">
-                                <li class="uk-nav-header">My office</li>
-                                <li><span>
-                                        {% if is_granted('ROLE_USER') %}
-                                        <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXIDRIVER') %}
-                                        <a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_COMPANYDRIVER') %}
-                                        {{ 'Company driver'|trans }}
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXIMANAGER') %}
-                                        {{ 'Manager'|trans }}
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXICOMPANY') %}
-                                        {{ 'Company'|trans }}
-                                        {% endif %}
-                                    </span>
-                                </li>
-                            </ul>
-                            <a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-success">Get new office</a>
-                        </div>
-                        <div class="myid-drop">
-                            <div class="myid-drop-top">
-                                <div class="img">
-                                    {% if app.user.photo.path is defined %}
-                                        <img src="{{ app.user.photo.path| imagine_filter('menu_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} avatar" />
-                                    {% else %}
-                                        <img src="{{ asset('/bundles/davincitaxi/images/profile-photo2x.png') }}" alt="blank avatar" />
-                                    {% endif %}
-                                </div>
-                                <ul class="uk-nav uk-nav-dropdown">
+                            <nav class="nav-head">
+                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">
+                                    <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
+                                </a>
+                                <ul class="main-menu">
+                                    <li><a href="{{ url('about') }}">{{ 'About'|trans }}</a></li>
+                                    <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
                                     <li>
-                                        <div class="clientid">My ID: <span class="data">{{ app.user.id }}</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="clientid">Name: <span class="data">{{ app.user.firstname }} {{ app.user.lastname }}</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="clientid">My balance: <span class="data">$0.00</span></div>
+                                        <a class="uk-button-danger mp-icon-person"></a>
+                                        <a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a>
+                                        <a class="uk-button-primary mp-icon-taxi"></a>
                                     </li>
                                 </ul>
-                            </div>
-                            <ul class="uk-grid  menu-bord">
-                                <li><a href="">$Add</a></li>
-                                <li><a href="">$Withdraw</a></li>
-                                <li><a href="">$Transfer</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Sign in'|trans }}</a>
-            {% endif %}
-        </li>
-    </ul>
-    <ul class="info-menu">
-        <li class="uk-button-danger"><a href="#">{{ 'Book'|trans }}</a></li>
-            <div class="thumb">
-                <i class="mp-icon-good"></i>
-            </div>
-        <li class="uk-button-primary"><a href="#">{{ 'Store'|trans }}</a></li>
-    </ul>
-</nav>
-
-<!--                             <nav class="topmenu">
-    <ul class="uk-subnav uk-subnav-pill topmenu-in">
-        <li>
-            <a href="{{ url('da_vinci_taxi_homepage') }}">
-                <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}" />
-            </a>
-        </li>
-        <li></li>
-        <li class="nest">
-            <a href="{{ url('about') }}" class="texst-item">{{ 'About'|trans }}</a>
-            <a href="{{ url('help') }}" class="texst-item">{{ 'Help'|trans }}</a>
-            <a href="{{ url('profit') }}" class="nest-item">
-                <span class="uk-button-danger figur-item"><i class="mp-icon-person"></i></span>
-                <span>{{ 'Profit'|trans }}</span>
-                <span class="uk-button-primary figur-item"><i class="mp-icon-taxi"></i></span>
-            </a>
-        </li>
-        <li>
-            <div class="book-store">
-                <a class="book uk-button-danger" href="#">{{ 'Book'|trans }}</a>
-                <a href="#" class="uk-button-primary">{{ 'Store'|trans }}</a>
-                <div class="thumb">
-                    <i class="mp-icon-good"></i>
-                </div>
-            </div>
-        </li>
-        <li>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div data-uk-dropdown="" class="uk-button-dropdown">
-                    <div class="uk-button  uk-button-link autorized loading">
-                        <span class="caption">{{ 'My account'|trans }}</span> 
-                        <i class="uk-icon-caret-down uk-margin-small-left"></i>
-                        <br/>
-                        <span class="ownship">passenger</span>
-                        <div class="throb-group">
-                            <i class="fa fa-square"></i>
-                            <i class="fa fa-square"></i>
-                            <i class="fa fa-square"></i>
-                        </div>
-                    </div>
-                    <div class="uk-dropdown uk-dropdown-width-3 shadow-main">
-                        <div class="myaccount-drop">
-                            <ul class="uk-nav uk-nav-dropdown">
-                                <li class="uk-nav-header">{{ 'My account'|trans }}</li>
-                                <li><a href="{{ url('office_passenger')}}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
-                                <li><a href=""><i class="mp-icon-message"></i> {{ 'Notification'|trans }}</a></li>
-                                <li><a href="{{ url('fos_user_security_logout') }}"><i class="mp-icon-logout"></i> {{ 'Log Out'|trans }}</a></li>
-                            </ul>
-                        </div>
-                        <div class="myoffice-drop">
-                            <ul class="uk-nav uk-nav-dropdown">
-                                <li class="uk-nav-header">My office</li>
-                                <li><span>
-                                        {% if is_granted('ROLE_USER') %}
-                                        <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXIDRIVER') %}
-                                        <a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_COMPANYDRIVER') %}
-                                        {{ 'Company driver'|trans }}
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXIMANAGER') %}
-                                        {{ 'Manager'|trans }}
-                                        {% endif %}
-                                        {% if is_granted('ROLE_TAXICOMPANY') %}
-                                        {{ 'Company'|trans }}
-                                        {% endif %}
-                                    </span>
-                                </li>
-                            </ul>
-                            <a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-success">Get new office</a>
-                        </div>
-                        <div class="myid-drop">
-                            <div class="myid-drop-top">
-                                <div class="img">
-                                    {% if app.user.photo.path is defined %}
-                                        <img src="{{ app.user.photo.path| imagine_filter('menu_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} avatar" />
-                                    {% else %}
-                                        <img src="{{ asset('/bundles/davincitaxi/images/profile-photo2x.png') }}" alt="blank avatar" />
-                                    {% endif %}
-                                </div>
-                                <ul class="uk-nav uk-nav-dropdown">
+                                <ul class="sigin"> 
                                     <li>
-                                        <div class="clientid">My ID: <span class="data">{{ app.user.id }}</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="clientid">Name: <span class="data">{{ app.user.firstname }} {{ app.user.lastname }}</span></div>
-                                    </li>
-                                    <li>
-                                        <div class="clientid">My balance: <span class="data">$0.00</span></div>
+                                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                            <div data-uk-dropdown="" class="uk-button-dropdown">
+                                                <div class="uk-button  uk-button-link autorized loading">
+                                                    <span class="caption">{{ 'My account'|trans }}</span> 
+                                                    <i class="uk-icon-caret-down uk-margin-small-left"></i>
+                                                    <br/>
+                                                    <span class="ownship">passenger</span>
+                                                    <div class="throb-group">
+                                                        <i class="fa fa-square"></i>
+                                                        <i class="fa fa-square"></i>
+                                                        <i class="fa fa-square"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="uk-dropdown uk-dropdown-width-3 shadow-main">
+                                                    <div class="myaccount-drop">
+                                                        <ul class="uk-nav uk-nav-dropdown">
+                                                            <li class="uk-nav-header">{{ 'My account'|trans }}</li>
+                                                            <li><a href="{{ url('office_passenger')}}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
+                                                            <li><a href=""><i class="mp-icon-message"></i> {{ 'Notification'|trans }}</a></li>
+                                                            <li><a href="{{ url('fos_user_security_logout') }}"><i class="mp-icon-logout"></i> {{ 'Log Out'|trans }}</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="myoffice-drop">
+                                                        <ul class="uk-nav uk-nav-dropdown">
+                                                            <li class="uk-nav-header">My office</li>
+                                                            <li><span>
+                                                                    {% if is_granted('ROLE_USER') %}
+                                                                    <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
+                                                                    {% endif %}
+                                                                    {% if is_granted('ROLE_TAXIDRIVER') %}
+                                                                    <a href="{{ url('office_driver')}}">{{ 'Independent driver'|trans }}</a>
+                                                                    {% endif %}
+                                                                    {% if is_granted('ROLE_COMPANYDRIVER') %}
+                                                                    <a href="#">{{ 'Company driver'|trans }}</a>
+                                                                    {% endif %}
+                                                                    {% if is_granted('ROLE_TAXIMANAGER') %}
+                                                                    <a href="#">{{ 'Manager'|trans }}</a>
+                                                                    {% endif %}
+                                                                    {% if is_granted('ROLE_TAXICOMPANY') %}
+                                                                    <a href="#">{{ 'Company'|trans }}</a>
+                                                                    {% endif %}
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                        <a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-success">Get new office</a>
+                                                    </div>
+                                                    <div class="myid-drop">
+                                                        <div class="myid-drop-top">
+                                                            <div class="img">
+                                                                {% if app.user.photo.path is defined %}
+                                                                    <img src="{{ app.user.photo.path| imagine_filter('menu_avatar') }}" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} avatar" />
+                                                                {% else %}
+                                                                    <img src="{{ asset('/bundles/davincitaxi/images/profile-photo2x.png') }}" alt="blank avatar" />
+                                                                {% endif %}
+                                                            </div>
+                                                            <ul class="uk-nav uk-nav-dropdown">
+                                                                <li>
+                                                                    <div class="clientid">My ID: <span class="data">{{ app.user.id }}</span></div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="clientid">Name: <span class="data">{{ app.user.firstname }} {{ app.user.lastname }}</span></div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="clientid">My balance: <span class="data">$0.00</span></div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <ul class="uk-grid  menu-bord">
+                                                            <li><a href="">$Add</a></li>
+                                                            <li><a href="">$Withdraw</a></li>
+                                                            <li><a href="">$Transfer</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Sign in'|trans }}</a>
+                                        {% endif %}
                                     </li>
                                 </ul>
-                            </div>
-                            <ul class="uk-grid  menu-bord">
-                                <li><a href="">$Add</a></li>
-                                <li><a href="">$Withdraw</a></li>
-                                <li><a href="">$Transfer</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            {% else %}
-                <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Sign in'|trans }}</a>
-            {% endif %}
-
-        </li>
-    </ul>
-</nav>
- -->
+                                <ul class="info-menu">
+                                    <li class="uk-button-danger"><a href="#">{{ 'Book'|trans }}</a></li>
+                                        <div class="thumb">
+                                            <i class="mp-icon-good"></i>
+                                        </div>
+                                    <li class="uk-button-primary"><a href="#">{{ 'Store'|trans }}</a></li>
+                                </ul>
+                            </nav>
                             <a href="#" class="uk-navbar-toggle" data-uk-offcanvas="{target:'#offcanvas-nav'}"></a>
                         </div>
                     </div>
