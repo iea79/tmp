@@ -5,6 +5,7 @@ namespace DaVinci\TaxiBundle\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class ProfitPageAdmin extends Admin
 {
@@ -48,9 +49,9 @@ class ProfitPageAdmin extends Admin
             ->with('Main data')
                 ->add('driverTab', 'checkbox' ,array('label' => 'is it driver profit?'))
                 ->add('title', 'text',array('label' => 'Tab title'))
-                ->add('block1', 'textarea',array('label' => 'Left block', 'attr'=>array('class'=>'ckeditor')))
+                ->add('block1', 'ckeditor',array('label' => 'Left block'))
                 ->add('block2Title', 'text',array('label' => 'Middle block title'))
-                ->add('block2', 'textarea',array('label' => 'Middle block', 'attr'=>array('class'=>'ckeditor')))
+                ->add('block2', 'ckeditor',array('label' => 'Middle block'))
             ->end()
             ->with('Media data')    
                 ->add('youtubeLink', 'sonata_type_model_list', array(
@@ -64,10 +65,29 @@ class ProfitPageAdmin extends Admin
                     ))
             ->end()
             ->with('Other',  array('collapsed' => true))
-                 ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/profit', 'select_root_node' => '/cms/profit', 'choice_list' => array(), 'select_root_node' => true))
+                 //->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/profit', 'select_root_node' => '/cms/profit', 'choice_list' => array(), 'select_root_node' => true))
                  ->add('locale')
             ->end()
         ;
 
     }
+    
+            
+    public function prePersist($document)
+    {
+        $parent = $this->getModelManager()->find(null, '/cms/profit');
+        $document->setParentDocument($parent);
+    }
+
+    
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('title', 'doctrine_phpcr_string');
+    }
+
+    public function getExportFormats()
+    {
+        return array();
+    }
+    
 }

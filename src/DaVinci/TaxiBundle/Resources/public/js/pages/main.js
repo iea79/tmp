@@ -54,7 +54,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
              });
              }); */
 //Карта для главной страницы
-            var initialize = function() {
+            var GoogleMaps = function() {
+            	var directionsDisplay;
             	var mapOptions = {
                     zoom: 9,
                     center: new gmaps.LatLng(55.752, 37.615),
@@ -64,18 +65,87 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
         		    mapTypeId: gmaps.MapTypeId.ROADMAP
                 };
             	
-                var map = new gmaps.Map(
-                	document.getElementById('map-canvas'),
-                    mapOptions
-                );
+                var map;
+                var geoCoder;
+                var directionsService;
+                
+                var markers = new Array();
+                
+                this.initialize = function() {
+                	map = new gmaps.Map(
+                    	document.getElementById('map-canvas'),
+                        mapOptions
+                    );
+                	
+                	geoCoder = new gmaps.Geocoder();
+                	
+                	directionsService = new gmaps.DirectionsService();
+                	
+                	directionsDisplay = new gmaps.DirectionsRenderer();
+                	directionsDisplay.setMap(map);
+                }
+                
+                this.codeAddress = function(key, address) {
+                	geoCoder.geocode({'address': address}, function(results, status) {
+                		if (status == gmaps.GeocoderStatus.OK) {
+                			map.setCenter(results[0].geometry.location);
+                	        var marker = new gmaps.Marker({
+                	            map: map,
+                	            position: results[0].geometry.location
+                	        });
+                	        
+                	        markers[key] = marker;
+                		} else {
+                			alert("Geocode was not successful for the following reason: " + status);
+                		}
+                	});
+                }
+                
+                this.calculateRoute = function(start, end) {
+                	var request = {
+                	    origin: start,
+                	    destination: end,
+                	    travelMode: gmaps.TravelMode.DRIVING
+                	};
+                	directionsService.route(request, function(response, status) {
+                		if (status == gmaps.DirectionsStatus.OK) {
+                			directionsDisplay.setDirections(response);
+                			
+                			for (i = 0; i < markers.length; i++) {
+                				markers[i].setMap(null);
+                			}
+                	    }
+                	});
+                }
             };
             
-            gmaps.event.addDomListener(window, 'load', initialize);
+            var googleMaps = new GoogleMaps();
+        	        	
+            gmaps.event.addDomListener(window, 'load', googleMaps.initialize);
             
             $(document).ready(function() {
-            	initialize();
+            	googleMaps.initialize();
+            	
+            	$("#createPassengerRequestRouteInfo_routePoints_0_place").focusout(function() {
+                	googleMaps.codeAddress(
+                		0, $("#createPassengerRequestRouteInfo_routePoints_0_place").val()	
+                	);
+                });
+                
+                $("#createPassengerRequestRouteInfo_routePoints_1_place").focusout(function() {
+                	googleMaps.codeAddress(
+                		1, $("#createPassengerRequestRouteInfo_routePoints_1_place").val()	
+                	);
+                });
+                
+                $("#calculate_route").click(function() {
+                	googleMaps.calculateRoute(
+                		$("#createPassengerRequestRouteInfo_routePoints_0_place").val(),
+                		$("#createPassengerRequestRouteInfo_routePoints_1_place").val()
+                	);
+                });
             });
-
+            
 //accordeon for buttoons in step 2 of homepage
             $(".order-details .uk-nav-parent-icon").click(function () {
                 $(this).find(".uk-parent").toggleClass("uk-open");

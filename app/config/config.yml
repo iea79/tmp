@@ -145,10 +145,12 @@ doctrine:
                     string_functions:
                         replace: DaVinci\TaxiBundle\DQL\replaceFunction
 
-jms_i18n_routing:
-    default_locale: en
-    locales: %locales%
-    strategy: prefix_except_default
+#gliches with cmf routing!!
+
+#jms_i18n_routing:
+#    default_locale: en
+#    locales: %locales%
+#    strategy: prefix_except_default
 
 a2lix_i18n_doctrine:
     manager_registry: doctrine
@@ -220,14 +222,23 @@ cmf_routing:
                 
         controllers_by_class:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
+            DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
+            
 
-        templates_by_class:
-            Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:  CmfSimpleCmsBundle:Page:index.html.twig
-            DaVinci\TaxiBundle\Document\ProfitPage: DaVinciTaxiBundle:Home:profit.html.twig
+      #  templates_by_class:
+       
 
         persistence:
             phpcr:
+                route_basepath: /cms/routes
                 enabled: true
+                use_sonata_admin: auto    
+
+cmf_routing_auto:
+    persistence:
+        phpcr:
+            enabled: true
+
 cmf_create:
     editor_base_path: /bundles/cmfcreate/vendor/ckeditor/
 
@@ -283,9 +294,12 @@ doctrine_phpcr:
             
 cmf_seo:
     title: TaxiMyPrice - %%content_title%%
-    description: TaxiMyPrice - %%content_description%%
+    description: TaxiMyPrice - %%content_description%%    
     alternate_locale: ~
-    
+        
+    persistence:
+        phpcr: true
+            
 liip_search:
     restrict_by_language: true;
 

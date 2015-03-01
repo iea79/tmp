@@ -18,9 +18,11 @@ class Breadcrumbs {
 
     public function createBreadcrumbMenu(Request $request) {
         $menu = $this->factory->createItem('root')->setChildrenAttributes(array('class' => 'breadcrumbs'));
-
+        
+        $route = $request->get('_route');
+        
         // create the menu according to the route
-        switch ($request->get('_route')) {
+        switch ($route) {
             case 'register_independent_driver':
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Register Indipendent driver')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
@@ -93,8 +95,25 @@ class Breadcrumbs {
                 $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 $menu->addChild('Notifications')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
                 break;
+            
+            case 'guides':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                $menu->addChild('Guides')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                // setCurrent is use to add a "current" css class
+                ;
+                break;   
         }
 
+
+        if (0 === strpos($route, '/cms/routes/guides/')) {
+            $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+            $menu->addChild('Guides', array('route' => 'guides'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+            
+            $title = $request->attributes->get('contentDocument')->getTitle();
+            
+            $menu->addChild($title)->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
+        }
+            
         return $menu;
     }
 
