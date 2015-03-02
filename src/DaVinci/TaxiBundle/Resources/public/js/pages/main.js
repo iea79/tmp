@@ -127,22 +127,38 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             	googleMaps.initialize();
             	
             	$("#createPassengerRequestRouteInfo_routePoints_0_place").focusout(function() {
-                	googleMaps.codeAddress(
-                		0, $("#createPassengerRequestRouteInfo_routePoints_0_place").val()	
-                	);
+            		var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
+            		var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
+            		
+            		if (placeFrom != '' && placeTo != '') {
+            			googleMaps.calculateRoute(placeFrom, placeTo);
+            			return;
+            		}
+            		
+            		if (placeFrom != '') {
+            			googleMaps.codeAddress(0, placeFrom);
+            		}
                 });
                 
                 $("#createPassengerRequestRouteInfo_routePoints_1_place").focusout(function() {
-                	googleMaps.codeAddress(
-                		1, $("#createPassengerRequestRouteInfo_routePoints_1_place").val()	
-                	);
+                	var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
+            		var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
+                	
+                	if (placeFrom != '' && placeTo != '') {
+            			googleMaps.calculateRoute(placeFrom, placeTo);
+            			return;
+            		}
+            		
+            		if (placeTo != '') {
+            			googleMaps.codeAddress(0, placeFrom);
+            		}
                 });
                 
                 $("#calculate_route").click(function() {
-                	googleMaps.calculateRoute(
-                		$("#createPassengerRequestRouteInfo_routePoints_0_place").val(),
-                		$("#createPassengerRequestRouteInfo_routePoints_1_place").val()
-                	);
+                	var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
+            		var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
+                	
+                	googleMaps.calculateRoute(placeFrom, placeTo);
                 });
             });
             
