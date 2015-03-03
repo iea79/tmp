@@ -398,6 +398,7 @@ Header style
 	float: left;
 	padding: 0 5px;
 	border: 0;
+	width: auto;
 }
 .nav-head .main-menu li:last-child a[class*="uk-button-"] {
 	float: left;
@@ -415,10 +416,9 @@ Header style
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 22px;
-	border-right: 1px solid #D1D1D1;
-	width: auto;
+	border-right: 1px solid #D1D1D1;
 	text-align: left;
-	padding-right: 32%;
+	width: 68px;
 }
 .nav-head .info-menu .thumb {
 	height: 32px;
@@ -482,7 +482,8 @@ Header style
 	display: block;
 	font-size: 16px;
 	padding: 9px 0 0;
-	text-decoration: none;;
+	text-decoration: none;
+	cursor: pointer;;
 }
 .nav-head .sigin .autorized .caption {
 	line-height: 1;
@@ -803,8 +804,9 @@ home
 				padding: 0 26px 0 0;
 				position:relative;
 				box-sizing:border-box;
+				width: 25%;
 			}
-			.home .steps-1-2-3 .chois .first {
+/*			.home .steps-1-2-3 .chois .first {
 				  width: 36%;
 
 				} 
@@ -816,7 +818,7 @@ home
 				  width: 31.2%;
 				
 			}
-			.home .steps-1-2-3 .chois  .uk-active .back {
+*/			.home .steps-1-2-3 .chois  .uk-active .back {
 				position: absolute;
 				background-color: #ff4d61;
 				width: 26px;
@@ -827,7 +829,7 @@ home
 			}
 				.home .steps-1-2-3 .chois li a {
 					color:#3c3d45;
-					font-size:18px;
+					font-size:16px;
 					margin:0;
 					background:transparent;
 					border:none;
@@ -857,6 +859,7 @@ home
 						padding-top:9px;
 						text-align:center;
 						width:100%;
+						box-sizing:border-box;
 						
 					}
 					.home .steps-1-2-3 .chois .second a .arrow_box {
@@ -924,7 +927,59 @@ home
 					}
 
 
-/*==========================
+@media (max-width: 960px) {
+	.home .steps-1-2-3 .chois li:nth-child(2) .exclude {
+		display: none;
+	}
+}
+
+@media (max-width: 645px) {
+	.home .steps-1-2-3 ul.chois > li {
+		-webkit-transition: width 0.2s;
+		-moz-transition: width 0.2s;
+		-ms-transition: width 0.2s;
+		-o-transition: width 0.2s;
+		transition: width 0.2s;
+	}
+	.home .steps-1-2-3 ul.chois > li:not(.uk-active) {
+		width: 13%;
+		box-sizing: border-box;
+	}	
+	.home .steps-1-2-3 ul.chois > li.uk-active {
+		width: 60%;
+	}	
+	.home .steps-1-2-3 ul.chois > li:not(.uk-active) .hide {
+		display: none;
+	}
+}
+
+@media (max-width: 450px) {
+	.home .steps-1-2-3 .chois li > a .on {
+		width: 26px;
+		height: 23px;
+		line-height: 23px;
+		font-size: 16px;
+		margin: 3px 0 0 6px;
+	}
+	.home .steps-1-2-3 ul.chois > li:not(.uk-active) {
+		width: 15%;
+	}	
+	.home .steps-1-2-3 ul.chois > li.uk-active {
+		width: 55%;
+	}	
+}
+
+@media (max-width: 390px) {
+	.home .steps-1-2-3 ul.chois > li:not(.uk-active) {
+		display: none;
+	}	
+	.home .steps-1-2-3 ul.chois > li.uk-active {
+		width: 100%;
+	}	
+}
+
+ 
+/*================================
 styles of booking step 1  in homepage
 =================================*/
 
@@ -2910,7 +2965,6 @@ footer {
 		margin-left:30px;
 	}
 	.home .steps-1-2-3 .chois .uk-active.first a .on {
-		margin-left:-5px;
 	}
 	
 	.order-details .left-spec .overinput, .order-details .adapt-left .overinput  input{
@@ -2923,7 +2977,6 @@ footer {
 		left:25px;
 	}
 	.home .steps-1-2-3 .chois li a .on {
-		margin:0;
 	}
 	
 	
@@ -3874,7 +3927,6 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 
 @media only screen and (max-width: 830px) {
 	.home .steps-1-2-3 .chois li a {
-		font-size:15px;
 	}
 }
 
@@ -3907,15 +3959,14 @@ table td, table th { padding: 9px 10px; text-align: left; } */
 			display:inline-block;
 			width:40%;
 		}
-	.home .steps-1-2-3 .chois li a	.exclude {
+/*	.home .steps-1-2-3 .chois li a	.exclude {
 		display:none;
 	}
 	.home .steps-1-2-3 .chois li {
-		width:33.333%!important;
 		text-transform:capitalize;
 
 	}
-	.order-details .adapt-left .overinput {
+*/	.order-details .adapt-left .overinput {
 		width:60%;
 	}
 }
@@ -7132,11 +7183,16 @@ Spinner
     color: #ccc;
   }
 }
+.header-wrapper .header-top .header-top-in .loading .throb-group {
+    display: inline !important;
+}
+.header-wrapper .header-top .header-top-in .loading .ownship {
+    display: none !important;
+}
 
 .fa-square:before {
     content: "\f0c8"
 }
-
 .throb-group .fa-square {
   display: inline-block;
   -moz-animation: throbber 0.6s infinite;
@@ -9397,11 +9453,16 @@ Payment window
 	.nav-head .main-menu > li {
 		padding: 12px 3% 0 0;
 	}
-	.nav-head .main-menu > li > a {
-		padding-right: 15%;
-		font-size: 16px;
+	.nav-head .main-menu > li:first-child {
+		padding-right: 0;
 	}
-	
+	.nav-head .main-menu > li > a {
+		font-size: 16px;
+		width: 55px;
+	}
+	.nav-head .main-menu > li:nth-child(2) > a {
+		text-align: center;
+	}
 }
 @media (max-width: 770px) {
 	.header-wrapper .header-top .uk-button-dropdown .uk-dropdown div {
@@ -9439,7 +9500,7 @@ Payment window
 		width: 36%;
 	}
 	.nav-head .main-menu > li > a {
-		font-weight: normal;
+		width: 54px;
 	}
 	.nav-head .sigin {
 		width: 17%;
