@@ -1,4 +1,6 @@
 <div class="destination">
+		{{ form_widget(form.distance) }}
+		{{ form_widget(form.duration) }}
 		<div class="desticlone">
 			{% for routePoints in form.routePoints %}
 				<div class="form-block-wrap">	
@@ -22,7 +24,7 @@
 		
 		<div class="clr"></div>	
         
-        <p id="calculate_route" align="center">Calculate route</p>
+        <div id="calculate_route" align="center">Calculate route<div id="route_result"></div></div>
         
         <div class="nav-over add-lang">    
      		<div class="uk-button-large uk-button uk-width-1-1 add-another" data-uk-toggle="{target:'#second-rout'}"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
@@ -45,7 +47,7 @@
 					{{ form_errors(form.pickUpTime) }}
 				</div>
 				<div class="check-box">
-						<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox"{% if flow.formData.roundTrip == true %} checked="checked" {% endif %}/>
+					<input id="createPassengerRequestRouteInfo_roundTrip" name="createPassengerRequestRouteInfo[roundTrip]" type="checkbox"{% if flow.formData.roundTrip == true %} checked="checked" {% endif %}/>
                     <label for="createPassengerRequestRouteInfo_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Return to pick-up place{% endtrans %}"></i>
 				</div>
 			</div>
@@ -70,10 +72,4 @@
 				</div>
 			</div>
 		</div>
-	        
-<!-- 		<div class="nav-over">
-	button class="uk-button-group uk-width-1-1 uk-button-large uk-button uk-button-danger nextbutt">
-	            Next &gt; 
-	        </button
-</div> -->
-	</div>
+</div>

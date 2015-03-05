@@ -14,12 +14,8 @@ use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
-use Entity;
 
 class HomeController extends Controller {
-	
-	const DEFAULT_PRICE = 100.0;
-	const DEFAULT_TIPS = 10.0;
 	
 	/**
 	 * @Route("/", name="da_vinci_taxi_homepage")
@@ -59,8 +55,8 @@ class HomeController extends Controller {
     	);
     	
     	if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
-    		$data['marketPrice'] = $this->getMarketPrice();
-    		$data['marketTips'] = $this->getMarketTips();
+    		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
+    		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
     	}
     	
     	return $this->render(
@@ -93,27 +89,33 @@ class HomeController extends Controller {
      */
     private function spawnPassengerRequest() 
     {
-    	return $this->container->get('da_vinci_taxi.service.passenger_request_service')->spawnRequest();
+    	return $this->getPassengerRequestService()->spawnRequest();
     }
     
     /**
      * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
      * @return void
      */
-    private function saveRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+    private function saveRequest(PassengerRequest $request)
     {
     	$em = $this->container->get('doctrine')->getManager();
     	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveRequest($request);
     }
     
-    private function getMarketPrice()
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequestService
+     */
+    private function getPassengerRequestService()
     {
-    	return self::DEFAULT_PRICE;
+    	return $this->container->get('da_vinci_taxi.service.passenger_request_service');
     }
     
-    private function getMarketTips()
+    /**
+     * @return \DaVinci\TaxiBundle\Services\Calculation
+     */
+    private function getCalculationService()
     {
-    	return self::DEFAULT_TIPS;
+    	return $this->container->get('da_vinci_taxi.service.calculation_service');
     }
-
+    
 }
