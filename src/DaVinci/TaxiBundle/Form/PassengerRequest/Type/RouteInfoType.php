@@ -10,6 +10,8 @@ class RouteInfoType extends AbstractType {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
+			->add('distance', 'hidden')
+			->add('duration', 'hidden')
 			->add('routePoints', 'collection', array(
 				'type' => new RoutePointType(),
 				'error_bubbling' => false,

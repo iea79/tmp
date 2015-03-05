@@ -55,7 +55,6 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
              }); */
 //Карта для главной страницы
             var GoogleMaps = function() {
-            	var directionsDisplay;
             	var mapOptions = {
                     zoom: 9,
                     center: new gmaps.LatLng(55.752, 37.615),
@@ -68,6 +67,11 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 var map;
                 var geoCoder;
                 var directionsService;
+                var directionsDisplay;
+                var distanceService;
+                
+                var distance;
+                var duration;
                 
                 var markers = new Array();
                 
@@ -83,6 +87,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 	
                 	directionsDisplay = new gmaps.DirectionsRenderer();
                 	directionsDisplay.setMap(map);
+                	
+                	distanceService = new gmaps.DistanceMatrixService();
                 }
                 
                 this.codeAddress = function(key, address) {
@@ -117,6 +123,44 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 	    }
                 	});
                 }
+                
+                this.calculateDistance = function(start, end) {
+                	distanceService.getDistanceMatrix(
+                		{
+                			origins: [start],
+                		    destinations: [end],
+                		    travelMode: google.maps.TravelMode.DRIVING,
+                		    unitSystem: google.maps.UnitSystem.METRIC,
+                		    avoidHighways: false,
+                		    avoidTolls: false
+                		}, 
+                		this.showDistance
+                	);
+                }
+                
+                this.showDistance = function(response, status) {
+                	if (status != gmaps.DistanceMatrixStatus.OK) {
+                		alert('Error is happened: ' + status);
+                	} else {
+                		var origins = response.originAddresses;
+                		var destinations = response.destinationAddresses;
+                		
+                		var results = response.rows[0].elements;
+                		                		
+                		$('#route_result').html(
+                			'Result is: ' 
+                			+ results[0].distance.text + ' in '
+                            + results[0].duration.text + '<br/>'
+                        );
+                		
+                		$('#createPassengerRequestRouteInfo_distance').attr(
+                			'value', results[0].distance.value
+                		);
+                		$('#createPassengerRequestRouteInfo_duration').attr(
+                			'value', results[0].duration.value
+                		);
+                	}
+                }
             };
             
             var googleMaps = new GoogleMaps();
@@ -132,6 +176,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             		
             		if (placeFrom != '' && placeTo != '') {
             			googleMaps.calculateRoute(placeFrom, placeTo);
+            			googleMaps.calculateDistance(placeFrom, placeTo);
+            			
             			return;
             		}
             		
@@ -145,12 +191,14 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             		var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
                 	
                 	if (placeFrom != '' && placeTo != '') {
-            			googleMaps.calculateRoute(placeFrom, placeTo);
+                		googleMaps.calculateRoute(placeFrom, placeTo);
+            			googleMaps.calculateDistance(placeFrom, placeTo);
+            			
             			return;
             		}
             		
             		if (placeTo != '') {
-            			googleMaps.codeAddress(0, placeFrom);
+            			googleMaps.codeAddress(1, placeTo);
             		}
                 });
                 
@@ -158,7 +206,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 	var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
             		var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
                 	
-                	googleMaps.calculateRoute(placeFrom, placeTo);
+            		googleMaps.calculateRoute(placeFrom, placeTo);
+        			googleMaps.calculateDistance(placeFrom, placeTo);
                 });
             });
             

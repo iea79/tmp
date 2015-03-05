@@ -79,6 +79,16 @@ class PassengerRequest {
 	private $roundTrip = false;
 	
 	/**
+	 * @ORM\Column(type="float")
+	 */
+	private $distance;
+		
+	/**
+	 * @ORM\Column(type="integer")
+	 */
+	private $duration;
+		
+	/**
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
 	 * @Assert\Valid() 
 	 * @Assert\All({
@@ -337,7 +347,49 @@ class PassengerRequest {
     {
     	return $this->roundTrip;
     }
-
+    
+    /**
+     * Set distance
+     *
+     * @param float $distance
+     * @return float
+     */
+    public function setDistance($distance)
+    {
+    	$this->distance = $distance;
+    }
+    
+    /**
+     * Get distance
+     *
+     * @return float
+     */
+    public function getDistance()
+    {
+    	return $this->distance;
+    }
+        
+    /**
+     * Set duration
+     *
+     * @param float $duration
+     * @return float
+     */
+    public function setDuration($duration)
+    {
+    	$this->duration = $duration;
+    }
+    
+    /**
+     * Get duration
+     *
+     * @return float
+     */
+    public function getDuration()
+    {
+    	return $this->duration;
+    }
+    
     /**
      * Add routePoints
      *
