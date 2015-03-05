@@ -416,7 +416,8 @@ Header style
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 22px;
-	border-right: 1px solid #D1D1D1;
+	border-right: 1px solid #D1D1D1;
+
 	text-align: left;
 	width: 68px;
 }
@@ -432,7 +433,9 @@ Header style
 	border-radius: 100px;
 	box-sizing: border-box;
 	float: left;
-	position: relative;;
+	position: relative;
+	display: inline-block;
+	min-width: 32px;;
 }
 .nav-head .info-menu > li {
   width: 50%;
@@ -446,7 +449,7 @@ Header style
 .nav-head .info-menu > li:first-child {
 	padding-right: 6px;
 }
-.nav-head .info-menu > li:nth-child(2) {
+.nav-head .info-menu > li:last-child {
 	background: #3399ff;
 }
 .nav-head .info-menu > li:nth-child(3) {
@@ -942,11 +945,11 @@ home
 		transition: width 0.2s;
 	}
 	.home .steps-1-2-3 ul.chois > li:not(.uk-active) {
-		width: 13%;
+		width: 13.3%;
 		box-sizing: border-box;
 	}	
 	.home .steps-1-2-3 ul.chois > li.uk-active {
-		width: 60%;
+		width: 60.1%;
 	}	
 	.home .steps-1-2-3 ul.chois > li:not(.uk-active) .hide {
 		display: none;
@@ -3537,31 +3540,6 @@ div.pop-up.uk-grid.uk-grid-small {
 		width: 99%;
 		margin-left: 0;
 	}
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown {
-	font-size:14px;
-	min-width:480px;
-}	
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myoffice-drop {
-	padding:0 0 0 5px;
-}
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myoffice-drop li > span {
-}
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myoffice-drop li > span > a {
-	display: block;
-	margin: 0 0 0;
-}
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myid-drop {
-	padding:0 0 0 5px;
-	margin: 0 0 0 5px;
-}
-
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown .myid-drop-top .uk-nav {
-	padding:0 0 0 5px;
-	margin: 0 0 0 5px;
-}
-.header-wrapper .header-top .header-top-in .topmenu .uk-button-dropdown .uk-dropdown div {
-	font-size:13px;
-}
 }
 @media (max-width:610px) {
 	.pop-up.route dt {
@@ -3606,6 +3584,7 @@ div.pop-up.uk-grid.uk-grid-small {
     margin-bottom: 13px;
     vertical-align: top;
 }
+.pop-up .class-auto .uk-button,
 .pop-up input[type="text"],
 .pop-up input[type="email"],
 .pop-up input[type="password"],
@@ -3616,6 +3595,7 @@ div.pop-up.uk-grid.uk-grid-small {
 	width:100%;
 	padding:3px 5px 3px 9px;
 }
+.pop-up .class-auto .uk-button,
 .pop-up input[type="text"]:focus,
 .pop-up input[type="email"]:focus,
 .pop-up input[type="password"]:focus,
@@ -3629,7 +3609,12 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile .about-driver dt {
 	line-height: 0.8em;
 }
+
+
+
 /*==== class select for script (Global) =========*/
+
+
 .select {
     line-height:28px;
 	padding:0 8px;
@@ -3657,6 +3642,9 @@ div.pop-up.uk-grid.uk-grid-small {
 	text-align: left;
 	font-size: 16px;
 	max-height: 30px;
+}
+.pop-up .jq-selectbox__trigger {
+  line-height: 27px;
 }
 .pop-up .profile .fone {
 	width:69%;
@@ -3799,6 +3787,59 @@ i.quest {
 .pop-up .profile .example-active{
     color:red;
 }
+
+/* Dropdown for choice class auto */
+
+.class-auto {
+	position: relative;
+	line-height: 1;
+	height: 29px;
+}
+.pop-up .class-auto .uk-button,.class-auto .uk-button {
+	padding: 0 5px 0 9px;
+	line-height: 26px;
+	text-align: left;
+	cursor: pointer;
+}
+.class-auto .uk-button i {
+	float: right;
+	margin-top: 6px;
+}
+.class-auto .uk-dropdown {
+  width: 100%;
+  border: 1px solid #7E7E7E;
+  border-top: 0;
+  overflow-y: scroll;
+  max-height: 220px;
+  border-radius: 0;
+  padding: 0;
+  top: 30px;
+  margin: 0;
+  box-sizing: border-box;
+}
+.class-auto .uk-dropdown ul {
+  margin: 0;
+  padding: 0;
+}
+.class-auto .uk-dropdown li {
+  border-bottom: 1px solid #CACACA;
+  padding: 5px 0 7px;
+}
+.class-auto .uk-dropdown li a {
+  font-size: 16px;
+  margin: 0;
+  padding: 4px 6px;
+  line-height: 1;
+  margin-bottom: -2px;
+}
+.class-auto .uk-dropdown span {
+  color: #8d8f98;
+  font-size: 12px;
+  padding: 0 6px;
+  display: inline-block;
+}
+
+
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;
@@ -8614,8 +8655,7 @@ Store
 	content: "\f0d7";
 	font-family: FontAwesome;
 	color: #3c3d45;
-	font-size: 14px;
-	height: 100%;;
+	font-size: 14px;;
 }
 .jq-selectbox__dropdown {
 	background: #fff;
