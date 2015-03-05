@@ -75,40 +75,7 @@
 						<li class="uk-active">
 							<div class="home">
 						        <div class="steps-1-2-3">
-						            <ul class="chois" data-uk-tab="{connect:'#steps'}">
-						                <li class="first">
-						                    <a href="#">
-						                        <div class="arrow_box">
-						                            <span class="on">1<i class="uk-icon-check"></i></span>
-						                            <span class="hide"> <span class="exclude">Select </span>route</span>
-												</div>
-												<span class="arrow"></span>
-												<span class="middle"></span>
-						                    </a>
-											
-						                </li>
-						                <li class="other second">
-						                    <a href="#">
-						                        <div class="arrow_box">
-						                            <span class="on">2<i class="uk-icon-check"></i></span>
-						                            <span class="hide"> <span class="exclude">Select the type of </span>vehicle</span>
-												</div>
-												<span class="arrow"> </span>
-												<span class="middle"> </span>
-						                    </a>
-											<span class="back"></span>
-						                </li>
-						                <li class="last">
-						                    <a href="#">
-						                        <div class="arrow_box">
-						                            <span class="on">3<i class="uk-icon-check"></i></span>
-						                            <span class="hide"> Select price <span class="exclude"></span></span>
-						                        </div>
-												<span class="arrow"></span>
-						                    </a>
-											<span class="back"></span>
-						                </li>
-						            </ul>
+						        	{% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
 						            <div id="steps" class="uk-switcher uk-float-left">
 							          {#      <div class="uk-active">
 							                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
