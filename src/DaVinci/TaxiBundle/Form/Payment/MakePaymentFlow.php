@@ -1,6 +1,6 @@
 <?php
 
-namespace DaVinci\TaxiBundle\Form\PassengerRequest;
+namespace DaVinci\TaxiBundle\Form\Payment;
 
 use Craue\FormFlowBundle\Form\FormFlow;
 use Craue\FormFlowBundle\Form\FormFlowInterface;
@@ -15,9 +15,11 @@ use Craue\FormFlowBundle\Event\PostValidateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
+
 class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
 	
-	const FLOW_NAME = 'payment';
+	const FLOW_NAME = 'makePayment';
 	
 	const STEP_FIRST = 1;
 	const STEP_SECOND = 2;

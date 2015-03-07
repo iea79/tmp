@@ -18,6 +18,9 @@ services:
     da_vinci_taxi.service.passenger_request_service:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService
 
+    da_vinci_taxi.service.make_payment_service:
+        class: DaVinci\TaxiBundle\Form\Payment\MakePaymentService
+
     da_vinci_taxi.service.calculation_service:
         class: DaVinci\TaxiBundle\Services\Calculation    
                         
@@ -119,6 +122,12 @@ services:
         class: DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow
         parent: craue.form.flow
         scope: request
+        
+# payment process handler
+    taxi.makePayment.form.flow:
+        class: DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow
+        parent: craue.form.flow
+        scope: request        
 
 #passenger request custom validator
 #    taxi.passengerRequest.validator.route_info:

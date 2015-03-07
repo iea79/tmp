@@ -15,16 +15,52 @@ class MakePayment
 	/**
 	 * @var \DaVinci\TaxiBundle\Form\Payment\Money
 	 */
-	private $money;
+	private $totalPrice;
 	
-	public function setMoney(\DaVinci\TaxiBundle\Form\Payment\Money $money)
+	static public $balanceTypes;
+
+	public function setBalanceType($balanceType)
 	{
-		$this->money = $money;
+		if (!array_key_exists($balanceType, self::$balanceTypes)) {
+			throw new \InvalidArgumentException("Unsupported balance type code: {$balanceType}");
+		}
+		$this->balanceType = $balanceType;
+	
+		return $this;
 	}
 	
-	public function getMoney()
+	public function getBalanceType()
 	{
-		return $this->money;
+		return $this->balanceType;
+	}
+	
+	public function setTotalPrice(\DaVinci\TaxiBundle\Form\Payment\Money $totalPrice)
+	{
+		$this->totalPrice = $totalPrice;
+		
+		return $this;
+	}
+	
+	public function getTotalPrice()
+	{
+		return $this->totalPrice;
+	}
+	
+	public function setPaymentMethod(\DaVinci\TaxiBundle\Form\Payment\PaymentMethod $paymentMethod)
+	{
+		$this->paymentMethod = $paymentMethod;
+		
+		return $this;
+	}
+	
+	public function getPaymentMethod()
+	{
+		return $this->paymentMethod;
+	}
+	
+	static public function getBalanceTypes()
+	{
+		return self::$balanceTypes;
 	}
 	
 }
