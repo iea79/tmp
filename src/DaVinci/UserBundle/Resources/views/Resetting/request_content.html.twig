@@ -1,16 +1,18 @@
 {% trans_default_domain 'FOSUserBundle' %}
-<div class="wrapper-content"><div class="content">
-    <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="authorizat uk-form-horizontal fos_user_resetting_request">
-		<h3>{{ 'resetting.email.subject'|trans }}</h3>
-        <div>
-        {% if invalid_username is defined %}
-            <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
-        {% endif %}
-            <input class="uk-width-1-1" type="text" id="username" name="username" placeholder="{{ 'resetting.request.username'|trans }}" required="required" />
-        </div>
-        <div class="clear"></div>
-        <div>
-            <input type="submit" class="uk-button  nextbutt  btn-red uk-width-1-1" value="{{ 'resetting.request.submit'|trans }}" />
-        </div>
-    </form>
-</div></div>
+<div class="wrapper-content">
+    <div class="content register">
+        <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="authorizat uk-form-horizontal fos_user_resetting_request">
+    		<h3>{{ 'resetting.email.subject'|trans }}</h3>
+            <div>
+            {% if invalid_username is defined %}
+                <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+            {% endif %}
+                <input class="uk-width-1-1" type="text" id="username" name="username" placeholder="{{ 'resetting.request.username'|trans }}" required="required" />
+            </div>
+            <div class="clear"></div>
+            <div>
+                <input type="submit" class="uk-button  nextbutt  btn-red uk-width-1-1" value="{{ 'resetting.request.submit'|trans }}" />
+            </div>
+        </form>
+    </div>
+</div>

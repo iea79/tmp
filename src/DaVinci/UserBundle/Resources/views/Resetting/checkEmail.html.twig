@@ -3,5 +3,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-	<p>{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+<div class="wrapper-content">
+	<div class="content register reset">
+		<p>{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+	</div>
+</div>
 {% endblock %}
