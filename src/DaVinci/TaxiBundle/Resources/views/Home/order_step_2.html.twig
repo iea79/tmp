@@ -4,8 +4,9 @@
 		<div class="order-details  select-group">
 			<div class="kids-pats-line top-group">
 				<label for="createPassengerRequestStepVehicleInfo_vehicle_vehicle_class" class="label-header">{{'Class:'|trans}}</label>
-				<div class="object">
+				<div class="object classau">
                     {{ form_widget(form.vehicle.vehicle_class, {'attr': {'class': 'chosen'}}) }}
+                    <a href="#about_class_cars" class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Click to see all class'|trans}}" data-uk-modal></a>
                 </div>
 				<div class="errors">
                     {{ form_errors(form.vehicle.vehicle_class) }}
@@ -385,3 +386,4 @@
 		</div>
     </div>
 </div>
+{% include 'DaVinciTaxiBundle:Home:about_class_cars.html.twig' %}

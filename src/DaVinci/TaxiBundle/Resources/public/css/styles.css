@@ -930,13 +930,13 @@ home
 					}
 
 
-@media (max-width: 960px) {
+@media (max-width: 977px) {
 	.home .steps-1-2-3 .chois li:nth-child(2) .exclude {
 		display: none;
 	}
 }
 
-@media (max-width: 645px) {
+@media (max-width: 660px) {
 	.home .steps-1-2-3 ul.chois > li {
 		-webkit-transition: width 0.2s;
 		-moz-transition: width 0.2s;
@@ -972,7 +972,7 @@ home
 	}	
 }
 
-@media (max-width: 390px) {
+@media (max-width: 430px) {
 	.home .steps-1-2-3 ul.chois > li:not(.uk-active) {
 		display: none;
 	}	
@@ -1182,6 +1182,12 @@ styles of booking step 2  in homepage
 	padding-right:12px;
 	width:100%;
 	height:100%;
+}
+.order-details .kids-pats-line .object.classau .jq-selectbox {
+	width: 91%;
+}
+.order-details .kids-pats-line .object.classau a {
+	text-decoration: none;
 }
 .order-details .kids-pats-group .kids-pats-line .amount {
 	width:42px;
@@ -2965,7 +2971,7 @@ footer {
 	  }
 	  
 	.home .steps-1-2-3 .chois li a .on {
-		margin-left:30px;
+		margin-left:0px;
 	}
 	.home .steps-1-2-3 .chois .uk-active.first a .on {
 	}
@@ -5530,6 +5536,26 @@ body.register .main-content{
 /* /mobiles line */
 /* /form styles*/
 
+
+.register.reset {
+	margin: 15px auto 0;
+	padding: 7%;
+	text-align: center;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.register.chang_pass label {
+  text-align: left;
+  margin: 5px 0 0;
+}
+.register.chang_pass input {
+	width: 100%;
+}
+.register.chang_pass .uk-button {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
 /* mobile styles*/
 @media (max-width: 1017px) {
@@ -9540,7 +9566,7 @@ Payment window
 		width: 36%;
 	}
 	.nav-head .main-menu > li > a {
-		width: 54px;
+		width: 53px;
 	}
 	.nav-head .sigin {
 		width: 17%;
@@ -9601,4 +9627,50 @@ Payment window
 	.nav-head .main-menu,.nav-head .info-menu,.nav-head .sigin {
 		display: none;
 	}
+}
+
+
+.cars-class .uk-modal-dialog {
+	position: relative;
+	padding: 14px 9px 16px;
+	width: 650px;
+}
+.cars-class .uk-close {
+  margin-right: -5px !important;
+}
+.cars-class h3 {
+	margin-bottom: 7px;
+}
+.cars-class table {
+	width: 100%;
+	text-align: center;
+}
+.cars-class table td {
+	border: 1px solid #ebebeb;
+	white-space: nowrap;
+	height: 28px;
+	vertical-align: middle;
+	width: 11%;
+}
+.cars-class thead td {
+	color: #ff4d61;
+}
+.cars-class .uk-button {
+	width: 97%;
+	position: absolute;
+	bottom: -42px;
+	box-sizing: border-box;
+	font-size: 18px;
+	text-transform: uppercase;
+	line-height: 38px;;
+}
+.cars-class thead td:first-child {
+	width: 6%;
+}
+.cars-class thead td:nth-child(2) {
+  width: 21%;
+}
+.cars-class thead td:nth-child(4) {
+}
+.cars-class thead td:nth-child(5) {
 }
