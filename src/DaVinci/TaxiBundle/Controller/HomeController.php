@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -11,9 +12,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+use DaVinci\TaxiBundle\Form\Payment\MakePayment;
+use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
 
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
+use DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow;
 
 class HomeController extends Controller {
 	
@@ -33,7 +36,7 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			$this->saveRequest($passengerRequest);
+    			$this->savePassengerRequest($passengerRequest);
     			$flow->reset();
     			
     			$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
@@ -70,7 +73,40 @@ class HomeController extends Controller {
      * @Security("has_role('ROLE_USER')")
      */
     public function paymentAction() {
-    	return $this->render("DaVinciTaxiBundle:Store:payment_page_1.html.twig");
+    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	$makePayment = $this->spawnMakePayment();    	
+    	
+    	$flow = $this->container->get('taxi.makePayment.form.flow');
+    	$flow->bind($makePayment);
+    	 
+    	$form = $flow->createForm();
+    	if ($flow->isValid($form)) {
+    		$flow->saveCurrentStepData($form);
+    	
+    		if ($flow->nextStep()) {
+    			$form = $flow->createForm();
+    		} else {
+    			$flow->reset();
+    			    			 
+    			return $this->redirect($this->generateUrl('passenger_request_generated'));
+    		}
+    	}
+    	
+    	$data = array(
+    		'form' => $form->createView(),
+    		'flow' => $flow,
+    		'passengerRequest' => $passengerRequest	
+    	);
+    	 
+    	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {
+    		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
+    		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
+    	}
+    	 
+    	return $this->render(
+    		'DaVinciTaxiBundle:Store:payment_page_1.html.twig',
+    		$data
+    	);   	
     }
     
     /**
@@ -93,13 +129,31 @@ class HomeController extends Controller {
     }
     
     /**
+     * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
+     */
+    private function spawnMakePayment()
+    {
+    	return $this->getMakePaymentService()->create();
+    }
+    
+    /**
      * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
      * @return void
      */
-    private function saveRequest(PassengerRequest $request)
+    private function savePassengerRequest(PassengerRequest $request)
     {
     	$em = $this->container->get('doctrine')->getManager();
     	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveRequest($request);
+    }
+    
+    /**
+     * @param integer $id
+     * @return void
+     */
+    private function getPassengerRequestById($id)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
     }
     
     /**
@@ -116,6 +170,14 @@ class HomeController extends Controller {
     private function getCalculationService()
     {
     	return $this->container->get('da_vinci_taxi.service.calculation_service');
+    }
+    
+    /**
+     * @return \DaVinci\TaxiBundle\Form\Payment\MakePaymentService
+     */
+    private function getMakePaymentService()
+    {
+    	return $this->container->get('da_vinci_taxi.service.make_payment_service');
     }
     
 }
