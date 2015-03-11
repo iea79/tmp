@@ -132,6 +132,7 @@ class AppKernel extends Kernel
             new Lunetics\LocaleBundle\LuneticsLocaleBundle(),
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -1,8 +1,8 @@
 parameters:
     locale: en
-    locales: [en, ru]
-
-
+    locales:
+        - en
+        - ru
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
@@ -15,7 +15,6 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
-    locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     debug_toolbar:          true

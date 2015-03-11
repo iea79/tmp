@@ -4,7 +4,7 @@ fos_user:
     user_class: DaVinci\TaxiBundle\Entity\User
     group:
         group_class:  DaVinci\TaxiBundle\Entity\Group
-        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        #group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
     service:
             user_manager: custom_user_manager
     registration:
