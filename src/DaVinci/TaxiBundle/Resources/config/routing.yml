@@ -5,7 +5,7 @@ da_vinci_taxi_homepage:
 passenger_request_payment:
     pattern: /payment/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:payment }
-    methods:  [GET]
+    methods:  [GET, POST]
     
 passenger_request_generated:
     pattern: /generated

@@ -5,6 +5,11 @@ namespace DaVinci\TaxiBundle\Form\Payment;
 class CreditCardPaymentMethod extends PaymentMethod 
 {
 	
+	const POS_TYPE_VISA = 0;
+	const POS_TYPE_MASTER_CARD = 1;
+	const POS_TYPE_DINERS_CLUB = 2;
+	const POS_TYPE_AMERICAN_EXPRESS = 3;
+	
 	const CARD_TYPE_VISA = 'Visa';
 	const CARD_TYPE_MASTER_CARD = 'MasterCard';
 	const CARD_TYPE_DINERS_CLUB = 'DinersClub';
@@ -34,7 +39,7 @@ class CreditCardPaymentMethod extends PaymentMethod
 	/**
 	 * @var string
 	 */
-	protected $cardType;
+	protected $methodType;
 	
 	/**
 	 * @var string
@@ -50,10 +55,10 @@ class CreditCardPaymentMethod extends PaymentMethod
 	 * @var array
 	 */
 	static public $cardTypes = array(
-		self::CARD_TYPE_VISA,
-		self::CARD_TYPE_MASTER_CARD,
-		self::CARD_TYPE_DINERS_CLUB,
-		self::CARD_TYPE_AMERICAN_EXPRESS			
+		self::POS_TYPE_VISA => self::CARD_TYPE_VISA,
+		self::POS_TYPE_MASTER_CARD => self::CARD_TYPE_MASTER_CARD,
+		self::POS_TYPE_DINERS_CLUB => self::CARD_TYPE_DINERS_CLUB,
+		self::POS_TYPE_AMERICAN_EXPRESS => self::CARD_TYPE_AMERICAN_EXPRESS			
 	);
 
 	public function setCardNumber($cardNumber)
@@ -104,19 +109,19 @@ class CreditCardPaymentMethod extends PaymentMethod
 		return $this->expirationYear;
 	}
 	
-	public function setCardType($cardType)
+	public function setMethodType($methodType)
 	{
-		if (!array_key_exists($cardType, self::$cardTypes)) {
-			throw new \InvalidArgumentException("Unsupported card type code: {$cardType}");
+		if (!array_key_exists($methodType, self::$cardTypes)) {
+			throw new \InvalidArgumentException("Unsupported card type code: {$methodType}");
 		}
-		$this->cardType = $cardType;
+		$this->methodType = $methodType;
 	
 		return $this;
 	}
 	
-	public function getCardType()
+	public function getMethodType()
 	{
-		return $this->cardType;
+		return $this->methodType;
 	}
 	
 	public function setName($name)

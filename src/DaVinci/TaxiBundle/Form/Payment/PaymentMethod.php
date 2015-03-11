@@ -7,6 +7,10 @@ abstract class PaymentMethod
 	
 	const CLASS_END = 'PaymentMethod';
 	
+	const CREDIT_CARD_METHOD = 'CreditCard';
+	const PAYPAL_METHOD = 'PayPal';
+	const SKRILL_METHOD = 'Skrill';
+	
 	/**
 	 * @var string
 	 */

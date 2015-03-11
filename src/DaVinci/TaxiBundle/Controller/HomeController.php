@@ -78,7 +78,7 @@ class HomeController extends Controller {
     	
     	$flow = $this->container->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
-    	 
+    	
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
     		$flow->saveCurrentStepData($form);
@@ -87,9 +87,8 @@ class HomeController extends Controller {
     			$form = $flow->createForm();
     		} else {
     			$flow->reset();
-    			    			 
     			return $this->redirect($this->generateUrl('passenger_request_generated'));
-    		}
+			}
     	}
     	
     	$data = array(
@@ -102,9 +101,9 @@ class HomeController extends Controller {
     		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
     		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
     	}
-    	 
+		    	    	 
     	return $this->render(
-    		'DaVinciTaxiBundle:Store:payment_page_1.html.twig',
+    		'DaVinciTaxiBundle:Store:payment_page.html.twig',
     		$data
     	);   	
     }
@@ -133,8 +132,10 @@ class HomeController extends Controller {
      */
     private function spawnMakePayment()
     {
-    	return $this->getMakePaymentService()->create();
-    }
+    	return $this->getMakePaymentService()->create(
+    		$this->getRequest()->get('makePaymentStepMethod')
+    	);
+	}
     
     /**
      * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
@@ -179,5 +180,5 @@ class HomeController extends Controller {
     {
     	return $this->container->get('da_vinci_taxi.service.make_payment_service');
     }
-    
+        
 }

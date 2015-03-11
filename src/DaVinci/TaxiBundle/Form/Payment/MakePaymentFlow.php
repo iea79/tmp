@@ -16,6 +16,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
+use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 
 class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
 	
@@ -72,19 +73,33 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
 	
 	protected function loadStepsConfig()
 	{
-		$data = $this->getFormData();
-		
-		$stepData = array(
-			'label' => 'paymentInfo'
-		);
-		
 		return array(
 			array(
 				'label' => 'paymentMethod',
 				'type' => new PaymentMethodType()
 			),
-			$stepData			
+			array(
+				'label' => 'paymentInfo',
+				'type' => $this->createFormType()	
+			)			
 		);
+	}
+	
+	private function createFormType()
+	{
+		$params = $this->getRequest()->get('makePaymentStepMethod');
+		if (is_null($params)) {
+			return null;	
+		}
+		
+		if (isset($params['creditCardMethods'])) {
+			return new CreditCardPaymentInfoType();
+		}
+		
+		if (isset($params['otherMethods'])) {
+			$className = MakePaymentService::getMethodByCode($params['otherMethods']) . 'PaymentInfoType';
+			return new $className();
+		}
 	}
 		
 }

@@ -1,0 +1,54 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# Price block #}
+	<div class="price">
+		<p>{{'Subtotal:'|trans}} <span>$5.00</span></p>
+		<p>{{'Commission services:'|trans}} <span>$0.10</span></p>
+		<p>0%VAT: <span>$0.00</span></p>
+		<h2>{{'Total cost:'|trans}} <span>$5.10</span></h2>
+	</div>
+{# Payment block #}						
+	<div class="payment home">
+		<div class="payment-swicher steps-1-2-3">
+			<ul class="chois" data-uk-tab="{connect:'#sale_steps'}">
+	            <li class="first uk-active">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}} </span>{{'method'|trans}}</span>
+	                    </div>
+	                    <span class="arrow"></span>
+	                    <span class="middle"></span>
+	                </a>
+	            </li>
+	            <li class="last">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}}  </span>info</span>
+	                    </div>
+	                    <span class="arrow"> </span>
+	                    <span class="middle"> </span>
+	                </a>
+	                <span class="back"></span>
+	            </li>
+			</ul>
+		</div>
+	
+		<div id="sale_steps" class="uk-switcher ">
+			<form novalidate action="{{ path('passenger_request_payment', {'id': passengerRequest.id}) }}" {{ form_enctype(form) }} method="POST">
+        		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
+        		{{ form_errors(form) }}
+        		        		
+        		{% if flow.getCurrentStepNumber() == 1 %}
+			        {% include 'DaVinciTaxiBundle:Store:payment_page_1.html.twig' %}
+			    {% elseif flow.getCurrentStepNumber() == 2 %}
+			    	{% include 'DaVinciTaxiBundle:Store:payment_page_2.html.twig' %}
+			    {% endif %}
+			    
+			    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+			</form>
+		</div>
+	</div>
+{% endblock %}	

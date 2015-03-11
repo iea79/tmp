@@ -5,6 +5,9 @@ namespace DaVinci\TaxiBundle\Form\Payment;
 class MakePayment 
 {
 	
+	const BALANCE_TYPE_PRIVATE = 'private';
+	const BALANCE_TYPE_BUSINESS = 'business';
+	
 	private $balanceType;
 	
 	/**
@@ -17,7 +20,10 @@ class MakePayment
 	 */
 	private $totalPrice;
 	
-	static public $balanceTypes;
+	static public $balanceTypes = array(
+		self::BALANCE_TYPE_PRIVATE,
+		self::BALANCE_TYPE_BUSINESS	
+	);
 
 	public function setBalanceType($balanceType)
 	{

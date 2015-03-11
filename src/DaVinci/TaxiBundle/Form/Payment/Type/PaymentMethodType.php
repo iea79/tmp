@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use DaVinci\TaxiBundle\Form\Payment\MakePayment;
 use DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod;
+use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
 
 class PaymentMethodType extends AbstractType 
 {
@@ -24,8 +25,7 @@ class PaymentMethodType extends AbstractType
 			))
 			->add('otherMethods', 'choice', array(
 				'choices' => array(
-					'paypal' => 'PayPal',
-					'skrill' => 'Skrill'	
+					PaymentMethod::PAYPAL_METHOD, PaymentMethod::SKRILL_METHOD
 				),
 				'mapped' => false	
 			))
