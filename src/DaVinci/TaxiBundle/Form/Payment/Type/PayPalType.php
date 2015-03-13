@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CreditCardType extends AbstractType 
+class PayPalType extends AbstractType 
 {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
@@ -28,13 +28,13 @@ class CreditCardType extends AbstractType
 	
 	public function getName() 
 	{
-		return 'creditCardPaymentInfo';
+		return 'payPalPaymentInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 
 	{
 		$resolver->setDefaults(array(
-			'data_class' =>	'DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod',
+			'data_class' =>	'DaVinci\TaxiBundle\Form\Payment\PayPalPaymentMethod',
 			'validation_groups' => array('flow_makePayment_step2'),
 			'csrf_protection' => false
 		));

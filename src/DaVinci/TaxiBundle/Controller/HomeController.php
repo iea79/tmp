@@ -94,12 +94,16 @@ class HomeController extends Controller {
     	$data = array(
     		'form' => $form->createView(),
     		'flow' => $flow,
-    		'passengerRequest' => $passengerRequest	
+    		'passengerRequest' => $passengerRequest
     	);
     	 
     	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {
     		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
     		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
+    	}
+    	
+    	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_SECOND) {
+    		$data['paymentMethod'] = $makePayment->getPaymentMethod()->getType();
     	}
 		    	    	 
     	return $this->render(

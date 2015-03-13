@@ -44,12 +44,32 @@ class CreditCardPaymentMethod extends PaymentMethod
 	/**
 	 * @var string
 	 */
-	protected $name;
+	protected $firstname;
 	
 	/**
 	 * @var string
 	 */
-	protected $surname;
+	protected $lastname;
+	
+	/**
+	 * @var string
+	 */
+	protected $address;
+	
+	/**
+	 * @var string
+	 */
+	protected $city;
+	
+	/**
+	 * @var string
+	 */
+	protected $state;
+	
+	/**
+	 * @var string
+	 */
+	protected $country;
 	
 	/**
 	 * @var array
@@ -124,28 +144,76 @@ class CreditCardPaymentMethod extends PaymentMethod
 		return $this->methodType;
 	}
 	
-	public function setName($name)
+	public function setFirstname($firstname)
 	{
-		$this->name = $name;
+		$this->firstname = $firstname;
 	
 		return $this;
 	}
 	
-	public function getName()
+	public function getFirstname()
 	{
-		return $this->name;
+		return $this->firstname;
 	}
 	
-	public function setSurname($surname)
+	public function setLastname($lastname)
 	{
-		$this->surname = $surname;
+		$this->lastname = $lastname;
 	
 		return $this;
 	}
 	
-	public function getSurname()
+	public function getLastname()
 	{
-		return $this->surname;
+		return $this->lastname;
+	}
+	
+	public function setAddress($address)
+	{
+		$this->address = $address;
+	
+		return $this;
+	}
+	
+	public function getAddress()
+	{
+		return $this->address;
+	}
+	
+	public function setCity($city)
+	{
+		$this->city = $city;
+	
+		return $this;
+	}
+	
+	public function getCity()
+	{
+		return $this->city;
+	}
+	
+	public function setState($state)
+	{
+		$this->state = $state;
+	
+		return $this;
+	}
+	
+	public function getState()
+	{
+		return $this->state;
+	}
+	
+	public function setCountry($country)
+	{
+		$this->country = $country;
+	
+		return $this;
+	}
+	
+	public function getCountry()
+	{
+		return $this->country;
 	}
 	
 	static public function getCardTypes()

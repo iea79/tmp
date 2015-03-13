@@ -97,7 +97,10 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
 		}
 		
 		if (isset($params['otherMethods'])) {
-			$className = MakePaymentService::getMethodByCode($params['otherMethods']) . 'PaymentInfoType';
+			$className = MakePaymentService::SERVICE_NAMESPACE_TYPE
+				. MakePaymentService::getMethodByCode($params['otherMethods']) 
+				. 'PaymentInfoType';
+			
 			return new $className();
 		}
 	}

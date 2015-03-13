@@ -7,6 +7,9 @@ abstract class PaymentMethod
 	
 	const CLASS_END = 'PaymentMethod';
 	
+	const POS_PAYPAL_METHOD = 0;
+	const POS_SKRILL_METHOD = 1;
+	
 	const CREDIT_CARD_METHOD = 'CreditCard';
 	const PAYPAL_METHOD = 'PayPal';
 	const SKRILL_METHOD = 'Skrill';
@@ -21,6 +24,11 @@ abstract class PaymentMethod
 	 */
 	protected $type;
 	
+	/**
+	 * @var srting
+	 */
+	protected $note;
+	
 	public function setCompany($company) 
 	{
 		$this->company = $company;
@@ -32,11 +40,23 @@ abstract class PaymentMethod
 	{
 		return $this->company;
 	}
+	
+	public function setNote($note)
+	{
+		$this->note = $note;
+	
+		return $this;
+	}
+	
+	public function getNote()
+	{
+		return $this->note;
+	}
 		
 	public function getType()
 	{
 		$className = get_class($this);
-		return substr($className, 0, strpos($className, self::CLASS_END));
+		return substr($className, strrpos($className, "\\") + 1, strpos($className, self::CLASS_END));
 	}
 	
 }
