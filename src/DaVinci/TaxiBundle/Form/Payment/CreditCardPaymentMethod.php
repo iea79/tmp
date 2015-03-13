@@ -11,9 +11,9 @@ class CreditCardPaymentMethod extends PaymentMethod
 	const POS_TYPE_AMERICAN_EXPRESS = 3;
 	
 	const CARD_TYPE_VISA = 'Visa';
-	const CARD_TYPE_MASTER_CARD = 'MasterCard';
-	const CARD_TYPE_DINERS_CLUB = 'DinersClub';
-	const CARD_TYPE_AMERICAN_EXPRESS = 'AmericanExpress';
+	const CARD_TYPE_MASTER_CARD = 'Master Card';
+	const CARD_TYPE_DINERS_CLUB = 'Diners Club';
+	const CARD_TYPE_AMERICAN_EXPRESS = 'American Express';
 	
 	
 	/**
@@ -142,6 +142,15 @@ class CreditCardPaymentMethod extends PaymentMethod
 	public function getMethodType()
 	{
 		return $this->methodType;
+	}
+	
+	public function getMethodTypeName()
+	{
+		if (!$this->methodType) {
+			return null;
+		}
+		
+		return self::$cardTypes[$this->methodType];
 	}
 	
 	public function setFirstname($firstname)

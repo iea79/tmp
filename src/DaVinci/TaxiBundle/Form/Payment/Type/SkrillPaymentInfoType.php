@@ -5,18 +5,19 @@ namespace DaVinci\TaxiBundle\Form\Payment\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use DaVinci\TaxiBundle\Form\Payment\SkrillPaymentMethod;
 
-class PayPalPaymentInfoType extends AbstractType 
+class SkrillPaymentInfoType extends AbstractType 
 {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
-		$builder->add('paymentMethod', new PayPalType());
+		$builder->add('paymentMethod', new SkrillType());
 	}
 	
 	public function getName() 
 	{
-		return 'makePaymentStepPayPalPaymentInfo';
+		return 'makePaymentStepSkrillPaymentInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 

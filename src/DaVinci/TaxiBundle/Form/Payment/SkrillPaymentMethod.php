@@ -18,7 +18,7 @@ class SkrillPaymentMethod extends PaymentMethod
 	/**
 	 * @var string
 	 */
-	protected $note;
+	protected $ownNote;
 	
 
 	public function setEmail($email)
@@ -45,16 +45,16 @@ class SkrillPaymentMethod extends PaymentMethod
 		return $this->subject;
 	}
 	
-	public function setNote($note)
+	public function setOwnNote($ownNote)
 	{
-		$this->note = $note;
+		$this->ownNote = $ownNote;
 	
 		return $this;
 	}
 	
-	public function getNote()
+	public function getOwnNote()
 	{
-		return $this->note;
+		return $this->ownNote;
 	}
 		
 }

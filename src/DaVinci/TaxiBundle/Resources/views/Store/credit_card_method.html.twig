@@ -1,0 +1,67 @@
+{% if paymentMethod == 'CreditCardPaymentMethod' %}
+	<h3>{{'Fund your account'|trans}} {{ cardType }}</h3>
+{% elseif paymentMethod == 'PayPalPaymentMethod' %}
+	<h3>{{'Fund your account'|trans}} PayPal</h3>
+{% endif %}	
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.firstname, 'First name:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.firstname) }}
+        {{ form_errors(form.paymentMethod.firstname) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.lastname, 'Last name:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.lastname) }}
+        {{ form_errors(form.paymentMethod.lastname) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+    {{ form_label(form.paymentMethod.company, 'Company name:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.company) }}
+        {{ form_errors(form.paymentMethod.company) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.cardNumber, 'Card number:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.cardNumber) }}
+        {{ form_errors(form.paymentMethod.cardNumber) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row cwcvc">
+	{{ form_label(form.paymentMethod.secretSalt, 'CVV/CVC:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.secretSalt) }}
+        {{ form_errors(form.paymentMethod.secretSalt) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row year">
+    <label class="uk-form-label" for="">{{'Month:'|trans}}</label>
+    <div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.expirationMonth) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row year">
+    {{ form_label(form.paymentMethod.expirationYear, 'Year:') }}
+    <div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.expirationYear) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.note, 'Note:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.note) }}
+        {{ form_errors(form.paymentMethod.note) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>

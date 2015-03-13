@@ -14,6 +14,8 @@ abstract class PaymentMethod
 	const PAYPAL_METHOD = 'PayPal';
 	const SKRILL_METHOD = 'Skrill';
 	
+	const MAX_YEAR_PERIOD = 6;
+	
 	/**
 	 * @var string
 	 */

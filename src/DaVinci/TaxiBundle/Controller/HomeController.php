@@ -17,6 +17,8 @@ use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
 
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 use DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow;
+use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod;
 
 class HomeController extends Controller {
 	
@@ -103,7 +105,12 @@ class HomeController extends Controller {
     	}
     	
     	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_SECOND) {
-    		$data['paymentMethod'] = $makePayment->getPaymentMethod()->getType();
+    		$paymentMethod = $makePayment->getPaymentMethod();
+    		$data['paymentMethod'] = $paymentMethod->getType();
+    		
+    		if ($paymentMethod instanceof CreditCardPaymentMethod) {
+    			$data['cardType'] = $paymentMethod->getMethodTypeName();
+    		}
     	}
 		    	    	 
     	return $this->render(

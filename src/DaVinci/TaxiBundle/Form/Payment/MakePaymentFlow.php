@@ -18,7 +18,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
 use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 
-class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
+class MakePaymentFlow extends FormFlow implements EventSubscriberInterface 
+{
 	
 	const FLOW_NAME = 'makePayment';
 	

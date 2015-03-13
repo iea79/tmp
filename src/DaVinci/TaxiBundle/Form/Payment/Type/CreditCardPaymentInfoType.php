@@ -11,8 +11,7 @@ class CreditCardPaymentInfoType extends AbstractType
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
-		$builder
-			->add('paymentMethod', new CreditCardType());
+		$builder->add('paymentMethod', new CreditCardType());
 	}
 	
 	public function getName() 

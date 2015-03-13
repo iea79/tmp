@@ -25,7 +25,8 @@ class PaymentMethodType extends AbstractType
 			))
 			->add('otherMethods', 'choice', array(
 				'choices' => array(
-					PaymentMethod::PAYPAL_METHOD, PaymentMethod::SKRILL_METHOD
+					PaymentMethod::PAYPAL_METHOD,
+					PaymentMethod::SKRILL_METHOD
 				),
 				'mapped' => false	
 			))
