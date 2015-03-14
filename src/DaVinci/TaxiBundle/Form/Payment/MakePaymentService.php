@@ -45,9 +45,8 @@ class MakePaymentService
 		if (!array_key_exists($code, self::$otherMethods)) {
 			throw new \InvalidArgumentException("Unsupported other payment method code: {$code}");
 		}
-		$key = array_search($code, self::$otherMethods);
 		
-		return self::$otherMethods[$key];
+		return self::$otherMethods[$code];
 	}
 	
 	/**
