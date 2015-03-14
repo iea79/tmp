@@ -28,7 +28,7 @@ class CreditCardType extends AbstractType
 			->add('city', 'text')
 			->add('state', 'text')
 			->add('country', 'text')
-			->add('note', 'text');
+			->add('ownNote', 'text');
 	}
 	
 	public function getName() 

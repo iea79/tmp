@@ -58,10 +58,10 @@
     </div>
 </div>
 <div class="uk-form-row">
-	{{ form_label(form.paymentMethod.note, 'Note:') }}
+	{{ form_label(form.paymentMethod.ownNote, 'Own note:') }}
 	<div class="uk-form-controls">
-        {{ form_widget(form.paymentMethod.note) }}
-        {{ form_errors(form.paymentMethod.note) }}
+        {{ form_widget(form.paymentMethod.ownNote) }}
+        {{ form_errors(form.paymentMethod.ownNote) }}
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>

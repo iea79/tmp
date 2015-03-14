@@ -14,9 +14,9 @@ class SkrillType extends AbstractType
 		$builder
 			->add('email', 'text')
 			->add('subject', 'text')
-			->add('ownNote', 'text')
+			->add('note', 'text')
 			->add('company', 'text')
-			->add('note', 'text');
+			->add('ownNote', 'text');
 	}
 	
 	public function getName() 

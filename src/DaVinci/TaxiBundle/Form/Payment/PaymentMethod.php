@@ -29,7 +29,7 @@ abstract class PaymentMethod
 	/**
 	 * @var srting
 	 */
-	protected $note;
+	protected $ownNote;
 	
 	public function setCompany($company) 
 	{
@@ -43,16 +43,16 @@ abstract class PaymentMethod
 		return $this->company;
 	}
 	
-	public function setNote($note)
+	public function setOwnNote($ownNote)
 	{
-		$this->note = $note;
+		$this->ownNote = $ownNote;
 	
 		return $this;
 	}
 	
-	public function getNote()
+	public function getOwnNote()
 	{
-		return $this->note;
+		return $this->ownNote;
 	}
 		
 	public function getType()
