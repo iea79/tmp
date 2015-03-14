@@ -39,7 +39,7 @@ class VideoGuidesPageAdmin extends Admin {
                         'label' => 'Youtube link (left empty if no video)',
                     ), array(
                         'link_parameters' => array(
-                            'context' => 'profit',
+                            'context' => 'videoguides',
                             'provider' => 'sonata.media.provider.youtube',
                         ),
                     ))

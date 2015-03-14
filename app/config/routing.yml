@@ -1,6 +1,7 @@
 da_vinci_taxi_homepage:
     pattern:  /
     defaults: { _controller: DaVinciTaxiBundle:Home:index }
+    options: { useAsInnerURL: true }    
     
 # offices, registrations
 userbundle:
@@ -8,7 +9,7 @@ userbundle:
     
 taxibundle:
     resource: '@DaVinciTaxiBundle/Resources/config/routing.yml'
-    options: { useAsInnerURL: true } 
+    #options: { useAsInnerURL: true } - to set for all routes in file
 
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
