@@ -12,8 +12,7 @@ class VideoGuidesPageAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('title')
-            ->add('locale')
+            ->add('youtubeLink')
              ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
@@ -48,14 +47,9 @@ class VideoGuidesPageAdmin extends Admin {
             ->with('form.group_seo')
                 ->add('seoMetadata', 'seo_metadata', array('label' => false))
             ->end()
-            ->with('Other',  array('collapsed' => true))
+            ->with('Other')
                 ->add('locale')
             ->end();
-    }
-    
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper->add('title', 'doctrine_phpcr_string');
     }
 
     public function getExportFormats()

@@ -25,7 +25,7 @@ class ProfitRepository extends BaseDocumentRepository implements RepositoryIdInt
      */
     public function generateId($document, $parent = null)
     {
-        
-        return '/cms/'.$parent.'/'.$this->get('slugify')->slugify($document->getTitle());
+		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
+        return '/cms/'.$parent.'/'.$slugged;
     }
 }

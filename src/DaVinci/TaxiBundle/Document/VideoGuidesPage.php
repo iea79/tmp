@@ -13,7 +13,7 @@ use Symfony\Cmf\Component\Routing\RouteReferrersReadInterface;
 
 use Doctrine\Common\Collections\ArrayCollection;
 /**
- * @PHPCR\Document(referenceable=true,translator="attribute", repositoryClass="GuidesRepository")
+ * @PHPCR\Document(referenceable=true,translator="attribute", repositoryClass="VideoGuidesRepository")
  */
 class VideoGuidesPage implements TranslatableInterface, 
         PublishTimePeriodInterface, 

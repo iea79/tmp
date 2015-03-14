@@ -20,7 +20,7 @@
 			</div>
 			<div class="search">
 				<form class="uk-search" data-uk-search>
-				    <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
+				    <input class="uk-search-field" type="search" id="filter" placeholder="Фраза для поиска">
 				</form>
 			</div>
 		<ul id="video" class="uk-switcher">
@@ -343,4 +343,14 @@
 		</ul>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/help/videoguides.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
 {% endblock %}

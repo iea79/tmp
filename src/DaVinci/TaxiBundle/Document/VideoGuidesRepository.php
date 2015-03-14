@@ -14,7 +14,7 @@ class VideoGuidesRepository extends BaseDocumentRepository implements Repository
      */
     public function generateId($document, $parent = null)
     {
-        
-        return '/cms/'.$parent.'/'.$this->get('slugify')->slugify($document->getYoutubeLink()->getTitle());
+		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getYoutubeLink()->getName());
+        return '/cms/'.$parent.'/'.$slugged;
     }
 }
