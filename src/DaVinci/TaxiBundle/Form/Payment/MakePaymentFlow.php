@@ -89,21 +89,26 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface
 	private function createFormType()
 	{
 		$params = $this->getRequest()->get('makePaymentStepMethod');
-		if (is_null($params)) {
-			return null;	
-		}
-		
-		if (isset($params['creditCardMethods'])) {
-			return new CreditCardPaymentInfoType();
-		}
-		
-		if (isset($params['otherMethods'])) {
-			$className = MakePaymentService::SERVICE_NAMESPACE_TYPE
-				. MakePaymentService::getMethodByCode($params['otherMethods']) 
-				. 'PaymentInfoType';
-			
+		if (isset($params['paymentMethodCode'])) {
+			$className = $this->getClassName($params['paymentMethodCode']);
 			return new $className();
 		}
+		
+		$params = $this->getRequest()->get('makePaymentStepPaymentInfo');
+		if (isset($params['paymentMethodCode'])) {
+			$className = $this->getClassName($params['paymentMethodCode']);
+			return new $className();
+		}
+	}
+	
+	private function getClassName($code)
+	{
+		$methodData = explode('_', $code);
+		return (
+			MakePaymentService::SERVICE_NAMESPACE_TYPE
+				. PaymentMethod::getTypeByCode($methodData[0])
+				. 'PaymentInfoType'
+		);
 	}
 		
 }

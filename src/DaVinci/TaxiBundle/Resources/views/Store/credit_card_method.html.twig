@@ -1,5 +1,5 @@
 {% if paymentMethod == 'CreditCardPaymentMethod' %}
-	<h3>{{'Fund your account'|trans}} {{ cardType }}</h3>
+	<h3>{{'Fund your account'|trans}} {{ subType }}</h3>
 {% elseif paymentMethod == 'PayPalPaymentMethod' %}
 	<h3>{{'Fund your account'|trans}} PayPal</h3>
 {% endif %}	

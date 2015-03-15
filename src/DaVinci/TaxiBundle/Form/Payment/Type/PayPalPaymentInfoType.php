@@ -11,12 +11,14 @@ class PayPalPaymentInfoType extends AbstractType
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
-		$builder->add('paymentMethod', new PayPalType());
+		$builder
+			->add('paymentMethodCode', 'hidden')
+			->add('paymentMethod', new PayPalType());
 	}
 	
 	public function getName() 
 	{
-		return 'makePaymentStepPayPalPaymentInfo';
+		return 'makePaymentStepPaymentInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 

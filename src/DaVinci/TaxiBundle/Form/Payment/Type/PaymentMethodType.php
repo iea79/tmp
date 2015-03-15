@@ -7,8 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use DaVinci\TaxiBundle\Form\Payment\MakePayment;
-use DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod;
-use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
 
 class PaymentMethodType extends AbstractType 
 {
@@ -16,19 +15,8 @@ class PaymentMethodType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
 		$builder
-			->add('balanceType', 'choice', array(
-				'choices' => MakePayment::getBalanceTypes()
-			))
-			->add('creditCardMethods', 'choice', array(
-				'choices' => CreditCardPaymentMethod::getCardTypes(),
-				'mapped' => false	
-			))
-			->add('otherMethods', 'choice', array(
-				'choices' => array(
-					PaymentMethod::PAYPAL_METHOD,
-					PaymentMethod::SKRILL_METHOD
-				),
-				'mapped' => false	
+			->add('paymentMethodCode', 'choice', array(
+				'choices' => MakePaymentService::generateMethods()
 			))
 			->add('price', 'hidden', array(
 				'mapped' => false
@@ -48,7 +36,7 @@ class PaymentMethodType extends AbstractType
 			'csrf_protection' => false
 		));
 	}
-	
+		
 }
 
 ?>

@@ -11,12 +11,14 @@ class CreditCardPaymentInfoType extends AbstractType
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
-		$builder->add('paymentMethod', new CreditCardType());
+		$builder
+			->add('paymentMethodCode', 'hidden')
+			->add('paymentMethod', new CreditCardType());
 	}
 	
 	public function getName() 
 	{
-		return 'makePaymentStepCreditCardPaymentInfo';
+		return 'makePaymentStepPaymentInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 

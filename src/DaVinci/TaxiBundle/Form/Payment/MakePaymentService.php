@@ -7,46 +7,71 @@ class MakePaymentService
 	
 	const SERVICE_NAMESPACE = "DaVinci\TaxiBundle\Form\Payment\\";
 	const SERVICE_NAMESPACE_TYPE = "DaVinci\TaxiBundle\Form\Payment\Type\\";
-	
-	static protected $otherMethods = array(
-		PaymentMethod::POS_PAYPAL_METHOD => PaymentMethod::PAYPAL_METHOD, 
-		PaymentMethod::POS_SKRILL_METHOD => PaymentMethod::SKRILL_METHOD
-	);
+
+	protected static $methods;
 	
 	/**
-	 * @param array $params
 	 * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
 	 */
 	public function create(array $params = null)
 	{
-		$makePayment = new MakePayment();
+		return new MakePayment();
+	}
+	
+	/**
+	 * @param \DaVinci\TaxiBundle\Form\Payment\MakePayment $makePayment
+	 * @param string $paymentMethodCode
+	 * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
+	 */
+	public function spawnPaymentMethod(
+		\DaVinci\TaxiBundle\Form\Payment\MakePayment $makePayment, $paymentMethodCode
+	) {
+		if ($paymentMethodCode) {
+			$methodData = explode('_', $paymentMethodCode);
 		
-		if (is_null($params)) {
-			return $makePayment;
-		}
-		
-		if (isset($params['creditCardMethods'])) {
-			$makePayment->setPaymentMethod($this->createPaymentMethod(
-				PaymentMethod::CREDIT_CARD_METHOD, $params['creditCardMethods']
-			));
-		}
-		
-		if (isset($params['otherMethods'])) {
-			$makePayment->setPaymentMethod($this->createPaymentMethod(
-				self::getMethodByCode($params['otherMethods'])
-			));
+			$methodCode = $methodData[0];
+				
+			$type = null;
+			if (isset($methodData[1])) {
+				$type = $methodData[1];
+			}
+				
+			$makePayment->setPaymentMethod(
+				$this->createPaymentMethod($methodCode, $type)
+			);
 		}
 		
 		return $makePayment;
 	}
 	
+	static public function generateMethods()
+	{
+		foreach (PaymentMethod::getTypes() as $key => $value) {
+			$paymentMethod = self::createOnlyPaymentMethod($value);
+			$subTypes = $paymentMethod::getSubTypes();
+			if (count($subTypes) > 0) {
+				foreach ($subTypes as $subKey => $subValue) {
+					self::$methods[$key . '_' . $subKey] = $subValue;
+				} 
+			} else {
+				self::$methods[$key] = $value;
+			}
+		}
+		
+		return self::$methods;
+	}
+	
 	static public function getMethodByCode($code)
 	{
-		if (!array_key_exists($code, self::$otherMethods)) {
+		if (!count(self::$methods)) {
+			self::generateMethods();
+		}
+		
+		if (!array_key_exists($code, self::$methods)) {
 			throw new \InvalidArgumentException("Unsupported other payment method code: {$code}");
 		}
 		
-		return self::$otherMethods[$code];
+		return self::$methods[$code];
 	}
 	
 	/**
@@ -54,19 +79,24 @@ class MakePaymentService
 	 * @param string $type
 	 * @return PaymentMethod
 	 */
-	private function createPaymentMethod($method, $type = null)
+	private function createPaymentMethod($methodCode, $type = null)
 	{
+		$method = PaymentMethod::getTypeByCode($methodCode);
+		$object = self::createOnlyPaymentMethod($method);
+		if (!is_null($type)) {
+			$object->setSubType($type);
+		}
+		
+		return $object;
+	}
+	
+	static private function createOnlyPaymentMethod($method) {
 		$className = self::SERVICE_NAMESPACE . $method . PaymentMethod::CLASS_END;
 		if (!class_exists($className)) {
 			throw new \InvalidArgumentException("Unsupported payment method: {$method}");
 		}
 		
-		$object = new $className();
-		if (!is_null($type)) {
-			$object->setMethodType($type);
-		}
-		
-		return $object;
+		return new $className();
 	}
 	
 }

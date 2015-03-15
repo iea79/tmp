@@ -12,12 +12,14 @@ class SkrillPaymentInfoType extends AbstractType
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
-		$builder->add('paymentMethod', new SkrillType());
+		$builder
+			->add('paymentMethodCode', 'hidden')
+			->add('paymentMethod', new SkrillType());
 	}
 	
 	public function getName() 
 	{
-		return 'makePaymentStepSkrillPaymentInfo';
+		return 'makePaymentStepPaymentInfo';
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 
