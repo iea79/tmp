@@ -20,7 +20,7 @@
 			</div>
 			<div class="search">
 				<form class="uk-search" data-uk-search>
-				    <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
+				    <input class="uk-search-field" type="search" id="filter" placeholder="Фраза для поиска">
 				</form>
 			</div>
 		<ul id="video" class="uk-switcher">
@@ -28,127 +28,21 @@
 				<div class="block-help">
 					<div class="help-content">
 						<h3>{{'Video tutorials'|trans}}</h3>
+						{% for video in videos %}
 				    	<ul class="uk-nav demo">
 	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
+	                        	<a href="{{ path(video) }}" class="preview-video">
+									{% thumbnail video, 'preview' %}
 								</a>
 							</li>
-	                        <li class="link"><a href="#">{{'Как начать пользоваться сервисом Taxi My Price'|trans}}</a></li>
+	                        <li class="link">
+                                <a href="{{ path(video) }}">
+                                    {{ video.name }}
+                                </a>
+                            </li>
 				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как настроить профиль пассажира в Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как начать пользоваться сервисом Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как настроить профиль пассажира в Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как начать пользоваться сервисом Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как настроить профиль пассажира в Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как начать пользоваться сервисом Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как настроить профиль пассажира в Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как начать пользоваться сервисом Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Как настроить профиль пассажира в Taxi My Price'|trans}}</a></li>
-				    	</ul>
-				    	<ul class="uk-nav demo">
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
-				    	<a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a>
+				    	{% endfor %}
+				    	{# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
 				    	<div class="support">
 				    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
 				    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
@@ -343,4 +237,14 @@
 		</ul>
 		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/help/videoguides.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
 {% endblock %}

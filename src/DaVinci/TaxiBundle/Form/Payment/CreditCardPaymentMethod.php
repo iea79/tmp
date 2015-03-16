@@ -5,10 +5,15 @@ namespace DaVinci\TaxiBundle\Form\Payment;
 class CreditCardPaymentMethod extends PaymentMethod 
 {
 	
+	const POS_TYPE_VISA = 1;
+	const POS_TYPE_MASTER_CARD = 2;
+	const POS_TYPE_DINERS_CLUB = 3;
+	const POS_TYPE_AMERICAN_EXPRESS = 4;
+	
 	const CARD_TYPE_VISA = 'Visa';
-	const CARD_TYPE_MASTER_CARD = 'MasterCard';
-	const CARD_TYPE_DINERS_CLUB = 'DinersClub';
-	const CARD_TYPE_AMERICAN_EXPRESS = 'AmericanExpress';
+	const CARD_TYPE_MASTER_CARD = 'Master Card';
+	const CARD_TYPE_DINERS_CLUB = 'Diners Club';
+	const CARD_TYPE_AMERICAN_EXPRESS = 'American Express';
 	
 	
 	/**
@@ -30,30 +35,45 @@ class CreditCardPaymentMethod extends PaymentMethod
 	 * @var string
 	 */
 	protected $expirationYear;
+		
+	/**
+	 * @var string
+	 */
+	protected $firstname;
 	
 	/**
 	 * @var string
 	 */
-	protected $cardType;
+	protected $lastname;
 	
 	/**
 	 * @var string
 	 */
-	protected $name;
+	protected $address;
 	
 	/**
 	 * @var string
 	 */
-	protected $surname;
+	protected $city;
+	
+	/**
+	 * @var string
+	 */
+	protected $state;
+	
+	/**
+	 * @var string
+	 */
+	protected $country;
 	
 	/**
 	 * @var array
 	 */
-	static public $cardTypes = array(
-		self::CARD_TYPE_VISA,
-		self::CARD_TYPE_MASTER_CARD,
-		self::CARD_TYPE_DINERS_CLUB,
-		self::CARD_TYPE_AMERICAN_EXPRESS			
+	static public $subTypes = array(
+		self::POS_TYPE_VISA => self::CARD_TYPE_VISA,
+		self::POS_TYPE_MASTER_CARD => self::CARD_TYPE_MASTER_CARD,
+		self::POS_TYPE_DINERS_CLUB => self::CARD_TYPE_DINERS_CLUB,
+		self::POS_TYPE_AMERICAN_EXPRESS => self::CARD_TYPE_AMERICAN_EXPRESS			
 	);
 
 	public function setCardNumber($cardNumber)
@@ -104,50 +124,78 @@ class CreditCardPaymentMethod extends PaymentMethod
 		return $this->expirationYear;
 	}
 	
-	public function setCardType($cardType)
+	public function setFirstname($firstname)
 	{
-		if (!array_key_exists($cardType, self::$cardTypes)) {
-			throw new \InvalidArgumentException("Unsupported card type code: {$cardType}");
-		}
-		$this->cardType = $cardType;
+		$this->firstname = $firstname;
 	
 		return $this;
 	}
 	
-	public function getCardType()
+	public function getFirstname()
 	{
-		return $this->cardType;
+		return $this->firstname;
 	}
 	
-	public function setName($name)
+	public function setLastname($lastname)
 	{
-		$this->name = $name;
+		$this->lastname = $lastname;
 	
 		return $this;
 	}
 	
-	public function getName()
+	public function getLastname()
 	{
-		return $this->name;
+		return $this->lastname;
 	}
 	
-	public function setSurname($surname)
+	public function setAddress($address)
 	{
-		$this->surname = $surname;
+		$this->address = $address;
 	
 		return $this;
 	}
 	
-	public function getSurname()
+	public function getAddress()
 	{
-		return $this->surname;
+		return $this->address;
 	}
 	
-	static public function getCardTypes()
+	public function setCity($city)
 	{
-		return self::$cardTypes; 
+		$this->city = $city;
+	
+		return $this;
 	}
 	
+	public function getCity()
+	{
+		return $this->city;
+	}
+	
+	public function setState($state)
+	{
+		$this->state = $state;
+	
+		return $this;
+	}
+	
+	public function getState()
+	{
+		return $this->state;
+	}
+	
+	public function setCountry($country)
+	{
+		$this->country = $country;
+	
+		return $this;
+	}
+	
+	public function getCountry()
+	{
+		return $this->country;
+	}
+			
 }
 
 ?>

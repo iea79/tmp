@@ -17,6 +17,9 @@ use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
 
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 use DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow;
+use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod;
+use DaVinci\TaxiBundle\Form\Payment\InternalPaymentMethod;
 
 class HomeController extends Controller {
 	
@@ -78,7 +81,7 @@ class HomeController extends Controller {
     	
     	$flow = $this->container->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
-    	 
+    	    	    	
     	$form = $flow->createForm();
     	if ($flow->isValid($form)) {
     		$flow->saveCurrentStepData($form);
@@ -87,24 +90,38 @@ class HomeController extends Controller {
     			$form = $flow->createForm();
     		} else {
     			$flow->reset();
-    			    			 
     			return $this->redirect($this->generateUrl('passenger_request_generated'));
-    		}
+			}
     	}
     	
     	$data = array(
     		'form' => $form->createView(),
     		'flow' => $flow,
-    		'passengerRequest' => $passengerRequest	
+    		'passengerRequest' => $passengerRequest,
+    		'paymentMethods' => PaymentMethod::getTypes(),
+ 			'internalMethods' => InternalPaymentMethod::getSubTypes(),
+    		'creditCardMethods' => CreditCardPaymentMethod::getSubTypes()
     	);
     	 
     	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {
     		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
     		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
     	}
-    	 
+    	
+    	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_SECOND) {
+    		$paymentMethod = $makePayment->getPaymentMethod();
+    		$data['paymentMethod'] = $paymentMethod->getType();
+    			
+    		if (
+    			$paymentMethod instanceof CreditCardPaymentMethod
+    			|| $paymentMethod instanceof InternalPaymentMethod
+    		) {
+    			$data['subType'] = $paymentMethod->getSubTypeName();
+    		}
+    	}
+		    	    	 
     	return $this->render(
-    		'DaVinciTaxiBundle:Store:payment_page_1.html.twig',
+    		'DaVinciTaxiBundle:Store:payment_page.html.twig',
     		$data
     	);   	
     }
@@ -133,7 +150,20 @@ class HomeController extends Controller {
      */
     private function spawnMakePayment()
     {
-    	return $this->getMakePaymentService()->create();
+    	$makePaymentService = $this->getMakePaymentService();
+    	
+    	$makePayment = $makePaymentService->create();
+    	$params = $this->getRequest()->get('makePaymentStepMethod');
+    	if (isset($params['paymentMethodCode'])) {
+    		$makePaymentService->spawnPaymentMethod($makePayment, $params['paymentMethodCode']);
+    		return $makePayment;
+    	}
+    	
+    	$params = $this->getRequest()->get('makePaymentStepPaymentInfo');
+    	if (isset($params['paymentMethodCode'])) {
+    		$makePaymentService->spawnPaymentMethod($makePayment, $params['paymentMethodCode']);
+    		return $makePayment;
+    	}
     }
     
     /**
@@ -179,5 +209,5 @@ class HomeController extends Controller {
     {
     	return $this->container->get('da_vinci_taxi.service.make_payment_service');
     }
-    
+        
 }

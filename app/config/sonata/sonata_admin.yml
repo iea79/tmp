@@ -58,7 +58,8 @@ sonata_admin:
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
                     - davinci.taxi.admin.faqentry   
-                    - davinci.taxi.admin.guidepage    
+                    - davinci.taxi.admin.guidepage   
+                    - davinci.taxi.admin.videoguidepage     
                     #- sonata.comment.admin.comment
                     - sonata.comment.admin.thread   
             sonata.admin.group.administration:
@@ -83,12 +84,12 @@ sonata_admin:
                 label: Content
                 items:
                     - cmf_content.admin
-                    - cmf_block.simple_admin
-                    - cmf_block.container_admin
-                    - cmf_block.reference_admin
-                    - cmf_block.action_admin
-                    - cmf_block.imagine.slideshow_admin
-                    - cmf_block.imagine.imagine_admin     
+#                    - cmf_block.simple_admin
+#                    - cmf_block.container_admin
+#                    - cmf_block.reference_admin
+#                    - cmf_block.action_admin
+#                    - cmf_block.imagine.slideshow_admin
+#                    - cmf_block.imagine.imagine_admin     
     assets:
         stylesheets:
             # Defaults:

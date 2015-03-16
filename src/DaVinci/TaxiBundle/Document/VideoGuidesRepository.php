@@ -4,7 +4,7 @@ namespace DaVinci\TaxiBundle\Document;
 use Doctrine\ODM\PHPCR\Id\RepositoryIdInterface;
 use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
 
-class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInterface
+class VideoGuidesRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
     /**
      * Generate a document id
@@ -14,7 +14,7 @@ class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInt
      */
     public function generateId($document, $parent = null)
     {
-		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
+		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getYoutubeLink()->getName());
         return '/cms/'.$parent.'/'.$slugged;
     }
 }

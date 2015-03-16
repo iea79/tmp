@@ -1,0 +1,41 @@
+<h3>{{'Fund your account'|trans}} Skrill</h3>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.email, 'Email:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.email) }}
+        {{ form_errors(form.paymentMethod.email) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.subject, 'Subjct:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.subject) }}
+        {{ form_errors(form.paymentMethod.subject) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.note, 'Note:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.note) }}
+        {{ form_errors(form.paymentMethod.note) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+    {{ form_label(form.paymentMethod.company, 'Company name:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.company) }}
+        {{ form_errors(form.paymentMethod.company) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+	{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.ownNote) }}
+        {{ form_errors(form.paymentMethod.ownNote) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>

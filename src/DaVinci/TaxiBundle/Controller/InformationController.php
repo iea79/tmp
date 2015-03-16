@@ -4,21 +4,6 @@ namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-
-use DaVinci\TaxiBundle\Entity\PassengerRequest;
-use DaVinci\TaxiBundle\Entity\RoutePoint;
-use DaVinci\TaxiBundle\Entity\Tariff;
-use DaVinci\TaxiBundle\Entity\Vehicle;
-use DaVinci\TaxiBundle\Entity\VehicleOptions;
-use DaVinci\TaxiBundle\Entity\VehicleChildSeat;
-use DaVinci\TaxiBundle\Entity\VehiclePetCage;
-use DaVinci\TaxiBundle\Entity\PassengerDetail;
-
-use Symfony\Component\HttpFoundation\RedirectResponse;
-
 class InformationController extends Controller {
 
     public function profitAction()
@@ -57,6 +42,13 @@ class InformationController extends Controller {
 
     public function videoAction()
     {
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allVideos= $dm->getRepository('DaVinciTaxiBundle:VideoGuidesPage')->findBy(array('publishable' => true));
+            
+        return $this->render('DaVinciTaxiBundle:Information:guides.html.twig',
+                array(
+                    'videos' => $allVideos,
+                ));
         return $this->render('DaVinciTaxiBundle:Information:video.html.twig');
     }
     

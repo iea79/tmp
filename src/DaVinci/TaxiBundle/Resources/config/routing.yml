@@ -5,12 +5,14 @@ da_vinci_taxi_homepage:
 passenger_request_payment:
     pattern: /payment/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:payment }
-    methods:  [GET]
+    methods:  [GET, POST]
+    options: { useAsInnerURL: false }     
     
 passenger_request_generated:
     pattern: /generated
     defaults: { _controller: DaVinciTaxiBundle:Home:requestGenerated }
     methods:  [GET]
+    options: { useAsInnerURL: false }       
     
 main_driver:
     pattern:  /main-driver
@@ -18,40 +20,55 @@ main_driver:
 profit:
     pattern:  /profit
     defaults: { _controller: DaVinciTaxiBundle:Information:profit }    
-
+    options: { useAsInnerURL: true }
+        
 about:
     pattern:  /about
     defaults: { _controller: DaVinciTaxiBundle:Information:about }    
+    options: { useAsInnerURL: true }
+        
 help:
     pattern:  /help
     defaults: { _controller: DaVinciTaxiBundle:Information:help }    
+    options: { useAsInnerURL: true }
+        
 view_offices:
     pattern:  /view-offices
     defaults: { _controller: DaVinciTaxiBundle:Information:view_offices }    
+        
 video:
     pattern:  /video
     defaults: { _controller: DaVinciTaxiBundle:Information:video }    
+    options: { useAsInnerURL: true }
+        
 guides:
     pattern:  /guides
     defaults: { _controller: DaVinciTaxiBundle:Information:guides }    
+    options: { useAsInnerURL: true }
+        
 one_help:
     pattern:  /one-help
     defaults: { _controller: DaVinciTaxiBundle:Information:one_help }    
 FAQs:
     pattern:  /FAQs
     defaults: { _controller: DaVinciTaxiBundle:Information:FAQs }    
+    options: { useAsInnerURL: true }
+        
 notifications:
     pattern:  /notifications
     defaults: { _controller: DaVinciTaxiBundle:Information:notifications }    
 information:
     pattern:  /information
     defaults: { _controller: DaVinciTaxiBundle:Information:information }    
+    options: { useAsInnerURL: true }
+        
 financial_office:
     pattern:  /financial-office
     defaults: { _controller: DaVinciTaxiBundle:Information:financial_office }    
 store:
     pattern:  /store
     defaults: { _controller: DaVinciTaxiBundle:Information:store }    
+    options: { useAsInnerURL: true }
 
 cmf_tree:
     resource: .

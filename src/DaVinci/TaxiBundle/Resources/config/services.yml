@@ -147,6 +147,6 @@ services:
         class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
         arguments:
             - Pages initializer
-            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake", "/cms/guides", "/cms/video"]
+            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake", "/cms/guides", "/cms/videoguides"]
         tags:
             - { name: doctrine_phpcr.initializer }

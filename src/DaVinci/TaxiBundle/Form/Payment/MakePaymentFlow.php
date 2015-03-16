@@ -16,8 +16,10 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
+use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 
-class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
+class MakePaymentFlow extends FormFlow implements EventSubscriberInterface 
+{
 	
 	const FLOW_NAME = 'makePayment';
 	
@@ -72,18 +74,40 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface {
 	
 	protected function loadStepsConfig()
 	{
-		$data = $this->getFormData();
-		
-		$stepData = array(
-			'label' => 'paymentInfo'
-		);
-		
 		return array(
 			array(
 				'label' => 'paymentMethod',
 				'type' => new PaymentMethodType()
 			),
-			$stepData			
+			array(
+				'label' => 'paymentInfo',
+				'type' => $this->createFormType()	
+			)			
+		);
+	}
+	
+	private function createFormType()
+	{
+		$params = $this->getRequest()->get('makePaymentStepMethod');
+		if (isset($params['paymentMethodCode'])) {
+			$className = $this->getClassName($params['paymentMethodCode']);
+			return new $className();
+		}
+		
+		$params = $this->getRequest()->get('makePaymentStepPaymentInfo');
+		if (isset($params['paymentMethodCode'])) {
+			$className = $this->getClassName($params['paymentMethodCode']);
+			return new $className();
+		}
+	}
+	
+	private function getClassName($code)
+	{
+		$methodData = explode('_', $code);
+		return (
+			MakePaymentService::SERVICE_NAMESPACE_TYPE
+				. PaymentMethod::getTypeByCode($methodData[0])
+				. 'PaymentInfoType'
 		);
 	}
 		
