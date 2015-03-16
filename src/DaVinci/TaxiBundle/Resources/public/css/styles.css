@@ -4568,10 +4568,12 @@ footer {
     margin-bottom: 0;
 }
 .twolabels .text { clear: left;}
-.register .uk-form-horizontal .twolabels  .uk-form-label {
+.register .uk-form-horizontal .twolabels .uk-form-label {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 2px;
+}
+.register .uk-form-horizontal .twolabels .uk-form-label:last-child {
 }
 .register .addphoneareas input[type="text"] {
     margin-right: 0;
@@ -4901,6 +4903,8 @@ body.register .main-content{
     margin: 2px auto 0;
     text-align: left;
 }
+.wrapper-content .register .forphoneinput {
+}
 .wrapper-content .register .authorizat{ text-align: center;}
 /** checkmail */
 .checkmail a, .about .term a { color: #528ed3;}
@@ -5036,7 +5040,7 @@ body.register .main-content{
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;display: inline-block;vertical-align: baseline;margin-bottom: -1px;}
-.register .uk-form-horizontal .pinktext {color: #ff4d61;padding-top: 5px;}
+.register .uk-form-horizontal .pinktext {color: #ff4d61;}
 .register .uk-form-horizontal .uk-width-4-5 {width: 100%;}
 .register .uk-form-horizontal .uk-width-4-6 {width: 71.3%;}
 .register .uk-form-horizontal .uk-width-4-8 {width: 100%;}
@@ -5826,6 +5830,7 @@ poteriashki
 =================== */
 .intl-tel-input .country-list {
 	max-height: 180px !important;
+	z-index: 100;
 }
 /* ====================
 About
@@ -6082,7 +6087,7 @@ About
 }
 .about .contact-buttons {
 	width: 95.8%;
-	display: inline-block;
+	display: none;
 	margin: 0 2.1%;
 }
 .about .contact-buttons a {
