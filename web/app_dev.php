@@ -27,7 +27,7 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
         , '95.111.150.84' //Дарья
         , '83.69.244.205' //Олеся PR
         , '109.87.88.65' //Алексей Гловлюк 
-        , '93.80.122.19' //Evgeny April 
+        , '37.133.92.177' //Evgeny April (Barcelona)
         , '93.117.143.157' //kontent manager
        , 'fe80::1', '::1')) || php_sapi_name() === 'cli-server') ) && !getenv("C9_PROJECT")
 ) {
