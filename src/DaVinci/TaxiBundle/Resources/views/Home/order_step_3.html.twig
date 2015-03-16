@@ -1,11 +1,11 @@
 	<div class="wrap-left">
 		 <div class="order-details-over">
 			<h1>Tariff <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
-			<div class="order-details padding-top">
+			<div class="order-details">
 				<p class="note">
 					<span>Note!</span> Increase interest in his warrant
 				</p>
-				<div class="pers-data select-group">
+				<div class="pers-data">
 					<div class="tarif-line">
 						<div class="tarif-line-group first">
 							<label for="createPassengerRequestStepPassengerInfo_tariff_price_type" class="tarif-line-adapt-wrap">
@@ -178,7 +178,7 @@
 						</div>
 						<div class="about-passenger">
 							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Describe yourself. Help  driver to recognize you'|trans}}"></span></p>
-							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': 'For example: woman, 25 years old, dressed in red jacket',  'class': 'charcount', 'maxlength' : "200"}}) }}
+							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': '25 years old tall lady, wearing green coat and red hat',  'class': 'charcount', 'maxlength' : "200"}}) }}
 							<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 						</div>
 					</div>

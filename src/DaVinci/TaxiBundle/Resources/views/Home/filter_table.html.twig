@@ -1,7 +1,7 @@
 ﻿	<div class="table-over">
 		<table class="serv responsive">
 			<tr>
-				<th class="tab-h1" data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Vehicle type{% endtrans %}">Tip	<div class="questiontooltip">?</div></th>
+				<th class="tab-h1" data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Select vehicle{% endtrans %}">Tip	<div class="questiontooltip">?</div></th>
 				<th class="daterange" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select date and time{% endtrans %}">Date/Time <div class="questiontooltip">?</div></th>
 				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">Route <div class="questiontooltip">?</div></th>
 				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">Tips <div class="questiontooltip">?</div></th>
@@ -13,11 +13,6 @@
 			<tr class="under-head">
 				<td class="auto-tip">
 					<div class="car">
-	                                    
-						<!-- <button class="uk-button-link">
-							<i class="mp-icon-taxi"></i>
-							<i class="uk-icon-caret-down uk-text-dark"></i>
-						</button> -->
 						<select>
 							<option class="mp-icon-taxi"></option>
 							<option>{{'Economy'|trans}}</option>
@@ -34,9 +29,7 @@
 							<option>{{'Speciality'|trans}}</option>
 							<option>{{'Pickup'|trans}}</option>
 						</select>
-						
 					</div>
-					
 				</td>
 				<td class="daterange">
 					<div id="widget">
@@ -47,26 +40,22 @@
 						<div id="widgetCalendar">
 						</div>
 					</div>
-					
 				</td>
 				<td class="destinations_list">
 					<div class="uk-form-icon">
 						<input type="text" name="destination"  placeholder="for example, Russia, Moscow" />
 						<i class="mp-icon-nord-star"></i>
 					</div>
-					
 				</td>
 				<td class="trust">
 					<div class="ov-trust">
-							<select class="">
-								<option value="1">All</option>
-								<option class="iconed-drop" value="2">&#58901;</option>
-								<option class="iconed-drop" value="3">&#58901; &#58901;</option>
-								<option class="iconed-drop" value="4">&#58900;</option>
-							</select>
+						<select class="">
+							<option value="1">All</option>
+							<option class="iconed-drop" value="2">&#58901;</option>
+							<option class="iconed-drop" value="3">&#58901; &#58901;</option>
+							<option class="iconed-drop" value="4">&#58900;</option>
+						</select>
 					</div>
-					
-					
 				</td>
 				<td>
 					<button class="sort uk-button-link arr single-butt">
@@ -74,12 +63,10 @@
 						<i class="mp-icon-arrow-up uk-text-dark"></i>
 						<i class="mp-icon-arrow-down"></i>
 					</button>
-					
 				</td>
 				<td class="price">
 					<div class="ov-lt short-cont">
 						<button class="sort uk-button-link aligment arr">
-							
 							<i class="mp-icon-arrow-up uk-text-dark"></i>
 							<i class="mp-icon-arrow-down"></i>
 						</button>
@@ -93,10 +80,8 @@
 							</select>
 						</div>
 					</div>
-					
 				</td>
 				<td class="status">
-					
                         <select >
                             <option value="1">All</option>
                             <option value="2">Open</option>
@@ -105,7 +90,6 @@
                             <option value="4">Canceled</option>
                             <option value="4">All happy</option>
                         </select>
-
 					<div class="questiontooltip">
                    <a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   </div>	
@@ -126,11 +110,9 @@
 						<i class="mp-icon-closed uk-text-danger"></i>
 						</button>
 					</div>
-					
 				</td>
 				{% endif %}
 			</tr>
-	
 			<tr class="table-cont">
 				<td><span class="blue-bg">1</span></td>
 				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
