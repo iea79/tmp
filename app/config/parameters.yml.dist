@@ -2,7 +2,7 @@ parameters:
     locale: en
     locales:
         - en
-        - ru
+        #- ru - if uncomment russian will be by default looks like
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~

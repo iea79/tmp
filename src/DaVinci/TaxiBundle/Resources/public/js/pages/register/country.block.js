@@ -1,6 +1,6 @@
 require(["jquery"], function ($) {
 
-    var country = $('.country_selector');
+    var country = $('select.country_selector');
 
     var xhr;
     // When country gets selected ...
@@ -26,7 +26,7 @@ require(["jquery"], function ($) {
             data: data,
             success: function (html) {
 
-                var options = $(html).find('.city_selector option');
+                var options = $(html).find('select.city_selector option');
                 // ReplaceReplace current position field ...
                 city_selector.append(
                         // ... with the returned one from the AJAX response.
