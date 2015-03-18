@@ -10,14 +10,14 @@ class PassengerDetailType extends AbstractType {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
-			->add('adult', 'number')
-			->add('children', 'number')
-			->add('seniors', 'number')
+			->add('adult', 'number', array('data' => 0))
+			->add('children', 'number', array('data' => 0))
+			->add('seniors', 'number', array('data' => 0))
 			->add('not_my_self', 'checkbox')
 			->add('name', 'text')
 			->add('email', 'text')
 			->add('skype', 'text')
-			->add('mobile_code', 'integer')
+			->add('mobile_code', 'integer', array('data' => 1))
 			->add('mobile_phone', 'text')
 			->add('mobile_has_wifi', 'checkbox')
 			->add('mobile_has_whatsapp', 'checkbox')

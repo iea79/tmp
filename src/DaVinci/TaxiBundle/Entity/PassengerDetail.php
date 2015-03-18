@@ -55,11 +55,13 @@ class PassengerDetail {
 	
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3"}, message="passengerDetail.name.blank")
 	 */
 	private $name;
 	
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3"}, message="passengerDetail.email.blank")
 	 * @Assert\Email(
 	 * 		groups={"flow_createPassengerRequest_step3"},
      * 		message="The email '{{ value }}' is not a valid email."
@@ -74,6 +76,11 @@ class PassengerDetail {
 	
 	/**
 	 * @ORM\Column(type="integer", name="mobile_code")
+	 * @Assert\Range(
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     *		min=1,
+     *		minMessage="The code must be greater then 0"
+     * )
 	 */
 	private $mobileCode = 0;
 	

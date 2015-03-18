@@ -11,7 +11,6 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
  * @ORM\Entity(repositoryClass="PassengerRequestRepository")
  * @ORM\Table(name="passenger_request")
  * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
- * @DaVinciAssert\PassengerDetail(groups={"flow_createPassengerRequest_step3"})
  */
 class PassengerRequest {
 	
@@ -81,12 +80,12 @@ class PassengerRequest {
 	/**
 	 * @ORM\Column(type="float")
 	 */
-	private $distance;
+	private $distance = 0.0;
 		
 	/**
 	 * @ORM\Column(type="integer")
 	 */
-	private $duration;
+	private $duration = 0;
 		
 	/**
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
