@@ -39,6 +39,12 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
+    				$passengerRequest->setUser(
+    					$this->container->get('security.context')->getToken()->getUser()
+    				);
+    			}
+    			
     			$this->savePassengerRequest($passengerRequest);
     			$flow->reset();
     			
