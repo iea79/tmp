@@ -95,7 +95,11 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			$passengerRequest->changeState();
+    			$this->savePassengerRequest($passengerRequest);
+    			
     			$flow->reset();
+    			
     			return $this->redirect($this->generateUrl('passenger_request_generated'));
 			}
     	}
@@ -184,7 +188,7 @@ class HomeController extends Controller {
     
     /**
      * @param integer $id
-     * @return void
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
      */
     private function getPassengerRequestById($id)
     {
