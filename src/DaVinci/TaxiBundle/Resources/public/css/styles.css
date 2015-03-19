@@ -703,7 +703,7 @@ home
 			.home .steps-1-2-3 .chois li {
 				float: left;
 				padding: 0 26px 0 0;
-				width: 25%;
+				width: 50%;
 				list-style: none;
 				box-sizing: border-box;
 				position: relative;
@@ -724,11 +724,12 @@ home
 					display: block;
 					font-size: 16px;
 					border: none;
+					cursor: default;
 				}
 					.home .steps-1-2-3 .chois li a:hover {
-						text-decoration: underline;
 						background: inherit;
 						border: none;
+						text-decoration: none;
 					}
 					.home .steps-1-2-3 .chois li a .on {
 						background: #ff4d61;
@@ -1118,17 +1119,20 @@ width: auto;
 	.order-details-over .spinner input, .driv-over .spinner input {
 		width:52px;
 	}
-	.order-details-over .spinner .arrows, .driv-over .spinner  .arrows{
-		width:12px;
+	.order-details-over .spinner .plus, .driv-over .spinner  .plus,
+	.order-details-over .spinner .minus, .driv-over .spinner  .minus {
 		position:absolute;
-		top:0;
+		width:12px;
+		height: 8px;
+		top:1px;
 		left:35px;
+		color: #3c3d45;
+		display: block;
+		font-size: 14px;
+		cursor: pointer;
 	}
-	.order-details-over .spinner .arrows a, .driv-over .spinner  .arrows a {
-			display:block;
-			line-height:13px;
-			font-size:10px;
-			color:#3d3d3d;
+	.order-details-over .spinner .minus, .driv-over .spinner  .minus {
+		top: 11px;
 	}
 .home .driv-over  .leftlabels .select {
 	max-width:273px;
@@ -1256,6 +1260,7 @@ styles of booking step 3  in homepage
 	border: 1px solid #8e9099;
 	height:28px;
 	font-size:14px;
+	position:relative;
 }
 .order-details  .recommend {
 	white-space:nowrap;
@@ -1479,6 +1484,7 @@ table styles in home
 			background:#528ed3;
 			position:relative;
 			padding:7px 2px;
+			text-align:center;
 		}
 		.table-over .serv > tbody > tr > td {
 			background:#fff;
@@ -3492,6 +3498,10 @@ i.quest {
   border-bottom: 1px solid #CACACA;
   padding: 5px 0 7px;
 }
+.class-auto .uk-dropdown li:hover {
+	background: #528ed3;
+	color: #ddd;
+}
 .class-auto .uk-dropdown li a {
   font-size: 16px;
   margin: 0;
@@ -3499,11 +3509,17 @@ i.quest {
   line-height: 1;
   margin-bottom: -2px;
 }
+.class-auto .uk-dropdown li:hover a {
+	color: #fff;
+}
 .class-auto .uk-dropdown span {
   color: #8d8f98;
   font-size: 12px;
   padding: 0 6px;
   display: inline-block;
+}
+.class-auto .uk-dropdown li:hover span {
+	color: #CACACA;
 }
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
@@ -4815,6 +4831,15 @@ footer {
 }
 .register label .errors li {
     margin-bottom: 21px;
+}
+.errors.for-steps {
+	margin: 30px 0 0 20px;
+}
+.errors.for-steps li {
+	font-size: 12px;
+}
+.payment .errors.for-steps {
+	margin: 10px 0 0 10px;
 }
 /** /errors */
 /** choose office */
@@ -7641,11 +7666,11 @@ select{
 }
 .craue_formflow_buttons{
 	clear: both;
-	overflow: hidden;
 }
 .craue_formflow_buttons{
-	padding: 9px 6px 20px 19px;
+	padding: 9px 10px 20px;
 	margin-bottom: -4px;
+	max-width: 560px;
 }
 .craue_formflow_buttons button {
 	color: #fff;
@@ -7768,8 +7793,8 @@ textarea.charcount {
 h6.counter,h6.precounter {
     color: #9b9b9b;  font-size: 12px;
     margin: 0;
-    display: inline;
     vertical-align: super;
+    display: inline;
 }
 h6.precounter {
   margin-right: 4px;
@@ -7804,6 +7829,8 @@ Addcard
 
 .addcard .uk-form-label {
     width: 123px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .addcard .uk-form-controls {
@@ -7815,6 +7842,12 @@ Addcard
 
 .addcard input[type="text"] {
     width: 86.8%;
+    color: #3c3d45;
+    border: 1px solid #8e9099;
+    height: 29px;
+    line-height: 28px;
+    float: left;
+    padding: 0 6px;
 }
 
 .addcard .buttom-swicher li {
@@ -8764,7 +8797,6 @@ Payment window
 .payment.home .steps-1-2-3 .chois li a {
 	font-size: 16px;
 }
-
 .payment .card-pay,.payment .pay-balance,.payment .i-pay {
 	margin: 0 0 13px;
 	line-height: 1;
@@ -8787,10 +8819,6 @@ Payment window
 	margin-top: 2px;
 	float: left;
 	margin-right: 5px;
-}
-.payment .pay-balance .private .uk-icon-question-circle,.payment .pay-balance .business .uk-icon-question-circle {
-	/* display: inline-block;
-	vertical-align: middle; */
 }
 .payment .i-pay {
 	border-bottom: 0;
@@ -8820,9 +8848,11 @@ Payment window
 	display: inline-block;
 	width: 100%;
 	box-sizing: border-box;
+	margin-bottom: 20px;
 }
 .payment .addcard .uk-form-controls {
 	width: 60%;
+	max-width: 460px;
 }
 .payment .addcard .uk-form .uk-form-row:last-child {
 	margin-bottom: 10px;
@@ -8847,6 +8877,12 @@ Payment window
 }
 .payment .last-step .uk-form-row a:hover {
 	text-decoration: none;
+}
+.payment .price {
+	padding: 20px 10px 10px;
+}
+#sale_steps .pay-balance .uk-grid,#sale_steps .card-pay .uk-grid,#sale_steps .i-pay .uk-grid {
+	max-width: 650px;
 }
 @media (max-width: 767px) {
 	.payment .uk-panel span {
@@ -9049,3 +9085,4 @@ Payment window
 .cars-class thead td:nth-child(2) {
   width: 21%;
 }
+

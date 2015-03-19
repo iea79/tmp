@@ -37,10 +37,10 @@
 			</div>
 			<div class="inputs pick-up">
 				<div class="uk-form-controls">
-					date {{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': 'format:"DD.MM.YY"'}}) }}
+					{{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': 'format:"DD.MM.YY"'}}) }}
 				</div>
 	            <div class="time select-group">
-					time {{ form_widget(form.pickUpTime) }}
+					{{ form_widget(form.pickUpTime) }}
 				</div>
 				<div class="errors">
 					{{ form_errors(form.pickUpDate) }}
@@ -61,10 +61,10 @@
 			</div>
 			<div class="inputs pick-up">
 				<div class="uk-form-controls">
-					date {{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': 'format:"DD.MM.YYYY"'}}) }}
+					{{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': 'format:"DD.MM.YYYY"'}}) }}
 				</div>
 				<div class="time">
-					time {{ form_widget(form.returnTime) }}
+					{{ form_widget(form.returnTime) }}
 				</div>
 				<div class="errors">
 					{{ form_errors(form.returnDate, {'attr': {'class': 'errors'}}) }}

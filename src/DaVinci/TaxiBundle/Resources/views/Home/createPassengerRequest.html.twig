@@ -17,12 +17,12 @@
         <div class="steps-1-2-3">
             {% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
             {% if newRequestId != false %}
-            	<div>{{ 'New order is'|trans }}: <a href="{{ path('passenger_request_payment', {'id': newRequestId}) }}">{{ newRequestId }}</a></div>
+            	<div>{{ 'Last created order is'|trans }}: <a href="{{ path('passenger_request_payment', {'id': newRequestId}) }}">{{ newRequestId }}</a></div>
             {% endif %}
-            <div id="steps" class="uk-switcher">
+            <div id="steps">
             	<form novalidate action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
             		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
-            		{{ form_errors(form) }}
+            		<div class="errors for-steps">{{ form_errors(form) }}</div>
             		
             		<div>
 	            		{% if flow.getCurrentStepNumber() == 1 %}

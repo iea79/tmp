@@ -121,5 +121,9 @@ vehicleChildSeat:
     childSeatType:
         unexpectedType: "Child seat type is undefined"
         wrongNumber: "The number of seats must be integer"
-        
-        
+
+passengerDetail:
+    name:
+        blank: "Please enter passenger name"   
+    email:
+        blank: "Please enter email"

@@ -4,6 +4,7 @@ namespace DaVinci\TaxiBundle\Form\PassengerRequest\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class VehicleDriverConditionsType extends AbstractType {

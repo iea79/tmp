@@ -6,7 +6,9 @@
 	{% elseif paymentMethod == 'PayPalPaymentMethod' %}
 		{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
 	{% elseif paymentMethod == 'SkrillPaymentMethod' %}
-		{% include 'DaVinciTaxiBundle:Store:skrill_method.html.twig' %} 
+		{% include 'DaVinciTaxiBundle:Store:skrill_method.html.twig' %}
+	{% elseif paymentMethod == 'InternalPaymentMethod' %}
+		{% include 'DaVinciTaxiBundle:Store:internal_method.html.twig' %} 	 
     {% endif %}
 </div>
 		
