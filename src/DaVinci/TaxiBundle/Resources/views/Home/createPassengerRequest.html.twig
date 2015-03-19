@@ -22,7 +22,7 @@
             <div id="steps">
             	<form novalidate action="{{ path('da_vinci_taxi_homepage') }}" {{ form_enctype(form) }} method="POST">
             		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
-            		{{ form_errors(form) }}
+            		<div class="errors for-steps">{{ form_errors(form) }}</div>
             		
             		<div>
 	            		{% if flow.getCurrentStepNumber() == 1 %}

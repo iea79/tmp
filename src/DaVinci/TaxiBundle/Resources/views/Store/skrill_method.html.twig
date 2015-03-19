@@ -1,41 +1,41 @@
 <h3>{{'Fund your account'|trans}} Skrill</h3>
 <div class="uk-form-row">
-	{{ form_label(form.paymentMethod.email, 'Email:') }}
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.email, 'Email:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.email) }}
-        {{ form_errors(form.paymentMethod.email) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.email) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row">
-	{{ form_label(form.paymentMethod.subject, 'Subjct:') }}
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.subject, 'Subjct:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.subject) }}
-        {{ form_errors(form.paymentMethod.subject) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.subject) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row">
-	{{ form_label(form.paymentMethod.note, 'Note:') }}
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.note, 'Note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.note) }}
-        {{ form_errors(form.paymentMethod.note) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.note) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row">
-    {{ form_label(form.paymentMethod.company, 'Company name:') }}
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.company) }}
-        {{ form_errors(form.paymentMethod.company) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row">
-	{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.ownNote) }}
-        {{ form_errors(form.paymentMethod.ownNote) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
