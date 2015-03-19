@@ -88,9 +88,10 @@ require(["pages/common"], function ($) {
                     data[$('#taxi_driver_office_profile_vehicle_make').attr('name')] = $('#taxi_driver_office_profile_vehicle_make').val();
                     // Submit data via AJAX to the form's action path.
 
+                    var vehicle_model_selector = $('#taxi_driver_office_profile_vehicle_model');
                     //clear uikit dropdown
                     $('#taxi_driver_office_profile_vehicle_model option').remove();
-                    $("#taxi_driver_office_profile_vehicle_model").parent().find('span').html('');
+                    vehicle_model_selector.trigger('refresh');
 
                     if (typeof xhr != 'undefined')
                         xhr.abort();
@@ -100,17 +101,15 @@ require(["pages/common"], function ($) {
                         data: data,
                         success: function (html) {
 
-                            //stupid hack to reload uikit select
-                            $("#taxi_driver_office_profile_vehicle_model").parent().find('span').html($(html).find('#taxi_driver_office_profile_vehicle_model option:first').html());
-
-                                            // ReplaceReplace current position field ...
-                            $('#taxi_driver_office_profile_vehicle_model').append(
+                            var options = $(html).find('#taxi_driver_office_profile_vehicle_model option');
+                            // ReplaceReplace current position field ...
+                            vehicle_model_selector.append(
                                     // ... with the returned one from the AJAX response.
-                                    $(html).find('#taxi_driver_office_profile_vehicle_model option')
+                                    options
                                     );
-                            
-                            $("#taxi_driver_office_profile_vehicle_model").val($("#taxi_driver_office_profile_vehicle_model option:first").val());
-
+                            vehicle_model_selector.val(options.first().val());
+                            vehicle_model_selector.trigger('refresh');
+  
                         }
                     });
                 });
