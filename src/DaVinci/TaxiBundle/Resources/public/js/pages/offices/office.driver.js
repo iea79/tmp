@@ -89,7 +89,7 @@ require(["pages/common"], function ($) {
                     // Submit data via AJAX to the form's action path.
 
                     var vehicle_model_selector = $('#taxi_driver_office_profile_vehicle_model');
-                    //clear uikit dropdown
+ 
                     $('#taxi_driver_office_profile_vehicle_model option').remove();
                     vehicle_model_selector.trigger('refresh');
 
