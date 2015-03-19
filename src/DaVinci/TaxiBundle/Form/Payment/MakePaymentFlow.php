@@ -4,8 +4,8 @@ namespace DaVinci\TaxiBundle\Form\Payment;
 
 use Craue\FormFlowBundle\Form\FormFlow;
 use Craue\FormFlowBundle\Form\FormFlowInterface;
-
 use Craue\FormFlowBundle\Form\FormFlowEvents;
+
 use Craue\FormFlowBundle\Event\PreBindEvent;
 use Craue\FormFlowBundle\Event\GetStepsEvent;
 use Craue\FormFlowBundle\Event\PostBindSavedDataEvent;
@@ -17,6 +17,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
 use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
+use DaVinci\TaxiBundle\Form\Payment\Type\SkrillPaymentInfoType;
+use DaVinci\TaxiBundle\Form\Payment\Type\InternalPaymentInfoType;
 
 class MakePaymentFlow extends FormFlow implements EventSubscriberInterface 
 {
