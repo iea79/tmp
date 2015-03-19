@@ -524,6 +524,10 @@ class PassengerRequest {
      */
     public function changeState()
     {
+    	if (is_null($this->state)) {
+    		$this->state = $this->spawnState($this->stateValue);
+    	}
+    	
     	$this->state->handle();
     	$this->setStateValue($this->state->getName()); 
     }
