@@ -45,7 +45,7 @@ class HomeController extends Controller {
     				);
     			}
     			
-    			$this->savePassengerRequest($passengerRequest);
+    			$this->createPassengerRequest($passengerRequest);
     			$flow->reset();
     			
     			$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
@@ -62,8 +62,7 @@ class HomeController extends Controller {
 
     	$data = array(
 	    	'form' => $form->createView(),
-	    	'flow' => $flow,
-    		'newRequestId' => $this->getRequest()->getSession()->get('request_id')
+	    	'flow' => $flow
     	);
     	
     	if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
@@ -83,7 +82,7 @@ class HomeController extends Controller {
      */
     public function paymentAction() {
     	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
-    	$makePayment = $this->spawnMakePayment();    	
+    	$makePayment = $this->spawnMakePayment();
     	
     	$flow = $this->container->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
@@ -180,10 +179,20 @@ class HomeController extends Controller {
      * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
      * @return void
      */
+    private function createPassengerRequest(PassengerRequest $request)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->create($request);
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+     * @return void
+     */
     private function savePassengerRequest(PassengerRequest $request)
     {
     	$em = $this->container->get('doctrine')->getManager();
-    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveRequest($request);
+    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->save($request);
     }
     
     /**

@@ -17,7 +17,7 @@ class PassengerRequestRepository extends EntityRepository
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */
-	public function saveRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+	public function create(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
 		$this->_em->persist($request);
 		 
@@ -66,6 +66,12 @@ class PassengerRequestRepository extends EntityRepository
 		$vehicleDriverConditions->setPassengerRequest($request);
 		$this->_em->persist($vehicleDriverConditions);
 		 
+		$this->_em->flush();
+	}
+	
+	public function save(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+	{
+		$this->_em->persist($request);
 		$this->_em->flush();
 	}
 	

@@ -16,7 +16,7 @@
         </div>
         <div class="steps-1-2-3">
             {% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
-            {% if newRequestId != false %}
+            {% if newRequestId is defined and newRequestId != false %}
             	<div>{{ 'Last created order is'|trans }}: <a href="{{ path('passenger_request_payment', {'id': newRequestId}) }}">{{ newRequestId }}</a></div>
             {% endif %}
             <div id="steps">

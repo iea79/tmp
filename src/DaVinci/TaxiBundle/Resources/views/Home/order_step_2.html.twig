@@ -287,7 +287,7 @@
 				<div class="kids-pats-line">
 					<input type="checkbox" />
 					<label>
-						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
+						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has an disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
 					</label>
 					<div id="passenger_has_an_disease" class="wishes-1">
 						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "Wool allergy, asthma, diabetes, plant dermatitis",  'class': "charcount", 'maxlength' : "200"}}) }}
@@ -305,12 +305,11 @@
 					<label class="interp">
 						<span class="uk-form-controls">&nbsp;&nbsp;{{'interpreter'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choosing the driver as a translator select required language'|trans}}"></span></span>
 					</label>
-					<!--div class="uk-button uk-form-select select choose-lang"-->
 					<div class="wishes-1">
-						{{ form_widget(form.vehicle_driver_conditions.interpreter_lang, {'attr': {'placeholder': "Choose a language"}}) }}
+						{{ form_widget(form.vehicle_driver_conditions.interpreter_language, {'attr': {'placeholder': "Choose a language"}}) }}
 					</div>
 					<div class="errors">
-						{{ form_errors(form.vehicle_driver_conditions.interpreter_lang) }}
+						{{ form_errors(form.vehicle_driver_conditions.interpreter_language) }}
 					</div>
 				</div>
 				<div class="kids-pats-line">
