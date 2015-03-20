@@ -1,9 +1,11 @@
 <div class="disloc">
 	<div id="calculate_route">
 		<div id="route_result">
-			<div><i class="mp-icon-timer uk-text-danger"></i><span id="duration_rout">0 mins</span></div>
-			<div><i class="mp-icon-direction uk-text-danger"></i><span id="distance_rout">0 km</span></div>
-			<div><i class="mp-icon-calculate uk-text-danger"></i><span id="price_rout">0 $</span></div>
+			<div><i class="mp-icon-timer uk-text-danger"></i><span id="duration_route">0 mins</span></div>
+			<div><i class="mp-icon-direction uk-text-danger"></i><span id="distance_route">0 km</span></div>
+			{% if flow is defined and flow.formData.tariff.price > 0 %}
+				<div><i class="mp-icon-calculate uk-text-danger"></i><span id="price_route">0 $</span></div>
+			{% endif %}	
 		</div>
 	</div>
 	<div id="map-canvas" style="height: 500px;"></div>

@@ -147,19 +147,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 		
                 		var results = response.rows[0].elements;
                 		                		
-                		// $('#route_result').html(
-                		// 	'Result is: ' 
-                		// 	+ results[0].distance.text + ' in '
-                  //           + results[0].duration.text + '<br/>'
-                  //       );
-                		
-                        $('#distance_rout').html(
-                            results[0].distance.text
-                        );
-                        
-                        $('#duration_rout').html(
-                            results[0].duration.text 
-                        );
+                        $('#distance_route').html(results[0].distance.text);
+                        $('#duration_route').html(results[0].duration.text);
 
                 		$('#createPassengerRequestRouteInfo_distance').attr(
                 			'value', results[0].distance.value
