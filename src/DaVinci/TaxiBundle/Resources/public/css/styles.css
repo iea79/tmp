@@ -703,7 +703,7 @@ home
 			.home .steps-1-2-3 .chois li {
 				float: left;
 				padding: 0 26px 0 0;
-				width: 50%;
+				width: 25%;
 				list-style: none;
 				box-sizing: border-box;
 				position: relative;
@@ -8777,7 +8777,9 @@ Payment window
 .payment.home .steps-1-2-3 .chois,.payment.home .steps-1-2-3 .chois li {
 	height: 26px;
 }
-
+.payment.home .steps-1-2-3 .chois li {
+	width: 50%;
+}
 .payment.home .steps-1-2-3 .chois li a .arrow {
 	border-width: 26px 0 26px 18px;
 	top: -12px;
