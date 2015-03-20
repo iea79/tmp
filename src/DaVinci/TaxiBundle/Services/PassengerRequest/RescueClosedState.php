@@ -2,6 +2,8 @@
 
 namespace DaVinci\TaxiBundle\Services\PassengerRequest;
 
+use DaVinci\TaxiBundle\Entity\PassengerRequest;
+
 class RescueClosedState extends State 
 {
 
