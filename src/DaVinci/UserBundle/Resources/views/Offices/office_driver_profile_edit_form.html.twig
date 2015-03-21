@@ -255,69 +255,8 @@
                                 </dd></dt>
                                 <dt>{{'Class:'|trans}}
                                 <dd>
-                                    <div class="class-auto" data-uk-dropdown="{mode:'click'}">
-                                        <div href="#" class="uk-button">Not chosen <i class="uk-icon-caret-down"></i></div>
-
-                                        <div class="uk-dropdown">
-                                            <ul class="uk-nav uk-nav-dropdown">
-                                                <li><a href="#">Not chosen</a></li>
-                                                <li>
-                                                    <a href="#">Economy class:</a>
-                                                    <span>Toyota Yaris, Kia Rio, Hyundai Accent</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Compact class:</a>
-                                                    <span>Ford Fiesta, Nissan Versa, Ford Focus</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Midsize class:</a>
-                                                    <span>Chevrolet Cruze, Toyota Corolla, Kia Forte</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Standart class:</a>
-                                                    <span>Hyundai Sonata, Mitsubishi Galant, Nissan Altima</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Full Size class:</a>
-                                                    <span>Ford Fusion, Toyota Camry, Chevrolet Impala</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Van class:</a>
-                                                    <span>Dodge Grand Caravan, Ford E350 Econonline, Ford 12 Passenger Van</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Pickup class:</a>
-                                                    <span>VW Amarok, Chevrolet Avalanche, Ford Ranger</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">SUV class:</a>
-                                                    <span>Nissan Pathfinder, Toyota RAV4, Hyundai Santa Fe</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Convertible class:</a>
-                                                    <span>Ford Mustang Conv, Audi A5 Cabriolet, BMW 428i 4 Series Convertible</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Premium class:</a>
-                                                    <span>Nissan Maxima, Ford Taurus, Chrysler 300</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Luxury class:</a>
-                                                    <span>Lincoln MKS, Acura RDX, Porsche Cayenne</span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Special med car</a>
-                                                    <span></span>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Truck (cargo)</a>
-                                                    <span></span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                        <!-- {{ form_widget(form.vehicle.vehicleClass, {'attr':{'tabindex':'20'} }) }}
-                                        {{ form_errors(form.vehicle.vehicleClass) }} -->
+                                        {{ form_widget(form.vehicle.vehicleClass, {'attr':{'tabindex':'20', 'class':'vehicle-class'} }) }}
+                                        {{ form_errors(form.vehicle.vehicleClass) }}
                                 </dd></dt>
                                 <dt>{{'Other:'|trans}}
                                 <dd>

@@ -146,25 +146,34 @@ class Vehicle {
     {
         return $this->passengerRequest;
     }
-        
-    public static function getChoices()
+   
+    public static function getChoices($commented = true)
     {
+        if ($commented) {
+            $generateOption = function($name, $comment){
+                return $name.'<div class="option-comment">'.$comment.'</div>';
+            };
+        } else {
+            $generateOption = function($name){
+                return $name;
+            };
+        }
+        
     	return array(
-    		self::POS_DEFAULT => self::CLASS_DEFAULT,
-    		self::POS_CLASS_ECONOMY => self::CLASS_ECONOMY,
-    		self::POS_CLASS_COMPACT => self::CLASS_COMPACT,
-    		self::POS_CLASS_MIDSIZE => self::CLASS_MIDSIZE,
-    		self::POS_CLASS_STANDART => self::CLASS_STANDART,
-    		self::POS_CLASS_FULL_SIZE => self::CLASS_FULL_SIZE,
-    		self::POS_CLASS_PREMIUM => self::CLASS_PREMIUM,
-    		self::POS_CLASS_LUXURY => self::CLASS_LUXURY,
-    		self::POS_CLASS_OTHER => self::CLASS_OTHER,
-    		self::POS_CLASS_CONVERTIBLE => self::CLASS_CONVERTIBLE,
-    		self::POS_CLASS_VAN => self::CLASS_VAN,
-    		self::POS_CLASS_SUV => self::CLASS_SUV,
-    		self::POS_CLASS_SPECIALITY => self::CLASS_SPECIALITY,
-    		self::POS_CLASS_PICKUP => self::CLASS_PICKUP
+    		self::POS_DEFAULT => $generateOption(self::CLASS_DEFAULT,''),
+    		self::POS_CLASS_ECONOMY => $generateOption(self::CLASS_ECONOMY,'Toyota Yaris, Kia Rio, Hyundai Accent'),
+    		self::POS_CLASS_COMPACT => $generateOption(self::CLASS_COMPACT,'Ford Fiesta, Nissan Versa, Ford Focus'),
+    		self::POS_CLASS_MIDSIZE => $generateOption(self::CLASS_MIDSIZE,'Chevrolet Cruze, Toyota Corolla, Kia Forte'),
+    		self::POS_CLASS_STANDART => $generateOption(self::CLASS_STANDART,'Hyundai Sonata, Mitsubishi Galant, Nissan Altima'),
+    		self::POS_CLASS_FULL_SIZE => $generateOption(self::CLASS_FULL_SIZE,'Ford Fusion, Toyota Camry, Chevrolet Impala'),
+    		self::POS_CLASS_PREMIUM => $generateOption(self::CLASS_PREMIUM,'Nissan Maxima, Ford Taurus, Chrysler 300'),
+    		self::POS_CLASS_LUXURY => $generateOption(self::CLASS_LUXURY,'Lincoln MKS, Acura RDX, Porsche Cayenne'),
+    		self::POS_CLASS_OTHER => $generateOption(self::CLASS_OTHER,''),
+    		self::POS_CLASS_CONVERTIBLE => $generateOption(self::CLASS_CONVERTIBLE,'Ford Mustang Conv, Audi A5 Cabriolet, BMW 428i 4 Series Convertible'),
+    		self::POS_CLASS_VAN => $generateOption(self::CLASS_VAN,'Dodge Grand Caravan, Ford E350 Econonline, Ford 12 Passenger Van'),
+    		self::POS_CLASS_SUV => $generateOption(self::CLASS_SUV,'Nissan Pathfinder, Toyota RAV4, Hyundai Santa Fe'),
+    		self::POS_CLASS_SPECIALITY => $generateOption(self::CLASS_SPECIALITY,''),
+    		self::POS_CLASS_PICKUP => $generateOption(self::CLASS_PICKUP,'VW Amarok, Chevrolet Avalanche, Ford Ranger')
     	);
     }
-    
 }

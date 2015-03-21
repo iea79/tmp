@@ -116,6 +116,9 @@ require(["pages/common"], function ($) {
                 $("#taxi_driver_office_profile_vehicle_photo").change(function () {
                     readURL(this);
                 });
+                
+                //$('.vehicle-class').styler();
+                
             }
 
             // show dialog if driver didn't fill additional data
@@ -178,7 +181,7 @@ require(["pages/common"], function ($) {
             //remove preloader
             togglePreloader(document.body, false);
                         
-            if(typeof is_filled != "undefined"  &&!is_filled)
+            if(typeof is_filled != "undefined"  && !is_filled)
             {
                 $("#open-profile-button").click();
             }
