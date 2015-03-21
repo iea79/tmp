@@ -45,11 +45,10 @@ class InformationController extends Controller {
         $dm = $this->get('doctrine_phpcr')->getManager();
         $allVideos= $dm->getRepository('DaVinciTaxiBundle:VideoGuidesPage')->findBy(array('publishable' => true));
             
-        return $this->render('DaVinciTaxiBundle:Information:guides.html.twig',
+        return $this->render('DaVinciTaxiBundle:Information:video.html.twig',
                 array(
                     'videos' => $allVideos,
                 ));
-        return $this->render('DaVinciTaxiBundle:Information:video.html.twig');
     }
     
     public function guideAction($contentDocument)
