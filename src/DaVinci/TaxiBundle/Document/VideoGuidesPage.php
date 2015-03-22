@@ -30,7 +30,7 @@ class VideoGuidesPage implements TranslatableInterface,
     protected $id;
     
    /**
-    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak", cascade = "persist")
+    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
     */
     protected $youtubeLink;  
     

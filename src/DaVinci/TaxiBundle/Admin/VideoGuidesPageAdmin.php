@@ -12,6 +12,7 @@ class VideoGuidesPageAdmin extends Admin {
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('forPassenger')
             ->add('youtubeLink')
              ->add('_action', 'actions', array(
                 'actions' => array(

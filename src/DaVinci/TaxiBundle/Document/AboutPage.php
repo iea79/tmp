@@ -53,7 +53,7 @@ class AboutPage implements TranslatableInterface
     protected $buttonLink;     
     
     /**
-    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak", cascade = "persist")
+    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
     */
     protected $youtubeLink;  
     
