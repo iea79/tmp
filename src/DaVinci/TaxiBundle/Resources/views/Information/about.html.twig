@@ -23,8 +23,8 @@
                       {{ at.textBlock|raw }}
                   </div>
                 {% endif %}
-                <div class="video">
-                    <div class="videoWrapper {% if not at.textToLeft %} top {% endif %}">
+                <div class="video {% if not at.textToLeft %} top {% endif %}">
+                    <div class="videoWrapper">
                         {% media at.youtubeLink, 'small' %}
                     </div>
                     {% if at.buttonText %}
@@ -36,7 +36,16 @@
                       {{ at.textBlock|raw }}
                     </div>
                 {% endif %}
-
+                {% if not at.textToLeft %}
+                    <div class="video bottom">
+                        <div class="videoWrapper">
+                            {% media at.youtubeLink, 'small' %}
+                        </div>
+                        {% if at.buttonText %}
+                        <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 {% if at.comments.count %}
                     <div class="otziv">
                         <div class="rate-review">
