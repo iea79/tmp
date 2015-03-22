@@ -45,7 +45,7 @@ class ProfitPage implements TranslatableInterface
     protected $block2;      
     
     /**
-    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak", cascade = "persist")
+    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
     */
     protected $youtubeLink;  
     
