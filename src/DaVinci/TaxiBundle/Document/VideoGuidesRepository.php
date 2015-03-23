@@ -16,11 +16,11 @@ class VideoGuidesRepository extends BaseDocumentRepository implements Repository
     {
         $youtubeLink = $document->getYoutubeLink();
         
-        if($youtubeLink)
-            $slugged = 'videoguide-'.date('j-m-y h-i-s');
+        if(!$youtubeLink)
+            $slugged = 'videoguide-'.date('j-m-y-h-i-s');
         else
             $slugged = \Cocur\Slugify\Slugify::create()->slugify($youtubeLink->getName()).'-'.date('j-m-y-h-i-s');
-        
+
         return '/cms/'.$parent.'/'.$slugged;
     }
 }

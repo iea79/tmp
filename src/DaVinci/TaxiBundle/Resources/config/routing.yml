@@ -36,9 +36,9 @@ view_offices:
     pattern:  /view-offices
     defaults: { _controller: DaVinciTaxiBundle:Information:view_offices }    
         
-video:
-    pattern:  /video
-    defaults: { _controller: DaVinciTaxiBundle:Information:video }    
+video_guides:
+    pattern:  /video-guides
+    defaults: { _controller: DaVinciTaxiBundle:Information:video_guides }    
     options: { useAsInnerURL: true }
         
 guides:

@@ -14,7 +14,8 @@ class VideoGuidesPageAdmin extends Admin {
         $listMapper
             ->add('forPassenger')
             ->add('youtubeLink')
-             ->add('_action', 'actions', array(
+            ->add('title')
+            ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array(),
                     'delete' => array(),
@@ -44,6 +45,7 @@ class VideoGuidesPageAdmin extends Admin {
                             'provider' => 'sonata.media.provider.youtube',
                         ),
                     ))
+                ->add('title','text',array('required' => true, 'attr' => array('placeholder' => 'generated automaticly if emtpy')))
             ->end()
             ->with('form.group_seo')
                 ->add('seoMetadata', 'seo_metadata', array('label' => false))
