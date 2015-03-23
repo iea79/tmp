@@ -34,6 +34,12 @@ class VideoGuidesPage implements TranslatableInterface,
     */
     protected $youtubeLink;  
     
+    
+    /**
+     * @PHPCR\String(translated=true)
+     */
+    protected $title;
+    
     /**
      * @PHPCR\Boolean()
      */
@@ -145,6 +151,16 @@ class VideoGuidesPage implements TranslatableInterface,
     public function getRoutes()
     {
         return $this->routes->toArray();
+    }
+    
+    function getTitle()
+    {
+        return $this->title;
+    }
+
+    function setTitle($title)
+    {
+        $this->title = $title;
     }
 
     public function setYoutubeLink($youtubeLink) {

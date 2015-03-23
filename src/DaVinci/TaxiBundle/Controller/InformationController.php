@@ -40,16 +40,25 @@ class InformationController extends Controller {
         return $this->render('DaVinciTaxiBundle:Information:view_offices.html.twig');
     }
 
-    public function videoAction()
+    public function video_guidesAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
         $allVideos= $dm->getRepository('DaVinciTaxiBundle:VideoGuidesPage')->findBy(array('publishable' => true));
             
-        return $this->render('DaVinciTaxiBundle:Information:video.html.twig',
+        return $this->render('DaVinciTaxiBundle:Information:videos.html.twig',
                 array(
                     'videos' => $allVideos,
                 ));
     }
+
+    public function videoAction($contentDocument)
+    {
+         return $this->render('DaVinciTaxiBundle:Information:video.html.twig',
+                array(
+                    'page' => $contentDocument,
+                ));
+    }    
+    
     
     public function guideAction($contentDocument)
     {

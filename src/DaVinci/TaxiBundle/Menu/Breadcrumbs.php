@@ -102,12 +102,27 @@ class Breadcrumbs {
                 // setCurrent is use to add a "current" css class
                 ;
                 break;   
+            case 'videoguides':
+                $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                $menu->addChild('Video Guides')->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
+                // setCurrent is use to add a "current" css class
+                ;
+                break;   
         }
 
 
         if (0 === strpos($route, '/cms/routes/guides/')) {
             $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
             $menu->addChild('Guides', array('route' => 'guides'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+            
+            $title = $request->attributes->get('contentDocument')->getTitle();
+            
+            $menu->addChild($title)->setCurrent(true)->setExtra('translation_domain', 'DaVinciTaxiBundle');
+        }
+        
+        if (0 === strpos($route, '/cms/routes/videoguides/')) {
+            $menu->addChild('Home', array('route' => 'da_vinci_taxi_homepage'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
+            $menu->addChild('Video Guides', array('route' => 'videoguides'))->setExtra('translation_domain', 'DaVinciTaxiBundle');
             
             $title = $request->attributes->get('contentDocument')->getTitle();
             

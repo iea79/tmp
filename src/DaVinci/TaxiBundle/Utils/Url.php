@@ -22,7 +22,7 @@ class Url
             }
 
             if (($route->getOption('useAsInnerURL') && (true === $route->getOption('useAsInnerURL') || 'true' === $route->getOption('useAsInnerURL')))) {
-dump($name,$route->getOption('useAsInnerURL'));
+//dump($name,$route->getOption('useAsInnerURL'));
                 //$name = substr($name, strlen('uk__RG__')); // stupid hack to remove multilang url
 
                 $routes[$name] = $router->generate($name);

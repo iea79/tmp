@@ -35,7 +35,7 @@ class GuidesPageAdmin extends Admin {
         $formMapper
             ->with('form.group_general')
                 ->add('forPassenger', 'checkbox', array('label' => 'For passenger?'))
-                ->add('title', 'text')
+                ->add('title', 'text', array('required' => true))
                 ->add('body', 'ckeditor', array('label' => 'Guite Text'))
                 
             ->end()
