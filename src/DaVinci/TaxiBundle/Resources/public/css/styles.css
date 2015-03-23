@@ -3190,6 +3190,21 @@ footer {
 .pop-up .form-change .car-info dl {
 	margin: 0 0 20px 0 !important;
 }
+.vehicle-class .jq-selectbox__dropdown li {
+	min-height: 30px;
+	border-bottom: 1px solid #ddd;
+}
+.vehicle-class .jq-selectbox__dropdown li .option-comment {
+	color: #888888;
+	font-size: 12px;
+	white-space: normal;
+}
+.vehicle-class .jq-selectbox__dropdown li:hover .option-comment {
+	color: #C8C8C8;
+}
+.jq-selectbox__select-text .option-comment {
+	display: none;
+}
 .pop-up .form-change .insurance {
 	margin-top: 11px;
 	margin-bottom: 10px;
@@ -8177,10 +8192,6 @@ Store
 .jq-selectbox__search {
 	display: none;
 }
-
-
-
-
 .pop-up select {
     -o-text-overflow: ellipsis;
     -ms-text-overflow: ellipsis;
