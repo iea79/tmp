@@ -26,30 +26,30 @@
 		<ul id="video" class="uk-switcher">
 			<li class="uk-active">
 				<div class="block-help">
-                                    <div class="help-content">
-                                        <h3>{{'Video tutorials'|trans}}</h3>
-                                        {% for video in videos %}
-                                            {% if video.forPassenger %}
-                                            <ul class="uk-nav demo">
-                                                <li>
-                                                    <a href="{{ path(video) }}" class="preview-video">
-                                                        {% thumbnail video.youtubeLink, 'preview' %}
-                                                    </a>
-                                                </li>
-                                                <li class="link">
-                                                    <a href="{{ path(video) }}">
-                                                        {{ video.title }}
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            {% endif %}
-                                        {% endfor %}
-                                        {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
-                                        <div class="support">
-                                            <span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
-                                            <a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
-                                        </div>
-                                    </div>
+                    <div class="help-content">
+                        <h3>{{'Video tutorials'|trans}}</h3>
+                        {% for video in videos %}
+                            {% if video.forPassenger %}
+                            <ul class="uk-nav demo">
+                                <li>
+                                    <a href="{{ path(video) }}" class="preview-video">
+                                        {% thumbnail video.youtubeLink, 'preview' %}
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="{{ path(video) }}">
+                                        {{ video.title }}
+                                    </a>
+                                </li>
+                            </ul>
+                            {% endif %}
+                        {% endfor %}
+                        {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
+                        <div class="support">
+                            <span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
+                            <a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
+                        </div>
+                    </div>
 				    <div class="help-sidebar">
 				    	<ul class="uk-nav">
 			                <li class="head"><a href="#">{{'Guides'|trans}}</a></li>
@@ -82,26 +82,22 @@
 				<div class="block-help whitebg">
 					<div class="help-content">
 						<h3>{{'Video tutorials'|trans}}</h3>
-                                                
-                                                {% for video in videos %}
-                                                    {% if not video.forPassenger %}
-                                                    <ul class="uk-nav demo">
-                                                        <li>
-                                                            <a href="{{ path(video) }}" class="preview-video">
-                                                                {% thumbnail video.youtubeLink, 'preview' %}
-                                                            </a>
-                                                        </li>
-                                                        <li class="link">
-                                                            <a href="{{ path(video) }}">
-                                                                {{ video.title }}
-                                                            </a>
-                                                        </li>
-                                                    </ul>
-                                                    {% endif %}
-                                                {% endfor %}
-      
-	                        <li class="link"><a href="#">{{'Я хочу заказать поездку для родственника. Как это сделать'|trans}}?</a></li>
-				    	</ul>
+                        {% for video in videos %}
+                            {% if not video.forPassenger %}
+                            <ul class="uk-nav demo">
+                                <li>
+                                    <a href="{{ path(video) }}" class="preview-video">
+                                        {% thumbnail video.youtubeLink, 'preview' %}
+                                    </a>
+                                </li>
+                                <li class="link">
+                                    <a href="{{ path(video) }}">
+                                        {{ video.title }}
+                                    </a>
+                                </li>
+                            </ul>
+                            {% endif %}
+                        {% endfor %}
 				    	<a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a>
 				    	<div class="support">
 				    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>

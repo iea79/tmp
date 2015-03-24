@@ -29,8 +29,10 @@
 				<div class="block-help">
 					<div class="help-content">
 						<div class="one-help">
-                                                <h3>{{ page.title }}</h3>
-                                               {% media page.youtubeLink, 'big' %}
+                            <h3>{{ page.title }}</h3>
+                            <div class="videoWrapper">
+                               {% media page.youtubeLink, 'big' %}
+                            </div>
 				    	</div>
 					    	<div class="support">
 					    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>

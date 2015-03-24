@@ -6224,10 +6224,10 @@ About
 Help
 =================== */
 .button-swicher.uk-grid.uk-grid-small {
-  margin-left: -6px;
+	margin-left: -6px;
 }
 .button-swicher.uk-grid.uk-grid-small > * {
-  padding-left: 6px;
+	padding-left: 6px;
 }
 .help-content {
 	width: 77%;
@@ -6247,7 +6247,7 @@ Help
     border: none;
 }
 .help-content .uk-nav.demo:nth-child(3n+4) {
-  margin-right: 0;
+	margin-right: 0;
 }
 .help-content h3 {
     font-size: 20px;
@@ -6264,28 +6264,28 @@ Help
 	display: inline-block;
 }
 .help-content .support span {
-  font-size: 16px;
-  width: 50.7%;
-  float: left;
-  line-height: 18px;
-  margin-right: 2%;
+	font-size: 16px;
+	width: 50.7%;
+	float: left;
+	line-height: 18px;
+	margin-right: 2%;
 }
 .help-content .support a.uk-button {
-  min-width: 160px !important;
-  width: 28.3%;
-  font-weight: 700;
-  min-height: 39px;
-  margin: 0;
-  padding-top: 5px;
-  padding-bottom: 5px;
+	min-width: 160px !important;
+	width: 28.3%;
+	font-weight: 700;
+	min-height: 39px;
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .help-content a.see-all {
-  height: 39px;
-  margin-bottom: 32px;
-  font-size: 16px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-top: 3px;
+	height: 39px;
+	margin-bottom: 32px;
+	font-size: 16px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 3px;
 }
 .help-content .uk-nav.demo li.link {
 	margin-bottom: 13px;
@@ -6302,10 +6302,11 @@ Help
 	padding: 10px 0 4px 0;
 	margin: 0;
 	width: 100%;
+	box-sizing: border-box;
 }
 .block-help .help-sidebar .uk-nav li.head {
-  padding-left: 11% !important;
-  padding-right: 11% !important;
+	padding-left: 11% !important;
+	padding-right: 11% !important;
 }
 .main-content .message {
 	padding: 20px;
@@ -6440,8 +6441,11 @@ Help
 	border: 0;
 }
 .block-help .uk-nav.demo li a.preview-video {
-    width: 100%;
     padding: 0;
+    width: 100%;
+}
+a.preview-video img {
+	width: 100%;
 }
 a.preview-video img:hover {
     opacity: 0.9;
@@ -6454,6 +6458,7 @@ a.preview-video img:hover {
 	padding: 3px 7px 0 0;
 	font-size: 16px;
 	vertical-align: top;
+	width: 16px;
 }
 .block-help .uk-nav.demo li:nth-child(n+3) {
 	margin-top: -9px !important;
@@ -6474,9 +6479,10 @@ a.preview-video img:hover {
 	padding-bottom: 9px;;
 }
 .video .block-help .uk-nav.demo li.link a {
-	width: 100% !important;
+	width: 100%;
 	padding-right: 0;
 	padding-left: 0;
+	text-align: left;
 }
 .help .topic-faq {
 	margin-top: 28px;
@@ -6584,6 +6590,9 @@ a.preview-video img:hover {
 	.help-sidebar {
 		width: 100% !important;
 	}
+	.block-help .help-sidebar .uk-nav {
+		width: 100%;
+	}
 }
 @media (max-width: 640px) {
 	.help-content .uk-nav.demo {
@@ -6628,7 +6637,7 @@ a.preview-video img:hover {
 	padding-bottom: 31px;
 }
 .one-help .videoWrapper {
-	/*padding-bottom: 55.7% !important;*/
+	padding-bottom: 55.7% !important;
 }
 .faqs .uk-nav {
   margin-bottom: 0px;
