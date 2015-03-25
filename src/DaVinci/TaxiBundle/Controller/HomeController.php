@@ -64,7 +64,7 @@ class HomeController extends Controller {
 	    	'form' => $form->createView(),
 	    	'flow' => $flow
     	);
-    	
+    		
     	if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
     		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
     		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);

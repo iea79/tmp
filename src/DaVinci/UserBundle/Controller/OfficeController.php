@@ -162,7 +162,16 @@ class OfficeController extends Controller
         if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
-        return $this->render('DaVinciUserBundle:Offices:office_driver.html.twig');
+        
+        return $this->container->get('templating')->renderResponse(
+        	'DaVinciUserBundle:Offices:office_driver.html.twig',
+        	array(
+        		'openRequests' => $this->getPassengerRequestRepository()->getActualRequestsByStates(
+        			array(PassengerRequest::STATE_OPEN, PassengerRequest::STATE_PENDING)
+        		),
+        		'driverId' => $this->container->get('security.context')->getToken()->getUser()->getId()	
+        	)
+        );        
     }
 
     /**

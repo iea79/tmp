@@ -1,5 +1,5 @@
 <ul class="chois">
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}first uk-active{% else %}first{% endif %}">
+    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}first uk-active{% else %}first mp-sucess{% endif %}">
         <a href="#">
             <div class="arrow_box">
                 <span class="on">1<i class="uk-icon-check"></i></span>
@@ -9,7 +9,7 @@
             <span class="middle"></span>
         </a>
     </li>
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}other second uk-active{% else %}other second{% endif %}">
+    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}other second uk-active{% else %}other second{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 2 %} mp-sucess{% endif %}">
         <a href="#">
             <div class="arrow_box">
                 <span class="on">2<i class="uk-icon-check"></i></span>
@@ -20,7 +20,7 @@
         </a>
         <span class="back"></span>
     </li>
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 3 %}other second uk-active{% else %}other second{% endif %}">
+    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 3 %}other second uk-active{% else %}other second{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 3 %} mp-sucess{% endif %}">
         <a href="#">
             <div class="arrow_box">
                 <span class="on">3<i class="uk-icon-check"></i></span>

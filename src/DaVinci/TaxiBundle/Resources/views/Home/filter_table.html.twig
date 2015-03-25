@@ -113,53 +113,25 @@
 				</td>
 				{% endif %}
 			</tr>
-			<tr class="table-cont">
-				<td><span class="blue-bg">1</span></td>
-				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
-				<td><i class="mp-icon-trust uk-text-primary"></i></td>
-				<td><span class="escro">escrow</span></td>
-				<td>$783.85</td>
-				<td>open</td>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
-				{% endif %}
-			</tr>
-			<tr class="table-cont">
-				<td><span class="blue-bg">2</span></td>
-				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
-				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
-				<td><span class="escro">escrow</span></td>
-				<td>$783.85</td>
-				<td>open</td>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
-				{% endif %}
-			</tr>
-			<tr class="table-cont">
-				<td><span class="blue-bg">3</span></td>
-				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
-				<td><i class="mp-icon-trust uk-text-primary"></i> <i class="mp-icon-trust uk-text-primary"></i></td>
-				<td><span class="escro">escrow</span></td>
-				<td>$783.85</td>
-				<td>open</td>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
-				{% endif %}
-			</tr>
-			<tr class="table-cont">
-				<td><span class="blue-bg">4</span></td>
-				<td>2 <strong>MAR</strong> 14<br/> 18:45</td>
-				<td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td>
-				<td><i class="mp-icon-trust-invert uk-text-primary"></i></td>
-				<td><span class="escro">cash</span></td>
-				<td>$783.85</td>
-				<td>open</td>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-				<td><button class="uk-button-success uk-button"><i class="mp-icon-basket"></i>12:56:03</button></td>
-				{% endif %}
-			</tr>
+			{% for request in openRequests if request.stateValue == 'open' %}
+            	{% set tariff = request.getTariff() %}
+            	{% set pickUp = request.getPickUp() %}
+            	<tr class="table-cont">
+					<td><span class="blue-bg">{{ loop.index }}</span></td>
+					<td>{{ pickUp.format('d') }} <strong>{{ pickUp.format('M') }}</strong> {{ pickUp.format('y') }}<br/> {{ pickUp.format('H:s') }}</td>
+					<td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+					<td><i class="mp-icon-trust uk-text-primary"></i></td>
+					<td><span class="escro">{{ tariff.getPricePaymentMethod() }}</span></td>
+					<td>${{ tariff.getTotalPrice() }}</td>
+					<td>{{ request.getStateValue() }}</td>
+					{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+						<td>
+							<button class="uk-button-success uk-button">
+								<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
+							</button>
+						</td>
+					{% endif %}
+				</tr>
+            {% endfor %}	
 		</table>
 	</div>

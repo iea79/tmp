@@ -86,161 +86,56 @@
                             <div class="whitebg openorder">
                                     <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
                                     <table class="uk-table responsive allorder">
-                                                <thead>
-                                                        <tr>
-                                                                <th>#</th>
-																<th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
-																	<div class="questiontooltip">?</div>
-																<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Left time'|trans}}
-																	<div class="questiontooltip">?</div>
-																<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
-																	<div class="questiontooltip">?</div>
-																<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
-																	<div class="questiontooltip">?</div>
-																<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
-																	<div class="questiontooltip">?</div>
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-                                                            		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>3</td><td class="timesent">0223240236</td><td><span>24:09:57</span></td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-                                                            		<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>4</td><td class="timesent">0223240237</td><td><span>24:09:57</span></td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>5</td><td class="timesent">0223240238</td><td><span>24:09:57</span></td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>7</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td>24:09:57</td><td>$180</td><td><span><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></span></td>
-                                                            	<td>
-	                                                            	<div class="order-status">
-	                                                            		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>+ </span>
-	                                                            		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            		<span><br>= </span>
-	                                                            		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-	                                                            	</div>
-                                                            	</td>
-                                                    </tr>
-                                            </tbody>
+                                        <thead>
+                                                <tr>
+                                                        <th>#</th>
+														<th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
+															<div class="questiontooltip">?</div>
+														<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Left time'|trans}}
+															<div class="questiontooltip">?</div>
+														<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
+															<div class="questiontooltip">?</div>
+														<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
+															<div class="questiontooltip">?</div>
+														<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
+															<div class="questiontooltip">?</div>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                        	{% for request in openRequests %}
+                                        		{% set tariff = request.getTariff() %}
+                                            	<tr>
+                                            		<td>{{ loop.index }}</td>
+                                            		<td class="timesent">{{ request.id }}</td>
+                                            		<td>{{ request.getPickUpLeft() }}</td>
+                                            		<td>${{ tariff.getTotalPrice() }}</td>
+                                            		<td>
+                                            			<span>
+                                            				<a data-uk-modal="{target:'#route'}">
+                                            				{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}
+                                            				</a>
+                                            			</span>
+                                            		</td>
+                                                    <td>
+                                                    	{% if request.stateValue == 'open' %}
+                                                			<div class="order-status">
+                                                        		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                        		<span><br>+ </span>
+                                                        		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                        		<span><br>+ </span>
+                                                        		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                        		<span><br>= </span>
+                                                        		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                        	</div>	
+                                                    	{% elseif request.stateValue == 'pending' and driverId == request.driver %}
+                                                    		<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
+                                                        {% else %}
+                                                    		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
+                                                        {% endif %}	
+                                                    </td>
+                                            	</tr>
+                                            {% endfor %}
+                            			</tbody>
                                     </table>
                                     
                          </div>
