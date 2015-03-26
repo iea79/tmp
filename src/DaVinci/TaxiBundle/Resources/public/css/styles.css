@@ -2108,12 +2108,17 @@ office table
 	margin-top: 3px;
 }	
 @media (max-width: 660px) {
+	.open-order-passenger .route {
+		float: none !important;
+	}
 	.client-account .open-order-passenger .passanger-pay,
 	.client-account .open-order-passenger .driverlist,
 	.client-account .open-order-passenger .active-gray {
 		position: relative;
 		float: none;
-		margin: 0 auto 0 auto;
+		margin: 0 auto;
+	}
+	.client-account .open-order-passenger .passanger-pay {
 	}	
 }
 .client-account .open-order-passenger .driverlist {
@@ -2326,6 +2331,7 @@ style dropdown block
 .passanger-pay .y-no button {
 	width: 48% !important;
 	margin: 0 !important;
+	min-width: inherit !important;
 }
 .passanger-pay .y-no button:first-child {
 	margin-right: 4% !important;
@@ -2612,8 +2618,8 @@ footer {
 	}
 }
 @media (max-width: 530px) {
-	.order-details  .tarif-line-group.first .recommend,.order-details .tarif-line-group.second .overinput,.tarif-line .tarif-line-group.third .choose-lang {
-		  width: 100%;
+	.order-details  .tarif-line-group.first .recommend {
+		  width: 99%;
 		  max-width: 114px;
 	}
 }
@@ -2723,7 +2729,11 @@ footer {
 		padding:2px 7px;
 	  }
 	.home .steps-1-2-3 .chois li a .on {
-		margin-left:0px;
+		font-size:18px;
+		width:25px;
+		line-height:23px;
+		height:22px;
+		margin:0;
 	}
 	.home .steps-1-2-3 .chois .uk-active.first a .on {
 	}
@@ -6591,6 +6601,20 @@ a.preview-video img:hover {
 	color: #fff;
 	float: left;
 	font-size: 36px;
+}
+@media (max-width: 525px) {
+	.home .steps-1-2-3 .chois .mp-sucess .uk-icon-check-circle {
+		font-size: 30px;
+		margin-top: -2px;
+	}
+	.home .steps-1-2-3 .chois .arrow_box .on {
+		margin-top: 2px;
+	}
+}
+@media (max-width: 495px) {
+	.home .steps-1-2-3 .chois .mp-sucess.other .uk-icon-check-circle {
+		margin-left: -4px;
+	}
 }
 [class*="uk-icon-"]{
 	vertical-align: middle;
