@@ -40,7 +40,7 @@ input,select,textarea {
 body, html {
 	background-color:#f5f5f5;
 	height:100%;
-	font-family: Arial, Helvetica, sans-serif;	
+	font-family: 'Open Sans', sans-serif;	
 }
 /*===========================  fantastic thind to clear up all floated containers, just add the name of the class to ypur container, hwat contents float elements ===========================*/
 	.clr {
@@ -708,13 +708,17 @@ home
 				box-sizing: border-box;
 				position: relative;
 			}
-			.home .steps-1-2-3 .chois  .uk-active .back {
+			.home .steps-1-2-3 .chois .uk-active .back,
+			.home .steps-1-2-3 .chois .mp-sucess .back {
 				position: absolute;
-				background-color: #ff4d61;
-				width: 26px;
-				height: 52px;
-				left: -26px;
-				top: 0;
+				height: 0;
+				left: -28px;
+				border-color: #ff4d61 black #ff4d61 transparent;
+				border-style: solid none solid solid;
+				border-width: 26px 16px 32px 18px;
+				display: block;
+				top: -1px;
+				width: 10px;;
 			}
 				.home .steps-1-2-3 .chois li a {
 					color: #3c3d45;
@@ -728,7 +732,6 @@ home
 				}
 					.home .steps-1-2-3 .chois li a:hover {
 						background: inherit;
-						border: none;
 						text-decoration: none;
 					}
 					.home .steps-1-2-3 .chois li a .on {
@@ -748,7 +751,8 @@ home
 						text-align: center;
 						box-sizing: border-box;
 					}
-					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
+					.home .steps-1-2-3 .chois li.uk-active a .arrow_box,
+					.home .steps-1-2-3 .chois li.mp-sucess a .arrow_box {
 						background:#ff4d61;
 					}
 					.home .steps-1-2-3 .chois li a .arrow  {
@@ -764,18 +768,10 @@ home
 						width: 0;
 						z-index: 50;
 						}
-					.home .steps-1-2-3 .chois li.uk-active a .arrow  {
+					.home .steps-1-2-3 .chois li.uk-active a .arrow,
+					.home .steps-1-2-3 .chois li.mp-sucess a .arrow  {
 						border-color: transparent black transparent #ff4d61;
-						border-image: none;
-						border-style: solid none solid solid;
-						border-width: 26px 1px 32px 18px;
-						display: block;
-						height: 0;
-						position: absolute;
 						right: -14px;
-						top: -1px;
-						width: 0;
-						z-index: 50;
 					}
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
@@ -785,27 +781,28 @@ home
 				right: -26px;
 				top: 0;
 			}
-			.home .steps-1-2-3 .chois li.uk-active  a .middle {
+			.home .steps-1-2-3 .chois li.uk-active  a .middle,
+			.home .steps-1-2-3 .chois li.mp-sucess  a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
 				width: 19px;
-				height: 52px;
-				position: absolute;
 				right: -15px;
-				top: 0;
 			}
-			.home .steps-1-2-3 .chois .last.uk-active {
+			.home .steps-1-2-3 .chois .last.uk-active,
+			.home .steps-1-2-3 .chois .last.mp-sucess {
 				background: #ff4d61 !important;
 			}
-				.home .steps-1-2-3 .chois .uk-active a {
-					cursor: default;
+				.home .steps-1-2-3 .chois .uk-active a,
+				.home .steps-1-2-3 .chois .mp-sucess a {
 					color: #fff;
 				}
-						.home .steps-1-2-3 .chois .uk-active  a:hover {
+						.home .steps-1-2-3 .chois .uk-active  a:hover,
+						.home .steps-1-2-3 .chois .mp-sucess  a:hover {
 							text-decoration:none !important;
 						}
-					.home .steps-1-2-3 .chois .uk-active  a .on {
+					.home .steps-1-2-3 .chois .uk-active  a .on,
+					.home .steps-1-2-3 .chois .mp-sucess  a .on {
 						color: #ff4d61;
-						background-color: #fff;
+						background: #fff;
 					}
 @media (max-width: 977px) {
 	.home .steps-1-2-3 .chois li:nth-child(2) .exclude {
@@ -6566,18 +6563,21 @@ a.preview-video img:hover {
 
 /* styles 31.10-01.11 */
 
-.home .steps-1-2-3 .chois .complete .on {
+.home .steps-1-2-3 .chois .mp-sucess .on {
 	text-indent: -9999px;
+	background: #ff4d61 !important;
 }
-.home .steps-1-2-3 .chois li .uk-icon-check {
+.home .steps-1-2-3 .chois li .uk-icon-check-circle {
 	display: none;
 }
-.home .steps-1-2-3 .chois .complete .uk-icon-check{
+.home .steps-1-2-3 .chois .mp-sucess .uk-icon-check-circle {
 	display: block;
 	text-indent: 0;
-	float: left;
 	width: 100%;
 	line-height: 29px;
+	color: #fff;
+	float: left;
+	font-size: 36px;
 }
 [class*="uk-icon-"]{
 	vertical-align: middle;
