@@ -30,8 +30,9 @@ class Tariff {
 	/**
 	 * @ORM\Column(type="float")
 	 * @Assert\Range(
-     *      min = 0.01,
-     *      minMessage = "Price must be more than {{ limit }}"
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     *      min=0.01,
+     *      minMessage="Price must be more than {{ limit }}"
      * )
 	 */
 	private $price = 0.00;

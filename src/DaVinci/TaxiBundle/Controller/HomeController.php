@@ -78,7 +78,7 @@ class HomeController extends Controller {
     
     /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function paymentAction() {
     	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));

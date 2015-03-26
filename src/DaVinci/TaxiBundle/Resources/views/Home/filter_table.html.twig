@@ -127,7 +127,7 @@
 						<td>{{ request.getStateValue() }}</td>
 						{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 							<td>
-								<button class="uk-button-success uk-button">
+								<button class="uk-button-success uk-button" onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'">
 									<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
 								</button>
 							</td>
