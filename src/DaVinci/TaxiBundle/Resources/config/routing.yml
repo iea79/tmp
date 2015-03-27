@@ -16,7 +16,9 @@ passenger_request_generated:
     
 main_driver:
     pattern:  /main-driver
-    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
+    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }  
+    options: { useAsInnerURL: true } 
+    
 profit:
     pattern:  /profit
     defaults: { _controller: DaVinciTaxiBundle:Information:profit }    

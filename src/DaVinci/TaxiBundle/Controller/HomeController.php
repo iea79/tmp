@@ -23,9 +23,6 @@ use DaVinci\TaxiBundle\Form\Payment\InternalPaymentMethod;
 
 class HomeController extends Controller {
 	
-	/**
-	 * @Route("/", name="da_vinci_taxi_homepage")
-	 */
     public function indexAction() {
     	$passengerRequest = $this->spawnPassengerRequest();
     	
