@@ -40,7 +40,7 @@ input,select,textarea {
 body, html {
 	background-color:#f5f5f5;
 	height:100%;
-	font-family: Arial, Helvetica, sans-serif;	
+	font-family: 'Open Sans', sans-serif;	
 }
 /*===========================  fantastic thind to clear up all floated containers, just add the name of the class to ypur container, hwat contents float elements ===========================*/
 	.clr {
@@ -708,13 +708,17 @@ home
 				box-sizing: border-box;
 				position: relative;
 			}
-			.home .steps-1-2-3 .chois  .uk-active .back {
+			.home .steps-1-2-3 .chois .uk-active .back,
+			.home .steps-1-2-3 .chois .mp-sucess .back {
 				position: absolute;
-				background-color: #ff4d61;
-				width: 26px;
-				height: 52px;
-				left: -26px;
-				top: 0;
+				height: 0;
+				left: -28px;
+				border-color: #ff4d61 black #ff4d61 transparent;
+				border-style: solid none solid solid;
+				border-width: 26px 16px 32px 18px;
+				display: block;
+				top: -1px;
+				width: 10px;;
 			}
 				.home .steps-1-2-3 .chois li a {
 					color: #3c3d45;
@@ -728,7 +732,6 @@ home
 				}
 					.home .steps-1-2-3 .chois li a:hover {
 						background: inherit;
-						border: none;
 						text-decoration: none;
 					}
 					.home .steps-1-2-3 .chois li a .on {
@@ -748,7 +751,8 @@ home
 						text-align: center;
 						box-sizing: border-box;
 					}
-					.home .steps-1-2-3 .chois li.uk-active a .arrow_box {
+					.home .steps-1-2-3 .chois li.uk-active a .arrow_box,
+					.home .steps-1-2-3 .chois li.mp-sucess a .arrow_box {
 						background:#ff4d61;
 					}
 					.home .steps-1-2-3 .chois li a .arrow  {
@@ -764,18 +768,10 @@ home
 						width: 0;
 						z-index: 50;
 						}
-					.home .steps-1-2-3 .chois li.uk-active a .arrow  {
+					.home .steps-1-2-3 .chois li.uk-active a .arrow,
+					.home .steps-1-2-3 .chois li.mp-sucess a .arrow  {
 						border-color: transparent black transparent #ff4d61;
-						border-image: none;
-						border-style: solid none solid solid;
-						border-width: 26px 1px 32px 18px;
-						display: block;
-						height: 0;
-						position: absolute;
 						right: -14px;
-						top: -1px;
-						width: 0;
-						z-index: 50;
 					}
 			 .home .steps-1-2-3 .chois li a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
@@ -785,27 +781,28 @@ home
 				right: -26px;
 				top: 0;
 			}
-			.home .steps-1-2-3 .chois li.uk-active  a .middle {
+			.home .steps-1-2-3 .chois li.uk-active  a .middle,
+			.home .steps-1-2-3 .chois li.mp-sucess  a .middle {
 				background: url('../images/arrowredmiddle.png') right no-repeat #fff;
 				width: 19px;
-				height: 52px;
-				position: absolute;
 				right: -15px;
-				top: 0;
 			}
-			.home .steps-1-2-3 .chois .last.uk-active {
+			.home .steps-1-2-3 .chois .last.uk-active,
+			.home .steps-1-2-3 .chois .last.mp-sucess {
 				background: #ff4d61 !important;
 			}
-				.home .steps-1-2-3 .chois .uk-active a {
-					cursor: default;
+				.home .steps-1-2-3 .chois .uk-active a,
+				.home .steps-1-2-3 .chois .mp-sucess a {
 					color: #fff;
 				}
-						.home .steps-1-2-3 .chois .uk-active  a:hover {
+						.home .steps-1-2-3 .chois .uk-active  a:hover,
+						.home .steps-1-2-3 .chois .mp-sucess  a:hover {
 							text-decoration:none !important;
 						}
-					.home .steps-1-2-3 .chois .uk-active  a .on {
+					.home .steps-1-2-3 .chois .uk-active  a .on,
+					.home .steps-1-2-3 .chois .mp-sucess  a .on {
 						color: #ff4d61;
-						background-color: #fff;
+						background: #fff;
 					}
 @media (max-width: 977px) {
 	.home .steps-1-2-3 .chois li:nth-child(2) .exclude {
@@ -2098,7 +2095,7 @@ office table
     text-align:center;
     border:#d0d0d0 1px solid;
 }
-.client-account .open-order-passenger .pay-button,
+.client-account .open-order-passenger .passanger-pay,
 .client-account .open-order-passenger .driverlist,
 .client-account .open-order-passenger .active-gray {
 	line-height: 39px;
@@ -2111,15 +2108,19 @@ office table
 	margin-top: 3px;
 }	
 @media (max-width: 660px) {
-	.client-account .open-order-passenger .pay-button,
+	.open-order-passenger .route {
+		float: none !important;
+	}
+	.client-account .open-order-passenger .passanger-pay,
 	.client-account .open-order-passenger .driverlist,
 	.client-account .open-order-passenger .active-gray {
 		position: relative;
 		float: none;
-		margin: 0 auto 0 auto;
+		margin: 0 auto;
+	}
+	.client-account .open-order-passenger .passanger-pay {
 	}	
 }
-.client-account .open-order-passenger .pay-button,
 .client-account .open-order-passenger .driverlist {
 	background-color:#528ed3;
 	color: #fff;
@@ -2268,7 +2269,11 @@ style dropdown block
 .driver-top .vehicle {
     width: 37%;
 }
-.driver-top .y-no {
+.passanger-pay .y-no {
+	width: 100%;
+	padding: 0;
+}
+.y-no {
     width: 33%;
 	padding-top: 2px;
 }
@@ -2297,7 +2302,7 @@ style dropdown block
 			}
 		}
 	@media (max-width: 960px) {
-		.driver-top .y-no {
+		.y-no {
 			width: 100%;
 		}
 	}
@@ -2323,7 +2328,15 @@ style dropdown block
 .driver-top .drive-car {
 	margin-top:-6px;
 }
-.driver-top .y-no  button {
+.passanger-pay .y-no button {
+	width: 48% !important;
+	margin: 0 !important;
+	min-width: inherit !important;
+}
+.passanger-pay .y-no button:first-child {
+	margin-right: 4% !important;
+}
+.y-no  button {
 	min-width: 100px !important;
 	width: 48.4% !important;
 	text-transform: uppercase;
@@ -2331,6 +2344,7 @@ style dropdown block
 	float: left !important;
 	line-height: 37px;
 	color: #fff;
+	font-weight: bold;
 }
     .profile .name {
     	color:#528ed3;
@@ -2388,12 +2402,14 @@ style dropdown block
     }
     .y-no button:first-child:focus, .y-no button:first-child:hover {
 		 background-color:#c91032 !important;
+		 color: #fff !important;
     }
     .y-no button:last-child {
 		 background-color:#8d8f98 !important;
     }
     .y-no button:last-child:focus, .y-no button:last-child:hover {
 		 background-color:#adafa8 !important;
+		 color: #fff !important;
     }
     td .driver-over p.about {
 		 margin: 5px 0 7px 0;
@@ -2602,8 +2618,8 @@ footer {
 	}
 }
 @media (max-width: 530px) {
-	.order-details  .tarif-line-group.first .recommend,.order-details .tarif-line-group.second .overinput,.tarif-line .tarif-line-group.third .choose-lang {
-		  width: 100%;
+	.order-details  .tarif-line-group.first .recommend {
+		  width: 99%;
 		  max-width: 114px;
 	}
 }
@@ -2713,7 +2729,11 @@ footer {
 		padding:2px 7px;
 	  }
 	.home .steps-1-2-3 .chois li a .on {
-		margin-left:0px;
+		font-size:18px;
+		width:25px;
+		line-height:23px;
+		height:22px;
+		margin:0;
 	}
 	.home .steps-1-2-3 .chois .uk-active.first a .on {
 	}
@@ -3168,14 +3188,14 @@ footer {
 		width: 99%;
 		margin-left: 0.5%;
 	}
-	.driver-top .y-no button {
+	.y-no button {
 		width: 100% !important;
 	}
 	.open-order-passenger .call-driver,.open-order-passenger .call-driver a {
 		width: 100%;
 	}
 	.client-account .open-order-passenger .active-gray,
-	.client-account .open-order-passenger .pay-button,
+	.client-account .open-order-passenger .passanger-pay,
 	.client-account .open-order-passenger .driverlist {
 		width: 100%;
 		margin-left: 20px;
@@ -6566,18 +6586,35 @@ a.preview-video img:hover {
 
 /* styles 31.10-01.11 */
 
-.home .steps-1-2-3 .chois .complete .on {
+.home .steps-1-2-3 .chois .mp-sucess .on {
 	text-indent: -9999px;
+	background: #ff4d61 !important;
 }
-.home .steps-1-2-3 .chois li .uk-icon-check {
+.home .steps-1-2-3 .chois li .uk-icon-check-circle {
 	display: none;
 }
-.home .steps-1-2-3 .chois .complete .uk-icon-check{
+.home .steps-1-2-3 .chois .mp-sucess .uk-icon-check-circle {
 	display: block;
 	text-indent: 0;
-	float: left;
 	width: 100%;
 	line-height: 29px;
+	color: #fff;
+	float: left;
+	font-size: 36px;
+}
+@media (max-width: 525px) {
+	.home .steps-1-2-3 .chois .mp-sucess .uk-icon-check-circle {
+		font-size: 30px;
+		margin-top: -2px;
+	}
+	.home .steps-1-2-3 .chois .arrow_box .on {
+		margin-top: 2px;
+	}
+}
+@media (max-width: 495px) {
+	.home .steps-1-2-3 .chois .mp-sucess.other .uk-icon-check-circle {
+		margin-left: -4px;
+	}
 }
 [class*="uk-icon-"]{
 	vertical-align: middle;

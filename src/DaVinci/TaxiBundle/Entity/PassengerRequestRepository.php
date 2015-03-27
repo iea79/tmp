@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine;
 
 /**
  * PassengerRequestRepository
@@ -13,6 +14,9 @@ use Doctrine\ORM\EntityRepository;
 class PassengerRequestRepository extends EntityRepository
 {
 	
+	const DEFAULT_INTERVAL_HOURS = 24;
+	const DEFAULT_LIMIT_ROWS = 10;
+	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
@@ -20,7 +24,7 @@ class PassengerRequestRepository extends EntityRepository
 	public function create(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
 		$this->_em->persist($request);
-		 
+		
 		$vehicleOptions = $request->getVehicleOptions();
 		$vehicleOptions->setPassengerRequest($request);
 		$this->_em->persist($vehicleOptions);
@@ -98,30 +102,52 @@ class PassengerRequestRepository extends EntityRepository
 	}
 	
 	public function getAllUserRequestsByStates($userId, array $states)
-	{
-		$bindValues = array();
-		foreach ($states as $key => $value) {
-			$bindValues[':stateValue' . $key] = $value;
-		}
-		$keys = implode(', ', array_keys($bindValues));
-		
+	{		
 		$query = $this->_em->createQuery("
 			SELECT
 				req
 			FROM
 				DaVinci\TaxiBundle\Entity\PassengerRequest req
 			JOIN
-				DaVinci\TaxiBundle\Entity\RoutePoint point
+				req.routePoints points
 			WHERE
-				req.user = :userId AND req.stateValue IN ({$keys})
-			ORDER BY
+				req.user = :userId AND req.stateValue IN (:stateValues)
+			ORDER BY 
 				req.id DESC
 		");
-		$query->setParameters(array_merge(
-			array('userId' => $userId),
-			$bindValues	
+		$query->setParameters(array(
+			'userId' => $userId,
+			'stateValues' => $states	
 		));
 	
+		return $query->getResult();
+	}
+	
+	public function getActualRequestsByStates(array $states)
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			JOIN
+				req.routePoints points
+			JOIN
+				req.tariff tariff	
+			WHERE
+				DATE_DIFF(req.pickUp, :pickUp) > 0
+				AND req.stateValue IN (:stateValues)
+			ORDER BY
+				req.id DESC	
+		");
+		$query->setParameter(
+			'pickUp', 
+			new \DateTime("+" . self::DEFAULT_INTERVAL_HOURS . " hours"), 
+			\Doctrine\DBAL\Types\Type::DATETIMETZ
+		);
+		$query->setParameter('stateValues', $states);
+		$query->setMaxResults(self::DEFAULT_LIMIT_ROWS);
+									
 		return $query->getResult();
 	}
 	

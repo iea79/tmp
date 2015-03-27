@@ -30,8 +30,9 @@ class Tariff {
 	/**
 	 * @ORM\Column(type="float")
 	 * @Assert\Range(
-     *      min = 0.01,
-     *      minMessage = "Price must be more than {{ limit }}"
+	 * 		groups={"flow_createPassengerRequest_step3"},
+     *      min=0.01,
+     *      minMessage="Price must be more than {{ limit }}"
      * )
 	 */
 	private $price = 0.00;
@@ -166,7 +167,7 @@ class Tariff {
     
     public function getMarketPrice()
     {
-    	 $this->marketPrice;
+    	 return $this->marketPrice;
     }
     
     public function setYourPrice($price)
@@ -176,7 +177,7 @@ class Tariff {
     
     public function getYourPrice()
     {
-    	$this->yourPrice;
+    	return $this->yourPrice;
     }
         
     /**
@@ -212,7 +213,7 @@ class Tariff {
     
     public function getMarketTips()
     {
-    	$this->marketTips;
+    	return $this->marketTips;
     }
     
     public function setYourTips($tips)
@@ -222,25 +223,9 @@ class Tariff {
     
     public function getYourTips()
     {
-    	$this->yourTips;
+    	return $this->yourTips;
     }
     
-    public static function getPaymentMethods()
-    {
-    	return array(
-    		self::PAYMENT_METHOD_CASH,
-    		self::PAYMENT_METHOD_ESCROW	
-    	);
-    }
-
-    public static function getTypes()
-    {
-    	return array(
-    		self::PRICE_TYPE_MARKET,
-    		self::PRICE_TYPE_YOUR	
-    	);
-    }
-
     /**
      * Set passengerRequest
      *
@@ -263,11 +248,43 @@ class Tariff {
     {
         return $this->passengerRequest;
     }
-        
+    
+    public function definePrice()
+    {
+    	$this->price = ($this->yourPrice > 0) ? $this->yourPrice : $this->marketPrice;
+    }
+    
+    public function defineTips()
+    {
+    	$this->tips = ($this->yourTips > 0) ? $this->yourTips : $this->marketTips;
+    }
+
+    public function getTotalPrice()
+    {
+    	return $this->price + $this->tips;
+    }
+    
+    public static function getPaymentMethods()
+    {
+    	return array(
+    		self::PAYMENT_METHOD_CASH,
+    		self::PAYMENT_METHOD_ESCROW
+    	);
+    }
+    
+    public static function getTypes()
+    {
+    	return array(
+    		self::PRICE_TYPE_MARKET,
+    		self::PRICE_TYPE_YOUR
+    	);
+    }
+    
     private function checkPaymentMethod($paymentMethod, $type)
     {
     	if (!array_key_exists($paymentMethod, self::getPaymentMethods())) {
     		throw new \InvalidArgumentException("Undefined {$type} payment method :: {$paymentMethod}");
     	}
     }
+    
 }

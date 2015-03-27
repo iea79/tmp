@@ -27,6 +27,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	const STEP_FIRST = 1;
 	const STEP_SECOND = 2;
 	const STEP_THIRD = 3;
+	const STEP_LAST = 4;
 	
 	public function getName() 
 	{
@@ -66,7 +67,25 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
+		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
+			$request = $event->getFormData();
 			
+			$request->setPickUp(new \DateTime(
+				$request->getPickUpDate()->format('Y-m-d') . ' ' 
+					. $request->getPickUpTime()->format('H:i:s')
+			));
+			
+			if ($request->getRoundTrip()) {
+				$request->setReturn(new \DateTime(
+					$request->getReturnDate()->format('Y-m-d') . ' ' 
+						. $request->getReturnTime()->format('H:i:s')
+				));
+			}
+			
+			$tariff = $request->getTariff();
+			$tariff->definePrice();
+			$tariff->defineTips();
+		}
 	}
 	
 	public function onPostBindFlow(PostBindFlowEvent $event)
@@ -95,7 +114,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 			)
 		);
 	}
-		
+			
 }
 
 ?>

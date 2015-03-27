@@ -209,6 +209,13 @@ class PassengerRequest {
         return $this->pickUp;
     }
     
+    public function getPickUpLeft()
+    {
+    	return $this->pickUp
+    		->diff(new \DateTime('now'))
+    		->format('%D (days) %H:%I:%S');
+    }
+    
     /**
      * Set pickUpTime
      *
