@@ -13,6 +13,7 @@ class FaqEntryAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('forPassenger')
             ->addIdentifier('question')
             ->add('locale')
              ->add('_action', 'actions', array(
