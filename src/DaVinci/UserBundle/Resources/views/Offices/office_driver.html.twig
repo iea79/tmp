@@ -76,7 +76,7 @@
                     <li class="uk-active">
                             <div class="whitebg findorder">
 								<div class="message">
-									<span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ!'|trans}}
+									<span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}}
 								</div>
 							        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 								<div class="clear"></div>
@@ -95,6 +95,8 @@
 															<div class="questiontooltip">?</div>
 														<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
 															<div class="questiontooltip">?</div>
+														<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Tips'|trans}}
+															<div class="questiontooltip">?</div>	
 														<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
 															<div class="questiontooltip">?</div>
 														<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
@@ -108,7 +110,8 @@
                                             		<td>{{ loop.index }}</td>
                                             		<td class="timesent">{{ request.id }}</td>
                                             		<td>{{ request.getPickUpLeft() }}</td>
-                                            		<td>${{ tariff.getTotalPrice() }}</td>
+                                            		<td>${{ tariff.getPrice() }}</td>
+                                            		<td>${{ tariff.getTips() }}</td>
                                             		<td>
                                             			<span>
                                             				<a data-uk-modal="{target:'#route'}">
@@ -117,6 +120,7 @@
                                             			</span>
                                             		</td>
                                                     <td>
+                                                    	{% set requestDriver = request.driver %}
                                                     	{% if request.stateValue == 'open' %}
                                                 			<div class="order-status">
                                                         		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
@@ -127,7 +131,7 @@
                                                         		<span><br>= </span>
                                                         		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
                                                         	</div>	
-                                                    	{% elseif request.stateValue == 'pending' and driverId == request.driver %}
+                                                    	{% elseif request.stateValue == 'pending' and requestDriver is not null and driver.id == requestDriver.id %}
                                                     		<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
                                                         {% else %}
                                                     		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>

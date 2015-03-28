@@ -8,15 +8,11 @@ passenger_request_payment:
     methods:  [GET, POST]
     options: { useAsInnerURL: false }     
     
-passenger_request_generated:
-    pattern: /generated
-    defaults: { _controller: DaVinciTaxiBundle:Home:requestGenerated }
-    methods:  [GET]
-    options: { useAsInnerURL: false }       
-    
 main_driver:
     pattern:  /main-driver
-    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }    
+    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }  
+    options: { useAsInnerURL: true } 
+    
 profit:
     pattern:  /profit
     defaults: { _controller: DaVinciTaxiBundle:Information:profit }    

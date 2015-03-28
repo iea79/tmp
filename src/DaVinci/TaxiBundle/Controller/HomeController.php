@@ -23,9 +23,6 @@ use DaVinci\TaxiBundle\Form\Payment\InternalPaymentMethod;
 
 class HomeController extends Controller {
 	
-	/**
-	 * @Route("/", name="da_vinci_taxi_homepage")
-	 */
     public function indexAction() {
     	$passengerRequest = $this->spawnPassengerRequest();
     	
@@ -39,23 +36,24 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
+    			$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
+    			if ($isUser) {
     				$passengerRequest->setUser(
     					$this->container->get('security.context')->getToken()->getUser()
     				);
     			}
     			
     			$this->createPassengerRequest($passengerRequest);
-    			$flow->reset();
-    			
     			$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
     			    			    			
-    			$url = ($this->container->get('security.context')->isGranted('ROLE_USER'))
+    			$url = ($isUser)
     				? $this->generateUrl('passenger_request_payment', array(
 	    				'id' => $passengerRequest->getId()
 	    			))
     				: $this->generateUrl('fos_user_security_login');
     			
+    			$flow->reset();
+    				
     			return $this->redirect($url);
     		}
     	}
@@ -78,11 +76,27 @@ class HomeController extends Controller {
     
     /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
-     * @Security("has_role('ROLE_USER')")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function paymentAction() {
     	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
     	$makePayment = $this->spawnMakePayment();
+    	
+    	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
+    	$isTaxiDriver = $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER');
+    	
+    	$userCondition = (
+    		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
+    		&& $isUser
+    	);
+    	$driverCondition = (
+    		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
+    		&& $isTaxiDriver
+    	);
+    		
+    	if (!$userCondition && !$driverCondition) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
     	
     	$flow = $this->container->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
@@ -94,12 +108,25 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			if ($driverCondition) {
+    				$driver = $this->container->get('fos_user.user_manager')->findIndependentDriverByUserId(
+    					$this->container->get('security.context')
+    						->getToken()
+    						->getUser()
+    						->getId()
+    				);
+    				
+    				$passengerRequest->setDriver($driver);
+    			}
+    			
     			$passengerRequest->changeState();
     			$this->savePassengerRequest($passengerRequest);
-    			
+
     			$flow->reset();
     			
-    			return $this->redirect($this->generateUrl('passenger_request_generated'));
+    			return $this->redirect($this->generateUrl(
+    				$this->getAfterPaymentUrl()
+    			));
 			}
     	}
     	
@@ -227,6 +254,17 @@ class HomeController extends Controller {
     private function getMakePaymentService()
     {
     	return $this->container->get('da_vinci_taxi.service.make_payment_service');
+    }
+    
+    private function getAfterPaymentUrl()
+    {
+    	if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+    		return 'office_driver';
+    	}
+    	
+    	if ($this->get('security.context')->isGranted('ROLE_USER')) {
+    		return 'office_passenger';
+    	}
     }
         
 }

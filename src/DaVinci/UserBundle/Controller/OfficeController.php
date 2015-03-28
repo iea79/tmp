@@ -163,13 +163,20 @@ class OfficeController extends Controller
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
         
+        $driver = $this->container->get('fos_user.user_manager')->findIndependentDriverByUserId(
+        	$this->container->get('security.context')
+        		->getToken()
+        		->getUser()
+        		->getId()
+        );
+        
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
         	array(
         		'openRequests' => $this->getPassengerRequestRepository()->getActualRequestsByStates(
         			array(PassengerRequest::STATE_OPEN, PassengerRequest::STATE_PENDING)
         		),
-        		'driverId' => $this->container->get('security.context')->getToken()->getUser()->getId()	
+        		'driver' => $driver	
         	)
         );        
     }

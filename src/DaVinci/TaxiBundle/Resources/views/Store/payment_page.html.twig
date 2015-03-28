@@ -5,17 +5,18 @@
 {% block body %}
 <div class="whitebg shadow-main payment home">
 {# Price block #}
+	{% set tariff = passengerRequest.getTariff() %}
 	<div class="price">
-		<p>{{'Subtotal:'|trans}} <span>$5.00</span></p>
-		<p>{{'Commission services:'|trans}} <span>$0.10</span></p>
-		<p>0%VAT: <span>$0.00</span></p>
-		<h2>{{'Total cost:'|trans}} <span>$5.10</span></h2>
+		<p>{{'Subtotal:'|trans}} <span>${{ tariff.getTotalPrice() }}</span></p>
+		<p>{{'Service commission:'|trans}} <span>$0.10</span></p>
+		<p>Taxes and fees: <span>$0.00</span></p>
+		<h2>{{'Total cost:'|trans}} <span>${{ tariff.getTotalPrice() + 0.10 + 0.00 }}</span></h2>
 	</div>
 {# Payment block #}						
 	<div>
 		<div class="payment-swicher steps-1-2-3">
 			<ul class="chois">
-	            <li class="first uk-active">
+				<li class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}first uk-active{% else %}first{% endif %}">
 	                <a href="#">
 	                    <div class="arrow_box">
 	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}} </span>{{'method'|trans}}</span>
@@ -24,7 +25,7 @@
 	                    <span class="middle"></span>
 	                </a>
 	            </li>
-	            <li class="last">
+	            <li class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}last uk-active{% else %}last{% endif %}">
 	                <a href="#">
 	                    <div class="arrow_box">
 	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}}  </span>info</span>

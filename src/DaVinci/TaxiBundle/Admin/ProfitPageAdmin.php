@@ -31,6 +31,7 @@ class ProfitPageAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('forPassenger')
             ->addIdentifier('title')
             ->add('locale')
              ->add('_action', 'actions', array(
