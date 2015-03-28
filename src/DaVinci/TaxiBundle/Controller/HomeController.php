@@ -99,7 +99,9 @@ class HomeController extends Controller {
     			
     			$flow->reset();
     			
-    			return $this->redirect($this->generateUrl('passenger_request_generated'));
+    			return $this->redirect($this->generateUrl(
+    				$this->getAfterPaymentUrl()
+    			));
 			}
     	}
     	
@@ -227,6 +229,17 @@ class HomeController extends Controller {
     private function getMakePaymentService()
     {
     	return $this->container->get('da_vinci_taxi.service.make_payment_service');
+    }
+    
+    private function getAfterPaymentUrl()
+    {
+    	if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+    		return 'office_driver';
+    	}
+    	
+    	if ($this->get('security.context')->isGranted('ROLE_USER')) {
+    		return 'office_passenger';
+    	}
     }
         
 }
