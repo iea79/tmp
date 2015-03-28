@@ -1909,7 +1909,7 @@ office tabs
 	.client-account .button-swicher .uk-panel:last-child {
 		padding-right:0px;
 	}
-.client-account .button-swicher .uk-panel button {
+.client-account .button-swicher .uk-panel button,.client-account .button-swicher .uk-panel a {
     border: 0;
     color: #fff;
     background: #528ed3;
@@ -1923,12 +1923,16 @@ office tabs
 }
 .client-account .button-swicher .uk-panel button:active,
 .client-account .button-swicher .uk-panel button:hover,
-.client-account .button-swichera .uk-panel button:focus {
+.client-account .button-swichera .uk-panel button:focus,
+.client-account .button-swicher .uk-panel a:active,
+.client-account .button-swicher .uk-panel a:hover,
+.client-account .button-swichera .uk-panel a:focus {
   outline: none;
   border:0;
   text-decoration:underline;
 }
-.client-account .button-swicher .uk-panel.uk-active button {
+.client-account .button-swicher .uk-panel.uk-active button,
+.client-account .button-swicher .uk-panel.uk-active a {
     background-color: #fff;
     color: #528ed3;
     text-shadow:none;
@@ -5645,8 +5649,8 @@ Tab - button-swicher
 	margin-top: 4px;
 	width: 100.6%;
 }
-.button-swicher button {
-	padding: 3px 5px;
+.button-swicher button,.button-swicher a {
+	padding: 3px 5px 3px;
 	border-radius: 4px 4px 0 0;
 	font-weight: bold;
 	text-align: center;
@@ -5658,9 +5662,12 @@ Tab - button-swicher
 	border: 0;
 	outline: none;
 	line-height: 22px;
+	display: table-cell;
+	width: 100%;
+	vertical-align: middle;;
 }
 @media (max-width: 520px) {
-	.button-swicher button {
+	.button-swicher button,.button-swicher a {
 		font-size: 15px;
 		line-height: 1;
 	}
@@ -5670,7 +5677,7 @@ Tab - button-swicher
 		display: none;
 	}
 }
-.button-swicher .uk-active button {
+.button-swicher .uk-active button,.button-swicher .uk-active a {
 	background: url('../images/blue-tabs-left.png') left no-repeat, url('../images/blue-tabs-right.png') right no-repeat !important;
 	background-color: #fff !important;
 	color: #528ed3 !important;
@@ -5683,10 +5690,10 @@ Tab - button-swicher
 	font-size: 18px;
 	margin-right: 0.3%;
 }
-.button-swicher.red-button button {
+.button-swicher.red-button button,.button-swicher.red-button a {
 	background-color: #ff4d61 !important;
 }
-.main-content .button-swicher.red-button .uk-active button {
+.main-content .button-swicher.red-button .uk-active button,.main-content .button-swicher.red-button .uk-active a {
 	background: url('../images/shashki-red-left.png') left no-repeat, url('../images/shashki-red-right.png') right no-repeat !important;
 	background-color: #fff !important;
 	color: #ff4d61 !important;
@@ -6248,6 +6255,7 @@ Help
 }
 .button-swicher.uk-grid.uk-grid-small > * {
 	padding-left: 6px;
+	display: table;
 }
 .help-content {
 	width: 77%;
@@ -7344,7 +7352,7 @@ Notifications button in main menu
 .notifications .support .history th:last-child {
   width: auto !important;
 }
-.main-content .button-swicher .uk-active button {
+.main-content .button-swicher .uk-active button,.main-content .button-swicher .uk-active a {
 	background-image: none !important; 
 }
 .main-content .social .buttom-swicher li {
