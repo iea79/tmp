@@ -60,8 +60,7 @@ sonata_admin:
                     - davinci.taxi.admin.faqentry   
                     - davinci.taxi.admin.guidepage   
                     - davinci.taxi.admin.videoguidepage     
-                    #- sonata.comment.admin.comment
-                    - sonata.comment.admin.thread   
+                    - davinci.taxi.admin.comment
             sonata.admin.group.administration:
                 label:           sonata_administration
                 label_catalogue: SonataAdminBundle

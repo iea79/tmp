@@ -1,4 +1,13 @@
 services:
+    davinci.taxi.admin.comment:
+        class: DaVinci\TaxiBundle\Admin\UserCommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Review's Comments" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\UserComment
+            - SonataAdminBundle:CRUD        
+        
     davinci.taxi.admin.countrycity:
         class: DaVinci\TaxiBundle\Admin\CountryCityAdmin
         tags:

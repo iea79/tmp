@@ -5664,7 +5664,8 @@ Tab - button-swicher
 	line-height: 22px;
 	display: table-cell;
 	width: 100%;
-	vertical-align: middle;;
+	vertical-align: middle;
+        text-decoration: none;
 }
 @media (max-width: 520px) {
 	.button-swicher button,.button-swicher a {
