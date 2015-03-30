@@ -105,11 +105,36 @@ class InformationController extends Controller {
         return $this->render('DaVinciTaxiBundle:Notifications:new_ticket.html.twig');
     }
 
-    public function informationAction()
+    public function socialAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:information.html.twig');
+        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
+                array(
+                    'social' => true,
+                    'reviews' => false,
+                    'blog' => false
+                ));
+    }
+    
+    public function reviewsAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
+                array(
+                    'reviews' => true,
+                    'social' => false,
+                    'blog' => false
+                ));
     }
 
+    public function blogAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
+                array(
+                    'blog' => true,
+                    'social' => false,
+                    'reviews' => false
+                ));
+    }    
+    
     public function financial_officeAction()
     {
         return $this->render('DaVinciTaxiBundle:Finoffice:financial_office.html.twig');

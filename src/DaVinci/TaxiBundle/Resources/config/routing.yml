@@ -44,7 +44,8 @@ guides:
         
 one_help:
     pattern:  /one-help
-    defaults: { _controller: DaVinciTaxiBundle:Information:one_help }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:one_help }   
+    
 FAQs:
     pattern:  /FAQs
     defaults: { _controller: DaVinciTaxiBundle:Information:FAQs }    
@@ -53,10 +54,21 @@ FAQs:
 notifications:
     pattern:  /notifications
     defaults: { _controller: DaVinciTaxiBundle:Information:notifications }    
-information:
-    pattern:  /information
-    defaults: { _controller: DaVinciTaxiBundle:Information:information }    
+
+social:
+    pattern:  /social
+    defaults: { _controller: DaVinciTaxiBundle:Information:social }    
     options: { useAsInnerURL: true }
+
+reviews:
+    pattern:  /reviews
+    defaults: { _controller: DaVinciTaxiBundle:Information:reviews }    
+    options: { useAsInnerURL: true }
+
+blog:
+    pattern:  /blog
+    defaults: { _controller: DaVinciTaxiBundle:Information:blog }    
+    options: { useAsInnerURL: true }        
         
 financial_office:
     pattern:  /financial-office
