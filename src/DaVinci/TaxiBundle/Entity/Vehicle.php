@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -48,8 +49,13 @@ class Vehicle {
 	private $id;
 	
 	/**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('Not chosen', 'Economy', 'Compact', 'Midsize', 'Standart', 'Full Size', 'Premium', 'Luxury', 'Other', 'Convertible', 'Van', 'SUV', 'Speciality', 'Pickup')", name="vehicle_class", length=100)
-	 */
+	 * @ORM\Column(type="string", columnDefinition="ENUM('Economy', 'Compact', 'Midsize', 'Standart', 'Full Size', 'Premium', 'Luxury', 'Other', 'Convertible', 'Van', 'SUV', 'Speciality', 'Pickup')", name="vehicle_class", length=100)
+	 * @Assert\Choice(
+	 * 		groups={"flow_createPassengerRequest_step2"},
+	 * 		callback="getPossibleChoices",
+	 * 		message="vehicle.vehicleClass.unexpectedTypeClass"
+	 * )
+     */
 	private $vehicleClass;
 	
 	/**
@@ -147,10 +153,17 @@ class Vehicle {
         return $this->passengerRequest;
     }
    
-    public static function getChoices($commented = true)
+    public static function getChoices()
     {
-        return array(
-    		self::POS_DEFAULT => self::CLASS_DEFAULT,
+        return array_merge(
+        	array(self::POS_DEFAULT => self::CLASS_DEFAULT),
+        	self::getPossibleChoices()	
+        );
+    }
+    
+    public static function getPossibleChoices()
+    {
+    	return array(
     		self::POS_CLASS_ECONOMY => self::CLASS_ECONOMY,
     		self::POS_CLASS_COMPACT => self::CLASS_COMPACT,
     		self::POS_CLASS_MIDSIZE => self::CLASS_MIDSIZE,
@@ -166,4 +179,5 @@ class Vehicle {
     		self::POS_CLASS_PICKUP => self::CLASS_PICKUP
     	);
     }
+    
 }

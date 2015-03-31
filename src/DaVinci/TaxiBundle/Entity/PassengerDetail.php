@@ -22,7 +22,7 @@ class PassengerDetail {
 	 * @ORM\Column(type="integer")
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3"},
-     * 		min=0,
+     * 		min=1,
      *      minMessage="Number of adults have to be more or equal {{ limit }}"
      * )
 	 */
