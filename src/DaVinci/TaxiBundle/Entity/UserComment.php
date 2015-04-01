@@ -173,7 +173,7 @@ class UserComment
      * Sets the creation date
      * @param DateTime $createdAt
      */
-    public function setCreatedAt(DateTime $createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
@@ -196,4 +196,5 @@ class UserComment
     {
         return $this->previousState;
     }
+    
 }

@@ -223,14 +223,12 @@ sonata_media:
 
 doctrine_phpcr:
     odm:
-        document_managers:
-            default:  
-                mappings:
-                    ApplicationSonataMediaBundle:
-                        prefix: Application\Sonata\MediaBundle\PHPCR    
-                    SonataMediaBundle:
-                        mapping:              true
-                        prefix: Sonata\MediaBundle\PHPCR    
+        auto_mapping: true
+        mappings:
+            ApplicationSonataMediaBundle:
+                prefix: Application\Sonata\MediaBundle\PHPCR
+            SonataMediaBundle:
+                prefix: Sonata\MediaBundle\PHPCR
 
 
 services:
