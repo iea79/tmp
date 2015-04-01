@@ -54,7 +54,7 @@ sonata_admin:
                 label_catalogue: DaVinciTaxiBundle
                 items:
                     - sonata.media.admin.media
-                    - sonata.media.admin.gallery
+                    #- sonata.media.admin.gallery
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
                     - davinci.taxi.admin.faqentry   
@@ -79,10 +79,10 @@ sonata_admin:
                 items:
                     - cmf_routing.route_admin
                     - cmf_routing.redirect_route_admin    
-            content:
-                label: Content
-                items:
-                    - cmf_content.admin
+            #content:
+            #    label: Content
+            #    items:
+            #        - cmf_content.admin
 #                    - cmf_block.simple_admin
 #                    - cmf_block.container_admin
 #                    - cmf_block.reference_admin

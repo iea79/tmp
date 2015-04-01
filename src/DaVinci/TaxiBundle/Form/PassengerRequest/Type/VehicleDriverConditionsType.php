@@ -12,7 +12,8 @@ class VehicleDriverConditionsType extends AbstractType {
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
 			->add('interpreter_language', new LanguageType(), array(
-				'mapped' => false
+				'mapped' => false,
+				'data_class' => 'DaVinci\TaxiBundle\Entity\Language'
 			))
 			->add('educator', 'checkbox', array('required' => false))
 			->add('medical_license', 'checkbox', array('required' => false))
