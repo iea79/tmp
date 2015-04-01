@@ -4,6 +4,7 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -42,6 +43,16 @@ abstract class GeneralDriver
 	 * @ORM\Column(type="boolean", nullable=true)
 	 */
 	protected $insuranceAccepted = false;
+	
+	/**
+	 * @ORM\ManyToMany(targetEntity="PassengerRequest", mappedBy="possibleDrivers")
+	 */
+	protected $possibleRequests;
+	
+	public function __construct()
+	{
+		$this->possibleRequests = new ArrayCollection();
+	}
 	
 	/**
 	 * Get id
@@ -107,6 +118,39 @@ abstract class GeneralDriver
 	public function getInsuranceAccepted()
 	{
 		return $this->insuranceAccepted;
+	}
+	
+	/**
+	 * Add possibleRequests
+	 *
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+	 * @return GeneralDriver
+	 */
+	public function addPossibleRequests(\DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest)
+	{
+		$this->possibleRequests[] = $passengerRequest;
+	
+		return $this;
+	}
+	
+	/**
+	 * Remove possibleRequests
+	 *
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+	 */
+	public function removePossibleRequests(\DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest)
+	{
+		$this->possibleRequests->removeElement($possibleDriver);
+	}
+	
+	/**
+	 * Get possibleRequests
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getPossibleRequests()
+	{
+		return $this->possibleRequests;
 	}
 		
 }

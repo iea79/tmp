@@ -6,7 +6,6 @@ use FOS\UserBundle\Doctrine\UserManager as BaseUserManager;
 
 class CustomUserManager extends BaseUserManager
 {
-
     
     /**
      * Finds a user either by email, or phone or username
@@ -28,10 +27,4 @@ class CustomUserManager extends BaseUserManager
         return $user;
     }
     
-    public function findIndependentDriverByUserId($userId)
-    {
-    	$repository = $this->objectManager->getRepository('\DaVinci\TaxiBundle\Entity\IndependentDriver');
-    	return $repository->findOneBy(array('user' => $userId));
-    }
-
 }

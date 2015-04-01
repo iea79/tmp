@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="IndependentDriverRepository")
  * @ORM\Table(name="independent_driver")
  */
 class IndependentDriver extends GeneralDriver

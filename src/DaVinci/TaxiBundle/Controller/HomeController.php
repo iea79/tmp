@@ -14,6 +14,7 @@ use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 use DaVinci\TaxiBundle\Form\Payment\MakePayment;
 use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
+use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 use DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow;
@@ -90,7 +91,8 @@ class HomeController extends Controller {
     		&& $isUser
     	);
     	$driverCondition = (
-    		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
+    		(PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
+    		|| PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue())
     		&& $isTaxiDriver
     	);
     		
@@ -108,18 +110,24 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			if (PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()) {
+    				$passengerRequest->changeState();
+    			}
+    			
     			if ($driverCondition) {
-    				$driver = $this->container->get('fos_user.user_manager')->findIndependentDriverByUserId(
+    				$driver = $this->getDirverByUserId(
     					$this->container->get('security.context')
     						->getToken()
     						->getUser()
     						->getId()
     				);
     				
-    				$passengerRequest->setDriver($driver);
+    				$passengerRequest->addPossibleDriver($driver);
+    				$driver->addPossibleRequests($passengerRequest);
+    				
+    				$this->saveDriver($driver);
     			}
-    			
-    			$passengerRequest->changeState();
+    			    			
     			$this->savePassengerRequest($passengerRequest);
 
     			$flow->reset();
@@ -163,12 +171,23 @@ class HomeController extends Controller {
     }
     
     /**
-     * @Route("/generated", name="passenger_request_generated")
+     * @Route("/modify/request_id/{id}", name="modify_request_status")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function requestGeneratedAction() {
-    	return $this->render("DaVinciTaxiBundle:Home:requestGenerated.html.twig");
+    public function modifyAction()
+    {
+    	
     }
     
+    /**
+     * @Route("/cancel/request_id/{id}", name="cancel_request_status")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
+     */
+    public function cancelAction()
+    {
+    	 
+    }
+        
     public function main_driverAction() {
         return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
     }
@@ -233,6 +252,22 @@ class HomeController extends Controller {
     }
     
     /**
+     * @param integer $userId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    private function getDirverByUserId($userId)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->findOneByUserId($userId);
+    }
+    
+    private function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	$em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->save($driver);
+    }
+    
+    /**
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequestService
      */
     private function getPassengerRequestService()
@@ -266,5 +301,5 @@ class HomeController extends Controller {
     		return 'office_passenger';
     	}
     }
-        
+            
 }

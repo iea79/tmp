@@ -150,8 +150,18 @@ class PassengerRequest {
 	 */
 	private $driver;
 	
+	/**
+	 * @ORM\ManyToMany(targetEntity="GeneralDriver", inversedBy="possibleRequests")
+	 * @ORM\JoinTable(name="requests_drivers",
+	 * 		joinColumns={@ORM\JoinColumn(name="passenger_request_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="driver_id", referencedColumnName="id")}
+     * )
+	 */
+	private $possibleDrivers;
+	
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
+		$this->possibleDrivers = new ArrayCollection();
 	}
 
     /**
@@ -678,6 +688,69 @@ class PassengerRequest {
     	return $this->driver;
     }
     
+    /**
+     * Add possibleDrivers
+     *
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver
+     * @return PassengerRequest
+     */
+    public function addPossibleDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver)
+    {
+    	$this->possibleDrivers[] = $possibleDriver;
+    
+    	return $this;
+    }
+    
+    /**
+     * Remove possibleDrivers
+     *
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver
+     */
+    public function removePossibleDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver)
+    {
+    	$this->possibleDrivers->removeElement($possibleDriver);
+    }
+    
+    /**
+     * Get possibleDrivers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPossibleDrivers()
+    {
+    	return $this->possibleDrivers;
+    }
+    
+    /**
+     * @return array
+     */
+    public function getPossibleDriversIds()
+    {
+    	$iterator = $this->possibleDrivers->getIterator();
+    	$iterator->rewind();
+    	
+    	$ids = array();
+    	while ($iterator->valid()) {
+    		$ids[] = $iterator->current()->getId();
+    		$iterator->next();
+    	}
+    	
+    	return $ids;
+    }
+    
+    /**
+     * @param integer $driverId
+     * @return boolean
+     */
+    public function isDriverInList($driverId)
+    {
+    	return in_array($driverId, $this->getPossibleDriversIds());
+    }
+    
+    /**
+     * 
+     * @return multitype:string
+     */
     public static function getStateList() 
     {    	
     	return array(

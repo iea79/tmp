@@ -132,7 +132,7 @@
 				{% endif %}
 			</tr>
 			{% if openRequests is defined %}
-				{% for request in openRequests if request.stateValue == 'open' %}
+				{% for request in openRequests if (request.stateValue == 'open' or request.stateValue == 'pending' and request.isDriverInList(driver.id) == false) %}
 	            	{% set tariff = request.getTariff() %}
 	            	{% set pickUp = request.getPickUp() %}
 	            	<tr class="table-cont">

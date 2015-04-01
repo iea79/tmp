@@ -121,7 +121,7 @@
                                             		</td>
                                                     <td>
                                                     	{% set requestDriver = request.driver %}
-                                                    	{% if request.stateValue == 'open' %}
+                                                    	{% if request.stateValue == 'pending' and request.isDriverInList(driver.id) == true %}
                                                 			<div class="order-status">
                                                         		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
                                                         		<span><br>+ </span>
@@ -131,10 +131,12 @@
                                                         		<span><br>= </span>
                                                         		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
                                                         	</div>	
-                                                    	{% elseif request.stateValue == 'pending' and requestDriver is not null and driver.id == requestDriver.id %}
-                                                    		<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
-                                                        {% else %}
+                                                    	{% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id != requestDriver.id %}
                                                     		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
+                                                        {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                        	<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
+                                                    	{% else %}
+                                                    		{{'You have got a chance!'|trans}}
                                                         {% endif %}	
                                                     </td>
                                             	</tr>

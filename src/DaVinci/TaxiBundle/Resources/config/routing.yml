@@ -6,7 +6,12 @@ passenger_request_payment:
     pattern: /payment/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:payment }
     methods:  [GET, POST]
-    options: { useAsInnerURL: false }     
+    options: { useAsInnerURL: false }
+    
+modify_request_status:
+    pattern: /modify/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:modify }
+    options: { useAsInnerURL: true }         
     
 main_driver:
     pattern:  /main-driver
