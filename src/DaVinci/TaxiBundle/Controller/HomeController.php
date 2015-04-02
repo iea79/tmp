@@ -91,8 +91,7 @@ class HomeController extends Controller {
     		&& $isUser
     	);
     	$driverCondition = (
-    		(PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
-    		|| PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue())
+    		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
     		&& $isTaxiDriver
     	);
     		
@@ -110,7 +109,7 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			if (PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()) {
+    			if ($userCondition || $driverCondition) {
     				$passengerRequest->changeState();
     			}
     			
@@ -185,7 +184,10 @@ class HomeController extends Controller {
      */
     public function cancelAction()
     {
-    	 
+    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	$passengerRequest->cancelState();
+    	
+    	$this->savePassengerRequest($passengerRequest);
     }
         
     public function main_driverAction() {

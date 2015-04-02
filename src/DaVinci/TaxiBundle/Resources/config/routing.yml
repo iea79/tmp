@@ -11,7 +11,12 @@ passenger_request_payment:
 modify_request_status:
     pattern: /modify/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:modify }
-    options: { useAsInnerURL: true }         
+    options: { useAsInnerURL: true }
+    
+cancel_request_status:
+    pattern: /modify/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:modify }
+    options: { useAsInnerURL: true }            
     
 main_driver:
     pattern:  /main-driver
