@@ -113,7 +113,7 @@ class PassengerRequest {
 	private $stateValue;
 	
 	/**
-	 * @var \DaVinci\TaxiBundle\Services\PassengerRequestState
+	 * @var \DaVinci\TaxiBundle\Services\State
 	 */
 	private $state;
 	
@@ -548,6 +548,19 @@ class PassengerRequest {
     	
     	$this->state->handle();
     	$this->setStateValue($this->state->getName()); 
+    }
+    
+    /**
+     * @return void
+     */
+    public function cancelState()
+    {
+    	if (is_null($this->state)) {
+    		$this->state = $this->spawnState($this->stateValue);
+    	}
+    	 
+    	$this->state->cancel();
+    	$this->setStateValue($this->state->getName());
     }
     
     /**
