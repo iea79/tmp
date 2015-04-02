@@ -2213,7 +2213,7 @@ style dropdown block
     border-radius:0;
     border:none;
     padding:0;
-    margin: 54px -20px -7px -17px;
+    margin:54px -8px -7px;
 }
 @media (max-width: 640px) {
 	.open-order-passenger .uk-panel-box {
@@ -2249,8 +2249,10 @@ style dropdown block
 }
 .driver-over {
     border-top: 1px solid #d0d0d0;
-    padding: 22px 20px 0 17px;
+    padding: 22px 18px 0 9px;
     display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
 .driver-top  {
     overflow: hidden;
@@ -6405,6 +6407,7 @@ Help
 .block-help .uk-nav.only-link {
 	margin-top: -12px;
 	margin-bottom: 8px;
+	float: none;
 }
 .block-help .uk-nav.only-link a {
   font-size: 16px;
