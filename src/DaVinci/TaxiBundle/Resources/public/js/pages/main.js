@@ -252,30 +252,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 return false;
 
             });
-            
-            var Requester = function() {
-            	
-            	this.makeRequest = function(requestedUrl, sendData) {
-            		$.ajax({
-                        url: requestedUrl,
-                        data: sendData,
-                        type: "POST",
-                        dataType: "json",
-                        async: false,
-                        success: function(data) {
-                        	return;
-                        }
-                    });	
-            	}
-            	
-            }
-            
-            $('.approve-driver').on("click", function () {
-            	alert($(this).attr('value'));
-            });
-        	
-        	var requester = new Requester();
-            
+                       
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
                   

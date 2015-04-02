@@ -74,9 +74,52 @@ require(['pages/common'], function ($) {
             var count = 0;
             $(".driverlist").click(function () {
                 $(this).toggleClass("active-gray");
-
+            });
+            
+            $("button.approve-driver").on("click", function () {
+            	var hash = new Object();
+            	
+            	var values = $(this).attr('value');
+            	var params = values.split('-');
+            	for (var i = 0; i < params.length; i++) {
+            		if (params[i].charAt(1) != ':') {
+            			continue;
+            		}
+            		
+            		var param = params[i].split(':');
+            		if (i == 0) {
+            			hash.query = param[1];
+            		}
+            		
+            		if (i == 1) {
+            			hash.driver_id = param[1];
+            		}
+            	}
+            	
+            	requester.makeRequest(hash.query, {driver_id: hash.driver_id});
             });
         });
+        
+        var Requester = function() {
+        	
+        	var host = 'http://taxi-my-price.dev';
+        	
+        	this.makeRequest = function(query, sendData) {
+        		$.ajax({
+                    url: host + query,
+                    data: sendData,
+                    type: "POST",
+                    dataType: "json",
+                    async: false,
+                    success: function(data) {
+                    	return;
+                    }
+                });	
+        	}
+        	
+        }
+           	
+    	var requester = new Requester();
 
         function readURL(input) {
             if (input.files && input.files[0]) {

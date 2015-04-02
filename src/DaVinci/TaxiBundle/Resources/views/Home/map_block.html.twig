@@ -3,11 +3,11 @@
 		<div id="route_result">
 			<div>
 				<i class="mp-icon-timer uk-text-danger"></i>
-				<span id="duration_route">{% if flow is defined and flow.formData.duration > 0 %}{{ flow.formData.duration / 60 }}{% else %}0{% endif %} mins</span>
+				<span id="duration_route">{% if flow is defined and flow.formData.duration > 0 %}{{ flow.formData.getFormattedDuration() }}{% else %}0{% endif %} mins</span>
 			</div>
 			<div>
 				<i class="mp-icon-direction uk-text-danger"></i>
-				<span id="distance_route">{% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.distance / 1000 }}{% else %}0{% endif %} km</span>
+				<span id="distance_route">{% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.getFormattedDistance() }}{% else %}0{% endif %} km / {% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.getDistanceInMiles() }}{% else %}0{% endif %} mi</span>
 			</div>
 			{% if flow is defined and flow.formData.tariff.price > 0 %}
 				<div><i class="mp-icon-calculate uk-text-danger"></i><span id="price_route">{{ flow.formData.tariff.price }} $</span></div>

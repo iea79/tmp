@@ -118,15 +118,15 @@
 																	<a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a>
 																</div>
 																{% if request.stateValue == 'before-open' %}
-																<div class="passanger-pay">
-																	<div class="y-no">
-																		<button onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
-																		<button onclick="" class="uk-button">{{ 'Edit'|trans }}</button>
+																	<div class="passanger-pay">
+																		<div class="y-no">
+																			<button onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
+																			<button onclick="" class="uk-button">{{ 'Edit'|trans }}</button>
+																		</div>
 																	</div>
-																</div>
 																{% else %}
 																	<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'Drivers list: '|trans }}{{ request.getPossibleDriversNumber() }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																	<div class="uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
+																	<div class="hidden-driverinfo uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																		{% for driver in request.getPossibleDrivers() %}
 																			{% set driverUser = driver.user %}
 																			<div class="driver-over">
@@ -143,8 +143,8 @@
 																								<span><i class="mp-icon-person"></i><b> 5 </b><i class="mp-icon-bug"></i><b> 5 </b><i class="mp-icon-door"></i><b> 5 </b></span>
 																						</div>
 																						<div class="y-no">
-																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="{requestedUrl: '{{ path('approve_request_status', {'id': request.id}) }}'}">{{ 'yes'|trans }}</button>
-																							<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button">{{ 'no'|trans }}</button>
+																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'yes'|trans }}</button>
+																							<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'no'|trans }}</button>
 																						</div>
 																				</div>
 																				<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
@@ -207,7 +207,7 @@
 																				</a>
 																		</div>
 																</td>
-														</tr>
+														</tr>	
 														<tr>
 																<td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
 																<td>

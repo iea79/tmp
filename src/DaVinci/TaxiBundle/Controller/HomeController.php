@@ -180,9 +180,11 @@ class HomeController extends Controller {
      */
     public function approveAction()
     {
-    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	$requestId = $this->getRequest()->get('id');
+    	
+    	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    		return new JsonResponse(array('error' => 'undefined request id' . $requestId));
     	}
     	
     	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
@@ -198,7 +200,7 @@ class HomeController extends Controller {
     	);
     	
     	if (!$userCondition && !$driverCondition) {
-    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    		return new JsonResponse(array('error' => 'action can not be completed'));
     	}
     	
     	if ($userCondition) {
@@ -210,6 +212,23 @@ class HomeController extends Controller {
     		}
     		$passengerRequest->setDriver($driver);
     	}
+    	
+    	if ($driverCondition) {
+    		$driverId = $this->getRequest()->get('driver_id');
+    		$driver = $this->getDirverById($driverId);
+    		
+    		if (is_null($driver)) {
+    			return new JsonResponse(array(
+    				'error' => 'undefined driver id ' . $driverId
+    			));
+    		}
+    		
+    		if ($driver->getId() != $passengerRequest->getDriver()->getId()) {
+    			return new JsonResponse(array(
+    				"error' => 'driver with id {$driverId} is not chosen for executing an order"
+    			));
+    		}
+    	}
     	    	 
     	$passengerRequest->changeState();
     	$this->savePassengerRequest($passengerRequest);
@@ -218,15 +237,22 @@ class HomeController extends Controller {
     }
     
     /**
-     * @Route("/cancel/request_id/{id}", name="cancel_request_status")
+     * @Route("/cancel/request_id/{id}", name="cancel_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function cancelAction()
     {
-    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
-    	$passengerRequest->cancelState();
+    	$requestId = $this->getRequest()->get('id');
     	
+    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	if (is_null($passengerRequest)) {
+    		return new JsonResponse(array('error' => 'undefined request id' . $requestId));
+    	}
+    	
+    	$passengerRequest->cancelState();
     	$this->savePassengerRequest($passengerRequest);
+    	
+    	return new JsonResponse(array('ok' => 'completed'));
     }
         
     public function main_driverAction() {

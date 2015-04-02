@@ -175,106 +175,26 @@
                                                             </tr>
                                                     </thead>
                                              <tbody>
+                                             	{% for request in openRequests if request.stateValue == 'sold' %}
+                                             		{% set tariff = request.getTariff() %}
+	            									{% set pickUp = request.getPickUp() %}
                                                    <tr>
-                                                            <td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere">18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
-																			</a>
-                                                                    </div>
-                                                            </td>
+                                                        <td>{{ loop.index }}</td>
+                                                        <td class="timesent">{{ request.id }}</td>
+                                                        <td class="timesent">{{ pickUp.format('d') }} <span class="month">{{ pickUp.format('M') }}</span> {{ pickUp.format('y') }}<br/><span class="timehere">{{ pickUp.format('H:s') }}</span></td>
+                                                        <td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+                                                        <td>${{ tariff.getTotalPrice() }}</td>
+                                                        <td>{{'waiting confirm'|trans}}</td>
+                                                        <td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
+                                                        <td>
+                                                            <div>
+                                                            	<a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
+																</a>
+                                                            </div>
+                                                        </td>
                                                     </tr>
-                                                    <tr>
-                                                            <td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'pending'|trans}}</td><td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'closed'|trans}}</td><td><span>00:00:00</span></td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'closed'|trans}}</td><td><span class="uk-text-primary">26:55:03</span></td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'closed'|trans}}</td><td><span class="uk-text-danger">13:55:03</span></td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'canceled'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'open'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'all happy'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'all happy'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'all happy'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{'mar'|trans}}</span> 14 <br /><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{'all happy'|trans}}</td><td>00:00:00</td>
-                                                            <td>
-                                                                    <div>
-                                                                            <a class="mp-icon-closed uk-text-warning">
-																			</a>
-                                                                    </div>
-                                                            </td>
-                                                    </tr>
-                                            </tbody>
+												{% endfor %}                                                    
+                                    		</tbody>
                                     </table>
                     	</div>
                     </li>

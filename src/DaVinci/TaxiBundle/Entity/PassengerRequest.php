@@ -396,6 +396,19 @@ class PassengerRequest {
     {
     	return $this->distance;
     }
+    
+    /**
+     * @return string
+     */
+    public function getFormattedDistance()
+    {
+    	return number_format($this->distance / 1000, 1);
+    }
+    
+    public function getDistanceInMiles()
+    {
+    	return number_format($this->distance / 1000 * 0.621, 1);
+    }
         
     /**
      * Set duration
@@ -416,6 +429,14 @@ class PassengerRequest {
     public function getDuration()
     {
     	return $this->duration;
+    }
+    
+    /**
+     * @return string
+     */
+    public function getFormattedDuration()
+    {
+    	return number_format($this->duration / 60, 1);
     }
     
     /**
