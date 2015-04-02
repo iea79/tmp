@@ -102,7 +102,7 @@ require(['pages/common'], function ($) {
         
         var Requester = function() {
         	
-        	var host = 'http://taxi-my-price.dev';
+        	var host = 'http://taximyprice.com';
         	
         	this.makeRequest = function(query, sendData) {
         		$.ajax({
