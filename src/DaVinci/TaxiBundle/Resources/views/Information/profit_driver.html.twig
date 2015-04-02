@@ -1,16 +1,17 @@
 <div class="whitebg">
-        <div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
+    <div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
 
     <div class="profit-driver">
         <div class="buttom-swicher">
             <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#profdriver'}">
                 {% for dt in driver_tabs %}
                     <li {% if loop.first %}class="uk-active" {% endif %}><a href="#">{{ dt.title }}</a></li>
-                {% endfor %}
+                    {% endfor %}
             </ul>
-        </div>
-        {% for dt in driver_tabs %}
-            <ul id="profdriver" class="uk-switcher">
+        </div>            
+        <ul id="profdriver" class="uk-switcher">
+            {% for dt in driver_tabs %}
+
                 <li class="uk-active">
                     <div class="content">
                         <div class="left">
@@ -31,7 +32,8 @@
                         </div>
                     </div>
                 </li>
-            </ul>
-        {% endfor %}
+
+            {% endfor %}
+        </ul>
     </div>
 </div>
