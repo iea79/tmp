@@ -19,7 +19,7 @@
 									<dt>{{'E-mail'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.email }}</dd>
 									<dt>{{'Skype'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.skype }}</dd>
 									<dt>{{'Mobile'|trans}}:</dt><dd>+{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
-									<dt>{{'You mobile have'|trans}}:</dt><dd>wi-fi, whatsapp</dd>
+									<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if flow.formData.passengerDetail.mobileHasWifi %}wi-fi<br/>{% endif %}{% if flow.formData.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
 								</dl>
 							</dd>
 							<dt class="about">{{'About passenger'|trans}}</dt>

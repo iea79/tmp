@@ -18,6 +18,7 @@ class PassengerRequest {
 	const STATE_OPEN = 'open';
 	const STATE_PENDING = 'pending'; 
 	const STATE_SOLD = 'sold';
+	const STATE_APPROVED_SOLD = 'approved-sold';
 	const STATE_RESCUE = 'rescue'; 
 	const STATE_RESCUE_PENDING = 'rescue-pending'; 
 	const STATE_RESCUE_CLOSED = 'rescue-closed';
@@ -108,7 +109,7 @@ class PassengerRequest {
 	private $vehicle;
 	
 	/**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('before-open', 'open', 'pending', 'sold', 'rescue', 'rescue-pending', 'rescue-closed', 'completed', 'canceled')", name="state_value", length=20)
+	 * @ORM\Column(type="string", columnDefinition="ENUM('before-open', 'open', 'pending', 'sold', 'approved-sold', 'rescue', 'rescue-pending', 'rescue-closed', 'completed', 'canceled')", name="state_value", length=20)
 	 */
 	private $stateValue;
 	
@@ -159,9 +160,19 @@ class PassengerRequest {
 	 */
 	private $possibleDrivers;
 	
+	/**
+	 * @ORM\ManyToMany(targetEntity="GeneralDriver", inversedBy="canceledRequests")
+	 * @ORM\JoinTable(name="requests_drivers_canceled",
+	 * 		joinColumns={@ORM\JoinColumn(name="passenger_request_id", referencedColumnName="id")},
+	 *      inverseJoinColumns={@ORM\JoinColumn(name="driver_id", referencedColumnName="id")}
+	 * )
+	 */
+	private $canceledDrivers;
+	
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
 		$this->possibleDrivers = new ArrayCollection();
+		$this->canceledDrivers = new ArrayCollection();
 	}
 
     /**
@@ -735,6 +746,39 @@ class PassengerRequest {
     }
     
     /**
+     * Add canceledDrivers
+     *
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver
+     * @return PassengerRequest
+     */
+    public function addCanceledDrivers(\DaVinci\TaxiBundle\Entity\GeneralDriver $canceledDriver)
+    {
+    	$this->canceledDrivers[] = $canceledDriver;
+    
+    	return $this;
+    }
+    
+    /**
+     * Remove canceledDrivers
+     *
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $possibleDriver
+     */
+    public function removeCanceledDrivers(\DaVinci\TaxiBundle\Entity\GeneralDriver $canceledDriver)
+    {
+    	$this->canceledDrivers->removeElement($canceledDriver);
+    }
+    
+    /**
+     * Get canceledDrivers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCanceledDrivers()
+    {
+    	return $this->canceledDrivers;
+    }
+    
+    /**
      * @return array
      */
     public function getPossibleDriversIds()
@@ -749,6 +793,14 @@ class PassengerRequest {
     	}
     	
     	return $ids;
+    }
+    
+    /**
+     * @return number
+     */
+    public function getPossibleDriversNumber()
+    {
+    	return $this->possibleDrivers->count();
     }
     
     /**
@@ -771,6 +823,7 @@ class PassengerRequest {
     		self::STATE_OPEN,
     		self::STATE_PENDING,
     		self::STATE_SOLD,
+    		self::STATE_APPROVED_SOLD,	
     		self::STATE_RESCUE,
     		self::STATE_RESCUE_PENDING,
     		self::STATE_RESCUE_CLOSED,
@@ -798,6 +851,11 @@ class PassengerRequest {
     		
     		case self::STATE_PENDING: {
     			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\PendingState($this);
+    			break;
+    		}
+    		
+    		case self::STATE_SOLD: {
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\ApprovedSoldState($this);
     			break;
     		}
     		

@@ -267,8 +267,8 @@ class Tariff {
     public static function getPaymentMethods()
     {
     	return array(
-    		self::PAYMENT_METHOD_CASH,
-    		self::PAYMENT_METHOD_ESCROW
+    		self::PAYMENT_METHOD_ESCROW,
+    		self::PAYMENT_METHOD_CASH    		
     	);
     }
     

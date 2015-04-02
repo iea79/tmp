@@ -4,6 +4,7 @@ namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -81,6 +82,10 @@ class HomeController extends Controller {
      */
     public function paymentAction() {
     	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	if (is_null($passengerRequest)) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
+    	
     	$makePayment = $this->spawnMakePayment();
     	
     	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
@@ -170,12 +175,46 @@ class HomeController extends Controller {
     }
     
     /**
-     * @Route("/modify/request_id/{id}", name="modify_request_status")
+     * @Route("/approve/request_id/{id}", name="approve_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function modifyAction()
+    public function approveAction()
     {
+    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	if (is_null($passengerRequest)) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
     	
+    	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
+    	$isTaxiDriver = $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER');
+    	 
+    	$userCondition = (
+    		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
+    		&& $isUser
+    	);
+    	$driverCondition = (
+    		PassengerRequest::STATE_SOLD == $passengerRequest->getStateValue()
+    		&& $isTaxiDriver
+    	);
+    	
+    	if (!$userCondition && !$driverCondition) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
+    	
+    	if ($userCondition) {
+    		$driverId = $this->getRequest()->get('driver_id');
+    		$driver = $this->getDirverById($driverId);
+    		
+    		if (is_null($driver)) {
+    			return new JsonResponse(array('error' => 'undefined driver id ' . $driverId));
+    		}
+    		$passengerRequest->setDriver($driver);
+    	}
+    	    	 
+    	$passengerRequest->changeState();
+    	$this->savePassengerRequest($passengerRequest);
+    	
+    	return new JsonResponse(array('ok' => 'completed'));
     }
     
     /**
@@ -251,6 +290,16 @@ class HomeController extends Controller {
     {
     	$em = $this->container->get('doctrine')->getManager();
     	return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
+    }
+    
+    /**
+     * @param integer $driverId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    private function getDirverById($driverId)
+    {
+    	$em = $this->container->get('doctrine')->getManager();
+    	return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->find($driverId);
     }
     
     /**

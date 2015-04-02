@@ -125,7 +125,7 @@
 																	</div>
 																</div>
 																{% else %}
-																	<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'Drivers list: 3'|trans }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
+																	<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'Drivers list: '|trans }}{{ request.getPossibleDriversNumber() }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
 																	<div class="uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																		{% for driver in request.getPossibleDrivers() %}
 																			{% set driverUser = driver.user %}
@@ -143,8 +143,8 @@
 																								<span><i class="mp-icon-person"></i><b> 5 </b><i class="mp-icon-bug"></i><b> 5 </b><i class="mp-icon-door"></i><b> 5 </b></span>
 																						</div>
 																						<div class="y-no">
-																								<button type="button" class="uk-button">{{ 'yes'|trans }}</button>
-																								<button type="button" class="uk-button">{{ 'no'|trans }}</button>
+																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="{requestedUrl: '{{ path('approve_request_status', {'id': request.id}) }}'}">{{ 'yes'|trans }}</button>
+																							<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button">{{ 'no'|trans }}</button>
 																						</div>
 																				</div>
 																				<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>

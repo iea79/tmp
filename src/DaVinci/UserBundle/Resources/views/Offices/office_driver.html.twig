@@ -104,7 +104,7 @@
                                                 </tr>
                                         </thead>
                                         <tbody>
-                                        	{% for request in openRequests %}
+                                        	{% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold') %}
                                         		{% set tariff = request.getTariff() %}
                                             	<tr>
                                             		<td>{{ loop.index }}</td>
@@ -135,9 +135,7 @@
                                                     		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
                                                         {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
                                                         	<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
-                                                    	{% else %}
-                                                    		{{'You have got a chance!'|trans}}
-                                                        {% endif %}	
+                                                    	{% endif %}	
                                                     </td>
                                             	</tr>
                                             {% endfor %}

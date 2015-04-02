@@ -4,12 +4,12 @@ namespace DaVinci\TaxiBundle\Services\PassengerRequest;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 
-class SoldState extends State 
+class ApprovedSoldState extends State 
 {
 
 	public function handle()
 	{
-		$this->context->setState(PassengerRequest::STATE_APPROVED_SOLD);
+		$this->context->setState(PassengerRequest::STATE_COMPLETED);
 	}
 	
 }

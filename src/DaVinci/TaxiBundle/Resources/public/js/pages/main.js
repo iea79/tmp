@@ -53,8 +53,11 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
              else $('.another-wrap').hide();
              });z
              }); */
+            
+ //Ajax request processing            
+                    
 //Карта для главной страницы
-            var GoogleMaps = function () {
+            var GoogleMaps = function() {
                 var mapOptions = {
                     zoom: 9,
                     center: new gmaps.LatLng(55.752, 37.615),
@@ -77,9 +80,9 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
 
                 this.initialize = function () {
                     map = new gmaps.Map(
-                            document.getElementById('map-canvas'),
-                            mapOptions
-                            );
+                    	document.getElementById('map-canvas'),
+                    	mapOptions
+                    );
 
                     geoCoder = new gmaps.Geocoder();
 
@@ -151,11 +154,11 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                         $('#duration_route').html(results[0].duration.text);
 
                         $('#createPassengerRequestRouteInfo_distance').attr(
-                                'value', results[0].distance.value
-                                );
+                        	'value', results[0].distance.value
+                        );
                         $('#createPassengerRequestRouteInfo_duration').attr(
-                                'value', results[0].duration.value
-                                );
+                        	'value', results[0].duration.value
+                        );
                     }
                 }
             };
@@ -249,9 +252,33 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 return false;
 
             });
-
+            
+            var Requester = function() {
+            	
+            	this.makeRequest = function(requestedUrl, sendData) {
+            		$.ajax({
+                        url: requestedUrl,
+                        data: sendData,
+                        type: "POST",
+                        dataType: "json",
+                        async: false,
+                        success: function(data) {
+                        	return;
+                        }
+                    });	
+            	}
+            	
+            }
+            
+            $('.approve-driver').on("click", function () {
+            	alert($(this).attr('value'));
+            });
+        	
+        	var requester = new Requester();
+            
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
+                  
             //remove preloader
             togglePreloader(document.body, false);
 

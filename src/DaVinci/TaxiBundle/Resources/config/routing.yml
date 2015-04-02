@@ -8,14 +8,14 @@ passenger_request_payment:
     methods:  [GET, POST]
     options: { useAsInnerURL: false }
     
-modify_request_status:
-    pattern: /modify/request_id/{id}
-    defaults: { _controller: DaVinciTaxiBundle:Home:modify }
+approve_request_status:
+    pattern: /approve/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:approve }
     options: { useAsInnerURL: true }
     
 cancel_request_status:
-    pattern: /modify/request_id/{id}
-    defaults: { _controller: DaVinciTaxiBundle:Home:modify }
+    pattern: /cancel/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:cancel }
     options: { useAsInnerURL: true }            
     
 main_driver:

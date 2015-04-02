@@ -1,5 +1,5 @@
 require(["pages/common"], function($){
-    //remove preloader
+	//remove preloader
     togglePreloader(document.body,false);
 });
 

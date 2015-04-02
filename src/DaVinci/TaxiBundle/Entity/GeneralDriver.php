@@ -49,9 +49,15 @@ abstract class GeneralDriver
 	 */
 	protected $possibleRequests;
 	
+	/**
+	 * @ORM\ManyToMany(targetEntity="PassengerRequest", mappedBy="canceledDrivers")
+	 */
+	protected $canceledRequests;
+	
 	public function __construct()
 	{
 		$this->possibleRequests = new ArrayCollection();
+		$this->canceledRequests = new ArrayCollection();
 	}
 	
 	/**
