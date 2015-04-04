@@ -104,7 +104,7 @@
                                                 </tr>
                                         </thead>
                                         <tbody>
-                                        	{% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold') %}
+                                        	{% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold' or request.stateValue == 'approved-sold') %}
                                         		{% set tariff = request.getTariff() %}
                                             	<tr>
                                             		<td>{{ loop.index }}</td>
@@ -135,6 +135,8 @@
                                                     		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
                                                         {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
                                                         	<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
+                                                        {% elseif request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                        	{{'Deal confirmed'|trans}}
                                                     	{% endif %}	
                                                     </td>
                                             	</tr>
@@ -175,24 +177,30 @@
                                                             </tr>
                                                     </thead>
                                              <tbody>
-                                             	{% for request in openRequests if request.stateValue == 'sold' %}
+                                             	{% for request in openRequests if (request.isDriverInList(driver.id) == true) %}
                                              		{% set tariff = request.getTariff() %}
 	            									{% set pickUp = request.getPickUp() %}
-                                                   <tr>
+                                                   	<tr>
                                                         <td>{{ loop.index }}</td>
                                                         <td class="timesent">{{ request.id }}</td>
                                                         <td class="timesent">{{ pickUp.format('d') }} <span class="month">{{ pickUp.format('M') }}</span> {{ pickUp.format('y') }}<br/><span class="timehere">{{ pickUp.format('H:s') }}</span></td>
                                                         <td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
                                                         <td>${{ tariff.getTotalPrice() }}</td>
-                                                        <td>{{'waiting confirm'|trans}}</td>
-                                                        <td><a class="uk-button uk-button-success confirm-deal">{{'Confirm deal'|trans}}</a></td>
+                                                        <td id="request_status_{{ request.id }}">{% if request.stateValue == 'approved-sold' %}{{'sold'|trans}}{% else %}{{'on confirmation'|trans}}{% endif %}</td>
+                                                        <td>
+                                                        	{% if request.stateValue == 'approved-sold' %}
+                                                        	{{'Deal confirmed'|trans}}
+                                                        	{% else %}
+                                                        	<a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
+                                                        	{% endif %}
+                                                        </td>
                                                         <td>
                                                             <div>
-                                                            	<a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger">
+                                                            	<a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger decline-deal" value="0:{{ path('cancel_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">
 																</a>
                                                             </div>
                                                         </td>
-                                                    </tr>
+                                                	</tr>
 												{% endfor %}                                                    
                                     		</tbody>
                                     </table>

@@ -134,7 +134,16 @@ class Language
         return $this->languages;
     }
     
-    
+    /**
+     * Get languages
+     *
+     * @return string
+     */
+    public function getSeparatedLanguages()
+    {
+    	return implode(', ', $this->languages);	
+    }
+        
     /**
      * Get languages
      *

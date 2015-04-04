@@ -596,6 +596,19 @@ class PassengerRequest {
     }
     
     /**
+     * @return void
+     */
+    public function resetToPendingState()
+    {
+    	if (is_null($this->state)) {
+    		$this->state = $this->spawnState($this->stateValue);
+    	}
+    
+    	$this->state->resetToPending();
+    	$this->setStateValue($this->state->getName());
+    }
+    
+    /**
      * Set vehicleOptions
      *
      * @param \DaVinci\TaxiBundle\Entity\VehicleOptions $options
@@ -716,7 +729,7 @@ class PassengerRequest {
      * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
      */
-    public function setDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
+    public function setDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver = null)
     {
     	$this->driver = $driver;
     
@@ -875,7 +888,7 @@ class PassengerRequest {
     			break;
     		}
     		
-    		case self::STATE_SOLD: {
+    		case self::STATE_APPROVED_SOLD: {
     			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\ApprovedSoldState($this);
     			break;
     		}

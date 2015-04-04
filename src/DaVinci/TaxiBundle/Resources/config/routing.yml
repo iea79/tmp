@@ -16,7 +16,12 @@ approve_request_status:
 cancel_request_status:
     pattern: /cancel/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:cancel }
-    options: { useAsInnerURL: true }            
+    options: { useAsInnerURL: true }
+    
+decline_driver:
+    pattern: /decline/driver/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:declineDriver }
+    options: { useAsInnerURL: true }                
     
 main_driver:
     pattern:  /main-driver

@@ -176,8 +176,7 @@ require(["pages/common"], function ($) {
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-
-
+            
             //remove preloader
             togglePreloader(document.body, false);
                         
@@ -185,6 +184,75 @@ require(["pages/common"], function ($) {
             {
                 $("#open-profile-button").click();
             }
+            
+            var Requester = function() {
+            	
+            	// var host = 'http://taximyprice.com';
+            	var host = 'http://taxi-my-price.dev';
+            	
+            	this.prepareRequest = function(values) {
+            		var hash = new Object();
+            		
+            		var params = values.split('-');
+                	for (var i = 0; i < params.length; i++) {
+                		if (params[i].charAt(1) != ':') {
+                			continue;
+                		}
+                		
+                		var param = params[i].split(':');
+                		if (i == 0) {
+                			hash.query = param[1];
+                		}
+                		
+                		if (i == 1) {
+                			hash.driver_id = param[1];
+                		}
+                		
+                		if (i == 2) {
+                			hash.request_id = param[1];
+                		}
+                	}
+                	
+                	return hash;
+            	} 
+            	
+            	this.makeRequest = function(query, sendData, requestId) {
+            		$.ajax({
+                        url: host + query,
+                        data: sendData,
+                        type: "POST",
+                        dataType: "json",
+                        async: false,
+                        success: function(data) {
+                        	if (data.status == 'ok') {
+                        		$("request_status_" + requestId).html("sold");
+                        		$("confirm_"  + requestId).html("Deal confirmed");
+                        	}
+                        	return;
+                        }
+                    });	
+            	}
+            	
+            }
+            var requester = new Requester();
+            
+            $("a.confirm-deal").on("click", function () {
+            	hash = requester.prepareRequest($(this).attr('value'));
+            	requester.makeRequest(
+            		hash.query, 
+            		{driver_id: hash.driver_id},
+            		hash.request_id
+            	);
+            });
+            
+            $("a.decline-deal").on("click", function () {
+            	hash = requester.prepareRequest($(this).attr('value'));
+            	requester.makeRequest(
+            		hash.query, 
+            		{driver_id: hash.driver_id},
+            		hash.request_id
+            	);
+            });
         });
 
     });

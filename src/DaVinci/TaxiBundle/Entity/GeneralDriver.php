@@ -146,7 +146,7 @@ abstract class GeneralDriver
 	 */
 	public function removePossibleRequests(\DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest)
 	{
-		$this->possibleRequests->removeElement($possibleDriver);
+		$this->possibleRequests->removeElement($passengerRequest);
 	}
 	
 	/**
@@ -157,6 +157,39 @@ abstract class GeneralDriver
 	public function getPossibleRequests()
 	{
 		return $this->possibleRequests;
+	}
+	
+	/**
+	 * Add canceledRequests
+	 *
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+	 * @return GeneralDriver
+	 */
+	public function addCanceledRequests(\DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest)
+	{
+		$this->canceledRequests[] = $passengerRequest;
+	
+		return $this;
+	}
+	
+	/**
+	 * Remove canceledRequests
+	 *
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+	 */
+	public function removeCanceledRequests(\DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest)
+	{
+		$this->canceledRequests->removeElement($passengerRequest);
+	}
+	
+	/**
+	 * Get canceledRequests
+	 *
+	 * @return \Doctrine\Common\Collections\Collection
+	 */
+	public function getCanceledRequests()
+	{
+		return $this->canceledRequests;
 	}
 		
 }

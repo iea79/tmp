@@ -42,6 +42,11 @@ class State
 		throw new \UnexpectedValueException("Passenger request has undefined rescue state {$this->getName()}!");
 	}
 	
+	public function resetToPending()
+	{
+		$this->context->setState(PassengerRequest::STATE_PENDING);
+	}
+	
 	public function cancel()
 	{
 		$this->context->setState(PassengerRequest::STATE_CANCELED);

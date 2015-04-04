@@ -95,12 +95,19 @@ class HomeController extends Controller {
     		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
     		&& $isUser
     	);
-    	$driverCondition = (
+    	
+    	$firstDriverCondition = (
     		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
     		&& $isTaxiDriver
     	);
+    	
+    	$otherDriverCondition = (
+    		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
+    		&& $isTaxiDriver
+		);
+    	
     		
-    	if (!$userCondition && !$driverCondition) {
+    	if (!$userCondition && !$driverCondition && !$otherDriverCondition) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
     	
@@ -184,23 +191,26 @@ class HomeController extends Controller {
     	
     	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-    		return new JsonResponse(array('error' => 'undefined request id' . $requestId));
+    		return new JsonResponse(array(
+    			'status' => 'error', 
+    			'message' => 'undefined request id' . $requestId
+    		));
     	}
     	
-    	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
-    	$isTaxiDriver = $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER');
-    	 
     	$userCondition = (
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $isUser
+    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
     	);
     	$driverCondition = (
     		PassengerRequest::STATE_SOLD == $passengerRequest->getStateValue()
-    		&& $isTaxiDriver
+    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     	
     	if (!$userCondition && !$driverCondition) {
-    		return new JsonResponse(array('error' => 'action can not be completed'));
+    		return new JsonResponse(array(
+    			'status' => 'error', 
+    			'message' => 'action can not be completed'
+    		));
     	}
     	
     	if ($userCondition) {
@@ -208,7 +218,10 @@ class HomeController extends Controller {
     		$driver = $this->getDirverById($driverId);
     		
     		if (is_null($driver)) {
-    			return new JsonResponse(array('error' => 'undefined driver id ' . $driverId));
+    			return new JsonResponse(array(
+    				'status' => 'error', 
+    				'message' => 'undefined driver id ' . $driverId
+    			));
     		}
     		$passengerRequest->setDriver($driver);
     	}
@@ -219,13 +232,15 @@ class HomeController extends Controller {
     		
     		if (is_null($driver)) {
     			return new JsonResponse(array(
-    				'error' => 'undefined driver id ' . $driverId
+    				'status' => 'error', 
+    				'message' => 'undefined driver id ' . $driverId
     			));
     		}
     		
     		if ($driver->getId() != $passengerRequest->getDriver()->getId()) {
     			return new JsonResponse(array(
-    				"error' => 'driver with id {$driverId} is not chosen for executing an order"
+    				'status' => 'error', 
+    				'message' => "driver with id {$driver->getId()} is not chosen for executing an order"
     			));
     		}
     	}
@@ -233,7 +248,49 @@ class HomeController extends Controller {
     	$passengerRequest->changeState();
     	$this->savePassengerRequest($passengerRequest);
     	
-    	return new JsonResponse(array('ok' => 'completed'));
+    	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
+    }
+    
+    /**
+     * @Route("/decline/driver/request_id/{id}", name="decline_driver", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
+     */
+    public function declineDriverAction()
+    {
+    	$requestId = $this->getRequest()->get('id');
+    	 
+    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	if (is_null($passengerRequest)) {
+    		return new JsonResponse(array(
+    			'status' => 'error', 
+    			'message' => 'undefined request id' . $requestId
+    		));
+    	}
+    	
+    	$driverId = $this->getRequest()->get('driver_id');
+    	$driver = $this->getDirverById($driverId);
+    	if (is_null($driver)) {
+    		return new JsonResponse(array(
+    			'status' => 'error',
+    			'message' => 'undefined driver id ' . $driverId
+    		));
+    	}
+    	
+    	$passengerRequest->addCanceledDrivers($driver);
+    	$passengerRequest->removePossibleDriver($driver);
+    	
+    	if ($driver->getId() == $passengerRequest->getDriver()->getId()) {
+    		$passengerRequest->setDriver(null);
+    		$passengerRequest->resetToPendingState();
+    	}
+    	    	
+    	$driver->addCanceledRequests($passengerRequest);
+    	$driver->removePossibleRequests($passengerRequest);
+    	    	
+    	$this->saveDriver($driver);
+    	$this->savePassengerRequest($passengerRequest);
+    	    	 
+    	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
     
     /**
@@ -246,13 +303,16 @@ class HomeController extends Controller {
     	
     	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-    		return new JsonResponse(array('error' => 'undefined request id' . $requestId));
+    		return new JsonResponse(array(
+    			'status' => 'error', 
+    			'message' => 'undefined request id' . $requestId
+    		));
     	}
     	
     	$passengerRequest->cancelState();
     	$this->savePassengerRequest($passengerRequest);
     	
-    	return new JsonResponse(array('ok' => 'completed'));
+    	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
         
     public function main_driverAction() {

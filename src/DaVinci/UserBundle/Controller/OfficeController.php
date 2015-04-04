@@ -108,7 +108,9 @@ class OfficeController extends Controller
         			array(
         				PassengerRequest::STATE_BEFORE_OPEN, 
         				PassengerRequest::STATE_OPEN,
-        				PassengerRequest::STATE_PENDING
+        				PassengerRequest::STATE_PENDING,
+        				PassengerRequest::STATE_SOLD,
+        				PassengerRequest::STATE_APPROVED_SOLD
         			)        	
         		)	
         	)	
@@ -182,7 +184,8 @@ class OfficeController extends Controller
         		'openRequests' => $this->getPassengerRequestRepository()->getActualRequestsByStates(array(
         			PassengerRequest::STATE_OPEN, 
         			PassengerRequest::STATE_PENDING, 
-        			PassengerRequest::STATE_SOLD
+        			PassengerRequest::STATE_SOLD,
+        			PassengerRequest::STATE_APPROVED_SOLD
         		)),
         		'driver' => $driver	
         	)

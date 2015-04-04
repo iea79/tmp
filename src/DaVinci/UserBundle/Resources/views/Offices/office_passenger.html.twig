@@ -129,25 +129,35 @@
 																	<div class="hidden-driverinfo uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																		{% for driver in request.getPossibleDrivers() %}
 																			{% set driverUser = driver.user %}
+																			{% set driverVehicle = driver.vehicle %}
+																			{% set langs = driverUser.language %}
 																			<div class="driver-over">
 																				<div class="driver-top">
 																						<div class="profile">
-																								<img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48" height="53" alt="profile photo" class="driver-photo"/>
-																								<span class="name"><a data-uk-modal="{target:'#about-driver'}">{{ driverUser.firstname }} {{ driverUser.lastname }}</a></span><br/>
-																								<span class="proffesion uk-text-danger"><i class="mp-icon-taxi uk-margin-small-right"></i>{{ 'independent driver'|trans }}</span><br/>
-																								<span class="rate"><i class="mp-icon-person uk-text-warning uk-margin-small-right"></i>214 <i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-warning"></i></span>
+																							<img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48" height="53" alt="profile photo" class="driver-photo"/>
+																							<span class="name">
+																								<a data-uk-modal="{target:'#about-driver'}">{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
+																							</span>
+																							<br/>
+																							<span class="proffesion uk-text-danger">
+																								<i class="mp-icon-taxi uk-margin-small-right"></i>{{ 'independent driver'|trans }}
+																							</span>
+																							<br/>
+																							<span class="rate"><i class="mp-icon-person uk-text-warning uk-margin-small-right"></i>214 <i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-warning"></i></span>
 																						</div>
 																						<div class="vehicle">
-																								<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118" height="75" alt="ford-focus" class="drive-car"/>
-																								<span class="name">{{ 'Ford Focus'|trans }}</span><br/>
-																								<span><i class="mp-icon-person"></i><b> 5 </b><i class="mp-icon-bug"></i><b> 5 </b><i class="mp-icon-door"></i><b> 5 </b></span>
+																							<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118" height="75" alt="ford-focus" class="drive-car"/>
+																							<span class="name">{{ driverVehicle.make }} {{ driverVehicle.model }}</span><br/>
+																							<span><i class="mp-icon-person"></i><b> {{ driverVehicle.seats }} </b><i class="mp-icon-bug"></i><b> {{ driverVehicle.luggages }} </b><i class="mp-icon-door"></i><b> {{ driverVehicle.doors }} </b></span>
 																						</div>
 																						<div class="y-no">
-																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'yes'|trans }}</button>
-																							<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'no'|trans }}</button>
+																							{% if request.stateValue == 'pending' %}
+																								<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'yes'|trans }}</button>
+																							{% endif %}	
+																							<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'no'|trans }}</button>
 																						</div>
 																				</div>
-																				<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ 'ru, de, en'|trans }}</p>
+																				<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ langs.getSeparatedLanguages() }}</p>
 																				<p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ driver.about }}</p>
 																				<div class="call-driver uk-width-1-2 wk-width-small-1-1">
 																						<span>{{ 'Contacts:'|trans }} </span>

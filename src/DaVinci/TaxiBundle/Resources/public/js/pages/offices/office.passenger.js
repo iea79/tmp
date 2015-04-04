@@ -67,21 +67,16 @@ require(['pages/common'], function ($) {
             }
         });
 
-        // Смена класса кнопок Driver list в office passengers //////////////////// 
-        var but_txt;
-        $(document).ready(function () {
-
-            var count = 0;
-            $(".driverlist").click(function () {
-                $(this).toggleClass("active-gray");
-            });
-            
-            $("button.approve-driver").on("click", function () {
-            	var hash = new Object();
+        var Requester = function() {
+        	
+        	// var host = 'http://taximyprice.com';
+        	var host = 'http://taxi-my-price.dev';
+        	
+        	this.prepareRequest = function(values) {
+        		var hash = new Object();
+        		var params = values.split('-');
             	
-            	var values = $(this).attr('value');
-            	var params = values.split('-');
-            	for (var i = 0; i < params.length; i++) {
+        		for (var i = 0; i < params.length; i++) {
             		if (params[i].charAt(1) != ':') {
             			continue;
             		}
@@ -96,13 +91,8 @@ require(['pages/common'], function ($) {
             		}
             	}
             	
-            	requester.makeRequest(hash.query, {driver_id: hash.driver_id});
-            });
-        });
-        
-        var Requester = function() {
-        	
-        	var host = 'http://taximyprice.com';
+            	return hash;
+        	} 
         	
         	this.makeRequest = function(query, sendData) {
         		$.ajax({
@@ -118,9 +108,33 @@ require(['pages/common'], function ($) {
         	}
         	
         }
-           	
-    	var requester = new Requester();
-
+        var requester = new Requester();
+        
+        // Смена класса кнопок Driver list в office passengers //////////////////// 
+        var but_txt;
+        $(document).ready(function () {
+            var count = 0;
+            $(".driverlist").click(function () {
+                $(this).toggleClass("active-gray");
+            });
+            
+            $("button.approve-driver").on("click", function () {
+            	hash = requester.prepareRequest($(this).attr('value'));
+            	requester.makeRequest(
+            		hash.query, 
+            		{driver_id: hash.driver_id}
+            	);
+            });
+            
+            $("button.decline-driver").on("click", function () {
+            	hash = requester.prepareRequest($(this).attr('value'));
+            	requester.makeRequest(
+            		hash.query, 
+            		{driver_id: hash.driver_id}
+            	);
+            });
+        });
+        
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
