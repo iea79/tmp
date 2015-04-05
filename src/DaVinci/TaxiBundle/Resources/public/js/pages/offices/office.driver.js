@@ -222,7 +222,6 @@ require(["pages/common"], function ($) {
                         data: sendData,
                         type: "POST",
                         dataType: "json",
-                        async: false,
                         success: function(data) {
                         	if (data.status == 'ok') {
                         		$("request_status_" + requestId).html("sold");

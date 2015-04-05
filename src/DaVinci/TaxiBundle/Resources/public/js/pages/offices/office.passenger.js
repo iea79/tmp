@@ -100,7 +100,6 @@ require(['pages/common'], function ($) {
                     data: sendData,
                     type: "POST",
                     dataType: "json",
-                    async: false,
                     success: function(data) {
                     	return;
                     }
