@@ -69,8 +69,8 @@ require(['pages/common'], function ($) {
 
         var Requester = function() {
         	
-        	// var host = 'http://taximyprice.com';
-        	var host = 'http://taxi-my-price.dev';
+        	var host = 'http://taximyprice.com';
+        	// var host = 'http://taxi-my-price.dev';
         	
         	this.prepareRequest = function(values) {
         		var hash = new Object();
