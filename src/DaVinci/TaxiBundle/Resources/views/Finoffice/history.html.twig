@@ -1,64 +1,219 @@
 <div class="history">
-	<div class="table-container">
-		<table class="uk-table thead-gray">
-			<thead>
-				<th>#</th>
-				<th>Tranzaction ID</th>
-				<th class="daterange">
-					<div class="uk-form-icon uk-form-icon-flip">
-					    <i class="uk-icon-calendar"></i>
-					    <input type="text" placeholder="02/12/14-26/12/14">
-					</div>
-				</th>
-				<th>Details of payment</th>
-				<th>
-					<i class="mp-icon-arrow-up"></i>
-					Amount
-				</th>
-				<th>Currency</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>24234234</td>
-					<td><b>02 MAR 14</b> 08:00 PM</td>
-					<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
-					<td class="uk-text-success">- 1,220.00</td>
-					<td>USD</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>24234234</td>
-					<td><b>02 MAR 14</b> 08:00 PM</td>
-					<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
-					<td class="uk-text-danger">+ 1,220.00</td>
-					<td>USD</td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>24234234</td>
-					<td><b>02 MAR 14</b> 08:00 PM</td>
-					<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
-					<td class="uk-text-danger">+ 1,220.00</td>
-					<td>USD</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>24234234</td>
-					<td><b>02 MAR 14</b> 08:00 PM</td>
-					<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
-					<td class="uk-text-danger">+ 1,220.00</td>
-					<td>USD</td>
-				</tr>
-				<tr>
-					<td>5</td>
-					<td>24234234</td>
-					<td><b>02 MAR 14</b> 08:00 PM</td>
-					<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
-					<td class="uk-text-danger">+ 1,220.00</td>
-					<td>USD</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</div>
+   	<div class="buttom-swicher">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#fin_history'}">
+            <li class="uk-active"><a href="#">{{ 'Payments' |trans }}</a></li>
+            <li><a href="#">{{ 'Buys' |trans }}</a></li>
+            <li><a href="#">{{ 'TMP market' |trans }}</a></li>
+        </ul>
+    </div>
+        <ul id="fin_history" class="uk-switcher">
+        	<li class="uk-active">
+				<div class="message">
+				    <span>Информация:</span> текст
+				</div>
+				<div class="table-container">
+					<table class="uk-table thead-gray">
+						<thead>
+							<th>#</th>
+							<th>Tranzaction ID</th>
+							<th class="daterange">
+								<div class="uk-form-icon uk-form-icon-flip">
+								    <i class="uk-icon-calendar"></i>
+								    <input type="text" placeholder="02/12/14-26/12/14">
+								</div>
+							</th>
+							<th>Details of payment</th>
+							<th>
+								<i class="mp-icon-arrow-up"></i>
+								Amount
+							</th>
+							<th>Currency</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
+								<td class="uk-text-success">- 1,220.00</td>
+								<td>USD</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
+								<td class="uk-text-danger">+ 1,220.00</td>
+								<td>USD</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
+								<td class="uk-text-danger">+ 1,220.00</td>
+								<td>USD</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
+								<td class="uk-text-danger">+ 1,220.00</td>
+								<td>USD</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Пополнение счета TaxiMyPrice</a></td>
+								<td class="uk-text-danger">+ 1,220.00</td>
+								<td>USD</td>
+								<td>Finish</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        	</li>
+        	<li>
+				<div class="message">
+				    <span>Информация:</span> текст
+				</div>
+				<div class="table-container">
+					<table class="uk-table thead-gray">
+						<thead>
+							<th>#</th>
+							<th>Payment ID</th>
+							<th class="daterange">
+								<div class="uk-form-icon uk-form-icon-flip">
+								    <i class="uk-icon-calendar"></i>
+								    <input type="text" placeholder="02/12/14-26/12/14">
+								</div>
+							</th>
+							<th>Product name</th>
+							<th>
+								<i class="mp-icon-arrow-up"></i>
+								Amount
+							</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Membership standrt</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Membership standrt</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Membership standrt</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Membership standrt</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Membership standrt</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        	</li>
+        	<li>
+				<div class="message">
+				    <span>Информация:</span> текст
+				</div>
+				<div class="table-container">
+					<table class="uk-table thead-gray">
+						<thead>
+							<th>#</th>
+							<th>Payment ID</th>
+							<th class="daterange">
+								<div class="uk-form-icon uk-form-icon-flip">
+								    <i class="uk-icon-calendar"></i>
+								    <input type="text" placeholder="02/12/14-26/12/14">
+								</div>
+							</th>
+							<th>Details of order</th>
+							<th>
+								<i class="mp-icon-arrow-up"></i>
+								Amount
+							</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Russia, Moscow <br>From: aeroport Domodedovo - To - center</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Russia, Moscow <br>From: aeroport Domodedovo - To - center</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Russia, Moscow <br>From: aeroport Domodedovo - To - center</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Russia, Moscow <br>From: aeroport Domodedovo - To - center</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>24234234</td>
+								<td><b>02 MAR 14</b> 08:00 PM</td>
+								<td><a href="#">Russia, Moscow <br>From: aeroport Domodedovo - To - center</a></td>
+								<td>$300.00</td>
+								<td>Finish</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+        	</li>
+        </ul>
+
+		</div>

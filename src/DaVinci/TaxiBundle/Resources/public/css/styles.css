@@ -166,6 +166,9 @@ body, html {
 .mp-icon-clip:before {
 	content: "\e620";
 }
+.mp-icon-spinner8:before {
+	content: "\e981";
+}
 /*==============================    end of icons   ========================================*/
 /*========================font icontaxi for disign Evgeny=======================*/
 @font-face {
@@ -513,7 +516,7 @@ styles of drop down menu
 	width:62px;
 }	
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop-top .img img {
-	max-width: 60px;
+	width: 100%;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop-top .uk-nav {
 	margin:0 0 0 15px;
@@ -6843,7 +6846,6 @@ Spinner
     position: absolute;
     top: 75px;
     bottom: 0;
-    left: 0; 
     width: 100%;
     height: 80%;
     z-index: 10400;
@@ -6854,9 +6856,19 @@ Spinner
 	position: fixed;
 	left: 50%;
 	margin-left: -20px;
+	padding: 1px;
+	box-sizing: border-box;
 }
 .mp-spinner.none {
 	display: none;
+}
+.mp-spinner .uk-icon-circle-o-notch:before {
+	vertical-align: middle;
+	display: block;
+}
+.mp-spinner .uk-icon-spin {
+	-webkit-animation: uk-rotate 1.5s infinite linear;
+	animation: uk-rotate 1.5s infinite linear;
 }
 /* ===================
  3 points spinner
@@ -8175,13 +8187,16 @@ Addcard
   width: 14%;
 }
 .history .uk-table th:nth-child(4) {
-  width: 38%;
+  width: 30%;
 }
 .history .uk-table th:nth-child(5) {
-  width: 12%;
+  width: 11%;
 }
 .history .uk-table th:nth-child(6) {
-  width: 12%;
+  width: 11%;
+}
+.history .uk-table th:nth-child(7) {
+  width: 11%;
 }
 span.uk-icon-question-circle {
     color: #528ED3;
@@ -8205,7 +8220,8 @@ span.uk-icon-question-circle {
 }
 .history .uk-table td {
 	border: #d0d0d0 1px solid;
-	padding: 15px 5px;
+	padding: 12px 5px;
+	vertical-align: middle;
 }
 .uk-table {
 }

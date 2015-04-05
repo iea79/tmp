@@ -12,7 +12,7 @@
                     {{ form_errors(form.vehicle.vehicle_class) }}
 				</div>
 			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">{{'For kids, pats and baggage'|trans}}<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
 			<div class="uk-hidden kids-pats-wrap" id="baggage">
 				<div class="kids-pats-group">
 					<div class="kids-pats-line">
@@ -287,7 +287,7 @@
 				<div class="kids-pats-line">
 					<input type="checkbox" />
 					<label>
-						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has an disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
+						<span class="uk-form-controls">&nbsp;&nbsp;{{'passenger has a disease'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Notify driver'|trans}}"></span></span>
 					</label>
 					<div id="passenger_has_an_disease" class="wishes-1">
 						{{ form_widget(form.vehicle_services.disease, {'attr': {'placeholder': "Wool allergy, asthma, diabetes, plant dermatitis",  'class': "charcount", 'maxlength' : "200"}}) }}
