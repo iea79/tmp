@@ -107,7 +107,7 @@ class HomeController extends Controller {
 		);
     	
     		
-    	if (!$userCondition && !$driverCondition && !$otherDriverCondition) {
+    	if (!$userCondition && !$firstDriverCondition && !$otherDriverCondition) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
     	
@@ -121,11 +121,26 @@ class HomeController extends Controller {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			if ($userCondition || $driverCondition) {
+    			if ($userCondition) {
     				$passengerRequest->changeState();
     			}
     			
-    			if ($driverCondition) {
+    			if ($firstDriverCondition) {
+    				$driver = $this->getDirverByUserId(
+    					$this->container->get('security.context')
+    						->getToken()
+    						->getUser()
+    						->getId()
+    				);
+    				
+    				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->changeState();
+    				$driver->addPossibleRequests($passengerRequest);
+    				
+    				$this->saveDriver($driver);
+    			}
+    			
+    			if ($otherDriverCondition) {
     				$driver = $this->getDirverByUserId(
     					$this->container->get('security.context')
     						->getToken()
