@@ -63,7 +63,7 @@ class RegistrationController extends BaseController {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
 
-        $form = $this->container->get('form.factory')->createBuilder('form', $user)
+        $form = $this->container->get('form.factory')->createBuilder('form', $user,array('validation_groups'=>'CheckEmail'))
                 ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
                 ->add('save', 'submit', array('label' => 'Change or Resend', 'translation_domain' => 'FOSUserBundle'))
                 ->getForm();

@@ -186,10 +186,8 @@ require(["pages/common"], function ($) {
             }
             
             var Requester = function() {
-            	
-            	// var host = 'http://taximyprice.com';
-            	var host = 'http://taxi-my-price.dev';
-            	
+            	var host = 'http://taximyprice.com';
+            	            	
             	this.prepareRequest = function(values) {
             		var hash = new Object();
             		
@@ -216,18 +214,18 @@ require(["pages/common"], function ($) {
                 	return hash;
             	} 
             	
-            	this.makeRequest = function(query, sendData, requestId) {
+            	this.makeRequest = function(action, query, requestId, sendData) {
             		$.ajax({
                         url: host + query,
                         data: sendData,
                         type: "POST",
                         dataType: "json",
-                        async: false,
                         success: function(data) {
-                        	if (data.status == 'ok') {
+                        	if (data.status == 'ok' && action == 'confirmation') {
                         		$("request_status_" + requestId).html("sold");
                         		$("confirm_"  + requestId).html("Deal confirmed");
                         	}
+                        	
                         	return;
                         }
                     });	
@@ -239,18 +237,20 @@ require(["pages/common"], function ($) {
             $("a.confirm-deal").on("click", function () {
             	hash = requester.prepareRequest($(this).attr('value'));
             	requester.makeRequest(
-            		hash.query, 
-            		{driver_id: hash.driver_id},
-            		hash.request_id
+            		'confirmation',	
+            		hash.query,
+            		hash.request_id,
+            		{driver_id: hash.driver_id}
             	);
             });
             
             $("a.decline-deal").on("click", function () {
             	hash = requester.prepareRequest($(this).attr('value'));
             	requester.makeRequest(
+            		'declination',	
             		hash.query, 
-            		{driver_id: hash.driver_id},
-            		hash.request_id
+            		hash.request_id,
+            		{driver_id: hash.driver_id}
             	);
             });
         });

@@ -161,3 +161,5 @@ fos_user:
         latin: English/Latin characters only
     lastname:
         latin: English/Latin characters only
+    terms:
+        not_blank: "You should accept terms first"

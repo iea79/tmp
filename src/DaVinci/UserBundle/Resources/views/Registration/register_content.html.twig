@@ -107,6 +107,7 @@
 
 						<!-- Begin Line terms  -->
                         <label class="uk-form-row term">{{ form_widget(form.terms)}} {{'form.iagreetotem'|trans({'%url%': '#'})|raw}}</label>
+                        {{form_errors(form.terms)}}
 						<!-- End  Line terms  -->
 
 						<!-- Begin Line button  -->

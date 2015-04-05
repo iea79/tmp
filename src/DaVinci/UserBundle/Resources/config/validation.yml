@@ -135,9 +135,6 @@ DaVinci\TaxiBundle\Entity\TaxiCompany:
 DaVinci\TaxiBundle\Entity\User:
     properties:
         termsAccepted:
-            - NotBlank: 
-                message: fos_user.terms.not_blank
-                groups: [ "flow_taxi_user_registration_step2"]
             - 'True': 
                 groups: [ "flow_taxi_user_registration_step2"]
                 message: fos_user.terms.not_blank
@@ -207,7 +204,7 @@ FOS\UserBundle\Model\User:
              fields: email
              errorPath: email 
              message: fos_user.email.already_used
-             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile" ]
+             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile", "CheckEmail" ]
 
     properties:
         plainPassword:
