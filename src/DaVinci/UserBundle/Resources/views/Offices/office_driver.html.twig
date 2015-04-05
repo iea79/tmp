@@ -131,7 +131,7 @@
                                                         		<span><br>= </span>
                                                         		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
                                                         	</div>	
-                                                    	{% elseif (request.stateValue == 'sold' || request.stateValue == 'approved-sold') and requestDriver is not null and driver.id != requestDriver.id %}
+                                                    	{% elseif (request.stateValue == 'sold' or request.stateValue == 'approved-sold') and requestDriver is not null and driver.id != requestDriver.id %}
                                                     		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
                                                         {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
                                                         	<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
