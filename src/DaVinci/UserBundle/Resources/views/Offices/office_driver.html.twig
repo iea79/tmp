@@ -180,6 +180,7 @@
                                              	{% for request in openRequests if (request.isDriverInList(driver.id) == true) %}
                                              		{% set tariff = request.getTariff() %}
 	            									{% set pickUp = request.getPickUp() %}
+	            									{% set requestDriver = request.driver %}
                                                    	<tr>
                                                         <td>{{ loop.index }}</td>
                                                         <td class="timesent">{{ request.id }}</td>
@@ -188,10 +189,10 @@
                                                         <td>${{ tariff.getTotalPrice() }}</td>
                                                         <td id="request_status_{{ request.id }}">{% if request.stateValue == 'approved-sold' %}{{'sold'|trans}}{% else %}{{'on confirmation'|trans}}{% endif %}</td>
                                                         <td>
-                                                        	{% if request.stateValue == 'approved-sold' %}
-                                                        	{{'Deal confirmed'|trans}}
-                                                        	{% else %}
-                                                        	<a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
+                                                        	{% if request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                        		{{'Deal confirmed'|trans}}
+                                                        	{% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                        		<a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
                                                         	{% endif %}
                                                         </td>
                                                         <td>
