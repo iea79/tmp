@@ -45,7 +45,6 @@
         "symfony-cmf/media-bundle": "1.2.*@dev",
         "symfony-cmf/block-bundle": "1.2.2",
         "lunetics/locale-bundle": "~2.3",
-        "symfony-cmf/blog-bundle": "1.0.*@dev",
         
         "jms/security-extra-bundle": "~1.5",
         "jms/di-extra-bundle": "~1.4",

@@ -101,9 +101,6 @@ class AppKernel extends Kernel
             
             new Symfony\Cmf\Bundle\RoutingAutoBundle\CmfRoutingAutoBundle,
             
-            
-            new Symfony\Cmf\Bundle\SeoBundle\CmfBlogBundle(),
-            
             // Disable this if you don't want the timeline in the admin
             new Spy\TimelineBundle\SpyTimelineBundle(),
             new Sonata\TimelineBundle\SonataTimelineBundle(),
