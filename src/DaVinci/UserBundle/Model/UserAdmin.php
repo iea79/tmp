@@ -55,7 +55,7 @@ class UserAdmin extends SonataUserAdmin {
 					->end() 
                     ->with('Independent driver')
                        // ->add('independentDriver.phones','sonata_type_collection',array('required' => false,'label' => 'Phones'))
-                        ->add('independentDriver.about',null,array('required' => false,'label' => 'About me'))
+                        //->add('independentDriver.about','text',array('required' => false,'label' => 'About me'))
                     ->end()
 				/*	->with('Social')
 						->add('facebookUid', null, array('required' => false))

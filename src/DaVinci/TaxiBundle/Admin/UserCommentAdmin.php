@@ -38,9 +38,19 @@ class UserCommentAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('type')
+            ->add('type', 'choice',
+                    array('choices'   => UserComment::getTypeList())
+                    )
             ->add('text')
-            ->add('state')
+            ->add('state','choice',
+                   array('choices'   => UserComment::getStateList()))
+                ->add('_action', 'actions', array(
+                'actions' => array(
+             //     'view' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
+                )
+            ))
         ;
     }
 }
