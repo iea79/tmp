@@ -61,11 +61,7 @@ sonata_admin:
                     - davinci.taxi.admin.guidepage   
                     - davinci.taxi.admin.videoguidepage     
                     - davinci.taxi.admin.comment
-            blog:
-                label: blog
-                items:
-                    - cmf_blog.admin
-                    - cmf_post.admin
+
             sonata.admin.group.administration:
                 label:           sonata_administration
                 label_catalogue: SonataAdminBundle
