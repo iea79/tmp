@@ -197,8 +197,8 @@
 						</label>
 					</div>
 					<div class="right-group">
-						<label for="createPassengerRequestStepVehicleInfo[vehicle_services][gps]">
-							<input name="createPassengerRequestStepVehicleInfo_vehicle_services_gps" type="checkbox" />
+						<label for="createPassengerRequestStepVehicleInfo_vehicle_services_gps">
+							<input name="createPassengerRequestStepVehicleInfo[vehicle_services][gps]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;{{'GPS'|trans}}</span>
 						</label>
 					</div>
@@ -208,8 +208,8 @@
 						<div class="errors">
 							{{ form_errors(form.vehicle_services.air_conditioner) }}
 						</div>
-						<label for="createPassengerRequestStepVehicleInfo[vehicle_services][air_conditioner]">
-							<input name="createPassengerRequestStepVehicleInfo_vehicle_services_air_conditioner" type="checkbox" />
+						<label for="createPassengerRequestStepVehicleInfo_vehicle_services_air_conditioner">
+							<input name="createPassengerRequestStepVehicleInfo[vehicle_services][air_conditioner]" type="checkbox" />
 							<span class="uk-form-controls">&nbsp;&nbsp;{{'air conditioner'|trans}}</span>
 						</label>
 					</div>
@@ -277,7 +277,7 @@
 				<div class="kids-pats-line">
 					<input type="checkbox" />
 					<label>
-						<span class="uk-form-controls">&nbsp;&nbsp;{{'disabled transportation tools'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Indicate special stuff'|trans}}"></span></span>
+						<span class="uk-form-controls">&nbsp;&nbsp;{{'transportation tools for disabled'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Indicate special stuff'|trans}}"></span></span>
 					</label>
 					<div id="disabled_transportation_tools" class="wishes-1">
 						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "Wheelchairs or crutches",  'class': "charcount", 'maxlength' : "200"}}) }}
@@ -315,7 +315,7 @@
 				<div class="kids-pats-line">
 					<div class="left-group">
 						<label>
-							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][educator]" type="checkbox" />
+							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][educator]" type="checkbox"{% if flow.formData.vehicleDriverConditions.educator is defined and flow.formData.vehicleDriverConditions.educator == true %}checked="checked"{% endif %} />
 							<span class="uk-form-controls">&nbsp;&nbsp;{{'educator'|trans}}</span>
 						</label>
 						<div class="errors">
@@ -324,8 +324,8 @@
 					</div>
 					<div class="right-group">
 						<label>
-							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][medical_liscence]" type="checkbox" />
-							<span class="uk-form-controls">&nbsp;&nbsp;{{'medical liscence'|trans}}</span>
+							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][medical_license]" type="checkbox"{% if flow.formData.vehicleDriverConditions.medicalLicense is defined and flow.formData.vehicleDriverConditions.medicalLicense == true %}checked="checked"{% endif %} />
+							<span class="uk-form-controls">&nbsp;&nbsp;{{'medical licence'|trans}}</span>
 						</label>
 						<div class="errors">
 							{{ form_errors(form.vehicle_driver_conditions.medical_license) }}
@@ -335,7 +335,7 @@
 				<div class="kids-pats-line">
 					<div class="left-group">
 						<label>
-							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][body_guard]" type="checkbox" />
+							<input name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][body_guard]" type="checkbox"{% if flow.formData.vehicleDriverConditions.bodyGuard is defined and flow.formData.vehicleDriverConditions.bodyGuard == true %}checked="checked"{% endif %} />
 							<span class="uk-form-controls">&nbsp;&nbsp;{{'bodyguard'|trans}}</span>
 						</label>
 						<div class="errors">
