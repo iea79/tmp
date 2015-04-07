@@ -9,10 +9,6 @@ fos_user:
         user_manager: custom_user_manager
         
         mailer: fos_user.mailer.twig_swift
-    resetting:
-        email:
-            template: DaVinciUserBundle:Resseting:resetting.email.twig
-    
     registration:
         form:
             type: taxi_user_registration
