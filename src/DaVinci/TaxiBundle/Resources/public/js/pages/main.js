@@ -262,7 +262,19 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 
                 return false;
             });
-                       
+            
+            $('.limited').focusout(function () {
+            	var input = $(this).parent().find('input');
+            	var count = input.val();
+            	
+            	count = (count > 12) ? 0 : count;
+            	     	
+                input.val(count);
+                input.change();
+                
+                return false;
+            });
+            
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
                   

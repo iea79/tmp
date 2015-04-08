@@ -23,7 +23,9 @@ class PassengerDetail {
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3"},
      * 		min=1,
-     *      minMessage="Number of adults have to be more or equal {{ limit }}"
+     * 		max=12,
+     *      minMessage="Number of adults have to be more or equal {{ limit }}",
+     *      maxMessage="Number of adults have to be less or equal {{ limit }}"
      * )
 	 */
 	private $adult = 0;
@@ -33,7 +35,9 @@ class PassengerDetail {
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3"},
      * 		min=0,
-     *      minMessage="Number of children have to be more or equal {{ limit }}"
+     * 		max=12,
+     *      minMessage="Number of children have to be more or equal {{ limit }}",
+     *      maxMessage="Number of children have to be less or equal {{ limit }}"
      * )
 	 */
 	private $children = 0;
@@ -43,7 +47,9 @@ class PassengerDetail {
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3"},
      * 		min=0,
-     *      minMessage="Number of seniors have to be more or equal {{ limit }}"
+     * 		max=12,
+     *      minMessage="Number of seniors have to be more or equal {{ limit }}",
+     *      maxMessage="Number of seniors have to be less or equal {{ limit }}"
      * )
 	 */
 	private $seniors = 0;
