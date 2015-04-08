@@ -2,24 +2,24 @@
 	<input type="hidden" id="createPassengerRequestStepPassengerInfo[tariff][market_tips]" name="createPassengerRequestStepPassengerInfo[tariff][market_tips]" value="{{ marketTips }}" />
 	<div class="wrap-left">
 		 <div class="order-details-over">
-			<h1>Tariff <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
+			<h1>{{'Tariff'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
 			<div class="order-details">
 				<p class="note">
-					<span>Note!</span> Increase interest in his warrant
+					<span>{{'Note!'|trans}}</span> {{'Increase interest in his warrant'|trans}}
 				</p>
 				<div class="pers-data">
 					<div class="tarif-line">
 						<div class="tarif-line-group first">
 							<label for="createPassengerRequestStepPassengerInfo_tariff_price_type" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Price&nbsp;</span>
+								<span class="uk-form-controls">{{'Price'|trans}}&nbsp;</span>
 							</label>		
 							<input id="createPassengerRequestStepPassengerInfo[tariff][price_type]" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" type="radio" value="0" />
-							<span class="recommend"> Market ${{ marketPrice }}</span>
+							<span class="recommend"> {{'Market'|trans}} ${{ marketPrice }}</span>
 						</div>
 						<div class="tarif-line-group second">
 							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][price_type]" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" checked="checked" value="1"/>
 							<label class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Your</span>
+								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
@@ -28,7 +28,7 @@
 						</div>
 						<div class="tarif-line-group third">
 							<label for="createPassengerRequestStepPassengerInfo_tariff_price_payment_method" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Payment:</span>
+								<span class="uk-form-controls">{{'Payment'|trans}}:</span>
 							</label>
 							<div class="choose-lang">
 								{{ form_widget(form.tariff.price_payment_method) }}
@@ -38,15 +38,15 @@
 					<div class="tarif-line">
 						<div class="tarif-line-group first">
 							<label for="createPassengerRequestStepPassengerInfo_tariff_tips_type" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Tips &nbsp;</span>
+								<span class="uk-form-controls">{{'Tips'|trans}} &nbsp;</span>
 							</label>
 							<input id="createPassengerRequestStepPassengerInfo[tariff][tips_type]" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" type="radio" value="0" /> 
-							<span class="recommend">Market ${{ marketTips }}</span>
+							<span class="recommend">{{'Market'|trans}} ${{ marketTips }}</span>
 						</div>
 						<div class="tarif-line-group second">
 							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][tips_type]" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" checked="checked" value="1" /> 
 							<label class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Your</span>
+								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
@@ -55,7 +55,7 @@
 						</div>
 						<div class="tarif-line-group third">
 							<label for="createPassengerRequestStepPassengerInfo_tariff_payment_method" class="tarif-line-adapt-wrap">
-								<span class="uk-form-controls">Payment:</span>
+								<span class="uk-form-controls">{{'Payment'|trans}}:</span>
 							</label>
 							<div class="choose-lang">
 								{{ form_widget(form.tariff.tips_payment_method) }}
@@ -66,16 +66,16 @@
 			</div>
 		</div>
 		<div class="order-details-over">
-			<h1 class="pass-info">Passenger info <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'The information we’ll need to know is as follows'|trans}}"></span></h1>
+			<h1 class="pass-info">{{'Passenger info'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'The information we’ll need to know is as follows'|trans}}"></span></h1>
 			<div class="order-details">
-				<p class="quantity-header">Quantity</p>
+				<p class="quantity-header">{{'Quantity'|trans}}</p>
 				<div class="quantity-over">
 					<div class="tarif-line">
 						<div class="tarif-line-group">
 							<div>
-								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_adult">Adult</label>
+								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_adult">{{'Adult'|trans}}</label>
 								<div class="spinner">
-									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" name="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="0">
+									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" name="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="1">
 									<span class="plus uk-icon-caret-up"></span>
 									<span class="minus uk-icon-caret-down"></span>
 								</div>
@@ -83,7 +83,7 @@
 						</div>
 						<div class="tarif-line-group center-group">
 							<div>
-								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_children">Children</label>
+								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_children">{{'Children'|trans}}</label>
 								<div class="spinner">
 									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][children]" name="createPassengerRequestStepPassengerInfo[passenger_detail][children]" type="text" step="1" min="0" max="10" value="0">
 									<span class="plus uk-icon-caret-up"></span>
@@ -93,7 +93,7 @@
 						</div>
 						<div class="tarif-line-group right-group">
 							<div>
-								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_seniors">Seniors</label>
+								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_seniors">{{'Seniors'|trans}}</label>
 								<div class="spinner">
 									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][seniors]" name="createPassengerRequestStepPassengerInfo[passenger_detail][seniors]" type="text" step="1" min="0" max="10" value="0">
 									<span class="plus uk-icon-caret-up"></span>
@@ -107,14 +107,14 @@
 					<div class="nottravel">
 						<label for="createPassengerRequestStepPassengerInfo_passenger_detail_not_my_self">
 							<input id="createPassengerRequestStepPassengerInfo_passenger_detail_not_my_self" name="createPassengerRequestStepPassengerInfo[passenger_detail][not_my_self]" type="checkbox" />
-							<span class="book-for-another">I'm making this booking on another's behalf.</span>
+							<span class="book-for-another">{{"I'm making this booking on another's behalf"|trans}}.</span>
 							<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Make reservation for others'|trans}}"></span>
 						</label>
 					</div>
 					<div class="another-wrap">
 						<div class="pers-data">
 							<div class="left">
-								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_name">Name:</label>
+								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_name">{{'Name'|trans}}:</label>
 							</div> 
 							<div class="right">
 								{{ form_widget(form.passenger_detail.name, {'attr': {'placeholder': 'Not completed'}}) }}
@@ -147,7 +147,7 @@
 						</div> 
 						<div class="pers-data">
 							<div class="left">
-								<label>Mobile</label>
+								<label>{{'Mobile'|trans}}</label>
 							</div>
 							<div class="right forphoneinput">
 								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'placeholder': '111-222-3333', 'tabindex':'5', 'class':'mobile-phone'}}) }}
@@ -156,7 +156,7 @@
 							</div>
 						</div> 
 						<div class="pers-data"><div class="left">
-								<span class="uk-form-controls">Your mobile has:</span>
+								<span class="uk-form-controls">{{'Your mobile has'|trans}}:</span>
 							</div>
 							<div class="right">
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_wifi">
@@ -166,14 +166,14 @@
 								</label>
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_whatsapp" class="right-group">
 									<input id="createPassengerRequestStepPassengerInfo_passenger_detail_mobile_has_whatsapp" name="createPassengerRequestStepPassengerInfo[passenger_detail][mobile_has_whatsapp]" type="checkbox" />
-									<span class="right-group">
+									<span>
 										<span class="uk-form-controls">&nbsp;&nbsp;whatsapp <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Free communication program'|trans}}"></span></span>
 									</span>
 								</label>
 							</div>
 						</div>
 						<div class="about-passenger">
-							<p>About passenger <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Describe yourself. Help  driver to recognize you'|trans}}"></span></p>
+							<p>{{'About passenger'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Describe yourself. Help  driver to recognize you'|trans}}"></span></p>
 							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': '25 years old tall lady, wearing green coat and red hat',  'class': 'charcount', 'maxlength' : "200"}}) }}
 							<h6 class="precounter">{{'symbols left:'|trans}}</h6>
 						</div>
