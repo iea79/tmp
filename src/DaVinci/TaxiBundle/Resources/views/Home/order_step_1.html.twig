@@ -5,14 +5,18 @@
 			{% for routePoints in form.routePoints %}
 				<div class="form-block-wrap">	
 					<div class="labels">
-						<label for="createPassengerRequestRouteInfo_routePoints_0_place"><i class="mp-icon-point-a"></i>
-						{% if loop.index == 1 %} From{% else %} To{% endif %}:
+						<label for="createPassengerRequestRouteInfo_routePoints_{{ loop.index0 }}_place"><i class="mp-icon-point-a"></i>
+							{% if loop.index == 1 %} From{% else %} To{% endif %}:
  						</label>
 					</div>
 					<div class="inputs">
 						<div class="uk-form-icon">
 							<i class="mp-icon-nord-star"></i>
-							{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+							{% if loop.index == 1 %}
+								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick initialRoutePoint', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+							{% else %}
+								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick nextRoutePoint', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+							{% endif %}
 						</div>
 						<div class="errors">
 							{{ form_errors(routePoints.place, {'attr': {'class': 'errors'}}) }}
@@ -24,8 +28,11 @@
 		
 		<div class="clr"></div>	
         
-        <div class="nav-over add-lang">    
-     		<div class="uk-button-large uk-button uk-width-1-1 add-another" data-uk-toggle="{target:'#second-rout'}"><span class="mp-icon-point-plus uk-text-danger"></span><span class="caption">&nbsp; Add destination</span></div>
+        <div class="add-destination nav-over add-lang">    
+     		<div class="uk-button-large uk-button uk-width-1-1 add-another" data-uk-toggle="{target:'#second-rout'}">
+     			<span class="mp-icon-point-plus uk-text-danger"></span>
+     			<span class="caption">&nbsp; Add destination</span>
+     		</div>
 			<hr />
 		</div>
 		

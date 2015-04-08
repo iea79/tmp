@@ -78,7 +78,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
 
                 var markers = new Array();
 
-                this.initialize = function () {
+                this.initialize = function() {
                     map = new gmaps.Map(
                     	document.getElementById('map-canvas'),
                     	mapOptions
@@ -94,7 +94,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     distanceService = new gmaps.DistanceMatrixService();
                 }
 
-                this.codeAddress = function (key, address) {
+                this.codeAddress = function(key, address) {
                     geoCoder.geocode({'address': address}, function (results, status) {
                         if (status == gmaps.GeocoderStatus.OK) {
                             map.setCenter(results[0].geometry.location);
@@ -110,7 +110,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     });
                 }
 
-                this.calculateRoute = function (start, end) {
+                this.calculateRoute = function(start, end) {
                     var request = {
                         origin: start,
                         destination: end,
@@ -127,7 +127,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     });
                 }
 
-                this.calculateDistance = function (start, end) {
+                this.calculateDistance = function(start, end) {
                     distanceService.getDistanceMatrix({
                             origins: [start],
                             destinations: [end],
@@ -138,7 +138,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                         }, this.showDistance);
                 }
 
-                this.showDistance = function (response, status) {
+                this.showDistance = function(response, status) {
                     if (status != gmaps.DistanceMatrixStatus.OK) {
                         alert('Error is happened: ' + status);
                     } else {
@@ -201,15 +201,6 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     googleMaps.codeAddress(1, placeTo);
                 }
             });
-
-            $("#calculate_route").click(function () {
-                var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
-                var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
-
-                googleMaps.calculateRoute(placeFrom, placeTo);
-                googleMaps.calculateDistance(placeFrom, placeTo);
-            });
-
 
 //accordeon for buttoons in step 2 of homepage
             $(".order-details .uk-nav-parent-icon").click(function () {
@@ -277,7 +268,31 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
-                  
+            
+            $('div.add-destination').on('click', function(e) {
+            	e.preventDefault();
+            	
+            	var collectionHolder = $('div.desticlone');
+                var currentIndex = collectionHolder.find('div.form-block-wrap').length;
+                var newRoutePoint = "<div class='form-block-wrap'>" 
+                	+ "<div class='labels'>"
+    				+ "<label for='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place'>"
+    				+ "<i class='mp-icon-point-b'></i> To:"
+    				+ "</label>"
+    				+ "</div>"
+    				+ "<div class='inputs'>"
+    				+ "<div class='uk-form-icon'>"
+    				+ "<i class='mp-icon-nord-star'></i>"
+    				+ "<input type='text' id='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place' name='createPassengerRequestRouteInfo[routePoints][" + currentIndex + "][place]' class='flex-input date-pick nextRoutePoint' placeholder='Enter postcode, Venue or Place' />"
+    				+ "</div>"
+    				+ "<div class='errors'></div>"
+    				+ "</div>"
+    				+ "</div>";
+
+                collectionHolder.append(newRoutePoint);
+                collectionHolder.data('index', currentIndex + 1);
+            });
+                              
             //remove preloader
             togglePreloader(document.body, false);
 
