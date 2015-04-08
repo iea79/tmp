@@ -7,7 +7,7 @@
 			</div>
 			<div>
 				<i class="mp-icon-direction uk-text-danger"></i>
-				<span id="distance_route">{% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.getFormattedDistance() }}{% else %}0{% endif %} km / {% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.getDistanceInMiles() }}{% else %}0{% endif %} mi</span>
+				<span id="distance_route">{% if flow is defined and flow.formData.distance > 0 %}{{ flow.formData.getFormattedDistance() }} km / {{ flow.formData.getDistanceInMiles() }} mi{% else %}0 km / 0 mi{% endif %}</span>
 			</div>
 			{% if flow is defined and flow.formData.tariff.price > 0 %}
 				<div><i class="mp-icon-calculate uk-text-danger"></i><span id="price_route">{{ flow.formData.tariff.price }} $</span></div>

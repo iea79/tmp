@@ -224,7 +224,7 @@ cmf_routing:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
             DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
             DaVinci\TaxiBundle\Document\VideoGuidesPage: DaVinciTaxiBundle:Information:video
-            
+           
 
       #  templates_by_class:
        

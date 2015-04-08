@@ -128,17 +128,14 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 }
 
                 this.calculateDistance = function (start, end) {
-                    distanceService.getDistanceMatrix(
-                            {
-                                origins: [start],
-                                destinations: [end],
-                                travelMode: google.maps.TravelMode.DRIVING,
-                                unitSystem: google.maps.UnitSystem.METRIC,
-                                avoidHighways: false,
-                                avoidTolls: false
-                            },
-                    this.showDistance
-                            );
+                    distanceService.getDistanceMatrix({
+                            origins: [start],
+                            destinations: [end],
+                            travelMode: google.maps.TravelMode.DRIVING,
+                            unitSystem: google.maps.UnitSystem.METRIC,
+                            avoidHighways: false,
+                            avoidTolls: false
+                        }, this.showDistance);
                 }
 
                 this.showDistance = function (response, status) {
@@ -149,9 +146,18 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                         var destinations = response.destinationAddresses;
 
                         var results = response.rows[0].elements;
+                        
+                        var distanceInKm = results[0].distance.value / 1000;
+                        var distanceInMile = distanceInKm * 0.621;
+                        var mins = results[0].duration.value / 60;
 
-                        $('#distance_route').html(results[0].distance.text);
-                        $('#duration_route').html(results[0].duration.text);
+                        $('#distance_route').html(
+                        	distanceInKm.toFixed(1) + ' km / '
+                        	+ distanceInMile.toFixed(1) + ' mi'
+                        );
+                        $('#duration_route').html(
+                        	mins.toFixed(1) + ' mins'
+                        );
 
                         $('#createPassengerRequestRouteInfo_distance').attr(
                         	'value', results[0].distance.value
@@ -234,25 +240,41 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
 
 // for input type number
             $('.minus').click(function () {
+                var input = $(this).parent().find('input');
+                var count = parseInt(input.val()) - 1;
+                
+                count = (count < 0) ? 0 : count;
 
-                var $input = $(this).parent().find('input');
-                var count = parseInt($input.val()) - 1;
-                count = count < 1 ? 1 : count;
-                $input.val(count);
-                $input.change();
+                input.val(count);
+                input.change();
+                
                 return false;
-
             });
 
             $('.plus').click(function () {
-
-                var $input = $(this).parent().find('input');
-                $input.val(parseInt($input.val()) + 1);
-                $input.change();
+            	var input = $(this).parent().find('input');
+            	var count = parseInt(input.val()) + 1;
+            	
+            	count = (count > 12) ? 12 : count;
+            	     	
+                input.val(count);
+                input.change();
+                
                 return false;
-
             });
-                       
+            
+            $('.limited').focusout(function () {
+            	var input = $(this).parent().find('input');
+            	var count = input.val();
+            	
+            	count = (count > 12) ? 0 : count;
+            	     	
+                input.val(count);
+                input.change();
+                
+                return false;
+            });
+            
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
                   
