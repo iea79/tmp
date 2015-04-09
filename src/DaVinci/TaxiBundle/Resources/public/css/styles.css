@@ -5212,8 +5212,8 @@ body.register .main-content{
     position: relative;
     top: -2px;
 }
-.register .checkmail .uk-width-5-1 {width: 74.4%; margin-left: 0.2%;}
-.register .checkmail .uk-width-5-2 {width: 25.4%;}
+.register .checkmail .uk-width-5-1 {width: 72%;}
+.register .checkmail .uk-width-5-2 {width: 27%;}
 .register .changemail .btn {
     background: #528ed3;
     color: #fff;
