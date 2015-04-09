@@ -5076,12 +5076,13 @@ body.register .main-content{
     text-align: left;
     background: url("../images/checkmail.png") no-repeat 1.6% center #fff;
     padding: 17px 1% 20px 11.4%;
-    width:83.6%;
+    width:95%;
     margin: 27px auto 0 auto;
     color: #000;
     min-width: 283px;
     display: table;
     background-size: 8.7%;
+    box-sizing: border-box;
 }
 .changemail {
     text-align: left;
@@ -5089,9 +5090,10 @@ body.register .main-content{
     margin: 0 auto;
     color: #000;
     min-width: 283px;
-    width:83.6%;
+    width:95%;
     background: #fff;
     font-size: 16px;
+    box-sizing: border-box;
 }
 .changemail fieldset {margin: 0 0 5px 0;}
 .changemail div, .changemail .col-sm-9, .changemail label {display: inline-block;}
@@ -5179,9 +5181,10 @@ body.register .main-content{
     margin: 0 auto;
     background: #f4f4f4;
     min-width: 283px;
-    width:83.6%;
+    width:95%;
     font-size: 15px;
     display: table;
+    box-sizing: border-box;
 }
 .wrapper-content > .content.usedemail a{color: #ff4d61;}
 .register .uk-form-horizontal input[type="checkbox"] {margin-right: 5px;display: inline-block;vertical-align: baseline;margin-bottom: -1px;}
