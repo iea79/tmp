@@ -95,7 +95,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 }
 
                 this.codeAddress = function(key, address) {
-                    geoCoder.geocode({'address': address}, function (results, status) {
+                    geoCoder.geocode({'address': address}, function(results, status) {
                         if (status == gmaps.GeocoderStatus.OK) {
                             map.setCenter(results[0].geometry.location);
                             var marker = new gmaps.Marker({
@@ -116,7 +116,25 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                         destination: end,
                         travelMode: gmaps.TravelMode.DRIVING
                     };
-                    directionsService.route(request, function (response, status) {
+                    directionsService.route(request, function(response, status) {
+                        if (status == gmaps.DirectionsStatus.OK) {
+                            directionsDisplay.setDirections(response);
+
+                            for (i = 0; i < markers.length; i++) {
+                                markers[i].setMap(null);
+                            }
+                        }
+                    });
+                }
+                
+                this.calculateComplexRoute = function(start, wayPoints, end) {
+                    var request = {
+                        origin: start,
+                        destination: end,
+                        waypoints: wayPoints,
+                        travelMode: gmaps.TravelMode.DRIVING
+                    };
+                    directionsService.route(request, function(response, status) {
                         if (status == gmaps.DirectionsStatus.OK) {
                             directionsDisplay.setDirections(response);
 
@@ -137,6 +155,17 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                             avoidTolls: false
                         }, this.showDistance);
                 }
+                
+                this.calculateComplexDistance = function(originPoints, destinationPoints) {
+                	distanceService.getDistanceMatrix({
+	                        origins: originPoints,
+	                        destinations: destinationPoints,
+	                        travelMode: google.maps.TravelMode.DRIVING,
+	                        unitSystem: google.maps.UnitSystem.METRIC,
+	                        avoidHighways: false,
+	                        avoidTolls: false
+	                    }, this.showFullDistance);
+                } 
 
                 this.showDistance = function(response, status) {
                     if (status != gmaps.DistanceMatrixStatus.OK) {
@@ -167,10 +196,105 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                         );
                     }
                 }
+                
+                this.showFullDistance = function(response, status) {
+                    if (status != gmaps.DistanceMatrixStatus.OK) {
+                        alert('Error is happened: ' + status);
+                    } else {
+                        var origins = response.originAddresses;
+                        var destinations = response.destinationAddresses;
+                     
+                        var distance = 0.0;
+                        var duration = 0;
+
+                        for (var i = 0; i < origins.length; i++) {
+                        	var results = response.rows[i].elements;
+                        	for (var j = 0; j < results.length; j++) {
+								var element = results[j];
+								
+								distance += element.distance.value;
+								duration += element.duration.value;
+							}
+                        }
+                        
+                        var distanceInKm = distance / 1000;
+                        var distanceInMile = distanceInKm * 0.621;
+                        var mins = duration / 60;
+                        
+                        $('#distance_route').html(
+                        	distanceInKm.toFixed(1) + ' km / '
+                        	+ distanceInMile.toFixed(1) + ' mi'
+                        );
+                        $('#duration_route').html(
+                        	mins.toFixed(1) + ' mins'
+                        );
+
+                        $('#createPassengerRequestRouteInfo_distance').attr(
+                        	'value', distance
+                        );
+                        $('#createPassengerRequestRouteInfo_duration').attr(
+                        	'value', duration
+                        );
+                    }
+                }
             };
+            
+            var RouteDisplay = function() {
+            	this.process = function(googleMaps) {
+	            	var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
+	                var placeTo;
+	                
+	                var start = placeFrom;
+	                                    
+	                var intervals = new Array();
+	                var paramName = 'createPassengerRequestRouteInfo_routePoints_';
+	                
+	                $(".next-route-point").each(function() {
+	                	var paramValue = $(this).attr('id');
+	                	var elementId = paramValue.substr(paramName.length, 1);
+	                	
+	                	if ($(this).val() != '') {
+	                		intervals[elementId] = $(this).val();
+	                	}
+	                });
+	                
+	                
+	                var origins = new Array();
+	                var destinations = new Array();
+	                var count = 0;
+	                
+	                for (var index in intervals) {
+	                	placeTo = intervals[index];
+	                	
+	                	origins[count] = placeFrom;
+	                	destinations[count] = placeTo;
+	                	
+	                	placeFrom = placeTo;
+	                	
+	                	count++;
+	                }
+	                
+	                var wayPoints = [];
+	                var end = placeTo;
+	                
+	                for (var index = 0; index < origins.length; index++) {
+	                	if (index == 0) {
+	                		continue;
+	                	}
+	                	
+	                	wayPoints.push({
+	                		location: origins[index],
+	                        stopover: true
+	                	});
+	                }
+	                
+	                googleMaps.calculateComplexDistance(origins, destinations);
+	                googleMaps.calculateComplexRoute(start, wayPoints, end);
+            	}    
+            } 
 
 
-            $("#createPassengerRequestRouteInfo_routePoints_0_place").focusout(function () {
+            $("#createPassengerRequestRouteInfo_routePoints_0_place").focusout(function() {
                 var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
                 var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
 
@@ -186,7 +310,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                 }
             });
 
-            $("#createPassengerRequestRouteInfo_routePoints_1_place").focusout(function () {
+            $("#createPassengerRequestRouteInfo_routePoints_1_place").focusout(function() {
                 var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();
                 var placeTo = $("#createPassengerRequestRouteInfo_routePoints_1_place").val();
 
@@ -201,9 +325,9 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     googleMaps.codeAddress(1, placeTo);
                 }
             });
-
+            
 //accordeon for buttoons in step 2 of homepage
-            $(".order-details .uk-nav-parent-icon").click(function () {
+            $(".order-details .uk-nav-parent-icon").click(function() {
                 $(this).find(".uk-parent").toggleClass("uk-open");
             });
 
@@ -269,6 +393,8 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             var googleMaps = new GoogleMaps();
             googleMaps.initialize();
             
+            var routeDisplay = new RouteDisplay();
+            
             $('div.add-destination').on('click', function(e) {
             	e.preventDefault();
             	
@@ -283,7 +409,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
     				+ "<div class='inputs'>"
     				+ "<div class='uk-form-icon'>"
     				+ "<i class='mp-icon-nord-star'></i>"
-    				+ "<input type='text' id='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place' name='createPassengerRequestRouteInfo[routePoints][" + currentIndex + "][place]' class='flex-input date-pick nextRoutePoint' placeholder='Enter postcode, Venue or Place' />"
+    				+ "<input type='text' id='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place' name='createPassengerRequestRouteInfo[routePoints][" + currentIndex + "][place]' class='flex-input date-pick next-route-point' placeholder='Enter postcode, Venue or Place' value='' />"
     				+ "</div>"
     				+ "<div class='errors'></div>"
     				+ "</div>"
@@ -291,6 +417,16 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
 
                 collectionHolder.append(newRoutePoint);
                 collectionHolder.data('index', currentIndex + 1);
+                
+                $(".next-route-point").on('focusout', function() {
+                	routeDisplay.process(googleMaps);
+                });
+            });
+            
+            $(document).ready(function() {
+            	$(".next-route-point").on('focusout', function() {
+                	routeDisplay.process(googleMaps);
+                });
             });
                               
             //remove preloader
