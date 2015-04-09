@@ -915,6 +915,10 @@ styles of booking step 1  in homepage
 		.destination .form-block-wrap:nth-child(2) .labels .mp-icon-point-a:before {
 			content: "\e60c";
 		}
+		.destination .form-block-wrap:nth-child(n+3) .labels .mp-icon-point-a:before,
+		.destination .form-block-wrap:nth-child(n+3) .labels .mp-icon-point-b:before {
+			content: "\e61b";
+		}
 	.destination  .inputs {
 		width: 61%;
 		float: right;
