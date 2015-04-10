@@ -100,7 +100,17 @@ class VehiclePetCage {
      */
     public function getPetCageType()
     {
-        return $this->petCageType;
+        return array_search($this->petCageType, self::getChoices());
+    }
+
+    /**
+     * Get petCageType
+     *
+     * @return string
+     */
+    public function getPetCageTypeName()
+    {
+    	return $this->petCageType;
     }
     
     /**

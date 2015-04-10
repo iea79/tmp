@@ -49,7 +49,11 @@
 						<hr>
 							<dl>
 								<dt>{{'From'|trans}}:</dt><dd>{{ flow.formData.routePoints[0].place }}</dd>
-								<dt>{{'To'|trans}}:</dt><dd>{{ flow.formData.routePoints[1].place }}</dd>
+								{% for point in flow.formData.routePoints %}
+									{% if loop.index > 1 %}
+										<dt>{{'To'|trans}}:</dt><dd>{{ point.place }}</dd>
+									{% endif %}
+								{% endfor %}
 								<dt>{{'Pick up'|trans}}:</dt><dd>{{ flow.formData.pickUpDate|date("d M Y") }}, {{ flow.formData.pickUpTime|date("H:i") }}</dd>
 								{% if flow.formData.roundTrip %}
 									<dt>{{'Return'|trans}}:</dt><dd>{{ flow.formData.returnDate|date("d M Y") }}, {{ flow.formData.returnTime|date("H:i") }}</dd>
@@ -58,9 +62,9 @@
 						</div>
 						<div class="vechicle">
 							<h1 class="labels">{{'Vehicle'|trans}}<a class="uk-float-right">{{'edit'|trans}}</a></h1>
-							<hr>
+							<hr/>
 							<dl>
-								<dt>{{'Class'|trans}}:</dt><dd><span>{{ flow.formData.vehicle.vehicleClass }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
+								<dt>{{'Class'|trans}}:</dt><dd><span>{{ flow.formData.vehicle.getVehicleClassName() }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
 							</dl>
 						</div>
 						<div class="other-passenger-details">
@@ -70,12 +74,12 @@
 								    <dl class="child-pet">
 								    	{% for childSeat in flow.formData.vehicleOptions.childSeats %}
 								    		{% if childSeat.childSeatNumber > 0 %}
-								    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.childSeatType }})</dd>
+								    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.getChildSeatTypeName() }})</dd>
 								    		{% endif %}	
 								    	{% endfor %}
 								    	{% for petCage in flow.formData.vehicleOptions.petCages %}
 								    		{% if petCage.petCageNumber > 0 %}
-								    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.petCageType }})</dd>
+								    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.getPetCageTypeName() }})</dd>
 								    		{% endif %}	
 								    	{% endfor %}
 								    </dl>

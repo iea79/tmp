@@ -104,7 +104,17 @@ class Vehicle {
      */
     public function getVehicleClass()
     {
-        return $this->vehicleClass;
+    	return array_search($this->vehicleClass, self::getChoices());    	
+    }
+    
+    /**
+     * Get vehicleClass
+     *
+     * @return string
+     */
+    public function getVehicleClassName()
+    {
+    	return $this->vehicleClass;
     }
 
     /**

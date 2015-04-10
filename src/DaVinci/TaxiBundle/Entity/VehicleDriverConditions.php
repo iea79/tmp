@@ -21,7 +21,7 @@ class VehicleDriverConditions {
 	 * @ORM\Column(type="string", name="interpreter_lang", length=255, nullable=true)
 	 */
 	private $interpreterLang;
-	
+		
 	/**
 	 * @ORM\Column(type="boolean")
 	 */
@@ -85,13 +85,13 @@ class VehicleDriverConditions {
     /**
      * Get interpreterLang
      *
-     * @return string 
+     * @return string
      */
     public function getInterpreterLang()
     {
         return $this->interpreterLang;
     }
-
+    
     /**
      * Set educator
      *

@@ -126,7 +126,17 @@ class VehicleChildSeat {
      */
     public function getChildSeatType()
     {
-        return $this->childSeatType;
+        return array_search($this->childSeatType, self::getChoices());
+    }
+    
+    /**
+     * Get childSeatType
+     *
+     * @return string
+     */
+    public function getChildSeatTypeName()
+    {
+    	return $this->childSeatType;
     }
     
     public static function getChoices() 

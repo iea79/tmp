@@ -13,9 +13,9 @@
 						<div class="uk-form-icon">
 							<i class="mp-icon-nord-star"></i>
 							{% if loop.index == 1 %}
-								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick initialRoutePoint', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick initial-route-point', 'placeholder': "Enter postcode, Venue or Place"}}) }}
 							{% else %}
-								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick nextRoutePoint', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+								{{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick next-route-point', 'placeholder': "Enter postcode, Venue or Place"}}) }}
 							{% endif %}
 						</div>
 						<div class="errors">

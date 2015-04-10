@@ -14,11 +14,18 @@ class Tariff {
 	const MAIN_PAYMENT = 'price';
 	const TIPS_PAYMENT = 'tips';
 	
+	const POS_PAYMENT_METHOD_CASH = 0;
+	const POS_PAYMENT_METHOD_ESCROW = 1;
+	
 	const PAYMENT_METHOD_CASH = 'cash';
 	const PAYMENT_METHOD_ESCROW = 'escrow';
 	
 	const PRICE_TYPE_MARKET = 'market';
 	const PRICE_TYPE_YOUR = 'your';
+	
+	const POS_PRICE_TYPE_YOUR = 0;
+	const POS_PRICE_TYPE_MARKET = 1;
+	
 	
 	/**
 	 * @ORM\Id
@@ -48,6 +55,11 @@ class Tariff {
 	private $yourPrice;
 	
 	/**
+	 * @var string
+	 */
+	private $priceType;
+	
+	/**
 	 * @ORM\Column(type="float")
 	 */
 	private $tips = 0.00;
@@ -61,6 +73,11 @@ class Tariff {
 	 * @var float
 	 */
 	private $yourTips;
+	
+	/**
+	 * @var string
+	 */
+	private $tipsType;
 	
 	/**
 	 * @ORM\Column(type="string", columnDefinition="ENUM('cash', 'escrow')", name="price_payment_method", length=15)
@@ -163,6 +180,8 @@ class Tariff {
     public function setMarketPrice($price)
     {
     	$this->marketPrice = $price;
+    	
+    	return $this;
     }
     
     public function getMarketPrice()
@@ -173,11 +192,28 @@ class Tariff {
     public function setYourPrice($price)
     {
     	$this->yourPrice = $price;
+    	
+    	return $this;
     }
     
     public function getYourPrice()
     {
     	return $this->yourPrice;
+    }
+    
+    public function setPriceType($priceType)
+    {
+    	if (!array_key_exists($priceType, self::getTypes())) {
+    		throw new \InvalidArgumentException("Invalid price type :: {$priceType}");
+    	}
+    	$this->priceType = $priceType;
+    	
+    	return $this;
+    }
+    
+    public function getPriceType()
+    {
+    	return $this->priceType;
     }
         
     /**
@@ -209,6 +245,8 @@ class Tariff {
     public function setMarketTips($tips)
     {
     	$this->marketTips = $tips;
+    	
+    	return $this;
     }
     
     public function getMarketTips()
@@ -219,11 +257,28 @@ class Tariff {
     public function setYourTips($tips)
     {
     	$this->yourTips = $tips;
+    	
+    	return $this;
     }
     
     public function getYourTips()
     {
     	return $this->yourTips;
+    }
+    
+    public function setTipsType($tipsType)
+    {
+    	if (!array_key_exists($tipsType, self::getTypes())) {
+    		throw new \InvalidArgumentException("Invalid tips type :: {$tipsType}");
+    	}
+    	$this->tipsType = $tipsType;
+    	 
+    	return $this;
+    }
+    
+    public function getTipsType()
+    {
+    	return $this->tipsType;
     }
     
     /**
@@ -267,16 +322,16 @@ class Tariff {
     public static function getPaymentMethods()
     {
     	return array(
-    		self::PAYMENT_METHOD_ESCROW,
-    		self::PAYMENT_METHOD_CASH    		
+    		self::POS_PAYMENT_METHOD_CASH => self::PAYMENT_METHOD_CASH,
+    		self::POS_PAYMENT_METHOD_ESCROW => self::PAYMENT_METHOD_ESCROW
     	);
     }
     
     public static function getTypes()
     {
     	return array(
-    		self::PRICE_TYPE_MARKET,
-    		self::PRICE_TYPE_YOUR
+    		self::POS_PRICE_TYPE_YOUR => self::PRICE_TYPE_YOUR,
+    		self::POS_PRICE_TYPE_MARKET => self::PRICE_TYPE_MARKET
     	);
     }
     
