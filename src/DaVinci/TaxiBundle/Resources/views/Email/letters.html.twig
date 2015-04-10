@@ -27,7 +27,7 @@
 						                {# message statrs #}
 							                {% block message %}
 
-					                        	<h3 style="font-size: 16px;margin-top: 22px;margin-bottom: 0;">Dear Dmitry Samorykov,</h3>
+					                        	<h3 style="font-size: 16px;margin: 22px 0 0;">Dear {{ user.username }}</h3>
 					                        	<p style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
 
 								                {# message text statrs #}
@@ -53,32 +53,9 @@
 
 			                {# banners statrs #}
 									{% block banner_one %}
-									    <tr style="background: url( {{ asset('bundles/davincitaxi/images/letterbg.jpg') }} ) #D2EDFF;">
-									        <td colspan="" style="width: 180px;color: transparent;">
-									        	.
-									        </td>
-									        <td colspan="" style="padding-left: 11px;background: #D2EDFF;">
-									        	<h3 style="font-size: 16px;margin-top: 19px;margin-bottom: 20px;">{% block banner_one_title %}{% endblock %}</h3>
-									        	{% block button_banner %}{% endblock %}
-									        </td>
-									    </tr>
-
 									{% endblock %}
 
 									{% block banner_two %}
-
-									    <tr>
-									    	<td style="color: transparent;">.</td>
-									    </tr>
-									    <tr style="background: url( {{ asset('bundles/davincitaxi/images/letterbg.jpg') }} ) #D2EDFF;">
-									        <td colspan="" style="width: 180px;color: transparent;">
-									        	.
-									        </td>
-									        <td colspan="" style="padding-left: 11px;background: #D2EDFF;">
-									        	<h3 style="font-size: 16px;margin-top: 19px;margin-bottom: 20px;">{% block banner_two_title %}{% endblock %}</h3>
-									        	{% block button_banner_two %}{% endblock %}
-									        </td>
-									    </tr>
 									{% endblock %}
 
 									</table>
