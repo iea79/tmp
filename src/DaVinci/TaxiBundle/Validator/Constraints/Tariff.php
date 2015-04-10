@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraint;
 class Tariff extends Constraint 
 {
 	
-	public $message = 'Passenger details has incorrect value: ';
+	public $message = 'Tariff has wrong values: ';
 	
 	public function getTargets()
 	{

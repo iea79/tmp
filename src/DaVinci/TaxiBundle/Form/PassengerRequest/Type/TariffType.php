@@ -12,22 +12,24 @@ class TariffType extends AbstractType {
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder
 			->add('price_type', 'choice', array(
-				'mapped' => false,
-				'choices' => Tariff::getTypes()	
+				'choices' => Tariff::getTypes(),
+				'data' => Tariff::POS_PRICE_TYPE_YOUR
 			))
 			->add('your_price', 'money')
 			->add('market_price', 'hidden')
 			->add('tips_type', 'choice', array(
-				'mapped' => false,
-				'choices' => Tariff::getTypes()
+				'choices' => Tariff::getTypes(),
+				'data' => Tariff::POS_PRICE_TYPE_YOUR	
 			))
 			->add('your_tips', 'money')
 			->add('market_tips', 'hidden')
 			->add('price_payment_method', 'choice', array(
-				'choices' => Tariff::getPaymentMethods()
+				'choices' => Tariff::getPaymentMethods(),
+				'data' => Tariff::POS_PAYMENT_METHOD_ESCROW
 			))
 			->add('tips_payment_method', 'choice', array(
-				'choices' => Tariff::getPaymentMethods()
+				'choices' => Tariff::getPaymentMethods(),
+				'data' => Tariff::POS_PAYMENT_METHOD_ESCROW
 			));
 	}
 	

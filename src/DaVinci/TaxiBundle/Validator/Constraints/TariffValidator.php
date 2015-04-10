@@ -11,7 +11,9 @@ class PassengerDetailValidator extends ConstraintValidator
 	
 	public function validate($value, Constraint $constraint)
 	{
-		
+		if ($value->getPriceType()) {
+			
+		}
 	}
 	
 	private function addViolation($field, $message)

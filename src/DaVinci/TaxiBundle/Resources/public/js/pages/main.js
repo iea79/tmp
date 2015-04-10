@@ -347,7 +347,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
                     targetBlock.hide();
             });
 
-//default disable for a in buttons 2 step
+// default disable for a in buttons 2 step
             $('.spec-request .uk-parent > a, .auto-tip a').click(function (event) {
                 return false;
             });
@@ -382,7 +382,7 @@ require(['pages/common', 'gmaps'], function ($, gmaps) {
             	var input = $(this).parent().find('input');
             	var count = input.val();
             	
-            	count = (count > 12) ? 0 : count;
+            	count = (count > 12 || count < 0) ? 0 : count;
             	     	
                 input.val(count);
                 input.change();
