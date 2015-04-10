@@ -23,7 +23,7 @@ security:
         username: "username"
         password: "password"
         remember_me: Remember me
-        submit: Login
+        submit: Log in
 
 # Profile
 profile:
@@ -112,10 +112,10 @@ form:
     signininfo: "Sign in info"
     generalinfo: "General info"
     gotonextstep: "Next step >"
-    iagreetotem: "I have read and agree to the <a href='%url%'>Terms of Use</a> and the <a href='%url%'>Privacy Policy</a>."
+    iagreetotem: "I have read and agree to the <a href='%url%'>Terms and Conditions</a> and the <a href='%url%'>Privacy Policy</a>."
     back: < Back
     create_account: "Create Account"
-    finish: Finish
+    finish: Complete
     edit: Edit
     
     #office

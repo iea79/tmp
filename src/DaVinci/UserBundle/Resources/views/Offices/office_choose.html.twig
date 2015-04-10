@@ -5,7 +5,7 @@
 <div class="wrapper-content title officepagetitle">
 
 {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
-<div class="greentitle"><span>{% trans %}Need money: choose professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
+<div class="greentitle"><span>{% trans %}Need money: select professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
 </div>
 {% endblock%}
 
@@ -41,7 +41,7 @@
 <div id="makechoice" class="uk-modal">
     <div class="uk-modal-dialog">
         <a class="uk-modal-close uk-close"></a>
-		<h2>{% trans %}Make your choice{% endtrans %}</h2>
+		<h2>{% trans %}Select{% endtrans %}</h2>
 		<ul>
 			<li>{% trans  with {'%url%': 'register-company'}  %}<a href="%url%">Taxi company owner</a>{% endtrans %}</li>
 			<li>{% trans  with {'%url%': 'register-manager'}  %}<a href="%url%">Taxi company manager</a>{% endtrans %}</li>

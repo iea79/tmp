@@ -135,7 +135,7 @@
 
                             </div>
                                 <div class="uk-button-group uk-width-4-5">
-                                    <button type='submit' class="uk-button submit nextbutt uk-width-4-5">{{ 'Create Office'|trans}}</button>
+                                    <button type='submit' class="uk-button submit nextbutt uk-width-4-5">{{ 'Create an Office'|trans}}</button>
                                 </div>
                             {% elseif flow.getCurrentStepNumber() == 2 %}
 
@@ -200,7 +200,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-button-group uk-width-4-8">
-                                    <button type='submit' class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Finish'|trans}}</button>
+                                    <button type='submit' class="uk-button submit nextbutt uk-width-4-10 float_right">{{ 'Complete'|trans}}</button>
                                     <button class="uk-button submit nextbutt backbutt uk-width-4-10 float_left" name="{{ flow.getFormTransitionKey() }}" value="back" formnovalidate="formnovalidate"> {{ 'Edit'|trans}}</button>
                                     <div class="clear"></div>
                                 </div>
