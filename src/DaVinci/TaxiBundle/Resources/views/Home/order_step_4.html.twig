@@ -35,8 +35,8 @@
 						<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl class="price">
-								<dt>{{'Price'|trans}}:</dt><dd> ${% if flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}{{ flow.formData.tariff.marketPrice }}{% endif %}</dd>
-								<dt>{{'Tips'|trans}}:</dt><dd> ${% if flow.formData.tariff.yourTips > 0 %}{{ flow.formData.tariff.yourTips }}{% else %}{{ flow.formData.tariff.marketTips }}{% endif %}</dd>
+								<dt>{{'Price'|trans}}:</dt><dd> ${% if flow.formData.tariff.priceType == 0 and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}{{ flow.formData.tariff.marketPrice }}{% endif %}</dd>
+								<dt>{{'Tips'|trans}}:</dt><dd> ${% if flow.formData.tariff.tipsType == 0 %}{{ flow.formData.tariff.yourTips }}{% else %}{{ flow.formData.tariff.marketTips }}{% endif %}</dd>
 							</dl>
 							<dl class="payment">
 								<dt>{{'Payment'|trans}}:</dt><dd>{{ flow.formData.tariff.pricePaymentMethod }}</dd>

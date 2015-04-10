@@ -11,6 +11,7 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
  * @ORM\Entity(repositoryClass="PassengerRequestRepository")
  * @ORM\Table(name="passenger_request")
  * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
+ * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3"})
  */
 class PassengerRequest {
 	
@@ -90,7 +91,7 @@ class PassengerRequest {
 		
 	/**
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
-	 * @Assert\Valid() 
+	 * @Assert\Valid()
 	 * @Assert\All({
 	 * 		@Assert\NotBlank()
      * })
@@ -99,6 +100,7 @@ class PassengerRequest {
 	
 	/**
 	 * @ORM\OneToOne(targetEntity="Tariff", mappedBy="passengerRequest")
+	 * @Assert\Valid()
 	 */
 	private $tariff;
 	

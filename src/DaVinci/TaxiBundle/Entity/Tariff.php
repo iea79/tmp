@@ -20,9 +20,9 @@ class Tariff {
 	const PAYMENT_METHOD_CASH = 'cash';
 	const PAYMENT_METHOD_ESCROW = 'escrow';
 	
-	const PRICE_TYPE_MARKET = 'market';
 	const PRICE_TYPE_YOUR = 'your';
-	
+	const PRICE_TYPE_MARKET = 'market';
+		
 	const POS_PRICE_TYPE_YOUR = 0;
 	const POS_PRICE_TYPE_MARKET = 1;
 	
@@ -36,11 +36,6 @@ class Tariff {
 	
 	/**
 	 * @ORM\Column(type="float")
-	 * @Assert\Range(
-	 * 		groups={"flow_createPassengerRequest_step3"},
-     *      min=0.01,
-     *      minMessage="Price must be more than {{ limit }}"
-     * )
 	 */
 	private $price = 0.00;
 	
@@ -306,12 +301,16 @@ class Tariff {
     
     public function definePrice()
     {
-    	$this->price = ($this->yourPrice > 0) ? $this->yourPrice : $this->marketPrice;
+    	$this->price = ($this->yourPrice > 0 && $this->priceType == self::POS_PRICE_TYPE_YOUR) 
+    		? $this->yourPrice 
+    		: $this->marketPrice;
     }
     
     public function defineTips()
     {
-    	$this->tips = ($this->yourTips > 0) ? $this->yourTips : $this->marketTips;
+    	$this->tips = ($this->tipsType == self::POS_PRICE_TYPE_YOUR) 
+    		? $this->yourTips 
+    		: $this->marketTips;
     }
 
     public function getTotalPrice()
