@@ -89,7 +89,7 @@ require(['pages/common'], function ($) {
             });
             
             $("button.approve-driver").on("click", function () {
-            	hash = requester.prepareRequest($(this).attr('value'));
+            	hash = passengerRequester.prepareRequest($(this).attr('value'));
             	requester.makeRequest(
             		hash.query, 
             		{driver_id: hash.driver_id}
@@ -97,7 +97,7 @@ require(['pages/common'], function ($) {
             });
             
             $("button.decline-driver").on("click", function () {
-            	hash = requester.prepareRequest($(this).attr('value'));
+            	hash = passengerRequester.prepareRequest($(this).attr('value'));
             	requester.makeRequest(
             		hash.query, 
             		{driver_id: hash.driver_id}
