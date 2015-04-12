@@ -83,14 +83,13 @@ require(['pages/common'], function ($) {
         }
         
         $(document).ready(function () {
-            var count = 0;
             $(".driverlist").click(function () {
                 $(this).toggleClass("active-gray");
             });
             
             $("button.approve-driver").on("click", function () {
             	hash = passengerRequester.prepareRequest($(this).attr('value'));
-            	requester.makeRequest(
+            	passengerRequester.makeRequest(
             		hash.query, 
             		{driver_id: hash.driver_id}
             	);
@@ -98,7 +97,7 @@ require(['pages/common'], function ($) {
             
             $("button.decline-driver").on("click", function () {
             	hash = passengerRequester.prepareRequest($(this).attr('value'));
-            	requester.makeRequest(
+            	passengerRequester.makeRequest(
             		hash.query, 
             		{driver_id: hash.driver_id}
             	);
