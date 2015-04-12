@@ -19,7 +19,10 @@ class TariffValidator extends ConstraintValidator
 				array('options' => array('min_range' => 0.01))
 			)
 		) {
-			$this->addViolation('yourPrice', $constraint->message . ' price must be more than ' . $value->getTariff()->getYourPrice());
+			$this->addViolation(
+				'yourPrice', 
+				$constraint->message . ' price must be more than ' . $value->getTariff()->getYourPrice()
+			);
 		}
 	}
 	

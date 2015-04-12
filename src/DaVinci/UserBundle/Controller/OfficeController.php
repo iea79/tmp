@@ -6,17 +6,21 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
-use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
-use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 
+use DaVinci\TaxiBundle\Controller\StepsController;
+
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
+use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 
-class OfficeController extends Controller
+use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
+use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
+
+class OfficeController extends StepsController
 {
     /**
     * @Route("/choose-office", name="fos_user_registration_confirmed")
@@ -98,21 +102,29 @@ class OfficeController extends Controller
     	if (is_null($user)) {
     		return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
     	}
+    	
+    	$result = $this->showSteps();
+    	if (!is_array($result)) {
+    		return $this->redirect($result);
+    	}
     	        
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_passenger.html.twig',
-        	array(
-        		'newRequestId' => $this->getRequest()->getSession()->get('request_id'),
-        		'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
-					$user->getId(), 
-        			array(
-        				PassengerRequest::STATE_BEFORE_OPEN, 
-        				PassengerRequest::STATE_OPEN,
-        				PassengerRequest::STATE_PENDING,
-        				PassengerRequest::STATE_SOLD,
-        				PassengerRequest::STATE_APPROVED_SOLD
-        			)        	
-        		)	
+        	array_merge(
+        		array(
+        			'newRequestId' => $this->getRequest()->getSession()->get('request_id'),
+        			'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
+        				$user->getId(),
+        				array(
+        					PassengerRequest::STATE_BEFORE_OPEN,
+        					PassengerRequest::STATE_OPEN,
+        					PassengerRequest::STATE_PENDING,
+        					PassengerRequest::STATE_SOLD,
+        					PassengerRequest::STATE_APPROVED_SOLD
+        				)
+        			)
+        		),
+        		$result	
         	)	
         );
     }

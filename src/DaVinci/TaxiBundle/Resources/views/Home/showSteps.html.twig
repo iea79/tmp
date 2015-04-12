@@ -1,0 +1,21 @@
+<div id="steps">
+	{% set currentRoute = app.request.get('_route') %}
+	<form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
+		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
+		<div class="errors for-steps">{{ form_errors(form) }}</div>
+		
+		<div>
+    		{% if flow.getCurrentStepNumber() == 1 %}
+		        {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
+		    {% elseif flow.getCurrentStepNumber() == 2 %}
+		    	{% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
+		    {% elseif flow.getCurrentStepNumber() == 3 %}
+		    	{% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
+		    {% elseif flow.getCurrentStepNumber() == 4 %}
+		    	{% include 'DaVinciTaxiBundle:Home:order_step_4.html.twig' %}
+		    {% endif %}
+		    
+		    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+	    </div>
+	</form>
+</div>

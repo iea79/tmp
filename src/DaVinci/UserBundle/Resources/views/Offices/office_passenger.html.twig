@@ -76,17 +76,7 @@
 							<div class="home">
 						        <div class="steps-1-2-3">
 						        	{% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
-						            <div id="steps" class="uk-switcher uk-float-left">
-							          {#      <div class="uk-active">
-							                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
-							                </div>
-							                <div>
-							                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
-							                </div>
-							                <div>
-							                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
-							                </div> #}
-						            </div>
+						            {% include 'DaVinciTaxiBundle:Home:showSteps.html.twig' %}
 									{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
 								<div class="clear"></div>
 						        </div>

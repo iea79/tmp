@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput'], function () {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'passengerRequester'], function (passengerRequester) {
 
         function initProfileForm() {
             
@@ -67,50 +67,21 @@ require(['pages/common'], function ($) {
             }
         });
 
-        var Requester = function() {
-        	
-        	var host = 'http://taximyprice.com';
-        	// var host = 'http://taxi-my-price.dev';
-        	
-        	this.prepareRequest = function(values) {
-        		var hash = new Object();
-        		var params = values.split('-');
-            	
-        		for (var i = 0; i < params.length; i++) {
-            		if (params[i].charAt(1) != ':') {
-            			continue;
-            		}
-            		
-            		var param = params[i].split(':');
-            		if (i == 0) {
-            			hash.query = param[1];
-            		}
-            		
-            		if (i == 1) {
-            			hash.driver_id = param[1];
-            		}
-            	}
-            	
-            	return hash;
-        	} 
-        	
-        	this.makeRequest = function(query, sendData) {
-        		$.ajax({
-                    url: host + query,
-                    data: sendData,
-                    type: "POST",
-                    dataType: "json",
-                    success: function(data) {
-                    	return;
-                    }
-                });	
-        	}
-        	
-        }
-        var requester = new Requester();
-        
         // Смена класса кнопок Driver list в office passengers //////////////////// 
         var but_txt;
+                
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#avatar-image').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
         $(document).ready(function () {
             var count = 0;
             $(".driverlist").click(function () {
@@ -134,17 +105,6 @@ require(['pages/common'], function ($) {
             });
         });
         
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#avatar-image').attr('src', e.target.result);
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
         //remove preloader
         togglePreloader(document.body,false);
     });
