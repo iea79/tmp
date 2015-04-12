@@ -1,8 +1,7 @@
 define("passengerRequester", function() {
 	var PassengerRequester = function() {
-    	// var host = 'http://taximyprice.com';
-		var host = 'http://taxi-my-price.dev/app_dev.php';
-    	        	
+    	var host = 'http://taximyprice.com';
+		    	        	
     	this.prepareRequest = function(values) {
     		var hash = new Object();
     		var params = values.split('-');
