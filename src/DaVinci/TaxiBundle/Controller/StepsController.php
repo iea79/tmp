@@ -73,7 +73,7 @@ class StepsController extends Controller
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */
-	protected function createPassengerRequest(PassengerRequest $request)
+	protected function createPassengerRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
 		$em = $this->container->get('doctrine')->getManager();
 		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->create($request);
