@@ -3,6 +3,10 @@
 namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use DaVinci\TaxiBundle\Entity\PassengerRequest;
+use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
+use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 
 class StepsController extends Controller 
