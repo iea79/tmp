@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.spinner', 'jquery.form', 'addons/datepicker', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit'], function () {
+    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit'], function () {
         require(['chosenImage.jquery'], function () {
 
             //Добавление доролнительных направлений 

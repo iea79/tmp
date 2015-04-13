@@ -133,6 +133,9 @@ class AppKernel extends Kernel
 
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
+                    
+            //copy of whole bundle bcs of old dependencies
+            new Symfony\Cmf\Bundle\BlogBundle\CmfBlogBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
