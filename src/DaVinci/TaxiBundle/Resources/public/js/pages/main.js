@@ -76,7 +76,29 @@ require(['pages/common'], function ($) {
             $('.spec-request .uk-parent > a, .auto-tip a').click(function (event) {
                 return false;
             });
-                                       
+
+            $('.date-input').pickmeup_uikit({
+            // $('.daterange input').pickmeup({
+                format: 'd.m.y',
+                position        : 'bottom',
+                hide_on_select  : true
+            });
+
+            var plus_5_days = new Date;
+            plus_5_days.addDays(5);                                       
+            $('.daterange input').pickmeup_uikit({
+            // $('.daterange input').pickmeup({
+                format: 'd/m/yy',
+                position        : 'bottom',
+                hide_on_select  : true,
+                date        : [
+                    new Date,
+                    plus_5_days
+                ],
+                mode        : 'range',
+                calendars   : 1
+            });
+
             // remove preloader
             togglePreloader(document.body, false);
         });

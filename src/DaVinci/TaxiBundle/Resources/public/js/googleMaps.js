@@ -1,12 +1,14 @@
 // Карта для различных страниц
 define('googleMaps', ['gmaps'], function(gmaps) {
     var GoogleMaps = function() {
+
         var mapOptions = {
             zoom: 9,
             center: new gmaps.LatLng(55.752, 37.615),
             panControl: true,
             zoomControl: true,
             scaleControl: true,
+            draggable: false,
             mapTypeId: gmaps.MapTypeId.ROADMAP
         };
 

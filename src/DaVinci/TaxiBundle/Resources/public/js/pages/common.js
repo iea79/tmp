@@ -25,7 +25,7 @@ define(['jquery'], function($){
         $('select').styler();
         //remove my account button loading
         $('.autorized').removeClass('loading');
-        require(['addons/form-select','addons/form-password', 'addons/sticky', 'addons/datepicker']);
+        require(['addons/form-select','addons/form-password', 'addons/sticky']);
     });
     
     //return jquery to use in other modules
