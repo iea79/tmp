@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'passengerRequester'], function (passengerRequester) {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'passengerHandler'], function () {
 
         function initProfileForm() {
             
@@ -81,29 +81,7 @@ require(['pages/common'], function ($) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        
-        $(document).ready(function () {
-            $(".driverlist").click(function () {
-                $(this).toggleClass("active-gray");
-            });
-            
-            $("button.approve-driver").on("click", function () {
-            	hash = passengerRequester.prepareRequest($(this).attr('value'));
-            	passengerRequester.makeRequest(
-            		hash.query, 
-            		{driver_id: hash.driver_id}
-            	);
-            });
-            
-            $("button.decline-driver").on("click", function () {
-            	hash = passengerRequester.prepareRequest($(this).attr('value'));
-            	passengerRequester.makeRequest(
-            		hash.query, 
-            		{driver_id: hash.driver_id}
-            	);
-            });
-        });
-        
+                
         //remove preloader
         togglePreloader(document.body,false);
     });

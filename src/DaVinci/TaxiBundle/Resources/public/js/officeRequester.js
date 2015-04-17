@@ -1,7 +1,8 @@
-define("passengerRequester", function() {
-	var PassengerRequester = function() {
+define("officeRequester", function() {
+	var OfficeRequester = function() {
     	var host = 'http://taximyprice.com';
-		    	        	
+		// var host = 'http://taxi-my-price.dev';		
+		
     	this.prepareRequest = function(values) {
     		var hash = new Object();
     		var params = values.split('-');
@@ -36,7 +37,23 @@ define("passengerRequester", function() {
             });	
     	}
     	
+    	this.makeDriverRequest = function(action, query, requestId, sendData) {
+    		$.ajax({
+                url: host + query,
+                data: sendData,
+                type: "POST",
+                dataType: "json",
+                success: function(data) {
+                	if (data.status == 'ok' && action == 'confirmation') {
+                		$("request_status_" + requestId).html("sold");
+                		$("confirm_"  + requestId).html("Deal confirmed");
+                	}
+                	
+                	return;
+                }
+            });	
+    	}
     }
 	
-    return new PassengerRequester();
+    return new OfficeRequester();
 });
