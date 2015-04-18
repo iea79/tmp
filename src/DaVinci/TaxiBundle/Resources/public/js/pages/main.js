@@ -77,8 +77,8 @@ require(['pages/common'], function ($) {
                 return false;
             });
 
+// datapicker and datarange
             $('.date-input').pickmeup_uikit({
-            // $('.daterange input').pickmeup({
                 format: 'd.m.y',
                 position        : 'bottom',
                 hide_on_select  : true
@@ -87,7 +87,6 @@ require(['pages/common'], function ($) {
             var plus_5_days = new Date;
             plus_5_days.addDays(5);                                       
             $('.daterange input').pickmeup_uikit({
-            // $('.daterange input').pickmeup({
                 format: 'd/m/yy',
                 position        : 'bottom',
                 hide_on_select  : true,

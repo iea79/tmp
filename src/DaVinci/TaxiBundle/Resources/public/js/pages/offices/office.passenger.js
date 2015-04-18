@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'passengerHandler'], function () {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'datarange', 'passengerHandler'], function () {
 
         function initProfileForm() {
             
@@ -65,6 +65,13 @@ require(['pages/common'], function ($) {
                 
                 
             }
+        });
+
+        // datapicker and datarange
+        $('.date-input').pickmeup_uikit({
+            format: 'd.m.y',
+            position        : 'bottom',
+            hide_on_select  : true
         });
 
         // Смена класса кнопок Driver list в office passengers //////////////////// 
