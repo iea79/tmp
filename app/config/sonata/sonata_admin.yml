@@ -109,7 +109,7 @@ sonata_admin:
             - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
             - bundles/sonataadmin/css/styles.css
             - bundles/sonataadmin/css/layout.css
-            - bundles/sonataadmin/css/tree.css
+           # - bundles/sonataadmin/css/tree.css
             - bundles/sonatatranslation/css/sonata-translation.css 
             - bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css    
 
@@ -128,7 +128,7 @@ sonata_admin:
             - bundles/sonatacore/vendor/select2/select2.min.js
             - bundles/sonataadmin/App.js
             - bundles/sonataadmin/Admin.js
-            - bundles/sonataadmin/treeview.js  
+            #- bundles/sonataadmin/treeview.js  
             - bundles/davincitaxi/js/intl-tel-input-master/js/intlTelInput.js  
 
             - bundles/ivoryckeditor/ckeditor.js
