@@ -1,6 +1,6 @@
 require(["pages/common"], function ($) {
 
-    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'charCount'], function () {
+    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'charCount', 'driverHandler'], function () {
 
         require(['pages/register/phone.block'], function () {
 
@@ -183,77 +183,7 @@ require(["pages/common"], function ($) {
             if(typeof is_filled != "undefined"  && !is_filled)
             {
                 $("#open-profile-button").click();
-            }
-            
-            var Requester = function() {
-            	var host = 'http://taximyprice.com';
-            	            	
-            	this.prepareRequest = function(values) {
-            		var hash = new Object();
-            		
-            		var params = values.split('-');
-                	for (var i = 0; i < params.length; i++) {
-                		if (params[i].charAt(1) != ':') {
-                			continue;
-                		}
-                		
-                		var param = params[i].split(':');
-                		if (i == 0) {
-                			hash.query = param[1];
-                		}
-                		
-                		if (i == 1) {
-                			hash.driver_id = param[1];
-                		}
-                		
-                		if (i == 2) {
-                			hash.request_id = param[1];
-                		}
-                	}
-                	
-                	return hash;
-            	} 
-            	
-            	this.makeRequest = function(action, query, requestId, sendData) {
-            		$.ajax({
-                        url: host + query,
-                        data: sendData,
-                        type: "POST",
-                        dataType: "json",
-                        success: function(data) {
-                        	if (data.status == 'ok' && action == 'confirmation') {
-                        		$("request_status_" + requestId).html("sold");
-                        		$("confirm_"  + requestId).html("Deal confirmed");
-                        	}
-                        	
-                        	return;
-                        }
-                    });	
-            	}
-            	
-            }
-            var requester = new Requester();
-            
-            $("a.confirm-deal").on("click", function () {
-            	hash = requester.prepareRequest($(this).attr('value'));
-            	requester.makeRequest(
-            		'confirmation',	
-            		hash.query,
-            		hash.request_id,
-            		{driver_id: hash.driver_id}
-            	);
-            });
-            
-            $("a.decline-deal").on("click", function () {
-            	hash = requester.prepareRequest($(this).attr('value'));
-            	requester.makeRequest(
-            		'declination',	
-            		hash.query, 
-            		hash.request_id,
-            		{driver_id: hash.driver_id}
-            	);
-            });
+            }                      
         });
-
     });
 });

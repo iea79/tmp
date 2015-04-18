@@ -193,6 +193,8 @@
                                                         		{{'Deal confirmed'|trans}}
                                                         	{% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
                                                         		<a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
+                                                        	{% else %}
+                                                        		{{ request.getPickUpLeft() }}	
                                                         	{% endif %}
                                                         </td>
                                                         <td>
