@@ -111,13 +111,14 @@
 							<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Make reservation for others'|trans}}"></span>
 						</label>
 					</div>
-					<div class="another-wrap">
+					<div class="another-wrap opder_personal_info">
 						<div class="pers-data">
 							<div class="left">
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_name">{{'Name'|trans}}:</label>
 							</div> 
 							<div class="right">
 								{{ form_widget(form.passenger_detail.name, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Write your First and Last name!'|trans}}"></span>
 							</div>
 						</div>
 						<!--div class="pers-data">
@@ -135,6 +136,7 @@
 							</div>
 							<div class="right">
 								{{ form_widget(form.passenger_detail.email, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Your email address'|trans}}"></span>
 							</div>
 						</div>
 						<div class="pers-data">
@@ -143,6 +145,7 @@
 							</div>
 							<div class="right">
 								{{ form_widget(form.passenger_detail.skype, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Your Skype name'|trans}}"></span>
 							</div>
 						</div> 
 						<div class="pers-data">
@@ -152,7 +155,8 @@
 							<div class="right forphoneinput">
 								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'placeholder': '111-222-3333', 'tabindex':'5', 'class':'mobile-phone'}}) }}
 								{{ form_widget(form.passenger_detail.mobile_code, {'attr': {'placeholder': '1', 'class':'mobile-code'}}) }}
-								<span>+</span>  
+								<span>+</span> 
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'777-777-7777'|trans}}"></span>
 							</div>
 						</div> 
 						<div class="pers-data"><div class="left">

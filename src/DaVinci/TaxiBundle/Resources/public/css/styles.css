@@ -373,7 +373,7 @@ Header style
 	min-width: 32px;
 }
 .nav-head .info-menu > li {
-	width: 50%;
+	width: 49.9%;
 	box-sizing: border-box;
 }
 .nav-head .info-menu > li > a {
@@ -1345,8 +1345,8 @@ styles of booking step 3  in homepage
 		width:58.5%;
 		position:relative;
 	}
-	 .order-details  .pers-data .right input[type="text"]{
-	width: 100%;
+	 .order-details .pers-data .right input[type="text"]{
+		width: 91%;
 	}
 	.order-details  .pers-data .right .select {
 		width:30%;
@@ -1388,6 +1388,11 @@ styles of booking step 3  in homepage
 	    display: inline-block;
 	    border: 1px;
 	}
+@media (max-width: 905px) {
+	.order-details .opder_personal_info .pers-data .right input[type="text"] {
+		width: 89%;
+	}
+}
 /*======================================
 driver's page
 ====================================*/
@@ -5176,8 +5181,8 @@ body.register .main-content{
     position: relative;
     top: -2px;
 }
-.register .checkmail .uk-width-5-1 {width: 72%;}
-.register .checkmail .uk-width-5-2 {width: 27%;}
+.register .checkmail .uk-width-5-1 {width: 70%;}
+.register .checkmail .uk-width-5-2 {width: 29%;}
 .register .changemail .btn {
     background: #528ed3;
     color: #fff;
@@ -7294,7 +7299,7 @@ Notifications button in main menu
 
 .notif-button {
     background: #f5f5f5;
-    width: 13.8%;
+    width: 13.9%;
     /* margin-left: -2.7%; */
     color: #3399ff;
     padding: 4px 0.6% 4px;
@@ -7990,9 +7995,9 @@ a.textarea-toggle input {
 .order-details .right input.mobile-phone {
 	left: 0;
 	padding-left: 60px;
-	position: absolute;
+	/*position: absolute;*/
 }
-.order-details .right.forphoneinput span {
+.order-details .right.forphoneinput span:not(.uk-icon-question-circle) {
   position: absolute;
   line-height: 29px;
   left: 5px;
@@ -8018,7 +8023,8 @@ a.textarea-toggle input {
 	min-width: 100%;
 }
 .destination .inputs .time div.jq-selectbox,.destination .inputs .time div select {
-	width: 50px;
+	width: 52px;
+	top: -1px;
 }
 .destination .inputs .time div.jq-selectbox__select {
 	width: 97%;
