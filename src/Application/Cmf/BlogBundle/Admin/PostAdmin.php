@@ -16,9 +16,7 @@ class PostAdmin extends Admin
         $formMapper
             ->with('dashboard.label_post')
                 ->add('title')
-                ->add('date', 'datetime', array(
-                    'widget' => 'single_text',
-                ))
+                ->add('date', 'sonata_type_datetime_picker')
                 ->add('bodyPreview', 'textarea')
                 ->add('body', 'ckeditor',array('label' => 'Text block'))
                 ->add('blog', 'phpcr_document', array(

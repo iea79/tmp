@@ -17,7 +17,7 @@
             {% if phones is defined %} 
                 {{ form_widget(phones.has_internet,{'attr':{'tabindex':'8'}}) }}{{'form.internet'|trans}}
             {% else %}
-                <input hidden id="has_internet_input">
+                <input hidden id="has_internet_input">{{'form.internet'|trans}}
             {% endif %}
         </div>
         <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Any kind of connection'|trans }}" data-cached-title="{{ 'Any kind of connection'|trans }}"></div>
@@ -28,7 +28,7 @@
             {% if phones is defined %}     
                 {{ form_widget(phones.has_whatsapp,{'attr':{'tabindex':'9', 'data-errormessage-value-missing': 'Mobile is required',  'data-errormessage': 'Mobile is required'}}) }}{{'whatsapp'|trans}}
             {% else %}
-                <input hidden id="has_whatsapp_input">
+                <input hidden id="has_whatsapp_input">{{'whatsapp'|trans}}
             {% endif %}
         </div>
         <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Free communication program'|trans }}" data-cached-title="{{ 'Free communication program'|trans }}"></div>

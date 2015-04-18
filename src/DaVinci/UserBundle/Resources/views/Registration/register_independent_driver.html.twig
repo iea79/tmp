@@ -166,29 +166,32 @@
                                     </div>
                                 </div>
 
-                                <div class="addlangline  uk-form-row">
-                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</label>
-                                    <div class="uk-form-controls">
-                                        <div class="label-info uk-width-1-1  float_left">
-                                            {% for lang in flow.formData.user.language.languagesNamed %} 
-                                                {{ lang }} 
-                                            {% endfor %}
+                                {% if flow.formData.user.language.languagesNamed is not empty %}
+                                    <div class="addlangline  uk-form-row">
+                                        <label class="uk-form-label uk-width-2-5 text">{{ 'form.other_language'|trans }}:</label>
+                                        <div class="uk-form-controls">
+                                            <div class="label-info uk-width-1-1  float_left">
+                                                {% for lang in flow.formData.user.language.languagesNamed %} 
+                                                    {{ lang }} 
+                                                {% endfor %}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                {% endif %}
                                 <div class="uk-form-row">
                                     <label class="uk-form-label uk-width-2-5 text">{{ 'form.driving_experience'|trans }}:</label>
                                     <div class="uk-form-controls">
                                         <div class="label-info uk-width-1-1  float_left">{{ flow.formData.experienceNamed }}</div>
                                     </div>
                                 </div>
-                                <div class="uk-form-row">
-                                    <label class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</label>
-                                    <div class="uk-form-controls">
-                                        <div class="label-info uk-width-1-1  float_left">{{ flow.formData.user.skype }}</div>
+                                {% if flow.formData.user.skype is not empty %}
+                                    <div class="uk-form-row">
+                                        <label class="uk-form-label uk-width-2-5 text">{{ 'form.skype'|trans }}:</label>
+                                        <div class="uk-form-controls">
+                                            <div class="label-info uk-width-1-1  float_left">{{ flow.formData.user.skype }}</div>
+                                        </div>
                                     </div>
-                                </div>
-
+                                {% endif %}
                                 <div class="uk-form-row">
                                     <label class="uk-form-label uk-width-2-5 text">{{ 'form.mobile'|trans }}:</label>
                                     <div class="uk-form-controls">

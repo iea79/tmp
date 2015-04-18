@@ -53,7 +53,19 @@
                                                     <span class="caption">{{ 'My account'|trans }}</span> 
                                                     <i class="uk-icon-caret-down uk-margin-small-left"></i>
                                                     <br/>
-                                                    <span class="ownship">passenger</span>
+                                                    <span class="ownship">
+                                                          {% if is_granted('ROLE_TAXICOMPANY') %}
+                                                          {{ 'Company'|trans }}
+                                                          {% elseif is_granted('ROLE_TAXIMANAGER') %}
+                                                          {{ 'Manager'|trans }}
+                                                          {% elseif is_granted('ROLE_COMPANYDRIVER') %}
+                                                          {{ 'Company driver'|trans }}
+                                                          {% elseif is_granted('ROLE_TAXIDRIVER') %}
+                                                          {{ 'Independent driver'|trans }}
+                                                          {% elseif is_granted('ROLE_USER') %}
+                                                          {{ 'Passenger'|trans }}
+                                                          {% endif %}
+                                                    </span>
                                                     <div class="throb-group">
                                                         <i class="fa fa-square"></i>
                                                         <i class="fa fa-square"></i>

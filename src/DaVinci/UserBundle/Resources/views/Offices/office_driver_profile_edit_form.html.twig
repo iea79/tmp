@@ -174,7 +174,7 @@
                                             {{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig', {'phones': phones}) }}
                                         {% endfor %}     
                                         {% do form.phones.setRendered() %}
-                                        <div class="addphone uk-width-1-1">
+                                        <div class="addphone uk-width-1-1" id="addphone">
                                             <span class="uk-float-left">
                                                 {{'Add mobile'|trans}}
                                             </span>
