@@ -1,3 +1,5 @@
+parameters:
+    cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
@@ -48,7 +50,7 @@ imports:
     
    # - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
     - { resource: requirejs/require_js.yml }
-    
+
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
@@ -203,6 +205,20 @@ parameters:
 
 
 #######CMF###############
+#overriding blog bundle service
+services:
+    blog_controller_custom : 
+        class: Application\Cmf\BlogBundle\Controller\BlogController
+        argumets:
+            - tmplating
+            - security.context
+            - { id: fos_rest.view_handler, on-invalid: ignore }
+            - cmf_blog.blog_repository
+            - cmf_blog.post_repository
+            - { id: knp_paginator, on-invalid: ignore }
+            - %cmf_blog.pagination.posts_per_page%
+
+
 cmf_core:
     multilang:
         locales: %locales%
@@ -225,10 +241,12 @@ cmf_routing:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute:  cmf_routing.redirect_controller:redirectAction
             DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
             DaVinci\TaxiBundle\Document\VideoGuidesPage: DaVinciTaxiBundle:Information:video
-            Symfony\Cmf\Bundle\BlogBundle\Document\Blog: cmf_blog.blog_controller:listAction
-            Symfony\Cmf\Bundle\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
+            Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
+            Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
 
-
+        templates_by_class:
+            Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
+            Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
       #  templates_by_class:
        
 
@@ -257,8 +275,8 @@ cmf_blog:
             class:
                 blog_admin: Application\Cmf\BlogBundle\Admin\BlogAdmin # Optional
                 post_admin: Application\Cmf\BlogBundle\Admin\PostAdmin # Optional
-                blog: Symfony\Cmf\Bundle\BlogBundle\Doctrine\Phpcr\Blog # Optional
-                post: Symfony\Cmf\Bundle\BlogBundle\Doctrine\Phpcr\Post # Optional
+                blog: Application\Cmf\BlogBundle\Document\Blog
+                post: Application\Cmf\BlogBundle\Document\Post
 
 #    object_mapper_service_id: cmf_create.persistence.orm.object_mapper
 
@@ -295,11 +313,12 @@ doctrine_phpcr:
         document_managers:
             default:    
                 session: default
-                auto_mapping: false    
+                auto_mapping: true    
                 mappings:
                     DaVinciTaxiBundle:
                         prefix: DaVinci\TaxiBundle\Document\
-
+                    ApplicationCmfBlogBundle: ~
+                    CmfBlogBundle: ~
 
 # alternative locales to look up if a document is not translated
         locales:

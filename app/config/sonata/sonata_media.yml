@@ -56,6 +56,16 @@ sonata_media:
                 preview: {width: 237, quality: 90}
                 big: {width: 640, quality: 100}
 
+        blog:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+
+            formats:
+                preview:   { width: 238, quality: 100}
+                small:     { width: 200, quality: 100}
+                large:     { width: 600, quality: 100}
         news:
             providers:
                 - sonata.media.provider.dailymotion

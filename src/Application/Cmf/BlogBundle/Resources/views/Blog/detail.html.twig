@@ -1,0 +1,104 @@
+{# exception fo blog route #}
+{% set isblog, reviews, social = true, false, false %}
+  
+        
+{% extends 'DaVinciTaxiBundle:Information:info.html.twig' %}
+
+{% block blog_content %}
+<div class="message">
+    <span>{{ 'Just'|trans }}</span> {{ 'Do it!'|trans }}
+    <div class="message-drop uk-float-right">
+        <span>{{ 'LOCAL BLOGS'|trans }}</span>
+    </div>
+</div>
+<div class="blog">
+    <div class="buttom-swicher">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#blog'}">
+            {% for b in blogs %}
+                <li {% if blog.slug == b.slug %}class="uk-active"{% endif %}><a href="{{ path(b) }}">{{ blog.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+        <ul id="blog" class="uk-switcher">
+            <li class="uk-active">
+                <div class="block-help">
+                    <div class="help-content">
+                        {# {{ blog.description|nl2br|raw }} #}
+                        <div class="uk-grid uk-grid-small top">
+                            <div class="uk-panel uk-width-1-3 tarif">
+                                <img src="{{ asset('bundles/davincitaxi/images/blog1.jpg') }}" alt="">
+                                <h6>Membership «Optimum» - the best choice at the best price!</h6>
+                            </div>
+                            <div class="uk-panel uk-width-1-3 tarif">
+                                <img src="{{ asset('bundles/davincitaxi/images/blog2.jpg') }}" alt="">
+                                <h6>Membership «Maximum» - all features at a low price</h6>
+                            </div>
+                            <div class="uk-panel uk-width-1-3 tarif">
+                                <img src="{{ asset('bundles/davincitaxi/images/blog3.jpg') }}" alt="">
+                                <h6>Christmas bonuses and discounts for you!</h6>
+                            </div>
+                        </div>
+                        {% for post in posts %}
+                        <div class="uk-grid uk-grid-small wide">
+                            <div class="uk-panel uk-width-1-3">
+                                {% thumbnail post.media, 'preview' %}
+                            </div>
+                            <div class="uk-panel uk-width-2-3">
+                                <a href="{{ path(post) }}">{{ post.title }}</a>
+                                <h5>{{ post.date|date('F jS, Y') }}</h5>
+                                <p>{{ post.bodyPreview }}</p>
+                            </div>
+                        </div>
+                        {% else %}
+                            <p class="empty">No posts found.</p>
+                        {% endfor %}
+                    </div>
+                    <div class="help-sidebar">
+                        <form class="uk-search" data-uk-search="">
+                            <input class="uk-search-field" type="search" placeholder="Поиск">
+                        </form>
+                        <ul class="uk-nav">
+                            <li class="head"><a href="#">{{'News'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
+                        </ul>
+                        <ul class="uk-nav">
+                            <li class="head"><a href="#">{{'Savings'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
+                        </ul>
+                        <ul class="uk-nav demo">
+                            <li class="head"><a href="#">{{'Videos'|trans}}</a></li>
+                            <li>
+                                <a href="#" class="preview-video">
+                                    <img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
+                                </a>
+                            </li>
+                            <li class="link"><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
+                            <li>
+                                <a href="#" class="preview-video">
+                                    <img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
+                                </a>
+                            </li>
+                            <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
+                        </ul>
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+                </div>
+            </li>
+            
+        </ul>
+</div>
+{% endblock %}

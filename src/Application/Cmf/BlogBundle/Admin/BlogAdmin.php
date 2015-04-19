@@ -23,6 +23,18 @@ class BlogAdmin extends Admin
                     'choice_list' => array(),
                     'select_root_node' => true,
                 ))
+                ->add('topPosts', 'phpcr_document', array(
+                    'property' => 'title',
+                    'class'    => 'Application\Cmf\BlogBundle\Document\Post',
+                    'multiple' => true,
+                    'label' => 'Top Posts',
+                    'required' => false,
+                    'choices' => $this->getSubject()->getPosts()
+               ))
+            ->end()
+            ->with('Other',  array('collapsed' => true))
+                // ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/about', 'select_root_node' => '/cms/about', 'choice_list' => array(), 'select_root_node' => true))
+                 ->add('locale')
             ->end()
         ;
     }
@@ -38,6 +50,7 @@ class BlogAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
+            ->add('locale')
         ;
     }
 }

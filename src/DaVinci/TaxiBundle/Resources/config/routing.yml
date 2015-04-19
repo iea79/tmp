@@ -11,17 +11,17 @@ passenger_request_payment:
 approve_request_status:
     pattern: /approve/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:approve }
-    options: { useAsInnerURL: true }
+    options: { useAsInnerURL: false }
     
 cancel_request_status:
     pattern: /cancel/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:cancel }
-    options: { useAsInnerURL: true }
+    options: { useAsInnerURL: false }
     
 decline_driver:
     pattern: /decline/driver/request_id/{id}
     defaults: { _controller: DaVinciTaxiBundle:Home:declineDriver }
-    options: { useAsInnerURL: true }                
+    options: { useAsInnerURL: false }                
     
 main_driver:
     pattern:  /main-driver
@@ -80,9 +80,9 @@ reviews:
     defaults: { _controller: DaVinciTaxiBundle:Information:reviews }    
     options: { useAsInnerURL: true }
 
-blog:
-    pattern:  /blog
-    defaults: { _controller: DaVinciTaxiBundle:Information:blog }    
+blogs:
+    pattern:  /blogs
+    defaults: { _controller: ApplicationCmfBlogBundle:Information:blog }    
     options: { useAsInnerURL: true }        
         
 financial_office:
