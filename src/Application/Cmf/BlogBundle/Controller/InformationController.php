@@ -13,8 +13,20 @@ class InformationController extends Controller {
         $dm = $this->get('doctrine_phpcr')->getManager();
 
     	$blg = $dm->getRepository('ApplicationCmfBlogBundle:Blog')->findAll()->first();
-        $url = $this->generateUrl('blogs').'/'.$blg->getSlug();
-        return $this->redirect($url);
+        if($blg)
+        {
+            $url = $this->generateUrl('blogs').'/'.$blg->getSlug();
+            return $this->redirect($url);
+        }
+        else
+        {
+            return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
+                array(
+                    'reviews' => false,
+                    'social' => false,
+                    'isblog' => true
+                ));
+        }
 
     }    
     
