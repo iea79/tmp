@@ -8,6 +8,14 @@ iphp_file_store:
                   params: { field : createdAt, depth : month }
            namer: ~
            
+       picture:
+           upload_dir:  %kernel.root_dir%/../web/uploads/picture
+           upload_path: /uploads/picture
+           directory_namer:
+               date:
+                  params: { field: id, depth: month }
+           namer: ~           
+           
 liip_imagine:
     resolvers:
        default:

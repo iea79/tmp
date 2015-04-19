@@ -12,7 +12,12 @@
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
 							{% endif %}
-							<!--dt class="photo"><img src="{{ asset('bundles/davincitaxi/images/girl-photo.png') }}" height="104px" width="101px"></dt-->
+							{% if flow.formData.passengerDetail.filename != '' %}
+								{% set picture = flow.formData.passengerDetail.getFile() %}
+								<dt class="photo">
+									<img src="{{ picture.getRealPath() }}" height="104px" width="101px" />
+								</dt>
+							{% endif %}
 							<dd class="personal">
 								<dl>
 									<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>

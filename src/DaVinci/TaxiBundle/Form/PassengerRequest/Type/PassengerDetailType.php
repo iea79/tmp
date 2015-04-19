@@ -5,6 +5,7 @@ namespace DaVinci\TaxiBundle\Form\PassengerRequest\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use DaVinci\TaxiBundle\Entity\PassengerDetail;
 
 class PassengerDetailType extends AbstractType {
 	
@@ -13,6 +14,8 @@ class PassengerDetailType extends AbstractType {
 			->add('adult', 'number', array('data' => 0))
 			->add('children', 'number', array('data' => 0))
 			->add('seniors', 'number', array('data' => 0))
+			->add('filename', 'hidden', array('data' => PassengerDetail::generateFilename()))
+			->add('file', 'file')
 			->add('not_my_self', 'checkbox')
 			->add('name', 'text')
 			->add('email', 'text')

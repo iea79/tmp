@@ -120,15 +120,16 @@
 								{{ form_widget(form.passenger_detail.name, {'attr': {'placeholder': 'Not completed'}}) }}
 							</div>
 						</div>
-						<!--div class="pers-data">
+						<div class="pers-data">
 							<div class="left">
 								<label>Photo:</label>
 							</div> 
 							<div class="right">
-								<button class="uk-button uk-button-primary">Add image</button>
+								{{ form_widget(form.passenger_detail.filename) }}
+								{{ form_widget(form.passenger_detail.file, {'attr': {'placeholder': 'Add image'}}) }}
 								<p class="photo">file formats: JPG, PNG, GIF, BMP (up to 2mb)</p>
 							</div>
-						</div-->
+						</div>
 						<div class="pers-data">
 							<div class="left">
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_email">E-mail:</label>

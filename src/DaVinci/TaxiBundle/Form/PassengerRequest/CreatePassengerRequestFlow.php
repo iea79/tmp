@@ -10,6 +10,7 @@ use Craue\FormFlowBundle\Event\PreBindEvent;
 use Craue\FormFlowBundle\Event\GetStepsEvent;
 use Craue\FormFlowBundle\Event\PostBindSavedDataEvent;
 use Craue\FormFlowBundle\Event\PostBindFlowEvent;
+use Craue\FormFlowBundle\Event\PostBindRequestEvent;
 use Craue\FormFlowBundle\Event\PostValidateEvent;
 
 use DaVinci\TaxiBundle\Form\PassengerRequest\Type\RouteInfoType;
@@ -41,6 +42,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 			FormFlowEvents::GET_STEPS => 'onGetSteps',
 			FormFlowEvents::POST_BIND_SAVED_DATA => 'onPostBindSavedData',
 			FormFlowEvents::POST_BIND_FLOW => 'onPostBindFlow',
+			FormFlowEvents::POST_BIND_REQUEST => 'onPostBindRequest',
 			FormFlowEvents::POST_VALIDATE => 'onPostValidate'
 		);
 	}
@@ -61,15 +63,30 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 		
 	}
 	
-	public function onPostBindSavedData(PostBindSavedDataEvent $event) {
+	public function onPostBindSavedData(PostBindSavedDataEvent $event) 
+	{
 		
+	}
+	
+	public function onPostBindFlow(PostBindFlowEvent $event)
+	{
+		
+	}
+	
+	public function onPostBindRequest(PostBindRequestEvent $event) 
+	{
+				
 	}
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
+		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_THIRD) {
+			$request = $event->getFormData();
+			$request->getPassengerDetail()->preliminaryProcess();
+		}
+		
 		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
 			$request = $event->getFormData();
-			
 			$request->setPickUp(new \DateTime(
 				$request->getPickUpDate()->format('Y-m-d') . ' ' 
 					. $request->getPickUpTime()->format('H:i:s')
@@ -87,12 +104,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 			$tariff->defineTips();
 		}
 	}
-	
-	public function onPostBindFlow(PostBindFlowEvent $event)
-	{
 		
-	}
-	
 	protected function loadStepsConfig()
 	{
 		return array(

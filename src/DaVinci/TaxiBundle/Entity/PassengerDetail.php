@@ -4,12 +4,21 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="passenger_detail")
+ * @ORM\HasLifecycleCallbacks
+ * @FileStore\Uploadable
  */
 class PassengerDetail {
+	
+	const UPLOAD_PICTURE_DIR = 'uploads/pictures';
+	const PATH_INITIAL = 'initial';
+	
+	private $temp;
 	
 	/**
 	 * @ORM\Id
@@ -53,6 +62,28 @@ class PassengerDetail {
      * )
 	 */
 	private $seniors = 0;
+	
+	/**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $filename;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $path;
+    
+    /**
+     * @Assert\Image(
+     * 		maxSize="1024K",
+     * 		minWidth = 200,
+     *     	maxWidth = 400,
+     *     	minHeight = 200,
+     *     	maxHeight = 400
+     * )
+     * @FileStore\UploadableField(mapping="picture")
+     */
+    private $file;
 	
 	/**
 	 * @ORM\Column(type="boolean", name="not_my_self")
@@ -202,6 +233,150 @@ class PassengerDetail {
         return $this->seniors;
     }
     
+    public static function generateFilename()
+    {
+    	return sha1(uniqid(mt_rand(), true));
+    }
+    
+    /**
+     * Set filename
+     *
+     * @param string $filename
+     * @return PassengerDetail
+     */
+    public function setFilename($filename)
+    {
+    	$this->filename = $filename;
+    	
+    	return $this;
+    }
+
+    /**
+     * Get filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+    	return $this->filename;
+    }
+    
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return PassengerDetail
+     */
+    public function setPath($path)
+    {
+    	$this->path = $path;
+    	 
+    	return $this;
+    }
+    
+    /**
+     * Get path
+     *
+     * @return string
+     */
+    public function getPath()
+    {
+    	return $this->path;
+    }
+    
+    public function getAbsolutePath()
+    {
+        return (null === $this->path)
+            ? null
+            : $this->getUploadRootDir() . '/' . $this->path;
+    }
+
+    public function getWebPath()
+    {
+        return (null === $this->path)
+            ? null
+            : $this->getUploadDir() . '/' . $this->path;
+    }
+        
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFile(UploadedFile $file = null)
+    {
+    	$this->file = $file;
+    	
+    	if (isset($this->path)) {
+    		$this->temp = $this->path;
+    		$this->path = null;
+    	} else {
+    		$this->path = self::PATH_INITIAL;
+    	}
+    }
+    
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFile()
+    {
+    	return $this->file;
+    }
+    
+    public function getPreviewFile()
+    {
+    	return $this->getWebPath() . '/' . $this->getFilename() .  '/' . $this->getFile()->guessExtension();
+    }
+    
+    public function preliminaryProcess()
+    {
+    	$this->path = $this->getFilename() . '.' . $this->getFile()->guessExtension();
+		$this->getFile()->move($this->getUploadRootDir(), $this->path);
+    }
+    
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+    	if (null !== $this->getFile()) {
+    		$this->path = $this->getFilename() . '.' . $this->getFile()->guessExtension();
+    	}
+    }
+    
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload()
+    {
+    	if (null === $this->getFile()) {
+    		return;
+    	}
+    	
+    	$this->getFile()->move($this->getUploadRootDir(), $this->path);
+		if (isset($this->temp)) {
+    		unlink($this->getUploadRootDir() . '/' . $this->temp);
+    		$this->temp = null;
+    	}
+    	
+    	$this->file = null;
+    }
+    
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+    	$file = $this->getAbsolutePath();
+    	if ($file) {
+    		unlink($file);
+    	}
+    }
+
     /**
      * Set notMySelf
      *
@@ -434,4 +609,17 @@ class PassengerDetail {
     {
         return $this->passengerRequest;
     }
+    
+    protected function getUploadRootDir()
+    {
+    	// the absolute directory path where uploaded
+    	// documents should be saved
+    	return __DIR__ . '/../../../../web/' . $this->getUploadDir();
+    }
+    
+    protected function getUploadDir()
+    {
+    	return self::UPLOAD_PICTURE_DIR;
+    }
+        
 }
