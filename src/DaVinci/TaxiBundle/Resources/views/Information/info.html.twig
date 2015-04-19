@@ -4,7 +4,7 @@
         {% include 'DaVinciTaxiBundle::banner.html.twig' %}
     {% endblock%}
     {% block body %}
-
+        
         <div class="shadow-main">
             <div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
                 <div class="uk-panel uk-width-1-3 {% if social %}uk-active{% endif %}">
@@ -17,8 +17,8 @@
                         {{'Reviews'|trans}}
                     </a>
                 </div>
-                <div class="uk-panel uk-width-1-3 {% if blog %}uk-active{% endif %}">
-                    <a href="{% if not blog %}{{ url('blog') }}{% else %}#{% endif %}">
+                <div class="uk-panel uk-width-1-3 {% if isblog %}uk-active{% endif %}">
+                    <a href="{% if not isblog %}{{ url('blogs') }}{% else %}#{% endif %}">
                         {{'Blog'|trans}}
                     </a>
                 </div>
@@ -29,8 +29,8 @@
                     {% include 'DaVinciTaxiBundle:Information:social.html.twig' %}
                 {% elseif reviews %}
                     {% include 'DaVinciTaxiBundle:Information:reviews.html.twig' %}
-                {% elseif blog %}
-                    {% include 'DaVinciTaxiBundle:Information:blog.html.twig' %}
+                {% elseif isblog %}
+                    {% block blog_content %}{% endblock %}
                 {% endif %}
             </div>
         </div>

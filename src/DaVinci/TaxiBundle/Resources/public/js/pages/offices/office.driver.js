@@ -1,6 +1,6 @@
 require(["pages/common"], function ($) {
 
-    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'charCount', 'driverHandler'], function () {
+    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler'], function () {
 
         require(['pages/register/phone.block'], function () {
 
@@ -176,6 +176,22 @@ require(["pages/common"], function ($) {
                     reader.readAsDataURL(input.files[0]);
                 }
             }
+
+            // datarange
+            var plus_5_days = new Date;
+            plus_5_days.addDays(5);                                       
+            $('.daterange input').pickmeup_uikit({
+                format: 'd/m/yy',
+                position        : 'bottom',
+                hide_on_select  : true,
+                date        : [
+                    new Date,
+                    plus_5_days
+                ],
+                mode        : 'range',
+                calendars   : 1
+            });
+
             
             //remove preloader
             togglePreloader(document.body, false);

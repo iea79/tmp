@@ -111,7 +111,7 @@ class InformationController extends Controller {
                 array(
                     'social' => true,
                     'reviews' => false,
-                    'blog' => false
+                    'isblog' => false
                 ));
     }
     
@@ -121,20 +121,10 @@ class InformationController extends Controller {
                 array(
                     'reviews' => true,
                     'social' => false,
-                    'blog' => false
+                    'isblog' => false
                 ));
     }
 
-    public function blogAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
-                array(
-                    'blog' => true,
-                    'social' => false,
-                    'reviews' => false
-                ));
-    }    
-    
     public function financial_officeAction()
     {
         return $this->render('DaVinciTaxiBundle:Finoffice:financial_office.html.twig');

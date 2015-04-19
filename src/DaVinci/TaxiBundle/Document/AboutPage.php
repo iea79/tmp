@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Application\Sonata\CommentBundle\PHPCR\FakeComment as FakeComment;
 
 /**
- * @PHPCR\Document(translator="attribute", repositoryClass="ProfitRepository")
+ * @PHPCR\Document(translator="attribute", repositoryClass="AboutRepository")
  */
 class AboutPage implements TranslatableInterface
 {
