@@ -15,7 +15,7 @@
 							{% if flow.formData.passengerDetail.filename != '' %}
 								{% set picture = flow.formData.passengerDetail.getFile() %}
 								<dt class="photo">
-									<img src="{{ picture.getRealPath() }}" height="104px" width="101px" />
+									<img src="{{ picture.getPathname() }}" height="104px" width="101px" />
 								</dt>
 							{% endif %}
 							<dd class="personal">

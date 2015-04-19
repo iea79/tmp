@@ -80,11 +80,6 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
-		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_THIRD) {
-			$request = $event->getFormData();
-			$request->getPassengerDetail()->preliminaryProcess();
-		}
-		
 		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
 			$request = $event->getFormData();
 			$request->setPickUp(new \DateTime(

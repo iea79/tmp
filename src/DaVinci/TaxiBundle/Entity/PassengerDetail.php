@@ -305,7 +305,7 @@ class PassengerDetail {
      */
     public function setFile(UploadedFile $file = null)
     {
-    	$this->file = $file;
+    	$this->file = $this->preliminaryProcess($file);
     	
     	if (isset($this->path)) {
     		$this->temp = $this->path;
@@ -324,18 +324,7 @@ class PassengerDetail {
     {
     	return $this->file;
     }
-    
-    public function getPreviewFile()
-    {
-    	return $this->getWebPath() . '/' . $this->getFilename() .  '/' . $this->getFile()->guessExtension();
-    }
-    
-    public function preliminaryProcess()
-    {
-    	$this->path = $this->getFilename() . '.' . $this->getFile()->guessExtension();
-		$this->getFile()->move($this->getUploadRootDir(), $this->path);
-    }
-    
+        
     /**
      * @ORM\PrePersist()
      * @ORM\PreUpdate()
@@ -621,5 +610,11 @@ class PassengerDetail {
     {
     	return self::UPLOAD_PICTURE_DIR;
     }
+    
+    protected function preliminaryProcess(UploadedFile $file)
+    {
+    	$this->path = $this->getFilename() . '.' . $file->guessExtension();
+		return $file->move($this->getUploadRootDir(), $this->path);
+	}
         
 }
