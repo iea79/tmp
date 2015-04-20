@@ -1,20 +1,19 @@
 iphp_file_store:
     mappings:
-       photo:
-           upload_dir:  %kernel.root_dir%/../web/uploads/photo
-           upload_path: /uploads/photo
-           directory_namer:
-               date:
-                  params: { field: createdAt, depth: month }
-           namer: ~
-           
-       picture:
-           upload_dir:  %kernel.root_dir%/../web/uploads/picture
-           upload_path: /uploads/picture
-           directory_namer:
-               date:
-                  params: { field: id, depth: month }
-           namer: ~           
+        photo:
+            upload_dir:  %kernel.root_dir%/../web/uploads/photo
+            upload_path: /uploads/photo
+            directory_namer:
+                date:
+                    params: { field: createdAt, depth: month }
+            namer: ~
+        picture:
+            upload_dir:  %kernel.root_dir%/../web/uploads/picture
+            upload_path: /uploads/picture
+            directory_namer:
+                property:
+                    params: { field: "id" }
+            namer: ~           
            
 liip_imagine:
     resolvers:

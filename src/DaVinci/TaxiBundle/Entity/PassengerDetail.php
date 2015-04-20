@@ -59,13 +59,9 @@ class PassengerDetail {
 	
     /**
      * @ORM\Column(type="array")
-     * @Assert\Image(
+     * @Assert\File(
      * 		groups={"flow_createPassengerRequest_step3"},
-     * 		maxSize="1024K",
-     * 		minWidth=200,
-     *     	maxWidth=400,
-     *     	minHeight=200,
-     *     	maxHeight=400
+     * 		maxSize="2M"
      * )
      * @FileStore\UploadableField(mapping="picture")
      */
