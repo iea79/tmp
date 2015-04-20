@@ -12,12 +12,9 @@
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
 							{% endif %}
-							{% if flow.formData.passengerDetail.filename != '' %}
-								{% set picture = flow.formData.passengerDetail.getFile() %}
-								<dt class="photo">
-									<img src="{{ picture.getPathname() }}" height="104px" width="101px" />
-								</dt>
-							{% endif %}
+							<dt class="photo">
+								<img src="{{ flow.formData.passengerDetail.picture.path }}" height="104px" width="101px" />
+							</dt>
 							<dd class="personal">
 								<dl>
 									<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>
