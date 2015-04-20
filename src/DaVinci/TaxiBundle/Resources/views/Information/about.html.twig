@@ -6,7 +6,7 @@
 	    	<div class="buttom-swicher" data-uk-sticky>
 	            <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
                     {% for at in all_tabs %}
-                        <li {% if loop.first %}class="uk-active" {% endif %}><a href="#{{ at.title }}">{{ at.title }}</a></li>
+                        <li {% if loop.first %} class="uk-active" {% endif %}><a href="#{{ at.title|slugify }}">{{ at.title }}</a></li>
                     {% endfor %}
 	            </ul>
 	        </div>
@@ -15,7 +15,8 @@
 {# ======= About ========= #}
 <div class="whitebg shadow-main">
     {% for at in all_tabs %}
-    <div id="{{ at.title }}" class="empty">
+    <div class="empty">
+        <div id="{{ at.title|slugify }}" class="anchor" ></div>
 		<div class="info-block">
             <div class="info-block passenger">
                 {% if at.textToLeft %}

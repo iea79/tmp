@@ -4,10 +4,13 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="passenger_detail")
+ * @FileStore\Uploadable
  */
 class PassengerDetail {
 	
@@ -53,6 +56,16 @@ class PassengerDetail {
      * )
 	 */
 	private $seniors = 0;
+	
+    /**
+     * @ORM\Column(type="array")
+     * @Assert\File(
+     * 		groups={"flow_createPassengerRequest_step3"},
+     * 		maxSize="2M"
+     * )
+     * @FileStore\UploadableField(mapping="picture")
+     */
+    private $picture;
 	
 	/**
 	 * @ORM\Column(type="boolean", name="not_my_self")
@@ -201,7 +214,30 @@ class PassengerDetail {
     {
         return $this->seniors;
     }
+        
+    /**
+     * Sets picture
+     *
+     * @param array $picture
+     * @return PassengerDetail
+     */
+    public function setPicture($picture)
+    {
+    	$this->picture = $picture;
+    	
+    	return $this;
+    }
     
+    /**
+     * Get picture
+     *
+     * @return array
+     */
+    public function getPicture()
+    {
+    	return $this->picture;
+    }
+        
     /**
      * Set notMySelf
      *
@@ -434,4 +470,5 @@ class PassengerDetail {
     {
         return $this->passengerRequest;
     }
+            
 }

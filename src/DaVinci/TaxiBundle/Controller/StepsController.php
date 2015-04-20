@@ -32,7 +32,7 @@ class StepsController extends Controller
 						$this->container->get('security.context')->getToken()->getUser()
 					);
 				}
-				 
+				
 				$this->createPassengerRequest($passengerRequest);
 				$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
 				 

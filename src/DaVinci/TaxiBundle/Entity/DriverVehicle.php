@@ -11,8 +11,8 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
 /**
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="DriverVehicle")
+ * @ORM\HasLifecycleCallbacks
  * @FileStore\Uploadable
  */
 class DriverVehicle
