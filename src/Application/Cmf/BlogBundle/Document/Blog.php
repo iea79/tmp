@@ -14,7 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Blog extends BaseBlog implements TranslatableInterface
 {
-    
+
     /**
      * @PHPCR\String(translated=true)
      */
@@ -26,7 +26,7 @@ class Blog extends BaseBlog implements TranslatableInterface
     protected $description;
     
     /** 
-     * @PHPCR\Children 
+     * @PHPCR\ReferenceMany 
      */
     protected $topPosts;
     
@@ -44,11 +44,17 @@ class Blog extends BaseBlog implements TranslatableInterface
         return $this->topPosts;
     }
 
-    function setTopPosts(ArrayCollection $topPosts)
+    public function setTopPosts($posts)
     {
-        $this->topPosts = $topPosts;
-    }
+        $this->topPosts = new ArrayCollection();
 
+        foreach ($posts as $post) {
+            $this->topPosts->add($post);
+        }
+
+        return $this;
+    }
+    
     /**
      * Add top post.
      *

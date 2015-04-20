@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f635f17b65a8a18379286ba96e57bf28",
+    "hash": "3d3ac78b5d5f16f6900c8be758c3cbf9",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -6214,16 +6214,16 @@
         },
         {
             "name": "sonata-project/translation-bundle",
-            "version": "1.0.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataTranslationBundle.git",
-                "reference": "9e51b13d4751172e8e5638df97e3884b72020419"
+                "reference": "19a0110de5123a1b485bd9f5d9315d63b4f00af7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataTranslationBundle/zipball/9e51b13d4751172e8e5638df97e3884b72020419",
-                "reference": "9e51b13d4751172e8e5638df97e3884b72020419",
+                "url": "https://api.github.com/repos/sonata-project/SonataTranslationBundle/zipball/19a0110de5123a1b485bd9f5d9315d63b4f00af7",
+                "reference": "19a0110de5123a1b485bd9f5d9315d63b4f00af7",
                 "shasum": ""
             },
             "require": {
@@ -6270,7 +6270,7 @@
                 "i18n",
                 "translation"
             ],
-            "time": "2015-03-17 12:13:01"
+            "time": "2015-04-16 13:12:52"
         },
         {
             "name": "sonata-project/user-bundle",
@@ -9189,6 +9189,7 @@
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/timeline-bundle": 20,
         "sonata-project/comment-bundle": 20,
+        "sonata-project/translation-bundle": 20,
         "gregwar/captcha-bundle": 20,
         "friendsofsymfony/comment-bundle": 20,
         "mopa/bootstrap-bundle": 20,
