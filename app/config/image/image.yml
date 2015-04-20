@@ -5,7 +5,7 @@ iphp_file_store:
            upload_path: /uploads/photo
            directory_namer:
                date:
-                  params: { field : createdAt, depth : month }
+                  params: { field: createdAt, depth: month }
            namer: ~
            
        picture:
