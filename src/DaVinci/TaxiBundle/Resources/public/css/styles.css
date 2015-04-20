@@ -447,7 +447,6 @@ styles of drop down menu
 	width: 100%;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown div {
-	font-size:16px;
 	display:table-cell;
 	vertical-align:top;					
 }
@@ -455,7 +454,7 @@ styles of drop down menu
 	margin:0;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop {
-	min-width:200px;
+	min-width:230px;
 	margin:0 0 0 2.5%;
 	border-left:1px solid #d0d0d0;
 	padding:0 0 0 15px;
@@ -472,9 +471,13 @@ styles of drop down menu
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord {
 	margin:15px 0 0 0;
+	text-align:center;
+	width:100%;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li {
-	padding-left:25px;
+	display:inline-block;
+	float:none;
+	padding:0 5px;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a {
 	color: #528ed3;
@@ -541,7 +544,7 @@ styles of drop down menu
 	color:#528ed3;
 	text-align:left;
 	padding:5px;
-	margin-left:-5px;
+	margin-left:-5px;;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown  .myaccount-drop ul li a:hover {
 	color:#fff;
@@ -5974,8 +5977,8 @@ About
     list-style: none;
     color: #fff;
     text-align: center;
-    padding: 7px 10px;
-    display: table-cell;
+    padding: 7px 2%;
+    display: inline-block;
 }
 .buttom-swicher li b {
 	background: #ff4d61;
@@ -6008,6 +6011,7 @@ About
     color: #fff;
     font-size: 16px;
     width: 100%;
+    white-space: nowrap;
 }
 .buttom-swicher li.uk-active a {
 	color: #528ed3;
@@ -6022,14 +6026,13 @@ About
     width: 100%;
 }
 .about .buttom-swicher li:first-child {
-	width: 160px;
 }
 .about .buttom-swicher li:nth-child(2) {
-	width: 190px;
 }
 .about .buttom-swicher li:nth-child(3) {
 }
 .about .empty {
+	position: relative;
 }
 .about .text,
 .about .video,
@@ -6217,6 +6220,13 @@ About
 	padding: 5px 10px;
 }
 .about .driver .video.bottom {display: none;}
+.anchor {
+	position: relative;
+	height: 30px;
+	margin-top: -30px;
+	display: block;
+	width: 1px;
+}
 
 @media (max-width: 680px) {
 	.about .text,
