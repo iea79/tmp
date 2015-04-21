@@ -84,7 +84,8 @@
                                                     <div class="myoffice-drop">
                                                         <ul class="uk-nav uk-nav-dropdown">
                                                             <li class="uk-nav-header">My office</li>
-                                                            <li><span>
+                                                            <li>
+                                                                <span>
                                                                     {% if is_granted('ROLE_USER') %}
                                                                     <a href="{{ url('office_passenger')}}">{{ 'Passenger'|trans }}</a>
                                                                     {% endif %}
@@ -127,9 +128,15 @@
                                                             </ul>
                                                         </div>
                                                         <ul class="uk-grid  menu-bord">
-                                                            <li><a href="">$Add</a></li>
-                                                            <li><a href="">$Withdraw</a></li>
-                                                            <li><a href="">$Transfer</a></li>
+                                                            <li>
+                                                                <a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></span></a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>

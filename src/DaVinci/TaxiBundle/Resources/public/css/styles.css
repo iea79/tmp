@@ -299,6 +299,7 @@ Header style
 	list-style: none;
 	float: left;
 	box-sizing: border-box;
+	position: relative;
 }
 .nav-head ul > li > a {
 	color: #3c3d45;
@@ -470,17 +471,29 @@ styles of drop down menu
 	padding:0 0 0 15px;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord {
-	margin:15px 0 0 0;
-	text-align:center;
+	margin:11px 0 0 0;
+	text-align:left;
 	width:100%;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li {
 	display:inline-block;
 	float:none;
-	padding:0 5px;
+	padding:0 5px 0 0;;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a {
-	color: #528ed3;
+	color: #fff;
+	min-width: 49px;
+	font-size: 19px;
+	line-height: 1.2em;
+	height: 30px;
+	min-height: inherit;
+	padding: 2px 0;
+	/*color: #528ed3;*/
+}
+.header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myid-drop .menu-bord  li a>* {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1px;
 }
 .header-top .header-top-in .uk-dropdown .myoffice-drop ul.uk-nav li span {
 	margin: 9px 0 0;
@@ -1926,7 +1939,6 @@ office tabs
     color: #fff;
     background: #528ed3;
     border-radius: 4px 4px 0 0;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
     font-size:20px;
     font-weight:bold;
     height:65px;
@@ -7939,7 +7951,6 @@ select{
 	font-size: 24px;
 	line-height: 51px;
 	height: 51px;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
 	border: 0;
 	border-radius: 3px;
 	width: 100%;
