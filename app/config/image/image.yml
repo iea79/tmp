@@ -12,7 +12,7 @@ iphp_file_store:
             upload_path: /uploads/picture
             directory_namer:
                 property:
-                    params: { field: "id" }
+                    params: { field: "id"}
             namer: ~           
            
 liip_imagine:
