@@ -39,7 +39,7 @@ class VehicleChildSeat {
 	private $childSeatType;
 	
 	/**
-     * @ORM\ManyToOne(targetEntity="VehicleOptions")
+     * @ORM\ManyToOne(targetEntity="VehicleOptions", inversedBy="childSeats")
      * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
      */
 	private $vehicleOptions;

@@ -18,7 +18,7 @@ use DaVinci\TaxiBundle\Entity\PassengerDetail;
 class PassengerRequestService
 {
 	
-	public function spawnRequest()
+	public function generateRequest()
 	{
 		$request = new PassengerRequest();
 		

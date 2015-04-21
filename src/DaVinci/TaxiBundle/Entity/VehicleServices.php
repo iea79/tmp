@@ -78,7 +78,7 @@ class VehicleServices {
 	private $disease;
 	
 	/**
-	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="vehicleServices")
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;

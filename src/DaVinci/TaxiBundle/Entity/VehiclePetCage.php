@@ -36,7 +36,7 @@ class VehiclePetCage {
 	private $petCageType;
 	
 	/**
-     * @ORM\ManyToOne(targetEntity="VehicleOptions")
+     * @ORM\ManyToOne(targetEntity="VehicleOptions", inversedBy="petCages")
      * @ORM\JoinColumn(name="option_id", referencedColumnName="id")
      */
 	private $vehicleOptions;

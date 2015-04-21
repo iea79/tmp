@@ -14,13 +14,30 @@ class StepsController extends Controller
 	
 	protected function showSteps()
 	{
-		$passengerRequest = $this->spawnPassengerRequest();
+		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');
+		$passengerRequest = $this->generatePassengerRequest();
 		 
 		$flow = $this->container->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
+				
+		$isCreated = false;
+		if (null !== $sessionRequestId) {
+			$entity = $this->getFullPassengerRequestById($sessionRequestId);
+			
+			if (null !== $entity) {
+				$passengerRequest = $entity;
+				$isCreated = true;
+			}
+		}
 		 
 		$form = $flow->createForm();
 		if ($flow->isValid($form)) {
+			if (CreatePassengerRequestFlow::STEP_LAST - 1 == $flow->getCurrentStepNumber()) {
+				$this->savePassengerRequest($passengerRequest);
+				if (!$isCreated) {
+					$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
+				}
+			}
 			$flow->saveCurrentStepData($form);
 		
 			if ($flow->nextStep()) {
@@ -33,9 +50,8 @@ class StepsController extends Controller
 					);
 				}
 				
-				$this->createPassengerRequest($passengerRequest);
-				$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
-				 
+				$this->savePassengerRequest($passengerRequest);
+								 
 				$url = ($isUser)
 					? $this->generateUrl('passenger_request_payment', array(
 						'id' => $passengerRequest->getId()
@@ -64,19 +80,45 @@ class StepsController extends Controller
 	/**
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
 	 */
-	protected function spawnPassengerRequest()
+	protected function generatePassengerRequest()
 	{
-		return $this->getPassengerRequestService()->spawnRequest();
+		return $this->getPassengerRequestService()->generateRequest();
 	}
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */
-	protected function createPassengerRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+	protected function savePassengerRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
 		$em = $this->container->get('doctrine')->getManager();
-		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->create($request);
+		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveAll($request);
+	}
+	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getPassengerRequestById($id)
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
+	}
+	
+	protected function getFullPassengerRequestById($id)
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->getFullRequestById($id);
+	}
+	
+	/**
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 * @return void
+	 */
+	protected function updatePassengerRequest(PassengerRequest $request)
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->save($request);
 	}
 	
 	/**

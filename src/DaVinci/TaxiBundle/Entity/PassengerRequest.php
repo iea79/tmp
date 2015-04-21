@@ -121,22 +121,22 @@ class PassengerRequest {
 	private $state;
 	
 	/**
-	 * @var \DaVinci\TaxiBundle\Entity\VehicleOptions
+	 * @ORM\OneToOne(targetEntity="VehicleOptions", mappedBy="passengerRequest")
 	 */
 	private $vehicleOptions;
 	
 	/**
-	 * @var \DaVinci\TaxiBundle\Entity\VehicleServices
-	 */
+	 * @ORM\OneToOne(targetEntity="VehicleServices", mappedBy="passengerRequest")
+     */
 	private $vehicleServices;
 
 	/**
-	 * @var \DaVinci\TaxiBundle\Entity\VehicleDriverConditions
+	 * @ORM\OneToOne(targetEntity="VehicleDriverConditions", mappedBy="passengerRequest")
 	 */
 	private $vehicleDriverConditions;
 	
 	/**
-	 * @var \DaVinci\TaxiBundle\Entity\PassengerDetail
+	 * @ORM\OneToOne(targetEntity="PassengerDetail", mappedBy="passengerRequest")
 	 * @Assert\Valid()
 	 */
 	private $passengerDetail;

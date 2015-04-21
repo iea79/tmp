@@ -115,7 +115,8 @@ class HomeController extends StepsController {
     				$this->saveDriver($driver);
     			}
     			    			
-    			$this->savePassengerRequest($passengerRequest);
+    			$this->updatePassengerRequest($passengerRequest);
+    			$this->getRequest()->getSession()->remove('request_id');
 
     			$flow->reset();
     			
@@ -314,26 +315,6 @@ class HomeController extends StepsController {
     		$makePaymentService->spawnPaymentMethod($makePayment, $params['paymentMethodCode']);
     		return $makePayment;
     	}
-    }
-    
-    /**
-     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
-     * @return void
-     */
-    private function savePassengerRequest(PassengerRequest $request)
-    {
-    	$em = $this->container->get('doctrine')->getManager();
-    	$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->save($request);
-    }
-    
-    /**
-     * @param integer $id
-     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-     */
-    private function getPassengerRequestById($id)
-    {
-    	$em = $this->container->get('doctrine')->getManager();
-    	return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
     }
     
     /**

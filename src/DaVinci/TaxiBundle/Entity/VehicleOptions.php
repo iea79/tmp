@@ -19,11 +19,13 @@ class VehicleOptions {
 	private $id;
 
 	/**
+	 * @ORM\OneToMany(targetEntity="VehicleChildSeat", mappedBy="vehicleOptions")
 	 * @var ArrayCollection
 	 */
 	private $childSeats;
 	
 	/**
+	 * @ORM\OneToMany(targetEntity="VehiclePetCage", mappedBy="vehicleOptions")
 	 * @var ArrayCollection
 	 */
 	private $petCages;
@@ -59,7 +61,7 @@ class VehicleOptions {
 	private $trailer = false;
 	
 	/**
-	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="vehicleOptions")
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;
@@ -271,7 +273,7 @@ class VehicleOptions {
      */
     public function removePetCage(\DaVinci\TaxiBundle\Entity\VehiclePetCage $petCage)
     {
-        $this->petCages->removeElement($petCages);
+        $this->petCages->removeElement($petCage);
     }
 
     /**

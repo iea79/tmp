@@ -12,9 +12,11 @@
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
 							{% endif %}
-							<dt class="photo">
-								<img src="{{ flow.formData.passengerDetail.picture.path }}" height="104px" width="101px" />
-							</dt>
+							{% if flow.formData.passengerDetail.picture.path is defined %}
+								<dt class="photo">
+									<img src="{{ flow.formData.passengerDetail.picture.path }}" height="104px" width="101px" />
+								</dt>
+							{% endif %}	
 							<dd class="personal">
 								<dl>
 									<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>

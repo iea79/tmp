@@ -112,7 +112,6 @@ class OfficeController extends StepsController
         	'DaVinciUserBundle:Offices:office_passenger.html.twig',
         	array_merge(
         		array(
-        			'newRequestId' => $this->getRequest()->getSession()->get('request_id'),
         			'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
         				$user->getId(),
         				array(

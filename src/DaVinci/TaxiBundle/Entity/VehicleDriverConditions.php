@@ -53,7 +53,7 @@ class VehicleDriverConditions {
 	private $guide = false;
 		
 	/**
-	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="vehicleDriverConditions")
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;

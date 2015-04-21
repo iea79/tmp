@@ -80,8 +80,24 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
+		$request = $event->getFormData();
+		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST - 1) {
+			$vehicleOptions = $request->getVehicleOptions();
+			
+			foreach ($vehicleOptions->getChildSeats() as $seat) {
+				if ($seat->getChildSeatNumber() <= 0) {
+					$vehicleOptions->removeChildSeat($seat);
+				}
+			}
+			
+			foreach ($vehicleOptions->getPetCages() as $cage) {
+				if ($cage->getPetCageNumber() <= 0) {
+					$vehicleOptions->removePetCage($cage);
+				}
+			}
+		}
+		
 		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
-			$request = $event->getFormData();
 			$request->setPickUp(new \DateTime(
 				$request->getPickUpDate()->format('Y-m-d') . ' ' 
 					. $request->getPickUpTime()->format('H:i:s')

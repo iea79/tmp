@@ -21,62 +21,51 @@ class PassengerRequestRepository extends EntityRepository
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */
-	public function create(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+	public function saveAll(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
-		$this->_em->persist($request);
-		
-		$vehicleOptions = $request->getVehicleOptions();
-		$vehicleOptions->setPassengerRequest($request);
-		$this->_em->persist($vehicleOptions);
-		foreach ($vehicleOptions->getChildSeats() as $seat) {
-			if ($seat->getChildSeatNumber() <= 0) {
-				continue;
-			}
-		
-			$seat->setVehicleOptions($vehicleOptions);
-			$this->_em->persist($seat);
-		}
-		foreach ($vehicleOptions->getPetCages() as $cage) {
-			if ($cage->getPetCageNumber() <= 0) {
-				continue;
-			}
-		
-			$cage->setVehicleOptions($vehicleOptions);
-			$this->_em->persist($cage);
-		}
-		
-		foreach ($request->getRoutePoints() as $routePoint) {
-			$routePoint->setPassengerRequest($request);
-			$this->_em->persist($routePoint);
-		}
-		
-		$vehicle = $request->getVehicle();
-		$vehicle->setPassengerRequest($request);
-		$this->_em->persist($vehicle);
-		 
-		$tariff = $request->getTariff();
-		$tariff->setPassengerRequest($request);
-		$this->_em->persist($tariff);
-		 
-		$passengerDetail = $request->getPassengerDetail();
-		$passengerDetail->setPassengerRequest($request);
-		$this->_em->persist($passengerDetail);
-		 
-		$vehicleServices = $request->getVehicleServices();
-		$vehicleServices->setPassengerRequest($request);
-		$this->_em->persist($vehicleServices);
-		 
-		$vehicleDriverConditions = $request->getVehicleDriverConditions();
-		$vehicleDriverConditions->setPassengerRequest($request);
-		$this->_em->persist($vehicleDriverConditions);
-		 
+		$this->persistAll($request);		 
 		$this->_em->flush();
 	}
 	
+	/**
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 * @return void
+	 */
 	public function save(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
 		$this->_em->persist($request);
 		$this->_em->flush();
+	}
+	
+	public function getFullRequestById($id)
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req, points, vehicle, detail, options, seats, cages, services, conditions
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			JOIN
+				req.routePoints points
+			JOIN
+				req.vehicle vehicle
+			JOIN
+				req.passengerDetail detail	
+			JOIN
+				req.vehicleOptions options
+			JOIN
+				options.childSeats seats
+			JOIN
+				options.petCages cages		
+			JOIN
+				req.vehicleServices services
+			JOIN
+				req.vehicleDriverConditions	conditions			
+			WHERE
+				req.id = :requestId
+		");
+		$query->setParameters(array('requestId' => $id));
+		
+		return $query->getOneOrNullResult();
 	}
 	
 	public function getAllUserRequestsByState($userId, $state)
@@ -149,6 +138,54 @@ class PassengerRequestRepository extends EntityRepository
 		$query->setMaxResults(self::DEFAULT_LIMIT_ROWS);
 									
 		return $query->getResult();
+	}
+	
+	/**
+	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 * @return void
+	 */
+	private function persistAll(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
+	{
+		$this->_em->persist($request);
+		
+		$vehicle = $request->getVehicle();
+		$vehicle->setPassengerRequest($request);
+		$this->_em->persist($vehicle);
+			
+		$tariff = $request->getTariff();
+		$tariff->setPassengerRequest($request);
+		$this->_em->persist($tariff);
+			
+		$passengerDetail = $request->getPassengerDetail();
+		$passengerDetail->setPassengerRequest($request);
+		$this->_em->persist($passengerDetail);
+			
+		$vehicleServices = $request->getVehicleServices();
+		$vehicleServices->setPassengerRequest($request);
+		$this->_em->persist($vehicleServices);
+			
+		$vehicleDriverConditions = $request->getVehicleDriverConditions();
+		$vehicleDriverConditions->setPassengerRequest($request);
+		$this->_em->persist($vehicleDriverConditions);
+		
+		foreach ($request->getRoutePoints() as $routePoint) {
+			$routePoint->setPassengerRequest($request);
+			$this->_em->persist($routePoint);
+		}
+		
+		$vehicleOptions = $request->getVehicleOptions();
+		$vehicleOptions->setPassengerRequest($request);
+		$this->_em->persist($vehicleOptions);
+		
+		foreach ($vehicleOptions->getPetCages() as $cage) {
+			$cage->setVehicleOptions($vehicleOptions);
+			$this->_em->persist($cage);
+		}
+		
+		foreach ($vehicleOptions->getChildSeats() as $seat) {
+			$seat->setVehicleOptions($vehicleOptions);
+			$this->_em->persist($seat);
+		}
 	}
 	
 }

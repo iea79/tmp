@@ -59,9 +59,13 @@ class PassengerDetail {
 	
     /**
      * @ORM\Column(type="array")
-     * @Assert\File(
+     * @Assert\Image(
      * 		groups={"flow_createPassengerRequest_step3"},
-     * 		maxSize="2M"
+     * 		maxSize="1024K",
+     * 		minWidth=200,
+     *     	maxWidth=400,
+     *     	minHeight=200,
+     *     	maxHeight=400
      * )
      * @FileStore\UploadableField(mapping="picture")
      */
@@ -130,7 +134,7 @@ class PassengerDetail {
 	private $about;
 	
 	/**
-	 * @ORM\OneToOne(targetEntity="PassengerRequest")
+	 * @ORM\OneToOne(targetEntity="PassengerRequest", inversedBy="passengerDetail")
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;
