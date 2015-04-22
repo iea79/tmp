@@ -30,6 +30,7 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
         , '37.133.94.37' //Evgeny April (Barcelona)
         , '93.117.143.157' //kontent manager
         , '2.135.194.139' //Elena Ilyna
+        , '89.252.8.95'//Yuriy (QA)		
        , 'fe80::1', '::1')) || php_sapi_name() === 'cli-server') ) && !getenv("C9_PROJECT")
 ) {
     header('HTTP/1.0 403 Forbidden');
