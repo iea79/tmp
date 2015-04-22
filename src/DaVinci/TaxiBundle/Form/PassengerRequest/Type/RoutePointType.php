@@ -10,7 +10,8 @@ class RoutePointType extends AbstractType {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) {
 		$builder->add('place', 'text', array(
-			'required' => false
+			'required' => false,
+			'trim' => true	
 		));
 	}
 	

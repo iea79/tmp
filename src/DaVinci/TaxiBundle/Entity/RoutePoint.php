@@ -38,6 +38,13 @@ class RoutePoint {
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="routePoint.place.blank")
+	 * @Assert\Length(
+	 *      groups={"flow_createPassengerRequest_step1"},
+     *      min=2,
+     *      max=100,
+     *      minMessage="Place must be at least {{ limit }} characters long",
+     * 		maxMessage="Place cannot be longer than {{ limit }} characters"
+     * )
 	 */
 	private $place;
 	
