@@ -46,8 +46,8 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	    	
 	    	var collectionHolder = $('div.desticlone');
 	        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
-	        var newRoutePoint = "<div class='form-block-wrap'>" 
-	        	+ "<div class='labels'>"
+	        var newRoutePoint = "<div class='form-block-wrap new-route-point'>" 
+	        	+ "<div class='labels new-point-icon'>"
 				+ "<label for='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place'>"
 				+ "<i class='mp-icon-point-b'></i> To:"
 				+ "</label>"
@@ -67,6 +67,34 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	        $(".next-route-point").on('focusout', function() {
 	        	routeDisplay.process();
 	        });
+	        
+	        $('div.new-point-icon').on('click', function(e) {
+		    	e.preventDefault();
+		    	
+		    	var collectionHolder = $('div.desticlone');
+		        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
+		        
+		        collectionHolder.data('index', currentIndex - 1);
+		        $(this).parent().remove();
+		        	        
+		        routeDisplay.process();	        
+		    });
+	    });
+	    
+	    $(".next-route-point").on('focusout', function() {
+        	routeDisplay.process();
+        });
+        
+        $('div.new-point-icon').on('click', function(e) {
+	    	e.preventDefault();
+	    	
+	    	var collectionHolder = $('div.desticlone');
+	        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
+	        
+	        collectionHolder.data('index', currentIndex - 1);
+	        $(this).parent().remove();
+	        	        
+	        routeDisplay.process();	        
 	    });
 	}
 	

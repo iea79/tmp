@@ -29,3 +29,6 @@ liip_imagine:
         profile_avatar:
             filters:
                 relative_resize: { widen: 159 }
+        passenger_avatar:
+            filters:
+                thumbnail: { size: [104, 101], mode: inset }        

@@ -14,7 +14,7 @@
 							{% endif %}
 							{% if flow.formData.passengerDetail.picture.path is defined %}
 								<dt class="photo">
-									<img src="{{ flow.formData.passengerDetail.picture.path }}" height="104px" width="101px" />
+									<img src="{{ flow.formData.passengerDetail.picture.path|imagine_filter('passenger_avatar') }}" height="{{ flow.formData.passengerDetail.picture.height }}" width="{{ flow.formData.passengerDetail.picture.width }}" />
 								</dt>
 							{% endif %}	
 							<dd class="personal">
