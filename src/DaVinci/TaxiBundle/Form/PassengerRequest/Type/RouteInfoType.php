@@ -15,7 +15,8 @@ class RouteInfoType extends AbstractType {
 			->add('routePoints', 'collection', array(
 				'type' => new RoutePointType(),
 				'error_bubbling' => false,
-				'allow_add'    => true,
+				'allow_add' => true,
+				'allow_delete' => true,
 				'by_reference' => false,
 				'cascade_validation' => true
 			))

@@ -42,8 +42,8 @@ class RoutePoint {
 	 *      groups={"flow_createPassengerRequest_step1"},
      *      min=2,
      *      max=100,
-     *      minMessage="Place must be at least {{ limit }} characters long",
-     * 		maxMessage="Place cannot be longer than {{ limit }} characters"
+     *      minMessage="Destination point must be at least {{ limit }} characters long",
+     * 		maxMessage="Destination point cannot be longer than {{ limit }} characters"
      * )
 	 */
 	private $place;

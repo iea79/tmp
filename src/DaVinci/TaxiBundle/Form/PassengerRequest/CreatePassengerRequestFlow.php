@@ -70,17 +70,41 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostBindFlow(PostBindFlowEvent $event)
 	{
+		$request = $event->getFormData();
 		
+		if ($event->getFlow()->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_FIRST) {
+			$routePoints = $request->getRoutePoints();
+			$iterator = $routePoints->getIterator();
+		
+			$count = 0;
+			$iterator->rewind();
+			while ($iterator->valid()) {
+				if ($count < 2) {
+					$iterator->next();
+					$count++;
+		
+					continue;
+				}
+		
+				if (trim($iterator->current()->getPlace()) == '') {
+					$request->removeRoutePoint($iterator->current());
+				}
+					
+				$iterator->next();
+				$count++;
+			}
+		}
 	}
 	
 	public function onPostBindRequest(PostBindRequestEvent $event) 
 	{
-				
+		
 	}
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
 		$request = $event->getFormData();
+						
 		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST - 1) {
 			$vehicleOptions = $request->getVehicleOptions();
 			

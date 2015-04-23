@@ -111,7 +111,7 @@ class PassengerDetail {
 	 * @ORM\Column(type="string", name="mobile_phone", nullable=true, length=20)
 	 * @Assert\Regex(
 	 *		groups={"flow_createPassengerRequest_step3"}, 		
-     *     	pattern="/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/",
+     *     	pattern="/^[0-9]{10,15}$/",
      *     	match=true,
      *     	message="Your phone number has incorrect format"
      * )

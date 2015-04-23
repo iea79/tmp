@@ -93,7 +93,8 @@ class PassengerRequest {
 	 * @ORM\OneToMany(targetEntity="RoutePoint", mappedBy="passengerRequest")
 	 * @Assert\Valid()
 	 * @Assert\All({
-	 * 		@Assert\NotBlank()
+	 * 		@Assert\NotBlank(),
+	 * 		@Assert\Length(min=2, max=100)
      * })
 	 */
 	private $routePoints;
@@ -447,9 +448,9 @@ class PassengerRequest {
      * @param \DaVinci\TaxiBundle\Entity\RoutePoint $routePoints
      * @return PassengerRequest
      */
-    public function addRoutePoint(\DaVinci\TaxiBundle\Entity\RoutePoint $routePoints)
+    public function addRoutePoint(\DaVinci\TaxiBundle\Entity\RoutePoint $routePoint)
     {
-        $this->routePoints[] = $routePoints;
+        $this->routePoints[] = $routePoint;
 
         return $this;
     }
@@ -459,9 +460,9 @@ class PassengerRequest {
      *
      * @param \DaVinci\TaxiBundle\Entity\RoutePoint $routePoints
      */
-    public function removeRoutePoint(\DaVinci\TaxiBundle\Entity\RoutePoint $routePoints)
+    public function removeRoutePoint(\DaVinci\TaxiBundle\Entity\RoutePoint $routePoint)
     {
-        $this->routePoints->removeElement($routePoints);
+        $this->routePoints->removeElement($routePoint);
     }
 
     /**
@@ -471,7 +472,7 @@ class PassengerRequest {
      */
     public function getRoutePoints()
     {
-        return $this->routePoints;
+		return $this->routePoints;
     }
 
     /**
