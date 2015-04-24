@@ -95,8 +95,11 @@ class HomeController extends StepsController {
     				);
     				
     				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->removeCanceledDrivers($driver);
     				$passengerRequest->changeState();
+    				
     				$driver->addPossibleRequests($passengerRequest);
+    				$driver->removeCanceledRequests($passengerRequest);
     				
     				$this->saveDriver($driver);
     			}
@@ -234,11 +237,11 @@ class HomeController extends StepsController {
     {
     	$requestId = $this->getRequest()->get('id');
     	 
-    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	$passengerRequest = $this->getFullPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
-    			'message' => 'undefined request id' . $requestId
+    			'message' => 'undefined request id ' . $requestId
     		));
     	}
     	
@@ -250,11 +253,11 @@ class HomeController extends StepsController {
     			'message' => 'undefined driver id ' . $driverId
     		));
     	}
-    	
+    	    	
     	$passengerRequest->addCanceledDrivers($driver);
     	$passengerRequest->removePossibleDriver($driver);
     	
-    	if ($driver->getId() == $passengerRequest->getDriver()->getId()) {
+    	if ($passengerRequest->getDriver() && $driver->getId() == $passengerRequest->getDriver()->getId()) {
     		$passengerRequest->setDriver(null);
     		$passengerRequest->resetToPendingState();
     	}

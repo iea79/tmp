@@ -41,7 +41,7 @@ class PassengerRequestRepository extends EntityRepository
 	{
 		$query = $this->_em->createQuery("
 			SELECT
-				req, points, vehicle, detail, options, seats, cages, services, conditions
+				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
 			FROM
 				DaVinci\TaxiBundle\Entity\PassengerRequest req
 			JOIN
@@ -49,17 +49,23 @@ class PassengerRequestRepository extends EntityRepository
 			JOIN
 				req.vehicle vehicle
 			JOIN
+				req.tariff tariff	
+			JOIN
 				req.passengerDetail detail	
-			JOIN
+			LEFT JOIN
 				req.vehicleOptions options
-			JOIN
+			LEFT JOIN
 				options.childSeats seats
-			JOIN
+			LEFT JOIN
 				options.petCages cages		
-			JOIN
+			LEFT JOIN
 				req.vehicleServices services
-			JOIN
-				req.vehicleDriverConditions	conditions			
+			LEFT JOIN
+				req.vehicleDriverConditions	conditions
+			LEFT JOIN
+				req.user user
+			LEFT JOIN
+				req.driver driver					
 			WHERE
 				req.id = :requestId
 		");
