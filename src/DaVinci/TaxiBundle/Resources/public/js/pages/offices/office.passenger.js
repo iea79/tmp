@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler'], function () {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler', 'charCount'], function () {
 
         function initProfileForm() {
             
@@ -73,6 +73,10 @@ require(['pages/common'], function ($) {
             position        : 'bottom',
             hide_on_select  : true
         });
+
+        // simbols left in textarea in step 2 homepage
+        $(".charcount").charCount();
+
 
         // Смена класса кнопок Driver list в office passengers //////////////////// 
         var but_txt;

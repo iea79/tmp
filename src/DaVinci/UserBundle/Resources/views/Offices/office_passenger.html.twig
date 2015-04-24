@@ -117,8 +117,14 @@
 																	</div>
 																</div>
 															{% else %}
-																<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'List of drivers: '|trans }}{{ request.getPossibleDriversNumber() }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span></button>
-																<button class="uk-button driverlist"{% if request.getPossibleDriversNumber() == 0 %} disabled {% endif %}data-uk-toggle="{target:'#driver-list{{ loop.index }}'}"><b>{{ 'Drivers list: '|trans }}{{ request.getPossibleDriversNumber() }}</b><span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span>
+																<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}">
+																	<b>{{ 'List of drivers: '|trans }}{{ request.getPossibleDriversNumber() }}</b>
+																	<span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span>
+																</button>
+																<button class="uk-button driverlist"{% if request.getPossibleDriversNumber() == 0 %} disabled {% endif %}data-uk-toggle="{target:'#driver-list{{ loop.index }}'}">
+																	<b>{{ 'Drivers list: '|trans }}{{ request.getPossibleDriversNumber() }}</b>
+																	<span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span>
+																</button>
 																<div class="hidden-driverinfo uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																	{% for driver in request.getPossibleDrivers() %}
 																		{% set driverUser = driver.user %}
