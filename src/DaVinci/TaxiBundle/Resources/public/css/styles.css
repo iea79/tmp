@@ -1361,7 +1361,7 @@ styles of booking step 3  in homepage
 		width:58.5%;
 		position:relative;
 	}
-	 .order-details .pers-data .right input[type="text"]{
+	 .order-details .pers-data .right input[type="text"],.order-details .pers-data .uk-form-file {
 		width: 91%;
 	}
 	.order-details  .pers-data .right .select {
@@ -1377,13 +1377,14 @@ styles of booking step 3  in homepage
 		float:right;
 		padding-right:17px;
 	}
-	.order-details  .pers-data  button {
+	.order-details .pers-data button {
 		width:100%;
 	}
 	.order-details  .pers-data .photo {
 		font-size:9px;
-		padding:0 0  2px 10px;
+		padding:3px 0  0px 10px;
 		margin:0;
+		line-height:1.2;
 	}
 	.order-details  .pers-data {
 		color:#8d8f98;
@@ -5410,15 +5411,17 @@ Step-4
 	margin-bottom: 12px;
 }
 .check-order .passenger-info .quantity dt.photo {
-	display: table;
+	display: inline-block;
 	margin-right: 7px !important;
 	margin-top: -2px;
+	height: 113px;
+	overflow: hidden;
 }
 .check-order .passenger-info .photo img {
 	margin-right: 4px;
 	border: 4px #ebebeb solid;
 	border-radius: 4px;
-	height: 113px;
+	height: auto;
 	width: 110px;
 }
 .check-order dd.personal {
