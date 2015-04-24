@@ -250,14 +250,5 @@ class OfficeController extends StepsController
     {
         return $this->render('DaVinciUserBundle:Offices:dispet_table.html.twig');
     }
-    
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
-     */
-    private function getPassengerRequestRepository()
-    {
-    	$em = $this->container->get('doctrine')->getManager();
-    	return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
-    }
-
+        
 }

@@ -28,9 +28,13 @@ class HomeController extends StepsController {
     public function indexAction() {
     	$result = $this->showSteps();
     	if (is_array($result)) {
+    		$allStockRequests = $this->getPassengerRequestRepository()->getActualRequestsByStates(
+				array(PassengerRequest::STATE_OPEN)
+    		);
+    		
     		return $this->render(
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
-    			$result
+    			array_merge($result, array('openRequests' => $allStockRequests))
     		);
     	} else {
     		return $this->redirect($result);

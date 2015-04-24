@@ -15,7 +15,7 @@ class PassengerRequestRepository extends EntityRepository
 {
 	
 	const DEFAULT_INTERVAL_HOURS = 24;
-	const DEFAULT_LIMIT_ROWS = 10;
+	const DEFAULT_LIMIT_ROWS = 15;
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
@@ -36,7 +36,7 @@ class PassengerRequestRepository extends EntityRepository
 		$this->_em->persist($request);
 		$this->_em->flush();
 	}
-	
+		
 	/**
 	 * @param integer $id
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
@@ -202,7 +202,7 @@ class PassengerRequestRepository extends EntityRepository
 				DATE_DIFF(req.pickUp, :pickUp) > 0
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
-				req.id DESC	
+				req.id DESC		
 		");
 		$query->setParameter(
 			'pickUp', 

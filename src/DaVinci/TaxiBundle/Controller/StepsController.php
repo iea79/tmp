@@ -95,38 +95,7 @@ class StepsController extends Controller
 	 */
 	protected function savePassengerRequest(\DaVinci\TaxiBundle\Entity\PassengerRequest $request)
 	{
-		$em = $this->container->get('doctrine')->getManager();
-		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->saveAll($request);
-	}
-	
-	/**
-	 * @param integer $id
-	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-	 */
-	protected function getPassengerRequestById($id)
-	{
-		$em = $this->container->get('doctrine')->getManager();
-		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
-	}
-	
-	/**
-	 * @param integer $id
-	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-	 */
-	protected function getFullPassengerRequestById($id)
-	{
-		$em = $this->container->get('doctrine')->getManager();
-		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->getFullRequestById($id);
-	}
-	
-	/**
-	 * @param integer $id
-	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-	 */
-	protected function getPassengerRequestWithDriversById($id)
-	{
-		$em = $this->container->get('doctrine')->getManager();
-		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->getRequestWithDriversById($id);
+		$this->getPassengerRequestRepository()->saveAll($request);
 	}
 	
 	/**
@@ -135,8 +104,34 @@ class StepsController extends Controller
 	 */
 	protected function updatePassengerRequest(PassengerRequest $request)
 	{
-		$em = $this->container->get('doctrine')->getManager();
-		$em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->save($request);
+		$this->getPassengerRequestRepository()->save($request);
+	}
+	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getPassengerRequestById($id)
+	{
+		return $this->getPassengerRequestRepository()->find($id);
+	}
+	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getFullPassengerRequestById($id)
+	{
+		return $this->getPassengerRequestRepository()->getFullRequestById($id);
+	}
+	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getPassengerRequestWithDriversById($id)
+	{
+		return $this->getPassengerRequestRepository()->getRequestWithDriversById($id);
 	}
 	
 	/**
@@ -153,6 +148,15 @@ class StepsController extends Controller
 	protected function getCalculationService()
 	{
 		return $this->container->get('da_vinci_taxi.service.calculation_service');
+	}
+	
+	/**
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
+	 */
+	protected function getPassengerRequestRepository()
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
 	}
 	
 }
