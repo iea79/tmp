@@ -42,7 +42,7 @@ class HomeController extends StepsController {
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function paymentAction() {
-    	$passengerRequest = $this->getPassengerRequestById($this->getRequest()->get('id'));
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($this->getRequest()->get('id'));
     	if (is_null($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
@@ -66,8 +66,7 @@ class HomeController extends StepsController {
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
     		&& $isTaxiDriver
 		);
-    	
-    		
+    	    		
     	if (!$userCondition && !$firstDriverCondition && !$otherDriverCondition) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
@@ -170,7 +169,7 @@ class HomeController extends StepsController {
     {
     	$requestId = $this->getRequest()->get('id');
     	
-    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
@@ -194,39 +193,36 @@ class HomeController extends StepsController {
     		));
     	}
     	
-    	if ($userCondition) {
-    		$driverId = $this->getRequest()->get('driver_id');
-    		$driver = $this->getDirverById($driverId);
-    		
-    		if (is_null($driver)) {
-    			return new JsonResponse(array(
-    				'status' => 'error', 
-    				'message' => 'undefined driver id ' . $driverId
-    			));
-    		}
-    		$passengerRequest->setDriver($driver);
+    	$driverId = $this->getRequest()->get('driver_id');
+    	$driver = $this->getDirverById($driverId);
+    	
+    	if (is_null($driver)) {
+    		return new JsonResponse(array(
+    			'status' => 'error',
+    			'message' => 'undefined driver id ' . $driverId
+    		));
     	}
     	
-    	if ($driverCondition) {
-    		$driverId = $this->getRequest()->get('driver_id');
-    		$driver = $this->getDirverById($driverId);
+    	if ($userCondition) {
+    		$passengerRequest->setDriver($driver);
+    		$passengerRequest->removeCanceledDrivers($driver);
     		
-    		if (is_null($driver)) {
-    			return new JsonResponse(array(
-    				'status' => 'error', 
-    				'message' => 'undefined driver id ' . $driverId
-    			));
-    		}
-    		
-    		if ($driver->getId() != $passengerRequest->getDriver()->getId()) {
-    			return new JsonResponse(array(
-    				'status' => 'error', 
-    				'message' => "driver with id {$driver->getId()} is not chosen for executing an order"
-    			));
-    		}
+    		$driver->removeCanceledRequests($passengerRequest);
     	}
-    	    	 
+    	
+    	if (
+    		$driverCondition
+    		&& $driver->getId() != $passengerRequest->getDriver()->getId()
+    	) {
+   			return new JsonResponse(array(
+   				'status' => 'error', 
+   				'message' => "driver with id {$driver->getId()} is not chosen for executing an order"
+   			));
+     	}
+    	
     	$passengerRequest->changeState();
+    	
+    	$this->saveDriver($driver);
     	$this->savePassengerRequest($passengerRequest);
     	
     	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
@@ -240,7 +236,7 @@ class HomeController extends StepsController {
     {
     	$requestId = $this->getRequest()->get('id');
     	 
-    	$passengerRequest = $this->getFullPassengerRequestById($requestId);
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
@@ -259,7 +255,7 @@ class HomeController extends StepsController {
     	    	
     	$passengerRequest->addCanceledDrivers($driver);
     	$passengerRequest->removePossibleDriver($driver);
-    	
+    	 
     	if ($passengerRequest->getDriver() && $driver->getId() == $passengerRequest->getDriver()->getId()) {
     		$passengerRequest->setDriver(null);
     		$passengerRequest->resetToPendingState();

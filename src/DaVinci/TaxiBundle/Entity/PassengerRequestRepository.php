@@ -37,6 +37,10 @@ class PassengerRequestRepository extends EntityRepository
 		$this->_em->flush();
 	}
 	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 */
 	public function getFullRequestById($id)
 	{
 		$query = $this->_em->createQuery("
@@ -74,6 +78,36 @@ class PassengerRequestRepository extends EntityRepository
 		return $query->getOneOrNullResult();
 	}
 	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 */
+	public function getRequestWithDriversById($id)
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req, possibleDrivers, canceledDrivers
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			LEFT JOIN
+				req.possibleDrivers possibleDrivers
+			LEFT JOIN
+				req.canceledDrivers canceledDrivers
+			WHERE
+				req.id = :requestId
+		");
+		$query->setParameters(array('requestId' => $id));
+		
+		return $query->getOneOrNullResult();
+		
+	}
+	
+	/**
+	 * @param integer $userId
+	 * @param string $state
+	 * 
+	 * @return array
+	 */
 	public function getAllUserRequestsByState($userId, $state)
 	{
 		$query = $this->_em->createQuery("
@@ -96,6 +130,12 @@ class PassengerRequestRepository extends EntityRepository
 		return $query->getResult();
 	}
 	
+	/**
+	 * @param integer $userId
+	 * @param array $states
+	 *
+	 * @return array
+	 */
 	public function getAllUserRequestsByStates($userId, array $states)
 	{		
 		$query = $this->_em->createQuery("
@@ -118,6 +158,11 @@ class PassengerRequestRepository extends EntityRepository
 		return $query->getResult();
 	}
 	
+	/**
+	 * @param integer $userId
+	 *
+	 * @return array
+	 */
 	public function getAllUserRequests($userId)
 	{
 		$query = $this->_em->createQuery("
@@ -137,6 +182,11 @@ class PassengerRequestRepository extends EntityRepository
 		return $query->getResult();
 	}
 	
+	/**
+	 * @param array $states
+	 *
+	 * @return array
+	 */
 	public function getActualRequestsByStates(array $states)
 	{
 		$query = $this->_em->createQuery("

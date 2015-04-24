@@ -63,9 +63,9 @@ class PassengerDetail {
      * 		groups={"flow_createPassengerRequest_step3"},
      * 		maxSize="1024K",
      * 		minWidth=200,
-     *     	maxWidth=400,
+     *     	maxWidth=1600,
      *     	minHeight=200,
-     *     	maxHeight=400
+     *     	maxHeight=1200
      * )
      * @FileStore\UploadableField(mapping="picture")
      */

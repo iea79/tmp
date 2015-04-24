@@ -109,10 +109,24 @@ class StepsController extends Controller
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->find($id);
 	}
 	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
 	protected function getFullPassengerRequestById($id)
 	{
 		$em = $this->container->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->getFullRequestById($id);
+	}
+	
+	/**
+	 * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getPassengerRequestWithDriversById($id)
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest')->getRequestWithDriversById($id);
 	}
 	
 	/**
