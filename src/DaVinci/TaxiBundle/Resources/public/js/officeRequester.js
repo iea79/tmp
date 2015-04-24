@@ -58,7 +58,9 @@ define("officeRequester", function() {
                 	if (data.status == 'ok' && action == 'confirmation') {
                 		$("request_status_" + requestId).html("sold");
                 		$("confirm_"  + requestId).html("Deal confirmed");
-                		
+                	}
+                	
+                	if (data.status == 'ok') {
                 		location.reload(true);
                 	}
                 	
