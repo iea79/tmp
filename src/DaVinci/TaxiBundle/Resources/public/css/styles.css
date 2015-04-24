@@ -1406,7 +1406,7 @@ styles of booking step 3  in homepage
 	    border: 1px;
 	}
 @media (max-width: 905px) {
-	.order-details .opder_personal_info .pers-data .right input[type="text"] {
+	.order-details .opder_personal_info .pers-data .right input[type="text"],.order-details .pers-data .uk-form-file {
 		width: 89%;
 	}
 }
@@ -5411,18 +5411,20 @@ Step-4
 	margin-bottom: 12px;
 }
 .check-order .passenger-info .quantity dt.photo {
-	display: inline-block;
-	margin-right: 7px !important;
-	margin-top: -2px;
-	height: 113px;
-	overflow: hidden;
+  display: inline-block;
+  margin-right: 1.5% !important;
+  margin-top: -2px;
+  height: 113px;
+  overflow: hidden;
+  width: 24%;
 }
 .check-order .passenger-info .photo img {
 	margin-right: 4px;
-	border: 4px #ebebeb solid;
+	border: 4px #EBEBEB solid;
 	border-radius: 4px;
 	height: auto;
-	width: 110px;
+	width: 100%;
+	max-width: 100%;
 }
 .check-order dd.personal {
 	min-width: 250px;
