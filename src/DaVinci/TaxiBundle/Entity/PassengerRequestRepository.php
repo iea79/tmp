@@ -53,9 +53,9 @@ class PassengerRequestRepository extends EntityRepository
 			JOIN
 				req.vehicle vehicle
 			JOIN
-				req.tariff tariff	
+				req.passengerDetail detail
 			JOIN
-				req.passengerDetail detail	
+				req.tariff tariff		
 			LEFT JOIN
 				req.vehicleOptions options
 			LEFT JOIN

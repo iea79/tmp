@@ -70,9 +70,9 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostBindFlow(PostBindFlowEvent $event)
 	{
-		$request = $event->getFormData();
-		
 		if ($event->getFlow()->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_FIRST) {
+			$request = $event->getFormData();
+			
 			$routePoints = $request->getRoutePoints();
 			$iterator = $routePoints->getIterator();
 		
@@ -103,9 +103,9 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
-		$request = $event->getFormData();
-						
 		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST - 1) {
+			$request = $event->getFormData();
+			
 			$vehicleOptions = $request->getVehicleOptions();
 			
 			foreach ($vehicleOptions->getChildSeats() as $seat) {
@@ -119,9 +119,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 					$vehicleOptions->removePetCage($cage);
 				}
 			}
-		}
 		
-		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
 			$request->setPickUp(new \DateTime(
 				$request->getPickUpDate()->format('Y-m-d') . ' ' 
 					. $request->getPickUpTime()->format('H:i:s')
