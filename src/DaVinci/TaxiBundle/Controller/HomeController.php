@@ -113,7 +113,10 @@ class HomeController extends StepsController {
     				);
     				
     				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->removeCanceledDrivers($driver);
+    				
     				$driver->addPossibleRequests($passengerRequest);
+    				$driver->removeCanceledRequests($passengerRequest);
     				
     				$this->saveDriver($driver);
     			}
