@@ -12,6 +12,10 @@ use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 class StepsController extends Controller 
 {
 	
+	const ACTION_BOOK_TRIP = 'book-trip';
+	const ACTION_SHOW_OPEN_ORDERS = 'open-orders';
+	const ACTION_SHOW_ALL_ORDERS = 'all-orders';
+	
 	protected function showSteps()
 	{
 		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');

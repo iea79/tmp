@@ -22,6 +22,7 @@ use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
 
 class OfficeController extends StepsController
 {
+	
     /**
     * @Route("/choose-office", name="fos_user_registration_confirmed")
     * @Method("GET")
@@ -93,7 +94,7 @@ class OfficeController extends StepsController
     
     
     /**
-     * @Route("/office-passenger", name="office_passenger")
+     * @Route("/office-passenger/{method}", name="office_passenger", defaults={"method" = "book-trip"})
      * @Security("has_role('ROLE_USER')")
      */
     public function office_passengerAction(Request $request)
@@ -103,29 +104,36 @@ class OfficeController extends StepsController
     		return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
     	}
     	
+    	$subMethod = $request->get('method');
     	$result = $this->showSteps();
     	if (!is_array($result)) {
     		return $this->redirect($result);
     	}
-    	        
+    	    	
+    	$params = array('subMethod' => $subMethod);	        
+    	if (self::ACTION_SHOW_OPEN_ORDERS == $subMethod) {
+	    	$params['requests'] = $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
+    			$user->getId(), 
+    			array(
+					PassengerRequest::STATE_BEFORE_OPEN,
+		        	PassengerRequest::STATE_OPEN,
+		        	PassengerRequest::STATE_PENDING,
+		        	PassengerRequest::STATE_SOLD,
+		        	PassengerRequest::STATE_APPROVED_SOLD
+		        )
+    		);
+    	}
+    	
+    	if (self::ACTION_SHOW_ALL_ORDERS == $subMethod) {
+    		$params['requests'] = $this->getPassengerRequestRepository()->getAllUserRequests(
+    			$user->getId()
+    		);
+    	}
+            	
         return $this->container->get('templating')->renderResponse(
-        	'DaVinciUserBundle:Offices:office_passenger.html.twig',
-        	array_merge(
-        		array(
-        			'requests' => $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
-        				$user->getId(),
-        				array(
-        					PassengerRequest::STATE_BEFORE_OPEN,
-        					PassengerRequest::STATE_OPEN,
-        					PassengerRequest::STATE_PENDING,
-        					PassengerRequest::STATE_SOLD,
-        					PassengerRequest::STATE_APPROVED_SOLD
-        				)
-        			)
-        		),
-        		$result	
-        	)	
-        );
+        	'DaVinciUserBundle:Offices:office_passenger.html.twig', 
+        	array_merge($params, $result)
+		);
     }
 
     // ->this doesnt work yet....
@@ -198,7 +206,7 @@ class OfficeController extends StepsController
         			PassengerRequest::STATE_SOLD,
         			PassengerRequest::STATE_APPROVED_SOLD
         		)),
-        		'driver' => $driver	
+        		'driver' => $driver
         	)
         );        
     }

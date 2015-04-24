@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler'], function () {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'datarange', 'passengerHandler'], function () {
 
         function initProfileForm() {
             

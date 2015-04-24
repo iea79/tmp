@@ -120,9 +120,7 @@ class HomeController extends StepsController {
 
     			$flow->reset();
     			
-    			return $this->redirect($this->generateUrl(
-    				$this->getAfterPaymentUrl()
-    			));
+    			return $this->redirect($this->getAfterPaymentUrl());
 			}
     	}
     	
@@ -354,11 +352,13 @@ class HomeController extends StepsController {
     private function getAfterPaymentUrl()
     {
     	if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
-    		return 'office_driver';
+    		return $this->generateUrl('office_driver');
     	}
     	
     	if ($this->get('security.context')->isGranted('ROLE_USER')) {
-    		return 'office_passenger';
+    		return $this->generateUrl('office_passenger', array(
+				'method' => self::ACTION_SHOW_OPEN_ORDERS
+			));
     	}
     }
             
