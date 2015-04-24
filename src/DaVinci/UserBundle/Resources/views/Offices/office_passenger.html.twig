@@ -64,7 +64,7 @@
 						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'book-trip'}) }}"'>{{'Book your trip'|trans}}</button>
 					</div>
 					<div class="uk-panel uk-width-1-3{% if subMethod == 'open-orders' %} uk-active{% endif %}">
-						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'open-orders'}) }}"'>{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> (8)</button>
+						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'open-orders'}) }}"'>{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> ({{ openRequestsNumber }})</button>
 					</div>
 					<div class="uk-panel uk-width-1-3{% if subMethod == 'all-orders' %} uk-active{% endif %}">
 						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'all-orders'}) }}"'>{{'All orders'|trans}}</button>
@@ -151,16 +151,17 @@
 																					</div>
 																					<div class="y-no">
 																						{% if request.stateValue == 'pending' %}
-																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'yes'|trans }}</button>
+																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'yes'|trans }}</button>
 																						{% endif %}	
-																						<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}">{{ 'no'|trans }}</button>
+																						<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'no'|trans }}</button>
+																						<div id="result_{{ request.id }}"></div>
 																					</div>
 																			</div>
 																			<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ langs.getSeparatedLanguages() }}</p>
 																			<p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ driver.about }}</p>
 																			<div class="call-driver uk-width-1-2 wk-width-small-1-1">
-																					<span>{{ 'Contacts:'|trans }} </span>
-																					<a class="uk-button uk-button-primary button-skype" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pay to get driver's contacts{% endtrans %}">{{ 'Skype + Phone'|trans }}</a>
+																				<span>{{ 'Contacts:'|trans }} </span>
+																				<a class="uk-button uk-button-primary button-skype" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pay to get driver's contacts{% endtrans %}">{{ 'Skype + Phone'|trans }}</a>
 																			</div>
 																		</div>
 																		<div class="clr"></div>	

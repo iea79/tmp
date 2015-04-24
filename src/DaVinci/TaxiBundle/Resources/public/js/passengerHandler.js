@@ -8,7 +8,8 @@ define("passengerHandler", ["officeRequester"], function(officeRequester) {
             $("button.approve-driver").on("click", function () {
             	hash = officeRequester.prepareRequest($(this).attr('value'));
             	officeRequester.makeRequest(
-            		hash.query, 
+            		hash.query,
+            		hash.request_id,
             		{driver_id: hash.driver_id}
             	);
             });
@@ -16,7 +17,8 @@ define("passengerHandler", ["officeRequester"], function(officeRequester) {
             $("button.decline-driver").on("click", function () {
             	hash = officeRequester.prepareRequest($(this).attr('value'));
             	officeRequester.makeRequest(
-            		hash.query, 
+            		hash.query,
+            		hash.request_id,
             		{driver_id: hash.driver_id}
             	);
             });

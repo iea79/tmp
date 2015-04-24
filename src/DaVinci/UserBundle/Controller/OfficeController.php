@@ -110,19 +110,23 @@ class OfficeController extends StepsController
     		return $this->redirect($result);
     	}
     	    	
-    	$params = array('subMethod' => $subMethod);	        
+    	$userRequests = $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
+    		$user->getId(),
+    		array(
+    			PassengerRequest::STATE_BEFORE_OPEN,
+    			PassengerRequest::STATE_OPEN,
+    			PassengerRequest::STATE_PENDING
+    		)
+    	);
+    	
+    	$params = array(
+    		'subMethod' => $subMethod,
+    		'openRequestsNumber' => count($userRequests)
+    	);    	
+    	
     	if (self::ACTION_SHOW_OPEN_ORDERS == $subMethod) {
-	    	$params['requests'] = $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
-    			$user->getId(), 
-    			array(
-					PassengerRequest::STATE_BEFORE_OPEN,
-		        	PassengerRequest::STATE_OPEN,
-		        	PassengerRequest::STATE_PENDING,
-		        	PassengerRequest::STATE_SOLD,
-		        	PassengerRequest::STATE_APPROVED_SOLD
-		        )
-    		);
-    	}
+    		$params['requests'] = $userRequests;
+	    }
     	
     	if (self::ACTION_SHOW_ALL_ORDERS == $subMethod) {
     		$params['requests'] = $this->getPassengerRequestRepository()->getAllUserRequests(
