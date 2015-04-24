@@ -8,7 +8,7 @@
 				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">Tips <div class="questiontooltip">?</div></th>
 				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}">PM <div class="questiontooltip" >?</div></th>
 				<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check bought deals{% endtrans %}">Status <div class="questiontooltip" >?</div></th>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} <th class="tab-h2">Buy</th>{% endif %}
+				<th class="tab-h2">{% if is_granted("ROLE_TAXIDRIVER") %}Buy{% endif %}</th>
 			</tr>
 			<tr class="under-head">
 				<td class="auto-tip">
