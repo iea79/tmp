@@ -64,7 +64,7 @@
 						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'book-trip'}) }}"'>{{'Book your trip'|trans}}</button>
 					</div>
 					<div class="uk-panel uk-width-1-3{% if subMethod == 'open-orders' %} uk-active{% endif %}">
-						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'open-orders'}) }}"'>{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> {% if subMethod == 'open-orders' %}({{ numberOfRequests }}){% endif %}</button>
+						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'open-orders'}) }}"'>{{ 'Open orders'|trans }} <i class="mp-icon-taxi"></i> ({{ openRequestsNumber }})</button>
 					</div>
 					<div class="uk-panel uk-width-1-3{% if subMethod == 'all-orders' %} uk-active{% endif %}">
 						<button class="uk-width-1-1" onclick='location.href = "{{ path('office_passenger', {'method': 'all-orders'}) }}"'>{{'All orders'|trans}}</button>
