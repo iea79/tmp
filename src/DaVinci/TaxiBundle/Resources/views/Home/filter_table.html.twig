@@ -111,7 +111,6 @@
                    		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   	</div>	
 				</td>
-				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 				<td>
 					<div class="ov-lt fixed-column">
 						<div class="aligment bascket-opt">
@@ -120,12 +119,13 @@
 								<option value="3">Other</option>
 							</select>
 						</div>
-						<button class="cancell-filters uk-button-link  aligment" >	
-							<i class="mp-icon-closed uk-text-danger"></i>
-						</button>
+						{% if is_granted("ROLE_TAXIDRIVER") %}
+							<button class="cancell-filters uk-button-link  aligment" >	
+								<i class="mp-icon-closed uk-text-danger"></i>
+							</button>
+						{% endif %}	
 					</div>
 				</td>
-				{% endif %}
 			</tr>
 			{% if openRequests is defined %}
 				{% for request in openRequests if (request.stateValue == 'open' or request.stateValue == 'pending' and request.isDriverInList(driver.id) == false) %}
