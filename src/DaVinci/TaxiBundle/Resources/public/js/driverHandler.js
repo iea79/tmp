@@ -3,7 +3,7 @@ define("driverHandler", ["officeRequester"], function(officeRequester) {
 		$(document).ready(function () {
 			$("a.confirm-deal").on("click", function () {
             	hash = officeRequester.prepareRequest($(this).attr('value'));
-            	officeRequester.makeRequest(
+            	officeRequester.makeDriverRequest(
             		'confirmation',	
             		hash.query,
             		hash.request_id,

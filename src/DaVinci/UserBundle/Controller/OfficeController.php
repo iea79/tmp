@@ -115,8 +115,7 @@ class OfficeController extends StepsController
     		array(
     			PassengerRequest::STATE_BEFORE_OPEN,
     			PassengerRequest::STATE_OPEN,
-    			PassengerRequest::STATE_PENDING,
-    			PassengerRequest::STATE_SOLD
+    			PassengerRequest::STATE_PENDING
     		)
     	);
     	
