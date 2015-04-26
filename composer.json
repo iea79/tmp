@@ -67,7 +67,7 @@
         "sonata-project/notification-bundle": "dev-master",
         "sonata-project/block-bundle": "2.2.13",
         
-        "sonata-project/classification-bundle": "2.2.*@dev",
+        "sonata-project/classification-bundle": "2.2.1",
         "sonata-project/media-bundle": "2.3.*@dev",
         "sonata-project/user-bundle": "2.2.*@dev",
         "sonata-project/cache-bundle": "dev-master",
