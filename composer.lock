@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b152b08b4b6ec8c3c9ec92687c2380f3",
+    "hash": "9d21ba55db923eab8a4a3deebdc662b4",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -5173,28 +5173,22 @@
         },
         {
             "name": "sonata-project/classification-bundle",
-            "version": "2.2.x-dev",
+            "version": "2.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataClassificationBundle.git",
-                "reference": "952acee8172ee5d58f14a9c615022d1ae2d5a154"
+                "reference": "ba91df02cc8df88e26ca9ffe546cc1fddec5de1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/952acee8172ee5d58f14a9c615022d1ae2d5a154",
-                "reference": "952acee8172ee5d58f14a9c615022d1ae2d5a154",
+                "url": "https://api.github.com/repos/sonata-project/SonataClassificationBundle/zipball/ba91df02cc8df88e26ca9ffe546cc1fddec5de1b",
+                "reference": "ba91df02cc8df88e26ca9ffe546cc1fddec5de1b",
                 "shasum": ""
             },
             "require": {
                 "sonata-project/core-bundle": "~2.2",
-                "sonata-project/datagrid-bundle": "~2.2@dev",
-                "sonata-project/doctrine-orm-admin-bundle": "~2.2",
+                "sonata-project/doctrine-orm-admin-bundle": "~2.2@dev",
                 "symfony/symfony": "~2.2"
-            },
-            "require-dev": {
-                "friendsofsymfony/rest-bundle": "~1.1",
-                "jms/serializer-bundle": "~0.11",
-                "sonata-project/media-bundle": "~2.2"
             },
             "suggest": {
                 "sonata-project/media-bundle": "~2.2"
@@ -5232,7 +5226,7 @@
                 "tag",
                 "taxonomy"
             ],
-            "time": "2015-04-05 18:00:19"
+            "time": "2014-02-14 16:26:43"
         },
         {
             "name": "sonata-project/comment-bundle",
@@ -9352,7 +9346,6 @@
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/doctrine-phpcr-admin-bundle": 20,
         "sonata-project/notification-bundle": 20,
-        "sonata-project/classification-bundle": 20,
         "sonata-project/media-bundle": 20,
         "sonata-project/user-bundle": 20,
         "sonata-project/cache-bundle": 20,

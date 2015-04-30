@@ -126,7 +126,7 @@ doctrine:
         mapping_types:
             enum:       string 
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
+        #auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
 
 
@@ -307,18 +307,21 @@ doctrine_phpcr:
         username: %phpcr_user%
         password: %phpcr_pass%    
     odm:
-        # crashes if true there a lot of buggy sonata bundles with thair old documents..
         default_document_manager: default
-        auto_generate_proxy_classes: "%kernel.debug%"
-        document_managers:
-            default:    
-                session: default
-                auto_mapping: true    
-                mappings:
-                    DaVinciTaxiBundle:
-                        prefix: DaVinci\TaxiBundle\Document\
-                    ApplicationCmfBlogBundle: ~
-                    CmfBlogBundle: ~
+        #auto_generate_proxy_classes: "%kernel.debug%"
+#        document_managers:
+#            default:    
+#                session: default
+#                auto_mapping: true    
+#                mappings:
+#                    DaVinciTaxiBundle:
+#                        prefix: DaVinci\TaxiBundle\Document\
+#                    ApplicationCmfBlogBundle: ~
+#                    CmfBlogBundle: ~
+#                    ApplicationSonataCommentBundle: 
+#                        prefix: Application\Sonata\CommentBundle\PHPCR\FakeComment
+#                    CmfSeoBundle: ~
+                    
 
 # alternative locales to look up if a document is not translated
         locales:
