@@ -308,19 +308,19 @@ doctrine_phpcr:
         password: %phpcr_pass%    
     odm:
         default_document_manager: default
-        #auto_generate_proxy_classes: "%kernel.debug%"
-#        document_managers:
-#            default:    
-#                session: default
-#                auto_mapping: true    
-#                mappings:
-#                    DaVinciTaxiBundle:
-#                        prefix: DaVinci\TaxiBundle\Document\
-#                    ApplicationCmfBlogBundle: ~
-#                    CmfBlogBundle: ~
-#                    ApplicationSonataCommentBundle: 
-#                        prefix: Application\Sonata\CommentBundle\PHPCR\FakeComment
-#                    CmfSeoBundle: ~
+        auto_generate_proxy_classes: "%kernel.debug%"
+        document_managers:
+            default:    
+                session: default
+                auto_mapping: true    
+                mappings:
+                    DaVinciTaxiBundle:
+                        prefix: DaVinci\TaxiBundle\Document\
+                    ApplicationCmfBlogBundle: ~
+                    CmfBlogBundle: ~
+                    ApplicationSonataCommentBundle: 
+                        prefix: Application\Sonata\CommentBundle\PHPCR\FakeComment
+                    CmfSeoBundle: ~
                     
 
 # alternative locales to look up if a document is not translated
