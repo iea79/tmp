@@ -1,0 +1,39 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="InternalMessageRepository")
+ * @ORM\Table(name="internal_message")
+ */
+class InternalMessage 
+{
+	
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+	
+	/**
+	 * @ORM\Column(type="datetimetz", name="create_date")
+	 */
+	private $createDate;
+	
+	/**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('Low', 'Normal', 'High', 'Urgent', 'Immediate')", length=50)
+	 */
+	private $priority;
+	
+	/**
+	 * @ORM\ManyToOne(targetEntity="User")
+	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+	 */
+	private $user;
+	
+}
+
+?>

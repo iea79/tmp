@@ -20,14 +20,12 @@ class RouteInfoValidator extends ConstraintValidator
 	
 	private function validateTimeParams($value, Constraint $constraint)
 	{
-		$currentDate = new \DateTime('now');
-			
 		$pickUp = \DateTime::createFromFormat(
-				'Y-m-d H:i:s',
-				$value->getPickUpDate()->format('Y-m-d') . ' ' . $value->getPickUpTime()->format('H:i:s')
+			'Y-m-d H:i:s',
+			$value->getPickUpDate()->format('Y-m-d') . ' ' . $value->getPickUpTime()->format('H:i:s')
 		);
-		if (1 == $currentDate->diff($pickUp)->invert) {
-			$this->addViolation('pickUp', $constraint->message . 'pick up value is less than current');
+		if (1 == PassengerRequest::getAvailablePickUp()->diff($pickUp)->invert) {
+			$this->addViolation('pickUp', $constraint->message . 'pick up value is less than available');
 			return;
 		}
 		
@@ -37,8 +35,8 @@ class RouteInfoValidator extends ConstraintValidator
 				return;
 			}
 			$return = \DateTime::createFromFormat(
-					'Y-m-d H:i:s',
-					$value->getReturnDate()->format('Y-m-d') . ' ' . $value->getReturnTime()->format('H:i:s')
+				'Y-m-d H:i:s',
+				$value->getReturnDate()->format('Y-m-d') . ' ' . $value->getReturnTime()->format('H:i:s')
 			);
 				
 			if (1 == $pickUp->diff($return)->invert) {
@@ -46,7 +44,7 @@ class RouteInfoValidator extends ConstraintValidator
 			}
 		}
 	}
-	
+		
 	private function hasPickUp($value)
 	{
 		return $value->getPickUpDate() && $value->getPickUpTime();			

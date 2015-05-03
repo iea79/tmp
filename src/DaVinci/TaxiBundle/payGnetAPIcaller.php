@@ -7,39 +7,27 @@ use Lsw\ApiCallerBundle\Call\HttpPostJson;
 
 class payGnetAPIcaller
 {
+	
+	/**
+	 * @var Lsw\ApiCallerBundle\Caller\LoggingApiCaller
+	 */
     private $apiCaller;
+    
+    // operations
+    const MAKE_PAYMENT = 1;
+    
+	const REGISTER_USER = 3;
+    const TRANSFER_FUNDS = 4;
+    const DEPOSITE_FUNDS = 5;
     
     const baseURL = 'http://payment.mmastarter.com';
     
-    //operations
-    const MAKE_PAYMENT = 1;
-    
-    const REGISTER_USER = 3;
-    const TRANSFER_FUNDS = 4;
-    const DEPOSITE_FUNDS = 5;
-
-    //return operation url baseurl+opuri
-    private function getOperationURL($opCode)
-    {
-        switch ($opCode) {
-            case self::MAKE_PAYMENT:
-                $uri = '/gateway/payment';
-            case self::REGISTER_USER:
-            case self::TRANSFER_FUNDS:
-            case self::DEPOSITE_FUNDS:
-                $uri = '/gateway/operation';
-            default:
-                $uri = '/gateway/payment';
-        }
-        return self::baseURL . $uri;
-    }
-    
-    //make payment
+    // make payment
     const paymentURI = '/gateway/payment';
-
-    //register new user=email
-    const registerURI = '/gateway/operation';
     
+    // register new user (=email)
+    const registerURI = '/gateway/operation';
+
     public function __construct(LoggingApiCaller $apiCaller)
     {
         $this->apiCaller = $apiCaller;
@@ -54,7 +42,9 @@ class payGnetAPIcaller
 			),
 			'Opcode' => self::REGISTER_USER
 		);
-        $response = $this->apiCaller->call(new HttpPostJson($this->getOperationURL(self::REGISTER_USER), $parameters));
+        $response = $this->apiCaller->call(
+        	new HttpPostJson($this->getOperationURL(self::REGISTER_USER), $parameters)
+		);
         
         //ok?
        // if($response->getStatusCode() == 200)
@@ -88,5 +78,30 @@ $client->getEventDispatcher()->addListener(
 
 });
          *          */
+    }
+    
+    // return operation url baseurl + opuri
+    private function getOperationURL($opCode)
+    {
+    	switch ($opCode) {
+    		case self::MAKE_PAYMENT: {
+    			$uri = '/gateway/payment';
+    			break;
+    		}
+    
+    		case self::REGISTER_USER:
+    		case self::TRANSFER_FUNDS:
+    		case self::DEPOSITE_FUNDS: {
+    			$uri = '/gateway/operation';
+    			break;
+    		}
+    
+    		default: {
+    			$uri = '/gateway/payment';
+    			break;
+    		}
+    	}
+    
+    	return self::baseURL . $uri;
     }
 }

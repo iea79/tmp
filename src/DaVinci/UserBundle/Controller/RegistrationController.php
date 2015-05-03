@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
+use DaVinci\TaxiBundle\Services\RemoteRequester;
 
 class RegistrationController extends BaseController {
 
@@ -182,9 +183,10 @@ class RegistrationController extends BaseController {
                 $this->authenticateUser($user, $response);
             }
 
-            //send to paygnet
-            $this->container->get('paygnet')->registerUser($user->getEmail(), $user->getId());
-
+            // send to payment global network system
+            $this->container->get('paygnet')->makeUserOperation(
+            	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
+        	);
 
             return $response;
         }

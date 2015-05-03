@@ -26,6 +26,10 @@ class PassengerRequest {
 	const STATE_COMPLETED = 'completed';
 	const STATE_CANCELED = 'canceled';
 	
+	const AVAILABLE_PICKUP_PERIOD = 12;
+	const POSSIBLE_DRIVERS_PER_REQUEST = 5;
+	const CANCELATION_PERIOD = 2;
+	
 	/**
 	 * @ORM\Id
 	 * @ORM\Column(type="integer")
@@ -143,13 +147,13 @@ class PassengerRequest {
 	private $passengerDetail;
 	
 	/**
-	 * @ORM\OneToOne(targetEntity="User")
+	 * @ORM\ManyToOne(targetEntity="User")
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
 		
 	/**
-	 * @ORM\OneToOne(targetEntity="GeneralDriver")
+	 * @ORM\ManyToOne(targetEntity="GeneralDriver")
 	 * @ORM\JoinColumn(name="driver_id", referencedColumnName="id")
 	 */
 	private $driver;
@@ -852,7 +856,7 @@ class PassengerRequest {
     
     /**
      * 
-     * @return multitype:string
+     * @return array
      */
     public static function getStateList() 
     {    	
@@ -869,6 +873,14 @@ class PassengerRequest {
     		self::STATE_CANCELED								
     	);
     }
+    
+    /**
+     * @return \DateTime
+     */
+    public static function getAvailablePickUp()
+    {
+    	return new \DateTime('+' . self::AVAILABLE_PICKUP_PERIOD . ' hour');
+    } 
     
     /**
      * @param string $stateValue

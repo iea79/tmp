@@ -3,7 +3,6 @@ services:
     davinci.utils.url:
         class: DaVinci\TaxiBundle\Utils\Url
         arguments: [@service_container]
-        
 
     davinci_content.controller:
         class: DaVinci\TaxiBundle\Controller\ContentController
@@ -15,6 +14,12 @@ services:
         tags:
             - { name: kernel.event_subscriber }
     
+    da_vinci_taxi.subscriber.stock_subscriber:
+        class: DaVinci\TaxiBundle\EventListener\StockSubscriber
+        arguments: ["@da_vinci_taxi.service.remote_requester"]
+        tags:
+            - { name: kernel.event_subscriber }        
+    
     da_vinci_taxi.service.passenger_request_service:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService
 
@@ -22,7 +27,16 @@ services:
         class: DaVinci\TaxiBundle\Form\Payment\MakePaymentService
 
     da_vinci_taxi.service.calculation_service:
-        class: DaVinci\TaxiBundle\Services\Calculation    
+        class: DaVinci\TaxiBundle\Services\Calculation
+        
+    da_vinci_taxi.service.remote_requester:
+        class: DaVinci\TaxiBundle\Services\RemoteRequester
+        arguments: ["@api_caller"]
+        
+    da_vinci_taxi.command.check_passenger_requests:
+        class: DaVinci\TaxiBundle\Command\CheckPassengerRequestsCommand
+        tags:
+            -  { name: console.command }           
                         
 #menu---------------------------------------------------------------------------
     taxi.menu_builder:
@@ -138,7 +152,7 @@ services:
         
 # PaymentGlobalNetwork---------------------------------------------------------
     paygnet:
-      class:     DaVinci\TaxiBundle\payGnetAPIcaller
+      class:     DaVinci\TaxiBundle\Services\RemoteRequester
       arguments: ["@api_caller"]      
       
 # PHPCR PAGES NODES INITIALIZER

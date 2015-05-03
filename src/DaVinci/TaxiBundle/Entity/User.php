@@ -88,9 +88,14 @@ class User extends BaseUser
 
     /**
      *
-     * @ORM\Column(type="datetime", nullable = true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $passwordUpdatedAt;
+    
+    /**
+     * @ORM\Column(type="integer", name="remote_id", nullable=true)
+     */
+    protected $remoteId;
     
     /**
      * Constructor
@@ -411,4 +416,28 @@ class User extends BaseUser
     {
         return $this->independentDriver;
     }
+    
+    /**
+     * Set remoteId
+     * 
+     * @param int $remoteId
+     * @return \DaVinci\TaxiBundle\Entity\User
+     */
+    public function setRemoteId($remoteId)
+    {
+    	$this->remoteId = $remoteId;
+    	
+    	return $this;
+    }
+    
+    /**
+     * Get remoteId
+     * 
+     * @return int
+     */
+    public function getRemoteId()
+    {
+    	return $this->remoteId;
+    }
+    
 }

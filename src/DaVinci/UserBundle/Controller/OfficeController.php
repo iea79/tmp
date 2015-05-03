@@ -110,7 +110,7 @@ class OfficeController extends StepsController
     		return $this->redirect($result);
     	}
     	    	
-    	$userRequests = $this->getPassengerRequestRepository()->getAllUserRequestsByStates(
+    	$userRequests = $this->getPassengerRequestRepository()->getAllActualUserRequestsByStates(
     		$user->getId(),
     		array(
     			PassengerRequest::STATE_BEFORE_OPEN,

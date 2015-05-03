@@ -22,6 +22,8 @@ use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
+use DaVinci\TaxiBundle\Event\PassengerRequestEvent;
 
 class HomeController extends StepsController {
 	
@@ -53,25 +55,7 @@ class HomeController extends StepsController {
     	
     	$makePayment = $this->spawnMakePayment();
     	
-    	$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
-    	$isTaxiDriver = $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER');
-    	
-    	$userCondition = (
-    		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
-    		&& $isUser
-    	);
-    	
-    	$firstDriverCondition = (
-    		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
-    		&& $isTaxiDriver
-    	);
-    	
-    	$otherDriverCondition = (
-    		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $isTaxiDriver
-		);
-    	    		
-    	if (!$userCondition && !$firstDriverCondition && !$otherDriverCondition) {
+    	if (!$this->beforePaymentCheck($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
     	
@@ -85,11 +69,11 @@ class HomeController extends StepsController {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			if ($userCondition) {
+    			if ($this->isUserCondition($passengerRequest)) {
     				$passengerRequest->changeState();
     			}
     			
-    			if ($firstDriverCondition) {
+    			if ($this->isFirstDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId(
     					$this->container->get('security.context')
     						->getToken()
@@ -107,7 +91,7 @@ class HomeController extends StepsController {
     				$this->saveDriver($driver);
     			}
     			
-    			if ($otherDriverCondition) {
+    			if ($this->isOtherDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId(
     					$this->container->get('security.context')
     						->getToken()
@@ -290,8 +274,15 @@ class HomeController extends StepsController {
     		));
     	}
     	
-    	$passengerRequest->cancelState();
-    	$this->savePassengerRequest($passengerRequest);
+    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher->dispatch(
+    		PassengerRequestEvents::CANCEL_REQUEST,
+    		new PassengerRequestEvent(
+    			$passengerRequest, 
+    			$this->getPassengerRequestRepository(), 
+    			$this->container->get('security.context')
+    		)
+    	);
     	
     	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
@@ -367,5 +358,59 @@ class HomeController extends StepsController {
 			));
     	}
     }
-            
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+     * @return boolean
+     */
+    private function beforePaymentCheck(PassengerRequest $passengerRequest)
+    {
+    	$availableDatetime = new \DateTime('+' . PassengerRequest::AVAILABLE_PICKUP_PERIOD . ' hour');
+    	if (1 == $availableDatetime->diff($passengerRequest->getPickUp())->invert) {
+    		return false;
+    	}
+    	    	
+    	return (
+    		$this->isUserCondition($passengerRequest) 
+    		|| $this->isFirstDriverCondition($passengerRequest) 
+    		|| $this->isOtherDriverCondition($passengerRequest)
+    	);
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+     * @return boolean
+     */
+    private function isUserCondition(PassengerRequest $passengerRequest)
+    {
+    	return (
+    		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
+    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
+    	);
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+     * @return boolean
+     */
+    private function isFirstDriverCondition(PassengerRequest $passengerRequest)
+    {
+    	return (
+    		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
+    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    	);
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $passengerRequest
+     * @return boolean
+     */
+    private function isOtherDriverCondition(PassengerRequest $passengerRequest)
+    {
+    	return (
+    		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
+    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    	);
+    }
+                
 }

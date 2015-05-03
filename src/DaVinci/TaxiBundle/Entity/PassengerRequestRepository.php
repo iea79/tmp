@@ -2,8 +2,8 @@
 
 namespace DaVinci\TaxiBundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use Doctrine;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * PassengerRequestRepository
@@ -136,7 +136,7 @@ class PassengerRequestRepository extends EntityRepository
 	 *
 	 * @return array
 	 */
-	public function getAllUserRequestsByStates($userId, array $states)
+	public function getAllActualUserRequestsByStates($userId, array $states)
 	{		
 		$query = $this->_em->createQuery("
 			SELECT
@@ -146,14 +146,19 @@ class PassengerRequestRepository extends EntityRepository
 			JOIN
 				req.routePoints points
 			WHERE
-				req.user = :userId AND req.stateValue IN (:stateValues)
+				req.user = :userId 
+				AND req.stateValue IN (:stateValues)
+				AND DATE_DIFF(req.pickUp, :pickUp) > 0
 			ORDER BY 
 				req.id DESC
 		");
-		$query->setParameters(array(
-			'userId' => $userId,
-			'stateValues' => $states	
-		));
+		$query->setParameter('userId', $userId);
+		$query->setParameter('stateValues', $states);
+		$query->setParameter(
+			'pickUp',
+			PassengerRequest::getAvailablePickUp(),
+			\Doctrine\DBAL\Types\Type::DATETIMETZ
+		);
 	
 		return $query->getResult();
 	}
@@ -197,22 +202,32 @@ class PassengerRequestRepository extends EntityRepository
 			JOIN
 				req.routePoints points
 			JOIN
-				req.tariff tariff	
+				req.tariff tariff
+			LEFT JOIN
+				req.possibleDrivers possibleDrivers		
 			WHERE
 				DATE_DIFF(req.pickUp, :pickUp) > 0
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
-				req.id DESC		
+				req.id DESC						
 		");
 		$query->setParameter(
-			'pickUp', 
-			new \DateTime("+" . self::DEFAULT_INTERVAL_HOURS . " hours"), 
+			'pickUp',
+			PassengerRequest::getAvailablePickUp(), 
 			\Doctrine\DBAL\Types\Type::DATETIMETZ
 		);
 		$query->setParameter('stateValues', $states);
 		$query->setMaxResults(self::DEFAULT_LIMIT_ROWS);
-									
-		return $query->getResult();
+
+		$result = $query->getResult();
+		foreach ($result as $key => $item) {
+			if ($item->getPossibleDrivers()->count() > PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
+				unset($result[$key]);
+				continue;
+			}
+		}
+															
+		return $result;
 	}
 	
 	/**
