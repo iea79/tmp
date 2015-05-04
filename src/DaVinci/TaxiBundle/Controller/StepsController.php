@@ -159,6 +159,15 @@ class StepsController extends Controller
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
 	}
 	
+	/**
+	 * @return \DaVinci\TaxiBundle\Entity\IndependentDriverRepository
+	 */
+	protected function getIndependentDriverRepository()
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
+	}
+	
 }
 
 ?>

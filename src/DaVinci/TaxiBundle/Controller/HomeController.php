@@ -22,8 +22,10 @@ use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
-use DaVinci\TaxiBundle\Event\PassengerRequestEvent;
+use DaVinci\TaxiBundle\Event\CancelRequestEvent;
+use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
 
 class HomeController extends StepsController {
 	
@@ -110,7 +112,7 @@ class HomeController extends StepsController {
     			    			
     			$this->updatePassengerRequest($passengerRequest);
     			$this->getRequest()->getSession()->remove('request_id');
-
+    			
     			$flow->reset();
     			
     			return $this->redirect($this->getAfterPaymentUrl());
@@ -218,7 +220,7 @@ class HomeController extends StepsController {
     
     /**
      * @Route("/decline/driver/request_id/{id}", name="decline_driver", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
-     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
+     * @Security("has_role('ROLE_USER')")
      */
     public function declineDriverAction()
     {
@@ -241,20 +243,18 @@ class HomeController extends StepsController {
     		));
     	}
     	    	
-    	$passengerRequest->addCanceledDrivers($driver);
-    	$passengerRequest->removePossibleDriver($driver);
-    	 
-    	if ($passengerRequest->getDriver() && $driver->getId() == $passengerRequest->getDriver()->getId()) {
-    		$passengerRequest->setDriver(null);
-    		$passengerRequest->resetToPendingState();
-    	}
-    	    	
-    	$driver->addCanceledRequests($passengerRequest);
-    	$driver->removePossibleRequests($passengerRequest);
-    	    	
-    	$this->saveDriver($driver);
-    	$this->savePassengerRequest($passengerRequest);
-    	    	 
+    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher->dispatch(
+    		PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
+    		new DeclineDriverRequestEvent(
+    			$passengerRequest,
+    			$this->getPassengerRequestRepository(),
+    			$driver,
+    			$this->getIndependentDriverRepository(),
+    			$this->container->get('da_vinci_taxi.service.composite_informer')
+    		)
+    	);
+    	
     	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
     
@@ -277,7 +277,7 @@ class HomeController extends StepsController {
     	$dispatcher = $this->container->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::CANCEL_REQUEST,
-    		new PassengerRequestEvent(
+    		new CancelRequestEvent(
     			$passengerRequest, 
     			$this->getPassengerRequestRepository(), 
     			$this->container->get('security.context')
@@ -318,8 +318,7 @@ class HomeController extends StepsController {
      */
     private function getDirverById($driverId)
     {
-    	$em = $this->container->get('doctrine')->getManager();
-    	return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->find($driverId);
+    	return $this->getIndependentDriverRepository()->find($driverId);
     }
     
     /**
@@ -328,14 +327,16 @@ class HomeController extends StepsController {
      */
     private function getDirverByUserId($userId)
     {
-    	$em = $this->container->get('doctrine')->getManager();
-    	return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->findOneByUserId($userId);
+    	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
     }
     
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
+     * @return void
+     */
     private function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
     {
-    	$em = $this->container->get('doctrine')->getManager();
-    	$em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver')->save($driver);
+    	$this->getIndependentDriverRepository()->save($driver);
     }
     
     /**

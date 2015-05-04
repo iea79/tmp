@@ -8,6 +8,7 @@ use Lsw\ApiCallerBundle\Call\HttpPostJson;
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\Tariff;
 
 class RemoteRequester
 {
@@ -123,7 +124,7 @@ class RemoteRequester
     				"User" => $request->getUser()->getRemoteId(),
     				"Product" => self::GATEWAY_PRODUCT_ID,	
     				"Transaction" => array(
-    					"amount" => $request->getTariff()->getTotalPrice(),
+    					"amount" => Tariff::REQUEST_PRICE,
     					"currency" => self::GATEWAY_DEFAULT_CURRENCY
     				),
     			);
@@ -149,6 +150,17 @@ class RemoteRequester
     				)
     			);
     			break;
+    		}
+    		
+    		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
+    			$params = array(
+    				"User" => $user->getRemoteId(),
+    				"Product" => self::GATEWAY_PRODUCT_ID,
+    				"Transaction" => array(
+    					"amount" => Tariff::REQUEST_PRICE,
+    					"currency" => self::GATEWAY_DEFAULT_CURRENCY
+    				),
+    			);
     		}
     		        
     		default: {

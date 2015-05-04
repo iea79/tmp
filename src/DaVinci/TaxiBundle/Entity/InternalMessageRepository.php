@@ -11,6 +11,14 @@ namespace DaVinci\TaxiBundle\Entity;
 class InternalMessageRepository extends \Doctrine\ORM\EntityRepository
 {
 	
-	
+	/**
+	 * @param \DaVinci\TaxiBundle\Entity\InternalMessage $internalMessage
+	 * @return void
+	 */
+	public function save(\DaVinci\TaxiBundle\Entity\InternalMessage $internalMessage)
+	{
+		$this->_em->persist($internalMessage);
+		$this->_em->flush();
+	} 
 	
 }

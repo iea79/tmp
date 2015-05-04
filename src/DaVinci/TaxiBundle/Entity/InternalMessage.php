@@ -26,7 +26,12 @@ class InternalMessage
 	/**
 	 * @ORM\Column(type="string", columnDefinition="ENUM('Low', 'Normal', 'High', 'Urgent', 'Immediate')", length=50)
 	 */
-	private $priority;
+	private $priority = InternalMessagePriorities::NORMAL;
+	
+	/**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $content;
 	
 	/**
 	 * @ORM\ManyToOne(targetEntity="User")
@@ -94,6 +99,30 @@ class InternalMessage
     }
 
     /**
+     * Set content
+     *
+     * @param string $content
+     *
+     * @return InternalMessage
+     */
+    public function setContent($content)
+    {
+    	$this->content = $content;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function getContent()
+    {
+    	return $this->content;
+    }
+        
+    /**
      * Set user
      *
      * @param \DaVinci\TaxiBundle\Entity\User $user
@@ -116,4 +145,5 @@ class InternalMessage
     {
         return $this->user;
     }
+
 }
