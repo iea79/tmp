@@ -105,9 +105,7 @@
         
         "tilleuls/ckeditor-sonata-media-bundle": "dev-master",
         "cocur/slugify": "dev-master",
-        "symfony-cmf/blog-bundle": "dev-version_upgrades as 1.0.*@dev",
-        
-        "symfony/console": "3.0.*@dev"
+        "symfony-cmf/blog-bundle": "dev-version_upgrades as 1.0.*@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
