@@ -100,7 +100,9 @@ class StockSubscriber implements EventSubscriberInterface
 	
 	private function makeTransferByUser(User $user)
 	{
-		
+		return $this->remoteRequester->makeUserOperation(
+			$user, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
+		);	
 	}
 	
 }

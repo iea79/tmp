@@ -163,7 +163,7 @@ class HomeController extends StepsController {
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
-    			'message' => 'undefined request id' . $requestId
+    			'message' => 'undefined request id #' . $requestId
     		));
     	}
     	
@@ -189,7 +189,7 @@ class HomeController extends StepsController {
     	if (is_null($driver)) {
     		return new JsonResponse(array(
     			'status' => 'error',
-    			'message' => 'undefined driver id ' . $driverId
+    			'message' => 'undefined driver id #' . $driverId
     		));
     	}
     	
@@ -206,7 +206,7 @@ class HomeController extends StepsController {
     	) {
    			return new JsonResponse(array(
    				'status' => 'error', 
-   				'message' => "driver with id {$driver->getId()} is not chosen for executing an order"
+   				'message' => "driver with id #{$driver->getId()} is not chosen for executing an order"
    			));
      	}
     	
@@ -230,7 +230,7 @@ class HomeController extends StepsController {
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
-    			'message' => 'undefined request id ' . $requestId
+    			'message' => 'undefined request id #' . $requestId
     		));
     	}
     	
@@ -239,7 +239,7 @@ class HomeController extends StepsController {
     	if (is_null($driver)) {
     		return new JsonResponse(array(
     			'status' => 'error',
-    			'message' => 'undefined driver id ' . $driverId
+    			'message' => 'undefined driver id #' . $driverId
     		));
     	}
     	    	
@@ -270,7 +270,7 @@ class HomeController extends StepsController {
     	if (is_null($passengerRequest)) {
     		return new JsonResponse(array(
     			'status' => 'error', 
-    			'message' => 'undefined request id' . $requestId
+    			'message' => 'undefined request id #' . $requestId
     		));
     	}
     	
