@@ -75,6 +75,23 @@ class HomeController extends StepsController {
     				$passengerRequest->changeState();
     			}
     			
+    			if ($this->isOtherDriverCondition($passengerRequest)) {
+    				$driver = $this->getDirverByUserId(
+    					$this->container->get('security.context')
+    						->getToken()
+    						->getUser()
+    						->getId()
+    				);
+    			
+    				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->removeCanceledDrivers($driver);
+    			
+    				$driver->addPossibleRequests($passengerRequest);
+    				$driver->removeCanceledRequests($passengerRequest);
+    			
+    				$this->saveDriver($driver);
+    			}
+    			
     			if ($this->isFirstDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId(
     					$this->container->get('security.context')
@@ -92,24 +109,7 @@ class HomeController extends StepsController {
     				
     				$this->saveDriver($driver);
     			}
-    			
-    			if ($this->isOtherDriverCondition($passengerRequest)) {
-    				$driver = $this->getDirverByUserId(
-    					$this->container->get('security.context')
-    						->getToken()
-    						->getUser()
-    						->getId()
-    				);
-    				
-    				$passengerRequest->addPossibleDriver($driver);
-    				$passengerRequest->removeCanceledDrivers($driver);
-    				
-    				$driver->addPossibleRequests($passengerRequest);
-    				$driver->removeCanceledRequests($passengerRequest);
-    				
-    				$this->saveDriver($driver);
-    			}
-    			    			
+    			    			    			
     			$this->updatePassengerRequest($passengerRequest);
     			$this->getRequest()->getSession()->remove('request_id');
     			
