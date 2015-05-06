@@ -38,11 +38,14 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequest = $event->getPassengerRequest();
 		$securityContext = $event->getSecurityContext();
 		
-		if ($securityContext->isGranted('ROLE_USER')) {
+		if (
+			$securityContext->isGranted('ROLE_USER')
+			&& PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
+		) {
 			$datetime = new \DateTime('+2 hours');
 			
 			if (
-				0 == $datetime->diff($passengerRequest->getPickUp())->invert 
+				0 == $datetime->diff($passengerRequest->getPickUp())->invert
 				&& !$this->makeTransferByRequest($passengerRequest)
 			) {
 				return;
@@ -50,9 +53,13 @@ class StockSubscriber implements EventSubscriberInterface
 			
 			if (
 				1 == $datetime->diff($passengerRequest->getPickUp())->invert
-				&& Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod() 
+				&& Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
+				&& (
+					!$this->makeTransferByUser($passengerRequest->getUser())
+					|| !$this->makeTransferByUser($passengerRequest->getDriver()->getUser())
+				)		
 			) {
-				
+				return;
 			}
 		}
 				

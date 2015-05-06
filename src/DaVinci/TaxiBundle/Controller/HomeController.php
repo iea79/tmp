@@ -90,7 +90,7 @@ class HomeController extends StepsController {
     			
     			if ($this->isFirstDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId(
-    						$this->container->get('security.context')
+    					$this->container->get('security.context')
     						->getToken()
     						->getUser()
     						->getId()
