@@ -77,6 +77,7 @@ class RemoteRequester
     	}
     	 
     	$response = $this->apiCaller->getResponseObject();
+    	
     	return ($response->code == 0);
     }
     
