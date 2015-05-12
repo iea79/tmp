@@ -5753,36 +5753,6 @@ Profit
 	border-bottom-right-radius: 6px;
 	border-bottom-left-radius: 6px;
 }
-.profit-passenger .buttom-swicher li:first-child {
-	width: 13.1%;
-}
-.profit-passenger .buttom-swicher li:nth-child(2) {
-	width: 20.5%;
-}
-.profit-passenger .buttom-swicher li:nth-child(3) {
-	width: 21%;
-}
-.profit-passenger .buttom-swicher li:nth-child(4) {
-	width: 21.9%;
-}
-.profit-passenger .buttom-swicher li:last-child {
-	width: 22.6%;
-}
-.profit-driver .buttom-swicher li:first-child {
-	width: 14%;
-}
-.profit-driver .buttom-swicher li:nth-child(2) {
-	width: 15.7%;
-}
-.profit-driver .buttom-swicher li:nth-child(3) {
-	width: 17%;
-}
-.profit-driver .buttom-swicher li:nth-child(4) {
-	width: 29.4%;
-}
-.profit-driver .buttom-swicher li:last-child {
-	width: 29.6%;
-}
 .profit li .content div {
 	float: left;
 	padding: 0;
@@ -5886,7 +5856,11 @@ Profit
     font-weight:normal;
 }
 .profit li .content .center ol > li:after {
+	content: '.';
 	margin-bottom: 5px;
+	position: absolute;
+	left: -10px;
+	top: 0;
 }
 .profit li .content .right .book-ride {
 	width: 86%;
