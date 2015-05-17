@@ -2,21 +2,35 @@
 
 namespace DaVinci\TaxiBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 
 class InformationController extends Controller {
+	
+	const ACTION_OFFICE_ADD = 'add';
+	const ACTION_OFFICE_TRANSFER = 'transfer';
 
     public function profitAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $driverTabs= $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getDriverProfitTab();
+        
+        $driverTabs = $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getDriverProfitTab();
         $passengerTabs= $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getPassengerProfitTab();
         
-        return $this->render('DaVinciTaxiBundle:Information:profit.html.twig',
-                array(
-                    'driver_tabs' => $driverTabs,
-                    'passenger_tabs' => $passengerTabs
-                ));
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:profit.html.twig',
+            array(
+            	'driver_tabs' => $driverTabs,
+                'passenger_tabs' => $passengerTabs
+        	)
+        );
     }
 
     public function aboutAction()
@@ -117,17 +131,61 @@ class InformationController extends Controller {
     
     public function reviewsAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
-                array(
-                    'reviews' => true,
-                    'social' => false,
-                    'isblog' => false
-                ));
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:info.html.twig',
+            array(
+            	'reviews' => true,
+                'social' => false,
+                'isblog' => false
+        	)
+        );
     }
 
-    public function financial_officeAction()
+    /**
+     * @Route("/financial-office/add/{methodCode}", name="financial_office_add", defaults={"methodCode" = "2_1"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function financialOfficeAddAction($methodCode)
     {
-        return $this->render('DaVinciTaxiBundle:Finoffice:financial_office.html.twig');
+    	return $this->showOffice(self::ACTION_OFFICE_ADD, $methodCode);
+    }
+    
+    /**
+     * @Route("/financial-office/withdraw/{methodCode}", name="financial_office_withdraw", defaults={"methodCode" = "credit-card"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function financialOfficeWithdrawAction($methodCode)
+    {
+    	return $this->render(
+    		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
+    		array(
+    			'action' => 'withdraw',
+    			'methodCode' => $methodCode
+    		)
+    	);
+    }
+    
+    /**
+     * @Route("/financial-office/transfer/{methodCode}", name="financial_office_transfer", defaults={"methodCode" = "1_1"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function financialOfficeTransferAction($methodCode)
+    {
+    	return $this->showOffice(self::ACTION_OFFICE_TRANSFER, $methodCode);
+    }
+    
+    /**
+     * @Route("/financial-office/history", name="financial_office_history")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function financialOfficeHistoryAction()
+    {
+    	return $this->render(
+    		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
+    		array(
+    			'action' => 'history'
+    		)	
+    	);
     }
     
     public function storeAction()
@@ -143,6 +201,36 @@ class InformationController extends Controller {
     public function letter_confirmAction()
     {
         return $this->render('DaVinciTaxiBundle:Email:letter_confirm.html.twig');
+    }
+    
+    /**
+     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
+     */
+    private function getMakePaymentService()
+    {
+    	return $this->container->get('da_vinci_taxi.service.make_payment_service');
+    }
+    
+    private function showOffice($action, $methodCode)
+    {
+    	$makePaymentService = $this->getMakePaymentService();
+    	 
+    	$makePayment = $makePaymentService->createConfigured($this->getRequest());
+    	$form = $this->createForm(
+    		$makePaymentService->createPaymentMethodFormType($this->getRequest()),
+    		$makePayment
+    	);
+    	 
+    	return $this->render(
+    		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
+    		array(
+    			'action' => $action,
+    			'form' => $form->createView(),
+    			'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
+    			'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
+    			'methodCode' => $methodCode
+    		)
+    	);
     }
     
 }

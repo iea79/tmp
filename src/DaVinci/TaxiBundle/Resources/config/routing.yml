@@ -85,9 +85,22 @@ blogs:
     defaults: { _controller: ApplicationCmfBlogBundle:Information:blog }    
     options: { useAsInnerURL: true }        
         
-financial_office:
-    pattern:  /financial-office
-    defaults: { _controller: DaVinciTaxiBundle:Information:financial_office }    
+financial_office_add:
+    pattern:  /financial-office/add/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeAdd, methodCode: '2_1' }
+    
+financial_office_withdraw:
+    pattern:  /financial-office/withdraw/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeWithdraw, methodCode: 'credit-card' }
+    
+financial_office_transfer:
+    pattern:  /financial-office/transfer/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeTransfer, methodCode: '1_1' }
+    
+financial_office_history:
+    pattern:  /financial-office/history
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeHistory }    
+        
 store:
     pattern:  /store
     defaults: { _controller: DaVinciTaxiBundle:Information:store }    

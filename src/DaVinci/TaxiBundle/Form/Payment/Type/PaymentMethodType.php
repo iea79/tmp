@@ -6,8 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use DaVinci\TaxiBundle\Form\Payment\MakePayment;
-use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
+use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 
 class PaymentMethodType extends AbstractType 
 {
@@ -31,7 +31,7 @@ class PaymentMethodType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 
 	{
 		$resolver->setDefaults(array(
-			'data_class' =>	'DaVinci\TaxiBundle\Form\Payment\MakePayment',
+			'data_class' =>	'DaVinci\TaxiBundle\Entity\Payment\MakePayment',
 			'validation_groups' => array('flow_makePayment_step1'),
 			'csrf_protection' => false
 		));

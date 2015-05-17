@@ -1,0 +1,18 @@
+<div class="addcard">
+    <div class="buttom-swicher">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#addcard'}">
+        	<li class="uk-active"><a href="#">Private</a></li>
+        	<li><a href="#">Business</a></li>
+        </ul>
+    </div>
+    <ul id="addcard" class="uk-switcher content-padding">
+        <li class="uk-active">
+        	<form novalidate action="{{ path('financial_office_add', {'methodCode': methodCode}) }}" {{ form_enctype(form) }} method="POST">
+	        	{% if paymentMethod == 'InternalPaymentMethod' %}
+					{% include 'DaVinciTaxiBundle:Store:internal_method.html.twig' %} 	 
+			    {% endif %}
+				<button class="uk-button uk-button-danger">Pay</button>
+			</form>	
+    	</li>
+    </ul>
+ </div> 

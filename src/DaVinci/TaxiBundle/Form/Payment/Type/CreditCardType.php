@@ -5,7 +5,8 @@ namespace DaVinci\TaxiBundle\Form\Payment\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
+
+use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 
 class CreditCardType extends AbstractType 
 {
@@ -39,7 +40,7 @@ class CreditCardType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 
 	{
 		$resolver->setDefaults(array(
-			'data_class' =>	'DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod',
+			'data_class' =>	'DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod',
 			'validation_groups' => array('flow_makePayment_step2'),
 			'csrf_protection' => false
 		));

@@ -5,14 +5,28 @@
         	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/mcard.png') }}" alt=""></a></li>
         	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/dclub.png') }}" alt=""></a></li>
         	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/amerexp.png') }}" alt=""></a></li>
-        	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/discover.png') }}" alt=""></a></li>
         	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/paypal.png') }}" alt=""></a></li>
-        	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/wu.png') }}" alt=""></a></li>
-        	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/mgramm.png') }}" alt=""></a></li>
         	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/skrill.png') }}" alt=""></a></li>
-        </ul>
+        	<!--li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/wu.png') }}" alt=""></a></li>
+        	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/mgramm.png') }}" alt=""></a></li>
+        	<li><a href="#"><img src="{{ asset('bundles/davincitaxi/images/discover.png') }}" alt=""></a></li-->
+    	</ul>
     </div>
     <ul id="addcard" class="uk-switcher content-padding">
+        <li class="uk-active">
+        	<form novalidate action="{{ path('financial_office_add', {'methodCode': methodCode}) }}" {{ form_enctype(form) }} method="POST">
+	        	{% if paymentMethod == 'CreditCardPaymentMethod' %}
+					{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
+				{% elseif paymentMethod == 'PayPalPaymentMethod' %}
+					{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
+				{% elseif paymentMethod == 'SkrillPaymentMethod' %}
+					{% include 'DaVinciTaxiBundle:Store:skrill_method.html.twig' %}
+				{% endif %}
+				<button class="uk-button uk-button-danger">Pay</button>
+			</form>	
+    	</li>
+    </ul>
+    <!--ul id="addcard" class="uk-switcher content-padding">
         <li class="uk-active">
             <h3>Пополнение счета с помощью VISA</h3>
             <form action="" class="uk-form uk-form-horizontal">
@@ -788,5 +802,5 @@
                 <button class="uk-button uk-button-danger">Next</button>
             </form>
         </li>
-    </ul>
+    </ul-->
 </div>

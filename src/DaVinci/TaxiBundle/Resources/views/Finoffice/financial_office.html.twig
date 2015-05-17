@@ -68,36 +68,35 @@
 </div>
 {# ======= Fin office ========= #}
 <div class="shadow-main">
-	<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#finoffice'}">
-		<div class="uk-panel uk-width-1-4">
-			<button class="uk-width-1-1 uk-button">$ {{ 'Add'|trans }}</button>
+	<div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
+		<div class="uk-panel uk-width-1-4{% if action == 'add' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_add') }}"'>$ {{ 'Add'|trans }}</button>
 		</div>
-		<div class="uk-panel uk-width-1-4">
-			<button class="uk-width-1-1 uk-button">$ {{'Withdraw'|trans}}</button>
+		<div class="uk-panel uk-width-1-4{% if action == 'withdraw' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_withdraw') }}"'>$ {{'Withdraw'|trans}}</button>
 		</div>
-		<div class="uk-panel uk-width-1-4">
-			<button class="uk-width-1-1 uk-button">$ {{'Transfer'|trans}}</button>
+		<div class="uk-panel uk-width-1-4{% if action == 'transfer' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_transfer') }}"'>$ {{'Transfer'|trans}}</button>
 		</div>
-		<div class="uk-panel uk-width-1-4">
-			<button class="uk-width-1-1 uk-button">$ {{'History'|trans}}</button>
+		<div class="uk-panel uk-width-1-4{% if action == 'history' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_history') }}"'>$ {{'History'|trans}}</button>
 		</div>
 	</div>
 	<div class="whitebg">
 		<div class="message">
-			<span>Внимание!</span> Текстовая информация.
+			<span>Attention!</span> Information.
 		</div>
 		<ul id="finoffice" class="uk-switcher">
 			<li class="uk-active">
-				{% include 'DaVinciTaxiBundle:Finoffice:add.html.twig' %}
-			</li>
-			<li>
-				{% include 'DaVinciTaxiBundle:Finoffice:withdraw.html.twig' %}
-			</li>
-			<li>
-				{% include 'DaVinciTaxiBundle:Finoffice:transfer.html.twig' %}
-			</li>
-			<li>
-				{% include 'DaVinciTaxiBundle:Finoffice:history.html.twig' %}
+				{% if action == 'add' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:add.html.twig' %}
+				{% elseif action == 'withdraw' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:withdraw.html.twig' %}
+				{% elseif action == 'transfer' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:transfer.html.twig' %}
+				{% elseif action == 'history' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:history.html.twig' %}
+				{% endif %}	
 			</li>
 		</ul>
 	</div>

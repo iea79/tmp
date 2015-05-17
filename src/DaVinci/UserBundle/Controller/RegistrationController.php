@@ -16,7 +16,7 @@ use DaVinci\TaxiBundle\Services\RemoteRequester;
 
 class RegistrationController extends BaseController {
 
-       /**
+    /**
      * Receive the confirmation token from user email provider, login the user
      */
     public function confirmAction($token)

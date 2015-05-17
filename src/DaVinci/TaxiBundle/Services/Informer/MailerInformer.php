@@ -7,7 +7,7 @@ use DaVinci\TaxiBundle\Entity\User;
 class MailerInformer extends AbstractInformer implements InformerInterface
 {
 	
-	const MAIL_SUBJECT = 'Notification mail';
+	const MAIL_SUBJECT = 'Notification e-mail';
 	
 	/**
 	 * @var \Swift_Mailer
@@ -22,7 +22,6 @@ class MailerInformer extends AbstractInformer implements InformerInterface
 	public function notify(\DaVinci\TaxiBundle\Entity\User $user, $literalCode)
 	{
 		$message = $this->mailer
-			->createMessage()
 			->setSubject(self::MAIL_SUBJECT)
 			->setTo($user->getEmail())
 			->setBody($this->prepareContent($literalCode));

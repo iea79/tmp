@@ -58,25 +58,22 @@ class OfficeController extends StepsController
     public function office_passenger_profileAciton(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user))
+        if (empty($user)) {
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
-        
+        }
        
         $isPassExp = !$user->isPasswordNotExpired();
          
-        $form =$this->createForm(new OfficePassengerProfileType(), $user);
-
+        $form = $this->createForm(new OfficePassengerProfileType(), $user);
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-
                 $usr = $form->getData();
                
                 $pass = $form['current_password']->getData();
-                //set new password if added
-                if(!empty($pass))
-                {
+                // set new password if added
+                if (!empty($pass)) {
                     $user->setPlainPassword($form['new']->getData());
                 }
                 $this->container->get('fos_user.user_manager')->updateUser($usr);
@@ -86,10 +83,12 @@ class OfficeController extends StepsController
         }
         
         
-        return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
-                    'form' => $form->createView(),
-                    'isPasswordExpired' => $isPassExp
-        ));
+        return $this->container->get('templating')->renderResponse(
+        	'DaVinciUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
+				'form' => $form->createView(),
+                'isPasswordExpired' => $isPassExp
+        	)
+        );
     }
     
     
@@ -140,44 +139,46 @@ class OfficeController extends StepsController
 		);
     }
 
-    // ->this doesnt work yet....
+    // this doesn't work yet...
     // @Security("has_role('ROLE_TAXIDRIVER')", message="You have to be logged in as a driver")
     /**
-    * @Route("/office-driver-profile", name="office_driver_profile")
-    */
+     * @Route("/office-driver-profile", name="office_driver_profile")
+     */
     public function office_driver_profileAciton(Request $request)
     {
-        if($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
             //-> so now doing like that
             if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
                 throw new AccessDeniedException('You have to be logged in as a driver');
             }
 
             $user = $this->container->get('security.context')->getToken()->getUser();
-            if (null === $user || !is_object($user))
+            if (null === $user || !is_object($user)) {
                 throw new NotFoundHttpException(sprintf('There is empty user, try login'));
+            }
 
-            $form =$this->createForm(new OfficeDriverProfileType(), $user->getIndependentDriver());
+            $form = $this->createForm(new OfficeDriverProfileType(), $user->getIndependentDriver());
             $form->get('user')->setData($user);
 
             if ('POST' === $request->getMethod()) {
                 $form->handleRequest($request);
 
                 if ($form->isValid()) {
-
                     $usr = $form->getData();
-
 
                     $this->container->get('fos_user.user_manager')->updateUser($usr->getUser());
 
-                    return new \Symfony\Component\HttpFoundation\Response('success',200); ;
+                    return new \Symfony\Component\HttpFoundation\Response('success', 200);
                 }
             }
 
 
-            return $this->container->get('templating')->renderResponse('DaVinciUserBundle:Offices:office_driver_profile_edit_form.html.twig', array(
-                        'form' => $form->createView()
-            ));
+            return $this->container->get('templating')->renderResponse(
+            	'DaVinciUserBundle:Offices:office_driver_profile_edit_form.html.twig', 
+            	array(
+            		'form' => $form->createView()
+            	)
+            );
         } else {
             return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
@@ -216,18 +217,18 @@ class OfficeController extends StepsController
     }
 
     /**
-    * @Route("/block-profile", name="block_profile")
-    * @Security("has_role('ROLE_USER')")
-    */
+     * @Route("/block-profile", name="block_profile")
+     * @Security("has_role('ROLE_USER')")
+     */
     public function block_profileAction()
     {
         return $this->render('DaVinciUserBundle:Offices:block_profile.html.twig');
     }
     
     /**
-    * @Route("/filter-table", name="filter_table")
-    * @Security("has_role('ROLE_USER')")
-    */   
+     * @Route("/filter-table", name="filter_table")
+     * @Security("has_role('ROLE_USER')")
+     */   
     public function filter_tableAction()
     {
         return $this->render('DaVinciUserBundle:Home:filter_table.html.twig');

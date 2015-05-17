@@ -11,12 +11,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use DaVinci\TaxiBundle\Controller\StepsController;
 
-use DaVinci\TaxiBundle\Form\Payment\MakePayment;
-use DaVinci\TaxiBundle\Form\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow;
-use DaVinci\TaxiBundle\Form\Payment\PaymentMethod;
-use DaVinci\TaxiBundle\Form\Payment\CreditCardPaymentMethod;
-use DaVinci\TaxiBundle\Form\Payment\InternalPaymentMethod;
+
+use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
+use DaVinci\TaxiBundle\Entity\Payment\InternalPaymentMethod;
 
 use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
@@ -297,19 +298,7 @@ class HomeController extends StepsController {
     private function spawnMakePayment()
     {
     	$makePaymentService = $this->getMakePaymentService();
-    	
-    	$makePayment = $makePaymentService->create();
-    	$params = $this->getRequest()->get('makePaymentStepMethod');
-    	if (isset($params['paymentMethodCode'])) {
-    		$makePaymentService->spawnPaymentMethod($makePayment, $params['paymentMethodCode']);
-    		return $makePayment;
-    	}
-    	
-    	$params = $this->getRequest()->get('makePaymentStepPaymentInfo');
-    	if (isset($params['paymentMethodCode'])) {
-    		$makePaymentService->spawnPaymentMethod($makePayment, $params['paymentMethodCode']);
-    		return $makePayment;
-    	}
+    	return $makePaymentService->createConfigured($this->getRequest());
     }
     
     /**
@@ -340,7 +329,7 @@ class HomeController extends StepsController {
     }
     
     /**
-     * @return \DaVinci\TaxiBundle\Form\Payment\MakePaymentService
+     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
      */
     private function getMakePaymentService()
     {

@@ -15,6 +15,9 @@ use Craue\FormFlowBundle\Event\PostValidateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
+use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
 use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 use DaVinci\TaxiBundle\Form\Payment\Type\SkrillPaymentInfoType;
@@ -23,14 +26,12 @@ use DaVinci\TaxiBundle\Form\Payment\Type\InternalPaymentInfoType;
 class MakePaymentFlow extends FormFlow implements EventSubscriberInterface 
 {
 	
-	const FLOW_NAME = 'makePayment';
-	
 	const STEP_FIRST = 1;
 	const STEP_SECOND = 2;
 	
 	public function getName() 
 	{
-		return self::FLOW_NAME;
+		return MakePayments::FLOW_NAME;
 	}
 	
 	public static function getSubscribedEvents() 
@@ -90,26 +91,8 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface
 	
 	private function createFormType()
 	{
-		$params = $this->getRequest()->get('makePaymentStepMethod');
-		if (isset($params['paymentMethodCode'])) {
-			$className = $this->getClassName($params['paymentMethodCode']);
-			return new $className();
-		}
-		
-		$params = $this->getRequest()->get('makePaymentStepPaymentInfo');
-		if (isset($params['paymentMethodCode'])) {
-			$className = $this->getClassName($params['paymentMethodCode']);
-			return new $className();
-		}
-	}
-	
-	private function getClassName($code)
-	{
-		$methodData = explode('_', $code);
-		return (
-			MakePaymentService::SERVICE_NAMESPACE_TYPE
-				. PaymentMethod::getTypeByCode($methodData[0])
-				. 'PaymentInfoType'
+		return MakePaymentService::createPaymentMethodFormType(
+			$this->getRequest()
 		);
 	}
 		
