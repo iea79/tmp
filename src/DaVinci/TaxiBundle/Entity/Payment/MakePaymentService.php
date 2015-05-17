@@ -11,7 +11,7 @@ class MakePaymentService
 	protected static $methods;
 	
 	/**
-	 * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
 	public function create(array $params = null)
 	{
@@ -72,13 +72,13 @@ class MakePaymentService
 	}
 	
 	/**
-	 * @param \DaVinci\TaxiBundle\Form\Payment\MakePayment $makePayment
+	 * @param \DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment
 	 * @param string $paymentMethodCode
 	 * 
-	 * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
 	private function spawnPaymentMethod(
-		\DaVinci\TaxiBundle\Form\Payment\MakePayment $makePayment, $paymentMethodCode
+		\DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment, $paymentMethodCode
 	) {
 		if ($paymentMethodCode) {
 			$methodData = explode('_', $paymentMethodCode);
@@ -101,7 +101,7 @@ class MakePaymentService
 	/**
 	 * @param string $method
 	 * @param string $type
-	 * @return PaymentMethod
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\PaymentMethod
 	 */
 	private function createPaymentMethod($methodCode, $subType = null)
 	{

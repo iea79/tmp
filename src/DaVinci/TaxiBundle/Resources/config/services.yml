@@ -23,7 +23,7 @@ services:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService
 
     da_vinci_taxi.service.make_payment_service:
-        class: DaVinci\TaxiBundle\Form\Payment\MakePaymentService
+        class: DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
 
     da_vinci_taxi.service.calculation_service:
         class: DaVinci\TaxiBundle\Services\Calculation

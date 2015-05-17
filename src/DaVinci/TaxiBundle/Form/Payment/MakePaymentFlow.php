@@ -15,9 +15,6 @@ use Craue\FormFlowBundle\Event\PostValidateEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
-use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
-
 use DaVinci\TaxiBundle\Form\Payment\Type\PaymentMethodType;
 use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 use DaVinci\TaxiBundle\Form\Payment\Type\SkrillPaymentInfoType;
