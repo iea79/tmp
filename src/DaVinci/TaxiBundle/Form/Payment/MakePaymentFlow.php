@@ -20,6 +20,9 @@ use DaVinci\TaxiBundle\Form\Payment\Type\CreditCardPaymentInfoType;
 use DaVinci\TaxiBundle\Form\Payment\Type\SkrillPaymentInfoType;
 use DaVinci\TaxiBundle\Form\Payment\Type\InternalPaymentInfoType;
 
+use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+
 class MakePaymentFlow extends FormFlow implements EventSubscriberInterface 
 {
 	
