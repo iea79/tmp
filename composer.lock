@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "358d6edb3b48fd12ef9536baf09fe686",
+    "hash": "f1ed69c6fd3b7ed02264f4bfdaa496fa",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -1289,21 +1289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-<<<<<<< HEAD
-                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b"
+                "reference": "a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
-                "reference": "252fb449d5c45a4c1a92497b43d4c246bde0ee6b",
-=======
-                "reference": "39d6223d919baa35883270199c7e935acc440257"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/39d6223d919baa35883270199c7e935acc440257",
-                "reference": "39d6223d919baa35883270199c7e935acc440257",
->>>>>>> 3a0e29abc52ddf0839f9adb6cf7fc39f82e82567
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf",
+                "reference": "a4f14d3a3d397104e557ec65d1a4e43bb86e4ddf",
                 "shasum": ""
             },
             "require": {
@@ -1350,11 +1341,7 @@
                 "database",
                 "migrations"
             ],
-<<<<<<< HEAD
-            "time": "2015-04-29 07:54:59"
-=======
-            "time": "2015-04-22 09:24:33"
->>>>>>> 3a0e29abc52ddf0839f9adb6cf7fc39f82e82567
+            "time": "2015-05-02 06:20:23"
         },
         {
             "name": "doctrine/orm",
@@ -2468,16 +2455,16 @@
         },
         {
             "name": "jackalope/jackalope",
-            "version": "1.1.7",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jackalope/jackalope.git",
-                "reference": "c282200645c913dad1915f38c0e4258f52c5101b"
+                "reference": "1506d9fc88b2d1024fbbfb6b5a7fe4db766bf1da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jackalope/jackalope/zipball/c282200645c913dad1915f38c0e4258f52c5101b",
-                "reference": "c282200645c913dad1915f38c0e4258f52c5101b",
+                "url": "https://api.github.com/repos/jackalope/jackalope/zipball/1506d9fc88b2d1024fbbfb6b5a7fe4db766bf1da",
+                "reference": "1506d9fc88b2d1024fbbfb6b5a7fe4db766bf1da",
                 "shasum": ""
             },
             "require": {
@@ -2485,7 +2472,7 @@
                 "jackalope/jackalope-transport": "*",
                 "php": ">=5.3.3",
                 "phpcr/phpcr": "~2.1.0,>=2.1.0-beta12",
-                "phpcr/phpcr-utils": ">=1.1.0,<1.3.x-dev"
+                "phpcr/phpcr-utils": "~1.1"
             },
             "provide": {
                 "phpcr/phpcr-implementation": "2.1.0"
@@ -2493,7 +2480,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2517,35 +2504,36 @@
             "keywords": [
                 "phpcr"
             ],
-            "time": "2015-02-13 14:23:18"
+            "time": "2015-04-29 15:56:16"
         },
         {
             "name": "jackalope/jackalope-doctrine-dbal",
-            "version": "1.1.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jackalope/jackalope-doctrine-dbal.git",
-                "reference": "3eff08407163449d33779500bbe6c7c3087bc400"
+                "reference": "d35b92d9578a4f7b24f54e872e0186c52f7350ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jackalope/jackalope-doctrine-dbal/zipball/3eff08407163449d33779500bbe6c7c3087bc400",
-                "reference": "3eff08407163449d33779500bbe6c7c3087bc400",
+                "url": "https://api.github.com/repos/jackalope/jackalope-doctrine-dbal/zipball/d35b92d9578a4f7b24f54e872e0186c52f7350ea",
+                "reference": "d35b92d9578a4f7b24f54e872e0186c52f7350ea",
                 "shasum": ""
             },
             "require": {
-                "doctrine/dbal": ">=2.2.0,<2.6",
-                "jackalope/jackalope": "~1.1.1",
+                "doctrine/dbal": ">=2.4.5,<3.0.x-dev",
+                "jackalope/jackalope": "~1.2.0",
                 "php": ">=5.3.3",
-                "phpcr/phpcr": "~2.1.0",
-                "phpcr/phpcr-utils": ">=1.1.0,<1.3.x-dev"
+                "phpcr/phpcr": "~2.1.2",
+                "phpcr/phpcr-utils": "~1.2,>=1.2.4"
             },
             "provide": {
                 "jackalope/jackalope-transport": "1.1.0"
             },
             "require-dev": {
-                "phpcr/phpcr-api-tests": "2.1.0",
+                "phpcr/phpcr-api-tests": "2.1.4",
                 "phpunit/dbunit": "~1.3",
+                "phpunit/phpunit": "4.7.*",
                 "psr/log": "~1.0"
             },
             "bin": [
@@ -2554,7 +2542,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2580,35 +2568,35 @@
                 "phpcr",
                 "transport implementation"
             ],
-            "time": "2014-08-07 19:23:14"
+            "time": "2015-05-07 09:26:34"
         },
         {
             "name": "jackalope/jackalope-jackrabbit",
-            "version": "1.1.3",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jackalope/jackalope-jackrabbit.git",
-                "reference": "f350452700572a30fa53189418db63057f137bee"
+                "reference": "c395494f31589aa0ffd83aa5783884c6bddab9b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jackalope/jackalope-jackrabbit/zipball/f350452700572a30fa53189418db63057f137bee",
-                "reference": "f350452700572a30fa53189418db63057f137bee",
+                "url": "https://api.github.com/repos/jackalope/jackalope-jackrabbit/zipball/c395494f31589aa0ffd83aa5783884c6bddab9b7",
+                "reference": "c395494f31589aa0ffd83aa5783884c6bddab9b7",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-xml": "*",
-                "jackalope/jackalope": "~1.1.0",
+                "jackalope/jackalope": "~1.2.0",
                 "php": ">=5.3.3",
-                "phpcr/phpcr": "~2.1.0",
-                "phpcr/phpcr-utils": "~1.1"
+                "phpcr/phpcr": "~2.1.2",
+                "phpcr/phpcr-utils": "1.*,>=1.1.2"
             },
             "provide": {
                 "jackalope/jackalope-transport": "1.1.0"
             },
             "require-dev": {
-                "phpcr/phpcr-api-tests": "~2.1.0",
+                "phpcr/phpcr-api-tests": "2.1.4",
                 "psr/log": "~1.0",
                 "symfony/console": "~2.0"
             },
@@ -2619,7 +2607,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1-dev"
+                    "dev-master": "1.2-dev"
                 }
             },
             "autoload": {
@@ -2645,7 +2633,7 @@
                 "phpcr",
                 "transport implementation"
             ],
-            "time": "2014-11-13 08:05:35"
+            "time": "2015-05-02 13:08:09"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -3549,7 +3537,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -3863,12 +3851,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/liip/LiipImagineBundle.git",
-                "reference": "e24256aa688b1afc9edfaae86f82c80d9e471436"
+                "reference": "ca1eda0b0fae3cb0aa9dace52322511cacd54b7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/e24256aa688b1afc9edfaae86f82c80d9e471436",
-                "reference": "e24256aa688b1afc9edfaae86f82c80d9e471436",
+                "url": "https://api.github.com/repos/liip/LiipImagineBundle/zipball/ca1eda0b0fae3cb0aa9dace52322511cacd54b7f",
+                "reference": "ca1eda0b0fae3cb0aa9dace52322511cacd54b7f",
                 "shasum": ""
             },
             "require": {
@@ -3928,7 +3916,7 @@
                 "image",
                 "imagine"
             ],
-            "time": "2015-04-24 13:41:22"
+            "time": "2015-05-11 13:01:26"
         },
         {
             "name": "liip/search-bundle",
@@ -4628,16 +4616,16 @@
         },
         {
             "name": "phpcr/phpcr-utils",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpcr/phpcr-utils.git",
-                "reference": "c41b8d4f40d616fef641497b587fe1444533959c"
+                "reference": "8b4a716f673e4d083658a23541f4dca6644688eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpcr/phpcr-utils/zipball/c41b8d4f40d616fef641497b587fe1444533959c",
-                "reference": "c41b8d4f40d616fef641497b587fe1444533959c",
+                "url": "https://api.github.com/repos/phpcr/phpcr-utils/zipball/8b4a716f673e4d083658a23541f4dca6644688eb",
+                "reference": "8b4a716f673e4d083658a23541f4dca6644688eb",
                 "shasum": ""
             },
             "require": {
@@ -4686,7 +4674,7 @@
                 "contentrepository",
                 "phpcr"
             ],
-            "time": "2015-02-12 17:34:08"
+            "time": "2015-05-01 15:21:10"
         },
         {
             "name": "phpoption/phpoption",
@@ -4777,17 +4765,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v3.0.21",
+            "version": "v3.0.22",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8"
+                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/da23c78093676a823a1ff43a214987ea3fbf83c8",
-                "reference": "da23c78093676a823a1ff43a214987ea3fbf83c8",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
+                "reference": "0fe4ec86db57c232becb694e01cdabe3c4d9af7c",
                 "shasum": ""
             },
             "require": {
@@ -4833,7 +4821,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-04-10 06:20:46"
+            "time": "2015-05-02 16:23:08"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -5385,12 +5373,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "d64ca82926ce75a3726ab528accd3b5d9351e052"
+                "reference": "b6cdc7d6c4980e589d013f2539809276b2509224"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/d64ca82926ce75a3726ab528accd3b5d9351e052",
-                "reference": "d64ca82926ce75a3726ab528accd3b5d9351e052",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/b6cdc7d6c4980e589d013f2539809276b2509224",
+                "reference": "b6cdc7d6c4980e589d013f2539809276b2509224",
                 "shasum": ""
             },
             "require": {
@@ -5442,7 +5430,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2015-04-20 12:10:12"
+            "time": "2015-05-13 11:41:22"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -5620,12 +5608,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrinePhpcrAdminBundle.git",
-                "reference": "7a99def9fa558d917761f7042131bd46c91ef5ad"
+                "reference": "f2d2b0254abf4ede7f8118fed6d93ea14815a62a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrinePhpcrAdminBundle/zipball/7a99def9fa558d917761f7042131bd46c91ef5ad",
-                "reference": "7a99def9fa558d917761f7042131bd46c91ef5ad",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrinePhpcrAdminBundle/zipball/f2d2b0254abf4ede7f8118fed6d93ea14815a62a",
+                "reference": "f2d2b0254abf4ede7f8118fed6d93ea14815a62a",
                 "shasum": ""
             },
             "require": {
@@ -5677,7 +5665,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2015-04-15 08:05:09"
+            "time": "2015-04-29 16:02:45"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -6027,12 +6015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "68c91cccd6a5e38c35e0d415681cd294713b2e88"
+                "reference": "be9409c304797f5123fd447cec976299c57a8c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/68c91cccd6a5e38c35e0d415681cd294713b2e88",
-                "reference": "68c91cccd6a5e38c35e0d415681cd294713b2e88",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/be9409c304797f5123fd447cec976299c57a8c53",
+                "reference": "be9409c304797f5123fd447cec976299c57a8c53",
                 "shasum": ""
             },
             "require": {
@@ -6105,7 +6093,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2015-04-20 09:44:58"
+            "time": "2015-05-05 13:25:50"
         },
         {
             "name": "sonata-project/news-bundle",
@@ -6113,12 +6101,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataNewsBundle.git",
-                "reference": "19f138e1662bb490fbe3d992bbf1c4d2418c6d1a"
+                "reference": "39723dc21c5b8cb4d3391f2431889a962fe39153"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataNewsBundle/zipball/19f138e1662bb490fbe3d992bbf1c4d2418c6d1a",
-                "reference": "19f138e1662bb490fbe3d992bbf1c4d2418c6d1a",
+                "url": "https://api.github.com/repos/sonata-project/SonataNewsBundle/zipball/39723dc21c5b8cb4d3391f2431889a962fe39153",
+                "reference": "39723dc21c5b8cb4d3391f2431889a962fe39153",
                 "shasum": ""
             },
             "require": {
@@ -6179,7 +6167,7 @@
                 "post",
                 "sonata"
             ],
-            "time": "2015-04-21 17:37:34"
+            "time": "2015-04-28 18:58:18"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -6392,22 +6380,21 @@
         },
         {
             "name": "sonata-project/timeline-bundle",
-            "version": "dev-master",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataTimelineBundle.git",
-                "reference": "0d7e8946625229ba9aa7620e53621496d7b53163"
+                "reference": "9d6dc09bd21813f4f236e753c2ae82c9f3d77cdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataTimelineBundle/zipball/0d7e8946625229ba9aa7620e53621496d7b53163",
-                "reference": "0d7e8946625229ba9aa7620e53621496d7b53163",
+                "url": "https://api.github.com/repos/sonata-project/SonataTimelineBundle/zipball/9d6dc09bd21813f4f236e753c2ae82c9f3d77cdf",
+                "reference": "9d6dc09bd21813f4f236e753c2ae82c9f3d77cdf",
                 "shasum": ""
             },
             "require": {
                 "sonata-project/block-bundle": "~2.2,>=2.2.1",
-                "sonata-project/core-bundle": "~2.3,>=2.3.1",
-                "sonata-project/intl-bundle": "~2.1",
+                "sonata-project/core-bundle": "~2.2",
                 "stephpy/timeline-bundle": "~2.0"
             },
             "type": "symfony-bundle",
@@ -6443,7 +6430,7 @@
                 "time",
                 "wall"
             ],
-            "time": "2015-02-17 10:06:42"
+            "time": "2015-02-17 10:05:16"
         },
         {
             "name": "sonata-project/translation-bundle",
@@ -7898,16 +7885,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.6.6",
+            "version": "v2.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "48c9e835a877adfb023b8b6d033d9dd14f342b4b"
+                "reference": "0449d0e1178bc8e934520b20432d1705c3b25e7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/48c9e835a877adfb023b8b6d033d9dd14f342b4b",
-                "reference": "48c9e835a877adfb023b8b6d033d9dd14f342b4b",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/0449d0e1178bc8e934520b20432d1705c3b25e7e",
+                "reference": "0449d0e1178bc8e934520b20432d1705c3b25e7e",
                 "shasum": ""
             },
             "require": {
@@ -8011,7 +7998,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-04-01 16:55:26"
+            "time": "2015-05-11 01:58:49"
         },
         {
             "name": "tilleuls/ckeditor-sonata-media-bundle",
@@ -9513,7 +9500,8 @@
         "stof/doctrine-extensions-bundle": 20,
         "tilleuls/ckeditor-sonata-media-bundle": 20,
         "cocur/slugify": 20,
-        "symfony-cmf/blog-bundle": 20
+        "symfony-cmf/blog-bundle": 20,
+        "symfony/console": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
