@@ -6,51 +6,60 @@
 {% block body %}
 {# ========= Account start ============= #}
 <div class="client-account">
-		<div class="client-panel-button">
-			<div class="uk-grid uk-grid-small">
-				<div class="uk-panel">
-					<button class="uk-button uk-button-primary uk-button-profile" id="open-profile-button" data-uk-modal="{target:'#Profile',bgclose:false}"><i class="mp-icon-person"></i>{{ 'My profile'|trans }}</button>
+		<div class="shadow-main whitebg company-panel">
+			<div class="uk-grid uk-grid-small client-panel-list block-help">
+			{# block1 #}
+				<div class="clientid">
+					<a class="uk-button uk-button-primary">{{'My profile'|trans}}</a>
+					<dl>
+						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
+						<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+					</dl>
 				</div>
-				<div class="uk-panel">
-					<button class="uk-button uk-button-success uk-button-profile"><i class="uk-icon-dollar"></i>{{'Take escrow '|trans}} </button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-good"></i>{{ 'Buy Membership'|trans }}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-button uk-button-danger uk-button-profile"><i class="mp-icon-gift"></i>{{ 'Gift Card'|trans }}</button>
-				</div>
-				<div class="uk-panel">
-					<button class="uk-button uk-button-success uk-button-profile"><span class="icon-messages-n"><b>5</b></span><i class="mp-icon-message"></i>{{ 'Messages'|trans }}</button>
-				</div>
-			</div>
-		</div>
-		<div class="client-panel-list">
-			<div class="uk-grid uk-grid-small uk-margin">
-				<div class="uk-panel">
-					<div class="clientid">
-						<dl>
-							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">  {{ app.user.id }} </dd>
-							<dt>{{' Name:'|trans}}</dt><dd class="data">  {% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %} </dd>
-							<dt> {{'Offices:'|trans}}</dt> <dd class="data"><span> 3 </span><a href="#">{{'view'|trans}}</a>
-						</dl>
+			{# block2 #}
+				<div class="offices-block">
+					<div class="button-choose">
+						<div class="choose-office select-group">
+							<label>{{'Office:'|trans}}</label>
+							<select>
+								<option class="active-office">{{'Office passenger'|trans}}</option>
+								<option>{{'Independent driver'|trans}}</option>
+							</select>
+							<button class="uk-button uk-button-success">{{'Swich'|trans}}</button>
+						</div>
+						<div class="buttons-office">
+							<a class="uk-button uk-button-primary">{{'Me offices'|trans}}</a>
+						</div>
+					</div>
+					<div class="message">
+						<div class="text">
+							<span>{{'Внимание!'|trans}}</span>17 Mar 2015 заканчивается срок действия мембершипа “Оптимальный”
+						</div>
+						<a class="uk-button uk-button-danger">{{'Extend'|trans}}</a>
 					</div>
 				</div>
-				<div class="uk-panel">
-					<div class="clientid">
-						<dl>
-							<dt class=""> {{'My balance:'|trans}}  </dt><dd id="balance" class="data"> $0.00</dd>
-							<dd class="divider"><a href=""> {{'$Add'|trans}} </a><a href=""> {{'$Withdraw'|trans}} </a></dd>
-							<dd class="divider"><a href=""> {{'$Transfer'|trans}} </a><a href=""> {{'$History'|trans}} </a></dd>
-						</dl>
+			{# block3 #}
+				<div class="money-block">
+					<div class="history">
+						<span>{{'History:'|trans}}</span>
+						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
+						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
+						<a class="uk-button uk-button-primary">{{'TMP'|trans}}</a>
 					</div>
-				</div>
-				<div class="uk-panel">
-					<div class="clientid">
+					<div class="balance">
+						<span>{{'Balance:'|trans}}</span>
+						<a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
+						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
+						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
+					</div>
+					<div class="money">
 						<dl>
-							<dt> {{'Membership:'|trans}}  </dt><dd id="status" class="data">  {{'Gold'|trans}} </dd>
-							<dt> {{'Left time:'|trans}}  </dt><dd class="data">  11 {{'oct'|trans}} 14 </dd>
-							<dt><a href=""> {{'Extend'|trans}}</a></dt>
+							<dt>{{'Main:'|trans}}</dt>
+							<dd>$0.00</dd>
+						</dl>
+						<dl>
+							<dt>{{'Business:'|trans}}</dt>
+							<dd>$0.00</dd>
 						</dl>
 					</div>
 				</div>

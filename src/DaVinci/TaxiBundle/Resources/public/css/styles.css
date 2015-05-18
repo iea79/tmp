@@ -889,7 +889,7 @@ home
 styles of booking step 1  in homepage
 =================================*/
 .destination {
-	margin: 41px 0 17px;
+	margin: 52px 0 17px;
 }
 	.destination .nav-over {
 		padding: 0 2%;
@@ -1835,7 +1835,7 @@ office list
 		margin-right: 1%;
 		width: 98%;
 	}
-.office-company .client-account .clientid {
+.client-account .clientid {
   padding-left: 10px;
 }}
 @media (max-width: 530px) {
@@ -8445,60 +8445,62 @@ Store
 /* ===========================
 Taxi company styles
 =========================== */
-.office-company .uk-button {
+.client-account .uk-button {
     font-size: 16px;
     line-height: 28px;
     min-height: 28px;
 }
-.office-company .company-panel {
+.company-panel {
   margin-bottom: 22px;
 }
-.office-company .client-account .client-panel-list .clientid a.uk-button {
+.client-account .client-panel-list .clientid a.uk-button {
 	width: 95%;
 	margin-bottom: 12px;
 }
-.office-company .client-panel-list {
+.client-panel-list {
 	margin-bottom: -19px;
 }
-.office-company .company-panel .client-panel-list .uk-grid-small {
+.company-panel .client-panel-list .uk-grid-small {
 	margin-left: 0;
 }
-.office-company .company-panel .uk-grid-small {
+.company-panel .uk-grid-small {
 	margin-left: 0;
 }
-.office-company .company-panel .uk-grid.uk-grid-small > * {
+.company-panel .uk-grid.uk-grid-small > * {
 	box-sizing: border-box;
 	padding-left: 0;
 }
-.office-company .client-account .clientid {
+.client-account .clientid {
 	width: 24%;
 	border-right: 1px solid #d0d0d0;
 	box-sizing: border-box;
 }
-.office-company .client-account .clientid dl {
+.client-account .clientid dl {
 	margin-bottom: 7px;
 }
-.office-company .client-account .client-panel-list .clientid dt, .office-company .client-account .client-panel-list .clientid dd {
+.client-account .client-panel-list .clientid dt,
+.client-account .client-panel-list .clientid dd {
 	margin: 0;
 }
-.office-company .client-account .client-panel-list .clientid dd {
+.client-account .client-panel-list .clientid dd {
 	font-size: 16px;
 	margin-top: -1px;
 	margin-left: 2px;
 	min-width: 62%;
 }
 
-.office-company .offises-block {
+.client-account .offices-block {
 	width: 76%;
 	padding-left: 1.6% !important;
 }
 
-.office-company .offises-block .button-choose,.office-company .offises-block .message {
+.client-account .offices-block .button-choose,
+.client-account .offices-block .message {
 	border-bottom: 1px solid #d0d0d0;
 	width: 100%;
 	padding: 0px 0 9px 0;
 }
-.office-company .offises-block .message {
+.client-account .offices-block .message {
 	padding: 15px 0 12px;
 	font-size: 14px;
 	width: 100%;
@@ -8506,83 +8508,83 @@ Taxi company styles
 	display: table;
 	vertical-align: middle;
 }
-.office-company .offises-block .message .text {
+.client-account .offices-block .message .text {
 	width: 79.2%;
 	float: left;
 }
-.office-company .offises-block .message span {
+.client-account .offices-block .message span {
 	font-size: 16px;
 }
-.office-company .offises-block .message .uk-button {
+.client-account .offices-block .message .uk-button {
 	width: 20.8%;
 	margin-top: -5px;
 	display: inline-block;
 	float: right;
 }
-.office-company .choose-office {
+.client-account .choose-office {
 	width: 53%;
 	padding-left: 0;
 	float: left;
 	display: inline-block;
 }
-.office-company .choose-office label {
+.client-account .choose-office label {
 	font-size: 16px;
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 1%;
 }
-.office-company .choose-office select,.office-company .choose-office .jq-selectbox  {
+.client-account .choose-office select,.client-account .choose-office .jq-selectbox  {
 	width: 52.6%;
 	margin-right: 0.5%;
 }
-.office-company .choose-office .uk-button {
+.client-account .choose-office .uk-button {
 	padding: 0 9px;
 	display: inline-block;
 }
-.office-company .buttons-office {
+.client-account .buttons-office {
 	text-align: right;
 	width: 47%;
 	display: inline-block;
 }
-.office-company .buttons-office .uk-button {
+.client-account .buttons-office .uk-button {
 	width: 44.1%;
 }
-.office-company .money-block {
+.client-account .money-block {
 	width: 100%;
 }
-.office-company .money,.office-company .balance,.office-company .history {
+.client-account .money,.client-account .balance,.client-account .history {
 	padding-top: 10px;
 	min-height: 30px;
 	margin-right: 15px;
 }
-.office-company .balance {
+.client-account .balance {
 	float: left;
 }
-.office-company .history {
+.client-account .history {
 	border-right: 1px solid #d0d0d0;
 	padding-right: 13px;
 	float: left;
 }
-.office-company .history .mp-icon-basket {
+.client-account .history .mp-icon-basket {
 	display: block;
 	font-size: 21px;
 }
-.office-company .company-panel .uk-icon-long-arrow-right {
+.client-account .company-panel .uk-icon-long-arrow-right {
 	margin: -11px 2px 0;
 	display: inline-block;
 	font-size: 14px;
 }
-.office-company .company-panel .mp-icon-dollar-circle,.office-company .company-panel .mp-icon-dollar-refresh {
+.client-account .company-panel .mp-icon-dollar-circle,.client-account .company-panel .mp-icon-dollar-refresh {
 	font-size: 23px;
 }
-.office-company .balance .uk-button,.office-company .history .uk-button {
+.client-account .balance .uk-button,.client-account .history .uk-button {
 	padding: 0 3px;
 	width: 46px;
 	text-align: center;
 	line-height: 28px;
 	height: 28px;
 }
-.office-company .company-panel .active-office .jq-selectbox__select-text:before {
+.client-account .company-panel .active-office .jq-selectbox__select-text:before {
 	content: '';
 	height: 10px;
 	width: 10px;
@@ -8591,36 +8593,36 @@ Taxi company styles
 	margin-right: 2px;
 	border-radius: 10px;
 }
-.office-company .balance a.uk-button:nth-child(2),.office-company .balance a.uk-button:nth-child(3),.office-company .balance .uk-button:last-child {
+.client-account .balance a.uk-button:nth-child(2),.client-account .balance a.uk-button:nth-child(3),.client-account .balance .uk-button:last-child {
 	width: auto;
 }
-.office-company .balance span,.office-company .history span {
+.client-account .balance span,.client-account .history span {
 	font-size: 16px;
 	margin-right: 12px;
 	line-height: 28px;
 }
-.office-company .balance span {
+.client-account .balance span {
 	margin-right: 5px;
 }
-.office-company .money {
+.client-account .money {
 	display: inline-block;
 }
-.office-company .money dl {
+.client-account .money dl {
 	margin: 0;
 	font-weight: normal;
 	padding-right: 8px;
 	display: inline-block;
 }
-.office-company .money dt,.office-company .money dd {
+.client-account .money dt,.client-account .money dd {
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 28px;
 }
-.office-company .money dt {
+.client-account .money dt {
 	font-weight: normal;
 	color: #8d8f98;
 }
-.office-company .money dd {
+.client-account .money dd {
 	font-size: 16px;
 }
 
@@ -8654,55 +8656,55 @@ table th a.mp-icon-arrow-up:hover {
 }
 
 @media (max-width: 1030px) {
-	.office-company .client-account .clientid {
+	.client-account .client-account .clientid {
 		padding-left: 0;
 	}
 }
 @media (max-width: 999px) {
-	.office-company .history {
+	.client-account .history {
 		border: 0;
 	}
 }
 @media (max-width: 661px) {
-	.office-company .choose-office {
+	.client-account .choose-office {
 		width: 100%;
 		margin-bottom: 10px;
 	}
-	.office-company .buttons-office {
+	.client-account .buttons-office {
 		width: 88.5%;
 		text-align: left;
 	}
-	.office-company .offises-block .message .text {
+	.client-account .offices-block .message .text {
 		width: 100%;
 		margin-bottom: 10px;
 	}
-	.office-company .offises-block .message .uk-button {
+	.client-account .offices-block .message .uk-button {
 		width: 40%;
 		float: left;
 	}
 }
 @media (max-width: 470px) {
-	.office-company .client-account .clientid {
+	.client-account .clientid {
 		width: 100%;
 		border-right: 0;
 		border-bottom: 1px solid #d0d0d0;
 		margin-bottom: 10px;
 	}
-	.office-company .offises-block {
+	.client-account .offices-block {
 		width: 100%;
 	}
-	.office-company .client-account .client-panel-list .clientid a.uk-button {
+	.client-account .client-panel-list .clientid a.uk-button {
 		width: 81%;
 	}
-	.office-company .balance .uk-button, .office-company .history .uk-button {
+	.client-account .balance .uk-button, .client-account .history .uk-button {
 		width: 43px;
 	}
-	.office-company .balance .uk-button:last-child {
+	.client-account .balance .uk-button:last-child {
 		padding: 0 3px;
 	}
-	.office-company .money dl {
+	.client-account .money dl {
 	}
-	.office-company .money dd {
+	.client-account .money dd {
 		font-size: 14px;
 	}
 }
