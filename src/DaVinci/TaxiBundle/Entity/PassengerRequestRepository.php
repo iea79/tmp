@@ -148,7 +148,7 @@ class PassengerRequestRepository extends EntityRepository
 			WHERE
 				req.user = :userId 
 				AND req.stateValue IN (:stateValues)
-				AND req.pickUp < :availablePeriod
+				AND req.pickUp > :availablePeriod
 			ORDER BY 
 				req.id DESC
 		");
@@ -206,7 +206,7 @@ class PassengerRequestRepository extends EntityRepository
 			LEFT JOIN
 				req.possibleDrivers possibleDrivers		
 			WHERE
-				req.pickUp < :availablePeriod
+				req.pickUp > :availablePeriod
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
 				req.id DESC						
@@ -238,7 +238,7 @@ class PassengerRequestRepository extends EntityRepository
 			FROM
 				DaVinci\TaxiBundle\Entity\PassengerRequest req
 			WHERE
-				req.pickUp >= :availablePeriod
+				req.pickUp <= :availablePeriod
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
 				req.id DESC
