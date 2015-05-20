@@ -185,8 +185,8 @@ class OfficeController extends StepsController
     }
     
     /**
-    * @Route("/office-driver", name="office_driver")
-    */
+     * @Route("/office-driver", name="office_driver")
+     */
     public function office_driverAction()
     {
         if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {

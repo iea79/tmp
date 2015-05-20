@@ -148,14 +148,14 @@ class PassengerRequestRepository extends EntityRepository
 			WHERE
 				req.user = :userId 
 				AND req.stateValue IN (:stateValues)
-				AND DATE_DIFF(req.pickUp, :pickUp) > 0
+				AND req.pickUp < :availablePeriod
 			ORDER BY 
 				req.id DESC
 		");
 		$query->setParameter('userId', $userId);
 		$query->setParameter('stateValues', $states);
 		$query->setParameter(
-			'pickUp',
+			'availablePeriod',
 			PassengerRequest::getAvailablePickUp(),
 			\Doctrine\DBAL\Types\Type::DATETIMETZ
 		);
@@ -206,13 +206,13 @@ class PassengerRequestRepository extends EntityRepository
 			LEFT JOIN
 				req.possibleDrivers possibleDrivers		
 			WHERE
-				DATE_DIFF(req.pickUp, :pickUp) > 0
+				req.pickUp < :availablePeriod
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
 				req.id DESC						
 		");
 		$query->setParameter(
-			'pickUp',
+			'availablePeriod',
 			PassengerRequest::getAvailablePickUp(), 
 			\Doctrine\DBAL\Types\Type::DATETIMETZ
 		);
@@ -228,6 +228,33 @@ class PassengerRequestRepository extends EntityRepository
 		}
 															
 		return $result;
+	}
+	
+	public function getExpiredRequests()
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			WHERE
+				req.pickUp >= :availablePeriod
+				AND req.stateValue IN (:stateValues)
+			ORDER BY
+				req.id DESC
+		");
+		$query->setParameter(
+			'availablePeriod',
+			PassengerRequest::getAvailablePickUp(), 
+			\Doctrine\DBAL\Types\Type::DATETIMETZ
+		);
+		$query->setParameter('stateValues', array(
+			PassengerRequest::STATE_OPEN,
+			PassengerRequest::STATE_PENDING,
+			PassengerRequest::STATE_SOLD
+		));
+		
+		return $query->getResult();
 	}
 	
 	/**
