@@ -24,7 +24,17 @@ class CheckPassengerRequestsCommand extends ContainerAwareCommand
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		
+		$passengerRequestRepository = $this->getPassengerRequestRepository();
+		$requests = $passengerRequestRepository->getExpiredRequests(); 
+	}
+	
+	/**
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
+	 */
+	private function getPassengerRequestRepository()
+	{
+		$em = $this->getContainer()->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
 	}
 	
 }
