@@ -218,10 +218,12 @@ abstract class PaymentMethod
 	public function getType()
 	{
 		$className = get_class($this);
-		$this->type = substr(
-			$className, strrpos($className, "\\") + 1, strpos($className, self::CLASS_END)
+		$position = strrpos($className, "\\") + 1;
+		
+		$this->type = mb_substr(
+			$className, $position, strpos($className, self::CLASS_END) - $position
 		);
-	
+					
 		return $this->type;
 	}
 	

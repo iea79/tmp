@@ -6,9 +6,14 @@ use Lsw\ApiCallerBundle\Caller\LoggingApiCaller;
 use Lsw\ApiCallerBundle\Call\HttpPostJson;
 
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
+
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
 use DaVinci\TaxiBundle\Entity\Tariff;
+use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
+use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
+use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class RemoteRequester
 {
@@ -20,29 +25,37 @@ class RemoteRequester
 	const OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS = 4;
 	const OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT = 5;
 	const OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER = 6;
+	const OPCODE_SETTLE_ACCOUNT_PAY_PAL = 7;
+	const OPCODE_SETTLE_ACCOUNT_SKRILL = 8;
 	const OPCODE_INTERNAL_TRANSFER_ESCROW = 13;
+	
+	const OPERATION_FINISHED_SUCCESSFULLY = 0;
 	        
     const GATEWAY_HOST = 'http://payment.mmastarter.com';
+    const GATEWAY_PRODUCT_ID = 3;
     
     const PAYMENT_URI = '/gateway/payment';
     const OPERATION_URI = '/gateway/operation';
-    
-    const GATEWAY_PRODUCT_ID = 2;
-    const GATEWAY_DEFAULT_CURRENCY = "USD";
-
+    const COMPLEX_URI = '/gateway/complex';
+        
     /**
      * @var Lsw\ApiCallerBundle\Caller\LoggingApiCaller
      */
     private $apiCaller;
     
-    private $remoteEnable = false;
+    private $remoteEnable = true;
 
     public function __construct(LoggingApiCaller $apiCaller)
     {
         $this->apiCaller = $apiCaller;
     }
     
-    public function makeOperation(PassengerRequest $request, $opCode)
+    public function transferOpertation(MakePayment $makePayment, $opCode) 
+    {
+    	return $this->proxyProcess($makePayment, $opCode);
+    }
+    
+    public function makePassengerRequestOperation(PassengerRequest $request, $opCode)
     {
     	return $this->proxyProcess($request, $opCode);
     }
@@ -64,21 +77,28 @@ class RemoteRequester
     private function process($requestData, $opCode)
     {
     	if (!$this->checkOpCode($opCode)) {
-    		throw InvalidTypeException(get_class($this) . ": unsupported operation code #{$opCode}");
+    		throw new InvalidTypeException(get_class($this) . ": unsupported operation code #{$opCode}");
     	}
  
-    	$this->apiCaller->call(new HttpPostJson(
+    	$call = new HttpPostJson(
     		$this->getOperationURL($opCode), 
     		$this->prepareRequest($requestData, $opCode)
-    	));
-    	 
-    	if ($this->apiCaller->getStatusCode() != 200) {
-    		return false;
+    	);
+    	
+    	$this->apiCaller->call($call);
+    	$statusCode = $call->getStatusCode();
+    	if ($statusCode != 200) {
+    		throw new RemoteRequesterException(
+    			get_class($this) . ": status code is #{$statusCode}"
+			);
     	}
     	 
-    	$response = $this->apiCaller->getResponseObject();
-    	
-    	return ($response->code == 0);
+    	$responseData = $call->getResponseObject();
+    	if (self::OPERATION_FINISHED_SUCCESSFULLY != $responseData->response->code) {
+    		throw new RemoteRequesterException(
+    			get_class($this) . ": response code is #{$responseData->response->code}"
+    		);
+    	}
     }
     
     private function checkOpCode($opCode)
@@ -89,46 +109,105 @@ class RemoteRequester
     		self::OPCODE_CREATE_USER_ACCOUNT,
     		self::OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS,
     		self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT,
-    		self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER				
+    		self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER,
+    		self::OPCODE_SETTLE_ACCOUNT_PAY_PAL,
+    		self::OPCODE_SETTLE_ACCOUNT_SKRILL,
+    		self::OPCODE_INTERNAL_TRANSFER_ESCROW							
     	));
     }
     
     private function prepareRequest($requestData, $opCode)
     {
     	$params = array();
-    	if ($requestData instanceof \DaVinci\TaxiBundle\Entity\PassengerRequest) {
-    		$params = $this->getOperationParams($requestData, $opCode);
-    	}
     	
-    	if ($requestData instanceof \DaVinci\TaxiBundle\Entity\PassengerRequest) {
-    		$params = $this->getUserOperationParams($requestData, $opCode);
+    	$className = get_class($requestData);
+    	$methodName = 'getParamsFrom' . substr($className, strrpos($className, "\\") + 1);
+    	if (!method_exists($this, $methodName)) {
+    		throw InvalidTypeException(get_class($this) . ": unsupported method name #{$methodName}");
     	}
-    	    	
-    	return array_merge(array('Opcode' => $opCode), $params);
+    	    	    	
+    	return array_merge(
+    		$this->$methodName($requestData, $opCode),
+    		array('Opcode' => $opCode)
+    	);
     }
     
-    private function getOperationParams(PassengerRequest $request, $opCode)
+    /**
+     * @param MakePayment $makePayment
+     * @param intenger $opCode
+     * 
+     * @return array
+     */
+    private function getParamsFromMakePayment(MakePayment $makePayment, $opCode)
     {
     	switch ($opCode) {
-    		case self::OPCODE_CREATE_USER_ACCOUNT: {
+    		case self::OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS: {
     			$params = array(
-    				'User' => array(
-						"email" => $request->getUser()->getEmail(),
-						"externalId" => $request->getUser()->getId()
+    				"User" => $makePayment->getUser()->getRemoteId(),
+					"DepositTo" => array(
+						"depositNumber" => $makePayment->getPaymentMethod()->getAccountId(),
+					),	
+					"Transaction" => array(
+						"amount" => $makePayment->getTotalPrice()->getAmount(),
+						"currency" => $makePayment->getTotalPrice()->getCurrency()
 					)
     			);
     			break;
     		}
     		
+    		case self::OPCODE_SETTLE_ACCOUNT_PAY_PAL: {
+    			$paymentMethod = $makePayment->getPaymentMethod();
+    			
+    			$params = array(
+    				'Customer' => array(
+    					"cardNumber" => $paymentMethod->getCardNumber(),
+    					"cardType" => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
+    					"expirationMonth" => $paymentMethod->getExpirationMonth(),
+    					"expirationYear" => intval('20' . $paymentMethod->getExpirationYear()),
+    					"cvv" => $paymentMethod->getSecretSalt(),
+    					"firstName" => $paymentMethod->getFirstname(),
+    					"lastName" => $paymentMethod->getLastname(),
+    					"address" => $paymentMethod->getAddress(),
+    					"city" => 'Saratoga',
+    					"state" => 'CA',
+    					"zipCode" => $paymentMethod->getZipCode(),
+    					"country" => 'US',
+    					"externalUserId" => $makePayment->getUser()->getId()
+    				),
+    				'Transaction' => array(
+    					"amount" => $makePayment->getTotalPrice()->getAmount(),
+    					"currency" => $makePayment->getTotalPrice()->getCurrency(),
+    					"custom1" => "7.41",
+    					"custom2" => "0.03",
+    					"custom3" => "0.03"
+    				),
+    				'User' => $makePayment->getUser()->getRemoteId()
+    			);
+    			break;
+    		}
+    
+    		default: {
+    			$params = array();
+    			break;
+    		}
+    	}
+    
+    	return $params;
+    }
+    
+    private function getParamsFromPassengerRequest(PassengerRequest $request, $opCode)
+    {
+    	switch ($opCode) {
     		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
     			$params = array(
     				"User" => $request->getUser()->getRemoteId(),
     				"Product" => self::GATEWAY_PRODUCT_ID,	
     				"Transaction" => array(
-    					"amount" => Tariff::REQUEST_PRICE,
-    					"currency" => self::GATEWAY_DEFAULT_CURRENCY
+    					"amount" => MakePayments::DEFAULT_REQUEST_PRICE,
+    					"currency" => MakePayments::DEFAULT_CURRENCY
     				),
     			);
+    			break;
     		}
     		
     		default: {
@@ -140,7 +219,7 @@ class RemoteRequester
     	return $params;
     }
     
-    private function getUserOperationParams(User $user, $opCode)
+    private function getParamsFromUser(User $user, $opCode)
     {
     	switch ($opCode) {
     		case self::OPCODE_CREATE_USER_ACCOUNT: {
@@ -152,18 +231,7 @@ class RemoteRequester
     			);
     			break;
     		}
-    		
-    		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
-    			$params = array(
-    				"User" => $user->getRemoteId(),
-    				"Product" => self::GATEWAY_PRODUCT_ID,
-    				"Transaction" => array(
-    					"amount" => Tariff::REQUEST_PRICE,
-    					"currency" => self::GATEWAY_DEFAULT_CURRENCY
-    				),
-    			);
-    		}
-    		        
+    		    		        
     		default: {
     			$params = array();
     			break;
@@ -192,6 +260,12 @@ class RemoteRequester
     		case self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT:
     		case self::OPCODE_INTERNAL_TRANSFER_ESCROW: {
     			$uri = self::OPERATION_URI;
+    			break;
+    		}
+    		
+    		case self::OPCODE_SETTLE_ACCOUNT_PAY_PAL:
+    		case self::OPCODE_SETTLE_ACCOUNT_SKRILL: {
+    			$uri = self::COMPLEX_URI;
     			break;
     		}
     

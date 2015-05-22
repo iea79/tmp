@@ -48,7 +48,7 @@ class StockSubscriber implements EventSubscriberInterface
 			
 			if (
 				0 == $datetime->diff($passengerRequest->getPickUp())->invert
-				&& !$this->makeTransferByRequest($passengerRequest)
+				&& !$this->processByPassengerRequest($passengerRequest)
 			) {
 				return;
 			}
@@ -57,8 +57,8 @@ class StockSubscriber implements EventSubscriberInterface
 				1 == $datetime->diff($passengerRequest->getPickUp())->invert
 				&& Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
 				&& (
-					!$this->makeTransferByUser($passengerRequest->getUser())
-					|| !$this->makeTransferByUser($passengerRequest->getDriver()->getUser())
+					!$this->processByUser($passengerRequest->getUser())
+					|| !$this->processByUser($passengerRequest->getDriver()->getUser())
 				)		
 			) {
 				return;
@@ -77,7 +77,9 @@ class StockSubscriber implements EventSubscriberInterface
 		$driver = $event->getDriver();
 		$informer = $event->getInformer();
 
-		$this->makeTransferByUser($driver->getUser());
+		if (!$this->processByUser($driver->getUser())) {
+			return;
+		}
 		
 		$passengerRequest->addCanceledDrivers($driver);
 		$passengerRequest->removePossibleDriver($driver);
@@ -99,15 +101,15 @@ class StockSubscriber implements EventSubscriberInterface
 		$driverRepository->save($driver);
 	}
 	
-	private function makeTransferByRequest(PassengerRequest $passengerRequest)
+	private function processByPassengerRequest(PassengerRequest $passengerRequest)
 	{
-		return $this->remoteRequester->makeOperation(
+		return $this->remoteRequester->makePassengerRequestOperation(
 			$passengerRequest, 
 			RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
 		);
 	}
 	
-	private function makeTransferByUser(User $user)
+	private function processByUser(User $user)
 	{
 		return $this->remoteRequester->makeUserOperation(
 			$user, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER

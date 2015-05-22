@@ -80,6 +80,11 @@ class CreditCardPaymentMethod extends PaymentMethod
 	protected $country;
 	
 	/**
+	 * @ORM\Column(type="string", name="zip_code", length=20, nullable=true)
+	 */
+	protected $zipCode;
+	
+	/**
 	 * @var array
 	 */
 	static public $subTypes = array(
@@ -329,6 +334,29 @@ class CreditCardPaymentMethod extends PaymentMethod
         return $this->country;
     }
 
-}
 
-?>
+    /**
+     * Set zipCode
+     *
+     * @param string $zipCode
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipCode
+     *
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+    
+}

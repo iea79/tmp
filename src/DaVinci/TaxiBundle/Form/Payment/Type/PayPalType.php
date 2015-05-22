@@ -8,25 +8,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 use DaVinci\TaxiBundle\Entity\Payment\PayPalPaymentMethod;
 
-class PayPalType extends AbstractType 
+class PayPalType extends CreditCardType 
 {
-	
-	public function buildForm(FormBuilderInterface $builder, array $options) 
-	{
-		$builder
-			->add('firstname', 'text')
-			->add('lastname', 'text')
-			->add('cardNumber', 'text')
-			->add('secretSalt', 'text')
-			->add('expirationMonth', 'text')
-			->add('expirationYear', 'text')
-			->add('company', 'text')
-			->add('address', 'text')
-			->add('city', 'text')
-			->add('state', 'text')
-			->add('country', 'text')
-			->add('ownNote', 'text');
-	}
 	
 	public function getName() 
 	{

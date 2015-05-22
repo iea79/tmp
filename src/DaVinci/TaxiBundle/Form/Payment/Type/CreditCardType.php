@@ -27,6 +27,7 @@ class CreditCardType extends AbstractType
 			))
 			->add('company', 'text')
 			->add('address', 'text')
+			->add('zipCode', 'text')
 			->add('city', 'text')
 			->add('state', 'text')
 			->add('country', 'text')

@@ -57,6 +57,20 @@
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
+<div class="uk-form-row address">
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.address, 'Address:') }}</div>
+    <div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.address) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row zipcode">
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.zipCode, 'Zip code:') }}</div>
+    <div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.zipCode) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own note:') }}</div>
 	<div class="uk-form-controls">

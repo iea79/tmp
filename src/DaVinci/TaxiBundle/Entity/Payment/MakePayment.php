@@ -52,6 +52,11 @@ class MakePayment
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
+	
+	/**
+	 * @ORM\Column(type="string")
+	 */
+	private $description;
 		
 	/**
 	 * Get id
@@ -221,6 +226,31 @@ class MakePayment
     	$this->currency = MakePayments::DEFAULT_CURRENCY;
     	
     	return $this;
+    }
+    
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return MakePayment
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
     
 }

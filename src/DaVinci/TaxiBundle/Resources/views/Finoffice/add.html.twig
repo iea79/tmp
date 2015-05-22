@@ -1,8 +1,8 @@
 <div class="addcard">
     <div class="buttom-swicher">
-        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#addcard'}">
+        <ul class="uk-width-1-1 uk-width-large-2-3">
         	{% for methodKey,method in methods %}
-        		<li class="uk-active">
+        		<li{% if methodCode == methodKey %} class="uk-active"{% endif %}>
         			<a href="{{ path('financial_office_add', {'methodCode': methodKey}) }}">
         				{% if method == 'Visa' %}
         					<img src="{{ asset('bundles/davincitaxi/images/visa.png') }}" alt="" />
@@ -29,13 +29,16 @@
         		<br/>
         		<a href="{{ path('financial_office_add', {'methodCode': methodCode}) }}">{{'Make operation again'|trans}}</a>
         	{% else %}
+        		{% if operationCode is defined and operationCode != 0 %}
+        			{{'Operation has not completed successfully!'|trans}}
+        		{% endif %}
 	        	<form novalidate action="{{ path('financial_office_add', {'methodCode': methodCode}) }}" {{ form_enctype(form) }} method="POST">
 	        		{{ form_widget(form.paymentMethodCode) }}
-		        	{% if paymentMethod == 'CreditCardPaymentMethod' %}
+		        	{% if paymentMethod == 'CreditCard' %}
 						{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
-					{% elseif paymentMethod == 'PayPalPaymentMethod' %}
+					{% elseif paymentMethod == 'PayPal' %}
 						{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
-					{% elseif paymentMethod == 'SkrillPaymentMethod' %}
+					{% elseif paymentMethod == 'Skrill' %}
 						{% include 'DaVinciTaxiBundle:Store:skrill_method.html.twig' %}
 					{% endif %}
 					<button class="uk-button uk-button-danger">Pay</button>

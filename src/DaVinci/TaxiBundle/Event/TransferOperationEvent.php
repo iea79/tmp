@@ -26,14 +26,21 @@ class TransferOperationEvent extends Event
 	 */
 	protected $securityContext;
 	
+	/**
+	 * @var description
+	 */
+	protected $description;
+	
 	public function __construct(
 		MakePayment $makePayment,
 		MakePaymentRepository $makePaymentRepository,
-		SecurityContext $securityContext
+		SecurityContext $securityContext,
+		$description
 	) {
 		$this->makePayment = $makePayment;
 		$this->makePaymentRepository = $makePaymentRepository;
 		$this->securityContext = $securityContext;
+		$this->description = $description; 		
 	}
 	
 	/**
@@ -58,6 +65,11 @@ class TransferOperationEvent extends Event
 	public function getSecurityContext()
 	{
 		return $this->securityContext;
+	}
+	
+	public function getDescription()
+	{
+		return $this->description;
 	}
 	
 }

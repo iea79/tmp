@@ -15,6 +15,7 @@ use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
+use DaVinci\TaxiBundle\Services\RemoteRequesterException;
 
 class InformationController extends StepsController {
 	
@@ -210,8 +211,8 @@ class InformationController extends StepsController {
     private function showOffice($action, Request $request, $methodCode)
     {
     	$makePaymentService = $this->getMakePaymentService();
-    	 
     	$makePayment = $makePaymentService->createConfigured($request);
+    	
     	$form = $this->createForm(
     		$makePaymentService->createPaymentMethodFormType($request),
     		$makePayment
@@ -221,17 +222,22 @@ class InformationController extends StepsController {
     	
     	$form->handleRequest($request);
     	if ($form->isValid()) {
-    		$dispatcher = $this->container->get('event_dispatcher');
-    		$dispatcher->dispatch(
-    			FinancialOfficeEvents::TRANSFER_OPERATION,
-    			new TransferOperationEvent(
-    				$form->getData(),
-    				$this->getMakePaymentRepository(),
-    				$this->container->get('security.context')
-    			)
-    		);
-
-    		$result['operationCode'] = 0;
+    		try {
+	    		$dispatcher = $this->container->get('event_dispatcher');
+	    		$dispatcher->dispatch(
+	    			FinancialOfficeEvents::TRANSFER_OPERATION,
+	    			new TransferOperationEvent(
+	    				$form->getData(),
+	    				$this->getMakePaymentRepository(),
+	    				$this->container->get('security.context'),
+	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT	
+	    			)
+	    		);
+	    		
+	    		$result['operationCode'] = MakePayments::CODE_SUCCESS;
+    		} catch (RemoteRequesterException $exception) {
+    			$result['operationCode'] = MakePayments::CODE_FAIL;
+    		}
     	}
     	 
     	return $this->render(

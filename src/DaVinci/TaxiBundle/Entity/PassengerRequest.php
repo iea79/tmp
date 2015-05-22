@@ -881,7 +881,25 @@ class PassengerRequest
     public static function getAvailablePickUp()
     {
     	return new \DateTime('+' . self::AVAILABLE_PICKUP_PERIOD . ' hour');
-    } 
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullRoute()
+    {
+    	$route = array();
+    	
+    	$iterator = $this->routePoints->getIterator();
+    	$iterator->rewind();
+    	while ($iterator->valid()) {
+    		$route[] = $iterator->current()->getPlace();
+    		
+    		$iterator->next();
+    	}
+    	
+    	return implode(';', $route);
+    }
     
     /**
      * @param string $stateValue

@@ -26,8 +26,6 @@ class Tariff {
 	const POS_PRICE_TYPE_YOUR = 0;
 	const POS_PRICE_TYPE_MARKET = 1;
 	
-	const REQUEST_PRICE = 1.00;
-	
 	/**
 	 * @ORM\Id
 	 * @ORM\Column(type="integer")
