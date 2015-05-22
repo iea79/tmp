@@ -17,7 +17,13 @@ services:
         class: DaVinci\TaxiBundle\EventListener\StockSubscriber
         arguments: ["@da_vinci_taxi.service.remote_requester"]
         tags:
-            - { name: kernel.event_subscriber }        
+            - { name: kernel.event_subscriber }
+            
+    da_vinci_taxi.subscriber.office_subscriber:
+        class: DaVinci\TaxiBundle\EventListener\OfficeSubscriber
+        arguments: ["@da_vinci_taxi.service.remote_requester"]
+        tags:
+            - { name: kernel.event_subscriber }                
     
     da_vinci_taxi.service.passenger_request_service:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService

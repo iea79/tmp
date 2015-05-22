@@ -6,18 +6,13 @@ use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping AS ORM;
 use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 
-
-/**
- * @author Mykola Sedletskyi <icevita@gmail.com>
- */
-
-
 /**
  * @ORM\Entity
  * @FileStore\Uploadable
  */
 class User extends BaseUser
 {
+	
     private $timeToUpdatePassword = 7889231; //3 months
     
     /**
@@ -26,7 +21,6 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
     
     /**
      * @ORM\ManyToMany(targetEntity="DaVinci\TaxiBundle\Entity\Group")
@@ -54,14 +48,13 @@ class User extends BaseUser
      */
     private $photo;
 
-//    /**manytoone...
-//     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
-//     * @Assert\Valid()
-//     */
-//    private $addresses;
-//    
+  	/*
+     * @ORM\OneToMany(targetEntity="Address", mappedBy="user", cascade={"persist", "remove"})
+     * @Assert\Valid()
+     */
+//  private $addresses;
     
-     /**
+    /**
      * @ORM\OneToOne(targetEntity="Language", cascade={"persist", "remove"})
      */
     private $language;

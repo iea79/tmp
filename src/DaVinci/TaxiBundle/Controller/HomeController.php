@@ -19,14 +19,16 @@ use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\InternalPaymentMethod;
 
-use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
 use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
+use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
+use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 
 class HomeController extends StepsController {
 	
@@ -72,13 +74,12 @@ class HomeController extends StepsController {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
+    			$user = $this->container->get('security.context')
+	    			->getToken()
+	    			->getUser();
+    			
     			if ($this->isOtherDriverCondition($passengerRequest)) {
-    				$driver = $this->getDirverByUserId(
-    					$this->container->get('security.context')
-    						->getToken()
-    						->getUser()
-    						->getId()
-    				);
+    				$driver = $this->getDirverByUserId($user->getId());
     			
     				$passengerRequest->addPossibleDriver($driver);
     				$passengerRequest->removeCanceledDrivers($driver);
@@ -90,12 +91,7 @@ class HomeController extends StepsController {
     			}
     			
     			if ($this->isFirstDriverCondition($passengerRequest)) {
-    				$driver = $this->getDirverByUserId(
-    					$this->container->get('security.context')
-    						->getToken()
-    						->getUser()
-    						->getId()
-    				);
+    				$driver = $this->getDirverByUserId($user->getId());
     				 
     				$passengerRequest->addPossibleDriver($driver);
     				$passengerRequest->removeCanceledDrivers($driver);
@@ -110,8 +106,19 @@ class HomeController extends StepsController {
     			if ($this->isUserCondition($passengerRequest)) {
     				$passengerRequest->changeState();
     			}
-    			    			    			    			
+    			    			    			
     			$this->updatePassengerRequest($passengerRequest);
+    			
+    			$dispatcher = $this->container->get('event_dispatcher');
+    			$dispatcher->dispatch(
+    				FinancialOfficeEvents::TRANSFER_OPERATION,
+    				new TransferOperationEvent(
+						$makePayment,
+    					$this->getMakePaymentRepository(),
+    					$this->container->get('security.context')
+    				)
+    			);
+    			
     			$this->getRequest()->getSession()->remove('request_id');
     			
     			$flow->reset();
@@ -293,7 +300,7 @@ class HomeController extends StepsController {
     }
     
     /**
-     * @return \DaVinci\TaxiBundle\Form\Payment\MakePayment
+     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
      */
     private function spawnMakePayment()
     {
@@ -326,14 +333,6 @@ class HomeController extends StepsController {
     private function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
     {
     	$this->getIndependentDriverRepository()->save($driver);
-    }
-    
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
-     */
-    private function getMakePaymentService()
-    {
-    	return $this->container->get('da_vinci_taxi.service.make_payment_service');
     }
     
     private function getAfterPaymentUrl()

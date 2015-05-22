@@ -15,7 +15,9 @@ class SkrillPaymentInfoType extends AbstractType
 	{
 		$builder
 			->add('paymentMethodCode', 'hidden')
-			->add('totalPrice', 'money', array('required' => false))
+			->add('price', 'number', array(
+				'mapped' => false
+			))
 			->add('paymentMethod', new SkrillType());
 	}
 	

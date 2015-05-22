@@ -1,0 +1,31 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity\Payment;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="skrill_payment_method")
+ */
+class SkrillPaymentMethod extends PaymentMethod 
+{
+	
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $email;
+	
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $subject;
+	
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	protected $note;
+	
+	
+		
+}

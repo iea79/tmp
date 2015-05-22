@@ -7,6 +7,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+
+use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentRepository;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+
 use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 
 class StepsController extends Controller 
@@ -24,13 +29,11 @@ class StepsController extends Controller
 		$flow = $this->container->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
 				
-		$isCreated = false;
 		if (null !== $sessionRequestId) {
 			$entity = $this->getFullPassengerRequestById($sessionRequestId);
 			
 			if (null !== $entity) {
 				$passengerRequest = $entity;
-				$isCreated = true;
 			}
 		}
 		
@@ -38,9 +41,7 @@ class StepsController extends Controller
 		if ($flow->isValid($form)) {
 			if (CreatePassengerRequestFlow::STEP_LAST - 1 == $flow->getCurrentStepNumber()) {
 				$this->savePassengerRequest($passengerRequest);
-				if (!$isCreated) {
-					$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
-				}
+				$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
 			}
 			$flow->saveCurrentStepData($form);
 		
@@ -143,20 +144,29 @@ class StepsController extends Controller
 	}
 	
 	/**
-	 * @return \DaVinci\TaxiBundle\Services\Calculation
-	 */
-	protected function getCalculationService()
-	{
-		return $this->container->get('da_vinci_taxi.service.calculation_service');
-	}
-	
-	/**
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
 	 */
 	protected function getPassengerRequestRepository()
 	{
 		$em = $this->container->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
+	}
+	
+	/**
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
+	 */
+	protected function getMakePaymentService()
+	{
+		return $this->container->get('da_vinci_taxi.service.make_payment_service');
+	}
+	
+	/**
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentRepository
+	 */
+	protected function getMakePaymentRepository()
+	{
+		$em = $this->container->get('doctrine')->getManager();
+		return $em->getRepository('DaVinci\TaxiBundle\Entity\Payment\MakePayment');
 	}
 	
 	/**
@@ -167,7 +177,15 @@ class StepsController extends Controller
 		$em = $this->container->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
 	}
-	
+		
+	/**
+	 * @return \DaVinci\TaxiBundle\Services\Calculation
+	 */
+	protected function getCalculationService()
+	{
+		return $this->container->get('da_vinci_taxi.service.calculation_service');
+	}
+		
 }
 
 ?>

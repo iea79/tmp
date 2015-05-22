@@ -67,7 +67,7 @@ class MakePaymentFlow extends FormFlow implements EventSubscriberInterface
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
-			
+		
 	}
 	
 	public function onPostBindFlow(PostBindFlowEvent $event)

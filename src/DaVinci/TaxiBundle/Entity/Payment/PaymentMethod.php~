@@ -98,39 +98,29 @@ abstract class PaymentMethod
 	}
 	
 	/**
-	 * Add makePayment
+	 * Set makePayment
 	 *
 	 * @param \DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment
 	 *
-	 * @return PaymentMethod
+	 * @return InternalPaymentMethod
 	 */
-	public function addMakePayment(\DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment)
+	public function setMakePayment(\DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment = null)
 	{
-		$this->makePayments[] = $makePayment;
+		$this->makePayment = $makePayment;
 	
 		return $this;
 	}
 	
 	/**
-	 * Remove makePayment
+	 * Get makePayment
 	 *
-	 * @param \DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
-	public function removeMakePayment(\DaVinci\TaxiBundle\Entity\Payment\MakePayment $makePayment)
+	public function getMakePayment()
 	{
-		$this->makePayments->removeElement($makePayment);
+		return $this->makePayment;
 	}
 	
-	/**
-	 * Get makePayments
-	 *
-	 * @return \Doctrine\Common\Collections\Collection
-	 */
-	public function getMakePayments()
-	{
-		return $this->makePayments;
-	}
-		
 	/**
 	 * Set company
 	 *
@@ -243,5 +233,7 @@ abstract class PaymentMethod
 	{
 		return static::$subTypes;
 	}
-
+	
 }
+
+?>

@@ -1,0 +1,88 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity\Payment;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="credit_card_payment_method")
+ */
+class CreditCardPaymentMethod extends PaymentMethod 
+{
+	
+	const POS_TYPE_VISA = 1;
+	const POS_TYPE_MASTER_CARD = 2;
+	const POS_TYPE_DINERS_CLUB = 3;
+	const POS_TYPE_AMERICAN_EXPRESS = 4;
+	
+	const CARD_TYPE_VISA = 'Visa';
+	const CARD_TYPE_MASTER_CARD = 'Master Card';
+	const CARD_TYPE_DINERS_CLUB = 'Diners Club';
+	const CARD_TYPE_AMERICAN_EXPRESS = 'American Express';
+		
+	/**
+	 * @ORM\Column(type="string", name="card_number", length=20)
+	 */
+	protected $cardNumber;
+	
+	/**
+	 * @ORM\Column(type="string", name="secret_salt", length=5)
+	 */
+	protected $secretSalt;
+	
+	/**
+	 * @ORM\Column(type="string", name="expiration_mounth", length=2)
+	 */
+	protected $expirationMounth;
+	
+	/**
+	 * @ORM\Column(type="string", name="expiration_year", length=4)
+	 */
+	protected $expirationYear;
+		
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $firstname;
+	
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $lastname;
+	
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	protected $address;
+	
+	/**
+	 * @ORM\Column(type="string", length=255, nullable=true)
+	 */
+	protected $city;
+	
+	/**
+	 * @ORM\Column(type="string", length=32, nullable=true)
+	 */
+	protected $state;
+	
+	/**
+	 * @ORM\Column(type="string", length=100, nullable=true)
+	 */
+	protected $country;
+	
+	/**
+	 * @var array
+	 */
+	static public $subTypes = array(
+		self::POS_TYPE_VISA => self::CARD_TYPE_VISA,
+		self::POS_TYPE_MASTER_CARD => self::CARD_TYPE_MASTER_CARD,
+		self::POS_TYPE_DINERS_CLUB => self::CARD_TYPE_DINERS_CLUB,
+		self::POS_TYPE_AMERICAN_EXPRESS => self::CARD_TYPE_AMERICAN_EXPRESS			
+	);
+
+	
+			
+}
+
+?>

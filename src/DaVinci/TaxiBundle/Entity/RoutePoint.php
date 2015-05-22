@@ -28,8 +28,7 @@ class RoutePoint {
 	 * @ORM\Column(type="float", nullable=true)
 	 */
 	private $longitude = 0.00;
-	
-	
+		
 	/**
 	 * @ORM\Column(type="integer", name="post_code", nullable=true)
 	 */
@@ -59,7 +58,6 @@ class RoutePoint {
 	 */
 	private $passengerRequest;
 	
-
     /**
      * Get id
      *

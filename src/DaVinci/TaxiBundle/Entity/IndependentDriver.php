@@ -5,10 +5,6 @@ use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @author Mykola Sedletskyi <icevita@gmail.com>
- */
-
-/**
  * @ORM\Entity(repositoryClass="IndependentDriverRepository")
  * @ORM\Table(name="independent_driver")
  */

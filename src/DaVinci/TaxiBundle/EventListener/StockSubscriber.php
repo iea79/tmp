@@ -7,7 +7,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
+
 use DaVinci\TaxiBundle\Services\RemoteRequester;
+
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;

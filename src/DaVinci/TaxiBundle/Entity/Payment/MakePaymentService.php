@@ -40,9 +40,14 @@ class MakePaymentService
 		}
 	}
 	
-	static public function generateMethods()
+	static public function generateMethods($filter = 0)
 	{
-		foreach (PaymentMethod::getTypes() as $key => $value) {
+		$types = PaymentMethod::getTypes();
+		if (array_key_exists($filter, $types)) {
+			unset($types[$filter]);
+		}
+		
+		foreach ($types as $key => $value) {
 			$paymentMethod = self::createOnlyPaymentMethod($value);
 			$subTypes = $paymentMethod::getSubTypes();
 			
@@ -90,6 +95,7 @@ class MakePaymentService
 				$subType = $methodData[1];
 			}
 	
+			$makePayment->setPaymentMethodCode($paymentMethodCode);
 			$makePayment->setPaymentMethod(
 				$this->createPaymentMethod($methodCode, $subType)
 			);

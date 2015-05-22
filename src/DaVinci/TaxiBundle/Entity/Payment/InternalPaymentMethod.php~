@@ -27,30 +27,7 @@ class InternalPaymentMethod extends PaymentMethod
 		self::POS_BALANCE_TYPE_BUSINESS => self::BALANCE_TYPE_BUSINESS
 	);
 	
-    /**
-     * Set accountId
-     *
-     * @param string $accountId
-     *
-     * @return InternalPaymentMethod
-     */
-    public function setAccountId($accountId)
-    {
-        $this->accountId = $accountId;
-
-        return $this;
-    }
-
-    /**
-     * Get accountId
-     *
-     * @return string
-     */
-    public function getAccountId()
-    {
-        return $this->accountId;
-    }
-
+					
 }
 
 ?>

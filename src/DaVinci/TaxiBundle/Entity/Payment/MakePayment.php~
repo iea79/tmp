@@ -3,7 +3,6 @@
 namespace DaVinci\TaxiBundle\Entity\Payment;
 
 use Doctrine\ORM\Mapping AS ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use DaVinci\TaxiBundle\Entity\Money;
 
 /**
@@ -21,9 +20,8 @@ class MakePayment
 	private $id;
 		
 	/**
-	 * @ORM\ManyToOne(targetEntity="PaymentMethod", inversedBy="makePayments")
+	 * @ORM\OneToOne(targetEntity="PaymentMethod", inversedBy="makePayment")
 	 * @ORM\JoinColumn(name="payment_method_id", referencedColumnName="id")
-	 * @Assert\Valid()
 	 */
 	private $paymentMethod;
 	
@@ -35,7 +33,7 @@ class MakePayment
 	/**
 	 * @ORM\Column(type="float")
 	 */
-	private $amount = 0.0;
+	private $amount;
 	
 	/**
 	 * @ORM\Column(type="string", length=3)
@@ -48,7 +46,7 @@ class MakePayment
 	private $totalPrice;
 	
 	/**
-	 * @ORM\ManyToOne(targetEntity="\DaVinci\TaxiBundle\Entity\User")
+	 * @ORM\OneToOne(targetEntity="\DaVinci\TaxiBundle\Entity\User")
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
@@ -210,17 +208,6 @@ class MakePayment
     public function getUser()
     {
         return $this->user;
-    }
-    
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
-     */
-    public function setDefaultTotalPrice()
-    {
-    	$this->amount = MakePayments::DEFAULT_REQUEST_PRICE;
-    	$this->currency = MakePayments::DEFAULT_CURRENCY;
-    	
-    	return $this;
     }
     
 }

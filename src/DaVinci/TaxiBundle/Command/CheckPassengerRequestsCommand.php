@@ -25,7 +25,12 @@ class CheckPassengerRequestsCommand extends ContainerAwareCommand
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$passengerRequestRepository = $this->getPassengerRequestRepository();
-		$requests = $passengerRequestRepository->getExpiredRequests(); 
+		$this->process($passengerRequestRepository->getExpiredRequests());
+	}
+	
+	private function process(array $requests)
+	{
+		
 	}
 	
 	/**

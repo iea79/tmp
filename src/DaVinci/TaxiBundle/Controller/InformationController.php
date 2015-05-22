@@ -9,10 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
+use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
+use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 
-class InformationController extends Controller {
+use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
+use DaVinci\TaxiBundle\Event\TransferOperationEvent;
+
+class InformationController extends StepsController {
 	
 	const ACTION_OFFICE_ADD = 'add';
 	const ACTION_OFFICE_TRANSFER = 'transfer';
@@ -145,9 +149,9 @@ class InformationController extends Controller {
      * @Route("/financial-office/add/{methodCode}", name="financial_office_add", defaults={"methodCode" = "2_1"})
      * @Security("has_role('ROLE_USER')")
      */
-    public function financialOfficeAddAction($methodCode)
+    public function financialOfficeAddAction(Request $request, $methodCode)
     {
-    	return $this->showOffice(self::ACTION_OFFICE_ADD, $methodCode);
+    	return $this->showOffice(self::ACTION_OFFICE_ADD, $request, $methodCode);
     }
     
     /**
@@ -169,9 +173,9 @@ class InformationController extends Controller {
      * @Route("/financial-office/transfer/{methodCode}", name="financial_office_transfer", defaults={"methodCode" = "1_1"})
      * @Security("has_role('ROLE_USER')")
      */
-    public function financialOfficeTransferAction($methodCode)
+    public function financialOfficeTransferAction(Request $request, $methodCode)
     {
-    	return $this->showOffice(self::ACTION_OFFICE_TRANSFER, $methodCode);
+    	return $this->showOffice(self::ACTION_OFFICE_TRANSFER, $request, $methodCode);
     }
     
     /**
@@ -203,34 +207,47 @@ class InformationController extends Controller {
         return $this->render('DaVinciTaxiBundle:Email:letter_confirm.html.twig');
     }
     
-    /**
-     * @return \DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
-     */
-    private function getMakePaymentService()
-    {
-    	return $this->container->get('da_vinci_taxi.service.make_payment_service');
-    }
-    
-    private function showOffice($action, $methodCode)
+    private function showOffice($action, Request $request, $methodCode)
     {
     	$makePaymentService = $this->getMakePaymentService();
     	 
-    	$makePayment = $makePaymentService->createConfigured($this->getRequest());
+    	$makePayment = $makePaymentService->createConfigured($request);
     	$form = $this->createForm(
-    		$makePaymentService->createPaymentMethodFormType($this->getRequest()),
+    		$makePaymentService->createPaymentMethodFormType($request),
     		$makePayment
     	);
+    	
+    	$result = array();
+    	
+    	$form->handleRequest($request);
+    	if ($form->isValid()) {
+    		$dispatcher = $this->container->get('event_dispatcher');
+    		$dispatcher->dispatch(
+    			FinancialOfficeEvents::TRANSFER_OPERATION,
+    			new TransferOperationEvent(
+    				$form->getData(),
+    				$this->getMakePaymentRepository(),
+    				$this->container->get('security.context')
+    			)
+    		);
+
+    		$result['operationCode'] = 0;
+    	}
     	 
     	return $this->render(
     		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
-    		array(
-    			'action' => $action,
-    			'form' => $form->createView(),
-    			'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
-    			'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
-    			'methodCode' => $methodCode
-    		)
+    		array_merge(
+    			array(
+    				'action' => $action,
+    				'form' => $form->createView(),
+    				'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
+    				'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
+    				'methodCode' => $methodCode,
+    				'methods' => MakePaymentService::generateMethods(PaymentMethod::POS_INTERNAL_PAYMENT_METHOD)	
+    			),
+    			$result	
+    		)	 
     	);
     }
-    
+        
 }

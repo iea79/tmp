@@ -14,5 +14,3 @@ class PayPalPaymentMethod extends CreditCardPaymentMethod
 	static public $subTypes = array();
 	
 }
-
-?>

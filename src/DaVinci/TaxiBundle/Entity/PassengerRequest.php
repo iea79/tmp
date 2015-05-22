@@ -13,7 +13,8 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
  * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
  * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3"})
  */
-class PassengerRequest {
+class PassengerRequest 
+{
 	
 	const STATE_BEFORE_OPEN = 'before-open'; 
 	const STATE_OPEN = 'open';

@@ -2,6 +2,13 @@
 
 namespace DaVinci\TaxiBundle\Entity\Payment;
 
+use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="credit_card_payment_method")
+ */
 class CreditCardPaymentMethod extends PaymentMethod 
 {
 	
@@ -14,55 +21,61 @@ class CreditCardPaymentMethod extends PaymentMethod
 	const CARD_TYPE_MASTER_CARD = 'Master Card';
 	const CARD_TYPE_DINERS_CLUB = 'Diners Club';
 	const CARD_TYPE_AMERICAN_EXPRESS = 'American Express';
-	
-	
+		
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", name="card_number", length=20)
+	 * @Assert\Length(
+	 *      groups={"flow_makePayment_step2"},
+     *      min=15,
+     *      max=20,
+     *      minMessage="Destination point must be at least {{ limit }} characters long",
+     * 		maxMessage="Destination point cannot be longer than {{ limit }} characters"
+     * )
 	 */
 	protected $cardNumber;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", name="secret_salt", length=5)
 	 */
 	protected $secretSalt;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", name="expiration_month", length=2)
 	 */
-	protected $expirationMounth;
+	protected $expirationMonth;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", name="expiration_year", length=4)
 	 */
 	protected $expirationYear;
 		
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=100)
 	 */
 	protected $firstname;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=100)
 	 */
 	protected $lastname;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	protected $address;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=255, nullable=true)
 	 */
 	protected $city;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=32, nullable=true)
 	 */
 	protected $state;
 	
 	/**
-	 * @var string
+	 * @ORM\Column(type="string", length=100, nullable=true)
 	 */
 	protected $country;
 	
@@ -76,126 +89,246 @@ class CreditCardPaymentMethod extends PaymentMethod
 		self::POS_TYPE_AMERICAN_EXPRESS => self::CARD_TYPE_AMERICAN_EXPRESS			
 	);
 
-	public function setCardNumber($cardNumber)
-	{
-		$this->cardNumber = $cardNumber;
-	
-		return $this;
-	}
-	
-	public function getCardNumber()
-	{
-		return $this->cardNumber;
-	}
-	
-	public function setSecretSalt($secretSalt)
-	{
-		$this->secretSalt = $secretSalt;
-	
-		return $this;
-	}
-	
-	public function getSecretSalt()
-	{
-		return $this->secretSalt;
-	}
-	
-	public function setExpirationMonth($expirationMounth)
-	{
-		$this->expirationMounth = $expirationMounth;
-	
-		return $this;
-	}
-	
-	public function getExpirationMonth()
-	{
-		return $this->expirationMounth;
-	}
-	
-	public function setExpirationYear($expirationYear)
-	{
-		$this->expirationYear = $expirationYear;
-	
-		return $this;
-	}
-	
-	public function getExpirationYear()
-	{
-		return $this->expirationYear;
-	}
-	
-	public function setFirstname($firstname)
-	{
-		$this->firstname = $firstname;
-	
-		return $this;
-	}
-	
-	public function getFirstname()
-	{
-		return $this->firstname;
-	}
-	
-	public function setLastname($lastname)
-	{
-		$this->lastname = $lastname;
-	
-		return $this;
-	}
-	
-	public function getLastname()
-	{
-		return $this->lastname;
-	}
-	
-	public function setAddress($address)
-	{
-		$this->address = $address;
-	
-		return $this;
-	}
-	
-	public function getAddress()
-	{
-		return $this->address;
-	}
-	
-	public function setCity($city)
-	{
-		$this->city = $city;
-	
-		return $this;
-	}
-	
-	public function getCity()
-	{
-		return $this->city;
-	}
-	
-	public function setState($state)
-	{
-		$this->state = $state;
-	
-		return $this;
-	}
-	
-	public function getState()
-	{
-		return $this->state;
-	}
-	
-	public function setCountry($country)
-	{
-		$this->country = $country;
-	
-		return $this;
-	}
-	
-	public function getCountry()
-	{
-		return $this->country;
-	}
-			
+    /**
+     * Set cardNumber
+     *
+     * @param string $cardNumber
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setCardNumber($cardNumber)
+    {
+        $this->cardNumber = $cardNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get cardNumber
+     *
+     * @return string
+     */
+    public function getCardNumber()
+    {
+        return $this->cardNumber;
+    }
+
+    /**
+     * Set secretSalt
+     *
+     * @param string $secretSalt
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setSecretSalt($secretSalt)
+    {
+        $this->secretSalt = $secretSalt;
+
+        return $this;
+    }
+
+    /**
+     * Get secretSalt
+     *
+     * @return string
+     */
+    public function getSecretSalt()
+    {
+        return $this->secretSalt;
+    }
+
+    /**
+     * Set expirationMonth
+     *
+     * @param string $expirationMonth
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setExpirationMonth($expirationMonth)
+    {
+        $this->expirationMonth = $expirationMonth;
+
+        return $this;
+    }
+
+    /**
+     * Get expirationMonth
+     *
+     * @return string
+     */
+    public function getExpirationMonth()
+    {
+        return $this->expirationMonth;
+    }
+
+    /**
+     * Set expirationYear
+     *
+     * @param string $expirationYear
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setExpirationYear($expirationYear)
+    {
+        $this->expirationYear = $expirationYear;
+
+        return $this;
+    }
+
+    /**
+     * Get expirationYear
+     *
+     * @return string
+     */
+    public function getExpirationYear()
+    {
+        return $this->expirationYear;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set state
+     *
+     * @param string $state
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return CreditCardPaymentMethod
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
 }
 
 ?>
