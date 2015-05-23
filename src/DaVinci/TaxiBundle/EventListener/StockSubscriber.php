@@ -8,7 +8,7 @@ use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
 
-use DaVinci\TaxiBundle\Services\RemoteRequester;
+use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;

@@ -1,11 +1,14 @@
 <?php
 
-namespace DaVinci\TaxiBundle\Services;
+namespace DaVinci\TaxiBundle\Services\Remote;
 
 use Lsw\ApiCallerBundle\Caller\LoggingApiCaller;
 use Lsw\ApiCallerBundle\Call\HttpPostJson;
 
 use Symfony\Component\Config\Definition\Exception\InvalidTypeException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+
+use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
@@ -13,7 +16,8 @@ use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
-use Symfony\Component\HttpKernel\Exception\HttpException;
+use DaVinci\TaxiBundle\Services\Remote\HttpRequest;
+use DaVinci\TaxiBundle\DaVinciTaxiBundle;
 
 class RemoteRequester
 {
@@ -39,15 +43,22 @@ class RemoteRequester
     const COMPLEX_URI = '/gateway/complex';
         
     /**
-     * @var Lsw\ApiCallerBundle\Caller\LoggingApiCaller
+     * @var \Lsw\ApiCallerBundle\Caller\LoggingApiCaller
      */
     private $apiCaller;
     
+    /**
+     * @var \DaVinci\TaxiBundle\Services\Remote\HttpRequest
+     */
+    private $httpRequester;
+    
     private $remoteEnable = true;
+    private $useApiCaller = false;
 
-    public function __construct(LoggingApiCaller $apiCaller)
+    public function __construct(LoggingApiCaller $apiCaller, HttpRequest $httpRequester)
     {
         $this->apiCaller = $apiCaller;
+        $this->httpRequester = $httpRequester;
     }
     
     public function transferOpertation(MakePayment $makePayment, $opCode) 
@@ -71,15 +82,19 @@ class RemoteRequester
     		return true;
     	}
     	
-    	return $this->process($requestData, $opCode);
+    	if (!$this->checkOpCode($opCode)) {
+    		throw new InvalidTypeException(get_class($this) . ": unsupported operation code #{$opCode}");
+    	}
+    	
+    	if ($this->useApiCaller) {
+    		return $this->process($requestData, $opCode);
+    	}
+    	
+    	return $this->httpProcess($requestData, $opCode);
     }
     
     private function process($requestData, $opCode)
     {
-    	if (!$this->checkOpCode($opCode)) {
-    		throw new InvalidTypeException(get_class($this) . ": unsupported operation code #{$opCode}");
-    	}
- 
     	$call = new HttpPostJson(
     		$this->getOperationURL($opCode), 
     		$this->prepareRequest($requestData, $opCode)
@@ -88,16 +103,33 @@ class RemoteRequester
     	$this->apiCaller->call($call);
     	$statusCode = $call->getStatusCode();
     	if ($statusCode != 200) {
-    		throw new RemoteRequesterException(
+    		throw new RequesterException(
     			get_class($this) . ": status code is #{$statusCode}"
 			);
     	}
     	 
     	$responseData = $call->getResponseObject();
     	if (self::OPERATION_FINISHED_SUCCESSFULLY != $responseData->response->code) {
-    		throw new RemoteRequesterException(
+    		throw new RequesterException(
     			get_class($this) . ": response code is #{$responseData->response->code}"
     		);
+    	}
+    }
+    
+    private function httpProcess($requestData, $opCode)
+    {
+    	$this->httpRequester->setOptions(array(
+    		CURLOPT_HEADER => 1,
+    		CURLOPT_VERBOSE => 1
+    	));
+    	$this->httpRequester->setMethod(HttpRequest::METHOD_POST);
+    	$this->httpRequester->setJsonRequest(
+    		$this->prepareRequest($requestData, $opCode)
+    	);
+    	 
+    	$response = $this->httpRequester->execute($this->getOperationURL($opCode));
+    	if ($response->hasError()) {
+    		throw new RequesterException($response->getError());
     	}
     }
     

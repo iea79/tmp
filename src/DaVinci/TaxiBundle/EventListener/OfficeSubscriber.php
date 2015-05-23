@@ -4,7 +4,7 @@ namespace DaVinci\TaxiBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-use DaVinci\TaxiBundle\Services\RemoteRequester;
+use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;

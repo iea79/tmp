@@ -33,10 +33,13 @@ services:
 
     da_vinci_taxi.service.calculation_service:
         class: DaVinci\TaxiBundle\Services\Calculation
+    
+    da_vinci_taxi.service.http_requester:
+        class: DaVinci\TaxiBundle\Services\Remote\HttpRequest        
         
     da_vinci_taxi.service.remote_requester:
-        class: DaVinci\TaxiBundle\Services\RemoteRequester
-        arguments: ["@api_caller"]
+        class: DaVinci\TaxiBundle\Services\Remote\RemoteRequester
+        arguments: ["@api_caller", "@da_vinci_taxi.service.http_requester"]
         
     da_vinci_taxi.command.check_passenger_requests:
         class: DaVinci\TaxiBundle\Command\CheckPassengerRequestsCommand
