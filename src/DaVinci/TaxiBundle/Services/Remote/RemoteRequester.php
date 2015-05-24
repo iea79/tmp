@@ -174,6 +174,8 @@ class RemoteRequester
     {
     	switch ($opCode) {
     		case self::OPCODE_PAY_PAL_DIRECT_PAYMENT: {
+    			$paymentMethod = $makePayment->getPaymentMethod();
+    			
     			$params = array(
     				'Customer' => array(
     					"cardNumber" => $paymentMethod->getCardNumber(),
