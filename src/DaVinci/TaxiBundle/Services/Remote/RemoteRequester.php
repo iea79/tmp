@@ -199,7 +199,7 @@ class RemoteRequester
     					"custom2" => "0.03",
     					"custom3" => "0.03"
     				),
-    				'User' => $makePayment->getUser()->getRemoteId()
+    				'Product' => self::GATEWAY_PRODUCT_ID
     			);
     			break;
     		}
