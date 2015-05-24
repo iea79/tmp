@@ -18,6 +18,7 @@ use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\InternalPaymentMethod;
+use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
@@ -29,6 +30,8 @@ use DaVinci\TaxiBundle\Event\CancelRequestEvent;
 use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
+
+use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
 class HomeController extends StepsController {
 	
@@ -63,6 +66,8 @@ class HomeController extends StepsController {
     	if (!$this->beforePaymentCheck($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
+    	
+    	$operationCode = MakePayments::CODE_SUCCESS;
     	
     	$flow = $this->container->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
@@ -109,23 +114,26 @@ class HomeController extends StepsController {
     			    			    			
     			$this->updatePassengerRequest($passengerRequest);
     			
-    			$dispatcher = $this->container->get('event_dispatcher');
-    			$dispatcher->dispatch(
-    				FinancialOfficeEvents::TRANSFER_OPERATION,
-    				new TransferOperationEvent(
-						$makePayment,
-    					$this->getMakePaymentRepository(),
-    					$this->container->get('security.context'),
-    					$passengerRequest->getFullRoute()	
-    				)
-    			);
-    			
-    			$this->getRequest()->getSession()->remove('request_id');
-    			
-    			$flow->reset();
-    			
-    			return $this->redirect($this->getAfterPaymentUrl());
-			}
+    			try {
+	    			$dispatcher = $this->container->get('event_dispatcher');
+	    			$dispatcher->dispatch(
+	    				FinancialOfficeEvents::TRANSFER_OPERATION,
+	    				new TransferOperationEvent(
+							$makePayment,
+	    					$this->getMakePaymentRepository(),
+	    					$this->container->get('security.context'),
+	    					$passengerRequest->getFullRoute()	
+	    				)
+	    			);
+	    			
+	    			$this->getRequest()->getSession()->remove('request_id');
+	    			
+	    			$flow->reset();
+	    			return $this->redirect($this->getAfterPaymentUrl());
+    			} catch (RequesterException $exception) {
+    				$operationCode = MakePayments::CODE_FAIL;
+    			}
+    		}
     	}
     	
     	$data = array(
@@ -134,7 +142,8 @@ class HomeController extends StepsController {
     		'passengerRequest' => $passengerRequest,
     		'paymentMethods' => PaymentMethod::getTypes(),
  			'internalMethods' => InternalPaymentMethod::getSubTypes(),
-    		'creditCardMethods' => CreditCardPaymentMethod::getSubTypes()
+    		'creditCardMethods' => CreditCardPaymentMethod::getSubTypes(),
+    		'operationCode'	=> $operationCode
     	);
     	 
     	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {

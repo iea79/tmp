@@ -17,7 +17,7 @@ class OfficeSubscriber implements EventSubscriberInterface
 {
 	
 	/**
-	 * @var \DaVinci\TaxiBundle\Services\RemoteRequester
+	 * @var \DaVinci\TaxiBundle\Services\Remote\RemoteRequester
 	 */
 	private $remoteRequester;
 	
@@ -68,7 +68,8 @@ class OfficeSubscriber implements EventSubscriberInterface
 				break;
 			
 			case PaymentMethod::CREDIT_CARD_METHOD:
-				throw new \InvalidArgumentException(get_class($this) . ": unsupported payment method type #{$type}");
+				$opCode = RemoteRequester::OPCODE_PAY_PAL_DIRECT_PAYMENT;
+				break;
 				
 			case PaymentMethod::PAYPAL_METHOD:
 				$opCode = RemoteRequester::OPCODE_SETTLE_ACCOUNT_PAY_PAL;

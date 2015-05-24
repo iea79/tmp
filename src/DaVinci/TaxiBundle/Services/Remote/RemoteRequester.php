@@ -173,6 +173,35 @@ class RemoteRequester
     private function getParamsFromMakePayment(MakePayment $makePayment, $opCode)
     {
     	switch ($opCode) {
+    		case self::OPCODE_PAY_PAL_DIRECT_PAYMENT: {
+    			$params = array(
+    				'Customer' => array(
+    					"cardNumber" => $paymentMethod->getCardNumber(),
+    					"cardType" => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
+    					"expirationMonth" => $paymentMethod->getExpirationMonth(),
+    					"expirationYear" => intval('20' . $paymentMethod->getExpirationYear()),
+    					"cvv" => $paymentMethod->getSecretSalt(),
+    					"firstName" => $paymentMethod->getFirstname(),
+    					"lastName" => $paymentMethod->getLastname(),
+    					"address" => $paymentMethod->getAddress(),
+    					"city" => 'Saratoga',
+    					"state" => 'CA',
+    					"zipCode" => $paymentMethod->getZipCode(),
+    					"country" => 'US',
+    					"externalUserId" => $makePayment->getUser()->getId()
+    				),
+    				'Transaction' => array(
+    					"amount" => $makePayment->getTotalPrice()->getAmount(),
+    					"currency" => $makePayment->getTotalPrice()->getCurrency(),
+    					"custom1" => "7.41",
+    					"custom2" => "0.03",
+    					"custom3" => "0.03"
+    				),
+    				'User' => $makePayment->getUser()->getRemoteId()
+    			);
+    			break;
+    		}
+    		
     		case self::OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS: {
     			$params = array(
     				"User" => $makePayment->getUser()->getRemoteId(),
