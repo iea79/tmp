@@ -7,13 +7,13 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CheckPassengerRequestsCommand extends ContainerAwareCommand
+class CancelExpiredRequestsCommand extends ContainerAwareCommand
 {
 
 	protected function configure()
 	{
 		$this
-			->setName('check:passenger:requests')
+			->setName('cancel:expired:requests')
 			->setDescription('Check states of passenger requests')
 			->addOption(
 				'requestId',
@@ -42,7 +42,7 @@ class CheckPassengerRequestsCommand extends ContainerAwareCommand
 		
 		$output->writeln("{$count} passenger requests has been canceled");
 	}
-		
+	
 	/**
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
 	 */

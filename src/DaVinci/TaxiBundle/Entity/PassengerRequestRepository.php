@@ -249,6 +249,7 @@ class PassengerRequestRepository extends EntityRepository
 			\Doctrine\DBAL\Types\Type::DATETIMETZ
 		);
 		$query->setParameter('stateValues', array(
+			PassengerRequest::STATE_BEFORE_OPEN,
 			PassengerRequest::STATE_OPEN,
 			PassengerRequest::STATE_PENDING,
 			PassengerRequest::STATE_SOLD
