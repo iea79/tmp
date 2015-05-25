@@ -24,15 +24,20 @@ class CheckPassengerRequestsCommand extends ContainerAwareCommand
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$passengerRequestRepository = $this->getPassengerRequestRepository();
-		$this->process($passengerRequestRepository->getExpiredRequests());
+		$this->cancelExpired();
 	}
 	
-	private function process(array $requests)
+	private function cancelExpired()
 	{
+		$passengerRequestRepository = $this->getPassengerRequestRepository();
+		$requests = $passengerRequestRepository->getExpiredRequests();
 		
+		foreach ($requests as $item) {
+			$item->cancelState();
+			$passengerRequestRepository->save($item);
+		}
 	}
-	
+		
 	/**
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
 	 */
