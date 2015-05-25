@@ -24,18 +24,23 @@ class CheckPassengerRequestsCommand extends ContainerAwareCommand
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$this->cancelExpired();
+		$this->cancelExpired($input, $output);
 	}
 	
-	private function cancelExpired()
+	private function cancelExpired(InputInterface $input, OutputInterface $output)
 	{
 		$passengerRequestRepository = $this->getPassengerRequestRepository();
 		$requests = $passengerRequestRepository->getExpiredRequests();
 		
+		$count = 0;
 		foreach ($requests as $item) {
 			$item->cancelState();
 			$passengerRequestRepository->save($item);
+			
+			$count++;
 		}
+		
+		$output->writeln("{$count} passenger requests has been canceled");
 	}
 		
 	/**
