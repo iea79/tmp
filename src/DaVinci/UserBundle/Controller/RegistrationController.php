@@ -12,7 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
-use DaVinci\TaxiBundle\Services\RemoteRequester;
+use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 
 class RegistrationController extends BaseController {
 
