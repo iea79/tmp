@@ -184,7 +184,7 @@ class RegistrationController extends BaseController {
             }
 
             // send to payment global network system
-            $this->container->get('paygnet')->makeUserOperation(
+            $this->container->get('da_vinci_taxi.service.remote_requester')->makeUserOperation(
             	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
         	);
 

@@ -203,7 +203,7 @@ services:
         
 # PaymentGlobalNetwork---------------------------------------------------------
     paygnet:
-      class:     DaVinci\TaxiBundle\Services\RemoteRequester
+      class:     DaVinci\TaxiBundle\Services\Remote\RemoteRequester
       arguments: ["@api_caller"]      
       
 # PHPCR PAGES NODES INITIALIZER
