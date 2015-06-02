@@ -42,7 +42,7 @@ class HomeController extends StepsController {
 				array(
 					PassengerRequest::STATE_OPEN,
 					PassengerRequest::STATE_PENDING,
-					PassengerRequest::STATE_SOLD
+					PassengerRequest::STATE_PENDING
     			)
     		);
     		
@@ -100,11 +100,11 @@ class HomeController extends StepsController {
     			
     			if ($this->isFirstDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId($user->getId());
-    				 
+
+    				$passengerRequest->changeState();
     				$passengerRequest->addPossibleDriver($driver);
     				$passengerRequest->removeCanceledDrivers($driver);
-    				$passengerRequest->changeState();
-    				 
+    				    				 
     				$driver->addPossibleRequests($passengerRequest);
     				$driver->removeCanceledRequests($passengerRequest);
     			}
