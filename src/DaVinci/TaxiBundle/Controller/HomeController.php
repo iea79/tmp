@@ -42,7 +42,8 @@ class HomeController extends StepsController {
 				array(
 					PassengerRequest::STATE_OPEN,
 					PassengerRequest::STATE_PENDING,
-					PassengerRequest::STATE_SOLD
+					PassengerRequest::STATE_SOLD,
+					PassengerRequest::STATE_APPROVED_SOLD
     			)
     		);
     		

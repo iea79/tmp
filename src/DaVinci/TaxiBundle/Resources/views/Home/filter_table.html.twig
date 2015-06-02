@@ -128,7 +128,7 @@
 				</td>
 			</tr>
 			{% if openRequests is defined %}
-				{% for request in openRequests if (request.stateValue == 'open' or request.stateValue == 'pending' and request.isDriverInList(driver.id) == false) %}
+				{% for request in openRequests %}
 	            	{% set tariff = request.getTariff() %}
 	            	{% set pickUp = request.getPickUp() %}
 	            	<tr class="table-cont">
@@ -141,14 +141,15 @@
 						<td><span class="escro">{{ tariff.getPricePaymentMethod() }}</span></td>
 						<td>{{ request.getStateValue() }}</td>
 						<td>
-							{% if is_granted("ROLE_TAXIDRIVER") %}
+							{% if is_granted("ROLE_TAXIDRIVER") and request.stateValue == 'pending' and request.isDriverInList(driver.id) == false %}
 								<button class="uk-button-success uk-button" onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'">
 									<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
 								</button>
-							{% endif %}
+							{% else %}
+							{% endif %}	
 						</td>
 					</tr>
 	            {% endfor %}
-	    	{% endif %}        
+	    	{% endif %}
 		</table>
 	</div>
