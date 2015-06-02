@@ -24,7 +24,7 @@ services:
             
     da_vinci_taxi.subscriber.office_subscriber:
         class: DaVinci\TaxiBundle\EventListener\OfficeSubscriber
-        arguments: 
+        arguments:
             - ["@da_vinci_taxi.service.remote_requester"]
             - ["@da_vinci_taxi.service.composite_informer"]
             - ["@security.context"]

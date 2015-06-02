@@ -53,7 +53,7 @@ class OfficeSubscriber implements EventSubscriberInterface
 	public function onTransferOperation(TransferOperationEvent $event)
 	{
 		$makePayment = $event->getMakePayment();
-		$user = $event->getSecurityContext()
+		$user = $this->securityContext
 					->getToken()
 					->getUser();
 		
