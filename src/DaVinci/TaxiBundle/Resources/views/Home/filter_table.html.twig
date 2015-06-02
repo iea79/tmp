@@ -133,7 +133,7 @@
 	            	{% set pickUp = request.getPickUp() %}
 	            	<tr class="table-cont">
 						<td><span class="blue-bg">{{ loop.index }}</span></td>
-						<td>{{ pickUp.format('d') }} <strong>{{ pickUp.format('M') }}</strong> {{ pickUp.format('y') }}<br/> {{ pickUp.format('H:s') }}</td>
+						<td>{{ pickUp.format('d') }} <strong>{{ pickUp.format('M') }}</strong> {{ pickUp.format('y') }}<br/> {{ pickUp.format('H:i') }}</td>
 						<td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
 						<td>${{ tariff.getPrice() }}</td>
 						<td>${{ tariff.getTips() }}</td>

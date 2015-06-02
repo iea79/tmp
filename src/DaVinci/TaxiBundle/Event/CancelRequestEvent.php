@@ -3,7 +3,6 @@
 namespace DaVinci\TaxiBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\Security\Core\SecurityContext;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
@@ -20,16 +19,10 @@ class CancelRequestEvent extends Event
 	 * @var \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
 	 */
 	protected $passengerRequestRepository;
-	
-	/**
-	 * @var \Symfony\Component\Security\Core\SecurityContext
-	 */
-	protected $securityContext;
-	
+		
 	/**
 	 * @param PassengerRequest $request
 	 * @param PassengerRequestRepository $requestRepository
-	 * @param SecurityContext $securityContext
 	 */
 	public function __construct(
 		PassengerRequest $request, 
@@ -38,7 +31,6 @@ class CancelRequestEvent extends Event
 	) {
 		$this->passengerRequest = $request;
 		$this->passengerRequestRepository = $requestRepository;
-		$this->securityContext = $securityContext; 
 	}
 	
 	/**
@@ -55,14 +47,6 @@ class CancelRequestEvent extends Event
 	public function getPassengerRequestRepository() 
 	{
 		return $this->passengerRequestRepository; 
-	}
-	
-	/**
-	 * @return \Symfony\Component\Security\Core\SecurityContext
-	 */
-	public function getSecurityContext()
-	{
-		return $this->securityContext;
 	}
 	
 }

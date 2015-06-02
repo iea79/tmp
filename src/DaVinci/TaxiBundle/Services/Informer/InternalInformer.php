@@ -20,9 +20,14 @@ class InternalInformer extends AbstractInformer implements InformerInterface
 	
 	public function notify(\DaVinci\TaxiBundle\Entity\User $user, $literalCode)
 	{
+		$contentInfo = $this->prepareContent($literalCode);
+		if (!$contentInfo->isInternalNotification()) {
+			return;
+		}
+				
 		$message = $this->internalMessageService->spawnInstance();
 		$message
-			->setContent($this->prepareContent($literalCode))
+			->setContent($contentInfo->getContent())
 			->setUser($user)
 			->setCreateDate(new \DateTime());
 		

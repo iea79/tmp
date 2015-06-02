@@ -8,10 +8,9 @@ use Symfony\Component\Security\Core\SecurityContext;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
-use DaVinci\TaxiBundle\Services\Informer\InformerInterface;
 use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 
-class DeclineDriverRequestEvent extends Event
+class CommonDriverRequestEvent extends Event
 {
 	
 	/**
@@ -33,31 +32,23 @@ class DeclineDriverRequestEvent extends Event
 	 * @var \DaVinci\TaxiBundle\Entity\IndependentDriverRepository
 	 */
 	protected $driverRepository;
-	
-	/**
-	 * @var \DaVinci\TaxiBundle\Services\Informer\InformerInterface
-	 */
-	protected $informer;
-	
+		
 	/**
 	 * @param PassengerRequest $request
 	 * @param PassengerRequestRepository $requestRepository
 	 * @param IndependentDriver $driver
 	 * @param IndependentDriverRepository $driverRepository
-	 * @param InformerInterface $informer
 	 */
 	public function __construct(
 		PassengerRequest $request, 
 		PassengerRequestRepository $requestRepository,
 		IndependentDriver $driver,
-		IndependentDriverRepository $driverRepository,	
-		InformerInterface $informer		
+		IndependentDriverRepository $driverRepository
 	) {
 		$this->passengerRequest = $request;
 		$this->passengerRequestRepository = $requestRepository;
 		$this->driver = $driver;
 		$this->driverRepository = $driverRepository;
-		$this->informer = $informer;
 	}
 	
 	/**
@@ -91,15 +82,7 @@ class DeclineDriverRequestEvent extends Event
 	{
 		return $this->driverRepository;
 	}
-	
-	/**
-	 * @return \DaVinci\TaxiBundle\Services\Informer\InformerInterface
-	 */
-	public function getInformer()
-	{
-		return $this->informer;
-	}
-	
+		
 }
 
 ?>

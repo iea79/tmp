@@ -2,6 +2,7 @@
 
 namespace DaVinci\TaxiBundle\Services\Remote;
 
+use GuzzleHttp\json_decode;
 class ResponseData 
 {
 
@@ -44,6 +45,10 @@ class ResponseData
 	 */
 	public function getBody() {
 		return $this->body;
+	}
+	
+	public function getDecodedBody() {
+		return json_decode($this->body);
 	}
 
 	/**

@@ -61,25 +61,25 @@ class RemoteRequester
         $this->httpRequester = $httpRequester;
     }
     
-    public function transferOpertation(MakePayment $makePayment, $opCode) 
+    public function saleOpertation(MakePayment $makePayment, $opCode) 
     {
-    	return $this->proxyProcess($makePayment, $opCode);
+    	$this->proxyProcess($makePayment, $opCode);
     }
     
     public function makePassengerRequestOperation(PassengerRequest $request, $opCode)
     {
-    	return $this->proxyProcess($request, $opCode);
+    	$this->proxyProcess($request, $opCode);
     }
     
     public function makeUserOperation(User $user, $opCode)
     {
-    	return $this->proxyProcess($user, $opCode);
+    	$this->proxyProcess($user, $opCode);
     }
     
     private function proxyProcess($requestData, $opCode) 
     {
     	if (!$this->remoteEnable) {
-    		return true;
+    		return;
     	}
     	
     	if (!$this->checkOpCode($opCode)) {
@@ -87,10 +87,11 @@ class RemoteRequester
     	}
     	
     	if ($this->useApiCaller) {
-    		return $this->process($requestData, $opCode);
+    		$this->process($requestData, $opCode);
+    		return;
     	}
     	
-    	return $this->httpProcess($requestData, $opCode);
+    	$this->httpProcess($requestData, $opCode);
     }
     
     private function process($requestData, $opCode)
@@ -130,6 +131,13 @@ class RemoteRequester
     	$response = $this->httpRequester->execute($this->getOperationURL($opCode));
     	if ($response->hasError()) {
     		throw new RequesterException($response->getError());
+    	}
+    	
+    	$body = $response->getDecodedBody();
+    	if (self::OPERATION_FINISHED_SUCCESSFULLY != $body->response->code) {
+    		throw new RequesterException(
+    			get_class($this) . ": response code is #{$body->response->code}"
+    		);
     	}
     }
     
@@ -218,6 +226,18 @@ class RemoteRequester
     			break;
     		}
     		
+    		case self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT: {
+    			$params = array(
+    				"User" => $makePayment->getUser()->getRemoteId(),
+    				"Transaction" => array(
+    					"amount" => $makePayment->getTotalPrice()->getAmount(),
+    					"currency" => $makePayment->getTotalPrice()->getCurrency()
+    				),
+    				"Product" => self::GATEWAY_PRODUCT_ID
+    			);
+    			break;
+    		}
+    		
     		case self::OPCODE_SETTLE_ACCOUNT_PAY_PAL: {
     			$paymentMethod = $makePayment->getPaymentMethod();
     			
@@ -294,6 +314,18 @@ class RemoteRequester
     			);
     			break;
     		}
+    		
+    		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
+    			$params = array(
+    				"User" => $user->getRemoteId(),
+    				"Product" => self::GATEWAY_PRODUCT_ID,
+    				"Transaction" => array(
+    					"amount" => MakePayments::DEFAULT_REQUEST_PRICE,
+    					"currency" => MakePayments::DEFAULT_CURRENCY
+    				),
+    			);
+    			break;
+    		}
     		    		        
     		default: {
     			$params = array();
@@ -320,7 +352,7 @@ class RemoteRequester
     		case self::OPCODE_CREATE_USER_ACCOUNT:
     		case self::OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS:
     		case self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT:
-    		case self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT:
+    		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER:
     		case self::OPCODE_INTERNAL_TRANSFER_ESCROW: {
     			$uri = self::OPERATION_URI;
     			break;

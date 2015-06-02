@@ -27,7 +27,7 @@ use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
 
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
-use DaVinci\TaxiBundle\Event\DeclineDriverRequestEvent;
+use DaVinci\TaxiBundle\Event\CommonDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 
@@ -39,7 +39,11 @@ class HomeController extends StepsController {
     	$result = $this->showSteps();
     	if (is_array($result)) {
     		$allStockRequests = $this->getPassengerRequestRepository()->getActualRequestsByStates(
-				array(PassengerRequest::STATE_OPEN)
+				array(
+					PassengerRequest::STATE_OPEN,
+					PassengerRequest::STATE_PENDING,
+					PassengerRequest::STATE_SOLD
+    			)
     		);
     		
     		return $this->render(
@@ -82,17 +86,16 @@ class HomeController extends StepsController {
     			$user = $this->container->get('security.context')
 	    			->getToken()
 	    			->getUser();
+    			$driver = null;
     			
     			if ($this->isOtherDriverCondition($passengerRequest)) {
     				$driver = $this->getDirverByUserId($user->getId());
     			
     				$passengerRequest->addPossibleDriver($driver);
     				$passengerRequest->removeCanceledDrivers($driver);
-    			
+    				    			
     				$driver->addPossibleRequests($passengerRequest);
     				$driver->removeCanceledRequests($passengerRequest);
-    			
-    				$this->saveDriver($driver);
     			}
     			
     			if ($this->isFirstDriverCondition($passengerRequest)) {
@@ -104,17 +107,13 @@ class HomeController extends StepsController {
     				 
     				$driver->addPossibleRequests($passengerRequest);
     				$driver->removeCanceledRequests($passengerRequest);
-    				 
-    				$this->saveDriver($driver);
     			}
     			
     			if ($this->isUserCondition($passengerRequest)) {
     				$passengerRequest->changeState();
     			}
-    			    			    			
-    			$this->updatePassengerRequest($passengerRequest);
-    			
-    			try {
+
+	    		try {	
 	    			$dispatcher = $this->container->get('event_dispatcher');
 	    			$dispatcher->dispatch(
 	    				FinancialOfficeEvents::TRANSFER_OPERATION,
@@ -125,6 +124,11 @@ class HomeController extends StepsController {
 	    					$passengerRequest->getFullRoute()	
 	    				)
 	    			);
+	    			
+	    			if (!is_null($driver)) {
+	    				$this->saveDriver($driver);
+	    			}
+	    			$this->updatePassengerRequest($passengerRequest);
 	    			
 	    			$this->getRequest()->getSession()->remove('request_id');
 	    			
@@ -211,27 +215,26 @@ class HomeController extends StepsController {
     		));
     	}
     	
-    	if ($userCondition) {
-    		$passengerRequest->setDriver($driver);
-    		$passengerRequest->removeCanceledDrivers($driver);
-    		
-    		$driver->removeCanceledRequests($passengerRequest);
-    	}
-    	
     	if (
     		$driverCondition
     		&& $driver->getId() != $passengerRequest->getDriver()->getId()
     	) {
-   			return new JsonResponse(array(
-   				'status' => 'error', 
-   				'message' => "driver with id #{$driver->getId()} is not chosen for executing an order"
-   			));
-     	}
+    		return new JsonResponse(array(
+    			'status' => 'error',
+    			'message' => "driver with id #{$driver->getId()} is not chosen for executing an order"
+    		));
+    	}
     	
-    	$passengerRequest->changeState();
-    	
-    	$this->saveDriver($driver);
-    	$this->savePassengerRequest($passengerRequest);
+    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher->dispatch(
+    		PassengerRequestEvents::APPROVE_REQUEST,
+    		new CommonDriverRequestEvent(
+    			$passengerRequest,
+    			$this->getPassengerRequestRepository(),
+    			$driver,
+    			$this->getIndependentDriverRepository()
+    		)
+    	);
     	
     	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
@@ -264,12 +267,11 @@ class HomeController extends StepsController {
     	$dispatcher = $this->container->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
-    		new DeclineDriverRequestEvent(
+    		new CommonDriverRequestEvent(
     			$passengerRequest,
     			$this->getPassengerRequestRepository(),
     			$driver,
-    			$this->getIndependentDriverRepository(),
-    			$this->container->get('da_vinci_taxi.service.composite_informer')
+    			$this->getIndependentDriverRepository()
     		)
     	);
     	

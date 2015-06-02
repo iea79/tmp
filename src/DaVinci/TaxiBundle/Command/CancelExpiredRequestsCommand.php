@@ -14,7 +14,7 @@ class CancelExpiredRequestsCommand extends ContainerAwareCommand
 	{
 		$this
 			->setName('cancel:expired:requests')
-			->setDescription('Check states of passenger requests')
+			->setDescription('Cancelation of expired passenger requests')
 			->addOption(
 				'requestId',
 				'req_id',
@@ -24,25 +24,20 @@ class CancelExpiredRequestsCommand extends ContainerAwareCommand
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$this->cancelExpired($input, $output);
-	}
-	
-	private function cancelExpired(InputInterface $input, OutputInterface $output)
-	{
 		$passengerRequestRepository = $this->getPassengerRequestRepository();
 		$requests = $passengerRequestRepository->getExpiredRequests();
 		
 		$count = 0;
-		foreach ($requests as $item) {
-			$item->cancelState();
-			$passengerRequestRepository->save($item);
+		foreach ($requests as $passengerRequest) {
+			$passengerRequest->cancelState();
+			$passengerRequestRepository->save($passengerRequest);
 			
 			$count++;
 		}
 		
 		$output->writeln("{$count} passenger requests has been canceled");
 	}
-	
+		
 	/**
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequestRepository
 	 */

@@ -20,14 +20,6 @@
     </div>
 </div>
 <div class="uk-form-row">
-    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
-	<div class="uk-form-controls">
-        {{ form_widget(form.paymentMethod.company) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
-    </div>
-</div>
-<div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.cardNumber, 'Card number:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.cardNumber) }}
@@ -68,6 +60,14 @@
     <div class="uk-form-label">{{ form_label(form.paymentMethod.zipCode, 'Zip code:') }}</div>
     <div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.zipCode) }}
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+    </div>
+</div>
+<div class="uk-form-row">
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
+	<div class="uk-form-controls">
+        {{ form_widget(form.paymentMethod.company) }}
+        <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>

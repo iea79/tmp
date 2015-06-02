@@ -3,6 +3,8 @@
 namespace DaVinci\TaxiBundle\Services\Informer;
 
 use DaVinci\TaxiBundle\Entity\MessageContentService;
+use DaVinci\TaxiBundle\Utils\Assert;
+use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 
 abstract class AbstractInformer 
 {
@@ -17,11 +19,19 @@ abstract class AbstractInformer
 		$this->messageContentService = $messageContentService;
 	}
 	
+	/**
+	 * @param unknown $literalCode
+	 * @return Ambigous <\DaVinci\TaxiBundle\Entity\MessageContent, NULL>
+	 */
 	protected function prepareContent($literalCode)
 	{
-		return $this->messageContentService
-				->getByCode($literalCode)
-				->getContent();
+		Assert::inArray(
+			PassengerRequestEvents::getEventList(), 
+			$literalCode,
+			get_class($this) . ": event literal code doesn't exist #{$literalCode}"	
+		);
+		
+		return $this->messageContentService->getByCode($literalCode);
 	}
 	
 }

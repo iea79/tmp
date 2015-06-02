@@ -29,9 +29,19 @@ class MessageContent
 	private $content;
 	
 	/**
-	 * @ORM\Column(type="string", name="literal_code", length=255)
+	 * @ORM\Column(type="string", columnDefinition="ENUM('approve.request', 'decline-driver.request', 'cancel.request')", name="literal_code", length=100)
 	 */
 	private $literalCode;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="mail_notification")
+	 */
+	private $mailNotification = false;
+	
+	/**
+	 * @ORM\Column(type="boolean", name="internal_notification")
+	 */
+	private $internalNotification = false;
 	
     /**
      * Get id
@@ -115,4 +125,55 @@ class MessageContent
     {
         return $this->literalCode;
     }
+
+    /**
+     * Set mailNotification
+     *
+     * @param boolean $mailNotification
+     *
+     * @return MessageContent
+     */
+    public function setMailNotification($mailNotification)
+    {
+        $this->mailNotification = $mailNotification;
+
+        return $this;
+    }
+
+    /**
+     * Get mailNotification
+     *
+     * @return boolean
+     */
+    public function isMailNotification()
+    {
+        return $this->mailNotification;
+    }
+
+    /**
+     * Set internalNotification
+     *
+     * @param boolean $internalNotification
+     *
+     * @return MessageContent
+     */
+    public function setInternalNotification($internalNotification)
+    {
+        $this->internalNotification = $internalNotification;
+
+        return $this;
+    }
+
+    /**
+     * Get internalNotification
+     *
+     * @return boolean
+     */
+    public function isInternalNotification()
+    {
+        return $this->internalNotification;
+    }
+
 }
+
+?>

@@ -21,10 +21,15 @@ class MailerInformer extends AbstractInformer implements InformerInterface
 	
 	public function notify(\DaVinci\TaxiBundle\Entity\User $user, $literalCode)
 	{
+		$contentInfo = $this->prepareContent($literalCode);
+		if (!$contentInfo->isMailNotification()) {
+			return;
+		}
+		
 		$message = $this->mailer
 			->setSubject(self::MAIL_SUBJECT)
 			->setTo($user->getEmail())
-			->setBody($this->prepareContent($literalCode));
+			->setBody($contentInfo->getContent());
 		
 		$this->mailer->send($message);
 	}

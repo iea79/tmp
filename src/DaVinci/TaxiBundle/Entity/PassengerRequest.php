@@ -21,6 +21,7 @@ class PassengerRequest
 	const STATE_PENDING = 'pending'; 
 	const STATE_SOLD = 'sold';
 	const STATE_APPROVED_SOLD = 'approved-sold';
+	const STATE_FINALLY_APPROVED = 'finally-approved';
 	const STATE_RESCUE = 'rescue'; 
 	const STATE_RESCUE_PENDING = 'rescue-pending'; 
 	const STATE_RESCUE_CLOSED = 'rescue-closed';
@@ -923,13 +924,18 @@ class PassengerRequest
     			break;
     		}
     		
+    		case self::STATE_SOLD: {
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\SoldState($this);
+    			break;
+    		}
+    		
     		case self::STATE_APPROVED_SOLD: {
     			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\ApprovedSoldState($this);
     			break;
     		}
     		
-    		case self::STATE_SOLD: {
-    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\SoldState($this);
+    		case self::STATE_FINALLY_APPROVED: {
+    			$state = new \DaVinci\TaxiBundle\Services\PassengerRequest\FinallyApprovedState($this);
     			break;
     		}
     		
