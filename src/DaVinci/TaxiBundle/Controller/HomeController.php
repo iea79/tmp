@@ -42,7 +42,7 @@ class HomeController extends StepsController {
 				array(
 					PassengerRequest::STATE_OPEN,
 					PassengerRequest::STATE_PENDING,
-					PassengerRequest::STATE_PENDING
+					PassengerRequest::STATE_SOLD
     			)
     		);
     		
