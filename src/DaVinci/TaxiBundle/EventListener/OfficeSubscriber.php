@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\EventListener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
@@ -27,10 +28,19 @@ class OfficeSubscriber implements EventSubscriberInterface
 	 */
 	private $informer;
 	
-	public function __construct(RemoteRequester $requester, InformerInterface $informer)
-	{
+	/**
+	 * @var \Symfony\Component\Security\Core\SecurityContext
+	 */
+	private $securityContext;
+	
+	public function __construct(
+		RemoteRequester $requester, 
+		InformerInterface $informer,
+		SecurityContext $securityContext
+	) {
 		$this->remoteRequester = $requester;
 		$this->informer = $informer;
+		$this->securityContext = $securityContext;
 	}
 	
 	public static function getSubscribedEvents()
