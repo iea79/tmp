@@ -1,6 +1,6 @@
 <h3>{{'Fund your account'|trans}} Skrill</h3>
 <div class="uk-form-row">
-	<div class="uk-form-label">{{ form_label(form.paymentMethod.email, 'Email:') }}</div>
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.email, 'Email:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.email) }}
         <div class="errors">{{ form_errors(form.paymentMethod.email) }}</div>
@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="uk-form-row">
-	<div class="uk-form-label">{{ form_label(form.paymentMethod.subject, 'Subject:') }}</div>
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.subject, 'Subject:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.subject) }}
         <div class="errors">{{ form_errors(form.paymentMethod.subject) }}</div>
@@ -24,7 +24,7 @@
     </div>
 </div>
 <div class="uk-form-row">
-    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.company) }}
         <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>

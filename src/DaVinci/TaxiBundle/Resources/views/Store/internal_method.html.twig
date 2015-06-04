@@ -1,6 +1,6 @@
 <h3>{{'Fund your account'|trans}} Internal Transfer</h3>
 <div class="uk-form-row">
-	<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}</div>
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.accountId) }}
         <div class="errors">{{ form_errors(form.paymentMethod.accountId) }}</div>
@@ -8,7 +8,7 @@
     </div>
 </div>
 <div class="uk-form-row">
-    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
+    <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.company) }}
         <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>

@@ -3,7 +3,7 @@
         <h1 class="labels">{{'Vehicle'|trans}} <i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}"  title="{{'Choose car for individual or group trip'|trans}}"></i></h1>
 		<div class="order-details  select-group">
 			<div class="kids-pats-line top-group">
-				<label for="createPassengerRequestStepVehicleInfo_vehicle_vehicle_class" class="label-header">{{'Class:'|trans}}</label>
+				<label for="createPassengerRequestStepVehicleInfo_vehicle_vehicle_class" class="label-header">{{'Class:'|trans}}<i class="uk-icon-asterisk"></i></label>
 				<div class="object classau">
                     {{ form_widget(form.vehicle.vehicle_class, {'attr': {'class': 'chosen vehicle-class'}}) }}
                     <a href="#about_class_cars" class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Click to see all class'|trans}}" data-uk-modal></a>
