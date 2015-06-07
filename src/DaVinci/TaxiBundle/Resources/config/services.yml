@@ -41,7 +41,7 @@ services:
         class: DaVinci\TaxiBundle\Services\Remote\RemoteRequester
         arguments: ["@api_caller", "@da_vinci_taxi.service.http_requester"]
         
-    da_vinci_taxi.command.check_passenger_requests:
+    da_vinci_taxi.command.cancel_expired_requests:
         class: DaVinci\TaxiBundle\Command\CancelExpiredRequestsCommand
         tags:
             -  { name: console.command }
