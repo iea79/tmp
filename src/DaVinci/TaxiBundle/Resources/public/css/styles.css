@@ -169,6 +169,12 @@ body, html {
 .mp-icon-spinner8:before {
 	content: "\e981";
 }
+.uk-icon-asterisk {
+	color: #FF4D61;
+	font-size: 6px;
+	vertical-align: top !important;
+}
+
 /*==============================    end of icons   ========================================*/
 /*========================font icontaxi for disign Evgeny=======================*/
 @font-face {
