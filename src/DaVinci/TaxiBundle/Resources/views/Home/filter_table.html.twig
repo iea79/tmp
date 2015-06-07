@@ -141,7 +141,7 @@
 						<td><span class="escro">{{ tariff.getPricePaymentMethod() }}</span></td>
 						<td>{{ request.getStateValue() }}</td>
 						<td>
-							{% if is_granted("ROLE_TAXIDRIVER") and request.stateValue == 'pending' and driver is defined and request.isDriverInList(driver.id) == false %}
+							{% if driver is defined and driver.id is defined and is_granted("ROLE_TAXIDRIVER") and (request.stateValue == 'open' or request.stateValue == 'pending') %}
 								<button class="uk-button-success uk-button" onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'">
 									<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
 								</button>
