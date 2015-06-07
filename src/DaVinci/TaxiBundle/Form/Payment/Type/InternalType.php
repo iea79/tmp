@@ -14,7 +14,9 @@ class InternalType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
 		$builder
-			->add('accountId', 'number')
+			->add('accountId', 'number', array(
+				'required' => false
+			))
 			->add('company', 'text')
 			->add('ownNote', 'text');
 	}

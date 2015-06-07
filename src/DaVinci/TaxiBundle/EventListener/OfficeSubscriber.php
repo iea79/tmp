@@ -14,6 +14,7 @@ use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 use DaVinci\TaxiBundle\Entity\User;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
 use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Utils\Assert;
 
 class OfficeSubscriber implements EventSubscriberInterface 
 {
@@ -46,12 +47,38 @@ class OfficeSubscriber implements EventSubscriberInterface
 	public static function getSubscribedEvents()
 	{
 		return array(
-			FinancialOfficeEvents::TRANSFER_OPERATION => array('onTransferOperation', 0)
+			FinancialOfficeEvents::OPERATION_SALE => array('onSaleOperation', 0),
+			FinancialOfficeEvents::OPERATION_ADD => array('onAddOperation', 0)
 		);
 	}
 	
-	public function onTransferOperation(TransferOperationEvent $event)
+	public function onAddOperation(TransferOperationEvent $event)
 	{
+		$makePayment = $this->prepareMakePayment($event);
+		
+		$this->methodAvailable($makePayment, FinancialOfficeEvents::OPERATION_ADD);
+		$this->process($makePayment, $this->getOpCode($makePayment));
+	
+		$event->getMakePaymentRepository()->save($makePayment);
+	}
+	
+	public function onSaleOperation(TransferOperationEvent $event)
+	{
+		$makePayment = $this->prepareMakePayment($event);
+		
+		$this->methodAvailable($makePayment, FinancialOfficeEvents::OPERATION_SALE);
+		$this->process($makePayment, $this->getOpCode($makePayment));
+	
+		$event->getMakePaymentRepository()->save($makePayment);
+	}
+	
+	/**
+	 * @param TransferOperationEvent $event
+	 * @param string $methodName
+	 * 
+	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
+	 */
+	private function prepareMakePayment(TransferOperationEvent $event, $methodName) {
 		$makePayment = $event->getMakePayment();
 		$user = $this->securityContext
 					->getToken()
@@ -59,23 +86,21 @@ class OfficeSubscriber implements EventSubscriberInterface
 		
 		$paymentMethod = $makePayment->getPaymentMethod();
 		$paymentMethod->addMakePayment($makePayment);
-		 
+					
 		$makePayment->setPaymentMethod($paymentMethod);
 		$makePayment->setDefaultTotalPrice();
 		$makePayment->setUser($user);
 		$makePayment->setDescription($event->getDescription());
-
-		$this->saleOperation($makePayment, $this->getOpCodeForDirectPayment($makePayment));
 		
-		$event->getMakePaymentRepository()->save($makePayment);
+		return $makePayment;
 	}
 	
-	private function saleOperation(MakePayment $makePayment, $opCode)
+	private function process(MakePayment $makePayment, $opCode)
 	{
-		$this->remoteRequester->saleOpertation($makePayment, $opCode);
+		$this->remoteRequester->makeOpertation($makePayment, $opCode);
 	}
 	
-	private function getOpCodeForDirectPayment(MakePayment $makePayment)
+	private function getOpCode(MakePayment $makePayment)
 	{
 		$type = $makePayment->getPaymentMethod()->getType();
 			
@@ -101,6 +126,36 @@ class OfficeSubscriber implements EventSubscriberInterface
 		}
 		
 		return $opCode; 
+	}
+	
+	private function methodAvailable(MakePayment $makePayment, $methodName)
+	{
+		$type = $makePayment->getPaymentMethod()->getType();
+
+		if (FinancialOfficeEvents::OPERATION_SALE == $methodName) {
+			Assert::inArray(
+				array(
+					PaymentMethod::INTERNAL_PAYMENT_METHOD, 
+					PaymentMethod::CREDIT_CARD_METHOD,
+					PaymentMethod::PAYPAL_METHOD,
+					PaymentMethod::SKRILL_METHOD
+				),
+				$type,
+				get_class($this) . ": unsupported #{$methodName} :: payment method type #{$type}"
+			);
+		}
+		
+		if (FinancialOfficeEvents::OPERATION_ADD == $methodName) {
+			Assert::inArray(
+				array(
+					PaymentMethod::CREDIT_CARD_METHOD,
+					PaymentMethod::PAYPAL_METHOD,
+					PaymentMethod::SKRILL_METHOD
+				),
+				$type,
+				get_class($this) . ": unsupported #{$methodName} :: payment method type #{$type}"
+			);
+		}
 	}
 	
 }

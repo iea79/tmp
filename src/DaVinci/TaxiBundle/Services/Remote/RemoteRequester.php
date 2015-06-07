@@ -17,7 +17,6 @@ use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 use DaVinci\TaxiBundle\Services\Remote\HttpRequest;
-use DaVinci\TaxiBundle\DaVinciTaxiBundle;
 
 class RemoteRequester
 {
@@ -61,7 +60,7 @@ class RemoteRequester
         $this->httpRequester = $httpRequester;
     }
     
-    public function saleOpertation(MakePayment $makePayment, $opCode) 
+    public function makeOpertation(MakePayment $makePayment, $opCode) 
     {
     	$this->proxyProcess($makePayment, $opCode);
     }

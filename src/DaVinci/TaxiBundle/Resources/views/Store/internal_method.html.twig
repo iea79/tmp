@@ -1,12 +1,14 @@
-<h3>{{'Fund your account'|trans}} Internal Transfer</h3>
-<div class="uk-form-row">
-	<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}</div>
-	<div class="uk-form-controls">
-        {{ form_widget(form.paymentMethod.accountId) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.accountId) }}</div>
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
-    </div>
-</div>
+<h3>Internal Transfer</h3>
+{% if action == 'transfer' %}
+	<div class="uk-form-row">
+		<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}</div>
+		<div class="uk-form-controls">
+	        {{ form_widget(form.paymentMethod.accountId) }}
+	        <div class="errors">{{ form_errors(form.paymentMethod.accountId) }}</div>
+	        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+	    </div>
+	</div>
+{% endif %}
 <div class="uk-form-row">
     <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}</div>
 	<div class="uk-form-controls">

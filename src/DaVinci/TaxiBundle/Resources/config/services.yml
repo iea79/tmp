@@ -194,7 +194,7 @@ services:
         parent: craue.form.flow
         scope: request        
 
-#passenger request custom validator
+# passenger request custom validator
 #    taxi.passengerRequest.validator.route_info:
 #        class: DaVinci\TaxiBundle\Validator\Constraints\RouteInfoValidator
 #        tags:
@@ -202,9 +202,9 @@ services:
         
         
 # PaymentGlobalNetwork---------------------------------------------------------
-    paygnet:
-      class:     DaVinci\TaxiBundle\Services\Remote\RemoteRequester
-      arguments: ["@api_caller"]      
+#     paygnet:
+#         class:     DaVinci\TaxiBundle\Services\Remote\RemoteRequester
+#         arguments: ["@api_caller"]      
       
 # PHPCR PAGES NODES INITIALIZER
 # php app/console doctrine:phpcr:repository:init

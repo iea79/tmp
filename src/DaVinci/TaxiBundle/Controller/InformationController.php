@@ -225,7 +225,7 @@ class InformationController extends StepsController {
     		try {
 	    		$dispatcher = $this->container->get('event_dispatcher');
 	    		$dispatcher->dispatch(
-	    			FinancialOfficeEvents::TRANSFER_OPERATION,
+	    			FinancialOfficeEvents::OPERATION_ADD,
 	    			new TransferOperationEvent(
 	    				$form->getData(),
 	    				$this->getMakePaymentRepository(),
@@ -249,7 +249,7 @@ class InformationController extends StepsController {
     				'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
     				'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
     				'methodCode' => $methodCode,
-    				'methods' => MakePaymentService::generateMethods(PaymentMethod::POS_INTERNAL_PAYMENT_METHOD)	
+    				'methods' => MakePaymentService::generateMethods(PaymentMethod::POS_INTERNAL_PAYMENT_METHOD)    						
     			),
     			$result	
     		)	 

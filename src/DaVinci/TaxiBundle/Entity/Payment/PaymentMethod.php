@@ -247,3 +247,5 @@ abstract class PaymentMethod
 	}
 
 }
+
+?>

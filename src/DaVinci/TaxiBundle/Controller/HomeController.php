@@ -117,7 +117,7 @@ class HomeController extends StepsController {
 	    		try {	
 	    			$dispatcher = $this->container->get('event_dispatcher');
 	    			$dispatcher->dispatch(
-	    				FinancialOfficeEvents::TRANSFER_OPERATION,
+	    				FinancialOfficeEvents::OPERATION_SALE,
 	    				new TransferOperationEvent(
 							$makePayment,
 	    					$this->getMakePaymentRepository(),
