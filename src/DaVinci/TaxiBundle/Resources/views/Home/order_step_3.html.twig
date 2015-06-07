@@ -2,7 +2,7 @@
 	<input type="hidden" id="createPassengerRequestStepPassengerInfo[tariff][market_tips]" name="createPassengerRequestStepPassengerInfo[tariff][market_tips]" value="{{ marketTips }}" />
 	<div class="wrap-left">
 		 <div class="order-details-over">
-			<h1>{{'Tariff'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
+			<h1>{{'Fare'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
 			<div class="order-details">
 				<p class="note">
 					<span>{{'Note!'|trans}}</span> {{'Increase interest in his warrant'|trans}}
@@ -73,7 +73,7 @@
 					<div class="tarif-line">
 						<div class="tarif-line-group">
 							<div>
-								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_adult">{{'Adult'|trans}}</label>
+								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_adult">{{'Adults'|trans}}</label>
 								<div class="spinner">
 									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" name="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="{% if flow.formData.passengerDetail.adult > 1 %}{{ flow.formData.passengerDetail.adult }}{% else %}1{% endif %}">
 									<span class="plus uk-icon-caret-up"></span>
