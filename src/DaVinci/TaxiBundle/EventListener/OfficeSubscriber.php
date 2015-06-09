@@ -74,11 +74,10 @@ class OfficeSubscriber implements EventSubscriberInterface
 	
 	/**
 	 * @param TransferOperationEvent $event
-	 * @param string $methodName
 	 * 
 	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
-	private function prepareMakePayment(TransferOperationEvent $event, $methodName) {
+	private function prepareMakePayment(TransferOperationEvent $event) {
 		$makePayment = $event->getMakePayment();
 		$user = $this->securityContext
 					->getToken()
