@@ -1,5 +1,5 @@
 <h3>Internal Transfer</h3>
-{% if action == 'transfer' %}
+{% if action is defined and action == 'transfer' %}
 	<div class="uk-form-row">
 		<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}</div>
 		<div class="uk-form-controls">
