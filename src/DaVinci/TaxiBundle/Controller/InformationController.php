@@ -15,7 +15,7 @@ use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
-use DaVinci\TaxiBundle\Services\RemoteRequesterException;
+use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
 class InformationController extends StepsController {
 	
@@ -235,7 +235,7 @@ class InformationController extends StepsController {
 	    		);
 	    		
 	    		$result['operationCode'] = MakePayments::CODE_SUCCESS;
-    		} catch (RemoteRequesterException $exception) {
+    		} catch (RequesterException $exception) {
     			$result['operationCode'] = MakePayments::CODE_FAIL;
     		}
     	}
