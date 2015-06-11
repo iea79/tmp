@@ -216,7 +216,7 @@
 					<div class="right-group">
 						<label for="createPassengerRequestStepVehicleInfo_vehicle_services_sun_roof">
 							<input name="createPassengerRequestStepVehicleInfo[vehicle_services][sun_roof]" type="checkbox" />
-							<span class="uk-form-controls">&nbsp;&nbsp;{{'sunroof'|trans}}</span>
+							<span class="uk-form-controls">&nbsp;&nbsp;{{'vehicles with power sunroof'|trans}}</span>
 						</label>
 					</div>
 				</div>
@@ -277,7 +277,7 @@
 				<div class="kids-pats-line">
 					<input type="checkbox"{% if flow.formData.vehicleServices.toolsForDisabled is defined and flow.formData.vehicleServices.toolsForDisabled != '' %}checked="checked"{% endif %} />
 					<label>
-						<span class="uk-form-controls">&nbsp;&nbsp;{{'transportation tools for disabled'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Indicate special stuff'|trans}}"></span></span>
+						<span class="uk-form-controls">&nbsp;&nbsp;{{'tools for travellers with disabilities'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Indicate special stuff'|trans}}"></span></span>
 					</label>
 					<div id="disabled_transportation_tools" class="wishes-1">
 						{{ form_widget(form.vehicle_services.tools_for_disabled, {'attr': {'placeholder': "Wheelchairs or crutches",  'class': "charcount", 'maxlength' : "200"}}) }}
@@ -298,7 +298,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#drivers-conditions'}"><span class="uk-parent">{{'Additional drivers conditions'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#drivers-conditions'}"><span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
 			<div class="kids-pats-group uk-hidden aditional-driver" id="drivers-conditions">
 				<div class="kids-pats-line">
 					<input type="checkbox" />
