@@ -34,6 +34,14 @@
         		{% endif %}
 	        	<form novalidate action="{{ path('financial_office_add', {'methodCode': methodCode}) }}" {{ form_enctype(form) }} method="POST">
 	        		{{ form_widget(form.paymentMethodCode) }}
+	        		<div class="uk-form-row">
+					    <div class="uk-form-label">{{ form_label(form.amount, 'Amount:') }}<i class="uk-icon-asterisk"></i></div>
+						<div class="uk-form-controls">
+					        {{ form_widget(form.amount) }}
+					        <div class="errors">{{ form_errors(form.amount) }}</div>
+					        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+					    </div>
+					</div>
 		        	{% if paymentMethod == 'CreditCard' %}
 						{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
 					{% elseif paymentMethod == 'PayPal' %}

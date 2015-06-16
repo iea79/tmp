@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="uk-form-row">
-	<div class="uk-form-label">{{ form_label(form.paymentMethod.note, 'Note:') }}</div>
+	<div class="uk-form-label">{{ form_label(form.paymentMethod.note, 'Note:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.note) }}
         <div class="errors">{{ form_errors(form.paymentMethod.note) }}</div>

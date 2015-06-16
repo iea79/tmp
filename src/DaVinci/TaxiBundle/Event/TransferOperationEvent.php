@@ -3,7 +3,6 @@
 namespace DaVinci\TaxiBundle\Event;
 
 use Symfony\Component\EventDispatcher\Event;
-use Symfony\Component\Security\Core\SecurityContext;
 
 use DaVinci\TaxiBundle\Entity\Payment\MakePayment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePaymentRepository;
@@ -22,11 +21,6 @@ class TransferOperationEvent extends Event
 	protected $makePaymentRepository;
 	
 	/**
-	 * @var \Symfony\Component\Security\Core\SecurityContext
-	 */
-	protected $securityContext;
-	
-	/**
 	 * @var description
 	 */
 	protected $description;
@@ -34,12 +28,10 @@ class TransferOperationEvent extends Event
 	public function __construct(
 		MakePayment $makePayment,
 		MakePaymentRepository $makePaymentRepository,
-		SecurityContext $securityContext,
 		$description
 	) {
 		$this->makePayment = $makePayment;
 		$this->makePaymentRepository = $makePaymentRepository;
-		$this->securityContext = $securityContext;
 		$this->description = $description; 		
 	}
 	
@@ -57,14 +49,6 @@ class TransferOperationEvent extends Event
 	public function getMakePaymentRepository()
 	{
 		return $this->makePaymentRepository;
-	}
-	
-	/**
-	 * @return \Symfony\Component\Security\Core\SecurityContext
-	 */
-	public function getSecurityContext()
-	{
-		return $this->securityContext;
 	}
 	
 	public function getDescription()

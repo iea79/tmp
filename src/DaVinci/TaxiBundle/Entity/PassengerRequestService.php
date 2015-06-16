@@ -43,10 +43,11 @@ class PassengerRequestService
 		$request->setTariff(new Tariff());
 		$request->setPassengerDetail(new PassengerDetail());
 		$request->setStateValue(PassengerRequest::STATE_BEFORE_OPEN);
-		
+		$request->setIsReal(true);
+				
 		return $request;
 	}
-			
+				
 }
 
 ?>

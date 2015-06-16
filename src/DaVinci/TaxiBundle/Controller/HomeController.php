@@ -121,7 +121,6 @@ class HomeController extends StepsController {
 	    				new TransferOperationEvent(
 							$makePayment,
 	    					$this->getMakePaymentRepository(),
-	    					$this->container->get('security.context'),
 	    					$passengerRequest->getFullRoute()	
 	    				)
 	    			);

@@ -17,7 +17,8 @@ use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
-class InformationController extends StepsController {
+class InformationController extends StepsController 
+{
 	
 	const ACTION_OFFICE_ADD = 'add';
 	const ACTION_OFFICE_TRANSFER = 'transfer';
@@ -210,26 +211,32 @@ class InformationController extends StepsController {
     
     private function showOffice($action, Request $request, $methodCode)
     {
-    	$makePaymentService = $this->getMakePaymentService();
+       	$makePaymentService = $this->getMakePaymentService();
     	$makePayment = $makePaymentService->createConfigured($request);
     	
     	$form = $this->createForm(
     		$makePaymentService->createPaymentMethodFormType($request),
     		$makePayment
     	);
-    	
+    	    	
     	$result = array();
     	
+    	$eventName = (self::ACTION_OFFICE_ADD == $action)
+	    	? FinancialOfficeEvents::OPERATION_ADD
+	    	: FinancialOfficeEvents::OPERATION_INTERNAL_TRANSFER;
+    	$filter = (self::ACTION_OFFICE_ADD == $action) 
+    		? PaymentMethod::POS_INTERNAL_PAYMENT_METHOD
+    		: 0;
+    	    	
     	$form->handleRequest($request);
     	if ($form->isValid()) {
     		try {
-	    		$dispatcher = $this->container->get('event_dispatcher');
+    			$dispatcher = $this->container->get('event_dispatcher');
 	    		$dispatcher->dispatch(
-	    			FinancialOfficeEvents::OPERATION_ADD,
+	    			$eventName,
 	    			new TransferOperationEvent(
 	    				$form->getData(),
 	    				$this->getMakePaymentRepository(),
-	    				$this->container->get('security.context'),
 	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT	
 	    			)
 	    		);
@@ -239,7 +246,7 @@ class InformationController extends StepsController {
     			$result['operationCode'] = MakePayments::CODE_FAIL;
     		}
     	}
-    	 
+    	
     	return $this->render(
     		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
     		array_merge(
@@ -249,7 +256,7 @@ class InformationController extends StepsController {
     				'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
     				'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
     				'methodCode' => $methodCode,
-    				'methods' => MakePaymentService::generateMethods(PaymentMethod::POS_INTERNAL_PAYMENT_METHOD)    						
+    				'methods' => MakePaymentService::generateMethods($filter)    						
     			),
     			$result	
     		)	 

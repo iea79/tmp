@@ -28,8 +28,8 @@ class CreditCardPaymentMethod extends PaymentMethod
 	 *      groups={"flow_makePayment_step2"},
      *      min=15,
      *      max=20,
-     *      minMessage="Destination point must be at least {{ limit }} characters long",
-     * 		maxMessage="Destination point cannot be longer than {{ limit }} characters"
+     *      minMessage="Card number must be at least {{ limit }} characters long",
+     * 		maxMessage="Card number cannot be longer than {{ limit }} characters"
      * )
 	 */
 	protected $cardNumber;

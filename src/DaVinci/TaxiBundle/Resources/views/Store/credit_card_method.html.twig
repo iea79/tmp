@@ -1,7 +1,7 @@
-{% if paymentMethod == 'CreditCardPaymentMethod' %}
-	<h3>{{'Fund your account'|trans}} {{ subType }}</h3>
-{% elseif paymentMethod == 'PayPalPaymentMethod' %}
-	<h3>{{'Fund your account'|trans}} PayPal</h3>
+{% if paymentMethod == 'CreditCard' %}
+	<h3>{{'Credit Card transaction:'|trans}} {{ subType }}</h3>
+{% elseif paymentMethod == 'PayPal' %}
+	<h3>{{'PayPal transaction'|trans}} PayPal</h3>
 {% endif %}	
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.firstname, 'First name:') }}<i class="uk-icon-asterisk"></i></div>

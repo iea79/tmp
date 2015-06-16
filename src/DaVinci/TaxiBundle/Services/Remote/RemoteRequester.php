@@ -160,7 +160,7 @@ class RemoteRequester
     	$params = array();
     	
     	$className = get_class($requestData);
-    	$methodName = 'getParamsFrom' . substr($className, strrpos($className, "\\") + 1);
+    	$methodName = 'getParamsFrom' . substr($className, strrpos($className, '\\') + 1);
     	if (!method_exists($this, $methodName)) {
     		throw InvalidTypeException(get_class($this) . ": unsupported method name #{$methodName}");
     	}
@@ -185,26 +185,45 @@ class RemoteRequester
     			
     			$params = array(
     				'Customer' => array(
-    					"cardNumber" => $paymentMethod->getCardNumber(),
-    					"cardType" => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
-    					"expirationMonth" => $paymentMethod->getExpirationMonth(),
-    					"expirationYear" => intval('20' . $paymentMethod->getExpirationYear()),
-    					"cvv" => $paymentMethod->getSecretSalt(),
-    					"firstName" => $paymentMethod->getFirstname(),
-    					"lastName" => $paymentMethod->getLastname(),
-    					"address" => $paymentMethod->getAddress(),
-    					"city" => 'Saratoga',
-    					"state" => 'CA',
-    					"zipCode" => $paymentMethod->getZipCode(),
-    					"country" => 'US',
-    					"externalUserId" => $makePayment->getUser()->getId()
+    					'cardNumber' => $paymentMethod->getCardNumber(),
+    					'cardType' => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
+    					'expirationMonth' => $paymentMethod->getExpirationMonth(),
+    					'expirationYear' => intval('20' . $paymentMethod->getExpirationYear()),
+    					'cvv' => $paymentMethod->getSecretSalt(),
+    					'firstName' => $paymentMethod->getFirstname(),
+    					'lastName' => $paymentMethod->getLastname(),
+    					'address' => $paymentMethod->getAddress(),
+    					'city' => 'Saratoga',
+    					'state' => 'CA',
+    					'zipCode' => $paymentMethod->getZipCode(),
+    					'country' => 'US',
+    					'externalUserId' => $makePayment->getUser()->getId()
     				),
     				'Transaction' => array(
-    					"amount" => $makePayment->getTotalPrice()->getAmount(),
-    					"currency" => $makePayment->getTotalPrice()->getCurrency(),
-    					"custom1" => "7.41",
-    					"custom2" => "0.03",
-    					"custom3" => "0.03"
+    					'amount' => $makePayment->getTotalPrice()->getAmount(),
+    					'currency' => $makePayment->getTotalPrice()->getCurrency(),
+    					'custom1' => '7.41',
+    					'custom2' => '0.03',
+    					'custom3' => '0.03'
+    				),
+    				'Product' => self::GATEWAY_PRODUCT_ID
+    			);
+    			break;
+    		}
+    		
+    		case self::OPCODE_SKRILL_DIRECT_PAYMENT: {
+    			$paymentMethod = $makePayment->getPaymentMethod();
+    		
+    			$params = array(
+    				'Customer' => array(
+    					'email' => $paymentMethod->getEmail(),
+    					'subject' => $paymentMethod->getSubject(),
+    					'note' => $paymentMethod->getNote(),
+    					'externalUserId' => $makePayment->getUser()->getId()
+    				),
+    				'Transaction' => array(
+    					'amount' => $makePayment->getTotalPrice()->getAmount(),
+    					'currency' => $makePayment->getTotalPrice()->getCurrency()
     				),
     				'Product' => self::GATEWAY_PRODUCT_ID
     			);
@@ -213,13 +232,13 @@ class RemoteRequester
     		
     		case self::OPCODE_INTERNAL_TRANSFER_BETWEEN_USERS: {
     			$params = array(
-    				"User" => $makePayment->getUser()->getRemoteId(),
-					"DepositTo" => array(
-						"depositNumber" => $makePayment->getPaymentMethod()->getAccountId(),
+    				'User' => $makePayment->getUser()->getRemoteId(),
+					'DepositTo' => array(
+						'depositNumber' => $makePayment->getPaymentMethod()->getAccountId(),
 					),	
-					"Transaction" => array(
-						"amount" => $makePayment->getTotalPrice()->getAmount(),
-						"currency" => $makePayment->getTotalPrice()->getCurrency()
+					'Transaction' => array(
+						'amount' => $makePayment->getTotalPrice()->getAmount(),
+						'currency' => $makePayment->getTotalPrice()->getCurrency()
 					)
     			);
     			break;
@@ -227,12 +246,12 @@ class RemoteRequester
     		
     		case self::OPCODE_INTERNAL_TRANSFER_USER_TO_MERCHANT: {
     			$params = array(
-    				"User" => $makePayment->getUser()->getRemoteId(),
-    				"Transaction" => array(
-    					"amount" => $makePayment->getTotalPrice()->getAmount(),
-    					"currency" => $makePayment->getTotalPrice()->getCurrency()
+    				'User' => $makePayment->getUser()->getRemoteId(),
+    				'Transaction' => array(
+    					'amount' => $makePayment->getTotalPrice()->getAmount(),
+    					'currency' => $makePayment->getTotalPrice()->getCurrency()
     				),
-    				"Product" => self::GATEWAY_PRODUCT_ID
+    				'Product' => self::GATEWAY_PRODUCT_ID
     			);
     			break;
     		}
@@ -242,26 +261,45 @@ class RemoteRequester
     			
     			$params = array(
     				'Customer' => array(
-    					"cardNumber" => $paymentMethod->getCardNumber(),
-    					"cardType" => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
-    					"expirationMonth" => $paymentMethod->getExpirationMonth(),
-    					"expirationYear" => intval('20' . $paymentMethod->getExpirationYear()),
-    					"cvv" => $paymentMethod->getSecretSalt(),
-    					"firstName" => $paymentMethod->getFirstname(),
-    					"lastName" => $paymentMethod->getLastname(),
-    					"address" => $paymentMethod->getAddress(),
-    					"city" => 'Saratoga',
-    					"state" => 'CA',
-    					"zipCode" => $paymentMethod->getZipCode(),
-    					"country" => 'US',
-    					"externalUserId" => $makePayment->getUser()->getId()
+    					'cardNumber' => $paymentMethod->getCardNumber(),
+    					'cardType' => mb_strtolower(CreditCardPaymentMethod::CARD_TYPE_VISA),
+    					'expirationMonth' => $paymentMethod->getExpirationMonth(),
+    					'expirationYear' => intval('20' . $paymentMethod->getExpirationYear()),
+    					'cvv' => $paymentMethod->getSecretSalt(),
+    					'firstName' => $paymentMethod->getFirstname(),
+    					'lastName' => $paymentMethod->getLastname(),
+    					'address' => $paymentMethod->getAddress(),
+    					'city' => 'Saratoga',
+    					'state' => 'CA',
+    					'zipCode' => $paymentMethod->getZipCode(),
+    					'country' => 'US',
+    					'externalUserId' => $makePayment->getUser()->getId()
     				),
     				'Transaction' => array(
-    					"amount" => $makePayment->getTotalPrice()->getAmount(),
-    					"currency" => $makePayment->getTotalPrice()->getCurrency(),
-    					"custom1" => "7.41",
-    					"custom2" => "0.03",
-    					"custom3" => "0.03"
+    					'amount' => $makePayment->getTotalPrice()->getAmount(),
+    					'currency' => $makePayment->getTotalPrice()->getCurrency(),
+    					'custom1' => '7.41',
+    					'custom2' => '0.03',
+    					'custom3' => '0.03'
+    				),
+    				'User' => $makePayment->getUser()->getRemoteId()
+    			);
+    			break;
+    		}
+    		
+    		case self::OPCODE_SETTLE_ACCOUNT_SKRILL: {
+    			$paymentMethod = $makePayment->getPaymentMethod();
+    			 
+    			$params = array(
+    				'Customer' => array(
+    					'email' => $paymentMethod->getEmail(),
+    					'subject' => $paymentMethod->getSubject(),
+    					'note' => $paymentMethod->getNote(),
+    					'externalUserId' => $makePayment->getUser()->getId()
+    				),
+    				'Transaction' => array(
+    					'amount' => $makePayment->getTotalPrice()->getAmount(),
+    					'currency' => $makePayment->getTotalPrice()->getCurrency()
     				),
     				'User' => $makePayment->getUser()->getRemoteId()
     			);
@@ -282,11 +320,11 @@ class RemoteRequester
     	switch ($opCode) {
     		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
     			$params = array(
-    				"User" => $request->getUser()->getRemoteId(),
-    				"Product" => self::GATEWAY_PRODUCT_ID,	
-    				"Transaction" => array(
-    					"amount" => MakePayments::DEFAULT_REQUEST_PRICE,
-    					"currency" => MakePayments::DEFAULT_CURRENCY
+    				'User' => $request->getUser()->getRemoteId(),
+    				'Product' => self::GATEWAY_PRODUCT_ID,	
+    				'Transaction' => array(
+    					'amount' => MakePayments::DEFAULT_REQUEST_PRICE,
+    					'currency' => MakePayments::DEFAULT_CURRENCY
     				),
     			);
     			break;
@@ -307,8 +345,8 @@ class RemoteRequester
     		case self::OPCODE_CREATE_USER_ACCOUNT: {
     			$params = array(
     				'User' => array(
-    					"email" => $user->getEmail(),
-    					"externalId" => $user->getId()
+    					'email' => $user->getEmail(),
+    					'externalId' => $user->getId()
     				)
     			);
     			break;
@@ -316,11 +354,11 @@ class RemoteRequester
     		
     		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
     			$params = array(
-    				"User" => $user->getRemoteId(),
-    				"Product" => self::GATEWAY_PRODUCT_ID,
-    				"Transaction" => array(
-    					"amount" => MakePayments::DEFAULT_REQUEST_PRICE,
-    					"currency" => MakePayments::DEFAULT_CURRENCY
+    				'User' => $user->getRemoteId(),
+    				'Product' => self::GATEWAY_PRODUCT_ID,
+    				'Transaction' => array(
+    					'amount' => MakePayments::DEFAULT_REQUEST_PRICE,
+    					'currency' => MakePayments::DEFAULT_CURRENCY
     				),
     			);
     			break;

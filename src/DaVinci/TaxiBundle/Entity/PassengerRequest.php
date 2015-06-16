@@ -178,6 +178,17 @@ class PassengerRequest
 	 */
 	private $canceledDrivers;
 	
+	/**
+	 * @ORM\Column(type="boolean", name="is_real")
+	 */
+	private $isReal = true;
+	
+	/**
+	 * @ORM\ManyToOne(targetEntity="\DaVinci\TaxiBundle\Entity\FakeRequest\Category")
+	 * @ORM\JoinColumn(name="fake_category_id", referencedColumnName="id")
+	 */
+	private $fakeCategory;
+	
 	public function __construct() {
 		$this->routePoints = new ArrayCollection();
 		$this->possibleDrivers = new ArrayCollection();
@@ -821,6 +832,30 @@ class PassengerRequest
     {
     	return $this->canceledDrivers;
     }
+
+    /**
+     * Set isReal
+     *
+     * @param boolean $isReal
+     *
+     * @return PassengerRequest
+     */
+    public function setIsReal($isReal)
+    {
+    	$this->isReal = $isReal;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get isReal
+     *
+     * @return boolean
+     */
+    public function getIsReal()
+    {
+    	return $this->isReal;
+    }
     
     /**
      * @return array
@@ -972,4 +1007,7 @@ class PassengerRequest
     	
     	return $state;
     }
+
 }
+
+?>
