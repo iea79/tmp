@@ -53,7 +53,7 @@ class Vehicle {
 	 * @Assert\Choice(
 	 * 		groups={"flow_createPassengerRequest_step2"},
 	 * 		callback="getPossibleChoices",
-	 * 		message="vehicle.vehicleClass.unexpectedTypeClass"
+	 * 		message="Choose a valid vehicle class"
 	 * )
      */
 	private $vehicleClass;

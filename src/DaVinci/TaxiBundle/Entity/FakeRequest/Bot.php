@@ -27,8 +27,7 @@ class Bot
 	 * @ORM\Column(type="string", name="last_name", length=255)
 	 */
 	private $lastName;
-		
-
+	
     /**
      * Get id
      *
