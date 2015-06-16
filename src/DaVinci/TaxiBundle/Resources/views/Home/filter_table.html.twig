@@ -111,21 +111,21 @@
                    		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
                   	</div>	
 				</td>
-				<td>
-					<div class="ov-lt fixed-column">
-						<div class="aligment bascket-opt">
-							<select>
-								<option value="1">Short sale</option>
-								<option value="3">Other</option>
-							</select>
-						</div>
-						{% if is_granted("ROLE_TAXIDRIVER") %}
+				{% if is_granted("ROLE_TAXIDRIVER") %}
+					<td>
+						<div class="ov-lt fixed-column">
+							<div class="aligment bascket-opt">
+								<select>
+									<option value="1">Short sale</option>
+									<option value="3">Other</option>
+								</select>
+							</div>
 							<button class="cancell-filters uk-button-link  aligment" >	
 								<i class="mp-icon-closed uk-text-danger"></i>
 							</button>
-						{% endif %}	
-					</div>
-				</td>
+						</div>
+					</td>
+				{% endif %}	
 			</tr>
 			{% if openRequests is defined %}
 				{% for request in openRequests %}
@@ -140,14 +140,13 @@
 						<!--td><i class="mp-icon-trust uk-text-primary"></i></td-->
 						<td><span class="escro">{{ tariff.getPricePaymentMethod() }}</span></td>
 						<td>{{ request.getStateValue() }}</td>
-						<td>
-							{% if is_granted("ROLE_TAXIDRIVER") and driver is defined and (request.stateValue == 'open' or request.stateValue == 'pending') %}
+						{% if is_granted("ROLE_TAXIDRIVER") and driver is defined and (request.stateValue == 'open' or request.stateValue == 'pending') %}
+							<td>
 								<button class="uk-button-success uk-button" onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'">
 									<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
 								</button>
-							{% else %}
-							{% endif %}	
-						</td>
+							</td>
+						{% endif %}
 					</tr>
 	            {% endfor %}
 	    	{% endif %}
