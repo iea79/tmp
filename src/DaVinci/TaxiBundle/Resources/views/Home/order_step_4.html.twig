@@ -6,7 +6,7 @@
 						<dl class="quantity">
 					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 					        <hr>
-							<dt>{{'Quantity'|trans}}:</dt><dd>{{'adult'|trans}} ({{ flow.formData.passengerDetail.adult }}), {{'children'|trans}} ({{ flow.formData.passengerDetail.children }}), {{'seniors'|trans}} ({{ flow.formData.passengerDetail.seniors }})</dd>
+							<dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ flow.formData.passengerDetail.adult }}), {{'children'|trans}} ({{ flow.formData.passengerDetail.children }}), {{'seniors'|trans}} ({{ flow.formData.passengerDetail.seniors }})</dd>
 							{% if flow.formData.passengerDetail.notMySelf == true %}
 								<dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
 							{% else %}
@@ -36,7 +36,7 @@
 							{% endif %}
 						</dl>
 						<div class="tariff">
-						<h1 class="labels">{{'Tariff'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
+						<h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
 						<hr>
 							<dl class="price">
 								<dt>{{'Price'|trans}}:</dt><dd> ${% if flow.formData.tariff.priceType == 0 and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}{{ flow.formData.tariff.marketPrice }}{% endif %}</dd>
@@ -162,7 +162,7 @@
 									    {% endif %}
 									  </dl>
 								</div>
-								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional drivers conditions'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
+								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
 									<div class="more-details" id="toggle10">
 									  {% if flow.formData.vehicleDriverConditions.interpreterLang != '' %}
 									  	<dl class="interpreter">
