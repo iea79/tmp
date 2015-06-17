@@ -2,15 +2,17 @@
 
 namespace DaVinci\UserBundle\Form\Type;
 
+use Doctrine\ORM\EntityRepository;
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use DaVinci\TaxiBundle\Entity\Vehicle;
-use DaVinci\TaxiBundle\Entity\Admin\VehicleModelYear;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use Doctrine\ORM\EntityRepository;
+
+use DaVinci\TaxiBundle\Entity\VehicleClasses;
+use DaVinci\TaxiBundle\Entity\Admin\VehicleModelYear;
 
 class DriverVehicleType extends AbstractType {
 
@@ -20,6 +22,12 @@ class DriverVehicleType extends AbstractType {
      */
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
+        	/*  
+         	->add('model', 'choice', array(
+         		'empty_value' => 'form.select_maker_first',
+        		'translation_domain' => 'FOSUserBundle'
+        	)) 
+        	*/
                 ->add('year', 'choice', array(
                     'choices' => VehicleModelYear::getYearsLst(),
                     'empty_value' => 'form.please_select',
@@ -30,10 +38,6 @@ class DriverVehicleType extends AbstractType {
                     'empty_value' => 'form.please_select',
                     'translation_domain' => 'FOSUserBundle'
                 ))
-                /*  ->add('model', 'choice', array(
-                  'empty_value' => 'form.select_maker_first',
-                  'translation_domain' => 'FOSUserBundle'
-                  )) */
                 ->add('color', 'choice', array(
                     'choices' => VehicleModelYear::getColorsList(),
                     'empty_value' => 'form.please_select',
@@ -41,7 +45,7 @@ class DriverVehicleType extends AbstractType {
                 ))
                 ->add('plate')
                 ->add('vehicleClass', 'choice', array(
-                    'choices' => Vehicle::getChoices(),
+                    'choices' => VehicleClasses::getChoices(),
                     'empty_value' => 'form.please_select',
                     'translation_domain' => 'FOSUserBundle'
                 ))
@@ -57,8 +61,7 @@ class DriverVehicleType extends AbstractType {
                 ->add('photo', 'file', array('required' => false, 'data_class' => null))
                 ->add('about', 'textarea', array(
                     'required' => false
-                ))
-        ;
+                ));
 
         
         

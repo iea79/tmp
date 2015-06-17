@@ -31,8 +31,22 @@ services:
     da_vinci_taxi.service.make_payment_service:
         class: DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
 
+    da_vinci_taxi.repository.travel_coefficient:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\TravelCoefficient
+            
+    da_vinci_taxi.service.travel_coefficient:
+        class: DaVinci\TaxiBundle\Entity\TravelCoefficientService
+        calls:
+            - [setTravelCoefficientRepository, ["@da_vinci_taxi.repository.travel_coefficient"]]
+
     da_vinci_taxi.service.calculation_service:
         class: DaVinci\TaxiBundle\Services\Calculation
+        calls:
+            - [setTravelCoefficientService, ["@da_vinci_taxi.service.travel_coefficient"]]
     
     da_vinci_taxi.service.http_requester:
         class: DaVinci\TaxiBundle\Services\Remote\HttpRequest        

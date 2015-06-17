@@ -12,7 +12,8 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
  * @ORM\Table(name="passenger_detail")
  * @FileStore\Uploadable
  */
-class PassengerDetail {
+class PassengerDetail 
+{
 	
 	/**
 	 * @ORM\Id
