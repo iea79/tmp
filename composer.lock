@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34c8cbcd90ff6cab974b9cf2385f216f",
+    "hash": "44f58761444de53602596a7ae8bee1fa",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -7770,64 +7770,6 @@
             "time": "2015-01-27 12:45:16"
         },
         {
-            "name": "symfony/console",
-            "version": "2.6.x-dev",
-            "target-dir": "Symfony/Component/Console",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/Console.git",
-                "reference": "9736f89e35d24f3d01cdb25621dff070c56bf983"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/9736f89e35d24f3d01cdb25621dff070c56bf983",
-                "reference": "9736f89e35d24f3d01cdb25621dff070c56bf983",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.1",
-                "symfony/phpunit-bridge": "~2.7",
-                "symfony/process": "~2.1"
-            },
-            "suggest": {
-                "psr/log": "For using the console logger",
-                "symfony/event-dispatcher": "",
-                "symfony/process": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.6-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Symfony\\Component\\Console\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Console Component",
-            "homepage": "https://symfony.com",
-            "time": "2015-06-25 11:21:15"
-        },
-        {
             "name": "symfony/monolog-bundle",
             "version": "v2.7.1",
             "source": {
@@ -9550,8 +9492,7 @@
         "liip/imagine-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "tilleuls/ckeditor-sonata-media-bundle": 20,
-        "cocur/slugify": 20,
-        "symfony/console": 20
+        "cocur/slugify": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
