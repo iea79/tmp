@@ -17,10 +17,10 @@ class CountryCityAdmin extends Admin
         $formMapper
             ->add('countryCode', 'country', array('label' => 'admin.countrycity'))
             ->add('translations', 'a2lix_translations')
-            ->add('status', 'choice', 
-                    array('choices'   => array('0' => 'Disabled', '1' => 'Enabled'),
-                        'data'=> '1'))
-        ;
+            ->add('status', 'choice', array(
+            	'choices'  => array('0' => 'Disabled', '1' => 'Enabled'),
+				'data'=> '1'
+            ));
     }
 
     // Fields to be shown on filter forms
@@ -29,8 +29,7 @@ class CountryCityAdmin extends Admin
         $datagridMapper
             ->add('countryCode')
             ->add('translations.city')
-            ->add('status')
-        ;
+            ->add('status');
     }
 
     // Fields to be shown on lists
@@ -39,7 +38,6 @@ class CountryCityAdmin extends Admin
         $listMapper
             ->addIdentifier('countryCode')
             ->addIdentifier('city')
-            ->add('status')
-        ;
+            ->add('status');
     }
 }

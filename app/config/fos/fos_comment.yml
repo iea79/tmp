@@ -28,8 +28,8 @@ services:
    davinci.admin.fakecomment:
       class: Application\Sonata\CommentBundle\Admin\PHPCR\FakeCommentAdmin
       tags:
-        - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Fake comments", show_in_dashboard: false  }
+          - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Fake comments", show_in_dashboard: false  }
       arguments: [~, Application\Sonata\CommentBundle\PHPCR\FakeComment, ~]
       calls:
-            - [ setTranslationDomain, [FakeCommentAdmin]]
-            - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore]]  
+          - [ setTranslationDomain, [FakeCommentAdmin]]
+          - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore]]  

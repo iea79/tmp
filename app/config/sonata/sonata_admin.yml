@@ -45,21 +45,21 @@ sonata_admin:
             - { position: right, type: sonata_admin_doctrine_phpcr.tree_block }    
 #            - { position: right, type: sonata.admin_doctrine_orm.block.audit}
             - { position: center, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> TaxiMyPrice admin panel"} }
-          #  - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
-          #  - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
+#            - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
+#            - { position: right, type: sonata.block.service.rss, settings: { title: Sonata Project's Feeds, url: http://sonata-project.org/blog/archive.rss }}
 
         groups:
-            blog:
-                label: blog
-                items:
-                    - cmf_blog.blog_admin
-                    - cmf_blog.post_admin
+#            blog:
+#                label: Blog
+#                items:
+#                    - cmf_blog.blog_admin
+#                    - cmf_blog.post_admin
             sonata.admin.group.content:
                 label:           sonata_content
                 label_catalogue: DaVinciTaxiBundle
                 items:
                     - sonata.media.admin.media
-                    #- sonata.media.admin.gallery
+#                   - sonata.media.admin.gallery
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
                     - davinci.taxi.admin.faqentry   
@@ -76,19 +76,19 @@ sonata_admin:
                     - sonata.notification.admin.message   
                     - davinci.taxi.admin.countrycity
             
-           # simplecms:
-           #     label: Simple CMS
-           #     items:
-           #         - cmf_simple_cms.persistence.phpcr.admin.page
+#           simplecms:
+#               label: Simple CMS
+#               items:
+#                   - cmf_simple_cms.persistence.phpcr.admin.page
             routing:
                 label: URLs
                 items:
                     - cmf_routing.route_admin
                     - cmf_routing.redirect_route_admin    
-            #content:
-            #    label: Content
-            #    items:
-            #        - cmf_content.admin
+#           content:
+#               label: Content
+#               items:
+#                    - cmf_content.admin
 #                    - cmf_block.simple_admin
 #                    - cmf_block.container_admin
 #                    - cmf_block.reference_admin
@@ -109,7 +109,7 @@ sonata_admin:
             - bundles/sonataadmin/vendor/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css
             - bundles/sonataadmin/css/styles.css
             - bundles/sonataadmin/css/layout.css
-           # - bundles/sonataadmin/css/tree.css
+#           - bundles/sonataadmin/css/tree.css
             - bundles/sonatatranslation/css/sonata-translation.css 
             - bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css    
 
@@ -128,7 +128,7 @@ sonata_admin:
             - bundles/sonatacore/vendor/select2/select2.min.js
             - bundles/sonataadmin/App.js
             - bundles/sonataadmin/Admin.js
-            #- bundles/sonataadmin/treeview.js  
+#           - bundles/sonataadmin/treeview.js  
             - bundles/davincitaxi/js/intl-tel-input-master/js/intlTelInput.js  
 
             - bundles/ivoryckeditor/ckeditor.js
@@ -150,9 +150,9 @@ sonata_admin:
             cmf_core.admin_extension.translatable:
                 implements:
                     - Symfony\Cmf\Bundle\CoreBundle\Translatable\TranslatableInterface
-#            cmf_menu.admin_extension.menu_node_referrers:
-#                implements:
-#                    - Symfony\Cmf\Bundle\MenuBundle\Model\MenuNodeReferrersInterface
+#           cmf_menu.admin_extension.menu_node_referrers:
+#               implements:
+#                   - Symfony\Cmf\Bundle\MenuBundle\Model\MenuNodeReferrersInterface
             cmf_routing.admin_extension.route_referrers:
                 implements:
                     - Symfony\Cmf\Component\Routing\RouteReferrersInterface
@@ -192,9 +192,9 @@ sonata_doctrine_phpcr_admin:
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\ActionBlock
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\SlideshowBlock
                 - Symfony\Cmf\Bundle\BlockBundle\Doctrine\Phpcr\RssBlock
-#        Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:
-#            valid_children:
-#                - Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page
+#       Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page:
+#           valid_children:
+#               - Symfony\Cmf\Bundle\SimpleCmsBundle\Doctrine\Phpcr\Page
         Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route:
             valid_children:
                 - Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route

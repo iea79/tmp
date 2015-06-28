@@ -15,6 +15,6 @@ class AboutRepository extends BaseDocumentRepository implements RepositoryIdInte
     public function generateId($document, $parent = null)
     {
 		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-        return '/cms/'.$parent.'/'.$slugged;
+        return '/cms/' . $parent . '/' . $slugged;
     }
 }

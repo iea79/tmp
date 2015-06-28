@@ -35,9 +35,8 @@ class FaqEntryAdmin extends Admin
                     ->add('published', 'checkbox', array('label' => 'Publish?'))  
                 ->end()
                 ->with('Other',  array('collapsed' => true))
-                   //->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/faq', 'select_root_node' => '/cms/faq', 'choice_list' => array(), 'select_root_node' => true))
-                    ->add('locale')
-               ->end();
+                	->add('locale')
+               	->end();
         
     }
     

@@ -80,10 +80,10 @@ reviews:
     defaults: { _controller: DaVinciTaxiBundle:Information:reviews }    
     options: { useAsInnerURL: true }
 
-blogs:
-    pattern:  /blogs
-    defaults: { _controller: ApplicationCmfBlogBundle:Information:blog }    
-    options: { useAsInnerURL: true }        
+# blogs:
+#    pattern:  /blogs
+#    defaults: { _controller: ApplicationCmfBlogBundle:Information:blog }    
+#    options: { useAsInnerURL: true }        
         
 financial_office_add:
     pattern:  /financial-office/add/{methodCode}

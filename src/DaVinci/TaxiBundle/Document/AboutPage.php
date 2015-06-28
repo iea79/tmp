@@ -62,11 +62,11 @@ class AboutPage implements TranslatableInterface
         $this->comments = new ArrayCollection();
     }
     
-    function getId() {
+    public function getId() {
         return $this->id;
     }
 
-    function getComments() {
+    public function getComments() {
         return $this->comments;
     }
        
@@ -84,54 +84,53 @@ class AboutPage implements TranslatableInterface
         return $this;
     }
         
-    function getTitle() {
+    public function getTitle() {
         return $this->title;
     }
 
-    function getTextToLeft() {
+    public function getTextToLeft() {
         return $this->textToLeft;
     }
 
-    function getTextBlock() {
+    public function getTextBlock() {
         return $this->textBlock;
     }
 
-    function getButtonText() {
+    public function getButtonText() {
         return $this->buttonText;
     }
 
-    function getButtonLink() {
+    public function getButtonLink() {
         return $this->buttonLink;
     }
 
-    function getYoutubeLink() {
+    public function getYoutubeLink() {
         return $this->youtubeLink;
     }
 
-    function setTitle($title) {
+    public function setTitle($title) {
         $this->title = $title;
     }
 
-    function setTextToLeft($textToLeft) {
+    public function setTextToLeft($textToLeft) {
         $this->textToLeft = $textToLeft;
     }
 
-    function setTextBlock($textBlock) {
+    public function setTextBlock($textBlock) {
         $this->textBlock = $textBlock;
     }
 
-    function setButtonText($buttonText) {
+    public function setButtonText($buttonText) {
         $this->buttonText = $buttonText;
     }
 
-    function setButtonLink($buttonLink) {
+    public function setButtonLink($buttonLink) {
         $this->buttonLink = $buttonLink;
     }
 
-    function setYoutubeLink($youtubeLink) {
+    public function setYoutubeLink($youtubeLink) {
         $this->youtubeLink = $youtubeLink;
     }
-
         
     public function _toString()
     {

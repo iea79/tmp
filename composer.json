@@ -6,12 +6,6 @@
     "autoload": {
         "psr-0": { "": "src/", "SymfonyStandard": "app/" }
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/symfony-cmf/BlogBundle.git"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "~2.6",
@@ -105,8 +99,7 @@
         
         "tilleuls/ckeditor-sonata-media-bundle": "dev-master",
         "cocur/slugify": "dev-master",
-        "symfony-cmf/blog-bundle": "dev-version_upgrades as 1.0.*@dev",
-        
+         
         "symfony/console": "2.6.*@dev"
     },
     "require-dev": {

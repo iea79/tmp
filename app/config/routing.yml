@@ -23,7 +23,7 @@ sonata_media_pixlr:
     resource: '@SonataMediaBundle/Resources/config/routing/pixlr.xml'
     prefix: /admin/media
         
-#admin panel
+# admin panel
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
@@ -33,7 +33,7 @@ _sonata_admin:
     type: sonata_admin
     prefix: /admin
 
-#admin_davinci_taxi_comment_create:
+# admin_davinci_taxi_comment_create:
 #    resource: FOS\CommentBundle\Controller\ThreadController
 #    name_prefix: admin_davinci_taxi_
 
@@ -55,7 +55,7 @@ sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
     
-#news:
+# news:
 #    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
 #    prefix: /news
     
@@ -72,7 +72,7 @@ create:
 create_image:
     resource: "@CmfCreateBundle/Resources/config/routing/image.xml"    
 
-#symfony_cmf:
+# symfony_cmf:
 #    resource: @CmfCreateBundle/Resources/config/routing/rest_no_locale.xml    
     
 block_cache:

@@ -9,9 +9,9 @@ mink:
     show_cmd:   mate %%s
 
 
-#    default_session: sahi              # use Javascript engine
+#   default_session: sahi              # use Javascript engine
     default_session: goutte            # use for real HTTP test (remote server)
-#    default_session: symfony           # use symfony http client, test local symfony project
+#   default_session: symfony           # use symfony http client, test local symfony project
 
     goutte:
         server_parameters:
