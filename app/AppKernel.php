@@ -115,7 +115,7 @@ class AppKernel extends Kernel
             new Craue\FormFlowBundle\CraueFormFlowBundle(),
             new DaVinci\TaxiBundle\DaVinciTaxiBundle(),
                         
-            //looks like it gliches with symfony cmf
+            //looks like it gliches with symfony cmf                                                                                                                                                                                                                                                                                                                                                              
             //new JMS\I18nRoutingBundle\JMSI18nRoutingBundle(),
             
 
@@ -134,9 +134,9 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle(),
                     
-            //copy of whole bundle bcs of old dependencies
-            new Symfony\Cmf\Bundle\BlogBundle\CmfBlogBundle(),
-            new Application\Cmf\BlogBundle\ApplicationCmfBlogBundle(),
+            // copy of whole bundle bcs of old dependencies
+            // new Symfony\Cmf\Bundle\BlogBundle\CmfBlogBundle(),
+            // new Application\Cmf\BlogBundle\ApplicationCmfBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
