@@ -75,7 +75,7 @@
 
         "sonata-project/timeline-bundle": "2.2.0",
         "sonata-project/comment-bundle": "dev-master",
-        "sonata-project/translation-bundle": "dev-master",
+        "sonata-project/translation-bundle": "~1.0",
         
         "gregwar/captcha-bundle": "2.0.*@dev",
         "knplabs/knp-menu": "1.1.*@dev",
