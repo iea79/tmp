@@ -80,39 +80,39 @@ class FakeComment  {
         return $this->id;
     }
 
-    function getValue() {
+    public function getValue() {
         return $this->value;
     }
 
-    function setValue($value) {
+    public function setValue($value) {
         $this->value = $value;
     }
 
-    function getAuthorName() {
+    public function getAuthorName() {
         return $this->authorName;
     }
 
-    function getMessage() {
+    public function getMessage() {
         return $this->message;
     }
     
-    function getMessageTrimmed(){
-        return submstr($this->message,0,100);
+    public function getMessageTrimmed(){
+        return mb_substr($this->message, 0, 100);
     }
 
-    function getDate() {
+    public function getDate() {
         return $this->date;
     }
 
-    function setAuthorName($authorName) {
+    public function setAuthorName($authorName) {
         $this->authorName = $authorName;
     }
 
-    function setMessage($message) {
+    public function setMessage($message) {
         $this->message = $message;
     }
 
-    function setDate($date) {
+    public function setDate($date) {
         $this->date = $date;
     }
 

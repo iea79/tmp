@@ -13,19 +13,19 @@ use PHPCR\Util\NodeHelper;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute;
 use Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route;
 
-class LoadPageData extends ContainerAware implements FixtureInterface, OrderedFixtureInterface {
+class LoadPageData extends ContainerAware implements FixtureInterface, OrderedFixtureInterface 
+{
 
+	// refers to the order in which the class' load function is called
+	// (lower return values are called first)
     public function getOrder() {
-// refers to the order in which the class' load function is called
-// (lower return values are called first)
         return 50;
     }
 
     public function load(ObjectManager $manager) {
         if (!$manager instanceof DocumentManager) {
             $class = get_class($documentManager);
-            throw new \RuntimeException("Fixture requires a PHPCR ODM DocumentManager
-instance, instance of '$class' given.");
+            throw new \RuntimeException("Fixture requires a PHPCR ODM DocumentManager instance, instance of '{$class}' given.");
         }
         
         $basepath = $this->container->getParameter('cmf_simple_cms.persistence.phpcr.basepath');
@@ -40,19 +40,25 @@ instance, instance of '$class' given.");
         $root = $manager->find(null, $basepath);
         $root->setTitle('simple cms root (hidden by the home route in the sandbox)');
         
-        $pg = $this->createPage($manager, $root, 'some_about', 'About us', 'Some information about us', 'The about us page with some content');
-        $this->createPage($manager, $root, 'contact', 'Contact', 'A contact page', 'Please send an email to cmf-devs@groups.google.com');
-        
-        
+        $this->createPage(
+        	$manager, $root, 'some_about', 'About us', 'Some information about us', 'The about us page with some content'
+		);
+        $this->createPage(
+        	$manager, $root, 'contact', 'Contact', 'A contact page', 'Please send an email to cmf-devs@groups.google.com'
+		);
+                
         // set extras
-      /*  $extras = array(
+      	/*  
+       	$extras = array(
             'subtext' => 'Add CMS functionality to applications built with the Symfony2 PHP framework.',
             'headline-icon' => 'exclamation.png',
         );
 
-        $page->setExtras($extras);*/
-
-        $manager->flush(); // add the Page to PHPCR
+        $page->setExtras($extras);
+        */
+        
+        // add the Page to PHPCR
+        $manager->flush(); 
     }
     
     /**
@@ -60,13 +66,16 @@ instance, instance of '$class' given.");
      */
     protected function createPage(DocumentManager $manager, $parent, $name, $label, $title, $body)
     {
-        $page = new Page(/*array('add_locale_pattern' => true)*/);
+        // $page = new Page(array('add_locale_pattern' => true));
+    	$page = new Page();
         $page->setPosition($parent, $name);
         $page->setLabel($label);
         $page->setTitle($title);
         $page->setBody($body);
+        
         $manager->persist($page);
-        //$manager->bindTranslation($page, 'en');
+        // $manager->bindTranslation($page, 'en');
+        
         return $page;
     }
 }

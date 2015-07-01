@@ -35,7 +35,7 @@ imports:
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_notification.yml }
       
-    # Sonata e-commerce bundles
+   # Sonata e-commerce bundles
    # - { resource: sonata/sonata_price.yml }
    # - { resource: sonata/sonata_order.yml }
    # - { resource: sonata/sonata_payment.yml }
@@ -328,6 +328,8 @@ doctrine_phpcr:
             ru: 
                 - en    
 
+liip_search:
+    restrict_by_language: true
             
 cmf_seo:
     title: TaxiMyPrice - %%content_title%%
@@ -337,9 +339,6 @@ cmf_seo:
     persistence:
         phpcr: true
             
-liip_search:
-    restrict_by_language: true;
-
 cmf_search:
     persistence:
         phpcr:

@@ -10,7 +10,7 @@ trait ContentTrait
      * The language this document currently is in
      * @PHPCR\Locale
      */
-    private $locale;
+    protected $locale;
 
     /**
      * @PHPCR\ParentDocument()
@@ -41,7 +41,7 @@ trait ContentTrait
 
     /**
      * @return string|boolean The locale of this model or false if
-     *                        translations are disabled in this project.
+     * translations are disabled in this project.
      */
     public function getLocale()
     {
@@ -50,10 +50,11 @@ trait ContentTrait
 
     /**
      * @param string|boolean $locale The local for this model, or false if
-     *                               translations are disabled in this project.
+     * translations are disabled in this project.
      */
     public function setLocale($locale)
     {
         $this->locale = $locale;
     }
+    
 }

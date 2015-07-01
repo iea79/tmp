@@ -10,8 +10,8 @@ use Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishableInterface;
 use Symfony\Cmf\Bundle\SeoBundle\SeoAwareInterface;
 use Symfony\Cmf\Component\Routing\RouteReferrersReadInterface;
 
-
 use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @PHPCR\Document(referenceable=true,translator="attribute", repositoryClass="GuidesRepository")
  */
@@ -21,9 +21,9 @@ class GuidesPage implements TranslatableInterface,
         SeoAwareInterface, 
         RouteReferrersReadInterface
 {
-   // use \Symfony\Cmf\Bundle\SeoBundle\SeoAwareTrait;
-    
+       
     use ContentTrait;
+    // use \Symfony\Cmf\Bundle\SeoBundle\SeoAwareTrait;
     
     /**
      * @PHPCR\Id(strategy="repository")

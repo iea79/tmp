@@ -2,11 +2,10 @@
 
 namespace DaVinci\TaxiBundle\Document;
 
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
-
-use Doctrine\Common\Collections\ArrayCollection;
 use Application\Sonata\CommentBundle\PHPCR\FakeComment as FakeComment;
 
 /**
@@ -14,9 +13,10 @@ use Application\Sonata\CommentBundle\PHPCR\FakeComment as FakeComment;
  */
 class AboutPage implements TranslatableInterface
 {
+	
     use ContentTrait;
 
-     /**
+    /**
      * @PHPCR\Id(strategy="repository")
      */
     protected $id;
@@ -31,18 +31,17 @@ class AboutPage implements TranslatableInterface
      */
     private $textToLeft;
 
-
-     /**
+    /**
      * @PHPCR\String(translated=true)
      */
     protected $textBlock;
     
-     /**
+    /**
      * @PHPCR\ReferenceMany(targetDocument="Application\Sonata\CommentBundle\PHPCR\FakeComment", strategy="hard", cascade = "persist")
      */
     protected $comments;  
     
-     /**
+    /**
      * @PHPCR\String(translated=true)
      */
     protected $buttonText;      
@@ -53,8 +52,8 @@ class AboutPage implements TranslatableInterface
     protected $buttonLink;     
     
     /**
-    * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
-    */
+     * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
+     */
     protected $youtubeLink;  
     
     public function __construct()
@@ -77,7 +76,7 @@ class AboutPage implements TranslatableInterface
     
     public function addComment(FakeComment $comment)
     {
-        if ($this->comments != NULL && !$this->comments->contains($comment)) {
+        if (!is_null($this->comments) && !$this->comments->contains($comment)) {
             $this->comments->add($comment);
         }
 

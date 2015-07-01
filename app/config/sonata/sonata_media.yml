@@ -34,7 +34,7 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
-                small:     { width: 400, quality: 100}
+                small:    { width: 400, quality: 100}
         
         about:
             providers:
@@ -119,8 +119,8 @@ sonata_media:
             resizer:    false
         image:
            thumbnail: sonata.media.thumbnail.format          # default value
-#           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
-#            thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
+#          thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
+#          thumbnail: sonata.media.thumbnail.liip_imagine    # use the LiipImagineBundle to resize the image
         vimeo:
             thumbnail: sonata.media.thumbnail.format          # default value
 #           thumbnail: sonata.media.thumbnail.consumer.format # can be used to dispatch the resize action to async task
@@ -149,7 +149,7 @@ sonata_media:
 # to a specific format. (ie a controller render the file)
 #    more information can be found here : https://github.com/liip/LiipImagineBundle
 #
-#liip_imagine:
+# liip_imagine:
 #    filter_sets:
 #
 #        # this configuration match the sonata_media configuration format definition
@@ -250,7 +250,7 @@ services:
             - %sonata.media.admin.media.entity%
             - %sonata.media.admin.media.controller%
             - @sonata.media.pool
-#            - @sonata.classification.manager.category
+#           - @sonata.classification.manager.category
         tags:
             - {name: sonata.admin, manager_type: doctrine_phpcr, group: sonata_media, label_catalogue: "%sonata.media.admin.media.translation_domain%", label_translator_strategy: "sonata.admin.label.strategy.underscore", label: "media"}
         calls:

@@ -32,7 +32,7 @@ class Post extends BasePost implements TranslatableInterface
      * The language this document currently is in
      * @PHPCR\Locale
      */
-    private $locale;
+    protected $locale;
     
     /**
      * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", cascade={"persist"})
@@ -77,7 +77,10 @@ class Post extends BasePost implements TranslatableInterface
     {
         
         $slug = \Cocur\Slugify\Slugify::create()->slugify($this->title);
-        if(empty($slug)) $slug = date('Y-m-d-i-s');
+        if (empty($slug)) {
+        	$slug = date('Y-m-d-i-s');
+        }
+        
         return $slug;
     }
 }

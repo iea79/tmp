@@ -20,43 +20,41 @@ class FakeCommentAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('messageTrimmed')
+        	->add('messageTrimmed')
             ->add('_action', 'actions', array(
-                'actions' => array(
-                   'view' => array(),
+            	'actions' => array(
+                	'view' => array(),
                     'edit' => array(),
-                    'delete' => array(),
+					'delete' => array()
                 )
-            ))
-        ;
+            ));
     }
-    
-//    public function getNewInstance()
-//    {
-//        $documentManager = $this->getConfigurationPool()->getContainer()->get('doctrine_phpcr')->getManager();
-//
-//        $fakePath = $documentManager->find(null, '/cms/comments/fake');
-//
-//        $instance = parent::getNewInstance();
-//        $instance->setParentDocument($fakePath);
-//        
-//        return $instance;
-//    }
-    
-    
+  
     protected function configureFormFields(FormMapper $formMapper)
     {
- 
-        $formMapper
-           // ->with('Other',  array('collapsed' => true))
-                ->add('authorName')
-                ->add('message', 'textarea', array('label' => 'Message'))
-                ->add('date')
-                ->add('value','choice', array(
-                    'choices' => \Application\Sonata\CommentBundle\PHPCR\FakeComment::getValueList()))
-                ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('mapped' => true, 'root_node' => '/cms/comments/fake', 'select_root_node' => '/cms/comments/fake', 'choice_list' => array(), 'select_root_node' => true))
-           // ->end()
-        ;
+         $formMapper
+ 		 	->add('authorName', 'text', array('label' => 'Author name'))
+            ->add('message', 'textarea', array('label' => 'Message'))
+            ->add('date', 'datetime', array(
+            	'label' => 'Publication date',
+               	'date_format' => 'dd.MM.yy',
+            ))
+            ->add('value','choice', array(
+            	'label' => 'Stars',	
+              	'choices' => \Application\Sonata\CommentBundle\PHPCR\FakeComment::getValueList()
+                ))
+            ->add(
+            	'parentDocument', 
+               	'doctrine_phpcr_odm_tree', 
+               	array(
+	              	'mapped' => true, 
+                	'root_node' => '/cms/comments/fake', 
+                	'select_root_node' => '/cms/comments/fake', 
+                	'choice_list' => array(), 
+                	'select_root_node' => true,
+               		'label' => 'Parent document'	
+               	)
+    		);
     }
 
 }

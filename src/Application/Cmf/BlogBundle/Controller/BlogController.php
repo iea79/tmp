@@ -28,7 +28,7 @@ class BlogController extends BaseBlog
         $posts = $this->postRepository->search(array(
             'blogId' => $blog->getId(),
         ));
-
+        
         if ($this->postsPerPage) {
             $posts = $this->paginator->paginate(
                 $posts,
@@ -37,13 +37,14 @@ class BlogController extends BaseBlog
             );
         }
 
-        $templateFilename = $this->postsPerPage ? 'detailPaginated' : 'detail';
+        $templateFilename = ($this->postsPerPage) ? 'detailPaginated' : 'detail';
         $contentTemplate = $this->getTemplateForResponse(
             $request,
             $contentTemplate ?: sprintf('CmfBlogBundle:Blog:%s.{_format}.twig', $templateFilename)
         );
 
         $blogs = $this->blogRepository->findAll();
-        return $this->renderResponse($contentTemplate, compact('blog', 'posts', 'pager', 'blogs'));
+        
+        return $this->renderResponse($contentTemplate, compact('blog', 'posts', 'blogs', 'pager'));
     }
 }

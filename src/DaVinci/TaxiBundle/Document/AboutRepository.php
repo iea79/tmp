@@ -6,6 +6,9 @@ use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
 
 class AboutRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
+	
+	const ROOT_ABOUT = 'root-about';
+	
     /**
      * Generate a document id
      *
@@ -15,6 +18,10 @@ class AboutRepository extends BaseDocumentRepository implements RepositoryIdInte
     public function generateId($document, $parent = null)
     {
 		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-        return '/cms/' . $parent . '/' . $slugged;
+		
+		return (is_null($parent)
+			? '/cms/' . self::ROOT_ABOUT . '/' . $slugged
+			: '/cms/' . $parent . '/' . $slugged);
     }
+    
 }
