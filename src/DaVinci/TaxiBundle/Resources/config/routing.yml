@@ -54,7 +54,7 @@ video_guides:
 
 guide:
     pattern:  /guide/{contentId}
-    defaults: { _controller: DaVinciTaxiBundle:Information:guide }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:guide, contentId: 'default' }    
     options: { useAsInnerURL: true }
         
 guides:
@@ -68,7 +68,7 @@ one_help:
 
 faq:
     pattern:  /faq/{contentId}
-    defaults: { _controller: DaVinciTaxiBundle:Information:faq }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:faq, contentId: 'default' }    
     options: { useAsInnerURL: true }
     
 faqs:
