@@ -77,5 +77,18 @@ services:
         calls:
             - [setTranslationDomain, ['']] 
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
-            - [setRootPath, ['/cms/videoguides']]  
+            - [setRootPath, ['/cms/videoguides']]
+            
+    davinci.taxi.admin.category:
+        class: DaVinci\TaxiBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Categories" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\Category
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/category']]          
             

@@ -314,8 +314,8 @@ doctrine_phpcr:
                 mappings:
                     DaVinciTaxiBundle:
                         prefix: DaVinci\TaxiBundle\Document\
-#                    ApplicationCmfBlogBundle: ~
-#                    CmfBlogBundle: ~
+#                   ApplicationCmfBlogBundle: ~
+#                   CmfBlogBundle: ~
                     ApplicationSonataCommentBundle: 
                         prefix: Application\Sonata\CommentBundle\PHPCR\FakeComment
                     CmfSeoBundle: ~

@@ -4,16 +4,16 @@ sonata_classification:
         tag:            Application\Sonata\ClassificationBundle\Entity\Tag
         category:       Application\Sonata\ClassificationBundle\Entity\Category
 
-##removed sonata bug
-#sonata.classification.manager.tag.class:  Application\Sonata\ClassificationBundle\Entity\TagManager
+## removed sonata bug
+# sonata.classification.manager.tag.class:  Application\Sonata\ClassificationBundle\Entity\TagManager
 
 doctrine:
     orm:
         entity_managers:
             default:
-                #metadata_cache_driver: apc
-                #query_cache_driver: apc
-                #result_cache_driver: apc
+                # metadata_cache_driver: apc
+                # query_cache_driver: apc
+                # result_cache_driver: apc
                 mappings:
                     ApplicationSonataClassificationBundle: ~
                     SonataClassificationBundle: ~

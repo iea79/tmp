@@ -66,6 +66,7 @@ sonata_admin:
                     - davinci.taxi.admin.guidepage   
                     - davinci.taxi.admin.videoguidepage     
                     - davinci.taxi.admin.comment
+                    - davinci.taxi.admin.category
 
             sonata.admin.group.administration:
                 label:           sonata_administration
