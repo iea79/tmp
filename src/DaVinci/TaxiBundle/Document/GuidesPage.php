@@ -13,18 +13,15 @@ use Symfony\Cmf\Component\Routing\RouteReferrersReadInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @PHPCR\Document(referenceable=true,translator="attribute", repositoryClass="GuidesRepository")
+ * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="GuidesRepository")
  */
 class GuidesPage implements TranslatableInterface, 
-        PublishTimePeriodInterface, 
-        PublishableInterface, 
-        SeoAwareInterface, 
-        RouteReferrersReadInterface
+	PublishTimePeriodInterface, 
+    PublishableInterface
 {
-       
+
     use ContentTrait;
-    // use \Symfony\Cmf\Bundle\SeoBundle\SeoAwareTrait;
-    
+        
     /**
      * @PHPCR\Id(strategy="repository")
      */
@@ -58,62 +55,55 @@ class GuidesPage implements TranslatableInterface,
     /**
      * @PHPCR\Boolean()
      */
-    protected $forPassenger  = true;  
-      
-    /**
-     * @PHPCR\Child
-     */
-    protected $seoMetadata;
+    protected $forPassenger = true;  
     
     /**
-     * @PHPCR\Referrers(
-     *     referringDocument="Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\Route",
-     *     referencedBy="content"
-     * )
+     * @PHPCR\Long
      */
-    public $routes;
+    protected $order;
     
-    public function __construct()
+    /**
+     * @PHPCR\ReferenceOne(targetDocument="DaVinci\TaxiBundle\Document\Category", strategy="weak")
+     */
+    protected $category;
+    
+	public function getId()
     {
-        $this->routes = new ArrayCollection();
+    	return $this->id;
     }
     
-    function getSeoMetadata() {
-        return $this->seoMetadata;
-    }
-
-    function setSeoMetadata($seoMetadata) {
-        $this->seoMetadata = $seoMetadata;
-    }
-    
-    function getForPassenger() {
+    public function getForPassenger() 
+    {
         return $this->forPassenger;
     }
 
-    function setForPassenger($forPassenger) {
+    public function setForPassenger($forPassenger) 
+    {
         $this->forPassenger = $forPassenger;
     }
-    function getId() {
-        return $this->id;
-    }
-
-    function getTitle() {
+    
+    public function getTitle() 
+    {
         return $this->title;
     }
 
-    function getBody() {
+    public function getBody() 
+    {
         return $this->body;
     }
     
-    function getBodyTrimmed() {
-        return substr($this->body,0,150).'...';
+    public function getBodyTrimmed() 
+    {
+        return mb_substr($this->body, 0, 150) . '...';
     }
     
-    function setTitle($title) {
+    public function setTitle($title) 
+    {
         $this->title = $title;
     }
 
-    function setBody($body) {
+    public function setBody($body) 
+    {
         $this->body = $body;
     }
 
@@ -171,6 +161,35 @@ class GuidesPage implements TranslatableInterface,
     public function getRoutes()
     {
         return $this->routes->toArray();
+    }
+    
+    public function setCategory($category)
+    {
+    	$this->category = $category;
+    	 
+    	return $this;
+    }
+    
+    public function getCategory()
+    {
+    	return $this->category;
+    }
+    
+    public function setOrder($order)
+    {
+    	$this->order = $order;
+    	 
+    	return $this;
+    }
+    
+    public function getOrder()
+    {
+    	return $this->order;
+    }
+    
+    public function __toString()
+    {
+    	return urlencode(serialize($this->id));
     }
 
 }

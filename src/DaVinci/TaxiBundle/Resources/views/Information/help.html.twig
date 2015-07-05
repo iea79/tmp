@@ -28,28 +28,26 @@
 				<div class="block-help">
 					<div class="help-content">
 						<ul class="uk-nav top-faq">
-			                <li class="head"><a href="#">Top FAQs</a></li>
-	                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-	                        <li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-	                        <li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-	                        <li><a href="#">Я хочу назначить цену на поездку но не знаю как</a></li>
-	                        <li><a href="#">Я хочу заказать поездку для моего родственника. Как это сделать?</a></li>
-	                        <li><a href="#">Я хочу назначить водителю чаевые. Как это сделать?</a></li>
-	                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку</a></li>
-	                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">more questions</a></li>
+			                <li class="head"><a href="{{ path('faqs') }}">Top FAQs</a></li>
+			                {% for faq in faqs %}
+			                	<li>
+			                		<a href="{{ path('faq', {'contentId': faq}) }}">{{ faq.question }}</a>
+			                	</li>
+			                {% endfor %}
+	                        <li>
+	                        	<a class="uk-button uk-button-primary" href="#">more questions</a>
+	                        </li>
 	                    </ul>
 						<ul class="uk-nav guides">
-			                <li class="head"><a href="#">How-to guides</a></li>
-	                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-	                        <li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-	                        <li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-	                        <li><a href="#">Я хочу назначить цену на поездку но не знаю как</a></li>
-	                        <li><a href="#">Я хочу заказать поездку для моего родственника. Как это сделать?</a></li>
-	                        <li><a href="#">Я хочу назначить водителю чаевые. Как это сделать?</a></li>
-	                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку.</a></li>
-	                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку.</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">more GUIDES</a></li>
+			                <li class="head"><a href="{{ path('guides') }}">How-to guides</a></li>
+			                {% for guide in guides %}
+			                	<li>
+			                		<a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+			                	</li>
+			                {% endfor %}
+	                        <li>
+	                        	<a class="uk-button uk-button-primary" href="{{ path('guides') }}">more GUIDES</a>
+	                        </li>
 	                    </ul>
 					</div>
 					<div class="help-sidebar">

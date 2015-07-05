@@ -26,8 +26,7 @@ class CancelRequestEvent extends Event
 	 */
 	public function __construct(
 		PassengerRequest $request, 
-		PassengerRequestRepository $requestRepository,
-		SecurityContext $securityContext
+		PassengerRequestRepository $requestRepository
 	) {
 		$this->passengerRequest = $request;
 		$this->passengerRequestRepository = $requestRepository;

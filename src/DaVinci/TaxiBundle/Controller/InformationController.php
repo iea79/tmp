@@ -23,12 +23,17 @@ class InformationController extends StepsController
 	const ACTION_OFFICE_ADD = 'add';
 	const ACTION_OFFICE_TRANSFER = 'transfer';
 
+	public function viewOfficesAction()
+	{
+		return $this->render('DaVinciTaxiBundle:Information:view_offices.html.twig');
+	}
+	
     public function profitAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
         
         $driverTabs = $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getDriverProfitTab();
-        $passengerTabs= $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getPassengerProfitTab();
+        $passengerTabs = $dm->getRepository('DaVinciTaxiBundle:ProfitPage')->getPassengerProfitTab();
         
         return $this->render(
         	'DaVinciTaxiBundle:Information:profit.html.twig',
@@ -42,77 +47,112 @@ class InformationController extends StepsController
     public function aboutAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allTabs= $dm->getRepository('DaVinciTaxiBundle:AboutPage')->findAll();
+        $allTabs = $dm->getRepository('DaVinciTaxiBundle:AboutPage')->findAll();
         
-        return $this->render('DaVinciTaxiBundle:Information:about.html.twig',
-                array(
-                    'all_tabs' => $allTabs,
-                ));
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:about.html.twig',
+			array('all_tabs' => $allTabs)
+        );
     }
 
     public function helpAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:help.html.twig');
+    	$dm = $this->get('doctrine_phpcr')->getManager();
+    	
+    	$guides = $dm
+    				->getRepository('DaVinciTaxiBundle:GuidesPage')
+    				->findPublished();
+    	$faqs = $dm
+			    	->getRepository('DaVinciTaxiBundle:FaqEntry')
+			    	->findPublished();
+    	
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:help.html.twig',
+        	array(
+        		'guides' => $guides,
+        		'faqs' => $faqs	
+        	)	
+        );
     }
 
-    public function view_officesAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Information:view_offices.html.twig');
-    }
-
-    public function video_guidesAction()
+    public function videoGuidesAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allVideos= $dm->getRepository('DaVinciTaxiBundle:VideoGuidesPage')->findBy(array('publishable' => true));
-            
-        return $this->render('DaVinciTaxiBundle:Information:videos.html.twig',
-                array(
-                    'videos' => $allVideos,
-                ));
+        $allVideos = $dm
+        				->getRepository('DaVinciTaxiBundle:VideoGuidesPage')
+        				->findBy(array('publishable' => true));
+                    
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:videos.html.twig',
+			array('videos' => $allVideos)
+        );
     }
 
     public function videoAction($contentDocument)
     {
-         return $this->render('DaVinciTaxiBundle:Information:video.html.twig',
-                array(
-                    'page' => $contentDocument,
-                ));
+         return $this->render(
+         	'DaVinciTaxiBundle:Information:video.html.twig',
+         	array('page' => $contentDocument)
+         );
     }    
-    
-    
-    public function guideAction($contentDocument)
+        
+    public function guideAction($contentId)
     {
-         return $this->render('DaVinciTaxiBundle:Information:guide.html.twig',
-                array(
-                    'page' => $contentDocument,
-                ));
+    	$contentId = unserialize(urldecode($contentId));
+    	$contentDocument = $this->get('doctrine_phpcr')
+					    		->getManager()    	
+					    		->getRepository('DaVinciTaxiBundle:GuidesPage')
+					    		->find($contentId);
+    	
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:guide.html.twig',
+			array('page' => $contentDocument)
+        );
     }
     
     public function guidesAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allGuides= $dm->getRepository('DaVinciTaxiBundle:GuidesPage')->findBy(array('publishable' => true));
+        $allGuides = $dm
+        				->getRepository('DaVinciTaxiBundle:GuidesPage')
+        				->findBy(array('publishable' => true));
             
-        return $this->render('DaVinciTaxiBundle:Information:guides.html.twig',
-                array(
-                    'guides' => $allGuides,
-                ));
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:guides.html.twig',
+			array('guides' => $allGuides)
+        );
     }
 
-    public function one_helpAction()
+    public function oneHelpAction()
     {
         return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
     }
 
-    public function FAQsAction()
+    public function faqAction($contentId)
+    {
+    	$contentId = unserialize(urldecode($contentId));
+    	$contentDocument = $this->get('doctrine_phpcr')
+	    	->getManager()
+	    	->getRepository('DaVinciTaxiBundle:FaqEntry')
+	    	->find($contentId);
+    	 
+    	return $this->render(
+    		'DaVinciTaxiBundle:Information:guide.html.twig',
+    		array('page' => $contentDocument)
+    	);
+    }
+    
+    public function faqsAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allFaqs= $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(array('published' => true));
+        $allFaqs = $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(
+        	array('published' => true)
+        );
             
-        return $this->render('DaVinciTaxiBundle:Information:FAQs.html.twig',
-                array(
-                    'faqs' => $allFaqs,
-                ));
+        return $this->render(
+        	'DaVinciTaxiBundle:Information:FAQs.html.twig',
+			array('faqs' => $allFaqs)
+        );
     }
 
     public function notificationsAction()
@@ -120,19 +160,21 @@ class InformationController extends StepsController
         return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
     }
 
-    public function new_ticketAction()
+    public function newTicketAction()
     {
         return $this->render('DaVinciTaxiBundle:Notifications:new_ticket.html.twig');
     }
 
     public function socialAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:info.html.twig',
-                array(
-                    'social' => true,
-                    'reviews' => false,
-                    'isblog' => false
-                ));
+		return $this->render(
+        	'DaVinciTaxiBundle:Information:info.html.twig',
+        	array(
+        		'social' => true,
+        		'reviews' => false,
+        		'isblog' => false
+        	)
+        );
     }
     
     public function reviewsAction()

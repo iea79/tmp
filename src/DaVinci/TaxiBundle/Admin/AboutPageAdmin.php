@@ -104,7 +104,6 @@ class AboutPageAdmin extends Admin
             ->end()
             ->with('Other', array('collapsed' => true))
             	->add('locale')
-                // ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/about', 'select_root_node' => '/cms/about', 'choice_list' => array(), 'select_root_node' => true))
     		->end();
     }
         

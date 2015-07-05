@@ -26,8 +26,7 @@ class ProfitPage implements TranslatableInterface
     /**
      * @PHPCR\Boolean()
      */
-    private $driverTab;
-
+    protected  $driverTab;
 
      /**
      * @PHPCR\String(translated=true)
@@ -49,50 +48,59 @@ class ProfitPage implements TranslatableInterface
     */
     protected $youtubeLink;  
     
-    function getId() {
+    public function getId() 
+    {
         return $this->id;
     }
 
-    public function getBlock1() {
+    public function getBlock1() 
+    {
         return $this->block1;
     }
 
-    public function getBlock2Title() {
+    public function getBlock2Title() 
+    {
         return $this->block2Title;
     }
 
-    public function getBlock2() {
+    public function getBlock2() 
+    {
         return $this->block2;
     }
 
-    public function setBlock1($block1) {
+    public function setBlock1($block1) 
+    {
         $this->block1 = $block1;
     }
 
-    public function setBlock2Title($block2Title) {
+    public function setBlock2Title($block2Title) 
+    {
         $this->block2Title = $block2Title;
     }
 
-    public function setBlock2($block2) {
+    public function setBlock2($block2) 
+    {
         $this->block2 = $block2;
     }
 
-    public function setYoutubeLink($youtubeLink) {
+    public function setYoutubeLink($youtubeLink) 
+    {
         $this->youtubeLink = $youtubeLink;
     }
     
-    public function getYoutubeLink() {
+    public function getYoutubeLink() 
+    {
         return $this->youtubeLink;
     }
 
-        /**
+    /**
      * @param boolean tabTitle
      */
     public function setDriverTab($driverTab)
     {
         $this->driverTab = $driverTab;
     }
-        
+       
     /**
      * @return boolean
      */

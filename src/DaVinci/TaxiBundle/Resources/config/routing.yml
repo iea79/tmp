@@ -45,11 +45,16 @@ help:
         
 view_offices:
     pattern:  /view-offices
-    defaults: { _controller: DaVinciTaxiBundle:Information:view_offices }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:viewOffices }    
         
 video_guides:
     pattern:  /video-guides
-    defaults: { _controller: DaVinciTaxiBundle:Information:video_guides }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:videoGuides }    
+    options: { useAsInnerURL: true }
+
+guide:
+    pattern:  /guide/{contentId}
+    defaults: { _controller: DaVinciTaxiBundle:Information:guide }    
     options: { useAsInnerURL: true }
         
 guides:
@@ -59,11 +64,16 @@ guides:
         
 one_help:
     pattern:  /one-help
-    defaults: { _controller: DaVinciTaxiBundle:Information:one_help }   
+    defaults: { _controller: DaVinciTaxiBundle:Information:oneHelp }   
+
+faq:
+    pattern:  /faq/{contentId}
+    defaults: { _controller: DaVinciTaxiBundle:Information:faq }    
+    options: { useAsInnerURL: true }
     
-FAQs:
-    pattern:  /FAQs
-    defaults: { _controller: DaVinciTaxiBundle:Information:FAQs }    
+faqs:
+    pattern:  /faqs
+    defaults: { _controller: DaVinciTaxiBundle:Information:faqs }    
     options: { useAsInnerURL: true }
         
 notifications:
@@ -109,12 +119,15 @@ store:
 cmf_tree:
     resource: .
     type: 'cmf_tree'
+
 sale_page:
     pattern:  /sale-page
     defaults: { _controller: DaVinciTaxiBundle:Information:sale_page }    
+
 letter_confirm:
     pattern:  /letter-confirm
     defaults: { _controller: DaVinciTaxiBundle:Information:letter_confirm }    
+
 new_ticket:
     pattern:  /new-ticket
-    defaults: { _controller: DaVinciTaxiBundle:Information:new_ticket }    
+    defaults: { _controller: DaVinciTaxiBundle:Information:newTicket }    

@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class CountryCityAdmin extends Admin
 {
+	
     protected $baseRouteName = 'sonate_countries';
     protected $baseRoutePattern = 'sonate_countries';
     
@@ -18,8 +19,8 @@ class CountryCityAdmin extends Admin
             ->add('countryCode', 'country', array('label' => 'admin.countrycity'))
             ->add('translations', 'a2lix_translations')
             ->add('status', 'choice', array(
-            	'choices'  => array('0' => 'Disabled', '1' => 'Enabled'),
-				'data'=> '1'
+            	'choices' => array('0' => 'Disabled', '1' => 'Enabled'),
+				'data' => '1'
             ));
     }
 
@@ -40,4 +41,7 @@ class CountryCityAdmin extends Admin
             ->addIdentifier('city')
             ->add('status');
     }
+    
 }
+
+?>

@@ -29,13 +29,13 @@
 					<div class="help-content">
 						<h3>{{'Guides:'|trans}}</h3>
 							<ul class="uk-nav only-link">           
-                                {% for g in guides %}
-                                    {% if g.forPassenger %}
-                                       <li><a href="{{ path(g) }}">{{ g.title }}</a></li> 
+                                {% for guideItem in guides %}
+                                    {% if guideItem.forPassenger == true %}
+                                       <li><a href="{{ path('guide', {'contentId': guideItem}) }}">{{ guideItem.title }}</a></li> 
                                     {% endif %}
 							    {% endfor %}
 			                </ul>
-				    	{# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
+				    	{# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all'|trans}}(28)</a> #}
 				    	<div class="support">
 				    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
 				    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>

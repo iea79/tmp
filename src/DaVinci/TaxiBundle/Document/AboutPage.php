@@ -29,7 +29,7 @@ class AboutPage implements TranslatableInterface
     /**
      * @PHPCR\Boolean()
      */
-    private $textToLeft;
+    protected $textToLeft;
 
     /**
      * @PHPCR\String(translated=true)
@@ -37,7 +37,7 @@ class AboutPage implements TranslatableInterface
     protected $textBlock;
     
     /**
-     * @PHPCR\ReferenceMany(targetDocument="Application\Sonata\CommentBundle\PHPCR\FakeComment", strategy="hard", cascade = "persist")
+     * @PHPCR\ReferenceMany(targetDocument="Application\Sonata\CommentBundle\PHPCR\FakeComment", strategy="hard", cascade="persist")
      */
     protected $comments;  
     

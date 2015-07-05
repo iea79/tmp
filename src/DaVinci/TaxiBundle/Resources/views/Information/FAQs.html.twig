@@ -29,12 +29,12 @@
 					<div class="help-content">
 						<div class="faqs">
 							<ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                {% for f in faqs %}
-                                    {% if f.forPassenger %}
+                                {% for faq in faqs %}
+                                    {% if faq.forPassenger %}
                                         <li class="uk-parent">
-                                            <a href="#">{{ f.question }}</a>
+                                            <a href="#">{{ faq.question }}</a>
                                             <ul class="uk-nav-sub">
-                                                <li>{{ f.answer|raw }}</li>
+                                                <li>{{ faq.answer|raw }}</li>
                                             </ul>
                                         </li>
                                     {% endif %}
@@ -85,12 +85,12 @@
                     <div class="help-content">
                             <div class="faqs">
                                 <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                    {% for f in faqs %}
-                                        {% if not f.forPassenger %}
+                                    {% for faq in faqs %}
+                                        {% if not faq.forPassenger %}
                                             <li class="uk-parent">
-                                                <a href="#">{{ f.question }}</a>
+                                                <a href="#">{{ faq.question }}</a>
                                                 <ul class="uk-nav-sub">
-                                                    <li>{{ f.answer|raw }}</li>
+                                                    <li>{{ faq.answer|raw }}</li>
                                                 </ul>
                                             </li>
                                         {% endif %}

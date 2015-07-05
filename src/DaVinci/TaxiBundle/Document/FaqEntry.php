@@ -6,10 +6,11 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
 
 /**
- * @PHPCR\Document(translator="attribute")
+ * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="FaqEntryRepository")
  */
 class FaqEntry implements TranslatableInterface
 {
+	
     use ContentTrait;
     
     /**
@@ -25,56 +26,105 @@ class FaqEntry implements TranslatableInterface
     /**
      * @PHPCR\String(translated=true)
      */
-    protected $answer;      
+    protected $answer;
     
     /**
      * @PHPCR\Boolean()
      */
-    protected $forPassenger  = true;  
+    protected $forPassenger = true;  
     
     /**
      * @PHPCR\Boolean()
      */
-    protected $published = true;  
+    protected $published = true;
+
+    /**
+     * @PHPCR\Long
+     */
+    protected $order;
     
-    function getId() {
+    /**
+     * @PHPCR\ReferenceOne(targetDocument="DaVinci\TaxiBundle\Document\Category", strategy="weak")
+     */
+    protected $category;
+    
+    public function getId() 
+    {
         return $this->id;
     }
     
-    function setId($id) {
+    public function setId($id) 
+    {
         $this->id = $id;
     }
 
-    function getQuestion() {
+    public function getQuestion() 
+    {
         return $this->question;
     }
 
-    function getAnswer() {
+    public function getAnswer() 
+    {
         return $this->answer;
     }
 
-    function getPublished() {
+    public function getPublished() 
+    {
         return $this->published;
     }
-
-    function setQuestion($question) {
+    
+    public function setQuestion($question) 
+    {
         $this->question = $question;
     }
 
-    function setAnswer($answer) {
+    public function setAnswer($answer) 
+    {
         $this->answer = $answer;
     }
 
-    function setPublished($published) {
+    public function setPublished($published) 
+    {
         $this->published = $published;
     }
 
-    function getForPassenger() {
+    public function getForPassenger() 
+    {
         return $this->forPassenger;
     }
 
-    function setForPassenger($forPassenger) {
+    public function setForPassenger($forPassenger) 
+    {
         $this->forPassenger = $forPassenger;
+    }
+    
+    public function setOrder($order)
+    {
+    	$this->order = $order;
+    	
+    	return $this;
+    }
+    
+    public function getOrder()
+    {
+    	return $this->order;
+    }
+    
+    public function setCategory($category)
+    {
+    	$this->category = $category;
+    	
+    	return $this;
+    }
+    
+    public function getCategory()
+    {
+    	return $this->category;
+    }
+    
+    public function __toString()
+    {
+    	return urlencode(serialize($this->id));
     }
     
 }

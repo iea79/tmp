@@ -7,14 +7,13 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class FaqEntryAdmin extends Admin
+class CategoryAdmin extends Admin
 {
         
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-			->add('forPassenger')
-        	->addIdentifier('question')
+			->addIdentifier('title')
 			->add('locale')
             ->add('_action', 'actions', array(
             	'actions' => array(
@@ -28,12 +27,8 @@ class FaqEntryAdmin extends Admin
     {
     	$formMapper
         	->with('General')
-            	->add('question', 'text', array('label' => 'Question'))
-                ->add('answer', 'ckeditor', array('label' => 'Answer'))
-                ->add('forPassenger', 'checkbox', array('label' => 'For passengers'))
-                ->add('published', 'checkbox', array('label' => 'Is published'))
-                ->add('order', 'number', array('label' => 'Order', 'data' => 0))
-                ->add('category', 'sonata_type_model_list')
+				->add('title', 'text', array('label' => 'Title'))
+                ->add('description', 'ckeditor', array('label' => 'Description'))
 			->end()
             ->with('Other',  array('collapsed' => true))
             	->add('locale')
@@ -42,7 +37,7 @@ class FaqEntryAdmin extends Admin
     
     public function prePersist($document)
     {
-        $parent = $this->getModelManager()->find(null, '/cms/faq');
+        $parent = $this->getModelManager()->find(null, '/cms/category');
         $document->setParentDocument($parent);
     }
 
@@ -53,7 +48,7 @@ class FaqEntryAdmin extends Admin
     
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-    	$datagridMapper->add('question', 'doctrine_phpcr_string');
+    	$datagridMapper->add('title', 'doctrine_phpcr_string');
     }
     
 }

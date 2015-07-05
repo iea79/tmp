@@ -9,12 +9,12 @@ class ProfitRepository extends BaseDocumentRepository implements RepositoryIdInt
     
     public function getDriverProfitTab()
     {
-        return $this->findBy(array('driverTab'=>true));
+        return $this->findBy(array('driverTab' => true));
     }
     
     public function getPassengerProfitTab()
     {
-        return $this->findBy(array('driverTab'=>false));
+        return $this->findBy(array('driverTab' => false));
     }
     
     /**
@@ -25,7 +25,9 @@ class ProfitRepository extends BaseDocumentRepository implements RepositoryIdInt
      */
     public function generateId($document, $parent = null)
     {
-		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-        return '/cms/'.$parent.'/'.$slugged;
+		return '/cms'
+        		. '/' . $parent 
+        		. '/' . \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
     }
+    
 }

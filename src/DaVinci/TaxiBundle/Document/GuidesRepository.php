@@ -3,9 +3,11 @@ namespace DaVinci\TaxiBundle\Document;
 
 use Doctrine\ODM\PHPCR\Id\RepositoryIdInterface;
 use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
+use Doctrine\Common\Collections\Criteria;
 
 class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
+	
     /**
      * Generate a document id
      *
@@ -14,7 +16,19 @@ class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInt
      */
     public function generateId($document, $parent = null)
     {
-		$slugged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-        return '/cms/'.$parent.'/'.$slugged;
+    	return '/cms' 
+				. '/' . $parent 
+				. '/' . \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
     }
+    
+    public function findPublished()
+    {
+    	return $this->findBy(
+    		array('publishable' => true), 
+    		array('order' => 'asc')
+    	);
+    }
+    
 }
+
+?>
