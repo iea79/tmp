@@ -127,20 +127,6 @@ class InformationController extends StepsController
     {
         return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
     }
-
-    public function faqAction($contentId)
-    {
-    	$contentId = unserialize(urldecode($contentId));
-    	$contentDocument = $this->get('doctrine_phpcr')
-	    	->getManager()
-	    	->getRepository('DaVinciTaxiBundle:FaqEntry')
-	    	->find($contentId);
-    	 
-    	return $this->render(
-    		'DaVinciTaxiBundle:Information:guide.html.twig',
-    		array('page' => $contentDocument)
-    	);
-    }
     
     public function faqsAction()
     {
@@ -150,7 +136,7 @@ class InformationController extends StepsController
         );
             
         return $this->render(
-        	'DaVinciTaxiBundle:Information:FAQs.html.twig',
+        	'DaVinciTaxiBundle:Information:faqs.html.twig',
 			array('faqs' => $allFaqs)
         );
     }

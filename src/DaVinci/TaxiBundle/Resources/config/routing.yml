@@ -66,11 +66,6 @@ one_help:
     pattern:  /one-help
     defaults: { _controller: DaVinciTaxiBundle:Information:oneHelp }   
 
-faq:
-    pattern:  /faq/{contentId}
-    defaults: { _controller: DaVinciTaxiBundle:Information:faq, contentId: 'default' }    
-    options: { useAsInnerURL: true }
-    
 faqs:
     pattern:  /faqs
     defaults: { _controller: DaVinciTaxiBundle:Information:faqs }    
