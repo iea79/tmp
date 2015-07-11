@@ -28,6 +28,29 @@ class InformationController extends StepsController
 		return $this->render('DaVinciTaxiBundle:Information:view_offices.html.twig');
 	}
 	
+	public function blogAction($column)
+	{
+		$dm = $this->get('doctrine_phpcr')->getManager();
+		
+		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
+		$columns = $columnRepository->findActive();
+		$defaultColumn = $columnRepository->findDefault();
+		
+		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+		$entities = $postEntityRepository->findBy(array('isCommercial' => false));
+		$comercialEntities = $postEntityRepository->findBy(array('isCommercial' => true));
+		
+		return $this->render(
+			'DaVinciTaxiBundle:Blog:detail.html.twig',
+			array(
+				'columns' => $columns,
+				'defaultColumn' => $defaultColumn,	
+				'entities' => $entities,
+				'commercialEntities' => $comercialEntities
+			)
+		);
+	}
+	
     public function profitAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
@@ -95,7 +118,20 @@ class InformationController extends StepsController
          	array('page' => $contentDocument)
          );
     }    
-        
+
+    public function guidesAction()
+    {
+    	$dm = $this->get('doctrine_phpcr')->getManager();
+    	$allGuides = $dm
+    	->getRepository('DaVinciTaxiBundle:GuidesPage')
+    	->findBy(array('publishable' => true));
+    
+    	return $this->render(
+    			'DaVinciTaxiBundle:Information:guides.html.twig',
+    			array('guides' => $allGuides)
+    	);
+    }
+    
     public function guideAction($contentId)
     {
     	$contentId = unserialize(urldecode($contentId));
@@ -109,25 +145,7 @@ class InformationController extends StepsController
 			array('page' => $contentDocument)
         );
     }
-    
-    public function guidesAction()
-    {
-        $dm = $this->get('doctrine_phpcr')->getManager();
-        $allGuides = $dm
-        				->getRepository('DaVinciTaxiBundle:GuidesPage')
-        				->findBy(array('publishable' => true));
-            
-        return $this->render(
-        	'DaVinciTaxiBundle:Information:guides.html.twig',
-			array('guides' => $allGuides)
-        );
-    }
 
-    public function oneHelpAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
-    }
-    
     public function faqsAction()
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
@@ -139,6 +157,11 @@ class InformationController extends StepsController
         	'DaVinciTaxiBundle:Information:faqs.html.twig',
 			array('faqs' => $allFaqs)
         );
+    }
+    
+    public function oneHelpAction()
+    {
+    	return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
     }
 
     public function notificationsAction()

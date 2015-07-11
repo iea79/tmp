@@ -26,7 +26,7 @@ class GuidesPageAdmin extends Admin
                 ->add('order', 'number', array('label' => 'Order', 'data' => 0))
                 ->add('category', 'sonata_type_model_list')
             ->end()
-            ->with('form.group_general', array('collapsed' => true))
+            ->with('Other', array('collapsed' => true))
                 ->add('locale')
             ->end();
     }
@@ -40,7 +40,7 @@ class GuidesPageAdmin extends Admin
     {
     	$listMapper
 	    	->add('forPassenger')
-	    	->addIdentifier('title')
+	    	->add('title')
 	    	->add('locale')
 	    	->add('_action', 'actions', array(
     			'actions' => array(

@@ -7,8 +7,6 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 use Symfony\Cmf\Bundle\CoreBundle\Translatable\TranslatableInterface;
 use Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishTimePeriodInterface;
 use Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishableInterface;
-use Symfony\Cmf\Bundle\SeoBundle\SeoAwareInterface;
-use Symfony\Cmf\Component\Routing\RouteReferrersReadInterface;
 
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -65,6 +63,11 @@ class VideoGuidesPage implements PublishTimePeriodInterface,
     public function getId() 
     {
     	return $this->id;
+    }
+    
+    public function setId($id)
+    {
+    	$this->id = $id;
     }
         
     public function getForPassenger() 

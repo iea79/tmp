@@ -154,14 +154,6 @@ class GuidesPage implements TranslatableInterface,
     {
         $this->publishEndDate = $publishEndDate;
     }
-
-    /**
-     * @return array of route objects that point to this content
-     */
-    public function getRoutes()
-    {
-        return $this->routes->toArray();
-    }
     
     public function setCategory($category)
     {

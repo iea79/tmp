@@ -27,6 +27,5 @@ class FaqEntryRepository extends BaseDocumentRepository implements RepositoryIdI
 			array('order' => 'asc')
 		);
 	}
-	
-	
+		
 }

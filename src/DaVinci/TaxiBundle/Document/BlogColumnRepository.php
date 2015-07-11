@@ -4,10 +4,10 @@ namespace DaVinci\TaxiBundle\Document;
 use Doctrine\ODM\PHPCR\Id\RepositoryIdInterface;
 use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
 
-class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInterface
+class BlogColumnRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
 	
-	const PREFIX = 'guide-';
+	const DEFAULT_LIMIT = 1;
 	
     /**
      * Generate a document id
@@ -17,22 +17,23 @@ class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInt
      */
     public function generateId($document, $parent = null)
     {
-    	if (!$document->getTitle()) {
-    		$sluged = self::PREFIX . date('j-m-y-h-i-s');
-    	} else {
-    		$sluged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-    	}
-    	
     	return '/cms' 
 				. '/' . $parent 
-				. '/' . $sluged;
+				. '/' . \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
     }
     
-    public function findPublished()
+    public function findDefault()
+    {
+    	return $this->findOneBy(
+    		array('isDefault' => true)
+    	);
+    }
+    
+    public function findActive()
     {
     	return $this->findBy(
-    		array('publishable' => true), 
-    		array('order' => 'asc')
+    		array('isActive' => true),
+    		array('id' => 'asc')
     	);
     }
     

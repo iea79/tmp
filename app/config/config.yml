@@ -241,12 +241,12 @@ cmf_routing:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute: cmf_routing.redirect_controller:redirectAction
             DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
             DaVinci\TaxiBundle\Document\VideoGuidesPage: DaVinciTaxiBundle:Information:video
-#            Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
-#            Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
+#           Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
+#           Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
 
-#        templates_by_class:
-#            Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
-#            Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
+#       templates_by_class:
+#           Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
+#           Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
 
         persistence:
             phpcr:

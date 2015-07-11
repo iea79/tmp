@@ -1,0 +1,102 @@
+{# exception for blog route #}
+{% set isblog, reviews, social = true, false, false %}
+        
+{% extends 'DaVinciTaxiBundle:Information:info.html.twig' %}
+
+{% block blog_content %}
+<div class="message">
+    <span>{{ 'Just'|trans }}</span> {{ 'Do it!'|trans }}
+    <div class="message-drop uk-float-right">
+        <span>{{ 'Blogs'|trans }}</span>
+    </div>
+</div>
+<div class="blog">
+    <div class="buttom-swicher">
+        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#blog'}">
+            {% for columnItem in columns %}
+            	<li {% if defaultColumn.getId() == columnItem.getId() %}class="uk-active"{% endif %}>
+                	<a href="#">{{ columnItem.getTitle() }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+        <ul id="blog" class="uk-switcher">
+            <li class="uk-active">
+                <div class="block-help">
+                    <div class="help-content">
+                        {{ defaultColumn.description|raw|nl2br }}
+                        <div class="uk-grid uk-grid-small top">
+                        	{% for entity in commercialEntities if entity.blogColumn == defaultColumn %}
+                        		<div class="uk-panel uk-width-1-3 tarif">
+	                                {% thumbnail entity.imagePreview, 'preview' %}
+	                                <h6>{{ entity.preview|raw }}</h6>
+	                            </div>
+                        	{% else %}
+	                        {% endfor %}
+                        </div>
+                        {% for entity in entities if entity.blogColumn == defaultColumn %}
+	                        <div class="uk-grid uk-grid-small wide">
+	                            <div class="uk-panel uk-width-1-3">
+	                                {% thumbnail entity.imagePreview, 'preview' %}
+	                            </div>
+	                            <div class="uk-panel uk-width-2-3">
+	                                <a href="#">{{ entity.title }}</a>
+	                                <h5>{{ entity.publishStartDate|date('F jS, Y') }}</h5>
+	                                <p>{{ entity.preview|raw }}</p>
+	                            </div>
+	                        </div>
+                        {% else %}
+                            <p class="empty">No posts found.</p>
+                        {% endfor %}
+                    </div>
+                    <div class="help-sidebar">
+                        <form class="uk-search" data-uk-search="">
+                            <input class="uk-search-field" type="search" placeholder="Поиск">
+                        </form>
+                        <ul class="uk-nav">
+                            <li class="head"><a href="#">{{'News'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
+                        </ul>
+                        <ul class="uk-nav">
+                            <li class="head"><a href="#">{{'Savings'|trans}}</a></li>
+                            <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
+                            <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
+                            <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
+                        </ul>
+                        {#
+                        <ul class="uk-nav demo">
+                            <li class="head"><a href="#">{{'Videos'|trans}}</a></li>
+                            <li>
+                                <a href="#" class="preview-video">
+                                    <img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
+                                </a>
+                            </li>
+                            <li class="link"><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
+                            <li>
+                                <a href="#" class="preview-video">
+                                    <img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
+                                </a>
+                            </li>
+                            <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
+                            <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
+                        </ul>
+                        #}
+                    </div>
+                    <button class="uk-button more">MORE <span>(245)</span></button>
+                </div>
+            </li>
+            
+        </ul>
+</div>
+{% endblock %}
