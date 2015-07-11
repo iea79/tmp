@@ -15,7 +15,7 @@ class PostEntity implements PublishTimePeriodInterface,
     PublishableInterface,
     TranslatableInterface
 {
-
+        
     use ContentTrait;
         
     /**
@@ -88,7 +88,7 @@ class PostEntity implements PublishTimePeriodInterface,
      */
     protected $imagePreview;
     
-	public function getId()
+    public function getId()
     {
     	return $this->id;
     }
