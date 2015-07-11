@@ -137,6 +137,8 @@ class PostEntity implements PublishTimePeriodInterface,
     public function setBody($body)
     {
     	$this->body = $body;
+        
+        return $this;
     }
 
     public function getBody() 
@@ -155,6 +157,8 @@ class PostEntity implements PublishTimePeriodInterface,
     public function setPublishable($publishable)
     {
         return $this->publishable = (bool) $publishable;
+        
+        return $this;
     }
 
     /**
@@ -179,6 +183,8 @@ class PostEntity implements PublishTimePeriodInterface,
     public function setPublishStartDate(\DateTime $publishStartDate = null)
     {
         $this->publishStartDate = $publishStartDate;
+        
+        return $this;
     }
 
     /**
@@ -195,6 +201,8 @@ class PostEntity implements PublishTimePeriodInterface,
     public function setPublishEndDate(\DateTime $publishEndDate = null)
     {
         $this->publishEndDate = $publishEndDate;
+        
+        return $this;
     }
     
     public function setBlogColumn($blogColumn)
@@ -256,17 +264,17 @@ class PostEntity implements PublishTimePeriodInterface,
     {
     	return $this->seoDescription;
     }
-    
-    public function getImagePreview()
-    {
-    	return $this->imagePreview;
-    }
-    
+     
     public function setImagePreview($imagePreview)
     {
     	$this->imagePreview = $imagePreview;
     
     	return $this;
+    }
+        
+    public function getImagePreview()
+    {
+    	return $this->imagePreview;
     }
     
     public function __toString()
