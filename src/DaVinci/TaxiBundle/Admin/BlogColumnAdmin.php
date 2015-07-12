@@ -31,6 +31,7 @@ class BlogColumnAdmin extends Admin
                 ->add('description', 'ckeditor', array('label' => 'Description'))
                 ->add('isDefault', 'checkbox', array('label' => 'Is Default'))
                 ->add('isActive', 'checkbox', array('label' => 'Is Active'))
+                ->add('order', 'number', array('label' => 'Order', 'data' => 0))
                 ->add(
                 	'imagePreview',
                 	'sonata_type_model_list',
