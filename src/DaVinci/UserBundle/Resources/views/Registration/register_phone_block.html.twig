@@ -20,7 +20,7 @@
                 <input hidden id="has_internet_input">{{'form.internet'|trans}}
             {% endif %}
         </div>
-        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Any kind of connection'|trans }}" data-cached-title="{{ 'Any kind of connection'|trans }}"></div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Any kind of connection'|trans }}"></div>
     </div>
 
     <div class="wicheck whicheck-2">
@@ -31,7 +31,7 @@
                 <input hidden id="has_whatsapp_input">{{'whatsapp'|trans}}
             {% endif %}
         </div>
-        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Free communication program'|trans }}" data-cached-title="{{ 'Free communication program'|trans }}"></div>
+        <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Free communication program'|trans }}"></div>
     </div>
     {% if phones is defined %}  
         {{ form_errors(phones.phone) }}
