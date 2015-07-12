@@ -30,6 +30,41 @@ class PostEntityRepository extends BaseDocumentRepository implements RepositoryI
     	);
     }
     
+    public function findFilteredForColumn($columnId, $isCommercial = false)
+    {
+    	$posts = $this->findBy(
+    		array('isCommercial' => $isCommercial), 
+    		array('order' => 'asc')
+    	);
+        
+        $filtered = array();
+        foreach ($posts as $key => $post) {
+            echo $post->getBlogColumn()->getId() . "\n";
+            if ($post->getBlogColumn()->getId() == $columnId) {
+                $filtered[$key] = $post;
+            }            
+        }
+        
+        return $filtered;
+    }
+        
+    public function findCommonByColumn($columnId, $isCommercial = false)
+    {
+        $builder = $this->createQueryBuilder('query');
+        $builder->fromDocument('DaVinciTaxiBundle:PostEntity', 'post')
+            ->addJoinInner()
+                ->right()->document('DaVinciTaxiBundle:BlogColumn', 'column')->end()
+                ->condition()->equi('post.blogColumn', 'column.referrers')->end()
+            ->end()
+            ->where()
+                ->andX()
+                    ->eq()->field('column.id')->literal($columnId)->end()
+                    ->eq()->field('post.isCommercial')->literal($isCommercial)->end()
+            ->end();
+        
+        return $builder->getQuery()->getResult();
+    }
+    
 }
 
 ?>

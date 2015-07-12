@@ -33,7 +33,7 @@ class BlogColumnRepository extends BaseDocumentRepository implements RepositoryI
     {
     	return $this->findBy(
     		array('isActive' => true),
-    		array('id' => 'asc')
+    		array('order' => 'asc')
     	);
     }
     

@@ -37,14 +37,14 @@ class InformationController extends StepsController
 		$defaultColumn = $columnRepository->findDefault();
 		
 		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
-		$entities = $postEntityRepository->findBy(array('isCommercial' => false));
-		$comercialEntities = $postEntityRepository->findBy(array('isCommercial' => true));
-		
+		$comercialEntities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId(), true);
+		$entities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId());
+                
 		return $this->render(
 			'DaVinciTaxiBundle:Blog:detail.html.twig',
 			array(
+                'defaultColumn' => $defaultColumn,
 				'columns' => $columns,
-				'defaultColumn' => $defaultColumn,	
 				'entities' => $entities,
 				'commercialEntities' => $comercialEntities
 			)

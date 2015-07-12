@@ -43,6 +43,16 @@ class BlogColumn implements TranslatableInterface
      */
     protected $isActive = true;
     
+    /**
+     * @PHPCR\Referrers(referringDocument="DaVinci\TaxiBundle\Document\PostEntity", referencedBy="blogColumn")
+     */
+    protected $referrers;
+    
+    /**
+     * @PHPCR\Long
+     */
+    protected $order;
+    
     public function getId() 
     {
         return $this->id;
@@ -113,6 +123,18 @@ class BlogColumn implements TranslatableInterface
     	$this->imagePreview = $imagePreview;
     
     	return $this;
+    }
+    
+    public function setOrder($order)
+    {
+    	$this->order = $order;
+    	 
+    	return $this;
+    }
+    
+    public function getOrder()
+    {
+    	return $this->order;
     }
     
 }
