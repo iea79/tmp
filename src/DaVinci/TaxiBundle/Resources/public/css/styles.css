@@ -6420,7 +6420,7 @@ Help
 }
 
 .main-content form.uk-search {
-  width: 52.1%;
+  	width: 52.1%;
 }
 .main-content .block-help {
 	padding: 20px 2% 20px 2%;
@@ -6430,8 +6430,8 @@ Help
 }
 .block-help .uk-nav.top-faq,
 .block-help .uk-nav.guides {
-  width: 48.7%;
-  float: left;
+	width: 48.7%;
+	float: left;
 }
 .block-help .uk-nav.top-faq {
 	margin-right: 2%;
@@ -6441,10 +6441,14 @@ Help
 	margin-bottom: 8px;
 	float: none;
 }
+.block-help .uk-nav.only-link ul {
+	width: 100%;
+}
 .block-help .uk-nav.only-link a {
-  font-size: 16px;
-  line-height: 18px !important;
-  margin-bottom: 3px;
+	font-size: 16px;
+	line-height: 18px !important;
+	margin-bottom: 3px;
+	width: 95%;
 }
 .block-help .uk-nav.top-faq li.head,
 .block-help .uk-nav.guides li.head {
@@ -6457,35 +6461,35 @@ Help
 	margin-bottom: 1px;
 }
 .block-help .uk-nav li.head {
-  background: #528ed3;
-  font-size: 16px;
-  max-height: 30px;
-  padding: 8px 5.1% 14px !important;
-  font-weight: 700;
+	background: #528ed3;
+	font-size: 16px;
+	max-height: 30px;
+	padding: 8px 5.1% 14px !important;
+	font-weight: 700;
 }
 .block-help .uk-nav .head a {
-  color: #fff;
-  border: 0;
-  font-size: 16px !important;
+	color: #fff;
+	border: 0;
+	font-size: 16px !important;
 }
 .block-help .uk-nav {
     border: 0;
     float: left;
 }
 .block-help .uk-nav li a {
-  line-height: 16px;
-  width: 89.8%;
+	line-height: 16px;
+	width: 89.8%;
 }
 .help .block-help .uk-nav {
     border: 1px solid #d0d0d0;
 }
 .help .block-help .uk-nav li {
-  border-bottom: 1px solid #d0d0d0;
-  padding: 9px 5.1% 6px 5.1%;
+	border-bottom: 1px solid #d0d0d0;
+	padding: 9px 5.1% 6px 5.1%;
 }
 .help .guides a.uk-button,
 .help .top-faq a.uk-button {
-  margin-top: 13px !important;
+	margin-top: 13px !important;
 }
 .block-help .uk-nav a.uk-button {
 	width: 100%;
@@ -9378,4 +9382,10 @@ Payment window
 	}
 }
 
-
+/* Change help pages */
+.main-help-page .block-help .help-content {
+	width: 100%;
+}
+.uk-nav.demo {
+	display: none;
+}

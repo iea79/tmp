@@ -1,5 +1,5 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-{% block theme 'help' %}
+{% block theme 'help main-help-page' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 {% endblock%}
@@ -35,7 +35,7 @@
 			                	</li>
 			                {% endfor %}
 	                        <li>
-	                        	<a class="uk-button uk-button-primary" href="#">more questions</a>
+	                        	<a class="uk-button uk-button-primary" href="{{ path('faqs') }}">more questions</a>
 	                        </li>
 	                    </ul>
 						<ul class="uk-nav guides">
