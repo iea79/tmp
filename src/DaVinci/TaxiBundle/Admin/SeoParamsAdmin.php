@@ -1,36 +1,33 @@
 <?php
+
 namespace DaVinci\TaxiBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use DaVinci\TaxiBundle\Entity\UserComment;
 
-class UserCommentAdmin extends Admin
+class SeoParamsAdmin extends Admin
 {
     
     // Fields to be shown on create/edit forms
     public function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('text')
-            ->add('user', 'sonata_type_model_list')
-            ->add('type', 'choice', array(
-                'choices' => UserComment::getTypeList())
-            )
-            ->add('state', 'choice', array(
-                'choices' => UserComment::getStateList())
-            );
+            ->add('actionName', 'text', array('label' => 'Action name'))
+            ->add('actionPath', 'text', array('label' => 'URL path'))
+            ->add('seoTitle', 'text', array('label' => 'Seo title'))
+            ->add('seoKeywords', 'text', array('label' => 'Seo keywords'))
+            ->add('seoDescription', 'text', array('label' => 'Seo description'));
     }
 
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('type')
-            ->add('text')
-            ->add('state');
+            ->add('seoTitle')
+            ->add('seoKeywords')
+            ->add('seoDescription');
     }
 
     // Fields to be shown on lists
@@ -46,9 +43,7 @@ class UserCommentAdmin extends Admin
             ))
             ->add('_action', 'actions', array(
                 'actions' => array(
-            //      'view' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
+                    'edit' => array()
                 )
             ));
     }

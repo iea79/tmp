@@ -16,12 +16,22 @@ use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 
 class StepsController extends Controller 
 {
+    
+    use SeoTrait;
 	
 	const ACTION_BOOK_TRIP = 'book-trip';
 	const ACTION_SHOW_OPEN_ORDERS = 'open-orders';
 	const ACTION_SHOW_ALL_ORDERS = 'all-orders';
-	
-	protected function showSteps()
+    
+    public function render($view, array $parameters = array(), \Symfony\Component\HttpFoundation\Response $response = null) {
+        if (!is_null($this->getParams())) {
+            $parameters['seoParams'] = $this->getParams();
+        }
+        
+        return parent::render($view, $parameters, $response);
+    }
+
+    protected function showSteps()
 	{
 		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');
 		$passengerRequest = $this->generatePassengerRequest();

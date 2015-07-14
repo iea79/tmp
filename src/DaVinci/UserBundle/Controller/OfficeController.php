@@ -24,37 +24,37 @@ class OfficeController extends StepsController
 {
 	
     /**
-    * @Route("/choose-office", name="fos_user_registration_confirmed")
-    * @Method("GET")
-    * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_COMPANYDRIVER') or has_role('ROLE_TAXIMANAGER') or has_role('ROLE_TAXICOMPANY')")
-    */
+     * @Route("/choose-office", name="fos_user_registration_confirmed")
+     * @Method("GET")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_COMPANYDRIVER') or has_role('ROLE_TAXIMANAGER') or has_role('ROLE_TAXICOMPANY')")
+     */
     public function office_chooseAction()
     {
         return $this->render('DaVinciUserBundle:Offices:office_choose.html.twig');
     }
     
     /**
-    * @Route("/office-company", name="office_company")
-    * @Security("has_role('ROLE_TAXICOMPANY')")
-    */
+     * @Route("/office-company", name="office_company")
+     * @Security("has_role('ROLE_TAXICOMPANY')")
+     */
     public function office_companyAction()
     {
         return $this->render('DaVinciUserBundle:Offices:office_company.html.twig');
     }
 
     /**
-    * @Route("/office-manager-company", name="office_manager_company")
-    * @Security("has_role('ROLE_TAXICOMPANY')")
-    */
+     * @Route("/office-manager-company", name="office_manager_company")
+     * @Security("has_role('ROLE_TAXICOMPANY')")
+     */
     public function office_manager_companyAction()
     {
         return $this->render('DaVinciUserBundle:Offices:office_manager_company.html.twig');
     }
 
     /**
-    * @Route("/office-passenger-profile", name="office_passenger_profile")
-    * @Security("has_role('ROLE_USER')")
-    */
+     * @Route("/office-passenger-profile", name="office_passenger_profile")
+     * @Security("has_role('ROLE_USER')")
+     */
     public function office_passenger_profileAciton(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
@@ -235,18 +235,18 @@ class OfficeController extends StepsController
     }
 
     /**
-    * @Route("/order-table", name="order_table")
-    * @Security("has_role('ROLE_USER')")
-    */   
+     * @Route("/order-table", name="order_table")
+     * @Security("has_role('ROLE_USER')")
+     */   
     public function order_tableAction()
     {
         return $this->render('DaVinciUserBundle:Offices:order_table.html.twig');
     }
     
     /**
-    * @Route("/dispet-table", name="dispet_table")
-    * @Security("has_role('ROLE_USER')")
-    */      
+     * @Route("/dispet-table", name="dispet_table")
+     * @Security("has_role('ROLE_USER')")
+     */      
     public function dispet_tableAction()
     {
         return $this->render('DaVinciUserBundle:Offices:dispet_table.html.twig');

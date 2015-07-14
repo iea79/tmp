@@ -6,6 +6,15 @@ services:
         arguments:
             - null
             - DaVinci\TaxiBundle\Entity\UserComment
+            - SonataAdminBundle:CRUD
+            
+    davinci.taxi.admin.seoparams:
+        class: DaVinci\TaxiBundle\Admin\SeoParamsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Seo params" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\Seo\Params
             - SonataAdminBundle:CRUD        
         
     davinci.taxi.admin.countrycity:

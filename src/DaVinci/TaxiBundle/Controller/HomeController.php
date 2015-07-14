@@ -33,10 +33,11 @@ use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
-class HomeController extends StepsController {
-	
+class HomeController extends StepsController 
+{
+    
     public function indexAction() {
-    	$result = $this->showSteps();
+        $result = $this->showSteps();
     	if (is_array($result)) {
     		$allStockRequests = $this->getPassengerRequestRepository()->getActualRequestsByStates(
 				array(

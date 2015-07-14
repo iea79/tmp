@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="{{ app.request.locale }}">
     <head>
-      {#  <script src="{{ asset('bundles/davincitaxi/js/pace.min.js') }}"></script>#}
+        {#  
+        <script src="{{ asset('bundles/davincitaxi/js/pace.min.js') }}"></script>
+        #}
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#ff4d61">
+        {% if seoParams is defined %}
+            <meta name="title" content="{{ seoParams.seoTitle }}" />
+            <meta name="description" content="{{ seoParams.seoDescription }}" />
+            <meta name="keywords" content="{{ seoParams.seoKeywords }}" />
+        {% endif %}    
         {% block seoblock %}
-            {{ sonata_seo_metadatas() }}
+            {# sonata_seo_metadatas() #}
             {{ sonata_seo_link_canonical() }}
             {{ sonata_seo_lang_alternates() }}
-            {{ sonata_seo_title() }}
+            {# sonata_seo_title() #}
         {% endblock %}
         {% block stylesheets %}
-            {% stylesheets 'bundles/davincitaxi/css/uikit.css'
-					'bundles/davincitaxi/css/addons/uikit.addons.css'
-					'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' 
-					'bundles/davincitaxi/css/styles.css' 
-                    'bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css' filter='cssrewrite' 
-            %}
-
-            <link media="all" rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
+        {% stylesheets 'bundles/davincitaxi/css/uikit.css'
+                'bundles/davincitaxi/css/addons/uikit.addons.css'
+                'bundles/davincitaxi/css/flick/jquery-ui-1.10.4.custom.min.css' 
+                'bundles/davincitaxi/css/styles.css' 
+                'bundles/davincitaxi/js/intl-tel-input-master/css/intlTelInput.css' filter='cssrewrite' 
+        %}
+        <link media="all" rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('bundles/davincitaxi/images/favicon.ico') }}" />
     </head>
@@ -260,7 +266,7 @@
                             <ul class="uk-subnav uk-subnav-pill uk-list">
                                 <li><a href="#">{{ 'Privacy Policy'|trans }}</a></li>
                                 <li><a href="{{ url('reviews') }}">{{ 'Reviews'|trans }}</a></li>
-                                <li><a href="#">{{ 'Blog'|trans }}</a></li>
+                                <li><a href="{{ path('blogs') }}">{{ 'Blog'|trans }}</a></li>
                             </ul>
                         </nav>
 

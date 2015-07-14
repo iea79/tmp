@@ -14,7 +14,8 @@ use DaVinci\TaxiBundle\Entity\TaxiCompany;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
 use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 
-class RegistrationController extends BaseController {
+class RegistrationController extends BaseController 
+{
 
     /**
      * Receive the confirmation token from user email provider, login the user

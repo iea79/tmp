@@ -23,7 +23,13 @@ services:
         class: DaVinci\TaxiBundle\EventListener\OfficeSubscriber
         arguments: ["@da_vinci_taxi.service.remote_requester", "@da_vinci_taxi.service.composite_informer", "@security.context"]
         tags:
-            - { name: kernel.event_subscriber }                
+            - { name: kernel.event_subscriber }
+    
+    davinci_locale.subscriber.seo_subscriber:
+        class: DaVinci\TaxiBundle\EventListener\SeoSubscriber
+        arguments: ["@da_vinci_taxi.repository.seo_params"]
+        tags:
+            - { name: kernel.event_subscriber }        
     
     da_vinci_taxi.service.passenger_request_service:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService
@@ -59,6 +65,13 @@ services:
         class: DaVinci\TaxiBundle\Command\CancelExpiredRequestsCommand
         tags:
             -  { name: console.command }
+    
+    da_vinci_taxi.repository.seo_params:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\Seo\Params        
             
     da_vinci_taxi.repository.internal_message_repository:
         class: Doctrine\ORM\EntityRepository
