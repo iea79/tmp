@@ -1,0 +1,48 @@
+<?php
+
+namespace DaVinci\TaxiBundle\Entity\Seo;
+
+use Doctrine\ORM\Mapping AS ORM;
+
+/**
+ * @ORM\Entity(repositoryClass="ParamsRepository")
+ * @ORM\Table(name="seo_params")
+ */
+class Params 
+{
+    
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
+    /**
+     * @ORM\Column(type="string", name="action_name")
+     */
+    private $actionName;
+    
+    /**
+     * @ORM\Column(type="string", name="action_path")
+     */
+    private $actionPath;
+    
+    /**
+     * @ORM\Column(type="string", name="seo_title")
+     */
+    private $seoTitle;
+    
+    /**
+     * @ORM\Column(type="string", name="seo_keywords")
+     */
+    private $seoKeywords;
+    
+    /**
+     * @ORM\Column(type="string", name="seo_description")
+     */
+    private $seoDescription;
+        
+}
+
+?>

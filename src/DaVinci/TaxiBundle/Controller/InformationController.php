@@ -193,7 +193,8 @@ class InformationController extends StepsController
             array(
             	'reviews' => true,
                 'social' => false,
-                'isblog' => false
+                'isblog' => false,
+                'reviewColumn' => $reviewColumn
         	)
         );
     }
