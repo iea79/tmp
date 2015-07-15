@@ -7690,18 +7690,6 @@ Social page
 Reviews page
 =================== */
 
-.reviews .buttom-swicher li:first-child {
-  width: 71px;
-}
-.reviews .buttom-swicher li:nth-child(2) {
-  width: 154px;
-}
-.reviews .buttom-swicher li:nth-child(3) {
-  width: 95px;
-}
-.reviews .buttom-swicher li:nth-child(4) {
-  width: 152px;
-}
 .reviews .stories .first,.reviews .stories .second {
 	height: 372px;
 	background-size: 100%;
