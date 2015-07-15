@@ -179,14 +179,14 @@ class InformationController extends StepsController
 		return $this->render(
         	'DaVinciTaxiBundle:Information:info.html.twig',
         	array(
+                'reviews' => false,
         		'social' => true,
-        		'reviews' => false,
         		'isblog' => false
         	)
         );
     }
     
-    public function reviewsAction()
+    public function reviewsAction($reviewColumn)
     {
         return $this->render(
         	'DaVinciTaxiBundle:Information:info.html.twig',

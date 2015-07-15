@@ -81,8 +81,8 @@ social:
     options: { useAsInnerURL: true }
 
 reviews:
-    pattern:  /reviews
-    defaults: { _controller: DaVinciTaxiBundle:Information:reviews }    
+    pattern:  /reviews/{reviewColumn}
+    defaults: { _controller: DaVinciTaxiBundle:Information:reviews, reviewColumn: 'passengers' }    
     options: { useAsInnerURL: true }
 
 blogs:

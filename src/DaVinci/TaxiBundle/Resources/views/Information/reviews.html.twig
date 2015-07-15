@@ -3,14 +3,15 @@
 </div>
 <div class="reviews">
    	<div class="buttom-swicher">
-        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#reviews'}">
-            <li class="uk-active"><a href="#">{{ 'Stories' |trans }}</a></li>
-            <li><a href="#">{{ 'From passengers' |trans }}</a></li>
+        <ul class="uk-width-1-1 uk-width-large-2-3">
+            {# <li class="uk-active"><a href="#">{{ 'Stories' |trans }}</a></li> #}
+            <li class="uk-active"><a href="#">{{ 'From passengers' |trans }}</a></li>
             <li><a href="#">{{ 'From drivers' |trans }}</a></li>
             <li><a href="#">{{ 'From taxi company' |trans }}</a></li>
         </ul>
     </div>
     <ul id="reviews" class="uk-switcher">
+        {#
         <li class="uk-active">
             <div class="stories">
                 <div class="first">
@@ -40,7 +41,8 @@
                 <button class="uk-button more">MORE <span>(245)</span></button>
             </div>
         </li>
-        <li>{# from passengers #}
+        #}
+        <li> {# from passengers #}
             <div class="block-help">
                 <div class="chat">
                         <div class="messagechat">
@@ -84,7 +86,7 @@
                             </div>
                         </div>
                 </div>
-                    <button class="uk-button more">MORE <span>(245)</span></button>
+                <button class="uk-button more">MORE <span>(245)</span></button>
                 <div class="new">
                     <h3>New review</h3>
                     
@@ -148,7 +150,7 @@
                             </div>
                         </div>
                 </div>
-                    <button class="uk-button more">MORE <span>(245)</span></button>
+                <button class="uk-button more">MORE <span>(245)</span></button>
                 <div class="new">
                     <h3>New review</h3>
                     <p>Please leave your review</p>
@@ -186,7 +188,7 @@
                 </div>
             </div>
         </li>
-        <li>{# for taxi company #}
+        <li> {# for taxi company #}
             <div class="block-help">
                 <div class="chat">
                         <div class="messagechat">
