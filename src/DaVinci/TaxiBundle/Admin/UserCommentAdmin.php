@@ -16,12 +16,15 @@ class UserCommentAdmin extends Admin
         $formMapper
             ->add('text')
             ->add('user', 'sonata_type_model_list')
+            ->add('rateLevel', 'choice', array(
+                'choices' => UserComment::getRateList()
+            ))
             ->add('type', 'choice', array(
-                'choices' => UserComment::getTypeList())
-            )
+                'choices' => UserComment::getTypeColumns()
+            ))
             ->add('state', 'choice', array(
-                'choices' => UserComment::getStateList())
-            );
+                'choices' => UserComment::getStateList()
+            ));
     }
 
     // Fields to be shown on filter forms
@@ -38,7 +41,7 @@ class UserCommentAdmin extends Admin
     {
         $listMapper
             ->add('type', 'choice', array(
-                'choices' => UserComment::getTypeList()
+                'choices' => UserComment::getTypeColumns()
             ))
             ->add('text')
             ->add('state', 'choice', array(
@@ -48,7 +51,7 @@ class UserCommentAdmin extends Admin
                 'actions' => array(
             //      'view' => array(),
                     'edit' => array(),
-                    'delete' => array(),
+                    'delete' => array()
                 )
             ));
     }

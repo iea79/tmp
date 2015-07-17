@@ -5,15 +5,11 @@
    	<div class="buttom-swicher">
         <ul class="uk-width-1-1 uk-width-large-2-3">
             {# <li class="uk-active"><a href="#">{{ 'Stories' |trans }}</a></li> #}
-            <li{% if reviewColumn == 'passengers' %} class="uk-active"{% endif %}>
-                <a href="{{ path('reviews', {'reviewColumn': 'passengers'}) }}">{{ 'From passengers' |trans }}</a>
-            </li>
-            <li{% if reviewColumn == 'drivers' %} class="uk-active"{% endif %}>
-                <a href="{{ path('reviews', {'reviewColumn': 'drivers'}) }}">{{ 'From drivers' |trans }}</a>
-            </li>
-            <li{% if reviewColumn == 'companies' %} class="uk-active"{% endif %}>
-                <a href="{{ path('reviews', {'reviewColumn': 'companies'}) }}">{{ 'From taxi company' |trans }}</a>
-            </li>
+            {% for key,column in reviewColumns %}
+                <li{% if reviewColumn == key %} class="uk-active"{% endif %}>
+                    <a href="{{ path('reviews', {'reviewColumn': key}) }}">{{ column|trans }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </div>
     <ul id="reviews">
@@ -50,31 +46,46 @@
         #}
         <li> 
             <div class="block-help">
-                <div class="chat">
-                    <div class="messagechat">
-                        <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                            <div class="topchat">
-                                <a class="name">Дима Ковпак</a>
-                                <span>(11 MAR 14   04:41 PM)</span>
-                                <div class="textchat">
-                                    Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                </div>
+                {% for item in items %}
+                    {% set actualUser = item.user %}
+                    <div class="chat">
+                        <div class="messagechat">
+                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
+                                <div class="topchat">
+                                    <a class="name">{{ actualUser.username  }}</a>
+                                    <span>({{ item.createdAt|date('d M y H:i A') }})</span>
+                                    <div class="textchat">{{ item.text }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <button class="uk-button more">MORE <span>(245)</span></button>
+                {% endfor %}
+                {# <button class="uk-button more">MORE <span>(245)</span></button> #}
                 <div class="new">
                     <h3>New review</h3>
                     {% if is_granted('ROLE_USER') %}
-                        <p>{{'Please leave your review'|trans}}</p>
-                        <dl class="fullsize">
-                            <dt>{{'Text review'|trans}}:</dt>
-                            <dd>
-                                <textarea id="passenger_review_text" class="charcount" cols="30" rows="10"></textarea>
-                                <h6 class="precounter">{{'symbols left'|trans}}:</h6>
-                            </dd>
-                        </dl>
-                        <a href="#" class="uk-button uk-button-success send" id="passenger_review_send">{{'Send Review'|trans}}</a>
+                        {% if created == true %}
+                            <p>{{ 'Review has been sent'|trans }}</p>
+                        {% else %}
+                            {% set currentRoute = app.request.get('_route') %}
+                            <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
+                                <div class="errors for-steps">{{ form_errors(form) }}</div>
+                                <p>{{'Please leave your review'|trans}}</p>
+                                <dl class="fullsize">
+                                    <dt>{{'Rate level'|trans}}:</dt>
+                                    <dd>
+                                        {{ form_errors(form.rateLevel) }}
+                                        {{ form_widget(form.rateLevel) }}
+                                    </dd>
+                                    <dt>{{'Text review'|trans}}:</dt>
+                                    <dd>
+                                        {{ form_errors(form.text) }} 
+                                        {{ form_widget(form.text) }} 
+                                        <h6 class="precounter">{{'symbols left'|trans}}:</h6>
+                                    </dd>
+                                </dl>
+                                <button class="uk-button">{{'Send Review'|trans}}</button>
+                            </form>
+                        {% endif %}    
                     {% else %}
                         <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}</p>
                     {% endif %}

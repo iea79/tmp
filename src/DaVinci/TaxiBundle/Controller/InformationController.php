@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+use DaVinci\TaxiBundle\Entity\UserComment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
@@ -186,15 +187,34 @@ class InformationController extends StepsController
         );
     }
     
-    public function reviewsAction($reviewColumn)
+    public function reviewsAction(Request $request, $reviewColumn)
     {
+        $userCommentService = $this->get('da_vinci_taxi.service.user_comment');
+        
+        $form = $this->createForm('userComment');
+        $form->handleRequest($request);
+                
+        $created = false;
+        if ($form->isValid()) {
+            $user = $this->get('security.context')->getToken()->getUser();
+            if (!is_null($user)) {
+                $userCommentService->create($form->getData(), $user, $reviewColumn);
+                
+                $created = true;
+            }
+        }
+        
         return $this->render(
         	'DaVinciTaxiBundle:Information:info.html.twig',
             array(
             	'reviews' => true,
                 'social' => false,
                 'isblog' => false,
-                'reviewColumn' => $reviewColumn
+                'reviewColumn' => $reviewColumn,
+                'reviewColumns' => UserComment::getTypeColumnList(),
+                'form' => $form->createView(),
+                'created' => $created,
+                'items' => $userCommentService->getValidByColumn($reviewColumn)
         	)
         );
     }
