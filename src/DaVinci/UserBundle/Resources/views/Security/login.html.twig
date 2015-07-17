@@ -1,7 +1,9 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block title %}{% endblock%}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banners/banner1.html.twig' %}
+{% endblock%}
 {% block fos_user_content %}
 <div class="wrapper-content">
     <div class="content register">

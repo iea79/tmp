@@ -1,8 +1,16 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-passenger' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-{% endblock%}
+	{% if subMethod == 'book-trip' %}
+	    {% include 'DaVinciTaxiBundle:banners:banner1.html.twig' %}
+	{% endif %}
+	{% if subMethod == 'open-orders' %}
+	    {% include 'DaVinciTaxiBundle:banners:banner2.html.twig' %}
+	{% endif %}
+	{% if subMethod == 'all-orders' %}
+	    {% include 'DaVinciTaxiBundle:banners:banner3.html.twig' %}
+	{% endif %}
+{% endblock %}
 {% block body %}
 {# =========== cabinet passenger ================= #}
 <div class="client-account">

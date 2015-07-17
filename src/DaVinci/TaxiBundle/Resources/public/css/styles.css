@@ -5330,27 +5330,27 @@ body.register .main-content{
 Step-4
 ========================= */
 .order-step-four .uk-icon-check {
-  margin-left: -10px;
-  line-height: 11px;
-  font-size: 20px;
-  color: #8d8f98;
-  text-align: right;
+	margin-left: -10px;
+	line-height: 11px;
+	font-size: 20px;
+	color: #8d8f98;
+	text-align: right;
 }
 @media only screen and (max-width: 761px) {
 	.order-step-four {
-	  width: 100%;
+		width: 100%;
 	}
 }
 @media only screen and (max-width: 827px) {
 	.order-step-four dt,
 	.order-step-four dd {
-	  width: 100%;
+		width: 100%;
 	}
 	.order-step-four dt {
-	  margin-bottom: 5px !important;
+		margin-bottom: 5px !important;
 	}
 	.order-step-four .uk-icon-check {
-	  margin-left: 0 !important;
+		margin-left: 0 !important;
 	}
 }
 .order-step-4 .whitebg {
@@ -5359,33 +5359,37 @@ Step-4
 	margin-bottom: 8px;
 }
 .order-step-4 .title {
-  margin-top: 17px;
-  margin-bottom: 18px;
+	margin-top: 17px;
+	margin-bottom: 18px;
 }
 .wrapper-content.banner {
-  margin: 25px auto 17px;
-  max-width: 1000px;
+	margin: 25px auto 17px;
+	max-width: 1000px;
+}
+.wrapper-content.banner .content {
+	background-color: #fff;
+	box-shadow: 0 1px 1px 0 #b4b4b4;
 }
 .order-step-4 .register {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .order-step-4 .main-content {
-  margin-top: -17px !important;
+	margin-top: -17px !important;
 }
 .check-order .passenger-info {
-  padding: 14px 13px 13px 18px;
+	padding: 14px 13px 13px 18px;
 }
 .check-order .passenger-info hr {
-  padding: 0;
-  margin: 5px 0 14px !important;
-  color: #ff4d61;
-  background: #ff4d61;
-  height: 1px;
-  width: 100%;
-  display: block;
+	padding: 0;
+	margin: 5px 0 14px !important;
+	color: #ff4d61;
+	background: #ff4d61;
+	height: 1px;
+	width: 100%;
+	display: block;
 }
 .check-order .passenger-info .tariff hr {
-  margin: 5px 0 14px !important;
+	margin: 5px 0 14px !important;
 }
 .check-order .passenger-info h1.labels {
 	margin: 0;
