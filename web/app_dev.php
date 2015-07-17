@@ -14,6 +14,7 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
     || !(in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1'
         , '81.198.90.13' //dima
         , '62.16.43.150' //evgeny ivanov
+        , '217.118.83.222' //evgeny ivanov nout
         , '89.209.11.134' //vasya
         , '185.43.248.214' //aleksey
         , '109.68.173.20' //evgeniy voronov
