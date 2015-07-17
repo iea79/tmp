@@ -34,17 +34,14 @@ class SeoParamsAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('type', 'choice', array(
-                'choices' => UserComment::getTypeList()
-            ))
-            ->add('text')
-            ->add('state', 'choice', array(
-                'choices' => UserComment::getStateList()
-            ))
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'edit' => array()
-                )
-            ));
+	    	->add('seoTitle')
+	    	->addIdentifier('seoKeywords')
+	    	->add('seoDescription')
+	    	->add('_action', 'actions', array(
+	    		'actions' => array(
+	    			'edit' => array(),
+	    			'delete' => array(),
+	    		)
+	    	));        
     }
 }
