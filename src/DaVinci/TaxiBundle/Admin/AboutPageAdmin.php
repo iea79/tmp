@@ -79,7 +79,7 @@ class AboutPageAdmin extends Admin
                     	'provider' => 'sonata.media.provider.youtube'
                 	))
 				)
-                ->add('textToLeft', 'checkbox', array('label' => 'Is video to right?'))
+                ->add('textToLeft', 'checkbox', array('label' => 'Video to right side'))
 			->end()
             ->with('Comments') 
             	->add(

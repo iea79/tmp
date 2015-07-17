@@ -22,7 +22,7 @@ class PassengerInfoType extends AbstractType {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
 			'validation_groups' => array('flow_createPassengerRequest_step3'),
-			'csrf_protection' => false,
+			'csrf_protection' => false
 		));
 	}
 	
