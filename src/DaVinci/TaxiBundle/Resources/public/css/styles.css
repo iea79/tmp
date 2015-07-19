@@ -299,13 +299,13 @@ Header style
 	height: 45px;
 }
 .nav-head ul,.nav-head a {
-	display: block;
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	float: left;
 	box-sizing: border-box;
 	position: relative;
+	display: block;
 }
 .nav-head ul > li > a {
 	color: #3c3d45;
@@ -318,6 +318,7 @@ Header style
 	background: url("../images/shashki-left-top.png") no-repeat scroll left top transparent;
 	padding: 0 0 0 13%;
 	width: 49%;
+	height: 48px;
 }
 .nav-head .info-menu {
 	float: right;
@@ -329,21 +330,23 @@ Header style
 	height: 48px;
 }
 .nav-head .main-menu > li {
-	padding: 12px 4% 0 0;
 	box-sizing: border-box;
+	float: none;
+	display: inline-block;
+	padding: 12px 0 0;
 }
 .nav-head .main-menu > li:first-child {
-	padding-right: 7.4%;
+	/* padding-right: 7.4%; */
 }
 .nav-head .main-menu li:last-child {
-	width: 120px;
-	padding: 12px 0 0 0;
+	/* width: 120px; */
+	/* padding: 12px 0 0 0; */
 }
 .nav-head .main-menu li:last-child a {
-	float: left;
-	padding: 0 5px;
+	/* float: left; */
+	/* padding: 0 5px; */
 	border: 0;
-	width: auto;
+	/* width: auto; */
 }
 .nav-head .main-menu li:last-child a[class*="uk-button-"] {
 	float: left;
@@ -363,7 +366,7 @@ Header style
 	line-height: 22px;
 	border-right: 1px solid #D1D1D1;
 	text-align: left;
-	width: 66px;
+	padding: 0 14px;
 }
 .nav-head .info-menu .thumb {
 	height: 32px;
@@ -2536,7 +2539,7 @@ footer {
 			}
 			.footer-top .footer-in .add-nav ul li:first-child {
 				border:none;
-				margin-right:-9px;
+				/* margin-right:-9px; */
 			}
 		.footer-top .footer-in .social {
 			float:right;
@@ -5369,6 +5372,8 @@ Step-4
 .wrapper-content.banner .content {
 	background-color: #fff;
 	box-shadow: 0 1px 1px 0 #b4b4b4;
+	border-radius: 3px;
+	overflow: hidden;
 }
 .order-step-4 .register {
 	margin-bottom: 10px;
@@ -7879,6 +7884,26 @@ Litle stars for rate
   float: left;
 }
 
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  color: #ff4d61;
+  font-size: 18px;
+  text-align: left;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.rating > span.active:before,
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
+
 /* ================================================
 08.12.2014 by aglovlyuk          *=== Unsorted ===*
 ================================================= */
@@ -8202,10 +8227,10 @@ Addcard
 	.addcard .uk-form-controls {
 		width: 100%;
 	}
-
-.soc-top div.uk-icon-facebook-square, .soc-top div.uk-icon-twitter-square, .soc-top div.uk-icon-google-plus-square, .soc-top div.uk-icon-youtube-square {
-	font-size: 6.6em;
-}}
+	.soc-top div.uk-icon-facebook-square, .soc-top div.uk-icon-twitter-square, .soc-top div.uk-icon-google-plus-square, .soc-top div.uk-icon-youtube-square {
+		font-size: 6.6em;
+	}
+}
 .uk-table.thead-gray th.daterange {
 	padding: 0 1%;
 	width: 21%;
@@ -9213,17 +9238,13 @@ Payment window
 }
 @media (max-width: 820px) {
 	.nav-head .main-menu > li {
-		padding: 12px 3% 0 0;
 	}
 	.nav-head .main-menu > li:first-child {
-		padding-right: 0;
 	}
 	.nav-head .main-menu > li > a {
 		font-size: 16px;
-		width: 55px;
 	}
 	.nav-head .main-menu > li:nth-child(2) > a {
-		text-align: center;
 	}
 }
 @media (max-width: 770px) {
@@ -9255,14 +9276,13 @@ Payment window
 		display: none;
 	}
 	.nav-head .main-menu li:last-child {
-		width: auto;
 	}
 	.nav-head .main-menu {
 		padding: 0 0 0 3%;
 		width: 36%;
 	}
 	.nav-head .main-menu > li > a {
-		width: 53px;
+		padding: 0 6px;
 	}
 	.nav-head .sigin {
 		width: 17%;
@@ -9314,6 +9334,10 @@ Payment window
 	}
 	.nav-head .sigin {
 		width: 21%;
+	}
+.nav-head .main-menu > li > a {
+	font-size: 14px;
+	padding-left: 3px;
 	}
 }
 @media (max-width: 480px) {

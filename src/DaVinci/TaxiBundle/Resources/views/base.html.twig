@@ -42,14 +42,10 @@
                                 <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">
                                     <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
                                 </a>
-                                <ul class="main-menu">
-                                    <li><a href="{{ url('about') }}">{{ 'About'|trans }}</a></li>
+                                <ul class="main-menu uk-navbar-content uk-navbar-center">
+                                    <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
+                                    <li><a href="#">{{ 'Driver'|trans }}</a></li>
                                     <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
-                                    <li>
-                                        <a class="uk-button-danger mp-icon-person"></a>
-                                        <a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a>
-                                        <a class="uk-button-primary mp-icon-taxi"></a>
-                                    </li>
                                 </ul>
                                 <ul class="sigin"> 
                                     <li>
@@ -148,7 +144,7 @@
                                                 </div>
                                             </div>
                                         {% else %}
-                                            <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Sign in'|trans }}</a>
+                                            <a href="{{ url('fos_user_security_login') }}" class="uk-button  uk-button-link nonautorized">{{ 'Hello, Log in'|trans }}</a>
                                         {% endif %}
                                     </li>
                                 </ul>
@@ -264,6 +260,7 @@
                     <div class="footer-in">
                         <nav class="add-nav">
                             <ul class="uk-subnav uk-subnav-pill uk-list">
+                                <li><a href="{{ url('about') }}">{{ 'About'|trans }}</a></li>
                                 <li><a href="#">{{ 'Privacy Policy'|trans }}</a></li>
                                 <li><a href="{{ url('reviews') }}">{{ 'Reviews'|trans }}</a></li>
                                 <li><a href="{{ path('blogs') }}">{{ 'Blog'|trans }}</a></li>
