@@ -50,8 +50,8 @@
                     {% set actualUser = item.user %}
                     <div class="chat">
                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
                                 <div class="topchat">
+                                    <div class="avatar"></div>
                                     <a class="name">{{ actualUser.username  }}</a>
                                     <span>({{ item.createdAt|date('d M y H:i A') }})</span>
                                     <div class="textchat">{{ item.text }}</div>

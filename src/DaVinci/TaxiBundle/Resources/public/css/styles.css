@@ -7259,10 +7259,10 @@ Notifications
 }
 .topchat a {
   font-size: 12px;
-  float: left;
   padding-top: 4px;
   display: inline-block;
   margin-right: 5px;
+  float: left;
 }
 .topchat a i {
 	margin-right: 8px;
@@ -7276,17 +7276,17 @@ Notifications
 .chat span {
 	font-size: 12px;
 	border-bottom: 1px #ddd solid;
-	display: block;
 	padding: 2px 0 6px;
 	width: 100%;
 	margin-bottom: 6px;
+	display: block;
 }
 .chat a.name {
   color: #528ed3 !important;
   line-height: 16px !important;
   font-size: 16px;
   margin-left: -1px;
-  margin: -2px 2px 0 -1px;
+  margin: 0px 4px 0 0px;
 }
 .chat .textchat {
   color: #3c3d45;
@@ -7306,7 +7306,7 @@ Notifications
 }
 .chat .avatar {
   height: 26px;
-  display: block;
+  display: inline-block;
   min-width: 26px !important;
   background: #ff4d61;
   margin-right: 0.9%;
@@ -7314,11 +7314,12 @@ Notifications
   font-size: 22px;
   color: #fff;
   width: 26px;
-  margin-top: 3px;
-  float: left;
   line-height: 23px;
+  float: left;
 }
 .chat .avatar:before {
+	font-family: 'icontaxi';
+	content: "\e601";
 	display: block;
 	margin-top: 1px;
 }
@@ -7755,6 +7756,7 @@ Reviews page
 	margin-left: 2%;
 }
 .reviews .topchat,.reviews .topchatsupport {
+	vertical-align: baseline;
 }
 .reviews .new {
 	margin-top: 22px;
