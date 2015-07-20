@@ -1,6 +1,6 @@
-<div class="message">
+{#<div class="message">
     <span>Внимание!</span> Текстовая информация.
-</div>
+</div>#}
 <div class="reviews">
    	<div class="buttom-swicher">
         <ul class="uk-width-1-1 uk-width-large-2-3">
@@ -43,15 +43,15 @@
                 <button class="uk-button more">MORE <span>(245)</span></button>
             </div>
         </li>
-        #}
         <li> 
+        #}
             <div class="block-help">
                 {% for item in items %}
                     {% set actualUser = item.user %}
                     <div class="chat">
                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
                                 <div class="topchat">
+                                    <div class="avatar"></div>
                                     <a class="name">{{ actualUser.username  }}</a>
                                     <span>({{ item.createdAt|date('d M y H:i A') }})</span>
                                     <div class="textchat">{{ item.text }}</div>
@@ -73,17 +73,20 @@
                                 <dl class="fullsize">
                                     <dt>{{'Rate level'|trans}}:</dt>
                                     <dd>
+                                        <div class="rating">
+                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
+                                        </div>
                                         {{ form_errors(form.rateLevel) }}
                                         {{ form_widget(form.rateLevel) }}
                                     </dd>
                                     <dt>{{'Text review'|trans}}:</dt>
                                     <dd>
                                         {{ form_errors(form.text) }} 
-                                        {{ form_widget(form.text) }} 
+                                        {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 
                                         <h6 class="precounter">{{'symbols left'|trans}}:</h6>
                                     </dd>
                                 </dl>
-                                <button class="uk-button">{{'Send Review'|trans}}</button>
+                                <button class="uk-button uk-button-danger">{{'Send Review'|trans}}</button>
                             </form>
                         {% endif %}    
                     {% else %}
@@ -91,7 +94,7 @@
                     {% endif %}
                 </div>
             </div>
-        </li>
+        <!-- </li> -->
          
     </ul>
 </div>

@@ -50,9 +50,9 @@
 				<div class="money-block">
 					<div class="history">
 						<span>History:</span>
+						<a class="uk-button uk-button-primary">TMP</a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
-						<a class="uk-button uk-button-primary">TMP</a>
 					</div>
 					<div class="balance">
 						<span>Balance:</span>
@@ -102,7 +102,7 @@
 					{% elseif subMethod == 'open-orders' %}	
 						<li class="uk-active">
 							<div class="whitebg">
-								<div class="message"><span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}</div>
+								{#<div class="message"><span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}</div>#}
 									<div class="table-container">
 										<table class="uk-table"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
 											<thead>
@@ -195,7 +195,7 @@
 					{% elseif subMethod == 'all-orders' %}	
 						<li class="uk-active">
 							<div class="whitebg">
-								<div class="message"><span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}</div>
+								{#<div class="message"><span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}</div>#}
 									<table class="uk-table responsive allorder">
 											<thead>
 													<tr>

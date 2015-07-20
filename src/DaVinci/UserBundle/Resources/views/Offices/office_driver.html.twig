@@ -42,9 +42,9 @@
 				<div class="money-block">
 					<div class="history">
 						<span>{{'History:'|trans}}</span>
+						<a class="uk-button uk-button-primary">TMP</a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
-						<a class="uk-button uk-button-primary">{{'TMP'|trans}}</a>
 					</div>
 					<div class="balance">
 						<span>{{'Balance:'|trans}}</span>
@@ -84,16 +84,16 @@
             <ul id="tab-content" class="uk-switcher">
                     <li class="uk-active">
                             <div class="whitebg findorder">
-								<div class="message">
+								{#<div class="message">
 									<span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}}
-								</div>
+								</div>#}
 							        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 								<div class="clear"></div>
                             </div>
                     </li>
                     <li>
                             <div class="whitebg openorder">
-                                    <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
+                                    {#<div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>#}
                                     <table class="uk-table responsive allorder">
                                         <thead>
                                                 <tr>
@@ -157,7 +157,7 @@
                     </li>
                     <li>
                     <div class="whitebg historyorder">
-                       <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
+                       {#<div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>#}
                                     <table class="uk-table responsive allorder">
                                                     <thead>
                                                             <tr>
