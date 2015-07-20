@@ -39,7 +39,6 @@ class PostEntityRepository extends BaseDocumentRepository implements RepositoryI
         
         $filtered = array();
         foreach ($posts as $key => $post) {
-            echo $post->getBlogColumn()->getId() . "\n";
             if ($post->getBlogColumn()->getId() == $columnId) {
                 $filtered[$key] = $post;
             }            
