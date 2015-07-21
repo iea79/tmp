@@ -32,14 +32,14 @@ class PostEntityRepository extends BaseDocumentRepository implements RepositoryI
     
     public function findFilteredForColumn($columnId, $isCommercial = false)
     {
+        $filtered = array();
+        
     	$posts = $this->findBy(
     		array('isCommercial' => $isCommercial), 
     		array('order' => 'asc')
     	);
         
-        $filtered = array();
         foreach ($posts as $key => $post) {
-            echo $post->getBlogColumn()->getId() . "\n";
             if ($post->getBlogColumn()->getId() == $columnId) {
                 $filtered[$key] = $post;
             }            
