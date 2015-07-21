@@ -4,14 +4,14 @@
 
     {% block title %}
     {% if flow.getCurrentStepNumber() == 1 %}
-        {% include 'DaVinciTaxiBundle::banners/banner1.html.twig' %}
+        {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
         <div class="wrapper-content title">
             <div class="clear"></div>
             {{ 'Create an account'|trans}}
         </div>
 
     {% elseif flow.getCurrentStepNumber() == 2 %}
-        {% include 'DaVinciTaxiBundle::banners/banner2.html.twig' %}
+        {% include 'DaVinciTaxiBundle:Banners:banner2.html.twig' %}
         <div class="wrapper-content title">
             <div class="clear"></div>
             <span>{{ 'Please check all details'|trans}}</span>

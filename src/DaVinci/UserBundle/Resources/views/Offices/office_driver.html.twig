@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-driver' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle:banners:banner4.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner4.html.twig' %}
 {% endblock %}
 {% block body %}
 {# ========= Account start ============= #}
@@ -84,16 +84,16 @@
             <ul id="tab-content" class="uk-switcher">
                     <li class="uk-active">
                             <div class="whitebg findorder">
-								{#<div class="message">
-									<span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}}
-								</div>#}
+								<div class="message">
+									{#<span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}}#}
+								</div>
 							        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 								<div class="clear"></div>
                             </div>
                     </li>
                     <li>
                             <div class="whitebg openorder">
-                                    {#<div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>#}
+                                    <div class="message">{#<span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}#}</div>
                                     <table class="uk-table responsive allorder">
                                         <thead>
                                                 <tr>
@@ -157,7 +157,7 @@
                     </li>
                     <li>
                     <div class="whitebg historyorder">
-                       {#<div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>#}
+                       <div class="message">{#<span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}#}</div>
                                     <table class="uk-table responsive allorder">
                                                     <thead>
                                                             <tr>

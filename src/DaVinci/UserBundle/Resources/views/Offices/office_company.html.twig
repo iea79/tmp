@@ -91,15 +91,16 @@
 		<ul id="tab-office" class="uk-switcher whitebg">
 			{# Find order #}
 			<li class="uk-active">
-				{#<div class="message">
-					<span>Напоминание: </span>информация
-				</div>#}
+				<div class="message">
+					{#<span>Напоминание: </span>информация #}
+				</div>
 				{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 			</li>
 			{# Open order #}
 			<li class="open-order wihitebg">
 				<div class="message">
-					{#<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>#}
+					{#<span>Напоминание: </span>информация #}
+				</div>
 					<div class="search-fillter">
 						<span>Your workers activation code: </span>dasde24321dfsad
 					</div>
@@ -223,9 +224,9 @@
 			</li>
 			{# Control room #}
 			<li class="control-room wihitebg">
-				{#<div class="message">
-					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div> 
-				</div>#}
+				<div class="message">
+					{#<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>#} 
+				</div>
 			   	<div class="buttom-swicher">
 			        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#control_room'}">
 			            <li class="uk-active"><a href="#">{{ 'Owner' |trans }}</a></li>
@@ -475,7 +476,7 @@
 			{# All order #}
 			<li class="all-order wihitebg">
 				<div class="message">
-					{#<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>#}
+					<div class="uk-width-1-1">{#<span>Напоминание: </span>информация #}</div>
 					<div class="search-fillter">
 						<span>Your workers activation code: </span>dasde24321dfsad
 					</div>

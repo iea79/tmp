@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'help main-help-page' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle:banners:banner1.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 {% endblock%}
 {% block body %}
 {# ======= Swicher button ========= #}
@@ -14,9 +14,9 @@
 				<button class="uk-width-1-1 uk-button"><i class="mp-icon-taxi"></i>{{' Driver help'|trans}}</button>
 			</div>
 		</div>
-			{#<div class="message">
-				<span>Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ.
-			</div>#}
+			<div class="message">
+				{#<span>Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ.#}
+			</div>
 			<div class="search">
 				<form class="uk-search" data-uk-search>
 				    <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
