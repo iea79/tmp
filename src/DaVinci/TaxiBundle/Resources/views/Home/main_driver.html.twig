@@ -1,25 +1,22 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 
 {% block body %}
-
-<div  class="home exchange-filter-page">
+<div class="home">
 	<div class="shadow-main whitebg">
 		<div class="tabtaxi">
 			<ul class="uk-tab uk-tab-grid">
 				<li class="uk-width-1-2 red-drive">
 					<a class="child"><span>{{'Book your trip'|trans}}</span></a>
-					
 				</li>
 				<li class="uk-width-1-2 current blue-drive">
 					<a class="child"><span>{{'Choose best passenger'|trans}}</span></a>
-					
 				</li>
 			</ul>
 		</div>
 		<div class="message">
-			{#<span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!#}
+			{# <span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}! #}
 		</div>
-        {#    
+        {#        
 		<div class="filter content select-group">
 			<h2>{{'Search passenger'|trans}}<span class="utooltip" data-uk-tooltip="{pos:'right'}" title="" data-cached-title=""></span></h2>
 			<form class="uk-form uk-form-horizontal">
@@ -126,21 +123,8 @@
 				</div>
 			</form>
 		</div>
-	</div>
-    #}                
-                    
-	{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+        #}            
+	</div>	
+    {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 </div>
-
-{% endblock %}
-
-{% block javascripts %}
- {% javascripts filter='?requirejs'
-    '@DaVinciTaxiBundle/Resources/public/js/pages/main.js'
-    %}
-    {# actually we need to create different js file for that page #}
-    
-    {{ require_js_initialize({ 'main' : asset_url })}}
-
-    {% endjavascripts %}
 {% endblock %}
