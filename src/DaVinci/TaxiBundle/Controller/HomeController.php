@@ -40,34 +40,10 @@ class HomeController extends StepsController
     public function indexAction() {
         $result = $this->showSteps();
     	if (is_array($result)) {
-            $states = array(
-                PassengerRequest::STATE_OPEN,
-                PassengerRequest::STATE_PENDING,
-                PassengerRequest::STATE_SOLD
-            );
-            
-            if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
-                $user = $this->get('security.context')
-	    			->getToken()
-	    			->getUser();
-    			
-    			$driver = $this->getDirverByUserId($user->getId());
-                
-                $allStockRequests = $this
-                                        ->getPassengerRequestRepository()
-                                        ->getDriverActualRequestsByStates(
-                                            $this->getDirverByUserId($user->getId()), $states
-                                        );
-            } else {
-                $allStockRequests = $this
-                                        ->getPassengerRequestRepository()
-                                        ->getActualRequestsByStates($states);
-            }
-    		
             return $this->render(
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     			array_merge($result, array(
-                    'openRequests' => $allStockRequests,
+                    'openRequests' => $this->getStockRequests(),
                     'vehicleClasses' => VehicleClasses::getFilterChoices()
                 ))
     		);
@@ -330,7 +306,10 @@ class HomeController extends StepsController
     public function mainDriverAction() {
         return $this->render(
             'DaVinciTaxiBundle:Home:main_driver.html.twig',
-            array('vehicleClasses' => VehicleClasses::getFilterChoices())
+            array(
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices()
+            )
         );
     }
     
@@ -435,6 +414,38 @@ class HomeController extends StepsController
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
     		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
+    }
+    
+    /**
+     * @return array
+     */
+    private function getStockRequests()
+    {
+        $states = array(
+            PassengerRequest::STATE_OPEN,
+            PassengerRequest::STATE_PENDING,
+            PassengerRequest::STATE_SOLD
+        );
+
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $user = $this->get('security.context')
+                ->getToken()
+                ->getUser();
+
+            $driver = $this->getDirverByUserId($user->getId());
+
+            $allStockRequests = $this
+                                    ->getPassengerRequestRepository()
+                                    ->getDriverActualRequestsByStates(
+                                        $this->getDirverByUserId($user->getId()), $states
+                                    );
+        } else {
+            $allStockRequests = $this
+                                    ->getPassengerRequestRepository()
+                                    ->getActualRequestsByStates($states);
+        }
+        
+        return $allStockRequests;
     }
                 
 }
