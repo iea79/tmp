@@ -61,7 +61,7 @@ class DriverVehicle
     
     
     /**
-	 * @ORM\Column(type="string",  name="vehicle_class", length=255)
+	 * @ORM\Column(type="string", name="vehicle_class", length=255)
 	 */
 	private $vehicleClass;
     
@@ -108,9 +108,7 @@ class DriverVehicle
      * @ORM\JoinColumn(name="driver_id", referencedColumnName="id")
      **/
     private $driver;
-    
-    
-    
+        
     /**
      * Get id
      *
@@ -264,8 +262,13 @@ class DriverVehicle
      */
     public function setVehicleClass($vehicleClass)
     {
-        $this->vehicleClass = $vehicleClass;
-
+        $choices = VehicleClasses::getChoices();    	
+    	if (!array_key_exists($vehicleClass, $choices)) {
+    		throw new \InvalidArgumentException("Invalid vehicle class :: {$vehicleClass}");
+    	}
+    
+    	$this->vehicleClass = $choices[$vehicleClass];
+        
         return $this;
     }
 
@@ -276,7 +279,7 @@ class DriverVehicle
      */
     public function getVehicleClass()
     {
-        return $this->vehicleClass;
+        return array_search($this->vehicleClass, VehicleClasses::getChoices());
     }
 
     /**

@@ -168,8 +168,8 @@ class IndependentDriver extends GeneralDriver
     static public function getDriverExperienceOptions()
     {
     	return array(
-    			self::LESS_THAN_4 => 'less than 4 years',
-    			self::MORE_THAN_4 => 'more than 4 years'
+    		self::LESS_THAN_4 => 'less than 4 years',
+    		self::MORE_THAN_4 => 'more than 4 years'
     	);
     }
         

@@ -15,7 +15,7 @@ class PassengerRequestRepository extends EntityRepository
 {
 	
 	const DEFAULT_INTERVAL_HOURS = 24;
-	const DEFAULT_LIMIT_ROWS = 15;
+	const DEFAULT_LIMIT_ROWS = 20;
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
@@ -209,7 +209,7 @@ class PassengerRequestRepository extends EntityRepository
 				req.pickUp > :availablePeriod
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
-				req.id DESC						
+				req.pickUp ASC						
 		");
 		$query->setParameter(
 			'availablePeriod',
@@ -221,7 +221,54 @@ class PassengerRequestRepository extends EntityRepository
 
 		$result = $query->getResult();
 		foreach ($result as $key => $item) {
-			if ($item->getPossibleDrivers()->count() > PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
+			if ($item->getPossibleDrivers()->count() >= PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
+				unset($result[$key]);
+				continue;
+			}
+		}
+															
+		return $result;
+	}
+    
+    /**
+	 * @param array $states
+	 *
+	 * @return array
+	 */
+	public function getDriverActualRequestsByStates(IndependentDriver $driver, array $states)
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+            JOIN
+                req.vehicle veh
+			JOIN
+				req.routePoints points
+			JOIN
+				req.tariff tariff
+			LEFT JOIN
+				req.possibleDrivers possibleDrivers		
+			WHERE
+				req.pickUp > :availablePeriod
+				AND req.stateValue IN (:stateValues)
+                AND veh.vehicleClass = :vehicleClass
+			ORDER BY
+				req.pickUp ASC						
+		");
+		$query->setParameter(
+			'availablePeriod',
+			PassengerRequest::getAvailablePickUp(), 
+			\Doctrine\DBAL\Types\Type::DATETIMETZ
+		);
+		$query->setParameter('stateValues', $states);
+        $query->setParameter('vehicleClass', $driver->getVehicle()->getVehicleClass());
+		$query->setMaxResults(self::DEFAULT_LIMIT_ROWS);
+
+		$result = $query->getResult();
+		foreach ($result as $key => $item) {
+			if ($item->getPossibleDrivers()->count() >= PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
 				unset($result[$key]);
 				continue;
 			}

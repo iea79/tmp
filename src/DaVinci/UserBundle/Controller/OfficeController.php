@@ -16,6 +16,7 @@ use DaVinci\TaxiBundle\Controller\StepsController;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
+use DaVinci\TaxiBundle\Entity\VehicleClasses;
 
 use DaVinci\UserBundle\Form\Type\OfficePassengerProfileType;
 use DaVinci\UserBundle\Form\Type\OfficeDriverProfileType;
@@ -193,24 +194,27 @@ class OfficeController extends StepsController
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
         
-        $driverRepository = $this->container
+        $driverRepository = $this
         	->get('doctrine')
         	->getManager()
         	->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
         
         $driver = $driverRepository->findOneByUserId(
-        	$this->container->get('security.context')->getToken()->getUser()->getId()
+        	$this->get('security.context')->getToken()->getUser()->getId()
         );
         
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
         	array(
-        		'openRequests' => $this->getPassengerRequestRepository()->getActualRequestsByStates(array(
-        			PassengerRequest::STATE_OPEN, 
-        			PassengerRequest::STATE_PENDING, 
-        			PassengerRequest::STATE_SOLD,
-        			PassengerRequest::STATE_APPROVED_SOLD
-        		)),
+        		'openRequests' => $this->getPassengerRequestRepository()->getDriverActualRequestsByStates(
+                    $driver,
+                    array(
+                        PassengerRequest::STATE_OPEN, 
+                        PassengerRequest::STATE_PENDING, 
+                        PassengerRequest::STATE_SOLD
+                    )
+                ),
+                'vehicleClasses' => VehicleClasses::getFilterChoices(),
         		'driver' => $driver
         	)
         );        

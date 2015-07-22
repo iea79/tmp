@@ -20,6 +20,7 @@ use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\InternalPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 
+use DaVinci\TaxiBundle\Entity\VehicleClasses;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
@@ -39,18 +40,36 @@ class HomeController extends StepsController
     public function indexAction() {
         $result = $this->showSteps();
     	if (is_array($result)) {
-    		$allStockRequests = $this->getPassengerRequestRepository()->getActualRequestsByStates(
-				array(
-					PassengerRequest::STATE_OPEN,
-					PassengerRequest::STATE_PENDING,
-					PassengerRequest::STATE_SOLD,
-					PassengerRequest::STATE_APPROVED_SOLD
-    			)
-    		);
+            $states = array(
+                PassengerRequest::STATE_OPEN,
+                PassengerRequest::STATE_PENDING,
+                PassengerRequest::STATE_SOLD
+            );
+            
+            if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+                $user = $this->get('security.context')
+	    			->getToken()
+	    			->getUser();
+    			
+    			$driver = $this->getDirverByUserId($user->getId());
+                
+                $allStockRequests = $this
+                                        ->getPassengerRequestRepository()
+                                        ->getDriverActualRequestsByStates(
+                                            $this->getDirverByUserId($user->getId()), $states
+                                        );
+            } else {
+                $allStockRequests = $this
+                                        ->getPassengerRequestRepository()
+                                        ->getActualRequestsByStates($states);
+            }
     		
-    		return $this->render(
+            return $this->render(
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
-    			array_merge($result, array('openRequests' => $allStockRequests))
+    			array_merge($result, array(
+                    'openRequests' => $allStockRequests,
+                    'vehicleClasses' => VehicleClasses::getFilterChoices()
+                ))
     		);
     	} else {
     		return $this->redirect($result);
@@ -75,7 +94,7 @@ class HomeController extends StepsController
     	
     	$operationCode = MakePayments::CODE_SUCCESS;
     	
-    	$flow = $this->container->get('taxi.makePayment.form.flow');
+    	$flow = $this->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
     	    	    	
     	$form = $flow->createForm();
@@ -85,7 +104,7 @@ class HomeController extends StepsController
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			$user = $this->container->get('security.context')
+    			$user = $this->get('security.context')
 	    			->getToken()
 	    			->getUser();
     			$driver = null;
@@ -116,7 +135,7 @@ class HomeController extends StepsController
     			}
 
 	    		try {	
-	    			$dispatcher = $this->container->get('event_dispatcher');
+	    			$dispatcher = $this->get('event_dispatcher');
 	    			$dispatcher->dispatch(
 	    				FinancialOfficeEvents::OPERATION_SALE,
 	    				new TransferOperationEvent(
@@ -192,11 +211,11 @@ class HomeController extends StepsController
     	
     	$userCondition = (
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
+    		&& $this->get('security.context')->isGranted('ROLE_USER')
     	);
     	$driverCondition = (
     		PassengerRequest::STATE_SOLD == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     	
     	if (!$userCondition && !$driverCondition) {
@@ -265,7 +284,7 @@ class HomeController extends StepsController
     		));
     	}
     	    	
-    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher = $this->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
     		new CommonDriverRequestEvent(
@@ -295,7 +314,7 @@ class HomeController extends StepsController
     		));
     	}
     	
-    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher = $this->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::CANCEL_REQUEST,
     		new CancelRequestEvent(
@@ -387,7 +406,7 @@ class HomeController extends StepsController
     {
     	return (
     		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
+    		&& $this->get('security.context')->isGranted('ROLE_USER')
     	);
     }
     
@@ -399,7 +418,7 @@ class HomeController extends StepsController
     {
     	return (
     		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
     
@@ -411,7 +430,7 @@ class HomeController extends StepsController
     {
     	return (
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
                 

@@ -23,6 +23,7 @@ class PassengerRequestService
 		$request = new PassengerRequest();
 		
 		$actualTime = new \DateTime();
+        $actualTime->setTimezone(new \DateTimeZone(PassengerRequest::REQUEST_TIMEZONE));
 		
 		$vehicleOptions = new VehicleOptions();
 		$vehicleOptions->addChildSeat(new VehicleChildSeat());

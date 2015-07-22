@@ -15,6 +15,8 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
  */
 class PassengerRequest 
 {
+    
+    const REQUEST_TIMEZONE = 'Europe/Moscow';
 	
 	const STATE_BEFORE_OPEN = 'before-open'; 
 	const STATE_OPEN = 'open';
@@ -254,6 +256,7 @@ class PassengerRequest
     public function getPickUpLeft()
     {
     	$now = new \DateTime('now');
+        $now->setTimezone(new \DateTimeZone(self::REQUEST_TIMEZONE));
     	return $now
     		->diff($this->pickUp)
     		->format('%a (days) %H:%I:%S');
@@ -902,7 +905,8 @@ class PassengerRequest
     		self::STATE_OPEN,
     		self::STATE_PENDING,
     		self::STATE_SOLD,
-    		self::STATE_APPROVED_SOLD,	
+    		self::STATE_APPROVED_SOLD,
+            self::STATE_FINALLY_APPROVED,
     		self::STATE_RESCUE,
     		self::STATE_RESCUE_PENDING,
     		self::STATE_RESCUE_CLOSED,

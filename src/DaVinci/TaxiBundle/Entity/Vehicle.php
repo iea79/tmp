@@ -74,7 +74,7 @@ class Vehicle {
      */
     public function getVehicleClass()
     {
-    	return array_search($this->vehicleClass, VehicleClasses::getChoices());    	
+    	return array_search($this->vehicleClass, VehicleClasses::getChoices());	
     }
     
     /**
