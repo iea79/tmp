@@ -2,13 +2,13 @@
 {% block theme 'office-passenger' %}
 {% block title %}
 	{% if subMethod == 'book-trip' %}
-	    {% include 'DaVinciTaxiBundle:banners:banner1.html.twig' %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 	{% endif %}
 	{% if subMethod == 'open-orders' %}
-	    {% include 'DaVinciTaxiBundle:banners:banner2.html.twig' %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner2.html.twig' %}
 	{% endif %}
 	{% if subMethod == 'all-orders' %}
-	    {% include 'DaVinciTaxiBundle:banners:banner3.html.twig' %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner3.html.twig' %}
 	{% endif %}
 {% endblock %}
 {% block body %}
@@ -102,7 +102,7 @@
 					{% elseif subMethod == 'open-orders' %}	
 						<li class="uk-active">
 							<div class="whitebg">
-								{#<div class="message"><span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}</div>#}
+								<div class="message">{#<span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}#}</div>
 									<div class="table-container">
 										<table class="uk-table"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
 											<thead>
@@ -195,7 +195,7 @@
 					{% elseif subMethod == 'all-orders' %}	
 						<li class="uk-active">
 							<div class="whitebg">
-								{#<div class="message"><span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}</div>#}
+								<div class="message">{#<span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}#}</div>
 									<table class="uk-table responsive allorder">
 											<thead>
 													<tr>

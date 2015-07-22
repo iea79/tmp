@@ -7316,12 +7316,19 @@ Notifications
   width: 26px;
   line-height: 23px;
   float: left;
+  position: relative;
+}
+.chat .avatar img {
+	position: relative;
 }
 .chat .avatar:before {
 	font-family: 'icontaxi';
 	content: "\e601";
 	display: block;
 	margin-top: 1px;
+	z-index: 0;
+	position: absolute;
+	left: 3px;
 }
 
 /* ===================

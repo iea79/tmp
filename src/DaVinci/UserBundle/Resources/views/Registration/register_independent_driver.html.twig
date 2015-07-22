@@ -15,9 +15,9 @@
     {% endblock form_errors %}
     {% block title %}
         {% if flow.getCurrentStepNumber() == 1 %}
-            {% include 'DaVinciTaxiBundle:banners:banner5.html.twig' %}
+            {% include 'DaVinciTaxiBundle:Banners:banner5.html.twig' %}
         {% elseif flow.getCurrentStepNumber() == 2 %}
-            {% include 'DaVinciTaxiBundle:banners:banner6.html.twig' %}
+            {% include 'DaVinciTaxiBundle:Banners:banner6.html.twig' %}
         {% endif %}
         <div class="wrapper-content title">
             <span>{{ 'Independent Driver: Professional Office'|trans}}</span>

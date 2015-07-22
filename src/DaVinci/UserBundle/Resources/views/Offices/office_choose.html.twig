@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banners/banner4.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner4.html.twig' %}
 <div class="wrapper-content title officepagetitle">
 
 {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}

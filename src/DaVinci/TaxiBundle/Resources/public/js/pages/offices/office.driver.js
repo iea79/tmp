@@ -181,7 +181,7 @@ require(["pages/common"], function ($) {
             var plus_5_days = new Date;
             plus_5_days.addDays(5);                                       
             $('.daterange input').pickmeup_uikit({
-                format: 'd/m/yy',
+                format: 'd/m/y',
                 position        : 'bottom',
                 hide_on_select  : true,
                 date        : [
