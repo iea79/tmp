@@ -899,6 +899,13 @@ home
 	font-size: 22px;
 	padding-left: 5px;
 }
+#route .uk-modal-dialog:after,
+#route .uk-modal-dialog:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+
 /*================================
 styles of booking step 1  in homepage
 =================================*/
