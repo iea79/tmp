@@ -25,7 +25,7 @@ decline_driver:
     
 main_driver:
     pattern:  /main-driver
-    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }  
+    defaults: { _controller: DaVinciTaxiBundle:Home:mainDriver }  
     options: { useAsInnerURL: true } 
     
 profit:

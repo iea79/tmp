@@ -327,8 +327,11 @@ class HomeController extends StepsController
     	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
     }
         
-    public function main_driverAction() {
-        return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
+    public function mainDriverAction() {
+        return $this->render(
+            'DaVinciTaxiBundle:Home:main_driver.html.twig',
+            array('vehicleClasses' => VehicleClasses::getFilterChoices())
+        );
     }
     
     /**
