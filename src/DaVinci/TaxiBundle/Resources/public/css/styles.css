@@ -1555,19 +1555,19 @@ table styles in home
 .serv .under-head .questiontooltip {
 	display:none;
 }
-.table-over .serv > tbody > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
+.table-over .serv > thead > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
 	width:16%;
 }
-.table-over .serv > tbody > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
+.table-over .serv > thead > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	min-width:60px;
 }
-.table-over .serv > tbody > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
+.table-over .serv > thead > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
 	width:12%;
 }
-.table-over .serv > tbody > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
+.table-over .serv > thead > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
 	width:12%;
 }
-.table-over .serv > tbody > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6) {
+.table-over .serv > thead > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6) {
   width: 13%;
 }
 	.table-over .serv {
@@ -1576,14 +1576,14 @@ table styles in home
 		width:100%;
 		border-collapse:separate;
 	}
-		.table-over .serv > tbody > tr > th {
+		.table-over .serv > thead > tr > th {
 			color:#fff;
 			background:#528ed3;
 			position:relative;
 			padding:7px 2px;
 			text-align:center;
 		}
-		.table-over .serv > tbody > tr > td {
+		.table-over .serv tbody > tr > td {
 			background:#fff;
 			padding:7px 2px;
 			text-align:center;

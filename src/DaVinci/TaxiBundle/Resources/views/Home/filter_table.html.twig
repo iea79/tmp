@@ -1,5 +1,5 @@
 ﻿	<div class="table-over">
-		<table class="serv responsive">
+		<table class="uk-table serv responsive">
             <thead>
                 <tr>
                     <th class="tab-h1" data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Select vehicle{% endtrans %}">Type <div class="questiontooltip">?</div></th>
@@ -11,6 +11,8 @@
                     <th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check bought deals{% endtrans %}">Status <div class="questiontooltip" >?</div></th>
                     <th class="tab-h2">Buy</th>
                 </tr>
+            </thead>
+            <tbody>
                 <tr class="under-head">
                     <td class="auto-tip">
                         <div class="car">
@@ -49,7 +51,7 @@
                                 </select>
                             </div>
                         </div>
-                    </th>
+                    </td>
                     <td class="price">
                         <div class="ov-lt short-cont">
                             <button class="sort uk-button-link aligment arr">
@@ -116,8 +118,6 @@
                         </div>
                     </td>
                 </tr>
-            </tfoot>
-            <tbody>
                 {% if openRequests is defined %}
                     {% for request in openRequests %}
                         {% set tariff = request.getTariff() %}
