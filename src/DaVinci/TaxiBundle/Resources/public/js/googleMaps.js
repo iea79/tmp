@@ -1,4 +1,3 @@
-// Карта для различных страниц
 define('googleMaps', ['gmaps'], function(gmaps) {
     var GoogleMaps = function() {
 

@@ -128,3 +128,16 @@
     {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
+    </script>
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/offices/office.driver.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
