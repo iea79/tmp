@@ -210,11 +210,12 @@
 <a href="#route" class="uk-button uk-button-success" data-uk-modal>Modal</a>
 
 {# Pop-up route #}
-<div id="route" class="uk-modal">
+<div id="route" class="uk-modal pop-up route-modal">
     <div class="uk-modal-dialog">
         <a class="uk-modal-close uk-close"></a>
+		<div class="popup-head">{{ flow.formData.routePoints[0].place }} - {% for point in flow.formData.routePoints %}{% if loop.index > 1 %}{{ point.place }}{% endif %}{% endfor %}</div>
 		<div class="order-step-four">
-			<div class="order-details-over wrap-left">
+			<div id="steps" class="order-details-over">
 			    <div class="check-order">
 					<div class="passenger-info">
 						<div class="wrap-left">
@@ -241,7 +242,7 @@
 										{% endif %}	
 										<dt>{{'Mobile'|trans}}:</dt><dd>+{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
 										{% if flow.formData.passengerDetail.mobileHasWifi == true or flow.formData.passengerDetail.mobileHasWhatsapp == true %}
-											<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if flow.formData.passengerDetail.mobileHasWifi %}wi-fi<br/>{% endif %}{% if flow.formData.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
+											<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if flow.formData.passengerDetail.mobileHasWifi %}wi-fi{% endif %}&nbsp;{% if flow.formData.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
 										{% endif %}	
 									</dl>
 								</dd>
@@ -325,6 +326,17 @@
 									  	{% endif %}
 									  </dl>
 									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="order-details-over disloc">
+			    <div class="check-order">
+					<div class="passenger-info">
+						<div class="wrap-left">
+								<div class="order-details">
 									<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}"><span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span></div>							
 										<div class="more-details" id="toggle11">
 										  <div class="message">{{'All this items are optional. You should ask driver about the price'|trans}}.</div>
@@ -413,12 +425,14 @@
 										    </dl>	
 										  {% endif %}
 									</div>
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="route-map uk-margin-top uk-width-1-1">
+			<div id="map-canvas" style="height: 500px;"></div>
 		</div>
     </div>
 </div>
