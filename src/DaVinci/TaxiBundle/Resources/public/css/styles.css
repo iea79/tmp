@@ -899,6 +899,41 @@ home
 	font-size: 22px;
 	padding-left: 5px;
 }
+.route-modal .uk-modal-dialog:after,
+.route-modal .uk-modal-dialog:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.route-modal .popup-head {
+	text-overflow: ellipsis;
+	font-weight: bold;
+	overflow: hidden;
+	position: relative;
+	top: -25px;
+	z-index: -1;
+	white-space: nowrap;
+	margin-bottom: 0;;
+}
+.pop-up.route-modal .uk-modal-dialog {
+	width: 1000px !important;
+}
+.route-modal .route-map:before {
+	content: '';
+	display: table;
+	clear: both;
+}
+.route-modal .order-details .spec-request {
+	background-color: #f5f5f5 !important;
+	cursor: default;
+}
+.route-modal .order-details .spec-request .uk-parent a {
+	display: none;
+}
+.route-modal .check-order .personal dt,
+.route-modal .check-order .personal dd {
+}
+
 /*================================
 styles of booking step 1  in homepage
 =================================*/
@@ -3829,10 +3864,10 @@ i.quest {
 		width:100%;
 	}
 	.home .disloc {
-		float:right;
 		width:50%;
 		padding: 23px 20px 0 10px;
 		box-sizing: border-box;
+		float: right;
 	}
 	.destination .form-block-wrap {
 		margin:0 10px 5px 0;
@@ -8082,7 +8117,7 @@ a.textarea-toggle input {
 }
 .destination .inputs .rounded {
 }
-#map-canvas{height: 100%;border: 1px solid #8D8F98;}
+#map-canvas{border: 1px solid #8D8F98;}
 #map-canvas img{height: 100%;}
 
 
