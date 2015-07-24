@@ -437,9 +437,7 @@ class HomeController extends StepsController
                 return $this
                     ->getPassengerRequestRepository()
                     ->getDriverActualRequestsByStates($driver, $states);
-            }
-            
-            
+            }           
         } 
             
         return $this

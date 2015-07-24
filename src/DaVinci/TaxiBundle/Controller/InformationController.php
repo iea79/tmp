@@ -152,16 +152,22 @@ class InformationController extends StepsController
         );
     }
 
-    public function faqsAction()
+    public function faqsAction($category)
     {
         $dm = $this->get('doctrine_phpcr')->getManager();
         $allFaqs = $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(
-        	array('published' => true)
+        	array(
+                'published' => true,
+                'forPassenger' => ($category == 'passenger')
+            )
         );
             
         return $this->render(
         	'DaVinciTaxiBundle:Information:faqs.html.twig',
-			array('faqs' => $allFaqs)
+			array(
+                'faqs' => $allFaqs,
+                'category' => $category
+            )
         );
     }
     

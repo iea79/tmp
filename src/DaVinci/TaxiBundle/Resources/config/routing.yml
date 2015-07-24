@@ -67,8 +67,8 @@ one_help:
     defaults: { _controller: DaVinciTaxiBundle:Information:oneHelp }   
 
 faqs:
-    pattern:  /faqs
-    defaults: { _controller: DaVinciTaxiBundle:Information:faqs }    
+    pattern:  /faqs/{category}
+    defaults: { _controller: DaVinciTaxiBundle:Information:faqs, category: 'passenger' }    
     options: { useAsInnerURL: true }
         
 notifications:

@@ -23,29 +23,26 @@
 				</form>
 			</div>
 		<ul id="help" class="uk-switcher">
-			{# === Passenger === #}
 			<li class="uk-active">
 				<div class="block-help">
 					<div class="help-content">
 						<div class="buttom-swicher">
 				            <ul class="uk-width-1-1">
-                               <li class="uk-active"><a href="#">Category 1</a></li>
-                               <li class=""><a href="#">Category 2</a></li>
+                               <li{% if category == 'passenger' %} class="uk-active"{% endif %}><a href="{{ path('faqs') }}">{{ 'For passnegers'|trans }}</a></li>
+                               <li{% if category == 'driver' %} class="uk-active"{% endif %}><a href="{{ path('faqs', {'category': 'driver'}) }}">{{ 'For drivers'|trans }}</a></li>
 				            </ul>
 				        </div>
 						<h3>{{'FAQs:'|trans}}</h3>
 						<div class="faqs">
 							<ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
                                 {% for faq in faqs %}
-                                    {% if faq.forPassenger %}
-                                        <li class="uk-parent">
-                                            <a href="#">{{ faq.question }}</a>
-                                            <ul class="uk-nav-sub">
-                                                <li>{{ faq.answer|raw }}</li>
-                                            </ul>
-                                        </li>
-                                    {% endif %}
-							    {% endfor %}
+                                    <li class="uk-parent">
+                                        <a href="#{{ faq }}">{{ faq.question }}</a>
+                                        <ul class="uk-nav-sub">
+                                            <li>{{ faq.answer|raw }}</li>
+                                        </ul>
+                                    </li>
+                                {% endfor %}
 							</ul>
 				    	</div>
 					    {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
@@ -57,13 +54,6 @@
 					<div class="help-sidebar">
 						<ul class="uk-nav">
 			                <li class="head"><a href="#">{{'Guides'|trans}}</a></li>
-	                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
-	                        <li><a href="#">{{'Нужно ли подтверждать номер мобильного телефона?'|trans}}</a></li>
-	                        <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
-	                        <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
-	                        <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
-	                        <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
-	                        <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
 	                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
 	                        <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
 	                    </ul>
@@ -86,28 +76,7 @@
 	                </div>
 				</div>
 			</li>
-            {# === Driver === #}
-			<li>
-                <div class="block-help">
-                    <div class="help-content">
-                        <div class="faqs">
-                            <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                {% for faq in faqs %}
-                                    {% if not faq.forPassenger %}
-                                        <li class="uk-parent">
-                                            <a href="#{{ faq }}">{{ faq.question }}</a>
-                                            <ul class="uk-nav-sub">
-                                                <li>{{ faq.answer|raw }}</li>
-                                            </ul>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                           </ul>
-                        </div>
-                    </div>
-                </div>
-			</li>
-		</ul>
+        </ul>
 	</div>
 {% endblock %}
 
