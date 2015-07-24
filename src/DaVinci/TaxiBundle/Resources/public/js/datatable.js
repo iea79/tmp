@@ -178,7 +178,7 @@ require(['jquery', 'jquery.dataTables', 'SyntaxHighlighter'], function() {
             paging: false,
             info: false,
             columns: [
-                { orderable: false },
+                null,
                 null,
                 { orderable: false },
                 null,
