@@ -24,7 +24,9 @@
             <li class="uk-active">
                 <div class="block-help">
                     <div class="help-content">
+                        {% if defaultColumn %}
                         {{ defaultColumn.description|raw|nl2br }}
+                        {% endif %}
                         <div class="uk-grid uk-grid-small top">
                         	{% for entity in commercialEntities %}
                                 {% if loop.index < 4 %}

@@ -31,6 +31,9 @@ class InformationController extends StepsController
 	
 	public function blogAction($column)
 	{
+        $comercialEntities = null;
+        $entities = null;
+        
 		$dm = $this->get('doctrine_phpcr')->getManager();
 		
 		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
@@ -38,9 +41,11 @@ class InformationController extends StepsController
 		$defaultColumn = $columnRepository->findDefault();
 		
 		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
-		$comercialEntities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId(), true);
-		$entities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId());
-                
+        if ($defaultColumn) {
+            $comercialEntities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId(), true);
+            $entities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId());  
+        } 
+		                
 		return $this->render(
 			'DaVinciTaxiBundle:Blog:detail.html.twig',
 			array(

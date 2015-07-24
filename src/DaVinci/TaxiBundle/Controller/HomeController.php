@@ -433,19 +433,18 @@ class HomeController extends StepsController
                 ->getUser();
 
             $driver = $this->getDirverByUserId($user->getId());
-
-            $allStockRequests = $this
-                                    ->getPassengerRequestRepository()
-                                    ->getDriverActualRequestsByStates(
-                                        $this->getDirverByUserId($user->getId()), $states
-                                    );
-        } else {
-            $allStockRequests = $this
-                                    ->getPassengerRequestRepository()
-                                    ->getActualRequestsByStates($states);
-        }
-        
-        return $allStockRequests;
+            if ($driver) {
+                return $this
+                    ->getPassengerRequestRepository()
+                    ->getDriverActualRequestsByStates($driver, $states);
+            }
+            
+            
+        } 
+            
+        return $this
+                    ->getPassengerRequestRepository()
+                    ->getActualRequestsByStates($states);
     }
                 
 }
