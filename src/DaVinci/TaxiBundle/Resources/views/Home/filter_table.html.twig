@@ -121,7 +121,7 @@
                         <tr class="table-cont">
                             <td><span class="blue-bg">{{ loop.index }}</span></td>
                             <td><strong>{{ pickUp.format('d M Y') }}</strong><br/> {{ pickUp.format('H:i') }}</td>
-                            <td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+                            <td><a href="#route_{{ request.id }}" data-uk-modal>{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
                             <td>${{ tariff.getPrice() }}</td>
                             <td>${{ tariff.getTips() }}</td>
                             <!--td><i class="mp-icon-trust uk-text-primary"></i></td-->
@@ -135,6 +135,8 @@
                                 </td>
                             {% endif %}
                         </tr>
+                        {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                        {{ showRequest(request) }}    
                     {% endfor %}
                 {% endif %}
             </tbody>    
