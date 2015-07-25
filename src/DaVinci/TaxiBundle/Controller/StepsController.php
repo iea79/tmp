@@ -150,7 +150,7 @@ class StepsController extends Controller
 	 */
 	protected function getPassengerRequestService()
 	{
-		return $this->container->get('da_vinci_taxi.service.passenger_request_service');
+		return $this->get('da_vinci_taxi.service.passenger_request_service');
 	}
 	
 	/**
@@ -158,7 +158,7 @@ class StepsController extends Controller
 	 */
 	protected function getPassengerRequestRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
 	}
 	
@@ -167,7 +167,7 @@ class StepsController extends Controller
 	 */
 	protected function getMakePaymentService()
 	{
-		return $this->container->get('da_vinci_taxi.service.make_payment_service');
+		return $this->get('da_vinci_taxi.service.make_payment_service');
 	}
 	
 	/**
@@ -175,7 +175,7 @@ class StepsController extends Controller
 	 */
 	protected function getMakePaymentRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\Payment\MakePayment');
 	}
 	
@@ -184,7 +184,7 @@ class StepsController extends Controller
 	 */
 	protected function getIndependentDriverRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
 	}
 		
@@ -193,8 +193,64 @@ class StepsController extends Controller
 	 */
 	protected function getCalculationService()
 	{
-		return $this->container->get('da_vinci_taxi.service.calculation_service');
+		return $this->get('da_vinci_taxi.service.calculation_service');
 	}
+    
+    /**
+     * @param integer $driverId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    protected function getDirverById($driverId)
+    {
+    	return $this->getIndependentDriverRepository()->find($driverId);
+    }
+    
+    /**
+     * @param integer $userId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    protected function getDirverByUserId($userId)
+    {
+    	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
+    }
+    
+    /**
+     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
+     * @return void
+     */
+    protected function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
+    {
+    	$this->getIndependentDriverRepository()->save($driver);
+    }
+    
+    /**
+     * @return array
+     */
+    protected function getStockRequests()
+    {
+        $states = array(
+            PassengerRequest::STATE_OPEN,
+            PassengerRequest::STATE_PENDING,
+            PassengerRequest::STATE_SOLD
+        );
+
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $user = $this->get('security.context')
+                ->getToken()
+                ->getUser();
+
+            $driver = $this->getDirverByUserId($user->getId());
+            if ($driver && !is_null($driver->getVehicle())) {
+                return $this
+                    ->getPassengerRequestRepository()
+                    ->getDriverActualRequestsByStates($driver, $states);
+            }           
+        } 
+            
+        return $this
+                    ->getPassengerRequestRepository()
+                    ->getActualRequestsByStates($states);
+    }
 		
 }
 

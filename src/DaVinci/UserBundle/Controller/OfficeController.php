@@ -208,14 +208,7 @@ class OfficeController extends StepsController
         return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
         	array(
-        		'openRequests' => $this->getPassengerRequestRepository()->getDriverActualRequestsByStates(
-                    $driver,
-                    array(
-                        PassengerRequest::STATE_OPEN, 
-                        PassengerRequest::STATE_PENDING, 
-                        PassengerRequest::STATE_SOLD
-                    )
-                ),
+        		'openRequests' => $this->getStockRequests(),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
         		'driver' => $driver,
                 'method' => $method
