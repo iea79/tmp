@@ -1547,6 +1547,11 @@ table styles in home
 	box-shadow: 0 1px 1px #b4b4b4;
 	margin-top: -6px;
 }
+.table-over .empty-fillter-table {
+	background: url(../images/shashki-foot-left.png) no-repeat scroll left top, url(../images/shashki-right.png) right top no-repeat #fff;
+	text-align: center;
+	padding: 10px 0;
+}
 .office-driver .table-over {
 	box-shadow: none;
 	margin-top: -20px;

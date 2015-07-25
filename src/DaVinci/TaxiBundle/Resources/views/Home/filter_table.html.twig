@@ -141,7 +141,7 @@
                 </tbody>    
             </table>
         {% else %}
-            {{ 'Orders not found'|trans }}
+            <div class="empty-fillter-table">{{ 'Orders not found'|trans }}</div>
         {% endif %}                
 	</div>
 	<button class="uk-button uk-button-success uk-margin-top uk-width-1-1">{{'More'|trans}}</button>
