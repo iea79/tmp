@@ -136,7 +136,11 @@
                             {% endif %}
                         </tr>
                         {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                        {{ showRequest(request) }}    
+                        {{ showRequest(request) }}
+                    {% else %}
+                        <tr>
+                            <td colspan="8">{{ 'Orders not found'|trans }}</td>
+                        </tr>
                     {% endfor %}
                 {% endif %}
             </tbody>    

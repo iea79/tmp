@@ -99,9 +99,11 @@ class OfficeController extends StepsController
      */
     public function office_passengerAction(Request $request)
     {
-    	$user = $this->container->get('security.context')->getToken()->getUser();
+    	$user = $this->get('security.context')->getToken()->getUser();
     	if (is_null($user)) {
-    		return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
+    		return new RedirectResponse(
+                $this->get('router')->generate('fos_user_security_login')
+            );
     	}
     	
     	$subMethod = $request->get('method');
@@ -186,9 +188,9 @@ class OfficeController extends StepsController
     }
     
     /**
-     * @Route("/office-driver", name="office_driver")
+     * @Route("/office-driver/{method}", name="office_driver", defaults={"method" = "find"})
      */
-    public function office_driverAction()
+    public function officeDriverAction($method)
     {
         if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
             throw new AccessDeniedException('You have to be logged in as a driver');
@@ -203,7 +205,7 @@ class OfficeController extends StepsController
         	$this->get('security.context')->getToken()->getUser()->getId()
         );
         
-        return $this->container->get('templating')->renderResponse(
+        return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
         	array(
         		'openRequests' => $this->getPassengerRequestRepository()->getDriverActualRequestsByStates(
@@ -215,7 +217,8 @@ class OfficeController extends StepsController
                     )
                 ),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
-        		'driver' => $driver
+        		'driver' => $driver,
+                'method' => $method
         	)
         );        
     }
