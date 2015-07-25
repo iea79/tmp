@@ -125,7 +125,7 @@
                                         <td>${{ tariff.getPrice() }}</td>
                                         <td>${{ tariff.getTips() }}</td>
                                         <td>
-                                            <a href="#route_{{ request.id }}" data-uk-modal>
+                                            <a href="#route_open_{{ request.id }}" data-uk-modal>
                                                 {% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}
                                             </a>
                                         </td>
@@ -151,7 +151,7 @@
                                         </td>
                                     </tr>
                                     {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                    {{ showRequest(request) }}
+                                    {{ showRequest(request, 'open') }}
                                 {% else %}
                                     <tr>
                                         <td colspan="7">{{ 'Orders not found'|trans }}</td>
@@ -202,7 +202,7 @@
                                         <td>{{ loop.index }}</td>
                                         <td class="timesent">{{ request.id }}</td>
                                         <td class="timesent">{{ pickUp.format('d') }} <span class="month">{{ pickUp.format('M') }}</span> {{ pickUp.format('y') }}<br/><span class="timehere">{{ pickUp.format('H:s') }}</span></td>
-                                        <td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+                                        <td><a href="#route_history_{{ request.id }}" data-uk-modal>{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
                                         <td>${{ tariff.getTotalPrice() }}</td>
                                         <td id="request_status_{{ request.id }}">{% if request.stateValue == 'approved-sold' %}{{'sold'|trans}}{% else %}{{'on confirmation'|trans}}{% endif %}</td>
                                         <td>
@@ -221,6 +221,8 @@
                                             </div>
                                         </td>
                                     </tr>
+                                    {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                                    {{ showRequest(request, 'history') }}
                                 {% else %}
                                     <tr>
                                         <td colspan="8">{{ 'Orders not found'|trans }}</td>
