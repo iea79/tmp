@@ -322,33 +322,6 @@ class HomeController extends StepsController
     	return $makePaymentService->createConfigured($this->getRequest());
     }
     
-    /**
-     * @param integer $driverId
-     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
-     */
-    private function getDirverById($driverId)
-    {
-    	return $this->getIndependentDriverRepository()->find($driverId);
-    }
-    
-    /**
-     * @param integer $userId
-     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
-     */
-    private function getDirverByUserId($userId)
-    {
-    	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
-    }
-    
-    /**
-     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
-     * @return void
-     */
-    private function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
-    {
-    	$this->getIndependentDriverRepository()->save($driver);
-    }
-    
     private function getAfterPaymentUrl()
     {
     	if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
@@ -415,34 +388,5 @@ class HomeController extends StepsController
     		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
-    
-    /**
-     * @return array
-     */
-    private function getStockRequests()
-    {
-        $states = array(
-            PassengerRequest::STATE_OPEN,
-            PassengerRequest::STATE_PENDING,
-            PassengerRequest::STATE_SOLD
-        );
-
-        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
-            $user = $this->get('security.context')
-                ->getToken()
-                ->getUser();
-
-            $driver = $this->getDirverByUserId($user->getId());
-            if ($driver) {
-                return $this
-                    ->getPassengerRequestRepository()
-                    ->getDriverActualRequestsByStates($driver, $states);
-            }           
-        } 
-            
-        return $this
-                    ->getPassengerRequestRepository()
-                    ->getActualRequestsByStates($states);
-    }
-                
+                    
 }

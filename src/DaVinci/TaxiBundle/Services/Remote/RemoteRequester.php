@@ -34,7 +34,7 @@ class RemoteRequester
 	
 	const OPERATION_FINISHED_SUCCESSFULLY = 0;
 	        
-    const GATEWAY_HOST = 'http://payment.mmastarter.com';
+    const GATEWAY_HOST = 'http://paygnet.taximyprice.com';
     const GATEWAY_PRODUCT_ID = 3;
     
     const PAYMENT_URI = '/gateway/payment';

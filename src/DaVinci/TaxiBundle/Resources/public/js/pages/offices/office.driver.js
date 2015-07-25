@@ -1,6 +1,6 @@
 require(["pages/common"], function ($) {
 
-    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler'], function () {
+    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler', 'datatable'], function () {
 
         require(['pages/register/phone.block'], function () {
 
