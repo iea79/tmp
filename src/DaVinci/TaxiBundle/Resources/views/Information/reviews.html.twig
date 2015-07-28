@@ -50,11 +50,19 @@
                     {% set actualUser = item.user %}
                     <div class="chat">
                         <div class="messagechat">
-                                <div class="topchat">
-                                    <div class="avatar"></div>
-                                    <a class="name">{{ actualUser.username  }}</a>
-                                    <span>({{ item.createdAt|date('d M y H:i A') }})</span>
-                                    <div class="textchat">{{ item.text }}</div>
+                            <div class="topchat">
+                                <div class="avatar"></div>
+                                <a class="name">{{ actualUser.username  }}</a>
+                                <div class="rating">
+                                    {% for count in 1..5 - item.rateLevel %}
+                                        <span>☆</span>
+                                    {% endfor %}
+                                    {% for count in 1..item.rateLevel %}
+                                        <span class="active">☆</span>
+                                    {% endfor %}
+                                </div>
+                                <span>({{ item.createdAt|date('d M y H:i A') }})</span>
+                                <div class="textchat">{{ item.text }}</div>
                             </div>
                         </div>
                     </div>

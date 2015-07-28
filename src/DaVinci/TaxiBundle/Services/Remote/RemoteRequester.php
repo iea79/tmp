@@ -196,8 +196,7 @@ class RemoteRequester
     					'city' => 'Saratoga',
     					'state' => 'CA',
     					'zipCode' => $paymentMethod->getZipCode(),
-    					'country' => 'US',
-    					'externalUserId' => $makePayment->getUser()->getId()
+    					'country' => 'US'
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
@@ -218,8 +217,7 @@ class RemoteRequester
     				'Customer' => array(
     					'email' => $paymentMethod->getEmail(),
     					'subject' => $paymentMethod->getSubject(),
-    					'note' => $paymentMethod->getNote(),
-    					'externalUserId' => $makePayment->getUser()->getId()
+    					'note' => $paymentMethod->getNote()
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
