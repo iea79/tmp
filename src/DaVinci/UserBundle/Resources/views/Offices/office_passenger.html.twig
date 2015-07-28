@@ -123,7 +123,9 @@
 														<td>{{ request.id }}</td>
 														<td>
 															<div class="uk-float-left route">
-																<a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a>
+																<a href="#route_passenger_open_{{ request.id }}" data-uk-modal>
+                                                                {% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}
+                                                                </a>
 															</div>
 															{% if request.stateValue == 'before-open' %}
 																<div class="passanger-pay">
@@ -185,7 +187,9 @@
 																</div>
 															{% endif %}	
 														</td>
-													</tr>		
+													</tr>
+                                                    {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                                                    {{ showRequest(request, 'passenger_open') }}
 												{% endfor %}
 											</tbody>
 										</table>

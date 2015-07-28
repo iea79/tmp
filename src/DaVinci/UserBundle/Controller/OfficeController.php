@@ -97,7 +97,7 @@ class OfficeController extends StepsController
      * @Route("/office-passenger/{method}", name="office_passenger", defaults={"method" = "book-trip"})
      * @Security("has_role('ROLE_USER')")
      */
-    public function office_passengerAction(Request $request)
+    public function officePassengerAction(Request $request)
     {
     	$user = $this->get('security.context')->getToken()->getUser();
     	if (is_null($user)) {
@@ -136,7 +136,7 @@ class OfficeController extends StepsController
     		);
     	}
             	
-        return $this->container->get('templating')->renderResponse(
+        return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_passenger.html.twig', 
         	array_merge($params, $result)
 		);
