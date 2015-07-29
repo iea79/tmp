@@ -118,6 +118,7 @@
                     {% for request in openRequests %}
                         {% set tariff = request.getTariff() %}
                         {% set pickUp = request.getPickUp() %}
+                        {% set vehicle = request.getVehicle() %}
                         <tr class="table-cont">
                             <td><span class="blue-bg">{{ loop.index }}</span></td>
                             <td><strong>{{ pickUp.format('d M Y') }}</strong><br/> {{ pickUp.format('H:i') }}</td>
