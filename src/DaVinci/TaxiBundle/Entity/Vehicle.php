@@ -84,7 +84,7 @@ class Vehicle {
      */
     public function getVehicleClassName()
     {
-    	return $this->vehicleClass;
+        return $this->vehicleClass;
     }
 
     /**
