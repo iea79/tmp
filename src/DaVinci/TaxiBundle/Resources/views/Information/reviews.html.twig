@@ -77,9 +77,9 @@
                             {% set currentRoute = app.request.get('_route') %}
                             <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
                                 <div class="errors for-steps">{{ form_errors(form) }}</div>
-                                <p>{{'Please leave your review'|trans}}</p>
+                                {#<p>{{'Please leave your review'|trans}}</p>#}
                                 <dl class="fullsize">
-                                    <dt>{{'Rate level'|trans}}:</dt>
+                                    <dt>{#{'Rate level'|trans}}:#}</dt>
                                     <dd>
                                         <div class="rating">
                                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
@@ -87,7 +87,7 @@
                                         {{ form_errors(form.rateLevel) }}
                                         {{ form_widget(form.rateLevel) }}
                                     </dd>
-                                    <dt>{{'Text review'|trans}}:</dt>
+                                    <dt>{#{'Text review'|trans}}:#}</dt>
                                     <dd>
                                         {{ form_errors(form.text) }} 
                                         {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 
