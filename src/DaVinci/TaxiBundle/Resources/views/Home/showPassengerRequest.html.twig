@@ -10,13 +10,13 @@
                         <div class="passenger-info">
                             <div class="wrap-left">
                                 <dl class="quantity">
-                                    <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i></h1>
+                                    <h1 class="labels">{{'Passenger info'|trans}}</h1>
                                     <hr>
                                     <dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ request.passengerDetail.adult }}), {{'children'|trans}} ({{ request.passengerDetail.children }}), {{'seniors'|trans}} ({{ request.passengerDetail.seniors }})</dd>
                                     {% if request.passengerDetail.notMySelf == true %}
                                         <dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
                                     {% else %}
-                                        <dd class="uk-width-1-1">&nbsp;</dd>	
+                                        <dd class="uk-hidden">&nbsp;</dd>	
                                     {% endif %}
                                     {% if request.passengerDetail.picture.path is defined %}
                                         <dt class="photo">
@@ -42,7 +42,7 @@
                                     {% endif %}
                                 </dl>
                                 <div class="tariff">
-                                <h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i></h1>
+                                <h1 class="labels">{{'Fare'|trans}}</h1>
                                 <hr>
                                     <dl class="price">
                                         <dt>{{'Price'|trans}}:</dt><dd> ${{ request.tariff.price }}</dd>
@@ -70,6 +70,14 @@
                                         {% endif %}	
                                     </dl>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-details-over disloc">
+                    <div class="check-order">
+                        <div class="passenger-info">
+                            <div class="wrap-left">
                                 <div class="vechicle">
                                     <h1 class="labels">{{'Vehicle'|trans}}</h1>
                                     <hr/>
@@ -79,142 +87,134 @@
                                 </div>
                                 <div class="other-passenger-details">
                                     <div class="order-details">
-                                        <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
+                                        <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}</span></div>
                                         <div class="kid-pat-bag" id="toggle12">
                                             <dl class="child-pet">
                                                 {% for childSeat in request.vehicleOptions.childSeats %}
                                                     {% if childSeat.childSeatNumber > 0 %}
                                                         <dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.getChildSeatTypeName() }})</dd>
-                                                    {% endif %}	
+                                                    {% endif %} 
                                                 {% endfor %}
                                                 {% for petCage in request.vehicleOptions.petCages %}
                                                     {% if petCage.petCageNumber > 0 %}
                                                         <dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.getPetCageTypeName() }})</dd>
-                                                    {% endif %}	
+                                                    {% endif %} 
                                                 {% endfor %}
                                             </dl>
                                           <dl class="rack-left">
                                             {% if request.vehicleOptions.cycleRack > 0 %}
                                                 <dt>{{'cycle rack'|trans}}</dt><dd>{{ request.vehicleOptions.cycleRack }}</dd>
                                             {% endif %}
-                                            {% if request.vehicleOptions.strollerPlace > 0 %}	
+                                            {% if request.vehicleOptions.strollerPlace > 0 %}   
                                                 <dt>{{'place for strollers'|trans}}</dt><dd>{{ request.vehicleOptions.strollerPlace }}</dd>
-                                            {% endif %}	
+                                            {% endif %} 
                                             {% if request.vehicleOptions.roofRack == true %}
-                                                <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                                <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>    
                                             {% endif %}
                                           </dl>
                                           <dl class="rack-right">
                                             {% if request.vehicleOptions.skiRack > 0 %}
                                                 <dt>{{'cycle rack'|trans}}</dt><dd>{{ request.vehicleOptions.skiRack }}</dd>
                                             {% endif %}
-                                            {% if request.vehicleOptions.wheelChairPlace > 0 %}	
+                                            {% if request.vehicleOptions.wheelChairPlace > 0 %} 
                                                 <dt>{{'place for strollers'|trans}}</dt><dd>{{ request.vehicleOptions.wheelChairPlace }}</dd>
-                                            {% endif %}	
+                                            {% endif %} 
                                             {% if request.vehicleOptions.trailer == true %}
-                                                <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                                <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>    
                                             {% endif %}
                                           </dl>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="order-details-over disloc">
-                    <div class="check-order">
-                        <div class="passenger-info">
-                            <div class="wrap-left">
-                                    <div class="order-details">
-                                        <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}"><span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span></div>							
-                                            <div class="more-details" id="toggle11">
-                                              <div class="message">{{'All this items are optional. You should ask driver about the price'|trans}}.</div>
-                                              <dl class="cheks1">
-                                                {% if request.vehicleServices.wifi == true %}
-                                                    <dt>{{'wi-fi'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleServices.airConditioner == true %}
-                                                    <dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleServices.nonSmokers == true %}
-                                                    <dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                              </dl>
-                                              <dl class="cheks2">
-                                                {% if request.vehicleServices.gps == true %}
-                                                    <dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleServices.sunRoof == true %}
-                                                    <dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleServices.firstAidKit == true %}
-                                                    <dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                              </dl>
-                                              <dl class="comfort">
-                                                {% if request.vehicleServices.coolDrinks != '' %}
-                                                    <dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.coolDrinks }}</dd>
-                                                {% endif %}
-                                                {% if request.vehicleServices.snacks != '' %}
-                                                    <dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.snacks }}</dd>
-                                                {% endif %}
-                                                {% if request.vehicleServices.dvd != '' %}
-                                                    <dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.dvd }}</dd>
-                                                {% endif %}
-                                                {% if request.vehicleServices.gadgets != '' %}
-                                                    <dt class="uk-width-1-1">{{'gadgets'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.gadgets }}</dd>
-                                                {% endif %}
-                                                {% if request.vehicleServices.toolsForDisabled != '' %}
-                                                    <dt class="uk-width-1-1">{{'tools for disabled'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.toolsForDisabled }}</dd>
-                                                {% endif %}
-                                                {% if request.vehicleServices.disease != '' %}
-                                                    <dt class="uk-width-1-1">{{'passenger has a disease'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicleServices.disease }}</dd>
-                                                {% endif %}
-                                              </dl>
-                                        </div>
-                                        <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
-                                            <div class="more-details" id="toggle10">
-                                              {% if request.vehicleDriverConditions.interpreterLang != '' %}
-                                                <dl class="interpreter">
-                                                    <dt>{{'interpreter'|trans}}</dt><dd>{{ request.vehicleDriverConditions.interpreterLang }}</dd>
-                                                </dl>		
-                                              {% endif %}
-                                            <dl class="cheks1">
-                                                {% if request.vehicleDriverConditions.educator == true %}
-                                                    <dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleDriverConditions.bodyguard == true %}
-                                                    <dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleDriverConditions.carrier == true %}
-                                                    <dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                             </dl>
-                                            <dl class="cheks2">
-                                                {% if request.vehicleDriverConditions.medicalLicense == true %}
-                                                    <dt>{{'medical license'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleDriverConditions.animalTrainer == true %}
-                                                    <dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                                {% if request.vehicleDriverConditions.guide == true %}
-                                                    <dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-                                                {% endif %}
-                                            </dl>
-                                            {% if request.vehicle.specialRequirements != '' %}
-                                                <dl class="special">
-                                                    <dt class="uk-width-1-1">{{'Special requirements'|trans}}</dt>
-                                                    <dd class="uk-width-1-1">{{ request.vehicle.specialRequirements }}</dd>
-                                                </dl>	
+                                <div class="order-details">
+                                    <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon"><span class="uk-parent">{{'Additional services'|trans}}</span></div>							
+                                        <div class="more-details" id="toggle11">
+                                          <div class="message">{{'All this items are optional. You should ask driver about the price'|trans}}.</div>
+                                          <dl class="cheks1">
+                                            {% if request.vehicleServices.wifi == true %}
+                                                <dt>{{'wi-fi'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
                                             {% endif %}
-                                        </div>
+                                            {% if request.vehicleServices.airConditioner == true %}
+                                                <dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleServices.nonSmokers == true %}
+                                                <dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                          </dl>
+                                          <dl class="cheks2">
+                                            {% if request.vehicleServices.gps == true %}
+                                                <dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleServices.sunRoof == true %}
+                                                <dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleServices.firstAidKit == true %}
+                                                <dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                          </dl>
+                                          <dl class="comfort">
+                                            {% if request.vehicleServices.coolDrinks != '' %}
+                                                <dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.coolDrinks }}</dd>
+                                            {% endif %}
+                                            {% if request.vehicleServices.snacks != '' %}
+                                                <dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.snacks }}</dd>
+                                            {% endif %}
+                                            {% if request.vehicleServices.dvd != '' %}
+                                                <dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.dvd }}</dd>
+                                            {% endif %}
+                                            {% if request.vehicleServices.gadgets != '' %}
+                                                <dt class="uk-width-1-1">{{'gadgets'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.gadgets }}</dd>
+                                            {% endif %}
+                                            {% if request.vehicleServices.toolsForDisabled != '' %}
+                                                <dt class="uk-width-1-1">{{'tools for disabled'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.toolsForDisabled }}</dd>
+                                            {% endif %}
+                                            {% if request.vehicleServices.disease != '' %}
+                                                <dt class="uk-width-1-1">{{'passenger has a disease'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicleServices.disease }}</dd>
+                                            {% endif %}
+                                          </dl>
+                                    </div>
+                                    <div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon"><span class="uk-parent">{{'Additional driver`s services'|trans}}</span></div>
+                                        <div class="more-details" id="toggle10">
+                                          {% if request.vehicleDriverConditions.interpreterLang != '' %}
+                                            <dl class="interpreter">
+                                                <dt>{{'interpreter'|trans}}</dt><dd>{{ request.vehicleDriverConditions.interpreterLang }}</dd>
+                                            </dl>		
+                                          {% endif %}
+                                        <dl class="cheks1">
+                                            {% if request.vehicleDriverConditions.educator == true %}
+                                                <dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleDriverConditions.bodyguard == true %}
+                                                <dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleDriverConditions.carrier == true %}
+                                                <dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                         </dl>
+                                        <dl class="cheks2">
+                                            {% if request.vehicleDriverConditions.medicalLicense == true %}
+                                                <dt>{{'medical license'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleDriverConditions.animalTrainer == true %}
+                                                <dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                            {% if request.vehicleDriverConditions.guide == true %}
+                                                <dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                            {% endif %}
+                                        </dl>
+                                        {% if request.vehicle.specialRequirements != '' %}
+                                            <dl class="special">
+                                                <dt class="uk-width-1-1">{{'Special requirements'|trans}}</dt>
+                                                <dd class="uk-width-1-1">{{ request.vehicle.specialRequirements }}</dd>
+                                            </dl>	
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -236,6 +236,9 @@
                     </div>
                 </div>
                 <div id="map-canvas" style="height: 500px;"></div>
+            </div>
+            <div class="confirmation uk-margin-top">
+                <button class="uk-button uk-button-danger uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Buy</button>
             </div>
         </div>
     </div>

@@ -28,7 +28,7 @@ input,select,textarea {
 }
 .uk-close:after {
 	content: "\e609";
-	font-family: icontaxi;
+	font-family: 'icontaxi';
 	font-size: 18px;
 }
 .uk-nav-offcanvas .offcanvas-haed {
@@ -40,6 +40,9 @@ input,select,textarea {
 body, html {
 	background-color:#f5f5f5;
 	height:100%;
+	font-family: 'Open Sans', sans-serif;	
+}
+body * {
 	font-family: 'Open Sans', sans-serif;	
 }
 /*===========================  fantastic thind to clear up all floated containers, just add the name of the class to ypur container, hwat contents float elements ===========================*/
@@ -927,11 +930,31 @@ home
 	background-color: #f5f5f5 !important;
 	cursor: default;
 }
-.route-modal .order-details .spec-request .uk-parent a {
-	display: none;
-}
 .route-modal .check-order .personal dt,
 .route-modal .check-order .personal dd {
+}
+body .route-modal .disloc {
+	padding-top: 0;
+}
+.route-modal #route_result > div {
+	width: 33.3%;
+}
+.route-modal #route_result > div:nth-child(2) {
+	text-align: center;
+}
+.route-modal .check-order .passenger-info .tariff .price {
+	width: 40%;
+}
+.route-modal .check-order .passenger-info .tariff .price dd,
+.route-modal .check-order .passenger-info .tariff .price dt {
+	width: 50%;
+	float: left;
+	margin-right: 0 !important;
+	box-sizing: border-box;
+}
+.route-modal .check-order .passenger-info dt,
+.route-modal .check-order .passenger-info dd {
+
 }
 
 /*================================
@@ -1081,7 +1104,6 @@ styles of booking step 2  in homepage
 	font-size:20px;
 	color:#ff4d61;
 	line-height:24px;
-	font-weight:bold;
 	margin:15px 0 4px 20px;
 }
 .order-details {
@@ -3349,10 +3371,10 @@ footer {
 	margin-bottom: 0;
 	display: block;
 }
-.pop-up dt, 
-.pop-up dd {
-	min-height:30px;
+.pop-up:not(.route-modal) dt, 
+.pop-up:not(.route-modal) dd {
     display: inline-block;
+    min-height: 30px;
 }
 .pop-up dt {
     color:#8d8f98;
@@ -5423,6 +5445,7 @@ Step-4
 }
 .check-order .passenger-info {
 	padding: 14px 13px 13px 18px;
+	display: inline-block;
 }
 .check-order .passenger-info hr {
 	padding: 0;
@@ -5505,7 +5528,6 @@ Step-4
 }
 .check-order .personal dt,
 .check-order .personal dd {
-	margin-bottom: 2.1% !important;
 	margin-right: 0 !important;
 }
 .check-order .passenger-info .personal dt {
@@ -5544,7 +5566,6 @@ Step-4
 .check-order .passenger-info .tariff .price dd,
 .check-order .passenger-info .tariff .payment dt,
 .check-order .passenger-info .tariff .payment dd {
-	display: table-cell;
 	margin-bottom: 9px !important;
 }
 .check-order .passenger-info .tariff .price dd {
@@ -7415,10 +7436,10 @@ Notifications button in main menu
 
 .notif-button {
     background: #f5f5f5;
-    width: 13.9%;
+    width: 13.8%;
     /* margin-left: -2.7%; */
     color: #3399ff;
-    padding: 4px 0.6% 4px;
+    padding: 5px 0.6% 4px;
     float: right;
     margin-left: 0;
     max-height: 28px !important;
