@@ -50,11 +50,19 @@
                     {% set actualUser = item.user %}
                     <div class="chat">
                         <div class="messagechat">
-                                <div class="topchat">
-                                    <div class="avatar"></div>
-                                    <a class="name">{{ actualUser.username  }}</a>
-                                    <span>({{ item.createdAt|date('d M y H:i A') }})</span>
-                                    <div class="textchat">{{ item.text }}</div>
+                            <div class="topchat">
+                                <div class="avatar"></div>
+                                <a class="name">{{ actualUser.username  }}</a>
+                                <div class="rating">
+                                    {% for count in 1..5 - item.rateLevel %}
+                                        <span>☆</span>
+                                    {% endfor %}
+                                    {% for count in 1..item.rateLevel %}
+                                        <span class="active">☆</span>
+                                    {% endfor %}
+                                </div>
+                                <span>({{ item.createdAt|date('d M y H:i A') }})</span>
+                                <div class="textchat">{{ item.text }}</div>
                             </div>
                         </div>
                     </div>
@@ -69,9 +77,9 @@
                             {% set currentRoute = app.request.get('_route') %}
                             <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
                                 <div class="errors for-steps">{{ form_errors(form) }}</div>
-                                <p>{{'Please leave your review'|trans}}</p>
+                                {#<p>{{'Please leave your review'|trans}}</p>#}
                                 <dl class="fullsize">
-                                    <dt>{{'Rate level'|trans}}:</dt>
+                                    <dt>{#{'Rate level'|trans}}:#}</dt>
                                     <dd>
                                         <div class="rating">
                                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
@@ -79,7 +87,7 @@
                                         {{ form_errors(form.rateLevel) }}
                                         {{ form_widget(form.rateLevel) }}
                                     </dd>
-                                    <dt>{{'Text review'|trans}}:</dt>
+                                    <dt>{#{'Text review'|trans}}:#}</dt>
                                     <dd>
                                         {{ form_errors(form.text) }} 
                                         {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 

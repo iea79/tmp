@@ -1,5 +1,6 @@
 parameters:
-    # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
+    # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController    
+
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
@@ -225,11 +226,13 @@ cmf_core:
     persistence:
         phpcr:
             enabled: true
+            
 cmf_routing:
     chain:
         routers_by_id:
             router.default: 200
             cmf_routing.dynamic_router: 100
+            
     dynamic:
         enabled: true
         route_collection_limit: 10

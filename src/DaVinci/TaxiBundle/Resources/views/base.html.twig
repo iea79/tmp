@@ -81,8 +81,8 @@
                                                     <div class="myaccount-drop">
                                                         <ul class="uk-nav uk-nav-dropdown">
                                                             <li class="uk-nav-header">{{ 'My account'|trans }}</li>
-                                                            <li><a href="{{ url('office_passenger')}}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
-                                                            <li><a href=""><i class="mp-icon-message"></i> {{ 'Notification'|trans }}</a></li>
+                                                            <li><a href="{{ url('office_passenger') }}"><i class="mp-icon-person"></i> {{ 'My profile'|trans }}</a></li>
+                                                            <li><a href="{{ url('notifications') }}"><i class="mp-icon-message"></i> {{ 'Notification'|trans }}</a></li>
                                                             <li><a href="{{ url('fos_user_security_logout') }}"><i class="mp-icon-logout"></i> {{ 'Log Out'|trans }}</a></li>
                                                         </ul>
                                                     </div>
@@ -179,13 +179,14 @@
                                     </div>
                                 {% endif %} 
                                 {{ knp_menu_render('breadcrumb',{'currentAsLink':false} ) }}
-                               {# <ul class="uk-subnav uk-subnav-pill lang">
+                                {# 
+                                <ul class="uk-subnav uk-subnav-pill lang">
                                     <li data-uk-dropdown>
                                         <a href="#" class="uk-button uk-button-link">
 
                                             {% if app.request.locale =='en' %} Eng {%elseif app.request.locale =='ru'%} Rus {% endif %}
-{#!!!!!!!!!!!!!!!!!!!!{{ locale_switcher() }} #}
-                                           {# <i class="uk-icon-caret-down"></i></a>
+                                            {{ locale_switcher() }}
+                                            {# <i class="uk-icon-caret-down"></i></a>
                                         <div class="uk-dropdown uk-dropdown-small">
                                             <ul class="uk-nav uk-nav-dropdown">
                                                 <li><a href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">Eng</a></li>
@@ -193,7 +194,8 @@
                                            {# </ul>
                                         </div>
                                     </li>
-                                </ul>#}
+                                </ul>
+                                #}
                             </nav>
 							<div class="clear"></div>
                         </div>
@@ -266,7 +268,7 @@
                                 <li><a href="{{ url('about') }}">{{ 'About'|trans }}</a></li>
                                 <li><a href="#">{{ 'Privacy Policy'|trans }}</a></li>
                                 <li><a href="{{ url('reviews') }}">{{ 'Reviews'|trans }}</a></li>
-                                <li><a href="{{ path('blogs') }}">{{ 'Blog'|trans }}</a></li>
+                                <li><a href="{{ url('blogs') }}">{{ 'Blog'|trans }}</a></li>
                             </ul>
                         </nav>
 

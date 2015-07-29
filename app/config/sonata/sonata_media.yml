@@ -44,7 +44,7 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
-                small:     { width: 280, quality: 100}
+                small:    { width: 280, quality: 100}
 
         videoguides:
             providers:

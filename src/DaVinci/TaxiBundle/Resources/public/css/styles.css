@@ -7975,13 +7975,16 @@ Litle stars for rate
   unicode-bidi: bidi-override;
   direction: rtl;
   color: #ff4d61;
-  font-size: 18px;
   text-align: left;
+  display: inline-block;
 }
 .rating > span {
-  display: inline-block;
+  display: inline-block !important;
   position: relative;
   cursor: pointer;
+  border: 0;
+  width: auto !important;
+  font-size: 18px;
 }
 .rating > span.active:before,
 .rating > span:hover:before,

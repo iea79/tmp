@@ -25,9 +25,9 @@ class RegistrationController extends BaseController
         $user = $this->container->get('fos_user.user_manager')->findUserByConfirmationToken($token);
 
         if (null === $user) {
-            //TODO: add message page/notification
+            // TODO: add message page/notification
             return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
-            //throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
+            // throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
         }
 
         $user->setConfirmationToken(null);
@@ -44,57 +44,71 @@ class RegistrationController extends BaseController
     /**
      * Tell the user to check his email provider
      */
-    public function checkEmailAction() {
-        //some shit code to not change main logic
+    public function checkEmailAction() 
+    {
+        // some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
 
-        if (empty($email))
+        if (empty($email)) {
             throw new NotFoundHttpException(sprintf('There is empty check email, try register'));
+        }    
 
-
-        $new_email = $email;
+        $newEmail = $email;
         $request = $this->container->get('request');
-        $post_data = $request->request->all();
-        if (isset($post_data['form']))
-            $new_email = $post_data['form']['email'];
+        $postData = $request->request->all();
+        if (isset($postData['form'])) {
+            $newEmail = $postData['form']['email'];
+        }
 
-        //$this->container->get('session')->remove('fos_user_send_confirmation_email/email');
+        // $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
         $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
 
-        $form = $this->container->get('form.factory')->createBuilder('form', $user,array('validation_groups'=>'CheckEmail'))
-                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('save', 'submit', array('label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'))
+        $form = $this->container->get('form.factory')->createBuilder(
+            'form', $user, array('validation_groups' => 'CheckEmail'))
+                ->add('email', 'email', array(
+                    'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
+                ))
+                ->add('save', 'submit', array(
+                    'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
+                ))
                 ->getForm();
 
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             // perform some action, such as saving the task to the database
 
             $this->container->get('fos_user.user_manager')->updateUser($user);
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
-            $this->container->get('session')->set('fos_user_send_confirmation_email/email', $new_email);
+            $this->container->get('session')->set('fos_user_send_confirmation_email/email', $newEmail);
 
             $form = $this->container->get('form.factory')->createBuilder('form', $user)
-                    ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $new_email))
-                    ->add('save', 'submit', array('label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'))
+                    ->add('email', 'email', array(
+                        'label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $newEmail
+                    ))
+                    ->add('save', 'submit', array(
+                        'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
+                    ))
                     ->getForm();
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), array(
-                    'user' => $user,
-                    'form' => $form->createView(),
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:checkEmail.html.' . $this->container->getEngine(), 
+            array(
+                'user' => $user,
+                'form' => $form->createView(),
+            )
+        );
     }
 
     /**
      * fosuser register standard route /register
      */
-    public function registerAction() {
+    public function registerAction() 
+    {
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         if ($user instanceof UserInterface) {
@@ -104,11 +118,9 @@ class RegistrationController extends BaseController
             return new RedirectResponse($url);
         }
 
-        //$form = $this->container->get('sonata.user.registration.form');
-        //$formHandler = $this->container->get('sonata.user.registration.form.handler');
+        // $form = $this->container->get('sonata.user.registration.form');
+        // $formHandler = $this->container->get('sonata.user.registration.form.handler');
         // $formHandler = $this->container->get('fos_user.registration.form.handler');
-
-
 
         $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
 
@@ -118,16 +130,15 @@ class RegistrationController extends BaseController
         $user = $userManager->createUser();
 
         $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
-
         $flow->bind($user);
+
         $form = $flow->createForm();
 
         $process = false;
         $request = $this->container->get('request');
         if ($request->isMethod('POST')) {
-            //$form->bind($request);
+            // $form->bind($request);
             if ($flow->isValid($form)) {
-
                 $flow->saveCurrentStepData($form);
 
                 if ($flow->nextStep()) {
@@ -139,15 +150,17 @@ class RegistrationController extends BaseController
                     if ($confirmationEnabled) {
                         $user->setEnabled(false);
                         if (null === $user->getConfirmationToken()) {
-                            $user->setConfirmationToken($this->container->get('fos_user.util.token_generator')->generateToken());
+                            $user->setConfirmationToken(
+                                $this->container->get('fos_user.util.token_generator')->generateToken()
+                            );
                         }
 
                         $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
                     } else {
                         $user->setEnabled(true);
                     }
+                    
                     $user->addRole('ROLE_USER');
-
                     $userManager->updateUser($user);
 
                     $process = true;
@@ -157,7 +170,6 @@ class RegistrationController extends BaseController
 
 
         if ($process) {
-
             $user = $form->getData();
 
             $authUser = false;
@@ -184,7 +196,7 @@ class RegistrationController extends BaseController
                 $this->authenticateUser($user, $response);
             }
 
-            // send to payment global network system
+            // send request to payment global network system
             $this->container->get('da_vinci_taxi.service.remote_requester')->makeUserOperation(
             	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
         	);
@@ -193,13 +205,19 @@ class RegistrationController extends BaseController
         }
 
 
-        if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber())
-            $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
+        if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber()) {
+            $this
+                ->get('session')
+                ->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
+        }    
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.' . $this->getEngine(), array(
-                    'form' => $form->createView(),
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register.html.' . $this->container->getEngine(), 
+            array(
+                'form' => $form->createView(),
+                'flow' => $flow,
+            )
+        );
     }
 
     /**
@@ -252,11 +270,14 @@ class RegistrationController extends BaseController
         }
 
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_company.html.twig', array(
-                    'form' => $form->createView(),
-                    'user' => $user,
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register_company.html.twig', 
+            array(
+                'form' => $form->createView(),
+                'user' => $user,
+                'flow' => $flow,
+            )
+        );
     }
 
     /**

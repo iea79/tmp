@@ -201,6 +201,10 @@ require(['jquery', 'jquery.dataTables', 'SyntaxHighlighter'], function() {
                 .search(this.value)
                 .draw();
         });
+        
+        $('#flush_filter_button').on('click', function() {
+            location.reload();
+        });
 	});
 	
 	// remove preloader

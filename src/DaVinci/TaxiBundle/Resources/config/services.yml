@@ -1,3 +1,6 @@
+parameters:    
+    da_vinci_taxi.component.authentication.handler.login_handler.class: DaVinci\TaxiBundle\Component\Authentication\Handler\LoginHandler
+
 services:
     davinci.utils.url:
         class: DaVinci\TaxiBundle\Utils\Url
@@ -12,7 +15,13 @@ services:
         arguments: ["%kernel.default_locale%"]
         tags:
             - { name: kernel.event_subscriber }
-    
+            
+    da_vinci_taxi.component.authentication.handler.login_success_handler:
+        class:  %da_vinci_taxi.component.authentication.handler.login_handler.class%
+        arguments:  [@service_container, @router, @security.context]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' } 
+        
     da_vinci_taxi.subscriber.stock_subscriber:
         class: DaVinci\TaxiBundle\EventListener\StockSubscriber
         arguments: ["@da_vinci_taxi.service.remote_requester", "@da_vinci_taxi.service.composite_informer", "@security.context"]
