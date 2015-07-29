@@ -4,7 +4,7 @@
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.email) }}
         <div class="errors">{{ form_errors(form.paymentMethod.email) }}</div>
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Entry required'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row">
@@ -23,19 +23,19 @@
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
 </div>
-<div class="uk-form-row">
+{#<div class="uk-form-row">
     <div class="uk-form-label">{{ form_label(form.paymentMethod.company, 'Company name:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.company) }}
         <div class="errors">{{ form_errors(form.paymentMethod.company) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
     </div>
-</div>
+</div>#}
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.ownNote) }}
         <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Additional information about the payment purpose'|trans }}"></span>
     </div>
 </div>
