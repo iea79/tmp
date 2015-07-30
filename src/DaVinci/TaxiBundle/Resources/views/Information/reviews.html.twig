@@ -47,14 +47,15 @@
         #}
             <div class="block-help">
                 {% for item in items %}
-                    {% set actualUser = item.user %}
                     <div class="chat">
                         <div class="messagechat">
                             <div class="topchat">
                                 <div class="avatar"></div>
-                                <a class="name">{{ actualUser.username  }}</a>
+                                {% if item.user is defined %}
+                                    <a class="name">{{ item.user.username  }}</a>
+                                {% endif %}
                                 <div class="rating">
-                                    {% for count in 1..5 - item.rateLevel %}
+                                    {% for count in item.rateLevel..5 %}
                                         <span>☆</span>
                                     {% endfor %}
                                     {% for count in 1..item.rateLevel %}
