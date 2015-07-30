@@ -55,9 +55,11 @@
                                     <a class="name">{{ item.user.username  }}</a>
                                 {% endif %}
                                 <div class="rating">
-                                    {% for count in item.rateLevel..5 %}
-                                        <span>☆</span>
-                                    {% endfor %}
+                                    {% if item.rateLevel < 5 %}
+                                        {% for count in item.rateLevel..5 %}
+                                            <span>☆</span>
+                                        {% endfor %}
+                                    {% endif %}    
                                     {% for count in 1..item.rateLevel %}
                                         <span class="active">☆</span>
                                     {% endfor %}
