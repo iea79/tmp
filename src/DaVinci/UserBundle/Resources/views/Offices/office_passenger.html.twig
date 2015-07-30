@@ -28,12 +28,18 @@
 				<div class="offices-block">
 					<div class="button-choose">
 						<div class="choose-office select-group">
-							<label>Office:</label>
-							<select>
-								<option class="active-office">Office passenger</option>
-								<option>Taxi company manager</option>
-							</select>
-							<button class="uk-button uk-button-success">Switch</button>
+                            <label>Office:</label>
+							{% if is_granted('ROLE_TAXIDRIVER') %}
+                                <select id="switch_office">
+                                    <option value="{{ path('office_passenger') }}" class="active-office">{{ 'Office Passenger'|trans }}</option>
+                                    <option value="{{ path('office_driver') }}">{{ 'Office Independent driver'|trans }}</option>
+                                </select>
+                            {% else %}
+                                <select id="switch_office">
+                                    <option value="{{ path('office_passenger') }}" class="active-office">{{ 'Office Passenger'|trans }}</option>
+                                </select>
+                            {% endif %}
+                            <button id="activate_switch_office" class="uk-button uk-button-success">Switch</button>
 						</div>
 						<div class="buttons-office">
 							<a class="uk-button uk-button-primary">My office</a>
@@ -196,180 +202,105 @@
 									</div>
 							</div>
 						</li>
-					{% elseif subMethod == 'all-orders' %}	
-						<li class="uk-active">
+					{% elseif subMethod == 'all-orders' %}
+                        <li class="uk-active">
 							<div class="whitebg">
-								<div class="message">{#<span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}#}</div>
-									<table class="uk-table responsive allorder">
-											<thead>
-													<tr>
-															<th>#</th>
-															<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{ 'TMP ID'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Date and time of exact trip{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Date/Time'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{ 'Route'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Your fare{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-															<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Edit trip details{% endtrans %}">{{ 'Edit'|trans }}
-																<div class="questiontooltip">?</div>
-															</th>
-													</tr>
-											</thead>
-											<tbody>
-													<tr>
-															<td>1</td><td class="timesent">0223240234</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'open'|trans }}</td><td>68:45:32</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
-																			</a>
-																			<a class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
-																			</a>
-																	</div>
-															</td>
-													</tr>	
-													<tr>
-															<td>2</td><td class="timesent">0223240235</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'pending'|trans }}</td><td>68:45:32</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>3</td><td class="timesent">0223240236</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-blue">48:12:21</span></td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>4</td><td class="timesent">0223240237</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-green">26:55:03</span></td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>5</td><td class="timesent">0223240238</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td>{{ 'closed'|trans }}</td><td><span class="text-red">13:55:03</span></td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>6</td><td class="timesent">0223240239</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td>
-															<td class="rescue-driver">
-																<span>{{ 'solid'|trans }}</span>
-																<a class="avatar" data-uk-modal="{target:'#about-driver'}">
-																	<img src="/bundles/davincitaxi/images/avatar.png" alt="">
-																</a>
-															</td>
-															<td>
-																<a href="#" class="uk-button uk-button-danger rescue">{{ 'Rescue'|trans }}</a>
-															</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
-																			</a>
-																			<a class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>7</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td>
-															<td class="rescue-driver">
-																<span>{{ 'finished'|trans }}</span>
-																<a class="avatar" data-uk-modal="{target:'#about-driver'}">
-																	<img src="/bundles/davincitaxi/images/avatar.png" alt="">
-																</a>
-															</td>
-															<td>
-																<a href="#" class="uk-button uk-button-success ticket">{{ 'Write a review'|trans }}</a>
-																<a href="#" class="uk-button uk-button-danger ticket">{{ 'Ticket'|trans }}</a>
-															</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-primary" data-uk-tooltip="{pos:'top'}" title="{% trans %}Edit{% endtrans %}">
-																			</a>
-																			<a class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>8</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>9</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>10</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-													<tr>
-															<td>11</td><td class="timesent">0223240212</td><td class="timesent">02 <span class="month">{{ 'mar'|trans }}</span> 14 <br><span class="timehere"> 18:00</span></td><td><a data-uk-modal="{target:'#route'}">{{ 'Russia'|trans }},{{ ' Moscow'|trans }}<br>{{ 'From'|trans }}: {{ 'aeroport Domodedovo'|trans }} - {{ 'To'|trans }}:  - {{ 'center'|trans }}</a></td><td>$783.85</td><td><a data-uk-modal="{target:'#about-driver'}"><i class="mp-icon-taxi uk-text-primary"></i></a><br /><span class="uk-text-danger"><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star"></i><i class="mp-icon-star uk-text-warning"></i></span></td><td>00:00:00</td>
-															<td>
-																	<div class="edit-close">
-																			<a class="mp-icon-edit uk-text-warning">
-																			</a>
-																			<a class="mp-icon-closed uk-text-warning">
-																			</a>
-																	</div>
-															</td>
-													</tr>
-											</tbody>
-									</table>
+								<div class="message">
+                                    {#
+                                    <span>{{ 'Attention!'|trans }}</span>{{ 'Choose driver by yourself!'|trans }}
+                                    #}
+                                </div>
+                                <table class="uk-table responsive allorder">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{ 'TMP ID'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Date and time of exact trip{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Date/Time'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{ 'Route'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Your fare{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                            <th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Edit trip details{% endtrans %}">{{ 'Edit'|trans }}
+                                                <div class="questiontooltip">?</div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for request in requests %}
+                                            {% set tariff = request.getTariff() %}
+                                            {% set pickUp = request.getPickUp() %}
+                                            <tr>
+                                                <td>{{ loop.index }}</td>
+                                                <td class="timesent">{{ request.id }}</td>
+                                                <td class="timesent"><strong>{{ pickUp.format('d M Y') }}</strong><br/> {{ pickUp.format('H:i') }}</td>
+                                                <td><a href="#route_passenger_all_{{ request.id }}" data-uk-modal>{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+                                                <td>${{ tariff.getTotalPrice() }}</td>
+                                                <td>
+                                                    {% if request.getStateValue() == 'completed' %}
+                                                        <a data-uk-modal="{target:'#about-driver'}">
+                                                            <i class="mp-icon-taxi uk-text-primary"></i>
+                                                        </a>
+                                                        <br />
+                                                        <span class="uk-text-danger">
+                                                            <i class="mp-icon-star"></i>
+                                                            <i class="mp-icon-star"></i>
+                                                            <i class="mp-icon-star"></i>
+                                                            <i class="mp-icon-star"></i>
+                                                            <i class="mp-icon-star uk-text-warning"></i>
+                                                        </span>
+                                                    {% elseif request.getStateValue() == 'rescue' %}
+                                                        <a href="#" class="uk-button uk-button-danger rescue">{{ 'Rescue'|trans }}</a>
+                                                    {% else %}
+                                                        {{ request.getStateValue()|trans }}
+                                                    {% endif %}    
+                                                </td>
+                                                <td>
+                                                    {% if request.getStateValue() == 'completed' %}
+                                                        <a href="{{ path('reviews', {'reviewColumn': 'passengers'}) }}" class="uk-button uk-button-success ticket">{{ 'Write a review'|trans }}</a>
+														<a href="#" class="uk-button uk-button-danger ticket">{{ 'Ticket'|trans }}</a>
+                                                    {% elseif request.getStateValue() == 'rescue' %}
+                                                        <a href="#" class="uk-button uk-button-danger rescue">{{ 'Rescue'|trans }}</a>
+                                                    {% else %}
+                                                        {{ request.getPickUpLeft() }}
+                                                    {% endif %}
+                                                </td>
+                                                <td>
+                                                    <div class="edit-close">
+                                                        {% if request.getStateValue() == 'open' %}
+                                                            <a href="#route_request_edit_{{ request.id }}" data-uk-modal class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
+                                                            </a>
+                                                        {% else %}
+                                                            <a class="mp-icon-edit uk-text-warning">
+                                                            </a>
+                                                        {% endif %}
+                                                        {% if request.getStateValue() != 'completed' and request.getStateValue() != 'canceled' %}
+                                                            <a href="{{ path('cancel_request_status', {'id': request.id}) }}" class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
+                                                            </a>
+                                                        {% else %}
+                                                            <a class="mp-icon-closed uk-text-warning">
+                                                            </a>
+                                                        {% endif %}    
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                                            {{ showRequest(request, 'passenger_all') }}
+                                            {{ showRequest(request, 'request_edit') }}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
 							</div>
 						</li>
 					{% endif %}	
