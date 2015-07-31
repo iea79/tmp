@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 use DaVinci\TaxiBundle\Controller\StepsController;
 
@@ -148,40 +149,36 @@ class OfficeController extends StepsController
     /**
      * @Route("/office-driver-profile", name="office_driver_profile")
      */
-    public function office_driver_profileAciton(Request $request)
+    public function officeDiverProfileAciton(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            //-> so now doing like that
             if (!$this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
                 throw new AccessDeniedException('You have to be logged in as a driver');
             }
 
-            $user = $this->container->get('security.context')->getToken()->getUser();
+            $user = $this->get('security.context')->getToken()->getUser();
             if (null === $user || !is_object($user)) {
                 throw new NotFoundHttpException(sprintf('There is empty user, try login'));
             }
 
-            $form = $this->createForm(new OfficeDriverProfileType(), $user->getIndependentDriver());
+            $form = $this->createForm(
+                new OfficeDriverProfileType(), $user->getIndependentDriver()
+            );
             $form->get('user')->setData($user);
 
             if ('POST' === $request->getMethod()) {
                 $form->handleRequest($request);
-
                 if ($form->isValid()) {
-                    $usr = $form->getData();
+                    $data = $form->getData();
+                    $this->get('fos_user.user_manager')->updateUser($data->getUser());
 
-                    $this->container->get('fos_user.user_manager')->updateUser($usr->getUser());
-
-                    return new \Symfony\Component\HttpFoundation\Response('success', 200);
+                    return new Response('success', 200);
                 }
             }
 
-
-            return $this->container->get('templating')->renderResponse(
+            return $this->get('templating')->renderResponse(
             	'DaVinciUserBundle:Offices:office_driver_profile_edit_form.html.twig', 
-            	array(
-            		'form' => $form->createView()
-            	)
+            	array('form' => $form->createView())
             );
         } else {
             return $this->redirect($this->generateUrl('fos_user_security_login'));

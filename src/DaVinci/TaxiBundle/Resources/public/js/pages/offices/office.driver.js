@@ -95,7 +95,7 @@ require(["pages/common"], function ($) {
 
                     if (typeof xhr != 'undefined')
                         xhr.abort();
-                    xhr = $.ajax({
+                        xhr = $.ajax({
                         url: $form.attr('action'),
                         type: $form.attr('method'),
                         data: data,

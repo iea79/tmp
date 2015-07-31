@@ -237,9 +237,11 @@
                                             <script>
                                                 var selected_model = '{% if form.vars.value.vehicle is not null %}{{ form.vars.value.vehicle.model }}{% endif %}';
                                             </script>
-                                   {#     <script>
-                                            var get_model_ajax_url = '{{ path('ajax_car_by_maker') }}';
-                                        </script> #}
+                                    {#     
+                                    <script>
+                                        var get_model_ajax_url = '{{ path('ajax_car_by_maker') }}';
+                                    </script> 
+                                    #}
                                 </dd></dt>
                                 <dt>{{'Year:'|trans}}<dd>
                                         {{ form_widget(form.vehicle.year, {'attr':{'tabindex':'17'} }) }}

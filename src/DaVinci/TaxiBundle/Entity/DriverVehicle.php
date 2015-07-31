@@ -262,6 +262,11 @@ class DriverVehicle
      */
     public function setVehicleClass($vehicleClass)
     {
+        if (is_null($vehicleClass)) {
+            $this->vehicleClass = VehicleClasses::CLASS_DEFAULT;
+            return $this;
+        }
+        
         $choices = VehicleClasses::getChoices();    	
     	if (!array_key_exists($vehicleClass, $choices)) {
     		throw new \InvalidArgumentException("Invalid vehicle class :: {$vehicleClass}");
