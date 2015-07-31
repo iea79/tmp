@@ -20,8 +20,8 @@
 				<div class="clientid">
 					<a class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile'}">My profile</a>
 					<dl>
-						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
-						<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ user.id }}</dd>
+						<dt>{{' Name:'|trans}}</dt><dd class="data">{{ user.firstname }} {{ user.lastname }}</dd>
 					</dl>
 				</div>
 			{# block2 #}

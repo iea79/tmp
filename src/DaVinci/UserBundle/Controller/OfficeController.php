@@ -123,7 +123,8 @@ class OfficeController extends StepsController
     	
     	$params = array(
     		'subMethod' => $subMethod,
-    		'openRequestsNumber' => count($userRequests)
+    		'openRequestsNumber' => count($userRequests),
+            'user' => $user
     	);    	
     	
     	if (self::ACTION_SHOW_OPEN_ORDERS == $subMethod) {
@@ -210,7 +211,7 @@ class OfficeController extends StepsController
         	array(
         		'openRequests' => $this->getStockRequests(),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
-        		'driver' => $driver,
+           		'driver' => $driver,
                 'method' => $method
         	)
         );        
