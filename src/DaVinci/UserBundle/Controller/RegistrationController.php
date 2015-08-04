@@ -207,6 +207,7 @@ class RegistrationController extends BaseController
 
         if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber()) {
             $this
+                ->container
                 ->get('session')
                 ->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
         }    
