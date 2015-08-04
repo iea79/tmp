@@ -91,7 +91,7 @@
         "a2lix/translation-form-bundle": "2.*@dev",
         "leaseweb/api-caller-bundle": "1.0.*@dev",
         "hearsay/require-js-bundle": "2.0.*@dev",
-        "iphp/filestore-bundle":"dev-master",
+        "iphp/filestore-bundle" : "@stable", 
         "liip/imagine-bundle": "1.0.*@dev",
         "burgov/key-value-form-bundle": "~1.0",
         "ircmaxell/password-compat": "~1.0",

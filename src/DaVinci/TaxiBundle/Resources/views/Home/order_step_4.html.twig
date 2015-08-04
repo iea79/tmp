@@ -4,7 +4,7 @@
 				<div class="passenger-info">
 					<div class="wrap-left">
 						<dl class="quantity">
-					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
+					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i></h1>
 					        <hr>
 							<dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ flow.formData.passengerDetail.adult }}), {{'children'|trans}} ({{ flow.formData.passengerDetail.children }}), {{'seniors'|trans}} ({{ flow.formData.passengerDetail.seniors }})</dd>
 							{% if flow.formData.passengerDetail.notMySelf == true %}
@@ -12,9 +12,9 @@
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
 							{% endif %}
-							{% if flow.formData.passengerDetail.picture.path is defined %}
+							{% if passengerRequest.passengerDetail.picture.path is defined %}
 								<dt class="photo">
-									<img src="{{ flow.formData.passengerDetail.picture.path|imagine_filter('passenger_avatar') }}" height="{{ flow.formData.passengerDetail.picture.height }}" width="{{ flow.formData.passengerDetail.picture.width }}" />
+									<img src="{{ passengerRequest.passengerDetail.picture.path|imagine_filter('passenger_avatar') }}" height="{{ passengerRequest.passengerDetail.picture.height }}" width="{{ passengerRequest.passengerDetail.picture.width }}" />
 								</dt>
 							{% endif %}	
 							<dd class="personal">
@@ -36,7 +36,7 @@
 							{% endif %}
 						</dl>
 						<div class="tariff">
-						<h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i><a class="uk-float-right">{{'edit'|trans}}</a></h1>
+						<h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i></h1>
 						<hr>
 							<dl class="price">
 								<dt>{{'Price'|trans}}:</dt><dd> ${% if flow.formData.tariff.priceType == 0 and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}{{ flow.formData.tariff.marketPrice }}{% endif %}</dd>
@@ -48,8 +48,7 @@
 							</dl>
 						</div>
 						<div class="route-info">
-						<h1 class="labels">{{'Route info'|trans}}
-							<a class="uk-float-right">{{'edit'|trans}}</a></h1>
+						<h1 class="labels">{{'Route info'|trans}}</h1>
 						<hr>
 							<dl>
 								<dt>{{'From'|trans}}:</dt><dd>{{ flow.formData.routePoints[0].place }}</dd>
@@ -65,7 +64,7 @@
 							</dl>
 						</div>
 						<div class="vechicle">
-							<h1 class="labels">{{'Vehicle'|trans}}<a class="uk-float-right">{{'edit'|trans}}</a></h1>
+							<h1 class="labels">{{'Vehicle'|trans}}</h1>
 							<hr/>
 							<dl>
 								<dt>{{'Class'|trans}}:</dt><dd><span>{{ flow.formData.vehicle.getVehicleClassName() }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
@@ -204,4 +203,4 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>                                
