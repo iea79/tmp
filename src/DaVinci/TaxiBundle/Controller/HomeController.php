@@ -275,7 +275,7 @@ class HomeController extends StepsController
     }
     
     /**
-     * @Route("/cancel/request_id/{id}", name="cancel_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
+     * @Route("/cancel/request_id/{id}", name="cancel_request_status")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function cancelAction()
@@ -284,10 +284,7 @@ class HomeController extends StepsController
     	
     	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-    		return new JsonResponse(array(
-    			'status' => 'error', 
-    			'message' => 'undefined request id #' . $requestId
-    		));
+            return $this->redirect($this->getRequest()->get('_route'));    		
     	}
     	
     	$dispatcher = $this->get('event_dispatcher');
@@ -299,8 +296,8 @@ class HomeController extends StepsController
     			$this->container->get('security.context')
     		)
     	);
-    	
-    	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
+    	        
+        return $this->redirect($this->getRequest()->get('_route'));
     }
         
     public function mainDriverAction() {
