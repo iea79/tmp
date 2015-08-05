@@ -96,7 +96,7 @@ class RegistrationController extends BaseController
         }
 
         return $this->container->get('templating')->renderResponse(
-            'FOSUserBundle:Registration:checkEmail.html.' . $this->container->getEngine(), 
+            'FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), 
             array(
                 'user' => $user,
                 'form' => $form->createView(),
