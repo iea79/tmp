@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'one-helps' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 {% endblock%}
 
 {% block body %}
@@ -45,7 +45,7 @@
                             #}
 				    		</div>
 					    	<div class="support">
-					    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
+					    		<span>{{'Can\'t find your answer here? Submit a support request.'|trans}}</span>
 					    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
 					    	</div>
 					</div>

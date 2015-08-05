@@ -2612,6 +2612,7 @@ footer {
 			.footer-top .footer-in .add-nav ul li {
 				border-left:1px solid #3d3d3d;
 				line-height:12px;
+				margin-left:0;
 			}
 			.footer-top .footer-in .add-nav ul li:first-child {
 				border:none;
@@ -2628,7 +2629,8 @@ footer {
 				font-size:15px;
 				display:table;
 				text-align:center;
-				line-height:26px !important;
+				line-height:20px !important;
+				height:26px;
 			}
 			.social li a:hover {
 				color: #fff;
@@ -4874,14 +4876,20 @@ footer {
     text-transform: uppercase;
 }
 .gobutt:hover {text-decoration: none;}
+.blocks-choose {
+	max-width: 680px;
+	margin-left: auto !important;
+	margin-right: auto;;
+}
 .blockoffice {
     background: none repeat scroll 0 0 #fff;
     border-radius: 4px;
     display: inline-block;
     margin: 0 22px 25px 3px;
-    padding: 14px 10px 0;
+    padding: 14px 10px 50px;
     text-align: center;
     width: 281px;
+    position: relative;
 }
 .officetitle {
     color: #528ed3;
@@ -4928,6 +4936,10 @@ footer {
     font-size: 24px;
     padding: 14px 20px 16px;
     text-transform: uppercase;
+    position: absolute;
+    width: 94%;
+    box-sizing: border-box;
+    bottom: 0;
 }
 .register a.trial:hover {
     color: #fff;
@@ -5958,6 +5970,7 @@ Profit
 	counter-reset: li;
 	width: 100%;
 	display: inline-block;
+	box-sizing: border-box;
 }
 .profit li .content .center ol > li {
 	position:relative;
@@ -5965,6 +5978,7 @@ Profit
 	padding:0 10px 0 0;
 	list-style:none;
 	line-height:20px;
+	box-sizing:border-box;
 }
 .profit li .content .center ol > li:before {
 	content:counter(li) !important; 
@@ -6011,7 +6025,8 @@ Profit
 .videoWrapper object {
 	width: 100%;
 }
-.videoWrapper object embed {
+.videoWrapper object embed,
+.videoWrapper img {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -6432,6 +6447,8 @@ Help
 	background-size: 17%;
 	margin-bottom: 13px;
 	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
 }
 .help-content .support span {
 	font-size: 16px;
@@ -6577,11 +6594,9 @@ Help
 }
 .block-help .uk-nav.top-faq,
 .block-help .uk-nav.guides {
-	width: 48.7%;
 	float: left;
 }
 .block-help .uk-nav.top-faq {
-	margin-right: 2%;
 }
 .block-help .uk-nav.only-link {
 	margin-top: -12px;
@@ -6629,6 +6644,9 @@ Help
 }
 .help .block-help .uk-nav {
     border: 1px solid #d0d0d0;
+    width: 100%;
+    position: relative;
+    padding-bottom: 78px;
 }
 .help .block-help .uk-nav li {
 	border-bottom: 1px solid #d0d0d0;
@@ -6686,6 +6704,10 @@ a.preview-video img:hover {
 .block-help .uk-nav li:last-child {
 	border-bottom: 0;
 	margin-top: 6px;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
 }
 .block-help .uk-nav.demo li.link a {
 	display: table;
@@ -6883,6 +6905,7 @@ a.preview-video img:hover {
 .faqs .uk-nav li:last-child {
   border: 1px;
   margin-bottom: 7px;
+  position: relative;
 }
 .faqs .uk-nav li.uk-open {
 	margin-bottom: 21px;
@@ -6900,6 +6923,7 @@ a.preview-video img:hover {
 	margin: -2px 0 9px 0;
 	line-height: 17px;
 	display: inline-block;
+	white-space: normal;
 }
 .faqs ul.uk-nav-sub li {
 	margin-bottom: 14px;
@@ -9549,7 +9573,12 @@ Payment window
 
 /* Change help pages */
 .main-help-page .block-help .help-content {
-	width: 100%;
+	width: calc(100% + 35px);
+	width: -moz-calc(100% + 35px);
+	width: -webkit-calc(100% + 35px);
+}
+.main-help-page .block-help .help-content div {
+
 }
 .uk-nav.demo {
 	display: none;

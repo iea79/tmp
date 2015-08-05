@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'help' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 {% endblock%}
 {% block body %}
 {# ======= Swicher button ========= #}
@@ -37,7 +37,7 @@
 							<ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
                                 {% for faq in faqs %}
                                     <li class="uk-parent">
-                                        <a href="#{{ faq }}">{{ faq.question }}</a>
+                                        <a href="#">{{ faq.question }}</a>
                                         <ul class="uk-nav-sub">
                                             <li>{{ faq.answer|raw }}</li>
                                         </ul>
@@ -47,7 +47,7 @@
 				    	</div>
 					    {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
 				    	<div class="support">
-				    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
+				    		<span>{{'Can\'t find your answer here? Submit a support request.'|trans}}</span>
 				    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
 				    	</div>
 					</div>
