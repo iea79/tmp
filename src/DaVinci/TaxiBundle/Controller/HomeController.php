@@ -284,7 +284,9 @@ class HomeController extends StepsController
     	
     	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-            return $this->redirect($this->getRequest()->get('_route'));    		
+            return $this->redirect($this->generateUrl(
+                $this->getRequest()->get('_route')
+            ));
     	}
     	
     	$dispatcher = $this->get('event_dispatcher');
@@ -297,7 +299,9 @@ class HomeController extends StepsController
     		)
     	);
     	        
-        return $this->redirect($this->getRequest()->get('_route'));
+        return $this->redirect($this->generateUrl(
+            $this->getRequest()->get('_route')
+        ));
     }
         
     public function mainDriverAction() {
