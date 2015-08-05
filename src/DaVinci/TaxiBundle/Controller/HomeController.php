@@ -281,12 +281,18 @@ class HomeController extends StepsController
     public function cancelAction()
     {
     	$requestId = $this->getRequest()->get('id');
+        
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $route = 'office_driver';
+        }
+        
+        if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            $route = 'office_passenger';
+        }
     	
     	$passengerRequest = $this->getPassengerRequestById($requestId);
     	if (is_null($passengerRequest)) {
-            return $this->redirect($this->generateUrl(
-                $this->getRequest()->get('_route')
-            ));
+            return $this->redirect($this->generateUrl($route));
     	}
     	
     	$dispatcher = $this->get('event_dispatcher');
@@ -299,9 +305,7 @@ class HomeController extends StepsController
     		)
     	);
     	        
-        return $this->redirect($this->generateUrl(
-            $this->getRequest()->get('_route')
-        ));
+        return $this->redirect($this->generateUrl($route));
     }
         
     public function mainDriverAction() {
