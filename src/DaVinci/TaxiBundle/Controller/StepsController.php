@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
@@ -23,7 +24,7 @@ class StepsController extends Controller
 	const ACTION_SHOW_OPEN_ORDERS = 'open-orders';
 	const ACTION_SHOW_ALL_ORDERS = 'all-orders';
     
-    public function render($view, array $parameters = array(), \Symfony\Component\HttpFoundation\Response $response = null) {
+    public function render($view, array $parameters = array(), Response $response = null) {
         if (!is_null($this->getParams())) {
             $parameters['seoParams'] = $this->getParams();
         }
@@ -36,7 +37,7 @@ class StepsController extends Controller
 		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');
 		$passengerRequest = $this->generatePassengerRequest();
 		 
-		$flow = $this->container->get('taxi.passengerRequest.form.flow');
+		$flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
 				
 		if (null !== $sessionRequestId) {
@@ -58,10 +59,10 @@ class StepsController extends Controller
 			if ($flow->nextStep()) {
 				$form = $flow->createForm();
 			} else {
-				$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
+				$isUser = $this->get('security.context')->isGranted('ROLE_USER');
 				if ($isUser) {
 					$passengerRequest->setUser(
-						$this->container->get('security.context')->getToken()->getUser()
+						$this->get('security.context')->getToken()->getUser()
 					);
 				}
 				
@@ -81,7 +82,8 @@ class StepsController extends Controller
 		
 		$data = array(
 			'form' => $form->createView(),
-			'flow' => $flow
+			'flow' => $flow,
+            'passengerRequest' => $passengerRequest
 		);
 		
 		if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {

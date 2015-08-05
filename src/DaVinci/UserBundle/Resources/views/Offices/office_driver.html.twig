@@ -12,8 +12,8 @@
 				<div class="clientid">
 					<a class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
 					<dl>
-						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
-						<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ driver.user.id }}</dd>
+						<dt>{{' Name:'|trans}}</dt><dd class="data">{{ driver.user.firstname }} {{ driver.user.lastname }}</dd>
 					</dl>
 				</div>
 			{# block2 #}
@@ -21,11 +21,11 @@
 					<div class="button-choose">
 						<div class="choose-office select-group">
 							<label>{{'Office:'|trans}}</label>
-							<select>
-								<option class="active-office">{{'Office passenger'|trans}}</option>
-								<option>{{'Independent driver'|trans}}</option>
-							</select>
-							<button class="uk-button uk-button-success">{{'Switch'|trans}}</button>
+                            <select id="switch_office">
+                                <option value="{{ path('office_passenger') }}">{{ 'Office Passenger'|trans }}</option>
+                                <option value="{{ path('office_driver') }}" class="active-office" selected="selected">{{ 'Office Independent driver'|trans }}</option>
+                            </select>
+                        	<button id="activate_switch_office" class="uk-button uk-button-success">{{'Switch'|trans}}</button>
 						</div>
 						<div class="buttons-office">
 							<a class="uk-button uk-button-primary">{{'My office'|trans}}</a>
@@ -216,7 +216,7 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger decline-deal" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">
+                                                <a href="{{ path('cancel_request_status', {'id': request.id}) }}" data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger decline-deal">
                                                 </a>
                                             </div>
                                         </td>

@@ -1,6 +1,6 @@
 require(["pages/common"], function ($) {
 
-    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler', 'datatable'], function () {
+    require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler', 'datatable', 'changeOffice'], function () {
 
         require(['pages/register/phone.block'], function () {
 
@@ -95,7 +95,7 @@ require(["pages/common"], function ($) {
 
                     if (typeof xhr != 'undefined')
                         xhr.abort();
-                    xhr = $.ajax({
+                        xhr = $.ajax({
                         url: $form.attr('action'),
                         type: $form.attr('method'),
                         data: data,
