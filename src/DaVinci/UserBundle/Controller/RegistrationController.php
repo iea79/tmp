@@ -96,7 +96,7 @@ class RegistrationController extends BaseController
         }
 
         return $this->container->get('templating')->renderResponse(
-            'FOSUserBundle:Registration:checkEmail.html.' . $this->container->getEngine(), 
+            'FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), 
             array(
                 'user' => $user,
                 'form' => $form->createView(),
@@ -207,12 +207,13 @@ class RegistrationController extends BaseController
 
         if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber()) {
             $this
+                ->container
                 ->get('session')
                 ->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
         }    
 
         return $this->container->get('templating')->renderResponse(
-            'FOSUserBundle:Registration:register.html.' . $this->container->getEngine(), 
+            'FOSUserBundle:Registration:register.html.' . $this->getEngine(), 
             array(
                 'form' => $form->createView(),
                 'flow' => $flow,
