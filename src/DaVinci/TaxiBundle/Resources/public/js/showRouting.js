@@ -47,16 +47,17 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	    	var collectionHolder = $('div.desticlone');
 	        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
 	        var newRoutePoint = "<div class='form-block-wrap new-route-point'>" 
-	        	+ "<div class='labels new-point-icon'>"
+	        	+ "<div class='labels'>"
 				+ "<label for='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place'>"
-				+ "<i class='mp-icon-point-b'></i> To:"
+				+ "<i class='mp-icon-point-plus'></i> To:"
 				+ "</label>"
 				+ "</div>"
 				+ "<div class='inputs'>"
 				+ "<div class='uk-form-icon'>"
-				+ "<i class='mp-icon-nord-star'></i>"
 				+ "<input type='text' id='createPassengerRequestRouteInfo_routePoints_" + currentIndex + "_place' name='createPassengerRequestRouteInfo[routePoints][" + currentIndex + "][place]' class='flex-input date-pick next-route-point' placeholder='Enter postcode, Venue or Place' value='' />"
+				+ "<i class='mp-icon-nord-star'></i>"
 				+ "</div>"
+				+ "<span class='mp-icon-closed'></span>"
 				+ "<div class='errors'></div>"
 				+ "</div>"
 				+ "</div>";
@@ -68,14 +69,14 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	        	routeDisplay.process();
 	        });
 	        
-	        $('div.new-point-icon').on('click', function(e) {
+	        $('.new-route-point .mp-icon-closed').on('click', function(e) {
 		    	e.preventDefault();
 		    	
 		    	var collectionHolder = $('div.desticlone');
 		        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
 		        
 		        collectionHolder.data('index', currentIndex - 1);
-		        $(this).parent().remove();
+		        $(this).parent().parent().remove();
 		        	        
 		        routeDisplay.process();	        
 		    });
@@ -85,14 +86,14 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
         	routeDisplay.process();
         });
         
-        $('div.new-point-icon').on('click', function(e) {
+        $('.new-route-point .mp-icon-closed').on('click', function(e) {
 	    	e.preventDefault();
 	    	
 	    	var collectionHolder = $('div.desticlone');
 	        var currentIndex = collectionHolder.find('div.form-block-wrap').length;
 	        
 	        collectionHolder.data('index', currentIndex - 1);
-	        $(this).parent().remove();
+	        $(this).parent().parent().remove();
 	        	        
 	        routeDisplay.process();	        
 	    });

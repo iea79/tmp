@@ -192,13 +192,13 @@ body * {
 }
 [class^="mp-icon-"], [class*="mp-icon-"] {
 	font-family: 'icontaxi';
-	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	speak: none;
 }
 a[class*="mp-icon-"],a i[class*="mp-icon-"] {
     text-decoration: none !important;
@@ -1030,8 +1030,8 @@ styles of booking step 1  in homepage
 		vertical-align: middle;
 		margin: 0 2% 0 0;
 		height: 29px;
-		display: block;
 		padding: 0 5px;
+		display: block;
 	}
 	.destination .pick-up .date-pick {
 		text-align: center;
@@ -1040,18 +1040,39 @@ styles of booking step 1  in homepage
 	}
 	.destination  .inputs .uk-form-icon {
 		width:100%;
-		min-width:100%;
+		z-index: 0;
 	}
 	.destination  .inputs .uk-form-icon i {
 		font-size: 22px;
 	}
-	.destination  .inputs .uk-form-icon .flex-input {
+	.destination .new-route-point .uk-form-icon {
+		width: 92%;
+		display: inline-block;
+	}
+	.destination .new-route-point .inputs .mp-icon-closed {
+		font-size: 15px;
+		cursor: pointer;
+		z-index: 100;
+		color: #FF4D61;		
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;
+		margin-left: 2%;
+	}
+	.destination .new-route-point .inputs .uk-form-icon .next-route-point {
+		position: relative;
+		margin: 0;;;
+	}
+	.destination .inputs .uk-form-icon .flex-input {
 		width:100%;
 		padding:0 30px 0 5px !important;
 		line-height:28px;
 	}
-		.destination  .inputs .uk-form-icon  i {
-			right:0;
+		.destination  .inputs [class*="mp-icon-"] {
+			right: 0;
+		}
+		.destination  .inputs .mp-icon-closed {
 		}
 	.destination  .inputs .uk-button {
 		min-height:28px;
@@ -2615,7 +2636,9 @@ footer {
 			}
 			.footer-top .footer-in .add-nav ul li:first-child {
 				border:none;
-				/* margin-right:-9px; */
+			}
+			.footer-top .footer-in .add-nav ul li:nth-child(n+2) {
+				margin-left: 0;
 			}
 		.footer-top .footer-in .social {
 			float:right;
@@ -3931,7 +3954,7 @@ i.quest {
 	.pinned { 
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: 45px;
 		background: #fff;
 		width: 20%;
 		overflow: hidden;
@@ -6508,6 +6531,7 @@ Help
 	float: none;
 	background-color: #fff;
 	padding: 8px 0;
+	margin: 0;
 }
 #filter_table_filter label {
   display: inline-block;
@@ -8218,8 +8242,8 @@ a.textarea-toggle input {
 .destination .inputs .time div.jq-selectbox__select {
 	width: 97%;
 }
-.destination .inputs .time div.jq-selectbox__dropdown {
-
+.destination .inputs .time div.jq-selectbox__dropdown li:first-child {
+	display: none !important;
 }
 .destination .inputs .rounded {
 }
