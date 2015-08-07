@@ -13,7 +13,7 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
     || !(in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1'
         , '81.198.90.13' //dima
-        , '217.118.83.187' //Evgeny Ivanov
+        , '62.16.43.150' //Evgeny Ivanov
         , '89.209.11.134' //vasya
         , '185.43.248.214' //aleksey
         , '109.68.173.20' //evgeniy voronov
