@@ -1218,7 +1218,8 @@ styles of booking step 2  in homepage
 }
 .order-details  .kids-pats-line input[type=checkbox]{
 	display:inline-block;
-	vertical-align:middle;
+	vertical-align:top;
+	margin:3px 3px 0 0;
 }
 .order-details  .kids-pats-line .uk-form-controls {
 	width:29.5%;
@@ -3830,8 +3831,11 @@ i.quest {
 	max-width: 160px;
 }
 .pop-up .clientreviews .photo {
-	border-bottom: 4px #ebebeb solid;
 	text-align: center;
+	border-bottom: 4px #ebebeb solid;
+}
+.office-driver .pop-up .clientreviews .photo {
+	border-bottom: none;
 }
 .pop-up .button-add {
 	width: 100%;
@@ -8123,16 +8127,16 @@ Litle stars for rate
 ================================================= */
 
 
-.order-details .aditional-driver .kids-pats-line label.interp {
+.order-details .aditional-driver .kids-pats-line .interp label {
     display: inline-block;
     width: 32%;
     line-height: 27px;
+    vertical-align: middle;
 }
-
-.order-details .aditional-driver .kids-pats-line label.interp input[type="checkbox"] {
-    display: inline-block;
+.order-details .aditional-driver .kids-pats-line.interp input {
+	vertical-align: middle;
+	margin-top: 0;
 }
-
 .order-details .aditional-driver .kids-pats-line label.interp span.uk-form-controls {
     width: 80%;
     white-space: nowrap;
@@ -8726,15 +8730,14 @@ Taxi company styles
 	box-sizing: border-box;
 }
 .client-account .clientid dl {
-	margin-bottom: 7px;
+	margin-bottom: 7px;;
 }
 .client-account .client-panel-list .clientid dt,
 .client-account .client-panel-list .clientid dd {
-	margin: 0;
+	margin: 0;;
 }
 .client-account .client-panel-list .clientid dd {
 	font-size: 16px;
-	margin-top: -1px;
 	margin-left: 2px;
 	min-width: 62%;
 }
