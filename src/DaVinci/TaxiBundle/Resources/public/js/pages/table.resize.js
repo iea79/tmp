@@ -1,7 +1,21 @@
 require(['jquery'], function () {
     $(document).ready(function () {
+
         var switched = false;
         var updateTables = function () {
+        // //     // if (($(window).width() < 760) && !switched) {
+        // //     //     switched = true;
+        // //     //     $("table.responsive").each(function (i, element) {
+        // //     //         splitTable($(element));
+        // //     //     });
+        // //     //     return true;
+        // //     // }
+        // //     // else if (switched && ($(window).width() > 760)) {
+        // //     //     switched = false;
+        // //     //     $("table.responsive").each(function (i, element) {
+        // //     //         unsplitTable($(element));
+        // //     //     });
+        // //     // }
             if (($(window).width() < 760) && !switched) {
                 switched = true;
                 $("table.responsive").each(function (i, element) {
@@ -16,13 +30,6 @@ require(['jquery'], function () {
                 });
             }
         };
-
-        $(window).load(updateTables);
-        $(window).on("redraw", function () {
-            switched = false;
-            updateTables();
-        }); // An event to listen for
-        $(window).on("resize", updateTables);
 
 
         function splitTable(original)
@@ -71,6 +78,20 @@ require(['jquery'], function () {
             });
         }
         ;
+
+        if ($(window).width() < 760) {
+                switched = true;
+                $("table.responsive").each(function (i, element) {
+                    splitTable($(element));
+                });
+        }
+
+        $(window).load(updateTables);
+        // $(window).on("redraw", function () {
+        //     switched = false;
+        //     updateTables();
+        // }); // An event to listen for
+        $(window).on("resize", updateTables);
 
     });
 });

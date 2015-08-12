@@ -192,13 +192,13 @@ body * {
 }
 [class^="mp-icon-"], [class*="mp-icon-"] {
 	font-family: 'icontaxi';
-	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	speak: none;
 }
 a[class*="mp-icon-"],a i[class*="mp-icon-"] {
     text-decoration: none !important;
@@ -1030,8 +1030,8 @@ styles of booking step 1  in homepage
 		vertical-align: middle;
 		margin: 0 2% 0 0;
 		height: 29px;
-		display: block;
 		padding: 0 5px;
+		display: block;
 	}
 	.destination .pick-up .date-pick {
 		text-align: center;
@@ -1040,18 +1040,39 @@ styles of booking step 1  in homepage
 	}
 	.destination  .inputs .uk-form-icon {
 		width:100%;
-		min-width:100%;
+		z-index: 0;
 	}
 	.destination  .inputs .uk-form-icon i {
 		font-size: 22px;
 	}
-	.destination  .inputs .uk-form-icon .flex-input {
+	.destination .new-route-point .uk-form-icon {
+		width: 92%;
+		display: inline-block;
+	}
+	.destination .new-route-point .inputs .mp-icon-closed {
+		font-size: 15px;
+		cursor: pointer;
+		z-index: 100;
+		color: #FF4D61;		
+		cursor: pointer;
+		display: inline-block;
+		position: relative;
+		vertical-align: middle;
+		margin-left: 2%;
+	}
+	.destination .new-route-point .inputs .uk-form-icon .next-route-point {
+		position: relative;
+		margin: 0;;;
+	}
+	.destination .inputs .uk-form-icon .flex-input {
 		width:100%;
 		padding:0 30px 0 5px !important;
 		line-height:28px;
 	}
-		.destination  .inputs .uk-form-icon  i {
-			right:0;
+		.destination  .inputs [class*="mp-icon-"] {
+			right: 0;
+		}
+		.destination  .inputs .mp-icon-closed {
 		}
 	.destination  .inputs .uk-button {
 		min-height:28px;
@@ -1197,7 +1218,8 @@ styles of booking step 2  in homepage
 }
 .order-details  .kids-pats-line input[type=checkbox]{
 	display:inline-block;
-	vertical-align:middle;
+	vertical-align:top;
+	margin:3px 3px 0 0;
 }
 .order-details  .kids-pats-line .uk-form-controls {
 	width:29.5%;
@@ -1607,26 +1629,35 @@ table styles in home
 	min-width: 100%;
 }
 .table-over .serv .uk-button {
-	font-size: 100%;
 	white-space: nowrap;
+	font-size: 100%;
+}
+.table-over .serv .uk-button:hover,
+.table-over .serv .uk-button:focus {
+	background-color: #2EDA36;
+	
 }
 	.table-over .serv {
-		border-spacing:1px;
-		background-color:#d0d0d0;
 		width:100%;
-		border-collapse:separate;
+		border-collapse:collapse;
+		border:1px solid #d0d0d0;
 	}
-		.table-over .serv > thead > tr > th {
+		.main-content .table-over .serv > thead tr th {
 			color:#fff;
 			background:#528ed3;
 			position:relative;
 			padding:7px 2px;
-			text-align:center;
+			text-align:center !important;
+			border:1px solid #d0d0d0;
+			font-weight:bold;
+			line-height:20px !important;
 		}
 		.table-over .serv tbody > tr > td {
 			background:#fff;
 			padding:7px 2px;
-			text-align:center;
+			text-align:center !important;
+			border:1px solid #d0d0d0;
+			line-height:1.4em;
 		}
 		.table-over .serv .under-head > td {
 			padding:5px 5px 1px;
@@ -1634,6 +1665,7 @@ table styles in home
 			background-color:#f5f5f5;
 			white-space:nowrap;
 			height:34px;
+			border:1px solid #d0d0d0;
 		}
 		.table-over .serv .fixed-column,.table-over .serv .under-head input,.table-over .serv .under-head .jq-selectbox,.table-over .serv .under-head .jq-selectbox__select,.table-over .serv .under-head select {
 			vertical-align:top;
@@ -1719,7 +1751,6 @@ table styles in home
 	display: inline-block;
 	width: 100%;
 	white-space: nowrap;
-	margin-top: -1px;
 		}
 		.table-over .serv .under-head input{ 
 			border-radius:4px;
@@ -1737,6 +1768,10 @@ table styles in home
 		.table-over .serv .under-head .sort {
 			font-size: 14px;
 			line-height: 28px;
+		}
+		.table-over .serv .under-head .sort:hover,
+		.table-over .serv .under-head .sort:focus {
+			background: transparent;
 		}
 		.table-over .sort i:last-child {
 			margin-left:-9px;
@@ -1772,6 +1807,7 @@ table styles in home
 		}
 		.table-over .serv .cancell-filters:hover {
 			text-decoration:none;
+			background:transparent;
 		}
 		.table-over .serv  .bascket-opt {
 			width:82%;
@@ -2196,7 +2232,6 @@ office table
 	line-height: 36px;
 }
 .findorder .table-over .under-head td {
-	padding-bottom: 0;
 }
 .client-account .uk-table td:nth-child(3),
 .client-account .uk-table th:nth-child(3) {
@@ -2612,10 +2647,13 @@ footer {
 			.footer-top .footer-in .add-nav ul li {
 				border-left:1px solid #3d3d3d;
 				line-height:12px;
+				margin-left:0;
 			}
 			.footer-top .footer-in .add-nav ul li:first-child {
 				border:none;
-				/* margin-right:-9px; */
+			}
+			.footer-top .footer-in .add-nav ul li:nth-child(n+2) {
+				margin-left: 0;
 			}
 		.footer-top .footer-in .social {
 			float:right;
@@ -2628,7 +2666,8 @@ footer {
 				font-size:15px;
 				display:table;
 				text-align:center;
-				line-height:26px !important;
+				line-height:20px !important;
+				height:26px;
 			}
 			.social li a:hover {
 				color: #fff;
@@ -3792,8 +3831,11 @@ i.quest {
 	max-width: 160px;
 }
 .pop-up .clientreviews .photo {
-	border-bottom: 4px #ebebeb solid;
 	text-align: center;
+	border-bottom: 4px #ebebeb solid;
+}
+.office-driver .pop-up .clientreviews .photo {
+	border-bottom: none;
 }
 .pop-up .button-add {
 	width: 100%;
@@ -3928,10 +3970,13 @@ i.quest {
 		float:right;
 	}
 	table.responsive { margin-bottom: 0; }
+	.office-driver .pinned {
+		top: 0;
+	}
 	.pinned { 
 		position: absolute;
 		right: 0;
-		top: 0;
+		top: 45px;
 		background: #fff;
 		width: 20%;
 		overflow: hidden;
@@ -4874,14 +4919,20 @@ footer {
     text-transform: uppercase;
 }
 .gobutt:hover {text-decoration: none;}
+.blocks-choose {
+	max-width: 680px;
+	margin-left: auto !important;
+	margin-right: auto;;
+}
 .blockoffice {
     background: none repeat scroll 0 0 #fff;
     border-radius: 4px;
     display: inline-block;
     margin: 0 22px 25px 3px;
-    padding: 14px 10px 0;
+    padding: 14px 10px 50px;
     text-align: center;
     width: 281px;
+    position: relative;
 }
 .officetitle {
     color: #528ed3;
@@ -4928,6 +4979,10 @@ footer {
     font-size: 24px;
     padding: 14px 20px 16px;
     text-transform: uppercase;
+    position: absolute;
+    width: 94%;
+    box-sizing: border-box;
+    bottom: 0;
 }
 .register a.trial:hover {
     color: #fff;
@@ -5958,6 +6013,7 @@ Profit
 	counter-reset: li;
 	width: 100%;
 	display: inline-block;
+	box-sizing: border-box;
 }
 .profit li .content .center ol > li {
 	position:relative;
@@ -5965,6 +6021,7 @@ Profit
 	padding:0 10px 0 0;
 	list-style:none;
 	line-height:20px;
+	box-sizing:border-box;
 }
 .profit li .content .center ol > li:before {
 	content:counter(li) !important; 
@@ -6011,7 +6068,8 @@ Profit
 .videoWrapper object {
 	width: 100%;
 }
-.videoWrapper object embed {
+.videoWrapper object embed,
+.videoWrapper img {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -6432,6 +6490,8 @@ Help
 	background-size: 17%;
 	margin-bottom: 13px;
 	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
 }
 .help-content .support span {
 	font-size: 16px;
@@ -6508,6 +6568,7 @@ Help
 	float: none;
 	background-color: #fff;
 	padding: 8px 0;
+	margin: 0;
 }
 #filter_table_filter label {
   display: inline-block;
@@ -6577,11 +6638,9 @@ Help
 }
 .block-help .uk-nav.top-faq,
 .block-help .uk-nav.guides {
-	width: 48.7%;
 	float: left;
 }
 .block-help .uk-nav.top-faq {
-	margin-right: 2%;
 }
 .block-help .uk-nav.only-link {
 	margin-top: -12px;
@@ -6629,6 +6688,9 @@ Help
 }
 .help .block-help .uk-nav {
     border: 1px solid #d0d0d0;
+    width: 100%;
+    position: relative;
+    padding-bottom: 78px;
 }
 .help .block-help .uk-nav li {
 	border-bottom: 1px solid #d0d0d0;
@@ -6686,6 +6748,10 @@ a.preview-video img:hover {
 .block-help .uk-nav li:last-child {
 	border-bottom: 0;
 	margin-top: 6px;
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	box-sizing: border-box;
 }
 .block-help .uk-nav.demo li.link a {
 	display: table;
@@ -6883,6 +6949,7 @@ a.preview-video img:hover {
 .faqs .uk-nav li:last-child {
   border: 1px;
   margin-bottom: 7px;
+  position: relative;
 }
 .faqs .uk-nav li.uk-open {
 	margin-bottom: 21px;
@@ -6900,6 +6967,7 @@ a.preview-video img:hover {
 	margin: -2px 0 9px 0;
 	line-height: 17px;
 	display: inline-block;
+	white-space: normal;
 }
 .faqs ul.uk-nav-sub li {
 	margin-bottom: 14px;
@@ -8059,16 +8127,16 @@ Litle stars for rate
 ================================================= */
 
 
-.order-details .aditional-driver .kids-pats-line label.interp {
+.order-details .aditional-driver .kids-pats-line .interp label {
     display: inline-block;
     width: 32%;
     line-height: 27px;
+    vertical-align: middle;
 }
-
-.order-details .aditional-driver .kids-pats-line label.interp input[type="checkbox"] {
-    display: inline-block;
+.order-details .aditional-driver .kids-pats-line.interp input {
+	vertical-align: middle;
+	margin-top: 0;
 }
-
 .order-details .aditional-driver .kids-pats-line label.interp span.uk-form-controls {
     width: 80%;
     white-space: nowrap;
@@ -8218,8 +8286,8 @@ a.textarea-toggle input {
 .destination .inputs .time div.jq-selectbox__select {
 	width: 97%;
 }
-.destination .inputs .time div.jq-selectbox__dropdown {
-
+.destination .inputs .time div.jq-selectbox__dropdown li:first-child {
+	display: none !important;
 }
 .destination .inputs .rounded {
 }
@@ -8662,15 +8730,14 @@ Taxi company styles
 	box-sizing: border-box;
 }
 .client-account .clientid dl {
-	margin-bottom: 7px;
+	margin-bottom: 7px;;
 }
 .client-account .client-panel-list .clientid dt,
 .client-account .client-panel-list .clientid dd {
-	margin: 0;
+	margin: 0;;
 }
 .client-account .client-panel-list .clientid dd {
 	font-size: 16px;
-	margin-top: -1px;
 	margin-left: 2px;
 	min-width: 62%;
 }
@@ -9549,7 +9616,12 @@ Payment window
 
 /* Change help pages */
 .main-help-page .block-help .help-content {
-	width: 100%;
+	width: calc(100% + 35px);
+	width: -moz-calc(100% + 35px);
+	width: -webkit-calc(100% + 35px);
+}
+.main-help-page .block-help .help-content div {
+
 }
 .uk-nav.demo {
 	display: none;
