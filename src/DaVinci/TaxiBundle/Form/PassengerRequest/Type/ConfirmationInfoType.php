@@ -17,7 +17,7 @@ class ConfirmationInfoType extends AbstractType {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
 			'validation_groups' => array('flow_createPassengerRequest_step4'),
-			'csrf_protection' => false,
+			'csrf_protection' => false
 		));
 	}
 	

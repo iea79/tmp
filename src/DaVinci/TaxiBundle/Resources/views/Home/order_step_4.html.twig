@@ -6,8 +6,8 @@
 						<dl class="quantity">
 					        <h1 class="labels">{{'Passenger info'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'We need to make sure you have no pick-up problems'|trans}}"></i></h1>
 					        <hr>
-							<dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ flow.formData.passengerDetail.adult }}), {{'children'|trans}} ({{ flow.formData.passengerDetail.children }}), {{'seniors'|trans}} ({{ flow.formData.passengerDetail.seniors }})</dd>
-							{% if flow.formData.passengerDetail.notMySelf == true %}
+							<dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ passengerRequest.passengerDetail.adult }}), {{'children'|trans}} ({{ passengerRequest.passengerDetail.children }}), {{'seniors'|trans}} ({{ passengerRequest.passengerDetail.seniors }})</dd>
+							{% if passengerRequest.passengerDetail.notMySelf == true %}
 								<dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
@@ -19,47 +19,47 @@
 							{% endif %}	
 							<dd class="personal">
 								<dl>
-									<dt>{{'Name'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.name }}</dd>
-									<dt>{{'E-mail'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.email }}</dd>
-									{% if flow.formData.passengerDetail.skype != '' %}
-										<dt>{{'Skype'|trans}}:</dt><dd>{{ flow.formData.passengerDetail.skype }}</dd>
+									<dt>{{'Name'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.name }}</dd>
+									<dt>{{'E-mail'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.email }}</dd>
+									{% if passengerRequest.passengerDetail.skype != '' %}
+										<dt>{{'Skype'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.skype }}</dd>
 									{% endif %}	
-									<dt>{{'Mobile'|trans}}:</dt><dd>+{{ flow.formData.passengerDetail.mobileCode }} {{ flow.formData.passengerDetail.mobilePhone }}</dd>
-									{% if flow.formData.passengerDetail.mobileHasWifi == true or flow.formData.passengerDetail.mobileHasWhatsapp == true %}
-										<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if flow.formData.passengerDetail.mobileHasWifi %}wi-fi<br/>{% endif %}{% if flow.formData.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
+									<dt>{{'Mobile'|trans}}:</dt><dd>+{{ passengerRequest.passengerDetail.mobileCode }} {{ passengerRequest.passengerDetail.mobilePhone }}</dd>
+									{% if passengerRequest.passengerDetail.mobileHasWifi == true or passengerRequest.passengerDetail.mobileHasWhatsapp == true %}
+										<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if passengerRequest.passengerDetail.mobileHasWifi %}wi-fi<br/>{% endif %}{% if passengerRequest.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
 									{% endif %}	
 								</dl>
 							</dd>
-							{% if flow.formData.passengerDetail.about != '' %}
+							{% if passengerRequest.passengerDetail.about != '' %}
 								<dt class="about">{{'About passenger'|trans}}</dt>
-								<dd class="about">{{ flow.formData.passengerDetail.about }}</dd>
+								<dd class="about">{{ passengerRequest.passengerDetail.about }}</dd>
 							{% endif %}
 						</dl>
 						<div class="tariff">
 						<h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i></h1>
 						<hr>
 							<dl class="price">
-								<dt>{{'Price'|trans}}:</dt><dd> ${% if flow.formData.tariff.priceType == 0 and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}{{ flow.formData.tariff.marketPrice }}{% endif %}</dd>
-								<dt>{{'Tips'|trans}}:</dt><dd> ${% if flow.formData.tariff.tipsType == 0 %}{{ flow.formData.tariff.yourTips }}{% else %}{{ flow.formData.tariff.marketTips }}{% endif %}</dd>
+								<dt>{{'Price'|trans}}:</dt><dd> ${% if passengerRequest.tariff.priceType == 0 and passengerRequest.tariff.yourPrice > 0 %}{{ passengerRequest.tariff.yourPrice }}{% else %}{{ passengerRequest.tariff.marketPrice }}{% endif %}</dd>
+								<dt>{{'Tips'|trans}}:</dt><dd> ${% if passengerRequest.tariff.tipsType == 0 %}{{ passengerRequest.tariff.yourTips }}{% else %}{{ passengerRequest.tariff.marketTips }}{% endif %}</dd>
 							</dl>
 							<dl class="payment">
-								<dt>{{'Payment'|trans}}:</dt><dd>{{ flow.formData.tariff.pricePaymentMethod }}</dd>
-								<dt>{{'Payment'|trans}}:</dt><dd>{{ flow.formData.tariff.tipsPaymentMethod }}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.pricePaymentMethod }}</dd>
+								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.tipsPaymentMethod }}</dd>
 							</dl>
 						</div>
 						<div class="route-info">
 						<h1 class="labels">{{'Route info'|trans}}</h1>
 						<hr>
 							<dl>
-								<dt>{{'From'|trans}}:</dt><dd>{{ flow.formData.routePoints[0].place }}</dd>
-								{% for point in flow.formData.routePoints %}
+								<dt>{{'From'|trans}}:</dt><dd>{{ passengerRequest.routePoints[0].place }}</dd>
+								{% for point in passengerRequest.routePoints %}
 									{% if loop.index > 1 %}
 										<dt>{{'To'|trans}}:</dt><dd>{{ point.place }}</dd>
 									{% endif %}
 								{% endfor %}
-								<dt>{{'Pick up'|trans}}:</dt><dd>{{ flow.formData.pickUpDate|date("d M Y") }}, {{ flow.formData.pickUpTime|date("H:i") }}</dd>
-								{% if flow.formData.roundTrip %}
-									<dt>{{'Return'|trans}}:</dt><dd>{{ flow.formData.returnDate|date("d M Y") }}, {{ flow.formData.returnTime|date("H:i") }}</dd>
+								<dt>{{'Pick up'|trans}}:</dt><dd>{{ passengerRequest.pickUpDate|date("d M Y") }}, {{ passengerRequest.pickUpTime|date("H:i") }}</dd>
+								{% if passengerRequest.roundTrip %}
+									<dt>{{'Return'|trans}}:</dt><dd>{{ passengerRequest.returnDate|date("d M Y") }}, {{ passengerRequest.returnTime|date("H:i") }}</dd>
 								{% endif %}	
 							</dl>
 						</div>
@@ -67,7 +67,7 @@
 							<h1 class="labels">{{'Vehicle'|trans}}</h1>
 							<hr/>
 							<dl>
-								<dt>{{'Class'|trans}}:</dt><dd><span>{{ flow.formData.vehicle.getVehicleClassName() }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
+								<dt>{{'Class'|trans}}:</dt><dd><span>{{ passengerRequest.vehicle.getVehicleClassName() }}</span><i class="mp-icon-person"></i>5<i class="mp-icon-bug"></i>5<i class="mp-icon-door"></i>5</dd>
 							</dl>
 						</div>
 						<div class="other-passenger-details">
@@ -75,132 +75,141 @@
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
 								<div class="kid-pat-bag" id="toggle12">
 								    <dl class="child-pet">
-								    	{% for childSeat in flow.formData.vehicleOptions.childSeats %}
+								    	{% for childSeat in passengerRequest.vehicleOptions.childSeats %}
 								    		{% if childSeat.childSeatNumber > 0 %}
 								    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.getChildSeatTypeName() }})</dd>
 								    		{% endif %}	
 								    	{% endfor %}
-								    	{% for petCage in flow.formData.vehicleOptions.petCages %}
+								    	{% for petCage in passengerRequest.vehicleOptions.petCages %}
 								    		{% if petCage.petCageNumber > 0 %}
 								    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.getPetCageTypeName() }})</dd>
 								    		{% endif %}	
 								    	{% endfor %}
 								    </dl>
-								  <dl class="rack-left">
-								  	{% if flow.formData.vehicleOptions.cycleRack > 0 %}
-								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.cycleRack }}</dd>
+                                    <dl class="rack-left">
+								  	{% if passengerRequest.vehicleOptions.cycleRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.cycleRack }}</dd>
 								  	{% endif %}
-								  	{% if flow.formData.vehicleOptions.strollerPlace > 0 %}	
-								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.strollerPlace }}</dd>
+								  	{% if passengerRequest.vehicleOptions.strollerPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.strollerPlace }}</dd>
 								  	{% endif %}	
-								  	{% if flow.formData.vehicleOptions.roofRack == true %}
+								  	{% if passengerRequest.vehicleOptions.roofRack == true %}
 								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 								  	{% endif %}
-								  </dl>
-								  <dl class="rack-right">
-								  	{% if flow.formData.vehicleOptions.skiRack > 0 %}
-								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.skiRack }}</dd>
+                                    </dl>
+                                    <dl class="rack-right">
+								  	{% if passengerRequest.vehicleOptions.skiRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.skiRack }}</dd>
 								  	{% endif %}
-								  	{% if flow.formData.vehicleOptions.wheelChairPlace > 0 %}	
-								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ flow.formData.vehicleOptions.wheelChairPlace }}</dd>
+								  	{% if passengerRequest.vehicleOptions.wheelChairPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.wheelChairPlace }}</dd>
 								  	{% endif %}	
-								  	{% if flow.formData.vehicleOptions.trailer == true %}
+								  	{% if passengerRequest.vehicleOptions.trailer == true %}
 								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 								  	{% endif %}
-								  </dl>
+                                    </dl>
 								</div>
-								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}"><span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span></div>							
-									<div class="more-details" id="toggle11">
-									  <div class="message">{{'All this items are optional. You should ask driver about the price'|trans}}.</div>
-									  <dl class="cheks1">
-									  	{% if flow.formData.vehicleServices.wifi == true %}
+								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}">
+                                    <span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span>
+                                </div>							
+								<div class="more-details" id="toggle11">
+                                    <div class="message">{{'All this items are optional. You should ask driver about the price'|trans}}.</div>
+                                    <dl class="cheks1">
+									  	{% if passengerRequest.vehicleServices.wifi == true %}
 									  		<dt>{{'wi-fi'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  	{% if flow.formData.vehicleServices.airConditioner == true %}
+									  	{% if passengerRequest.vehicleServices.airConditioner == true %}
 									  		<dt>{{'air conditioner'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  	{% if flow.formData.vehicleServices.nonSmokers == true %}
+									  	{% if passengerRequest.vehicleServices.nonSmokers == true %}
 									  		<dt>{{'car for none smokers'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  </dl>
-									  <dl class="cheks2">
-									  	{% if flow.formData.vehicleServices.gps == true %}
+                                        </dl>
+                                        <dl class="cheks2">
+									  	{% if passengerRequest.vehicleServices.gps == true %}
 									  		<dt>{{'GPS'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  	{% if flow.formData.vehicleServices.sunRoof == true %}
+									  	{% if passengerRequest.vehicleServices.sunRoof == true %}
 									  		<dt>{{'sunroof'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  	{% if flow.formData.vehicleServices.firstAidKit == true %}
+									  	{% if passengerRequest.vehicleServices.firstAidKit == true %}
 									  		<dt>{{'first aid kid'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
 									  	{% endif %}
-									  </dl>
-									  <dl class="comfort">
-									  	{% if flow.formData.vehicleServices.coolDrinks != '' %}
+                                        </dl>
+                                        <dl class="comfort">
+									  	{% if passengerRequest.vehicleServices.coolDrinks != '' %}
 									    	<dt class="uk-width-1-1">{{'cool drinks'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.coolDrinks }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.coolDrinks }}</dd>
 									    {% endif %}
-									    {% if flow.formData.vehicleServices.snacks != '' %}
+									    {% if passengerRequest.vehicleServices.snacks != '' %}
 									    	<dt class="uk-width-1-1">{{'snacks'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.snacks }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.snacks }}</dd>
 									    {% endif %}
-									    {% if flow.formData.vehicleServices.dvd != '' %}
+									    {% if passengerRequest.vehicleServices.dvd != '' %}
 									    	<dt class="uk-width-1-1">{{'DVD'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.dvd }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.dvd }}</dd>
 									    {% endif %}
-									    {% if flow.formData.vehicleServices.gadgets != '' %}
+									    {% if passengerRequest.vehicleServices.gadgets != '' %}
 									    	<dt class="uk-width-1-1">{{'gadgets'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.gadgets }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.gadgets }}</dd>
 									    {% endif %}
-									    {% if flow.formData.vehicleServices.toolsForDisabled != '' %}
+									    {% if passengerRequest.vehicleServices.toolsForDisabled != '' %}
 									    	<dt class="uk-width-1-1">{{'tools for disabled'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.toolsForDisabled }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.toolsForDisabled }}</dd>
 									    {% endif %}
-									    {% if flow.formData.vehicleServices.disease != '' %}
+									    {% if passengerRequest.vehicleServices.disease != '' %}
 									    	<dt class="uk-width-1-1">{{'passenger has a disease'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicleServices.disease }}</dd>
+									    	<dd class="uk-width-1-1">{{ passengerRequest.vehicleServices.disease }}</dd>
 									    {% endif %}
-									  </dl>
+                                    </dl>
 								</div>
-								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}"><span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
-									<div class="more-details" id="toggle10">
-									  {% if flow.formData.vehicleDriverConditions.interpreterLang != '' %}
-									  	<dl class="interpreter">
-									  		<dt>{{'interpreter'|trans}}</dt><dd>{{ flow.formData.vehicleDriverConditions.interpreterLang }}</dd>
-									  	</dl>		
-									  {% endif %}
-									  <dl class="cheks1">
-									  	{% if flow.formData.vehicleDriverConditions.educator == true %}
-									  		<dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  	{% if flow.formData.vehicleDriverConditions.bodyguard == true %}
-									  		<dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  	{% if flow.formData.vehicleDriverConditions.carrier == true %}
-									  		<dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  </dl>
-									  <dl class="cheks2">
-									  	{% if flow.formData.vehicleDriverConditions.medicalLicense == true %}
-									  		<dt>{{'medical license'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  	{% if flow.formData.vehicleDriverConditions.animalTrainer == true %}
-									  		<dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  	{% if flow.formData.vehicleDriverConditions.guide == true %}
-									  		<dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-									  	{% endif %}
-									  </dl>
-									  {% if flow.formData.vehicle.specialRequirements != '' %}
-									  	<dl class="special">
-									    	<dt class="uk-width-1-1">{{'Special requirements'|trans}}</dt>
-									    	<dd class="uk-width-1-1">{{ flow.formData.vehicle.specialRequirements }}</dd>
-									    </dl>	
-									  {% endif %}
+								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle10'}">
+                                    <span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span>
+                                </div>
+								<div class="more-details" id="toggle10">
+                                    {% if passengerRequest.vehicleDriverConditions.interpreterLang != '' %}
+                                    <dl class="interpreter">
+                                        <dt>{{'interpreter'|trans}}</dt><dd>{{ passengerRequest.vehicleDriverConditions.interpreterLang }}</dd>
+                                    </dl>		
+                                    {% endif %}
+                                    <dl class="cheks1">
+                                    {% if passengerRequest.vehicleDriverConditions.educator == true %}
+                                        <dt>{{'educator'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    {% if passengerRequest.vehicleDriverConditions.bodyguard == true %}
+                                        <dt>{{'bodyguard'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    {% if passengerRequest.vehicleDriverConditions.carrier == true %}
+                                        <dt>{{'carrier'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    </dl>
+                                    <dl class="cheks2">
+                                    {% if passengerRequest.vehicleDriverConditions.medicalLicense == true %}
+                                        <dt>{{'medical license'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    {% if passengerRequest.vehicleDriverConditions.animalTrainer == true %}
+                                        <dt>{{'animal trainer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    {% if passengerRequest.vehicleDriverConditions.guide == true %}
+                                        <dt>{{'guide'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+                                    {% endif %}
+                                    </dl>
+                                    {% if passengerRequest.vehicle.specialRequirements != '' %}
+                                    <dl class="special">
+                                        <dt class="uk-width-1-1">{{'Special requirements'|trans}}</dt>
+                                        <dd class="uk-width-1-1">{{ passengerRequest.vehicle.specialRequirements }}</dd>
+                                    </dl>	
+                                    {% endif %}
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+                <div class="confirmation uk-margin-top">
+                    <a class="uk-button uk-button-success uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3" href="#route_before-open_{{ passengerRequest.id }}" data-uk-modal>Edit</a>
+                </div>
+                {% from 'DaVinciTaxiBundle:Home:editPassengerRequest.html.twig' import editRequest %}
+                {{ editRequest(passengerRequest, form, 'before-open') }}
 			</div>
 		</div>
 	</div>                                

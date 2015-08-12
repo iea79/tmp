@@ -57,7 +57,9 @@ class HomeController extends StepsController
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
     public function paymentAction() {
-    	$passengerRequest = $this->getPassengerRequestWithDriversById($this->getRequest()->get('id'));
+    	$passengerRequest = $this->getPassengerRequestWithDriversById(
+            $this->getRequest()->get('id')
+        );
     	if (is_null($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
