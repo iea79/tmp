@@ -26,7 +26,7 @@ class MailerInformer extends AbstractInformer implements InformerInterface
 			return;
 		}
 		
-		$message = $this->mailer
+		$message = \Swift_Message::newInstance()
 			->setSubject(self::MAIL_SUBJECT)
 			->setTo($user->getEmail())
 			->setBody($contentInfo->getContent());
