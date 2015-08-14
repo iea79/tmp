@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="vehicle")
  */
-class Vehicle {
+class Vehicle 
+{
 	
 	/**
 	 * @ORM\Id

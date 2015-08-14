@@ -1,9 +1,9 @@
-{% macro showRequest(request, name) %}
+{% macro editRequest(request, form, name) %}
     {# Modal window #}
     <div id="route_{{ name }}_{{ request.id }}" class="uk-modal pop-up route-modal">
         <div class="uk-modal-dialog">
             <a class="uk-modal-close uk-close"></a>
-            <div class="popup-head">{{ request.routePoints[0].place }}{% for point in request.routePoints %}{% if loop.index > 1 %} - {{ point.place }}{% endif %}{% endfor %}</div>
+            <div class="popup-head">{{ request.routePoints[0].place }} {% for point in request.routePoints %}{% if loop.index > 1 %} - {{ point.place }}{% endif %}{% endfor %}</div>
             <div class="order-step-four">
                 <div id="steps" class="order-details-over">
                     <div class="check-order">
@@ -57,18 +57,43 @@
                                 <h1 class="labels">{{'Route info'|trans}}
                                     </h1>
                                 <hr>
-                                    <dl>
-                                        <dt>{{'From'|trans}}:</dt><dd>{{ request.routePoints[0].place }}</dd>
-                                        {% for point in request.routePoints %}
-                                            {% if loop.index > 1 %}
-                                                <dt>{{'To'|trans}}:</dt><dd>{{ point.place }}</dd>
-                                            {% endif %}
-                                        {% endfor %}
-                                        <dt>{{'Pick up'|trans}}:</dt><dd>{{ request.pickUpDate|date("d M Y") }}, {{ request.pickUpTime|date("H:i") }}</dd>
-                                        {% if request.roundTrip %}
-                                            <dt>{{'Return'|trans}}:</dt><dd>{{ request.returnDate|date("d M Y") }}, {{ request.returnTime|date("H:i") }}</dd>
-                                        {% endif %}	
-                                    </dl>
+                                {#
+                                <div class="desticlone">
+                                    {% for point in request.routePoints %}
+                                        <div class="form-block-wrap">	
+                                            <div class="labels{% if loop.index0 > 1 %} new-point-icon{% endif %}">
+                                                <label for="createPassengerRequestRouteInfo_routePoints_{{ loop.index0 }}_place"><i class="mp-icon-point-a"></i>
+                                                    {% if loop.index == 1 %} From{% else %} To{% endif %}:
+                                                </label><i class="uk-icon-asterisk"></i>
+                                            </div>
+                                            <div class="inputs">
+                                                <div class="uk-form-icon">
+                                                    <i class="mp-icon-nord-star"></i>
+                                                    <input type="text" id="createPassengerRequestRouteInfo[routePoints][{{ loop.index0 }}}][place]" name="createPassengerRequestRouteInfo[routePoints][{{ loop.index0 }}}][place]" value="{{ point.place }}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                     {% endfor %}
+                                </div>
+                                #}
+                                <input type="hidden" id="createPassengerRequestRouteInfo[distance]" name="createPassengerRequestRouteInfo[distance]" value="{{ request.distance }}" />
+                                <input type="hidden" id="createPassengerRequestRouteInfo[duration]" name="createPassengerRequestRouteInfo[duration]" value="{{ request.duration }}" />
+                                <dl>
+                                    {% for point in request.routePoints %}
+                                        {% if loop.index > 1 %}
+                                            <dt>{{'To'|trans}}:</dt>
+                                        {% else %}    
+                                            <dt>{{'From'|trans}}:</dt>
+                                        {% endif %}
+                                        <dd>
+                                            <input type="text" id="createPassengerRequestRouteInfo[routePoints][{{ loop.index0 }}}][place]" name="createPassengerRequestRouteInfo[routePoints][{{ loop.index0 }}}][place]" value="{{ point.place }}" />
+                                        </dd>
+                                    {% endfor %}
+                                    <dt>{{'Pick up'|trans}}:</dt><dd>{{ request.pickUpDate|date("d M Y") }}, {{ request.pickUpTime|date("H:i") }}</dd>
+                                    {% if request.roundTrip %}
+                                        <dt>{{'Return'|trans}}:</dt><dd>{{ request.returnDate|date("d M Y") }}, {{ request.returnTime|date("H:i") }}</dd>
+                                    {% endif %}	
+                                </dl>
                                 </div>
                             </div>
                         </div>

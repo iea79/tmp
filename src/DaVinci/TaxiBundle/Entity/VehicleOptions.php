@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="vehicle_options")
  */
-class VehicleOptions {
+class VehicleOptions 
+{
 	
 	/**
 	 * @ORM\Id
@@ -70,7 +71,6 @@ class VehicleOptions {
 		$this->childSeats = new ArrayCollection();
 		$this->petCages = new ArrayCollection();
 	}
-	
 
     /**
      * Get id

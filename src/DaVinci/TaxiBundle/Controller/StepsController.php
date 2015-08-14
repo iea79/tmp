@@ -34,12 +34,12 @@ class StepsController extends Controller
 
     protected function showSteps()
 	{
-		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');
 		$passengerRequest = $this->generatePassengerRequest();
 		 
 		$flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
-				
+		/*
+        $sessionRequestId = $this->getRequest()->getSession()->get('request_id');
 		if (null !== $sessionRequestId) {
 			$entity = $this->getFullPassengerRequestById($sessionRequestId);
 			
@@ -47,7 +47,7 @@ class StepsController extends Controller
 				$passengerRequest = $entity;
 			}
 		}
-		
+		*/
 		$form = $flow->createForm();
 		if ($flow->isValid($form)) {
 			if (CreatePassengerRequestFlow::STEP_LAST - 1 == $flow->getCurrentStepNumber()) {

@@ -147,8 +147,7 @@ class StockSubscriber implements EventSubscriberInterface
 	private function processByPassengerRequest(PassengerRequest $passengerRequest)
 	{
 		$this->remoteRequester->makePassengerRequestOperation(
-			$passengerRequest, 
-			RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
+			$passengerRequest, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
 		);
 	}
 	
