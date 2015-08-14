@@ -393,5 +393,11 @@ class HomeController extends StepsController
     		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
+
+    public function DriverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:driver.html.twig');
+    }
+    
                     
 }

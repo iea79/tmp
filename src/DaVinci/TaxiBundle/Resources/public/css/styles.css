@@ -957,6 +957,29 @@ body .route-modal .disloc {
 
 }
 
+.info_modal .uk-modal-dialog {
+	max-width: 300px;
+	padding: 10px;
+	text-align: center;
+}
+
+.info_modal .uk-modal-dialog > .uk-close:first-child {
+	margin: -7px -7px 0 0;
+}
+
+.info_modal .uk-modal-dialog > .uk-close:first-child +* {
+	margin-top: 13px;
+}
+
+.info_modal .uk-modal-dialog .uk-button {
+	height: 35px;
+	font-size: 16px;
+}
+
+.info_modal .uk-modal-dialog .uk-button-danger {
+	margin: 0 auto;
+}
+
 /*================================
 styles of booking step 1  in homepage
 =================================*/
@@ -8292,7 +8315,7 @@ a.textarea-toggle input {
 .destination .inputs .rounded {
 }
 #map-canvas{border: 1px solid #8D8F98;}
-#map-canvas img{height: 100%;}
+#map-canvas img{height: 100%;;}
 
 
 .content-padding{
@@ -9612,6 +9635,45 @@ Payment window
 	.order-details .recommend, .order-details .tarif-line-group .overinput, .tarif-line .tarif-line-group .choose-lang {
 		max-width: 60%;
 	}
+}
+
+
+/* Driver page */
+.driver-faq .uk-h3 {
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.driver-faq p {
+	margin-top: 0;
+}
+
+.driver-faq .buttom-swicher ul {
+	text-align: justify;
+}
+
+.driver-faq .buttom-swicher li {
+	padding: 7px 1.03em;
+}
+
+.driver-faq ol {
+	padding-left: 2%;
+}
+
+.driver-faq ol + p {
+	margin-top: 20px;
+}
+
+.driver-faq ol img {
+	max-width: inherit;
+	margin: 20px 0 20px -20px;
+	width: calc(100% + 20px);
+	width: -moz-calc(100% + 20px);
+	width: -webkit-calc(100% + 20px);
+}
+
+.driver-faq ol :last-child {
+	margin-bottom: 0;
 }
 
 /* Change help pages */

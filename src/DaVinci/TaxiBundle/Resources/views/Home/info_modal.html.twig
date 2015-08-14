@@ -1,0 +1,25 @@
+{# Confirm modal #}
+<button class="uk-button" data-uk-modal="{target:'#info_pop'}">Two buttons</button>
+<div id="info_pop" class="uk-modal info_modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-h4 uk-text-danger uk-margin">Are you sure to cancel the Order?</div>
+        <div class="uk-grid uk-grid-small">
+        	<div class="uk-width-1-2"><button class="uk-button uk-button-success uk-width-1-1">YES</button></div>
+        	<div class="uk-width-1-2"><button class="uk-button uk-button-warning uk-width-1-1">NO</button></div>
+        </div>
+    </div>
+</div>
+
+
+
+{# OK modal #}
+<button class="uk-button" data-uk-modal="{target:'#info_pop_ok'}">One button center</button>
+<div id="info_pop_ok" class="uk-modal info_modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-h4 uk-text-danger uk-margin">Your payment has been successfully completed</div>
+    	<button class="uk-button uk-button-danger uk-width-1-2">OK</button>
+    </div>
+</div>
+
