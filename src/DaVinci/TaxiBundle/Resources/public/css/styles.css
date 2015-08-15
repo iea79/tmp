@@ -935,6 +935,27 @@ home
 }
 body .route-modal .disloc {
 	padding-top: 0;
+	width: 50%;
+	float: right;
+}
+.route-modal .disloc.bottom {
+	width: 100% !important;
+	padding: 23px 0 0;
+}
+.route-modal .confirmation:before,
+.route-modal .confirmation:after,
+.route-modal .disloc.bottom:after,
+.route-modal .disloc.bottom:before {
+	content: '';
+	display: table;
+	clear: both;
+}
+.route-modal .confirmation {
+	display: inline-block;
+	width: 100%;
+}
+.route-modal .passenger-info .quantity {
+	margin-top: 0;;
 }
 .route-modal #route_result > div {
 	width: 33.3%;
@@ -1628,24 +1649,21 @@ table styles in home
 	display:none;
 }
 .table-over .serv > thead > tr > th:nth-child(2), .table-over .serv > tbody > tr > td:nth-child(2) {
-	width:16%;
+	width: 17%;
 }
 .table-over .serv > thead > tr > th:nth-child(3), .table-over .serv > tbody > tr > td:nth-child(3) {
 	/*min-width: 220px;*/
 }
 .table-over .serv > thead > tr > th:nth-child(4), .table-over .serv > tbody > tr > td:nth-child(4) {
-	min-width: 120px;
 }
 .table-over .serv > thead > tr > th:nth-child(5), .table-over .serv > tbody > tr > td:nth-child(5),
 .table-over .serv > thead > tr > th:nth-child(6), .table-over .serv > tbody > tr > td:nth-child(6),
 .table-over .serv > thead > tr > th:nth-child(7), .table-over .serv > tbody > tr > td:nth-child(7) {
-	width:8%;
 }
 .table-over .serv > thead > tr > th:nth-child(5), .table-over .serv > tbody > tr > td:nth-child(5) {
-	min-width: 82px;
 }
 .table-over .serv > thead > tr > th:nth-child(8), .table-over .serv > tbody > tr > td:nth-child(8) {
-	width:16.5%;
+	width:17.5%;
 }
 .table-over .serv .under-head td .jq-selectbox__dropdown {
 	width: auto !important;
@@ -1759,16 +1777,16 @@ table styles in home
 			top:6px;
 			right:4px;
 		}
-		.table-over .serv  .select {
+		.table-over .serv .select {
 			white-space:nowrap;
 			margin:0 auto;
 		}
 		.table-over .serv .short-cont {
 	display: inline-block;
 	width: 100%;
+	white-space: nowrap;
 		}
 		.table-over .serv .short-cont .arr {
-			width:30%;
 		}
 		.table-over .serv .fixed-column {
 	display: inline-block;
@@ -1791,6 +1809,8 @@ table styles in home
 		.table-over .serv .under-head .sort {
 			font-size: 14px;
 			line-height: 28px;
+			display: inline-block;
+			float: none;
 		}
 		.table-over .serv .under-head .sort:hover,
 		.table-over .serv .under-head .sort:focus {
@@ -1821,7 +1841,8 @@ table styles in home
 			line-height:28px;
 		}
 		.table-over .serv .aligment.fit-in {
-	width: 70%;
+	display: inline-block;
+	float: none;
 		}
 		.table-over .serv .cancell-filters {
 			border:none;
@@ -4412,6 +4433,7 @@ i.quest {
 	border:1px solid #8e9099;
 	border-radius:8px;
 	box-shadow:0 2px 5px rgba(0,0,0,.1);
+	width:inherit;
 }
 .pickmeup-uikit {
 	background: #fff;
@@ -4428,11 +4450,11 @@ i.quest {
 .pickmeup-uikit .pmu-instance 
 {
 	display: inline-block;
-	height: 13.8em;
 	padding: .5em;
 	text-align: center;
 	width: 15em;
-	vertical-align: top; 
+	vertical-align: top;
+	height: 13.8em; 
 }
 .pickmeup-uikit .pmu-instance .pmu-button {
 	color: #3D3E46;
