@@ -1008,7 +1008,6 @@ styles of booking step 1  in homepage
 	margin: 52px 0 17px;
 }
 	.destination .nav-over {
-		padding: 0 2%;
 	}
 		.destination   hr {
 			color: #ff4d61;
@@ -1023,7 +1022,7 @@ styles of booking step 1  in homepage
 	.destination .form-block-wrap {
 		margin: 0 2% 10px 0;
 		display: inline-block;
-		width: 98%;
+		width: 100%;
 	}
 	.destination .labels {
 		width: 39%;
@@ -1034,7 +1033,6 @@ styles of booking step 1  in homepage
 		font-weight: bold;
 	}
 		.destination .labels label {
-			margin-left: 6%;
 			font-size: 20px;
 		}
 		.destination .labels label  i {
@@ -1169,11 +1167,10 @@ styles of booking step 2  in homepage
 	font-size:20px;
 	color:#ff4d61;
 	line-height:24px;
-	margin:15px 0 4px 20px;
+	margin:15px 0 4px;
 }
 .order-details {
 	float:none;
-	margin:0 11px 0 21px;
 	border-top:1px solid #ff4d61;
 }
 /* second page styles */
@@ -1352,6 +1349,10 @@ width: auto;
 	}
 	.tarif-line	.tarif-line-group.first {
 			width: 36%;
+	}
+	.tarif-line	.tarif-line-group.first > label {
+		min-width: 42px;
+		display: inline-block;
 	}
 	.tarif-line	.tarif-line-group.first label.tarif-line-adapt-wrap span {
 		width: 23%;
@@ -3985,6 +3986,8 @@ i.quest {
 	#steps {
 		float: left;
 		width: 50%;
+		padding: 0 1% 0 2%;
+		box-sizing: border-box;
 	}
 	.home .wrap-left{
 		float:left;
@@ -3997,7 +4000,7 @@ i.quest {
 		float: right;
 	}
 	.destination .form-block-wrap {
-		margin:0 10px 5px 0;
+		margin:0 0 5px;
 	}
 	.destination  .form-block-wrap.last {
 		position:relative;
@@ -4005,7 +4008,6 @@ i.quest {
 		display:none;
 	}
 	.destination .nav-over {
-		padding-right:10px;
 	}
 
 }
@@ -5583,8 +5585,7 @@ Step-4
 	margin-top: -17px !important;
 }
 .check-order .passenger-info {
-	padding: 14px 13px 13px 18px;
-	display: inline-block;
+	padding: 14px 0 13px;
 }
 .check-order .passenger-info hr {
 	padding: 0;
@@ -8216,9 +8217,6 @@ select{
 	clear: both;
 }
 .craue_formflow_buttons{
-	padding: 9px 5px 20px 2%;
-	margin-bottom: -4px;
-	max-width: 560px;
 }
 .payment .craue_formflow_buttons {
 	padding: 9px 10px 20px;
@@ -8245,13 +8243,15 @@ select{
 .craue_formflow_buttons .craue_formflow_button_last:after {
 }
 .craue_formflow_button_count_3 button:first-child {
-    width: 49%;
-    margin-right: 1%;
+    width: 49.5%;
     float: right;
+}
+.but-wrapp {
+	
 }
 
 .craue_formflow_button_count_3 button:nth-child(2) {
-    width: 49%;
+    width: 49.5%;
     background: #8D8F9C;
 }
 

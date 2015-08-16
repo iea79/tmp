@@ -25,9 +25,10 @@
                         <p><i class="mp-icon-person uk-text-warning"></i>217</p>
                     </div>#}
                 </div>
-                {#<div class="">
-                    <a href="{{ path('reviews', {'reviewColumn': 'drivers'}) }}" class="uk-button uk-button-success button-add">{{ 'Write a review'|trans }}</a>
-                </div>#}
+                <div class="uk-form-file uk-width-1-1">
+                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
+                    <input type="file">
+                </div>
             </div>
             {#<div class="block-rate">
                 <div class="rate-review">
