@@ -282,7 +282,7 @@ class PassengerRequest
      */
     public function getPickUpTime()
     {
-    	return $this->pickUpTime;
+        return $this->pickUpTime;
     }
     
     /**
