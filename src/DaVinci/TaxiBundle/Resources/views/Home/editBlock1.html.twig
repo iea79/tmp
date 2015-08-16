@@ -1,0 +1,81 @@
+<div class="destination">
+    {{ form_widget(form.distance) }}
+    {{ form_widget(form.duration) }}
+    <div class="desticlone">
+        {% for routePoints in form.routePoints %}
+            <div class="form-block-wrap">	
+                <div class="labels{% if loop.index > 2 %} new-point-icon{% endif %}">
+                    <label for="editPassengerRequest_routePoints_{{ loop.index0 }}_place"><i class="mp-icon-point-a"></i>
+                        {% if loop.index == 1 %} From{% else %} To{% endif %}:
+                    </label><i class="uk-icon-asterisk"></i>
+                </div>
+                <div class="inputs">
+                    <div class="uk-form-icon">
+                        <i class="mp-icon-nord-star"></i>
+                        {% if loop.index == 1 %}
+                            {{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick initial-route-point', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+                        {% else %}
+                            {{ form_widget(routePoints.place, {'attr': {'class': 'flex-input date-pick next-route-point', 'placeholder': "Enter postcode, Venue or Place"}}) }}
+                        {% endif %}
+                    </div>
+                    <div class="errors">
+                        {{ form_errors(routePoints.place, {'attr': {'class': 'errors'}}) }}
+                    </div>
+                </div>
+            </div>
+         {% endfor %}
+    </div>
+
+    <div class="clr"></div>	
+
+    <div class="add-destination nav-over add-lang">    
+        <div class="uk-button-large uk-button uk-width-1-1 add-another" data-uk-toggle="{target:'#second-rout'}">
+            <span class="mp-icon-point-plus uk-text-danger"></span>
+            <span class="caption">&nbsp; Add destination</span>
+        </div>
+        <hr />
+    </div>
+
+    <div class="form-block-wrap">
+        <div class="labels">
+            {{ form_label(form.pickUpDate, 'Pick up:') }}
+            <i class="uk-icon-asterisk"></i>
+        </div>
+        <div class="inputs pick-up">
+            <div class="uk-form-controls">
+                {{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': '{format:\'DD.MM.YY\'}'}}) }}
+            </div>
+            <div class="time select-group">
+                {{ form_widget(form.pickUpTime) }}
+            </div>
+            <div class="errors">
+                {{ form_errors(form.pickUpDate, {'attr': {'class': 'errors'}}) }}
+                {{ form_errors(form.pickUpTime, {'attr': {'class': 'errors'}}) }}
+            </div>
+            <div class="check-box">
+                <input id="editPassengerRequest_roundTrip" name="editPassengerRequest[roundTrip]" type="checkbox"{% if passengerRequest.roundTrip == true %} checked="checked" {% endif %}/>
+                <label for="editPassengerRequest_roundTrip"><span class="rounded">&nbsp;Round trip </span> </label>&nbsp;<i class="uk-icon-question-circle uk-primary" data-uk-tooltip="{pos:'right'}" title="{% trans %}Make this a return trip{% endtrans %}"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>	
+
+    <div id="round_trip" class="form-block-wrap last">
+        <div class="labels">
+            {{ form_label(form.returnDate, 'Return:') }}
+        </div>
+        <div class="inputs pick-up">
+            <div class="uk-form-controls">
+                {{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy'}}) }}
+            </div>
+            <div class="time">
+                {{ form_widget(form.returnTime) }}
+            </div>
+            <div class="errors">
+                {{ form_errors(form.returnDate, {'attr': {'class': 'errors'}}) }}
+                {{ form_errors(form.returnTime, {'attr': {'class': 'errors'}}) }}
+            </div>
+        </div>
+    </div>
+</div>

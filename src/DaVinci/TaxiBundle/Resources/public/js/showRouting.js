@@ -1,7 +1,7 @@
 // show routing process
 define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, routeDisplay) {
 	function showRouting() {
-		googleMaps.initialize();
+		googleMaps.initialize('map-canvas');
 	    
 	    $("#createPassengerRequestRouteInfo_routePoints_0_place").focusout(function() {
 	        var placeFrom = $("#createPassengerRequestRouteInfo_routePoints_0_place").val();

@@ -25,7 +25,7 @@ class PassengerDetail
 	/**
 	 * @ORM\Column(type="integer")
 	 * @Assert\Range(
-	 * 		groups={"flow_createPassengerRequest_step3"},
+	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		min=1,
      * 		max=12,
      *      minMessage="Number of adults have to be more or equal {{ limit }}",
@@ -37,7 +37,7 @@ class PassengerDetail
 	/**
 	 * @ORM\Column(type="integer")
 	 * @Assert\Range(
-	 * 		groups={"flow_createPassengerRequest_step3"},
+	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		min=0,
      * 		max=12,
      *      minMessage="Number of children have to be more or equal {{ limit }}",
@@ -49,7 +49,7 @@ class PassengerDetail
 	/**
 	 * @ORM\Column(type="integer")
 	 * @Assert\Range(
-	 * 		groups={"flow_createPassengerRequest_step3"},
+	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		min=0,
      * 		max=12,
      *      minMessage="Number of seniors have to be more or equal {{ limit }}",
@@ -61,7 +61,7 @@ class PassengerDetail
     /**
      * @ORM\Column(type="array")
      * @Assert\Image(
-     * 		groups={"flow_createPassengerRequest_step3"},
+     * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		maxSize="1024K",
      * 		minWidth=200,
      *     	maxWidth=1600,
@@ -79,15 +79,15 @@ class PassengerDetail
 	
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3"}, message="passengerDetail.name.blank")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, message="passengerDetail.name.blank")
 	 */
 	private $name;
 	
 	/**
 	 * @ORM\Column(type="string", length=255, nullable=true)
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3"}, message="passengerDetail.email.blank")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, message="passengerDetail.email.blank")
 	 * @Assert\Email(
-	 * 		groups={"flow_createPassengerRequest_step3"},
+	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		message="The email '{{ value }}' is not a valid email."
      * )
 	 */
@@ -101,7 +101,7 @@ class PassengerDetail
 	/**
 	 * @ORM\Column(type="integer", name="mobile_code")
 	 * @Assert\Range(
-	 * 		groups={"flow_createPassengerRequest_step3"},
+	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      *		min=1,
      *		minMessage="The code must be greater then 0"
      * )
@@ -110,8 +110,9 @@ class PassengerDetail
 	
 	/**
 	 * @ORM\Column(type="string", name="mobile_phone", nullable=true, length=20)
+     * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, message="passengerDetail.mobilePhone.blank")
 	 * @Assert\Regex(
-	 *		groups={"flow_createPassengerRequest_step3"}, 		
+	 *		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, 		
      *     	pattern="/^[0-9]{10,15}$/",
      *     	match=true,
      *     	message="Your phone number has incorrect format"

@@ -278,7 +278,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="edit-close">
-                                                        {% if request.getStateValue() == 'open' %}
+                                                        {% if request.getStateValue() == 'before-open' or request.getStateValue() == 'open' %}
                                                             <a href="#route_request_edit_{{ request.id }}" data-uk-modal class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
                                                             </a>
                                                         {% else %}

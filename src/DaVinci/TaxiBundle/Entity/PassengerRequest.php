@@ -10,8 +10,8 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 /**
  * @ORM\Entity(repositoryClass="PassengerRequestRepository")
  * @ORM\Table(name="passenger_request")
- * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
- * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3"})
+ * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"})
+ * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"})
  */
 class PassengerRequest 
 {
@@ -53,15 +53,15 @@ class PassengerRequest
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.blank")
-	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.wrongFormat")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpTime.blank")
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpTime.wrongFormat")
 	 */
 	private $pickUpTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.blank")
-	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.wrongFormat")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpDate.blank")
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpDate.wrongFormat")
 	 */
 	private $pickUpDate;
 	
@@ -72,13 +72,13 @@ class PassengerRequest
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnTime.wrongFormat")
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.returnTime.wrongFormat")
 	 */
 	private $returnTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnDate.wrongFormat")
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.returnDate.wrongFormat")
 	 */
 	private $returnDate;
 	

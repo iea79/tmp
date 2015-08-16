@@ -16,20 +16,19 @@ use Craue\FormFlowBundle\Event\PostValidateEvent;
 use DaVinci\TaxiBundle\Form\PassengerRequest\Type\RouteInfoType;
 use DaVinci\TaxiBundle\Form\PassengerRequest\Type\VehicleInfoType;
 use DaVinci\TaxiBundle\Form\PassengerRequest\Type\PassengerInfoType;
-use DaVinci\TaxiBundle\Form\PassengerRequest\Type\ConfirmationInfoType;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInterface {
+class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInterface 
+{
 	
 	const FLOW_NAME = 'createPassengerRequest';
 	
 	const STEP_FIRST = 1;
 	const STEP_SECOND = 2;
-	const STEP_THIRD = 3;
-	const STEP_LAST = 4;
-	
+	const STEP_LAST = 3;
+    	
 	public function getName() 
 	{
 		return self::FLOW_NAME;
@@ -86,7 +85,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 					continue;
 				}
 		
-				if (trim($iterator->current()->getPlace()) == '') {
+				if ('' == trim($iterator->current()->getPlace())) {
 					$request->removeRoutePoint($iterator->current());
 				}
 					
@@ -103,7 +102,7 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 	
 	public function onPostValidate(PostValidateEvent $event) 
 	{
-		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST - 1) {
+		if ($event->getFlow()->getCurrentStepNumber() == self::STEP_LAST) {
 			$request = $event->getFormData();
 			
 			$vehicleOptions = $request->getVehicleOptions();
@@ -152,14 +151,10 @@ class CreatePassengerRequestFlow extends FormFlow implements EventSubscriberInte
 			array(
 				'label' => 'passengerInfo',
 				'type' => new PassengerInfoType()
-			),
-			array(
-				'label' => 'confirmAction',
-				'type' => new ConfirmationInfoType()
 			)
 		);
 	}
-			
+    			
 }
 
 ?>

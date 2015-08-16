@@ -210,7 +210,6 @@ class InformationController extends StepsController
             $user = $this->get('security.context')->getToken()->getUser();
             if (!is_null($user)) {
                 $userCommentService->create($form->getData(), $user, $reviewColumn);
-                
                 $created = true;
             }
         }

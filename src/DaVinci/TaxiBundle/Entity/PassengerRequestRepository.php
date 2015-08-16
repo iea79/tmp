@@ -5,6 +5,8 @@ namespace DaVinci\TaxiBundle\Entity;
 use Doctrine;
 use Doctrine\ORM\EntityRepository;
 
+use DaVinci\TaxiBundle\Entity\User;
+
 /**
  * PassengerRequestRepository
  *
@@ -43,37 +45,23 @@ class PassengerRequestRepository extends EntityRepository
 	 */
 	public function getFullRequestById($id)
 	{
-		$query = $this->_em->createQuery("
-			SELECT
-				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
-			FROM
-				DaVinci\TaxiBundle\Entity\PassengerRequest req
-			JOIN
-				req.routePoints points
-			JOIN
-				req.vehicle vehicle
-			JOIN
-				req.passengerDetail detail
-			JOIN
-				req.tariff tariff		
-			LEFT JOIN
-				req.vehicleOptions options
-			LEFT JOIN
-				options.childSeats seats
-			LEFT JOIN
-				options.petCages cages		
-			LEFT JOIN
-				req.vehicleServices services
-			LEFT JOIN
-				req.vehicleDriverConditions	conditions
-			LEFT JOIN
-				req.user user
-			LEFT JOIN
-				req.driver driver					
-			WHERE
-				req.id = :requestId
-		");
+		$query = $this->getFullQuery();
 		$query->setParameters(array('requestId' => $id));
+		
+		return $query->getOneOrNullResult();
+	}
+    
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @param integer $id
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 */
+	public function getFullRequestForUserById(User $user, $id)
+	{
+		$query = $this->getFullQuery(array('user = :requestUser'));
+		$query->setParameters(
+            array('requestId' => $id, 'requestUser' => $user)
+        );
 		
 		return $query->getOneOrNullResult();
 	}
@@ -304,6 +292,44 @@ class PassengerRequestRepository extends EntityRepository
 		
 		return $query->getResult();
 	}
+    
+    private function getFullQuery(array $where = array())
+    {
+        $default = array('req.id = :requestId');
+        $whereClause = (count($where)) ? array_merge($default, $where) : $default;
+        $whereClause = implode(" AND ", $whereClause);
+                
+        return $this->_em->createQuery("
+			SELECT
+				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			JOIN
+				req.routePoints points
+			JOIN
+				req.vehicle vehicle
+			JOIN
+				req.passengerDetail detail
+			JOIN
+				req.tariff tariff		
+			LEFT JOIN
+				req.vehicleOptions options
+			LEFT JOIN
+				options.childSeats seats
+			LEFT JOIN
+				options.petCages cages		
+			LEFT JOIN
+				req.vehicleServices services
+			LEFT JOIN
+				req.vehicleDriverConditions	conditions
+			LEFT JOIN
+				req.user user
+			LEFT JOIN
+				req.driver driver					
+			WHERE
+				{$whereClause}
+		");
+    }    
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request

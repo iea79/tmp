@@ -137,10 +137,20 @@ services:
             - [add, ["@da_vinci_taxi.service.internal_informer"]]
             - [add, ["@da_vinci_taxi.service.mail_informer"]]
             
+    da_vinci_taxi.form.type.confirmation_info:
+        class: DaVinci\TaxiBundle\Form\PassengerRequest\Type\ConfirmationInfoType
+        tags:
+            - { name: form.type, alias: confirmationInfo }
+            
+    da_vinci_taxi.form.type.edit_passenger_request:
+        class: DaVinci\TaxiBundle\Form\PassengerRequest\Type\EditPassengerRequestType
+        tags:
+            - { name: form.type, alias: editPassengerRequest }
+            
     da_vinci_taxi.form.type.user_comment:
         class: DaVinci\TaxiBundle\Form\Content\UserCommentType
         tags:
-            - { name: form.type, alias: userComment }
+            - { name: form.type, alias: userComment }        
                                                     
 #menu---------------------------------------------------------------------------
     taxi.menu_builder:

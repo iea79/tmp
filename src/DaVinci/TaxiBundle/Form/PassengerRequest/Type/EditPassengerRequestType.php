@@ -6,13 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RouteInfoType extends AbstractType 
+class EditPassengerRequestType extends AbstractType 
 {
 	
 	public function buildForm(FormBuilderInterface $builder, array $options) 
     {
 		$builder
-			->add('distance', 'hidden')
+            ->add('distance', 'hidden')
 			->add('duration', 'hidden')
 			->add('routePoints', 'collection', array(
 				'type' => new RoutePointType(),
@@ -40,19 +40,31 @@ class RouteInfoType extends AbstractType
 			->add('returnTime', 'time', array(
 				'widget' => 'choice',
 				'required' => false
-			));
+			))
+            ->add('vehicle', new VehicleType())
+			->add('vehicle_options', new VehicleOptionsType())
+			->add('vehicle_services', new VehicleServicesType())
+			->add('vehicle_driver_conditions', new VehicleDriverConditionsType())
+            ->add('tariff', new TariffType())
+			->add('passenger_detail', new PassengerDetailType())
+            ->add(ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM, 'hidden', array(
+                'mapped' => false,
+                'data' => ConfirmationInfoType::EDIT_PASSENGER_REQUEST_CONFIRM
+            ));
 	}
 	
-	public function getName() {
-		return 'createPassengerRequestRouteInfo';
-	}
-	
-	public function setDefaultOptions(OptionsResolverInterface $resolver) {
+	public function setDefaultOptions(OptionsResolverInterface $resolver) 
+    {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
-			'validation_groups' => array('flow_createPassengerRequest_step1'),
+			'validation_groups' => array('edit_passenger_request'),
 			'csrf_protection' => false
 		));
+	}
+	
+	public function getName() 
+    {
+		return 'editPassengerRequest';
 	}
 	
 }
