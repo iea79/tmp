@@ -2,6 +2,7 @@
 
 namespace DaVinci\TaxiBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -32,12 +33,15 @@ use DaVinci\TaxiBundle\Event\CommonDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 
+use DaVinci\TaxiBundle\Form\PassengerRequest\Type\ConfirmationInfoType;
+
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
 class HomeController extends StepsController 
 {
     
-    public function indexAction() {
+    public function indexAction() 
+    {
         $result = $this->showSteps();
     	if (is_array($result)) {
             return $this->render(
@@ -53,13 +57,61 @@ class HomeController extends StepsController
     }
     
     /**
+     * @Route("/confirm/request_id/{id}", name="passenger_request_confirm")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function confirmRequestAction(Request $request, $id)
+    {
+        $params = $request->get('confirmationInfo');
+        $isEditAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE
+        );    
+        $passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(), $id
+        );
+        
+        $form = $this->createForm(
+            ($isEditAction) ? 'editPassengerRequest' : 'confirmationInfo',
+            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
+        );        
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            if ($isEditAction) {
+                $editedRequest = $form->getData();
+                $editedRequest->setId($passengerRequest->getId());
+                
+                $this->savePassengerRequest($editedRequest);
+            }
+            
+            $this->redirect($this->generateUrl(
+                ($isEditAction) ? 'passenger_request_confirm' : 'passenger_request_payment', 
+                array('id' => $passengerRequest->getId())
+            ));
+        }
+                       
+        return $this->render(
+            'DaVinciTaxiBundle:Home:confirmPassengerRequest.html.twig',
+            array(
+                'id' => $id,
+                'editPassengerRequest' => ($isEditAction) ? ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE : 0,
+                'form' => $form->createView(),
+                'passengerRequest' => $passengerRequest,
+                'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
+                'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices()
+            )
+        );            
+    }    
+    
+    /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function paymentAction() {
-    	$passengerRequest = $this->getPassengerRequestWithDriversById(
-            $this->getRequest()->get('id')
-        );
+    public function paymentAction($id) 
+    {
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($id);
     	if (is_null($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
@@ -127,9 +179,7 @@ class HomeController extends StepsController
 	    				$this->saveDriver($driver);
 	    			}
 	    			$this->updatePassengerRequest($passengerRequest);
-	    			
-	    			$this->getRequest()->getSession()->remove('request_id');
-	    			
+	    				    			
 	    			$flow->reset();
 	    			return $this->redirect($this->getAfterPaymentUrl());
     			} catch (RequesterException $exception) {
@@ -395,5 +445,5 @@ class HomeController extends StepsController
     		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
-                    
+                        
 }

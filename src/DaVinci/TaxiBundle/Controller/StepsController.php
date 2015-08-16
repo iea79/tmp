@@ -5,6 +5,8 @@ namespace DaVinci\TaxiBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+use DaVinci\TaxiBundle\Entity\User;
+
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
@@ -31,29 +33,18 @@ class StepsController extends Controller
         
         return parent::render($view, $parameters, $response);
     }
-
+    
     protected function showSteps()
 	{
-		$passengerRequest = $this->generatePassengerRequest();
-		 
-		$flow = $this->get('taxi.passengerRequest.form.flow');
+        $passengerRequest = $this
+                                ->getPassengerRequestService()
+                                ->generateRequest();
+        
+        $flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
-		/*
-        $sessionRequestId = $this->getRequest()->getSession()->get('request_id');
-		if (null !== $sessionRequestId) {
-			$entity = $this->getFullPassengerRequestById($sessionRequestId);
-			
-			if (null !== $entity) {
-				$passengerRequest = $entity;
-			}
-		}
-		*/
-		$form = $flow->createForm();
-		if ($flow->isValid($form)) {
-			if (CreatePassengerRequestFlow::STEP_LAST - 1 == $flow->getCurrentStepNumber()) {
-				$this->savePassengerRequest($passengerRequest);
-				$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
-			}
+        		
+        $form = $flow->createForm();
+        if ($flow->isValid($form)) {
 			$flow->saveCurrentStepData($form);
 		
 			if ($flow->nextStep()) {
@@ -67,9 +58,10 @@ class StepsController extends Controller
 				}
 				
 				$this->savePassengerRequest($passengerRequest);
+                $this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
 								 
 				$url = ($isUser)
-					? $this->generateUrl('passenger_request_payment', array(
+					? $this->generateUrl('passenger_request_confirm', array(
 						'id' => $passengerRequest->getId()
 					))
 					: $this->generateUrl('fos_user_security_login');
@@ -86,22 +78,14 @@ class StepsController extends Controller
             'passengerRequest' => $passengerRequest
 		);
 		
-		if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
+		if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_LAST) {
 			$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
 			$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
 		}
 		 
 		return $data;
 	}
-	
-	/**
-	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-	 */
-	protected function generatePassengerRequest()
-	{
-		return $this->getPassengerRequestService()->generateRequest();
-	}
-	
+		
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
@@ -136,6 +120,16 @@ class StepsController extends Controller
 	protected function getFullPassengerRequestById($id)
 	{
 		return $this->getPassengerRequestRepository()->getFullRequestById($id);
+	}
+    
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @param integer $id
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getFullPassengerRequestForUserById(User $user, $id)
+	{
+		return $this->getPassengerRequestRepository()->getFullRequestForUserById($user, $id);
 	}
 	
 	/**
@@ -252,7 +246,7 @@ class StepsController extends Controller
         return $this
                     ->getPassengerRequestRepository()
                     ->getActualRequestsByStates($states);
-    }
+    }    
 		
 }
 

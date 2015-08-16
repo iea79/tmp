@@ -22,9 +22,9 @@ define('googleMaps', ['gmaps'], function(gmaps) {
 
         var markers = new Array();
 
-        this.initialize = function() {
+        this.initialize = function(mapId) {
             map = new gmaps.Map(
-            	document.getElementById('map-canvas'),
+            	document.getElementById(mapId),
             	mapOptions
             );
 

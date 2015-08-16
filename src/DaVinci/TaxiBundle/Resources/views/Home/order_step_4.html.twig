@@ -39,8 +39,10 @@
 						<h1 class="labels">{{'Fare'|trans}}<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></i></h1>
 						<hr>
 							<dl class="price">
-								<dt>{{'Price'|trans}}:</dt><dd> ${% if passengerRequest.tariff.priceType == 0 and passengerRequest.tariff.yourPrice > 0 %}{{ passengerRequest.tariff.yourPrice }}{% else %}{{ passengerRequest.tariff.marketPrice }}{% endif %}</dd>
-								<dt>{{'Tips'|trans}}:</dt><dd> ${% if passengerRequest.tariff.tipsType == 0 %}{{ passengerRequest.tariff.yourTips }}{% else %}{{ passengerRequest.tariff.marketTips }}{% endif %}</dd>
+								<dt>{{'Price'|trans}}:</dt>
+                                <dd> ${{ passengerRequest.tariff.price }}</dd>
+								<dt>{{'Tips'|trans}}:</dt>
+                                <dd> ${{ passengerRequest.tariff.tips }}</dd>
 							</dl>
 							<dl class="payment">
 								<dt>{{'Payment'|trans}}:</dt><dd>{{ passengerRequest.tariff.pricePaymentMethod }}</dd>
@@ -57,9 +59,9 @@
 										<dt>{{'To'|trans}}:</dt><dd>{{ point.place }}</dd>
 									{% endif %}
 								{% endfor %}
-								<dt>{{'Pick up'|trans}}:</dt><dd>{{ passengerRequest.pickUpDate|date("d M Y") }}, {{ passengerRequest.pickUpTime|date("H:i") }}</dd>
+								<dt>{{'Pick up'|trans}}:</dt><dd>{{ passengerRequest.pickUp|date("d M Y, H:i") }}</dd>
 								{% if passengerRequest.roundTrip %}
-									<dt>{{'Return'|trans}}:</dt><dd>{{ passengerRequest.returnDate|date("d M Y") }}, {{ passengerRequest.returnTime|date("H:i") }}</dd>
+									<dt>{{'Return'|trans}}:</dt><dd>{{ passengerRequest.return|date("d M Y, H:i") }}</dd>
 								{% endif %}	
 							</dl>
 						</div>
@@ -206,10 +208,13 @@
 					</div>
 				</div>
                 <div class="confirmation uk-margin-top">
-                    <a class="uk-button uk-button-success uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3" href="#route_before-open_{{ passengerRequest.id }}" data-uk-modal>Edit</a>
+                    {{ form_widget(form.edit_passenger_request) }}
+                    <button id="edit_passenger_request_button" class="uk-button uk-button-success uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Edit</futton>
                 </div>
-                {% from 'DaVinciTaxiBundle:Home:editPassengerRequest.html.twig' import editRequest %}
-                {{ editRequest(passengerRequest, form, 'before-open') }}
+                <div class="confirmation uk-margin-top">
+                    <button id="back_passenger_request_button" class="uk-button uk-button-warning uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Back</futton>
+                    <button id="confirm_passenger_request_button" class="uk-button uk-button-danger uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Finish</futton>
+                </div>    
 			</div>
 		</div>
 	</div>                                

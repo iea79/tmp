@@ -2,15 +2,15 @@ require(['pages/common'], function ($) {
     require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'datatable'], function () {
         require(['chosenImage.jquery'], function () {
 
-            //Добавление доролнительных направлений 
+            // Добавление доролнительных направлений 
             $('.destination .add-lang').click(function () {
                 $('.destination .desticlone .to:last-child').clone().appendTo(".destination .desticlone");
             });
 
-// simbols left in textarea in step 2 homepage
+            // symbols left in textarea in step 2 homepage
             $(".charcount").charCount();
 
-// Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
+            // Скрытие и открытие дополнительных спкцификаций на 2-м шаге главной
             $('.spec-request').click(function () {
                 $(this).next('.checks').toggle();
             });
@@ -19,7 +19,8 @@ require(['pages/common'], function ($) {
                 var ind = $('.chois li').index($('li.uk-active')[0]);
                 alert(ind);
             });
-// Скрытие и открытие обратной даты на 1-м шаге главной
+            
+            // Скрытие и открытие обратной даты на 1-м шаге главной
             $(function () {
                 $('#round_trip').hide();
                 $('.destination .check-box input[type=checkbox]:checked').each(function () {
@@ -35,7 +36,8 @@ require(['pages/common'], function ($) {
                 else
                     targetBlock.hide();
             });
-// Скрытие и открытие данных для заказа другому человеку на 3-м шаге главной
+            
+            // Скрытие и открытие данных для заказа другому человеку на 3-м шаге главной
             /* This is not applicable so far, but can be used any moment again 
              
              $(function(){
@@ -49,14 +51,14 @@ require(['pages/common'], function ($) {
              });z
              }); */
             
-// Ajax request processing            
+            // Ajax request processing            
             
-// accordeon for buttoons in step 2 of homepage
+            // accordeon for buttoons in step 2 of homepage
             $(".order-details .uk-nav-parent-icon").click(function() {
                 $(this).find(".uk-parent").toggleClass("uk-open");
             });
 
-// show and hide texareas on step 2 of homepage
+            // show and hide texareas on step 2 of homepage
             $(function () {
                 $('.kids-pats-line .wishes-1').hide();
                 $('.kids-pats-line input[type=checkbox]:checked').each(function () {
@@ -72,12 +74,12 @@ require(['pages/common'], function ($) {
                     targetBlock.hide();
             });
 
-// default disable for a in buttons 2 step
+            // default disable for a in buttons 2 step
             $('.spec-request .uk-parent > a, .auto-tip a').click(function (event) {
                 return false;
             });
 
-// datapicker and datarange
+            // datapicker and datarange
             $('.date-input').pickmeup_uikit({
                 format: 'd.m.y',
                 position        : 'bottom',
@@ -86,6 +88,7 @@ require(['pages/common'], function ($) {
 
             var plus_5_days = new Date;
             plus_5_days.addDays(5);                                       
+            
             $('.daterange input').pickmeup_uikit({
                 format: 'd/m/y',
                 position        : 'bottom',
@@ -97,7 +100,26 @@ require(['pages/common'], function ($) {
                 mode        : 'range',
                 calendars   : 1
             });
-
+            
+            $("#edit_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                $("#confirmationInfo_edit_passenger_request").val('1');
+                $("#main_passenger_request_form").submit();
+            });
+            
+            $("#back_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                location.href = $(this).attr('value');
+            });
+            
+            $("#confirm_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                $("#main_passenger_request_form").submit();
+            });
+            
             // remove preloader
             togglePreloader(document.body, false);
         });
