@@ -45,7 +45,7 @@ class LoginHandler implements AuthenticationSuccessHandlerInterface
             }    
 		}
         
-        $this->getRequest()->getSession()->remove('request_id');
+        $request->getSession()->remove('request_id');
 			
 		return $response;
 	}
