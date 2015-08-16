@@ -52,7 +52,7 @@
                             <div class="topchat">
                                 <div class="avatar"></div>
                                 {% if item.user is defined %}
-                                    <a class="name">{{ item.user.username  }}</a>
+                                    <a class="name">{{ item.user.firstname }} {{ item.user.lastname }}</a>
                                 {% endif %}
                                 <div class="rating">
                                     {% if item.rateLevel < 5 %}
