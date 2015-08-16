@@ -132,3 +132,7 @@ letter_confirm:
 new_ticket:
     pattern:  /new-ticket
     defaults: { _controller: DaVinciTaxiBundle:Information:newTicket }    
+
+driver:
+    pattern:  /driver
+    defaults: { _controller: DaVinciTaxiBundle:Home:driver }    

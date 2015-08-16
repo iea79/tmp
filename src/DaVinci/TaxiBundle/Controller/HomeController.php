@@ -370,6 +370,11 @@ class HomeController extends StepsController
         );
     }
     
+    public function driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:driver.html.twig');
+    }
+    
     /**
      * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
      */
@@ -445,5 +450,5 @@ class HomeController extends StepsController
     		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
-                        
+
 }
