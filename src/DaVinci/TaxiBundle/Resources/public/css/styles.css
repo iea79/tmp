@@ -1371,6 +1371,9 @@ width: auto;
 		width:33%;
 		text-align:right;
 	}
+	.tarif-line .third .jq-selectbox__select-text {
+		font-size: 14px;
+	}
 	.tarif-line	.tarif-line-group input[type="text"]{
 		width:100%;
 	}
@@ -1710,7 +1713,7 @@ table styles in home
 			border:1px solid #d0d0d0;
 		}
 		.table-over .serv .fixed-column,.table-over .serv .under-head input,.table-over .serv .under-head .jq-selectbox,.table-over .serv .under-head .jq-selectbox__select,.table-over .serv .under-head select {
-			vertical-align:top;
+	vertical-align: top;
 		}
 		.table-over .serv .under-head .uk-button-link {
 			padding:0;
@@ -3879,6 +3882,9 @@ i.quest {
 	text-align: center;
 	border-bottom: 4px #ebebeb solid;
 }
+.pop-up .clientreviews .photo img {
+	min-width: 100%;
+}
 .office-driver .pop-up .clientreviews .photo {
 	border-bottom: none;
 }
@@ -5454,6 +5460,11 @@ body.register .main-content{
     -webkit-appearance: none;
     outline: 0;
     background: transparent;
+}
+.driver-office .uk-modal-dialog input[type="checkbox"] {
+    display: inline-block !important;
+    margin-right: 3px;
+    vertical-align: top;
 }
 .uk-form input[type="checkbox"], .uk-form input[type="radio"] {padding: 0;}
 .register .uk-form-select.otherlang {margin-bottom: 14px;}
@@ -8636,7 +8647,7 @@ Store
 	line-height: 28px;
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0 16px 0 6px;
+	padding: 0 16px 0 3px;
 	box-sizing: border-box;
 	position: relative;
 	width: 100%;
@@ -8701,9 +8712,9 @@ Store
     -ms-text-overflow: ellipsis;
     cursor: default;
     overflow: hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
     width: 100%;
+    text-overflow: ellipsis;
 }
 .jq-selectbox__select-text.placeholder {
     color: #8e9099;
