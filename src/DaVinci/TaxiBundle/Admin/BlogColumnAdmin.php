@@ -10,19 +10,6 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 class BlogColumnAdmin extends Admin
 {
         
-    protected function configureListFields(ListMapper $listMapper)
-    {
-        $listMapper
-			->addIdentifier('title')
-			->add('locale')
-            ->add('_action', 'actions', array(
-            	'actions' => array(
-                	'edit' => array(),
-                	'delete' => array()
-                )
-            ));
-    }
-    
     public function configureFormFields(FormMapper $formMapper) 
     {
     	$formMapper
@@ -64,6 +51,19 @@ class BlogColumnAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
     	$datagridMapper->add('title', 'doctrine_phpcr_string');
+    }
+    
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+			->addIdentifier('title')
+			->add('locale')
+            ->add('_action', 'actions', array(
+            	'actions' => array(
+                	'edit' => array(),
+                	'delete' => array()
+                )
+            ));
     }
     
 }

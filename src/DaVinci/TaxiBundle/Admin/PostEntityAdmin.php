@@ -56,7 +56,6 @@ class PostEntityAdmin extends Admin
     {
     	$listMapper
 	    	->addIdentifier('title')
-			->add('locale')
 	    	->add('_action', 'actions', array(
     			'actions' => array(
     				'edit' => array(),
