@@ -1,6 +1,17 @@
 <div class="wrapper-content banner">
     <div class="content">
-        <a href="#"><img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" />
+        <a href="#">
+            {% if app.request.get('_route') == 'reviews' and reviewColumn is defined %}
+                {% if reviewColumn == 'drivers' %}
+                    Test
+                {% elseif reviewColumn == 'companies'%}
+
+                {% else %}
+
+                {% endif %}    
+            {% else %}
+                <img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" />
+            {% endif %}    
         </a>
     </div>
 </div>
