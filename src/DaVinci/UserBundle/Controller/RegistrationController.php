@@ -285,7 +285,7 @@ class RegistrationController extends BaseController
      * @Route("/register-independent-driver", name="register_independent_driver") 
      * @Security("has_role('ROLE_USER')")
      */
-    public function register_independent_driverAction() {
+    public function registerIndependentDriverAction() {
         if ($this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
             return new RedirectResponse($this->container->get('router')->generate('office_driver'));
         }
@@ -343,11 +343,14 @@ class RegistrationController extends BaseController
             }
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_independent_driver.html.twig', array(
-                    'form' => $form->createView(),
-                    'user' => $user,
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register_independent_driver.html.twig', 
+            array(
+                'form' => $form->createView(),
+                'user' => $user,
+                'flow' => $flow,
+            )
+        );
     }
 
     /**
