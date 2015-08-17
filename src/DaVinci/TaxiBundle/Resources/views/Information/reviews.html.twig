@@ -45,66 +45,66 @@
         </li>
         <li> 
         #}
-            <div class="block-help">
-                {% for item in items %}
-                    <div class="chat">
-                        <div class="messagechat">
-                            <div class="topchat">
-                                <div class="avatar"></div>
-                                {% if item.user is defined %}
-                                    <a class="name">{{ item.user.firstname }} {{ item.user.lastname }}</a>
-                                {% endif %}
-                                <div class="rating">
-                                    {% if item.rateLevel < 5 %}
-                                        {% for count in item.rateLevel..4 %}
-                                            <span>☆</span>
-                                        {% endfor %}
-                                    {% endif %}    
-                                    {% for count in 1..item.rateLevel %}
-                                        <span class="active">☆</span>
+        <div class="block-help">
+            {% for item in items %}
+                <div class="chat">
+                    <div class="messagechat">
+                        <div class="topchat">
+                            <div class="avatar"></div>
+                            {% if item.user is defined %}
+                                <a class="name">{% if item.user.firstname is defined %}{{ item.user.firstname }}{% endif %} {% if item.user.lastname is defined %}{{ item.user.lastname }}{% endif %}</a>
+                            {% endif %}
+                            <div class="rating">
+                                {% if item.rateLevel < 5 %}
+                                    {% for count in item.rateLevel..4 %}
+                                        <span>☆</span>
                                     {% endfor %}
-                                </div>
-                                <span>({{ item.createdAt|date('d M y H:i A') }})</span>
-                                <div class="textchat">{{ item.text }}</div>
+                                {% endif %}    
+                                {% for count in 1..item.rateLevel %}
+                                    <span class="active">☆</span>
+                                {% endfor %}
                             </div>
+                            <span>({{ item.createdAt|date('d M y H:i A') }})</span>
+                            <div class="textchat">{{ item.text }}</div>
                         </div>
                     </div>
-                {% endfor %}
-                {# <button class="uk-button more">MORE <span>(245)</span></button> #}
-                <div class="new">
-                    <h3>New review</h3>
-                    {% if is_granted('ROLE_USER') %}
-                        {% if created == true %}
-                            <p>{{ 'Review has been sent'|trans }}</p>
-                        {% else %}
-                            {% set currentRoute = app.request.get('_route') %}
-                            <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
-                                <div class="errors for-steps">{{ form_errors(form) }}</div>
-                                {#<p>{{'Please leave your review'|trans}}</p>#}
-                                <dl class="fullsize">
-                                    <dt>{#{'Rate level'|trans}}:#}</dt>
-                                    <dd>
-                                        <div class="rating">
-                                            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
-                                        </div>
-                                        {{ form_errors(form.rateLevel) }}
-                                        {{ form_widget(form.rateLevel) }}
-                                    </dd>
-                                    <dt>{#{'Text review'|trans}}:#}</dt>
-                                    <dd>
-                                        {{ form_errors(form.text) }} 
-                                        {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 
-                                        <h6 class="precounter">{{'symbols left'|trans}}:</h6>
-                                    </dd>
-                                </dl>
-                                <button class="uk-button uk-button-danger">{{'Send Review'|trans}}</button>
-                            </form>
-                        {% endif %}    
-                    {% else %}
-                        <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}</p>
-                    {% endif %}
                 </div>
+            {% endfor %}
+            {# <button class="uk-button more">MORE <span>(245)</span></button> #}
+            <div class="new">
+                <h3>New review</h3>
+                {% if is_granted('ROLE_USER') %}
+                    {% if created == true %}
+                        <p>{{ 'Review has been sent'|trans }}</p>
+                    {% else %}
+                        {% set currentRoute = app.request.get('_route') %}
+                        <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
+                            <div class="errors for-steps">{{ form_errors(form) }}</div>
+                            {#<p>{{'Please leave your review'|trans}}</p>#}
+                            <dl class="fullsize">
+                                <dt>{#{'Rate level'|trans}}:#}</dt>
+                                <dd>
+                                    <div class="rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
+                                    </div>
+                                    {{ form_errors(form.rateLevel) }}
+                                    {{ form_widget(form.rateLevel) }}
+                                </dd>
+                                <dt>{#{'Text review'|trans}}:#}</dt>
+                                <dd>
+                                    {{ form_errors(form.text) }} 
+                                    {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 
+                                    <h6 class="precounter">{{'symbols left'|trans}}:</h6>
+                                </dd>
+                            </dl>
+                            <button class="uk-button uk-button-danger">{{'Send Review'|trans}}</button>
+                        </form>
+                    {% endif %}    
+                {% else %}
+                    <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}</p>
+                {% endif %}
             </div>
+        </div>
         <!-- </li> -->
          
     </ul>

@@ -37,13 +37,22 @@
     <body class="{% block theme %}default{% endblock %}">
         <div class="wrap-content">
             {% block header %}
-
                 <header  class="header-wrapper">
                     <div class="header-top">
                         <div class="header-top-in">
                             <nav class="nav-head">
-                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">
-                                    <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
+                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">    
+                                    {% if app.request.get('_route') == 'reviews' and reviewColumn is defined %}
+                                        {% if reviewColumn == 'drivers' %}
+                                            Test
+                                        {% elseif reviewColumn == 'companies'%}
+                                            
+                                        {% else %}
+                                            
+                                        {% endif %}    
+                                    {% else %}    
+                                        <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
+                                    {% endif %}
                                 </a>
                                 <ul class="main-menu uk-navbar-content uk-navbar-center">
                                     <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
