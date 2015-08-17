@@ -3,11 +3,12 @@
     <div class="forphoneinput">
         {% if phones is defined %} 
             {{ form_widget(phones.phone,
-            {'attr':{'class': 'float_left phoneinput uk-width-1-1',
+            {'attr':{'class': 'float_left phoneinput uk-width-1-1', 
             'tabindex':'7'}}) }} 
     		<div id="phone-help" class="utooltip" data-uk-tooltip="{pos:'left'}" title="777-777-7777" data-cached-title="777-777-7777"></div>
             {{ form_errors(phones.phone) }}
         {% else %}
+            <div id="phone-help" class="utooltip" data-uk-tooltip="{pos:'left'}" title="777-777-7777" data-cached-title="777-777-7777"></div>
             <input hidden id="phones_input">
         {% endif %}
     </div>
@@ -21,7 +22,6 @@
         </div>
         <div class="utooltip" data-uk-tooltip="{pos:'left'}" title="{{ 'Any kind of connection'|trans }}"></div>
     </div>
-
     <div class="wicheck whicheck-2">
         <div class="float_left">
             {% if phones is defined %}     
