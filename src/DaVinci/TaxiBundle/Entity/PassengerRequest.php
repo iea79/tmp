@@ -33,6 +33,8 @@ class PassengerRequest
 	const AVAILABLE_PICKUP_PERIOD = 12;
 	const POSSIBLE_DRIVERS_PER_REQUEST = 5;
 	const CANCELATION_PERIOD = 2;
+    
+    const NOT_LEFT_TIME = '00:00:00';
 	
 	/**
 	 * @ORM\Id
@@ -257,9 +259,17 @@ class PassengerRequest
     {
     	$now = new \DateTime('now');
         $now->setTimezone(new \DateTimeZone(self::REQUEST_TIMEZONE));
-    	return $now
-    		->diff($this->pickUp)
-    		->format('%a (days) %H:%I:%S');
+        
+        $difference = $now->diff($this->pickUp);
+        if (0 == $difference->format('%d')) {
+            return $difference->format('%H:%I:%S');
+        }
+        
+        if (1 == $difference->invert) {
+            return self::NOT_LEFT_TIME;
+        }
+        
+    	return $difference->format('%a (days) %H:%I:%S');
     }
     
     /**
