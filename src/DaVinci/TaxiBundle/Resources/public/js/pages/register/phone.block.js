@@ -25,9 +25,16 @@ require(["jquery"], function($){
         $('.addphone').before(newForm);
         init_phone_field();
 
+        $('#hide_new_phone').click(function() {
+
+            $($(this).parents().parents().get(0)).remove();
+            $('.addphone').removeClass('display_none');
+
+        });
+
         return false;
     });
-    
+
     function init_phone_field(last)
     {
         // default is true

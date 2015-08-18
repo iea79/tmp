@@ -3,14 +3,14 @@
         <a href="#">
             {% if app.request.get('_route') == 'reviews' and reviewColumn is defined %}
                 {% if reviewColumn == 'drivers' %}
-                    
+                    <img src="{{ asset('bundles/davincitaxi/images/banner5.jpg') }}" alt="" />
                 {% elseif reviewColumn == 'companies'%}
-
+                    <img src="{{ asset('bundles/davincitaxi/images/banner1.jpg') }}" alt="" />
                 {% else %}
-
+                    <img src="{{ asset('bundles/davincitaxi/images/banner3.jpg') }}" alt="" />
                 {% endif %}    
             {% else %}
-                <img src="{{ asset('bundles/davincitaxi/images/banner.jpg') }}" alt="" />
+                <img src="{{ asset('bundles/davincitaxi/images/banner1.jpg') }}" alt="" />
             {% endif %}    
         </a>
     </div>
