@@ -2,16 +2,7 @@
 {% block theme 'information' %}
 
 {% block title %}
-            {% if app.request.get('_route') == 'reviews' and reviewColumn is defined %}
-                {% if reviewColumn == 'drivers' %}
-                    {% include 'DaVinciTaxiBundle:Banners:banner5.html.twig' %}
-                {% elseif reviewColumn == 'companies'%}
-                    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
-                {% else %}
-                    {% include 'DaVinciTaxiBundle:Banners:banner3.html.twig' %}
-                {% endif %}    
-            {% else %}
-            {% endif %}    
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
 {% endblock %}
 
     {% block body %}
