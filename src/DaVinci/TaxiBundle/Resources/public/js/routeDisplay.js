@@ -48,9 +48,11 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	        	});
 	        }
 	        
-	        googleMaps.calculateComplexDistance(origins, destinations);
-	        googleMaps.calculateComplexRoute(start, wayPoints, end);
-		}    
+            if (wayPoints.length > 0) {
+                googleMaps.calculateComplexDistance(origins, destinations);
+                googleMaps.calculateComplexRoute(start, wayPoints, end);
+            }
+	    }    
 	}
 	
 	return new RouteDisplay();
