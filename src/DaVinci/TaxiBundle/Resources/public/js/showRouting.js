@@ -69,7 +69,7 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	        	routeDisplay.process();
 	        });
 	        
-	        $('.new-route-point .mp-icon-closed').on('click', function(e) {
+	        $('.new-route-point .mp-icon-closed,.new-point-icon .mp-icon-closed').on('click', function(e) {
 		    	e.preventDefault();
 		    	
 		    	var collectionHolder = $('div.desticlone');
@@ -86,7 +86,7 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
         	routeDisplay.process();
         });
         
-        $('.new-route-point .mp-icon-closed').on('click', function(e) {
+        $('.new-route-point .mp-icon-closed,.new-point-icon .mp-icon-closed').on('click', function(e) {
 	    	e.preventDefault();
 	    	
 	    	var collectionHolder = $('div.desticlone');
