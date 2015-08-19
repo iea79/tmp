@@ -143,6 +143,7 @@ class PassengerRequest
 
 	/**
 	 * @ORM\OneToOne(targetEntity="VehicleDriverConditions", mappedBy="passengerRequest")
+     * @Assert\Valid()
 	 */
 	private $vehicleDriverConditions;
 	

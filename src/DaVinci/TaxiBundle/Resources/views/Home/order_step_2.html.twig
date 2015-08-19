@@ -301,7 +301,7 @@
 			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#drivers-conditions'}"><span class="uk-parent">{{'Additional driver`s services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choose driver to assist your trip'|trans}}"></span></span></div>
 			<div class="kids-pats-group uk-hidden aditional-driver" id="drivers-conditions">
 				<div class="kids-pats-line interp">
-					<input type="checkbox" />
+					<input id="createPassengerRequestStepVehicleInfo_vehicle_driver_conditions_need_interpreter" name="createPassengerRequestStepVehicleInfo[vehicle_driver_conditions][need_interpreter]" type="checkbox"{% if flow.formData.vehicleDriverConditions.needInterpreter is defined and flow.formData.vehicleDriverConditions.needInterpreter == 'on' %} checked="checked"{% endif %} />
 					<label class="">
 						<span class="uk-form-controls">{{'interpreter'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Choosing the driver as a translator select required language'|trans}}"></span></span>
 					</label>

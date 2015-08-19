@@ -3,10 +3,13 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="vehicle_driver_conditions")
+ * @Assert\Callback(methods={"validateInterpreterLanguage"}, groups={"flow_createPassengerRequest_step2", "edit_passenger_request"})
  */
 class VehicleDriverConditions 
 {
@@ -58,8 +61,9 @@ class VehicleDriverConditions
 	 * @ORM\JoinColumn(name="request_id", referencedColumnName="id")
 	 */
 	private $passengerRequest;
+    
+    private $needInterpreter;
 	
-
     /**
      * Get id
      *
@@ -253,4 +257,26 @@ class VehicleDriverConditions
     {
         return $this->passengerRequest;
     }
+    
+    public function setNeedInterpreter($needInterpreter)
+    {
+        $this->needInterpreter = $needInterpreter;
+
+        return $this;
+    }
+    
+    public function getNeedInterpreter()
+    {
+        return $this->needInterpreter;
+    }
+    
+    public function validateInterpreterLanguage(ExecutionContextInterface $context)
+    {
+        if ($this->getNeedInterpreter() && is_null($this->getInterpreterLang())) {
+            $context->buildViolation('Language has to be choosen')
+                ->atPath('interpreterLang')
+                ->addViolation();
+        }
+    }
+    
 }
