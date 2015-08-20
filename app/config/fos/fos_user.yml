@@ -4,17 +4,17 @@ fos_user:
     user_class: DaVinci\TaxiBundle\Entity\User
     group:
         group_class:  DaVinci\TaxiBundle\Entity\Group
-        #group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+        # group_manager: sonata.user.orm.group_manager                    
     service:
         user_manager: custom_user_manager
-        
         mailer: fos_user.mailer.twig_swift
     registration:
         form:
             type: taxi_user_registration
-            #handler: taxi.registration.form.handler
-            #validation_groups: [DaVinciRegistration]
-            #seted in RegistrationController
+            # handler: taxi.registration.form.handler
+            # validation_groups: [DaVinciRegistration]
+            # seted in RegistrationController
         confirmation: 
             enabled: true 
     profile:

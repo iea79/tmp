@@ -68,14 +68,15 @@ class RegistrationController extends BaseController
         }
 
         $form = $this->container->get('form.factory')->createBuilder(
-            'form', $user, array('validation_groups' => 'CheckEmail'))
-                ->add('email', 'email', array(
-                    'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
-                ))
-                ->add('save', 'submit', array(
-                    'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
-                ))
-                ->getForm();
+            'form', $user, array('validation_groups' => 'CheckEmail')
+        )
+        ->add('email', 'email', array(
+            'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
+        ))
+        ->add('save', 'submit', array(
+            'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
+        ))
+        ->getForm();
 
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -87,7 +88,9 @@ class RegistrationController extends BaseController
 
             $form = $this->container->get('form.factory')->createBuilder('form', $user)
                     ->add('email', 'email', array(
-                        'label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $newEmail
+                        'label' => 'form.email', 
+                        'translation_domain' => 'FOSUserBundle', 
+                        'data' => $newEmail
                     ))
                     ->add('save', 'submit', array(
                         'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
@@ -112,7 +115,9 @@ class RegistrationController extends BaseController
         $user = $this->container->get('security.context')->getToken()->getUser();
 
         if ($user instanceof UserInterface) {
-            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
+            $this->container->get('session')->getFlashBag()->set(
+                'sonata_user_error', 'sonata_user_already_authenticated'
+            );
             $url = $this->container->get('router')->generate('sonata_user_profile_show');
 
             return new RedirectResponse($url);
@@ -122,9 +127,11 @@ class RegistrationController extends BaseController
         // $formHandler = $this->container->get('sonata.user.registration.form.handler');
         // $formHandler = $this->container->get('fos_user.registration.form.handler');
 
-        $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
+        $confirmationEnabled = $this->container->getParameter(
+            'fos_user.registration.confirmation.enabled'
+        );
 
-        ////// form handler moved here to use craue flow bundle
+        // form handler moved here to use craue flow bundle
         $userManager = $this->container->get('fos_user.user_manager');
 
         $user = $userManager->createUser();
@@ -155,7 +162,9 @@ class RegistrationController extends BaseController
                             );
                         }
 
-                        $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
+                        $this->container
+                            ->get('fos_user.mailer')
+                            ->sendConfirmationEmailMessage($user);
                     } else {
                         $user->setEnabled(true);
                     }
@@ -168,14 +177,17 @@ class RegistrationController extends BaseController
             }
         }
 
-
         if ($process) {
             $user = $form->getData();
 
             $authUser = false;
             if ($confirmationEnabled) {
-                $this->container->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
-                $url = $this->container->get('router')->generate('fos_user_registration_check_email');
+                $this->container->get('session')->set(
+                    'fos_user_send_confirmation_email/email', $user->getEmail()
+                );
+                $url = $this->container
+                    ->get('router')
+                    ->generate('fos_user_registration_check_email');
             } else {
                 $authUser = true;
                 $route = $this->container->get('session')->get('sonata_basket_delivery_redirect');
@@ -191,7 +203,6 @@ class RegistrationController extends BaseController
             $this->setFlash('fos_user_success', 'registration.flash.user_created');
 
             $response = new RedirectResponse($url);
-
             if ($authUser) {
                 $this->authenticateUser($user, $response);
             }
