@@ -32,13 +32,19 @@
                                     {% block button_confirm %}{% endblock %}
                                     {# button confirm ends #}
                                 </div>
-                                <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
-                                <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Sincerely yours, <br/>TaxiMyPrice Team<br/>
-                                <a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
                             {% endblock %}
                             {# message ends #}
                         </td>
                     </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;padding: 0 12px 0 18px;">
+                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
+                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">
+                                Sincerely yours,<br/>TaxiMyPrice Team<br/>
+                                <a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
+                            </p>    
+                        </td>
+                    </td>    
                     {% block banner_one %}{% endblock %}
                     <tr>
                         <td colspan="2" style="padding: 24px 0 20px;color: #8d8f98; font-size: 14px;">
