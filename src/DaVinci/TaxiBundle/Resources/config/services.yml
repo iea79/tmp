@@ -1,4 +1,4 @@
-parameters:    
+parameters:
     da_vinci_taxi.component.authentication.handler.login_handler.class: DaVinci\TaxiBundle\Component\Authentication\Handler\LoginHandler
     mailer_images_path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/public/images
 
