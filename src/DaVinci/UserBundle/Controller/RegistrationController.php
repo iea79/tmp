@@ -40,7 +40,7 @@ class RegistrationController extends BaseController
         $message = \Swift_Message::newInstance()
 			->setSubject($this->container->getParameter('confirmation_registration'))
             ->setFrom($this->container->getParameter('sender_email'))
-			->setTo($user()->getEmail())
+			->setTo($user->getEmail())
             ->setContentType("text/html")
 			->setBody('Your account have been activated!');
         
