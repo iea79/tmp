@@ -36,6 +36,18 @@ class RegistrationController extends BaseController
 
         $this->container->get('fos_user.user_manager')->updateUser($user);
         $response = new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
+        
+        $message = \Swift_Message::newInstance()
+			->setSubject($this->container->getParameter('confirmation_registration'))
+            ->setFrom($this->container->getParameter('sender_email'))
+			->setTo($user()->getEmail())
+            ->setContentType("text/html")
+			->setBody('Your account have been activated!');
+        
+        $this->container
+            ->get('mailer')
+            ->send($message);
+                
         $this->authenticateUser($user, $response);
 
         return $response;

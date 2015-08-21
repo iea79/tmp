@@ -1,7 +1,7 @@
 parameters:
     # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
     sender_email: info@taximyprice.com
-    mail_subject_registration: Registration on TaxiMyPrice
+    confirmation_registration: Confirmation Registration on TaxiMyPrice
 
 imports:
     - { resource: parameters.yml }
