@@ -163,7 +163,9 @@ class RegistrationController extends BaseController
                         }
                         
                         $message = \Swift_Message::newInstance()
-                            ->setSubject(self::MAIL_SUBJECT)
+                            ->setSubject(
+                                $this->container->getParametr('mail_subject_registration')
+                            )    
                             ->setTo($user->getEmail())
                             ->setFrom($this->container->getParametr('sender_email'))
                             ->setContentType("text/html")
