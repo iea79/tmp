@@ -1,3 +1,19 @@
+parameters:    
+    mailer_images_path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/images
+
+# Service that extends the default twig mailer
+da_vinci_taxi.custom_mailer:
+    class: DaVinci\TaxiBundle\Services\Mailer\CustomMailer
+    public: false
+    arguments:
+        - '@mailer'
+        - '@router'
+        - '@twig'
+        - template:
+            confirmation: %fos_user.registration.confirmation.template%
+            resetting: %fos_user.resetting.email.template%
+        - %mailer_images_path%
+
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
@@ -8,7 +24,7 @@ fos_user:
         # group_manager: sonata.user.orm.group_manager                    
     service:
         user_manager: custom_user_manager
-        mailer: fos_user.mailer.twig_swift
+        mailer: da_vinci_taxi.custom_mailer
     registration:
         form:
             type: taxi_user_registration
