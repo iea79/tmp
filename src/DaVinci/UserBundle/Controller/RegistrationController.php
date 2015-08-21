@@ -161,10 +161,20 @@ class RegistrationController extends BaseController
                                 $this->container->get('fos_user.util.token_generator')->generateToken()
                             );
                         }
+                        
+                        $message = \Swift_Message::newInstance()
+                            ->setSubject(self::MAIL_SUBJECT)
+                            ->setTo($user->getEmail())
+                            ->setFrom()
+                            ->setContentType("text/html")
+                            ->setBody(
+                                $this->container->get('templating')->render(
+                                    'DaVinciUserBundle:Registration:email.txt.twig', 
+                                    array('user' => $user)
+                                )
+                            );
 
-                        $this->container
-                            ->get('fos_user.mailer')
-                            ->sendConfirmationEmailMessage($user);
+                        $this->container->get('mailer')->send($message);
                     } else {
                         $user->setEnabled(true);
                     }

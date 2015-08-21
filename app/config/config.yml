@@ -1,5 +1,6 @@
 parameters:
-    # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController    
+    # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
+    sender_email: info@taximyprice.com
 
 imports:
     - { resource: parameters.yml }
@@ -172,7 +173,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    sender_address: "info@taximyprice.com"
+    sender_address: "%sender_address%" 
 
 jms_security_extra:
     secure_all_services: false
