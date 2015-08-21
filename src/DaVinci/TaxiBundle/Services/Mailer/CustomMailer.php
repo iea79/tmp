@@ -40,14 +40,12 @@ class CustomMailer extends BaseMailer
         $context['letterbgImage'] = $message->embed(
             \Swift_Image::fromPath($this->imageDir . ' /letterbg.png')
         );
-
         $context = $this->twig->mergeGlobals($context);
+                
         $template = $this->twig->loadTemplate($templateName);
-        
         $subject = $template->renderBlock('subject', $context);
-        $htmlBody = $template->render($context);
-        
-        $textBody = '';
+        $textBody = $template->renderBlock('body_text', $context);
+        $htmlBody = $template->renderBlock('body_html', $context);
 
         $message
             ->setSubject($subject)
