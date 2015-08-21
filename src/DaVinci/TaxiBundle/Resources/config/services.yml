@@ -1,5 +1,6 @@
 parameters:
     da_vinci_taxi.component.authentication.handler.login_handler.class: DaVinci\TaxiBundle\Component\Authentication\Handler\LoginHandler
+    mailer_images_path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/public/images
 
 services:
     davinci.utils.url:
@@ -15,6 +16,22 @@ services:
         arguments: ["%kernel.default_locale%"]
         tags:
             - { name: kernel.event_subscriber }
+            
+    # Service that extends the default twig mailer
+    da_vinci_taxi.custom_mailer:
+        class: DaVinci\TaxiBundle\Services\Mailer\CustomMailer
+        public: false
+        arguments:
+            - '@mailer'
+            - '@router'
+            - '@twig'
+            - template:
+                confirmation: %fos_user.registration.confirmation.template%
+                resetting: %fos_user.resetting.email.template%
+                from_email:
+                    confirmation: %fos_user.registration.confirmation.from_email%
+                    resetting: %fos_user.resetting.email.from_email%
+            - %mailer_images_path%          
     
     da_vinci_taxi.component.authentication.handler.login_success_handler:
         class:  %da_vinci_taxi.component.authentication.handler.login_handler.class%
