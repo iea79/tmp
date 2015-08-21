@@ -10,7 +10,7 @@
                     <tr style="color:#fff;background-color: #528ed4;font-size: 22px;line-height: 24px;">
                         <td style="padding: 15px 14px 9px 18px; vertical-align: top;">
                             <a href="{{ url('da_vinci_taxi_homepage') }}">
-                                <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'TaxiMyPrice company'|trans}}" width="108px" />
+                                <img src="http://taximyprice.com/bundles/davincitaxi/images/logo.png" alt="{{ 'TaxiMyPrice company'|trans}}" width="108px" />
                             </a>
                         </td>
                         <td style="padding: 14px 20px 12px 0; vertical-align: top;">
@@ -19,33 +19,24 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="padding: 0 12px 0 18px;">
-                            <table width="100%" cellspacing="0" cellpadding="0" border="0">
-                                <tr>
-                                    <td colspan="2">
-                                        {# message starts #}
-                                        {% block message %}
-                                            <h3 style="font-size: 16px;margin: 22px 0 0;">Dear, {{ user.firstname }} {{ user.lastname }}.</h3>
-                                            <div style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
-                                                {# message text starts #}
-                                                {% block message_text %}{% endblock %}</p>
-                                                {# message text ends #}
-                                                
-                                                {# button confirm statrs #}
-                                                    {% block button_confirm %}{% endblock %}
-                                                {# button confirm ends #}
-                                            </div>
-                                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
-                                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Sincerely yours, <br/>TaxiMyPrice Team<br/>
-                                            <a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
-                                        {% endblock %}
-                                        {# message ends #}
-                                    </td>
-                                </tr>
-                                {# banners starts #}
-                                {% block banner_one %}
-                                {% endblock %}
-                                {# banners ends #}
-                            </table>
+                            {# message starts #}
+                            {% block message %}
+                                <h3 style="font-size: 16px;margin: 22px 0 0;">Dear, {{ user.firstname }} {{ user.lastname }}.</h3>
+                                <div style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
+                                    {# message text starts #}
+                                    {% block message_text %}{% endblock %}</p>
+                                    {# message text ends #}
+                                </div>
+                                <div style="text-align: center;line-height: 17px;margin: 7px 0 13px;">
+                                    {# button confirm statrs #}
+                                    {% block button_confirm %}{% endblock %}
+                                    {# button confirm ends #}
+                                </div>
+                                <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
+                                <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Sincerely yours, <br/>TaxiMyPrice Team<br/>
+                                <a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
+                            {% endblock %}
+                            {# message ends #}
                         </td>
                     </tr>
                     <tr>
