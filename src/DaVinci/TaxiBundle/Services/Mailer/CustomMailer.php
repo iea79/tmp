@@ -38,7 +38,7 @@ class CustomMailer extends BaseMailer
             \Swift_Image::fromPath($this->imageDir . '/logo.png')
         );
         $context['letterbgImage'] = $message->embed(
-            \Swift_Image::fromPath($this->imageDir . '/letterbg.png')
+            \Swift_Image::fromPath($this->imageDir . '/letterbg.jpg')
         );
         $context = $this->twig->mergeGlobals($context);
                 
