@@ -67,16 +67,17 @@ class RegistrationController extends BaseController
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
 
-        $form = $this->container->get('form.factory')->createBuilder(
-            'form', $user, array('validation_groups' => 'CheckEmail')
-        )
-        ->add('email', 'email', array(
-            'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
-        ))
-        ->add('save', 'submit', array(
-            'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
-        ))
-        ->getForm();
+        $form = $this->container->get('form.factory')
+            ->createBuilder(
+                'form', $user, array('validation_groups' => 'CheckEmail')
+            )
+            ->add('email', 'email', array(
+                'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
+            ))
+            ->getForm();
 
         $form->handleRequest($request);
         if ($form->isValid()) {
@@ -86,16 +87,18 @@ class RegistrationController extends BaseController
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
             $this->container->get('session')->set('fos_user_send_confirmation_email/email', $newEmail);
 
-            $form = $this->container->get('form.factory')->createBuilder('form', $user)
-                    ->add('email', 'email', array(
-                        'label' => 'form.email', 
-                        'translation_domain' => 'FOSUserBundle', 
-                        'data' => $newEmail
-                    ))
-                    ->add('save', 'submit', array(
-                        'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
-                    ))
-                    ->getForm();
+            $form = $this->container->get('form.factory')
+                ->createBuilder('form', $user)
+                ->add('email', 'email', array(
+                    'label' => 'form.email', 
+                    'translation_domain' => 'FOSUserBundle', 
+                    'data' => $newEmail
+                ))
+                ->add('save', 'submit', array(
+                    'label' => 'Change and Resend', 
+                    'translation_domain' => 'FOSUserBundle'
+                ))
+                ->getForm();
         }
 
         return $this->container->get('templating')->renderResponse(
