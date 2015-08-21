@@ -173,7 +173,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    sender_email: "%sender_address%" 
+    sender_address: "%sender_email%"
 
 jms_security_extra:
     secure_all_services: false
