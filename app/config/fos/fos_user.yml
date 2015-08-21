@@ -1,19 +1,6 @@
 parameters:    
     mailer_images_path: %kernel.root_dir%/../src/DaVinci/TaxiBundle/Resources/images
 
-# Service that extends the default twig mailer
-da_vinci_taxi.custom_mailer:
-    class: DaVinci\TaxiBundle\Services\Mailer\CustomMailer
-    public: false
-    arguments:
-        - '@mailer'
-        - '@router'
-        - '@twig'
-        - template:
-            confirmation: %fos_user.registration.confirmation.template%
-            resetting: %fos_user.resetting.email.template%
-        - %mailer_images_path%
-
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
@@ -41,3 +28,17 @@ fos_user:
     from_email:
         address:        noreply@taximyprice.com
         sender_name:    TaxiMyPrice
+
+service:
+     # Service that extends the default twig mailer
+    da_vinci_taxi.custom_mailer:
+        class: DaVinci\TaxiBundle\Services\Mailer\CustomMailer
+        public: false
+        arguments:
+            - '@mailer'
+            - '@router'
+            - '@twig'
+            - template:
+                confirmation: %fos_user.registration.confirmation.template%
+                resetting: %fos_user.resetting.email.template%
+            - %mailer_images_path%
