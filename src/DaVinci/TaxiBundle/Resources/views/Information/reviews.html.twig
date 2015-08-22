@@ -79,6 +79,7 @@
                     {% else %}
                         {% set currentRoute = app.request.get('_route') %}
                         <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
+                            <input type="hidden" id="userComment_column" name="userComment[column]" value="{{ reviewColumn }}" />
                             <div class="errors for-steps">{{ form_errors(form) }}</div>
                             {#<p>{{'Please leave your review'|trans}}</p>#}
                             <dl class="fullsize">

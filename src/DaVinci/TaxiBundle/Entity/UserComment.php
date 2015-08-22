@@ -97,6 +97,8 @@ class UserComment
      * )
      */
     protected $rateLevel = 0;
+    
+    protected $column;
 
     public function __construct()
     {
@@ -282,15 +284,39 @@ class UserComment
         return $this->rateLevel;
     }
     
-    public function setTypeByColumn($column)
+    /**
+     * Set column
+     *
+     * @param string $column
+     *
+     * @return UserComment
+     */
+    public function setColumn($column)
+    {
+        $this->column = $column;
+
+        return $this;
+    }
+
+    /**
+     * Get column
+     *
+     * @return string
+     */
+    public function getColumn()
+    {
+        return $this->column;
+    }
+    
+    public function setTypeByColumn()
     {
         $columnList = self::getTypeColumns();
         
-        if (!in_array($column, $columnList)) {
+        if (!in_array($this->column, $columnList)) {
             throw new \InvalidArgumentException(get_class($this) . ": undefined review column #{$column}");
         }
         
-        $this->type = array_search($column, $columnList);
+        $this->type = array_search($this->column, $columnList);
         
         return $this;
     }

@@ -200,7 +200,6 @@ class InformationController extends StepsController
     
     /**
      * @Route("/reviews/{reviewColumn}", name="reviews", defaults={"reviewColumn" = "passengers"})
-     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_TAXICOMPANY')")
      */
     public function reviewsAction(Request $request, $reviewColumn)
     {
@@ -216,15 +215,17 @@ class InformationController extends StepsController
                 return $this->redirect($this->generateUrl('fos_user_security_login'));
             }
             
+            $comment = $form->getData();
+            
             if (
                 $this->get('security.context')->isGranted('ROLE_USER')
-                && $reviewColumn == UserComment::FOR_PASSENGER
+                && $comment->getColumn() == UserComment::FOR_PASSENGER
                 || $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
-                && $reviewColumn == UserComment::FOR_DRIVERS
+                && $comment->getColumn() == UserComment::FOR_DRIVERS
                 || $this->get('security.context')->isGranted('ROLE_TAXICOMPANY')
-                && $reviewColumn == UserComment::FOR_COMPANIES
+                && $comment->getColumn() == UserComment::FOR_COMPANIES
             ) {
-                $userCommentService->create($form->getData(), $user, $reviewColumn);
+                $userCommentService->create($comment, $user);
                 $created = true;
             } else {
                 $this->createAccessDeniedException("You don't have rights");
