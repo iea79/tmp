@@ -176,9 +176,12 @@ class HomeController extends StepsController
 	    			);
 	    			
 	    			if (!is_null($driver)) {
-	    				$this->saveDriver($driver);
+                        $this->getIndependentDriverRepository()->persist($driver);
 	    			}
 	    			$this->updatePassengerRequest($passengerRequest);
+                    
+                    $em = $this->get('doctrine')->getManager();
+                    $em->flush();
 	    				    			
 	    			$flow->reset();
 	    			return $this->redirect($this->getAfterPaymentUrl());

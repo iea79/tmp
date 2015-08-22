@@ -209,16 +209,7 @@ class StepsController extends Controller
     {
     	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
     }
-    
-    /**
-     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
-     * @return void
-     */
-    protected function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
-    {
-    	$this->getIndependentDriverRepository()->save($driver);
-    }
-    
+        
     /**
      * @return array
      */

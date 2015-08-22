@@ -206,6 +206,7 @@
                                 <div class="clear"></div>
                             </div>
                         {% endif %}
+                        <input type="hidden" id="taxi_independent_driver_registration_flow_taxi_independent_driver_registration_step" name="flow_taxi_independent_driver_registration_step" value="{{ flow.getCurrentStepNumber() }}" />
                         {{ form_row(form._token) }}
                     </fieldset>
                 </form>

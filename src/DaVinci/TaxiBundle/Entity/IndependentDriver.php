@@ -59,7 +59,8 @@ class IndependentDriver extends GeneralDriver
      *
      * @return DriverVehicle 
      */
-    function getVehicle() {
+    public function getVehicle() 
+    {
         return $this->vehicle;
     }
 
@@ -69,7 +70,8 @@ class IndependentDriver extends GeneralDriver
      * @param DriverVehicle $vehicle
      * @return Driver
      */
-    public function setVehicle($vehicle) {
+    public function setVehicle($vehicle) 
+    {
         $this->vehicle = $vehicle;
         $this->vehicle->setDriver($this);
         

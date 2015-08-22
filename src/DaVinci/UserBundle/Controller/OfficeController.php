@@ -57,7 +57,7 @@ class OfficeController extends StepsController
      * @Route("/office-passenger-profile", name="office_passenger_profile")
      * @Security("has_role('ROLE_USER')")
      */
-    public function office_passenger_profileAciton(Request $request)
+    public function officePassengerProfileAciton(Request $request)
     {
         $user = $this->container->get('security.context')->getToken()->getUser();
         if (empty($user)) {
@@ -157,7 +157,7 @@ class OfficeController extends StepsController
             }
 
             $user = $this->get('security.context')->getToken()->getUser();
-            if (null === $user || !is_object($user)) {
+            if (is_null($user) || !is_object($user)) {
                 throw new NotFoundHttpException(sprintf('There is empty user, try login'));
             }
 

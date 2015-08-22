@@ -198,6 +198,10 @@ class InformationController extends StepsController
         );
     }
     
+    /**
+     * @Route("/reviews/{reviewColumn}", name="reviews", defaults={"reviewColumn" = "passengers")
+     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_TAXICOMPANY')")
+     */
     public function reviewsAction(Request $request, $reviewColumn)
     {
         $userCommentService = $this->get('da_vinci_taxi.service.user_comment');
@@ -206,11 +210,24 @@ class InformationController extends StepsController
         $form->handleRequest($request);
                 
         $created = false;
-        if ($form->isValid()) {
+        if ($form->isValid() && $request->isMethod('POST')) {
             $user = $this->get('security.context')->getToken()->getUser();
-            if (!is_null($user)) {
+            if (is_null($user)) {
+                return $this->redirect($this->generateUrl('fos_user_security_login'));
+            }
+            
+            if (
+                $this->get('security.context')->isGranted('ROLE_USER')
+                && $reviewColumn == UserComment::FOR_PASSENGER
+                || $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+                && $reviewColumn == UserComment::FOR_DRIVERS
+                || $this->get('security.context')->isGranted('ROLE_TAXICOMPANY')
+                && $reviewColumn == UserComment::FOR_COMPANIES
+            ) {
                 $userCommentService->create($form->getData(), $user, $reviewColumn);
                 $created = true;
+            } else {
+                $this->createAccessDeniedException("You don't have rights");
             }
         }
         

@@ -42,7 +42,7 @@ class RegistrationController extends BaseController
             ->setFrom($this->container->getParameter('sender_email'))
 			->setTo($user->getEmail())
             ->setContentType("text/html")
-			->setBody('Your account have been activated!');
+			->setBody('Your account has been activated!');
         
         $this->container
             ->get('mailer')
@@ -127,8 +127,14 @@ class RegistrationController extends BaseController
      */
     public function registerAction() 
     {
+        if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
+            return new RedirectResponse(
+                $this->container->get('router')->generate('office_passenger')
+            );
+        }
+        
         $user = $this->container->get('security.context')->getToken()->getUser();
-
+        
         if ($user instanceof UserInterface) {
             $this->container->get('session')->getFlashBag()->set(
                 'sonata_user_error', 'sonata_user_already_authenticated'
@@ -251,7 +257,7 @@ class RegistrationController extends BaseController
      * @Route("/register-company", name="register_company") 
      * @Security("has_role('ROLE_USER')")
      */
-    public function register_companyAction() {
+    public function registerCompanyAction() {
 
         if ($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')) {
             return new RedirectResponse($this->container->get('router')->generate('office_company'));
@@ -317,55 +323,51 @@ class RegistrationController extends BaseController
         }
 
         $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user))
+        if (empty($user)) {
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
-
+        }
 
         $formData = new IndependentDriver();
-
+        $formData->setUser($user);
         $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
         $formData->addPhone(new \DaVinci\TaxiBundle\Entity\Phone()); 
-        if($user->getLanguage() == NULL){
+        if (is_null($user->getLanguage())){
             $user->setLanguage(new \DaVinci\TaxiBundle\Entity\Language());
         }
-        $formData->setUser($user);
-        
-        $flow = $this->container->get('taxi.registration.independent.driver.form.flow'); // must match the flow's service id
-
+                
+        // must match the flow's service id
+        $flow = $this->container->get('taxi.registration.independent.driver.form.flow'); 
         $flow->bind($formData);
-        $form = $flow->createForm();
 
         $process = false;
         $request = $this->container->get('request');
-        if ($request->isMethod('POST')) {
-            //$form->bind($request);
-            if ($flow->isValid($form)) {
+        
+        $form = $flow->createForm();
+        if ($request->isMethod('POST') && $flow->isValid($form)) {
+            $flow->saveCurrentStepData($form);
+            
+            if ($flow->nextStep()) {
+                // form for the next step
+                $form = $flow->createForm();
+            } else {
+                $em = $this->container->get('doctrine')->getManager();
+                $driverRepository = $em->getRepository(
+                    'DaVinci\TaxiBundle\Entity\IndependentDriver'
+                );
+                $driverRepository->saveAll($formData);
+                                
+                $user->addRole('ROLE_TAXIDRIVER');
+                $this->container->get('fos_user.user_manager')->updateUser($user);
 
-                $flow->saveCurrentStepData($form);
+                $response = new RedirectResponse(
+                    $this->container->get('router')->generate('office_driver')
+                );
+                $this->authenticateUser($user, $response);
+                
+                // remove step data from the session
+                $flow->reset(); 
 
-                if ($flow->nextStep()) {
-                    // form for the next step
-                    $form = $flow->createForm();
-                } else {
-
-                    
-
-                    $em = $this->container->get('doctrine')->getManager();
-                    
-                    $em->merge($formData);
-                    $em->flush();
-
-                    $flow->reset(); // remove step data from the session
-                    
-                    $user->addRole('ROLE_TAXIDRIVER');
-                    $this->container->get('fos_user.user_manager')->updateUser($user);
-                    
-                    $url = $this->container->get('router')->generate('office_driver');
-
-                    $response = new RedirectResponse($url);
-					$this->authenticateUser($user, $response);
-					return $response;
-                }
+                return $response;
             }
         }
 
