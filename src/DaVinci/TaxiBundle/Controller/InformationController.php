@@ -199,7 +199,7 @@ class InformationController extends StepsController
     }
     
     /**
-     * @Route("/reviews/{reviewColumn}", name="reviews", defaults={"reviewColumn" = "passengers")
+     * @Route("/reviews/{reviewColumn}", name="reviews", defaults={"reviewColumn" = "passengers"})
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_TAXICOMPANY')")
      */
     public function reviewsAction(Request $request, $reviewColumn)
