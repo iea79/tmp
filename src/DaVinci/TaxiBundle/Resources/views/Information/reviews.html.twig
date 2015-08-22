@@ -73,7 +73,11 @@
             {# <button class="uk-button more">MORE <span>(245)</span></button> #}
             <div class="new">
                 <h3>New review</h3>
-                {% if is_granted('ROLE_USER') %}
+                {% 
+                    if is_granted('ROLE_USER') and reviewColumn == 'passengers' 
+                    or is_granted('ROLE_TAXIDRIVER') and reviewColumn == 'drivers' 
+                    or is_granted('ROLE_TAXICOMPANY') and reviewColumn == 'companies' 
+                %}
                     {% if created == true %}
                         <p>{{ 'Review has been sent'|trans }}</p>
                     {% else %}
@@ -102,7 +106,8 @@
                         </form>
                     {% endif %}    
                 {% else %}
-                    <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}</p>
+                    <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}<br/>
+                    {{ 'Or change your account.'|trans }}</p>
                 {% endif %}
             </div>
         </div>
