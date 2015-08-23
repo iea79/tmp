@@ -3283,6 +3283,17 @@ footer {
 .pop-up .adphonik {
 	margin-bottom: 0;
 }
+/*.pop-up .adphonik .forphoneinput {
+	display: inline-block;
+	width: 100%;
+}*/
+.pop-up .adphonik .mp-icon-closed {
+	vertical-align: middle;
+	display: inline-block;
+	margin-top: 6px;
+	color: #FF4D61;
+	cursor: pointer;
+}
 .pop-up .twolabels span {
 	margin-top: 11px;
 	display: block;
