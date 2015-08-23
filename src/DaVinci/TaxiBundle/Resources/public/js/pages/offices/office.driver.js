@@ -1,7 +1,5 @@
 require(["pages/common"], function ($) {
-
     require(['jquery.form.min','pages/table.resize', 'pages/register/country.block', 'pages/register/language.block', 'intl-tel-input-master/js/intlTelInput', 'datarange', 'charCount', 'driverHandler', 'datatable', 'changeOffice'], function () {
-
         require(['pages/register/phone.block'], function () {
 
             function initProfileForm() {
@@ -12,7 +10,8 @@ require(["pages/common"], function ($) {
                 $('.driver-profile-form').submit(function (e) {
                     togglePreloader(document.getElementById('Profile'), false);
                     e.preventDefault();
-                    var form = $('.driver-profile-form').ajaxSubmit(function (data) {
+                    
+                    var form = $('.driver-profile-form').ajaxSubmit(function(data) {
                         if (data == 'success') {
                             $.UIkit.modal("#Profile").hide();
                         } else {
@@ -22,6 +21,7 @@ require(["pages/common"], function ($) {
                         
                         togglePreloader(document.getElementById('Profile'), false);
                     });
+                    
                     togglePreloader(document.getElementById('Profile'));
                 });
 
@@ -40,13 +40,11 @@ require(["pages/common"], function ($) {
                     $(this).toggleClass('example-active');
 
                     //if user didn't change example.
-                    if (example_about == cur_text)
-                    {
+                    if (example_about == cur_text) {
                         //remove example
                         //saved_text - variable in office_driver_profile_edit_form.html.twig
                         $('#taxi_driver_office_profile_about').val(saved_text);
-                    } else
-                    {
+                    } else {
                         //add example
                         saved_text = cur_text;
                         $('#taxi_driver_office_profile_about').val(example_about);
@@ -61,17 +59,14 @@ require(["pages/common"], function ($) {
                     $(this).toggleClass('example-active');
 
                     //if user didn't change example.
-                    if (example_vehicle_about == cur_text)
-                    {
+                    if (example_vehicle_about == cur_text) {
                         //remove example
                         //saved_text - variable in office_driver_profile_edit_form.html.twig
                         $('#taxi_driver_office_profile_vehicle_about').val(saved_vehicle_text);
-                    } else
-                    {
+                    } else {
                         //add example
                         saved_vehicle_text = cur_text;
                         $('#taxi_driver_office_profile_vehicle_about').val(example_vehicle_about);
-
                     }
                 })
                 
@@ -100,16 +95,14 @@ require(["pages/common"], function ($) {
                         type: $form.attr('method'),
                         data: data,
                         success: function (html) {
-
                             var options = $(html).find('#taxi_driver_office_profile_vehicle_model option');
                             // ReplaceReplace current position field ...
                             vehicle_model_selector.append(
                                     // ... with the returned one from the AJAX response.
                                     options
-                                    );
+                            );
                             vehicle_model_selector.val(options.first().val());
                             vehicle_model_selector.trigger('refresh');
-  
                         }
                     });
                 });
@@ -130,8 +123,10 @@ require(["pages/common"], function ($) {
                     
                     togglePreloader(document.getElementById('Profile'), true);
                     if ($.active > 0) {
-                        ajx.abort();//where ajx is ajax variable
+                        // where ajx is ajax variable
+                        ajx.abort();
                     }
+                    
                     ajx = $.ajax({
                         url: office_passenger_profile,
                         dataType: "html",
@@ -139,15 +134,14 @@ require(["pages/common"], function ($) {
                             togglePreloader(document.getElementById('Profile'), false);
                             $("#profile-dialog").html(data);
                             
-                            if(typeof is_filled != "undefined"  && !is_filled){
-                                //disable cancel if not filled yet
+                            if (typeof is_filled != "undefined"  && !is_filled){
+                                // disable cancel if not filled yet
                                 $(".uk-close").remove();
                             }
+                            
                             initProfileForm();
                         }
                     });
-                    
-                    
                 },
                 'uk.modal.hide': function () {
                     togglePreloader(document.getElementById('Profile'), false);
@@ -191,15 +185,21 @@ require(["pages/common"], function ($) {
                 mode        : 'range',
                 calendars   : 1
             });
-
             
             //remove preloader
             togglePreloader(document.body, false);
                         
-            if(typeof is_filled != "undefined"  && !is_filled)
-            {
+            if (typeof is_filled != "undefined"  && !is_filled) {
                 $("#open-profile-button").click();
-            }                      
+            }
+            
+            $(document).keyup(function(e) {
+                // escape key maps to keycode `27`
+                if (e.keyCode == 27) { 
+                   e.preventDefault();
+                   return false;
+               }
+           });
         });
     });
 });
