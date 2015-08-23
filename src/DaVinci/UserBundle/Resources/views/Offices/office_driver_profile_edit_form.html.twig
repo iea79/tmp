@@ -1,7 +1,7 @@
-<a class="uk-modal-close uk-close"></a>
-{{ form_start(form, {'action': path('office_driver_profile'),'attr': {'class': 'uk-form driver-profile-form'}}) }}
+{# <a class="uk-modal-close uk-close"></a> #}
+{{ form_start(form, {'action': path('office_driver_profile'), 'attr': {'class': 'uk-form driver-profile-form'}}) }}
 <div class="popup-head">{{'Begin you profile'|trans}}</div>
-<div class="uk-grid uk-grid-small driver-profile">
+<div id="Profile" class="uk-modal uk-grid uk-grid-small driver-profile">
     <div class="block-foto-rate">
         <div class="uk-grid uk-grid-small">
             <div class="block-foto">
@@ -30,7 +30,8 @@
                     <input type="file">
                 </div>
             </div>
-            {#<div class="block-rate">
+            {#
+            <div class="block-rate">
                 <div class="rate-review">
                     <div class="uk-grid uk-grid-small uk-margin-small">
                         <div class="uk-width-1-1 uk-margin-small">
@@ -94,7 +95,8 @@
                     </div>
                 </div>
                 <div class="uk-width-1-1"><a class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
-            </div>#}
+            </div>
+            #}
         </div>
     </div>
     <div class="profile form-change select-group">
@@ -123,24 +125,27 @@
                                     {{ form_errors(form.user.email) }}
                                 </dd></dt><br />
                                 <dt>{{'Country:'|trans}}
-                                <dd>
-                                        {{ form_widget(form.address.country,
-                                        {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required',  'data-errormessage': 'Country is required',
-                                                 'tabindex':'4'}}) }}
-                                    {{ form_errors(form.address.country) }}
-                                </dd></dt><br />
+                                    <dd>{{ 
+                                        form_widget(form.address.country,
+                                        {'attr':{'class': 'uk-width-1-1 float_left country_selector', 'data-errormessage-value-missing': 'Country is required', 'data-errormessage': 'Country is required',
+                                        'tabindex':'4'}}) 
+                                        }}
+                                        {{ form_errors(form.address.country) }}
+                                    </dd>
+                                </dt><br />
                                 <dt>{{'City:'|trans}}
-                                <dd>
-                                        {{ form_widget(form.address.countrycity,
-                                            {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
-                                                     'tabindex':'5'}}) }}
+                                <dd>{{ 
+                                    form_widget(form.address.countrycity,
+                                    {'attr':{'class': 'uk-width-1-1 float_left city_selector', 'data-errormessage-value-missing': 'City is required',  'data-errormessage': 'City is required',
+                                    'tabindex':'5'}}) 
+                                    }}
                                     {{ form_errors(form.address.countrycity) }}
                                 </dd></dt><br />
                                 <dt>{{'English:'|trans}}
                                 <dd>
-                                        {{ form_widget(form.language.level,
+                                    {{ form_widget(form.language.level,
                             {'attr':{'class': 'float_left', 'data-errormessage-value-missing': 'Please select an option',  'data-errormessage': 'Please select an option', 'tabindex':'6'}}) }}
-                                        
+
                                 {{ form_errors(form.language.level) }}
                                 </dd></dt><br />
                                 <dt>{{'Other language:'|trans}}
@@ -190,7 +195,7 @@
                                         <input hidden id="whatsapp_prototype" value = "{{ form_widget(form.phones.vars.prototype.has_whatsapp,
             {'attr':{'tabindex':'11'}})|e }}">
                                         <input hidden id="phone_block_prototype" value="{{ include('DaVinciUserBundle:Registration:register_phone_block.html.twig')|e }}">            
-                                            
+
                                 <dt>{{'Birthday:'|trans}}<dd>
                                     <div class="birthday">                        
                                         {{ form_widget(form.user.dateOfBirth, {'attr':{'tabindex':'12','class':'dateofbirth'} }) }}
@@ -234,7 +239,7 @@
                                 <dt>{{'Model:'|trans}}<dd>
                                             {{ form_widget(form.vehicle.model, {'attr':{'tabindex':'16'} }) }}
                                             {{ form_errors(form.vehicle.model) }}
-                                            
+
                                             <script>
                                                 var selected_model = '{% if form.vars.value.vehicle is not null %}{{ form.vars.value.vehicle.model }}{% endif %}';
                                             </script>

@@ -13,13 +13,13 @@ require(["pages/common"], function ($) {
                     togglePreloader(document.getElementById('Profile'), false);
                     e.preventDefault();
                     var form = $('.driver-profile-form').ajaxSubmit(function (data) {
-                        if (data == 'success')
+                        if (data == 'success') {
                             $.UIkit.modal("#Profile").hide();
-                        else
-                        {
+                        } else {
                             $('#profile-dialog').html(data);
                             initProfileForm();
                         }
+                        
                         togglePreloader(document.getElementById('Profile'), false);
                     });
                     togglePreloader(document.getElementById('Profile'));
