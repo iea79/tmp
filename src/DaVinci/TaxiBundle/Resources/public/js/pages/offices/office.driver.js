@@ -192,14 +192,6 @@ require(["pages/common"], function ($) {
             if (typeof is_filled != "undefined"  && !is_filled) {
                 $("#open-profile-button").click();
             }
-            
-            $(document).keyup(function(e) {
-                // escape key maps to keycode `27`
-                if (e.keyCode == 27) { 
-                   e.preventDefault();
-                   return false;
-               }
-           });
         });
     });
 });
