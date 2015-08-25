@@ -38,21 +38,22 @@ class InformationController extends StepsController
 		
 		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
 		$columns = $columnRepository->findActive();
-		$defaultColumn = $columnRepository->findDefault();
-		
 		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
-        if ($defaultColumn) {
-            $comercialEntities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId(), true);
-            $entities = $postEntityRepository->findFilteredForColumn($defaultColumn->getId());  
+        
+        $column = unserialize(urldecode($column));
+    	$contentDocument = $postEntityRepository->find($column);
+        if ($contentDocument) {
+            $comercialEntities = $postEntityRepository->findFilteredForColumn($column, true);
+            $entities = $postEntityRepository->findFilteredForColumn($column);  
         } 
 		                
 		return $this->render(
 			'DaVinciTaxiBundle:Blog:detail.html.twig',
 			array(
-                'defaultColumn' => $defaultColumn,
+                'defaultColumn' => $columnRepository->findDefault(),
 				'columns' => $columns,
-				'entities' => $entities,
-				'commercialEntities' => $comercialEntities
+                'commercialEntities' => $comercialEntities,
+				'entities' => $entities				
 			)
 		);
 	}
@@ -129,8 +130,8 @@ class InformationController extends StepsController
     {
     	$dm = $this->get('doctrine_phpcr')->getManager();
     	$allGuides = $dm
-    	->getRepository('DaVinciTaxiBundle:GuidesPage')
-    	->findBy(array('publishable' => true));
+            ->getRepository('DaVinciTaxiBundle:GuidesPage')
+            ->findBy(array('publishable' => true));
     
     	return $this->render(
     			'DaVinciTaxiBundle:Information:guides.html.twig',
