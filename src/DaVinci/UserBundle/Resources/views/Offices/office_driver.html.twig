@@ -221,7 +221,7 @@
                                         </td>
                                     </tr>
                                     {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                    {{ showRequest(request, 'history') }}
+                                    {{ showRequest(request, driver, 'history') }}
                                 {% else %}
                                     <tr>
                                         <td colspan="8">{{ 'Orders not found'|trans }}</td>

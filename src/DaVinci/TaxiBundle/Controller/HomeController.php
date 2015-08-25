@@ -48,7 +48,8 @@ class HomeController extends StepsController
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
     			array_merge($result, array(
                     'openRequests' => $this->getStockRequests(),
-                    'vehicleClasses' => VehicleClasses::getFilterChoices()
+                    'vehicleClasses' => VehicleClasses::getFilterChoices(),
+                    'user' => $this->getActualUser()
                 ))
     		);
     	} else {
@@ -97,10 +98,10 @@ class HomeController extends StepsController
         if ($isConfirmEditAction) {
             $form->handleRequest($request);
             if ($form->isValid()) {
-                $editedRequest = $form->getData();
-                $editedRequest->setId($passengerRequest->getId());
-
-                $this->savePassengerRequest($editedRequest);
+                $this->getPassengerRequestService()->updateRequest(
+                    $passengerRequest, $form->getData()
+                );
+                $this->savePassengerRequest($passengerRequest);
 
                 return $this->redirect($this->generateUrl(
                     'passenger_request_confirm', 
@@ -114,6 +115,7 @@ class HomeController extends StepsController
             array(
                 'id' => $id,
                 'form' => $form->createView(),
+                'user' => $this->getActualUser(),
                 'passengerRequest' => $passengerRequest,
                 'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
                 'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
@@ -124,7 +126,52 @@ class HomeController extends StepsController
                     : ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
             )
         );            
-    }    
+    }
+    
+    /**
+     * @Route("/edit/request_id/{id}", name="passenger_request_edit")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function editRequestAction(Request $request, $id)
+    {
+        $passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(), 
+            $id,
+            array(PassengerRequest::STATE_BEFORE_OPEN, PassengerRequest::STATE_OPEN)
+        );
+                       
+        $form = $this->createForm(
+            'editPassengerRequest',
+            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
+        );
+                
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $this->getPassengerRequestService()->updateRequest(
+                $passengerRequest, $form->getData()
+            );
+            $this->savePassengerRequest($passengerRequest);
+
+            return $this->redirect($this->generateUrl(
+                'office_passenger', 
+                array('method' => self::ACTION_SHOW_ALL_ORDERS)
+            ));
+        }
+        
+        return $this->render(
+            'DaVinciTaxiBundle:Home:editOpenPassengerRequest.html.twig',
+            array(
+                'id' => $id,
+                'form' => $form->createView(),
+                'user' => $this->getActualUser(),
+                'passengerRequest' => $passengerRequest,
+                'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
+                'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices()
+            )
+        );            
+    }
     
     /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")

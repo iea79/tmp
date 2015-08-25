@@ -137,7 +137,7 @@
                             {% endif %}
                         </tr>
                         {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                        {{ showRequest(request, 'filter') }}
+                        {{ showRequest(request, user, 'filter') }}
                     {% endfor %}
                 </tbody>    
             </table>

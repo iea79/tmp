@@ -203,6 +203,18 @@ class PassengerRequest
     /**
      * Get id
      *
+     * @param integer $id
+     * @return PassengerRequest
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Get id
+     *
      * @return integer 
      */
     public function getId()

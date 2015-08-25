@@ -85,8 +85,27 @@ class StepsController extends Controller
 		 
 		return $data;
 	}
-		
-	/**
+    
+    protected function getActualUser()
+    {
+        $user = null;
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $driverRepository = $this
+                ->get('doctrine')
+                ->getManager()
+                ->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
+
+            $user = $driverRepository->findOneByUserId(
+                $this->get('security.context')->getToken()->getUser()->getId()
+            );                
+        } else if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            $user = $this->get('security.context')->getToken()->getUser();
+        }
+        
+        return $user;
+    }    
+
+    /**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */

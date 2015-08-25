@@ -2,7 +2,6 @@
 
 namespace DaVinci\TaxiBundle\Entity;
 
-use Doctrine;
 use Doctrine\ORM\EntityRepository;
 
 use DaVinci\TaxiBundle\Entity\User;

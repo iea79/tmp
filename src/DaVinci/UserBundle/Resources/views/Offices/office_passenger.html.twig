@@ -195,7 +195,7 @@
 														</td>
 													</tr>
                                                     {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                                    {{ showRequest(request, 'passenger_open') }}
+                                                    {{ showRequest(request, user, 'passenger_open') }}
 												{% endfor %}
 											</tbody>
 										</table>
@@ -279,7 +279,7 @@
                                                 <td>
                                                     <div class="edit-close">
                                                         {% if request.getStateValue() == 'before-open' or request.getStateValue() == 'open' %}
-                                                            <a href="#route_request_edit_{{ request.id }}" data-uk-modal class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
+                                                            <a href="{{ path('passenger_request_edit', {'id': request.id})}}" class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
                                                             </a>
                                                         {% else %}
                                                             <a class="mp-icon-edit uk-text-warning">
@@ -296,8 +296,7 @@
                                                 </td>
                                             </tr>
                                             {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                            {{ showRequest(request, 'passenger_all') }}
-                                            {{ showRequest(request, 'request_edit') }}
+                                            {{ showRequest(request, user, 'passenger_all') }}
                                         {% endfor %}
                                     </tbody>
                                 </table>
