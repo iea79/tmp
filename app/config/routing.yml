@@ -1,6 +1,6 @@
 da_vinci_taxi_homepage:
-    pattern:  /
-    defaults: { _controller: DaVinciTaxiBundle:Home:index }
+    pattern:  /{id}/{step}
+    defaults: { _controller: DaVinciTaxiBundle:Home:index, id: 0, step: 0 }
     options: { useAsInnerURL: true }    
     
 # offices, registrations

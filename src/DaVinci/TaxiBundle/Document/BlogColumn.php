@@ -136,6 +136,11 @@ class BlogColumn implements TranslatableInterface
     {
     	return $this->order;
     }
+        
+    public function __toString()
+    {
+    	return urlencode(serialize($this->id));
+    }
     
 }
 

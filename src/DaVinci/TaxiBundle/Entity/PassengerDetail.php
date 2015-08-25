@@ -60,7 +60,6 @@ class PassengerDetail
 	
     /**
      * @ORM\Column(type="array")
-     * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, message="passengerDetail.picture.blank")
      * @Assert\Image(
      * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      * 		maxSize="1024K",

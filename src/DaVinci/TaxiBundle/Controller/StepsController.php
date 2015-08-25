@@ -34,7 +34,7 @@ class StepsController extends Controller
         return parent::render($view, $parameters, $response);
     }
     
-    protected function showSteps()
+    protected function showSteps($id = 0, $step = 0)
 	{
         $passengerRequest = $this
                                 ->getPassengerRequestService()
@@ -42,6 +42,9 @@ class StepsController extends Controller
         
         $flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
+        if ($id && $step) {
+            $flow->setFormStepKey('flow_' . $flow->getName() . '_step');
+        }
         		
         $form = $flow->createForm();
         if ($flow->isValid($form)) {
@@ -125,11 +128,14 @@ class StepsController extends Controller
     /**
 	 * @param \DaVinci\TaxiBundle\Entity\User $user
      * @param integer $id
+     * @param array $states
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
 	 */
-	protected function getFullPassengerRequestForUserById(User $user, $id)
+	protected function getFullPassengerRequestForUserById(User $user, $id, array $states = array())
 	{
-		return $this->getPassengerRequestRepository()->getFullRequestForUserById($user, $id);
+		return $this->getPassengerRequestRepository()->getFullRequestForUserById(
+            $user, $id, $states
+        );
 	}
 	
 	/**
