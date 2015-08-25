@@ -12,14 +12,17 @@ class ConfirmationInfoType extends AbstractType
         
     const EDIT_PASSENGER_REQUEST_PARAM = 'edit_passenger_request';
     
+    const CONFIRM_PASSENGER_REQUEST = 0;
+        
     const EDIT_PASSENGER_REQUEST_INITIALIZE = 1;
     const EDIT_PASSENGER_REQUEST_CONFIRM = 2;
-	
+    
 	public function buildForm(FormBuilderInterface $builder, array $options) 
     {
 		$builder
             ->add(self::EDIT_PASSENGER_REQUEST_PARAM, 'hidden', array(
-                'mapped' => false
+                'mapped' => false,
+                'data' => self::CONFIRM_PASSENGER_REQUEST
             ));
 	}
 	
@@ -27,7 +30,6 @@ class ConfirmationInfoType extends AbstractType
     {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
-			'validation_groups' => array('edit_passenger_request'),
 			'csrf_protection' => false
 		));
 	}

@@ -101,13 +101,6 @@ require(['pages/common'], function ($) {
                 calendars   : 1
             });
             
-            $("#edit_passenger_request_button").on('click', function(e) {
-                e.preventDefault();
-                
-                $("#confirmationInfo_edit_passenger_request").val('1');
-                $("#main_passenger_request_form").submit();
-            });
-            
             $("#back_passenger_request_button").on('click', function(e) {
                 e.preventDefault();
                 
@@ -117,9 +110,24 @@ require(['pages/common'], function ($) {
             $("#confirm_passenger_request_button").on('click', function(e) {
                 e.preventDefault();
                 
+                $("#confirmationInfo_edit_passenger_request").val('0');
                 $("#main_passenger_request_form").submit();
             });
             
+            $("#edit_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                $("#confirmationInfo_edit_passenger_request").val('1');
+                $("#main_passenger_request_form").submit();
+            });
+            
+            $("#confirm_edit_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                $("#confirmationInfo_edit_passenger_request").val('2');
+                $("#main_passenger_request_form").submit();
+            });
+                       
             // remove preloader
             togglePreloader(document.body, false);
         });
