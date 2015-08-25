@@ -38,9 +38,14 @@ class InformationController extends StepsController
 		
 		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
 		$columns = $columnRepository->findActive();
-		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+        $defaultColumn = $columnRepository->findDefault();
+		
+        $postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
         
-        $column = unserialize(urldecode($column));
+        $column = ($column == 'default') 
+            ? $defaultColumn
+            : unserialize(urldecode($column));
+        
     	$contentDocument = $postEntityRepository->find($column);
         if ($contentDocument) {
             $comercialEntities = $postEntityRepository->findFilteredForColumn($column, true);
