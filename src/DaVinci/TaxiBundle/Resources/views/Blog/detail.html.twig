@@ -14,7 +14,7 @@
 </div>
 <div class="blog">
     <div class="buttom-swicher">
-        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#blog'}">
+        <ul class="uk-width-1-1 uk-width-large-2-3">
             {% for columnItem in columns %}
             	<li {% if defaultColumn.getId() == columnItem.getId() %}class="uk-active"{% endif %}>
                 	<a href="{{ path('blogs', {'column': columnItem}) }}">{{ columnItem.getTitle() }}</a>
