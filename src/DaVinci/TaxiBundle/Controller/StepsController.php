@@ -34,7 +34,7 @@ class StepsController extends Controller
         return parent::render($view, $parameters, $response);
     }
     
-    protected function showSteps($id = 0, $step = 0)
+    protected function showSteps()
 	{
         $passengerRequest = $this
                                 ->getPassengerRequestService()
@@ -42,10 +42,7 @@ class StepsController extends Controller
         
         $flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
-        if ($id && $step) {
-            $flow->setFormStepKey('flow_' . $flow->getName() . '_step');
-        }
-        		
+                		
         $form = $flow->createForm();
         if ($flow->isValid($form)) {
 			$flow->saveCurrentStepData($form);

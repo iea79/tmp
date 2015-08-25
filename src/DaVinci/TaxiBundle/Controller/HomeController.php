@@ -40,9 +40,9 @@ use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 class HomeController extends StepsController 
 {
     
-    public function indexAction($id = 0, $step = 0) 
+    public function indexAction() 
     {
-        $result = $this->showSteps($id, $step);
+        $result = $this->showSteps();
     	if (is_array($result)) {
             return $this->render(
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
