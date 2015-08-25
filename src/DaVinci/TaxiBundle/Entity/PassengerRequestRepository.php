@@ -63,7 +63,7 @@ class PassengerRequestRepository extends EntityRepository
         $where = array('user = :requestUser');
         
         if (count($states)) {
-            $params['stateValues'] = $state;
+            $params['stateValues'] = $states;
             $where[] = 'req.stateValue IN (:stateValues)';
         }
         

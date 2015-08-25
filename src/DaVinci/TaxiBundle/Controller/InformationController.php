@@ -42,7 +42,7 @@ class InformationController extends StepsController
 		
         $postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
         
-        $column = ($column == 'default') 
+        $column = ('default' == $column) 
             ? $defaultColumn
             : unserialize(urldecode($column));
         
