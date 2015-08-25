@@ -16,7 +16,7 @@ class PassengerDetailType extends AbstractType
 			->add('adult', 'number', array('data' => 0))
 			->add('children', 'number', array('data' => 0))
 			->add('seniors', 'number', array('data' => 0))
-			->add('picture', 'iphp_file', array('required' => false))
+			->add('picture', 'iphp_file', array('required' => true))
             ->add('not_my_self', 'checkbox')
 			->add('name', 'text')
 			->add('email', 'text')

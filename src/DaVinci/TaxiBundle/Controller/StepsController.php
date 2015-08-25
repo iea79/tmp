@@ -42,7 +42,7 @@ class StepsController extends Controller
         
         $flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
-        		
+                		
         $form = $flow->createForm();
         if ($flow->isValid($form)) {
 			$flow->saveCurrentStepData($form);
@@ -125,11 +125,14 @@ class StepsController extends Controller
     /**
 	 * @param \DaVinci\TaxiBundle\Entity\User $user
      * @param integer $id
+     * @param array $states
      * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
 	 */
-	protected function getFullPassengerRequestForUserById(User $user, $id)
+	protected function getFullPassengerRequestForUserById(User $user, $id, array $states = array())
 	{
-		return $this->getPassengerRequestRepository()->getFullRequestForUserById($user, $id);
+		return $this->getPassengerRequestRepository()->getFullRequestForUserById(
+            $user, $id, $states
+        );
 	}
 	
 	/**

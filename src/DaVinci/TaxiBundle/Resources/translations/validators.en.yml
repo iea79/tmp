@@ -127,3 +127,7 @@ passengerDetail:
         blank: "Please enter passenger name"   
     email:
         blank: "Please enter email"
+    mobilePhone:
+        blank: "Please enter phone number"
+    picture:
+        blank: "Please download photo"    

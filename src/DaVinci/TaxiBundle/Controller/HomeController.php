@@ -62,45 +62,66 @@ class HomeController extends StepsController
      */
     public function confirmRequestAction(Request $request, $id)
     {
-        $params = $request->get('confirmationInfo');
-        $isEditAction = (
-            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
-            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE
-        );    
         $passengerRequest = $this->getFullPassengerRequestForUserById(
-            $this->get('security.context')->getToken()->getUser(), $id
+            $this->get('security.context')->getToken()->getUser(), 
+            $id,
+            array(PassengerRequest::STATE_BEFORE_OPEN)
         );
-        
-        $form = $this->createForm(
-            ($isEditAction) ? 'editPassengerRequest' : 'confirmationInfo',
-            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
-        );        
-        $form->handleRequest($request);
-        if ($form->isValid()) {
-            if ($isEditAction) {
-                $editedRequest = $form->getData();
-                $editedRequest->setId($passengerRequest->getId());
+        $params = $request->get('confirmationInfo');
                 
-                $this->savePassengerRequest($editedRequest);
-            }
-            
-            $this->redirect($this->generateUrl(
-                ($isEditAction) ? 'passenger_request_confirm' : 'passenger_request_payment', 
+        $isConfirmAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
+        );
+        if ($isConfirmAction) {
+            return $this->redirect($this->generateUrl(
+                'passenger_request_payment', 
                 array('id' => $passengerRequest->getId())
             ));
         }
-                       
+        
+        $isEditAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE
+        );
+        $isConfirmEditAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_CONFIRM
+        );
+               
+        $form = $this->createForm(
+            ($isEditAction) ? 'editPassengerRequest' : 'confirmationInfo',
+            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
+        );
+        
+        if ($isConfirmEditAction) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $editedRequest = $form->getData();
+                $editedRequest->setId($passengerRequest->getId());
+
+                $this->savePassengerRequest($editedRequest);
+
+                return $this->redirect($this->generateUrl(
+                    'passenger_request_confirm', 
+                    array('id' => $passengerRequest->getId())
+                ));
+            }
+        }
+                               
         return $this->render(
             'DaVinciTaxiBundle:Home:confirmPassengerRequest.html.twig',
             array(
                 'id' => $id,
-                'editPassengerRequest' => ($isEditAction) ? ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE : 0,
                 'form' => $form->createView(),
                 'passengerRequest' => $passengerRequest,
                 'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
                 'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
                 'openRequests' => $this->getStockRequests(),
-                'vehicleClasses' => VehicleClasses::getFilterChoices()
+                'vehicleClasses' => VehicleClasses::getFilterChoices(),
+                'editPassengerRequest' => ($isEditAction) 
+                    ? ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE 
+                    : ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
             )
         );            
     }    

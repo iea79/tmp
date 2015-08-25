@@ -10,7 +10,7 @@
 			<div class="uk-grid uk-grid-small client-panel-list block-help">
 			{# block1 #}
 				<div class="clientid">
-					<a class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
+                    <a id="open-profile-button" class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
 					<dl>
 						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ driver.user.id }}</dd>
 						<dt>{{'Name:'|trans}}</dt><dd class="data">{{ driver.user.firstname }} {{ driver.user.lastname }}</dd>
@@ -243,7 +243,7 @@
     var office_passenger_profile = '{{ url('office_driver_profile') }}';
 </script>
 <div id="Profile" class="uk-modal pop-up driver-office">
-    <div class="uk-modal-dialog driver" id="profile-dialog"  data-uk-observe>
+    <div class="uk-modal-dialog driver" id="profile-dialog" data-uk-observe>
     </div>
 </div>
 {% endblock %}

@@ -54,14 +54,21 @@ class PassengerRequestRepository extends EntityRepository
     /**
 	 * @param \DaVinci\TaxiBundle\Entity\User $user
      * @param integer $id
+     * @param array $states
 	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 */
-	public function getFullRequestForUserById(User $user, $id)
+	public function getFullRequestForUserById(User $user, $id, array $states = array())
 	{
-		$query = $this->getFullQuery(array('user = :requestUser'));
-		$query->setParameters(
-            array('requestId' => $id, 'requestUser' => $user)
-        );
+        $params = array('requestId' => $id, 'requestUser' => $user);
+        $where = array('user = :requestUser');
+        
+        if (count($states)) {
+            $params['stateValues'] = $state;
+            $where[] = 'req.stateValue IN (:stateValues)';
+        }
+        
+		$query = $this->getFullQuery($where);
+		$query->setParameters($params);
 		
 		return $query->getOneOrNullResult();
 	}
@@ -296,9 +303,11 @@ class PassengerRequestRepository extends EntityRepository
     private function getFullQuery(array $where = array())
     {
         $default = array('req.id = :requestId');
-        $whereClause = (count($where)) ? array_merge($default, $where) : $default;
-        $whereClause = implode(" AND ", $whereClause);
-                
+        $whereClause = implode(
+            " AND ", 
+            (count($where)) ? array_merge($default, $where) : $default
+        );
+                        
         return $this->_em->createQuery("
 			SELECT
 				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
