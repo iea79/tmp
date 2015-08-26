@@ -65,6 +65,7 @@ require(['pages/common'], function ($) {
                     $(this).parent().find('.wishes-1').show();
                 });
             });
+            
             $(".kids-pats-line input[type=checkbox]").click(function () {
                 var checked = this.checked;
                 var targetBlock = $(this).parent().find('.wishes-1');
@@ -121,13 +122,19 @@ require(['pages/common'], function ($) {
                 $("#main_passenger_request_form").submit();
             });
             
+            $("#cancel_edit_passenger_request_button").on('click', function(e) {
+                e.preventDefault();
+                
+                location.href = $(this).attr('value');
+            });
+            
             $("#confirm_edit_passenger_request_button").on('click', function(e) {
                 e.preventDefault();
                 
                 $("#confirmationInfo_edit_passenger_request").val('2');
                 $("#main_passenger_request_form").submit();
             });
-                       
+            
             // remove preloader
             togglePreloader(document.body, false);
         });
