@@ -15,7 +15,7 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
             var prefix = this.getPrefix(); 
 	    	var placeFrom = $("#" + prefix + "_routePoints_0_place").val();
 	        var placeTo;
-	        alert(prefix);
+	        
 	        var start = placeFrom;
 	                            
 	        var intervals = new Array();
