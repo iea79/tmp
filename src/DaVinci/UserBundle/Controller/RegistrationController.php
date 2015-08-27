@@ -2,17 +2,22 @@
 
 namespace DaVinci\UserBundle\Controller;
 
-#use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+// use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
+use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
+
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
-use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
+
 
 class RegistrationController extends BaseController 
 {
