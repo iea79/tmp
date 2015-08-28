@@ -13,17 +13,17 @@
 							<label for="editPassengerRequest_tariff_price_type" class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Price'|trans}}<i class="uk-icon-asterisk"></i></span>
 							</label>		
-							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="1"{% if passengerRequest.tariff.priceType is defined and passengerRequest.tariff.priceType == 1 %} checked="checked"{% endif %} />
+							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="1" />
 							<span class="recommend"> {{'Market'|trans}} ${{ marketPrice }}</span>
 						</div>
 						<div class="tarif-line-group second">
-							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="0"{% if passengerRequest.tariff.priceType is defined and passengerRequest.tariff.priceType == 0 %} checked="checked"{% endif %} />
+							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="0" checked="checked" />
 							<label class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
-								<input id="editPassengerRequest_tariff_your_price" name="editPassengerRequest[tariff][your_price]" type="text" placeholder="0" value="{% if passengerRequest.tariff.yourPrice is defined and passengerRequest.tariff.yourPrice > 0 %}{{ passengerRequest.tariff.yourPrice }}{% else %}0{% endif %}" />
+								<input id="editPassengerRequest_tariff_your_price" name="editPassengerRequest[tariff][your_price]" type="text" placeholder="0" value="{{ passengerRequest.tariff.price }}" />
 							</span>
 						</div>
 						<div class="tarif-line-group third">
@@ -40,17 +40,17 @@
 							<label for="editPassengerRequest_tariff_tips_type" class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Tips'|trans}}<i class="uk-icon-asterisk"></i></span>
 							</label>
-							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="1"{% if passengerRequest.tariff.tipsType is defined and passengerRequest.tariff.tipsType == 1 %} checked="checked"{% endif %} /> 
+							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="1" /> 
 							<span class="recommend">{{'Market'|trans}} ${{ marketTips }}</span>
 						</div>
 						<div class="tarif-line-group second">
-							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="0"{% if passengerRequest.tariff.tipsType is defined and passengerRequest.tariff.tipsType == 0 %} checked="checked"{% endif %} /> 
+							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="0" checked="checked" /> 
 							<label class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
-								<input id="editPassengerRequest_tariff_your_tips" name="editPassengerRequest[tariff][your_tips]" type="text" placeholder="0" value="{% if passengerRequest.tariff.yourPrice is defined and passengerRequest.tariff.yourTips > 0 %}{{ passengerRequest.tariff.yourTips }}{% else %}0{% endif %}" />
+								<input id="editPassengerRequest_tariff_your_tips" name="editPassengerRequest[tariff][your_tips]" type="text" placeholder="0" value="{{ passengerRequest.tariff.tips }}" />
 							</span>
 						</div>
 						<div class="tarif-line-group third">

@@ -137,7 +137,7 @@
 																<div class="passanger-pay">
 																	<div class="y-no">
 																		<button onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
-																		<button onclick="" class="uk-button">{{ 'Edit'|trans }}</button>
+																		<button onclick="location.href='{{ path('passenger_request_edit', {'id': request.id}) }}'" class="uk-button">{{ 'Edit'|trans }}</button>
 																	</div>
 																</div>
 															{% else %}

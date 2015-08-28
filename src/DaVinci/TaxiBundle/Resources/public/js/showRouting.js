@@ -4,7 +4,7 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 		googleMaps.initialize('map-canvas');
         routeDisplay.load();
         
-        var prefix = routeDisplay.getPrefix();
+        var prefix = googleMaps.getPrefix();
         	    
 	    $("#" + prefix + "_routePoints_0_place").focusout(function() {
 	        var placeFrom = $("#" + prefix + "_routePoints_0_place").val();
@@ -51,7 +51,7 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 				+ "</div>"
 				+ "<div class='inputs'>"
 				+ "<div class='uk-form-icon'>"
-				+ "<input type='text' id='" + prefix + "_routePoints_" + currentIndex + "_place' name='createPassengerRequestRouteInfo[routePoints][" + currentIndex + "][place]' class='flex-input date-pick next-route-point' placeholder='Enter postcode, Venue or Place' value='' />"
+				+ "<input type='text' id='" + prefix + "_routePoints_" + currentIndex + "_place' name='" + prefix + "[routePoints][" + currentIndex + "][place]' class='flex-input date-pick next-route-point' placeholder='Enter postcode, Venue or Place' value='' />"
 				+ "<i class='mp-icon-nord-star'></i>"
 				+ "</div>"
 				+ "<span class='mp-icon-closed'></span>"

@@ -68,7 +68,11 @@ class HomeController extends StepsController
             $id,
             array(PassengerRequest::STATE_BEFORE_OPEN)
         );
-        $params = $request->get('confirmationInfo');
+        
+        $confirmParams = $request->get('confirmationInfo');
+        $editParams = $request->get('editPassengerRequest');
+                
+        $params = ($editParams) ? $editParams : $confirmParams; 
                 
         $isConfirmAction = (
             isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
@@ -81,7 +85,7 @@ class HomeController extends StepsController
             ));
         }
         
-        $isEditAction = (
+        $isShowEditAction = (
             isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
             && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE
         );
@@ -91,7 +95,9 @@ class HomeController extends StepsController
         );
                
         $form = $this->createForm(
-            ($isEditAction) ? 'editPassengerRequest' : 'confirmationInfo',
+            ($isShowEditAction || $isConfirmEditAction) 
+                ? 'editPassengerRequest' 
+                : 'confirmationInfo',
             $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
         );
         
@@ -121,7 +127,7 @@ class HomeController extends StepsController
                 'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
                 'openRequests' => $this->getStockRequests(),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
-                'editPassengerRequest' => ($isEditAction) 
+                'editPassengerRequest' => ($isShowEditAction || $isConfirmEditAction) 
                     ? ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE 
                     : ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
             )

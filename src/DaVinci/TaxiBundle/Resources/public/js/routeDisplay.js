@@ -1,18 +1,7 @@
 define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	var RouteDisplay = function() {
-        this.getPrefix = function() {
-            if (
-                $("#createPassengerRequestRouteInfo_routePoints_0_place").length
-                || $("#createPassengerRequestRouteInfo_routePoints_1_place").length
-            ) {
-                return 'createPassengerRequestRouteInfo';                
-            } else {
-                return 'editPassengerRequest';
-            }
-        } 
-                
-		this.process = function() {
-            var prefix = this.getPrefix(); 
+        this.process = function() {
+            var prefix = googleMaps.getPrefix(); 
 	    	var placeFrom = $("#" + prefix + "_routePoints_0_place").val();
 	        var placeTo;
 	        
@@ -25,7 +14,7 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	        	var paramValue = $(this).attr('id');
 	        	var elementId = paramValue.substr(paramName.length, 1);
 	        	
-	        	if ($(this).val() != '') {
+	        	if ($(this).val().length > 0) {
 	        		intervals[elementId] = $(this).val();
 	        	}
 	        });
@@ -36,7 +25,7 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	        var count = 0;
 	        
 	        for (var index in intervals) {
-	        	placeTo = intervals[index];
+                placeTo = intervals[index];
 	        	
 	        	origins[count] = placeFrom;
 	        	destinations[count] = placeTo;
@@ -56,9 +45,7 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	        	});
 	        }
 	        
-            if (origins.length > 0) {
-                googleMaps.calculateComplexDistance(origins, destinations);
-            }    
+            googleMaps.calculateComplexDistance(origins, destinations);
             googleMaps.calculateComplexRoute(start, wayPoints, end);
         }
         
@@ -66,15 +53,32 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
             var start = mapPoints[0];
             var end = mapPoints[mapPoints.length - 1];
 	        
+            var placeFrom = mapPoints[0];
+	        var placeTo;
+            
+            var origins = new Array();
+	        var destinations = new Array();
+	        var count = 0;
+            
 	        var wayPoints = [];
 	        	        
-	        for (var index = 1; index < mapPoints.length - 1; index++) {
+	        for (var index = 1; index < mapPoints.length; index++) {
+                placeTo = mapPoints[index];
+	        	
+	        	origins[count] = placeFrom;
+	        	destinations[count] = placeTo;
+	        	
+	        	placeFrom = placeTo;
+	        	                
 	        	wayPoints.push({
 	        		location: mapPoints[index],
 	                stopover: true
 	        	});
+                
+                count++;
 	        }
 	        
+            googleMaps.calculateComplexDistance(origins, destinations);
             googleMaps.calculateComplexRoute(start, wayPoints, end);
 	    }
 	}
