@@ -194,14 +194,14 @@ class OfficeController extends StepsController
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
         
+        $user = $this->get('security.context')->getToken()->getUser();
+        
         $driverRepository = $this
         	->get('doctrine')
         	->getManager()
         	->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
         
-        $driver = $driverRepository->findOneByUserId(
-        	$this->get('security.context')->getToken()->getUser()->getId()
-        );
+        $driver = $driverRepository->findOneByUserId($user->getId());
         
         return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
@@ -209,6 +209,7 @@ class OfficeController extends StepsController
         		'openRequests' => $this->getStockRequests(),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
            		'driver' => $driver,
+                'user' => $user,
                 'method' => $method
         	)
         );        
