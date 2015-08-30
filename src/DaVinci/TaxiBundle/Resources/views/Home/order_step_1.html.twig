@@ -7,7 +7,7 @@
                 <div class="labels">
                     <label for="createPassengerRequestRouteInfo_routePoints_{{ loop.index0 }}_place"><i class="mp-icon-point-a"></i>
                         {% if loop.index == 1 %} From{% else %} To{% endif %}:
-                    </label><i class="uk-icon-asterisk"></i>
+                    </label>
                 </div>
                 <div class="inputs">
                     <div class="uk-form-icon">
@@ -38,15 +38,16 @@
     </div>
 
     <div class="form-block-wrap">
-        <div class="labels">
+        <div class="labels pick-up">
             {{ form_label(form.pickUpDate, 'Pick up:') }}
-            <i class="uk-icon-asterisk"></i>
         </div>
         <div class="inputs pick-up">
             <div class="uk-form-controls">
+                <p>Date:</p>
                 {{ form_widget(form.pickUpDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy', 'data-uk-datepicker': '{format:\'DD.MM.YY\'}'}}) }}
             </div>
             <div class="time select-group">
+                <p>Time:</p>
                 {{ form_widget(form.pickUpTime) }}
             </div>
             <div class="errors">
@@ -63,14 +64,16 @@
     <div class="clr"></div>	
 
     <div id="round_trip" class="form-block-wrap last">
-        <div class="labels">
+        <div class="labels pick-up">
             {{ form_label(form.returnDate, 'Return:') }}
         </div>
         <div class="inputs pick-up">
             <div class="uk-form-controls">
+                <p>Date:</p>
                 {{ form_widget(form.returnDate, {'attr': {'class': 'date-input date-pick', 'placeholder': 'dd.mm.yy'}}) }}
             </div>
             <div class="time">
+                <p>Time:</p>
                 {{ form_widget(form.returnTime) }}
             </div>
             <div class="errors">
