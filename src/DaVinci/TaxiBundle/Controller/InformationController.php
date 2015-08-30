@@ -343,7 +343,8 @@ class InformationController extends StepsController
 	    			new TransferOperationEvent(
 	    				$form->getData(),
 	    				$this->getMakePaymentRepository(),
-	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT	
+	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT,
+                        MakePayments::OPERATION_ADDITION
 	    			)
 	    		);
 	    		

@@ -254,6 +254,9 @@ class PassengerRequest
     public function setPickUp($pickUp)
     {
         $this->pickUp = $pickUp;
+        
+        $this->setPickUpTime($pickUp);
+        $this->setPickUpDate($pickUp);
 
         return $this;
     }
@@ -341,6 +344,9 @@ class PassengerRequest
     {
         $this->return = $return;
 
+        $this->setReturnTime($return);
+        $this->setReturnDate($return);
+        
         return $this;
     }
 

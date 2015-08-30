@@ -194,14 +194,14 @@ class OfficeController extends StepsController
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
         
+        $user = $this->get('security.context')->getToken()->getUser();
+        
         $driverRepository = $this
         	->get('doctrine')
         	->getManager()
         	->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
         
-        $driver = $driverRepository->findOneByUserId(
-        	$this->get('security.context')->getToken()->getUser()->getId()
-        );
+        $driver = $driverRepository->findOneByUserId($user->getId());
         
         return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
@@ -209,6 +209,7 @@ class OfficeController extends StepsController
         		'openRequests' => $this->getStockRequests(),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
            		'driver' => $driver,
+                'user' => $user,
                 'method' => $method
         	)
         );        
@@ -218,7 +219,7 @@ class OfficeController extends StepsController
      * @Route("/block-profile", name="block_profile")
      * @Security("has_role('ROLE_USER')")
      */
-    public function block_profileAction()
+    public function blockProfileAction()
     {
         return $this->render('DaVinciUserBundle:Offices:block_profile.html.twig');
     }
@@ -227,7 +228,7 @@ class OfficeController extends StepsController
      * @Route("/filter-table", name="filter_table")
      * @Security("has_role('ROLE_USER')")
      */   
-    public function filter_tableAction()
+    public function filterTableAction()
     {
         return $this->render('DaVinciUserBundle:Home:filter_table.html.twig');
     }

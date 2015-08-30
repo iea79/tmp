@@ -211,14 +211,15 @@ class RemoteRequester
     					'city' => 'Saratoga',
     					'state' => 'CA',
     					'zipCode' => $paymentMethod->getZipCode(),
-    					'country' => 'US'
+    					'country' => 'US',
+                        'externalUserId' => $makePayment->getUser()->getRemoteId()
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
     					'currency' => $makePayment->getTotalPrice()->getCurrency(),
-    					'custom1' => '7.41',
-    					'custom2' => '0.03',
-    					'custom3' => '0.03'
+    					'custom1' => '0.00',
+    					'custom2' => '0.00',
+    					'custom3' => '0.00'
     				),
     				'Product' => self::GATEWAY_PRODUCT_ID
     			);
@@ -232,7 +233,8 @@ class RemoteRequester
     				'Customer' => array(
     					'email' => $paymentMethod->getEmail(),
     					'subject' => $paymentMethod->getSubject(),
-    					'note' => $paymentMethod->getNote()
+    					'note' => $paymentMethod->getNote(),
+                        'externalUserId' => $makePayment->getUser()->getRemoteId()
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
@@ -291,9 +293,9 @@ class RemoteRequester
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
     					'currency' => $makePayment->getTotalPrice()->getCurrency(),
-    					'custom1' => '7.41',
-    					'custom2' => '0.03',
-    					'custom3' => '0.03'
+    					'custom1' => '0.00',
+    					'custom2' => '0.00',
+    					'custom3' => '0.00'
     				),
     				'User' => $makePayment->getUser()->getRemoteId()
     			);

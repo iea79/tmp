@@ -57,42 +57,31 @@ class OfficeSubscriber implements EventSubscriberInterface
 	
 	public function onAddOperation(TransferOperationEvent $event)
 	{
-		$makePayment = $this->prepareMakePayment($event);
-		
-		$this->methodAvailable($makePayment, FinancialOfficeEvents::OPERATION_ADD);
-		$this->process(
-			$makePayment, 
-			$this->getOpCode($makePayment, FinancialOfficeEvents::OPERATION_ADD)
-		);
-	
-		$event->getMakePaymentRepository()->save($makePayment);
+		$this->completeOperation($event, FinancialOfficeEvents::OPERATION_ADD);
 	}
 	
 	public function onSaleOperation(TransferOperationEvent $event)
 	{
-		$makePayment = $this->prepareMakePayment($event);
-		
-		$this->methodAvailable($makePayment, FinancialOfficeEvents::OPERATION_SALE);
-		$this->process(
-			$makePayment, 
-			$this->getOpCode($makePayment, FinancialOfficeEvents::OPERATION_SALE)
-		);
-	
-		$event->getMakePaymentRepository()->save($makePayment);
+		$this->completeOperation($event, FinancialOfficeEvents::OPERATION_SALE);
 	}
 	
 	public function onInternalTransferOperation(TransferOperationEvent $event)
 	{
-		$makePayment = $this->prepareMakePayment($event);
+		$this->completeOperation($event, FinancialOfficeEvents::OPERATION_INTERNAL_TRANSFER);
+	}
+    
+    private function completeOperation(TransferOperationEvent $event, $eventName)
+    {
+        $makePayment = $this->prepareMakePayment($event);
 	
-		$this->methodAvailable($makePayment, FinancialOfficeEvents::OPERATION_INTERNAL_TRANSFER);
+		$this->methodAvailable($makePayment, $eventName);
 		$this->process(
 			$makePayment, 
-			$this->getOpCode($makePayment, FinancialOfficeEvents::OPERATION_INTERNAL_TRANSFER)
+			$this->getOpCode($makePayment, $eventName)
 		);
 	
 		$event->getMakePaymentRepository()->save($makePayment);
-	}
+    }
 	
 	/**
 	 * @param TransferOperationEvent $event
@@ -110,7 +99,8 @@ class OfficeSubscriber implements EventSubscriberInterface
 					
 		$makePayment->setPaymentMethod($paymentMethod);
 		$makePayment->setUser($user);
-		$makePayment->setDescription($event->getDescription());
+        $makePayment->setOperationType($event->getOperationType());
+        $makePayment->setDescription($event->getDescription());
 		if ($makePayment->getAmount() > 0) {
 			$money = new Money();
 			$money->setCurrency(MakePayments::DEFAULT_CURRENCY);

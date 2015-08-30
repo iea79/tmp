@@ -77,11 +77,10 @@ class PassengerRequestService
         $request->setDistance($filledRequest->getDistance());
         $request->setDuration($filledRequest->getDuration());
         $request->setCreateDate($filledRequest->getCreateDate());
-        $request->setPickUpDate($filledRequest->getPickUpDate());
-        $request->setPickUpTime($filledRequest->getPickUpTime());
-        $request->setReturnDate($filledRequest->getReturnDate());
-        $request->setReturnTime($filledRequest->getReturnTime());
-		$request->setVehicle($filledRequest->getVehicle());
+        $request->setPickUp($filledRequest->getPickUp());
+        $request->setRoundTrip($filledRequest->getRoundTrip());
+        $request->setReturn($filledRequest->getReturn());
+        $request->setVehicle($filledRequest->getVehicle());
 		$request->setVehicleOptions($vehicleOptions);
         $request->setVehicleServices($filledRequest->getVehicleServices());
 		$request->setVehicleDriverConditions($filledRequest->getVehicleDriverConditions());
@@ -113,38 +112,36 @@ class PassengerRequestService
      */
     public function updateRequest(PassengerRequest $request, PassengerRequest $filledRequest)
     {
-        $vehicleOptions = $filledRequest->getVehicleOptions();
-               
         foreach ($filledRequest->getRoutePoints() as $routePoint) {
             $request->addRoutePoint($routePoint);
         }
-        $request->setDistance($filledRequest->getDistance());
-        $request->setDuration($filledRequest->getDuration());
-        $request->setCreateDate($filledRequest->getCreateDate());
-        $request->setPickUpDate($filledRequest->getPickUpDate());
-        $request->setPickUpTime($filledRequest->getPickUpTime());
-        $request->setReturnDate($filledRequest->getReturnDate());
-        $request->setReturnTime($filledRequest->getReturnTime());
-		$request->setVehicle($filledRequest->getVehicle());
-		$request->setVehicleOptions($vehicleOptions);
-        $request->setVehicleServices($filledRequest->getVehicleServices());
-		$request->setVehicleDriverConditions($filledRequest->getVehicleDriverConditions());
-		$request->setTariff($filledRequest->getTariff());
-		$request->setPassengerDetail($filledRequest->getPassengerDetail());
-		$request->setStateValue($filledRequest->getStateValue());
-		$request->setIsReal($filledRequest->getIsReal());
-                      
-        $childSeatsNumber = $vehicleOptions->getChildSeats()->count();
-        $childSeatsNumber++;
-        for ($count = $childSeatsNumber; $count <= 3; $count++) {
-            $request->getVehicleOptions()->addChildSeat(new VehicleChildSeat());
+        
+        $request->setPickUp(new \DateTime(
+            $filledRequest->getPickUpDate()->format('Y-m-d') . ' ' 
+                . $filledRequest->getPickUpTime()->format('H:i:s')
+        ));
+
+        if ($filledRequest->getRoundTrip()) {
+            $request->setReturn(new \DateTime(
+                $filledRequest->getReturnDate()->format('Y-m-d') . ' ' 
+                    . $filledRequest->getReturnTime()->format('H:i:s')
+            ));
         }
         
-        $petCagesNumber = $vehicleOptions->getPetCages()->count();
-        $petCagesNumber++;
-        for ($count = $petCagesNumber; $count <= 3; $count++) {
-            $request->getVehicleOptions()->addPetCage(new VehiclePetCage());
-        }
+        $request->setTariff($filledRequest->getTariff());
+        $tariff = $request->getTariff();
+        $tariff->definePrice();
+        $tariff->defineTips();
+               
+        $request->setDistance($filledRequest->getDistance());
+        $request->setDuration($filledRequest->getDuration());
+        $request->setRoundTrip($filledRequest->getRoundTrip());
+        $request->setVehicle($filledRequest->getVehicle());
+        $request->setVehicleOptions($filledRequest->getVehicleOptions());
+		$request->setVehicleServices($filledRequest->getVehicleServices());
+		$request->setVehicleDriverConditions($filledRequest->getVehicleDriverConditions());
+		$request->setPassengerDetail($filledRequest->getPassengerDetail());
+		$request->setStateValue($filledRequest->getStateValue());
     }
 				
 }

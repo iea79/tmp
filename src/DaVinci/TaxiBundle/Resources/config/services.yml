@@ -29,8 +29,8 @@ services:
                 confirmation: %fos_user.registration.confirmation.template%
                 resetting: %fos_user.resetting.email.template%
               from_email:
-                    confirmation: %fos_user.registration.confirmation.from_email%
-                    resetting: %fos_user.resetting.email.from_email%
+                confirmation: %fos_user.registration.confirmation.from_email%
+                resetting: %fos_user.resetting.email.from_email%
             - %mailer_images_path%          
     
     da_vinci_taxi.component.authentication.handler.login_success_handler:
@@ -139,6 +139,8 @@ services:
         class: DaVinci\TaxiBundle\Services\Informer\MailerInformer
         calls:
             - [setMailer, ["@mailer"]]
+            - [setTemplating, ["@templating"]]
+            - [setFrom, [%sender_email%]]
             - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
             
     da_vinci_taxi.service.internal_informer:
