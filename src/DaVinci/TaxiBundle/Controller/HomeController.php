@@ -245,7 +245,8 @@ class HomeController extends StepsController
 	    				new TransferOperationEvent(
 							$makePayment,
 	    					$this->getMakePaymentRepository(),
-	    					$passengerRequest->getFullRoute()	
+	    					$passengerRequest->getFullRoute(),
+                            MakePayments::OPERATION_PAYMENT
 	    				)
 	    			);
 	    			
