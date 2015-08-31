@@ -115,7 +115,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for request in openRequests %}
+                    {% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold' or request.stateValue == 'approved-sold') %}
                         {% set tariff = request.getTariff() %}
                         {% set pickUp = request.getPickUp() %}
                         {% set vehicle = request.getVehicle() %}
