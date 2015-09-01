@@ -50,14 +50,14 @@ registration:
     flash:
         user_created: The user has been created successfully
     email:
-        subject: Welcome %username%!
+        subject: Confirm registration on TaxiMyPrice!
         message: |
-            Hello %username%!
+            Hello, %username%!
 
-            To finish activating your account - please visit %confirmationUrl%
+            Follow this link %confirmationUrl% to activate Your account.
 
-            Regards,
-            the TaxiMyPrice team.
+            Respectfully yours,
+            TaxiMyPrice team.
 
 # Password resetting
 resetting:
@@ -72,14 +72,14 @@ resetting:
     flash:
         success: The password has been reset successfully
     email:
-        subject: Reset Password
+        subject: Changing of TaxiMyPrice password!
         message: |
-            Hello %username%!
+            Hello, %username%!
 
-            To reset your password - please visit %confirmationUrl%
+            Сlick %confirmationUrl% to reset Your password!
 
-            Regards,
-            the TaxiMyPrice Team.
+            Best wishes,
+            TaxiMyPrice team!
 
 # Global strings
 layout:

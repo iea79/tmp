@@ -13,7 +13,7 @@
                                 <img src="{{ logoImage }}" alt="{{ 'TaxiMyPrice company'|trans}}" width="108px" />
                             </a>
                         </td>
-                        <td style="padding: 14px 20px 12px 0; vertical-align: top;text-align: right;">
+                        <td style="padding: 14px 20px 12px 0; vertical-align: top;text-align: left;">
                             {% block title %}{% endblock %}
                         </td>
                     </tr>
@@ -24,7 +24,7 @@
                                 <h3 style="font-size: 16px;margin: 22px 0 0;">Dear, {{ user.firstname }} {{ user.lastname }}.</h3>
                                 <div style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
                                     {# message text starts #}
-                                    {% block message_text %}{% endblock %}</p>
+                                    {% block message_text %}{% endblock %}
                                     {# message text ends #}
                                 </div>
                                 <div align="left" style="line-height: 17px;margin: 7px 0 13px;">
@@ -38,13 +38,19 @@
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;padding: 0 12px 0 18px;">
-                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
+                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">
+                                {# message text starts #}
+                                {% block message_text_after %}
+                                    Thanks for joining TaxiMyPrice!
+                                {% endblock %}
+                                {# message text ends #}
+                            </p>
                             <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">
                                 Sincerely yours,<br/>TaxiMyPrice Team<br/>
                                 <a href="http://taximyprice.com">taximyprice.com</a>
                             </p>    
                         </td>
-                    </td>    
+                    </tr>    
                     {% block banner_one %}{% endblock %}
                     <tr>
                         <td colspan="2" style="padding: 24px 0 20px;color: #8d8f98; font-size: 14px;">

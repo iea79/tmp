@@ -47,7 +47,9 @@ class RegistrationController extends BaseController
             ->setFrom($this->container->getParameter('sender_email'))
 			->setTo($user->getEmail())
             ->setContentType("text/html")
-			->setBody('Your account has been activated!');
+			->setBody('Your registration data {{ user.email }} {{ user.password }} are in TaxiMyPrice system! <br><br>
+                       You always can change Your registration data in personal office, in Your profile. <br><br>
+                       Respectfully yours, TaxiMyPrice team. ');
         
         $this->container
             ->get('mailer')
