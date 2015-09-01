@@ -406,7 +406,7 @@ class HomeController extends StepsController
     
     /**
      * @Route("/cancel/request_id/{id}", name="cancel_request_status")
-     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
+     * @Security("has_role('ROLE_USER')")
      */
     public function cancelAction()
     {

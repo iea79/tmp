@@ -235,14 +235,16 @@ class StepsController extends Controller
     /**
      * @return array
      */
-    protected function getStockRequests()
+    protected function getStockRequests(array $states = array())
     {
-        $states = array(
-            PassengerRequest::STATE_OPEN,
-            PassengerRequest::STATE_PENDING,
-            PassengerRequest::STATE_SOLD
-        );
-
+        if (!count($states)) {
+            $states = array(
+                PassengerRequest::STATE_OPEN,
+                PassengerRequest::STATE_PENDING,
+                PassengerRequest::STATE_SOLD
+            );
+        }
+        
         if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
             $user = $this->get('security.context')
                 ->getToken()
