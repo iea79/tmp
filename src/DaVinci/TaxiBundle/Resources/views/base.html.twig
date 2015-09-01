@@ -223,6 +223,9 @@
                         <li class="uk-parent"><a href="#">You passenger</a>
                             <ul class="uk-nav-sub">
                                 <li><a href="{{ url('da_vinci_taxi_homepage')}}">{{ 'Book'|trans }}</a></li>
+                                {% if is_granted('ROLE_USER') %}
+                                    <li><a href="{{ url('office_passenger')}}">{{ 'Office'|trans }}</a></li>
+                                {% endif %}
                                 <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
                                 <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
 
@@ -231,6 +234,9 @@
                         <li class="uk-parent"><a href="#">You driver</a>
                             <ul class="uk-nav-sub">
                                 <li><a href="{{ url('da_vinci_taxi_homepage')}}">TMP market</a></li>
+                                {% if is_granted('ROLE_TAXIDRIVER') %}
+                                    <li><a href="{{ url('office_driver')}}">{{ 'Office'|trans }}</a></li>
+                                {% endif %}
                                 <li><a href="{{ url('driver') }}">{{' Driver'|trans}}</a></li>
                                 <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
                                 <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>                   

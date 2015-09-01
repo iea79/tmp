@@ -6770,6 +6770,7 @@ Help
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	text-align: right;
+	width: 100%;
 }
 #filter_table_filter label {
   display: inline-block;
@@ -7973,6 +7974,27 @@ Social page
 	}
 }
 
+@media (max-width: 430px) {
+	.social .soc-block .text h3 {
+		font-size: 18px;
+		width: 87%;
+	}
+	.social .soc-block .text p {
+		font-size: 14px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin-top: 16px;
+	}
+	.social .soc-block .text {
+		position: relative;
+		top: -48px;
+		bottom: initial;
+	}
+	.social .soc-block {
+		margin: 0 0;
+	}
+}
+
 
 .soc-top {
 	background: url(../images/soc-top.png) no-repeat center center;
@@ -8190,9 +8212,8 @@ Reviews page
 .reviews .new {
 	margin-top: 22px;
 }
-@media (max-width: 870px) {
-	.first .any-rev {
-	}
+.reviews #reviews {
+	padding-left: 3px;
 }
 @media (max-width: 580px) {
 	.reviews .stories .first,.reviews .stories .second {
@@ -8517,6 +8538,7 @@ a.textarea-toggle input {
 }
 .destination .inputs .time div.jq-selectbox__select {
 	width: 97%;
+	text-align: center;
 }
 .destination .inputs .time div.jq-selectbox__dropdown li:first-child {
 	display: none !important;
@@ -9020,7 +9042,7 @@ Taxi company styles
 	float: right;
 }
 .client-account .choose-office {
-	width: 53%;
+	width: 57%;
 	padding-left: 0;
 	float: left;
 	display: inline-block;
@@ -9041,11 +9063,11 @@ Taxi company styles
 }
 .client-account .buttons-office {
 	text-align: right;
-	width: 47%;
+	width: 43%;
 	display: inline-block;
 }
 .client-account .buttons-office .uk-button {
-	width: 44.1%;
+	width: 48.3%;
 }
 .client-account .money-block {
 	width: 100%;
