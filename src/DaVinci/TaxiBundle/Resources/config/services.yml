@@ -59,9 +59,17 @@ services:
     
     da_vinci_taxi.service.passenger_request_service:
         class: DaVinci\TaxiBundle\Entity\PassengerRequestService
+        
+    da_vinci_taxi.repository.make_payment:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\Payment\MakePayment    
 
     da_vinci_taxi.service.make_payment_service:
         class: DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
+        arguments: ["@da_vinci_taxi.repository.make_payment"]
 
     da_vinci_taxi.repository.travel_coefficient:
         class: Doctrine\ORM\EntityRepository

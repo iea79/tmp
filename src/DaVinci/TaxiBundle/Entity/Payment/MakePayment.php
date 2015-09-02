@@ -71,6 +71,16 @@ class MakePayment
 	 * @ORM\Column(type="string", columnDefinition="ENUM('in-progress', 'declined', 'completed')", name="operation_state", length=20)
 	 */
     private $operationState;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="created_time")
+	 */
+	private $createdTime;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="processed_time")
+	 */
+	private $processedTime;
 		
 	/**
 	 * Get id
@@ -328,4 +338,52 @@ class MakePayment
         return $this->operationState;
     }
     
+
+    /**
+     * Set createdTime
+     *
+     * @param \DateTime $createdTime
+     *
+     * @return MakePayment
+     */
+    public function setCreatedTime($createdTime)
+    {
+        $this->createdTime = $createdTime;
+
+        return $this;
+    }
+
+    /**
+     * Get createdTime
+     *
+     * @return \DateTime
+     */
+    public function getCreatedTime()
+    {
+        return $this->createdTime;
+    }
+
+    /**
+     * Set processedTime
+     *
+     * @param \DateTime $processedTime
+     *
+     * @return MakePayment
+     */
+    public function setProcessedTime($processedTime)
+    {
+        $this->processedTime = $processedTime;
+
+        return $this;
+    }
+
+    /**
+     * Get processedTime
+     *
+     * @return \DateTime
+     */
+    public function getProcessedTime()
+    {
+        return $this->processedTime;
+    }
 }

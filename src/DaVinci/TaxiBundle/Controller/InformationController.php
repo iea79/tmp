@@ -16,7 +16,9 @@ use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
+
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
+use DaVinci\TaxiBundle\Utils\Assert;
 
 class InformationController extends StepsController 
 {
@@ -287,15 +289,31 @@ class InformationController extends StepsController
     }
     
     /**
-     * @Route("/financial-office/history", name="financial_office_history")
+     * @Route("/financial-office/history/{section}", name="financial_office_history", defaults={"section" = "payment"})
      * @Security("has_role('ROLE_USER')")
      */
-    public function financialOfficeHistoryAction()
+    public function financialOfficeHistoryAction($section)
     {
+        Assert::inArray(
+            MakePayments::getOperationTypesList(), 
+            $section, 
+            "Undefined history section #{$section}"
+        );
+        
+        $operations = $this
+            ->get('da_vinci_taxi.service.make_payment_service')
+            ->getRepository()
+            ->findBy(array(
+                'user' => $this->get('security.context')->getToken()->getUser(),
+                'operationType' => $section
+            ));
+      
     	return $this->render(
     		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
     		array(
-    			'action' => 'history'
+    			'action' => 'history',
+                'section' => $section,
+                'operations' => $operations
     		)	
     	);
     }
@@ -317,7 +335,7 @@ class InformationController extends StepsController
     
     private function showOffice($action, Request $request, $methodCode)
     {
-       	$makePaymentService = $this->getMakePaymentService();
+        $makePaymentService = $this->getMakePaymentService();
     	$makePayment = $makePaymentService->createConfigured($request);
     	
     	$form = $this->createForm(
@@ -333,6 +351,12 @@ class InformationController extends StepsController
     	$filter = (self::ACTION_OFFICE_ADD == $action) 
     		? PaymentMethod::POS_INTERNAL_PAYMENT_METHOD
     		: 0;
+        
+        $methods = MakePaymentService::generateMethods($filter);
+        
+        Assert::indexIsSet(
+            $methods, $methodCode, "Undefined method code #{$methodCode}"
+        );
     	    	
     	$form->handleRequest($request);
     	if ($form->isValid()) {
@@ -363,7 +387,7 @@ class InformationController extends StepsController
     				'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
     				'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
     				'methodCode' => $methodCode,
-    				'methods' => MakePaymentService::generateMethods($filter)    						
+    				'methods' => $methods
     			),
     			$result	
     		)	 

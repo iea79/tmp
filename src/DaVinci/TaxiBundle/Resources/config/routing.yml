@@ -115,8 +115,8 @@ financial_office_transfer:
     defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeTransfer, methodCode: '1_1' }
     
 financial_office_history:
-    pattern:  /financial-office/history
-    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeHistory }    
+    pattern:  /financial-office/history/{section}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeHistory, section: 'payment' }    
         
 store:
     pattern:  /store

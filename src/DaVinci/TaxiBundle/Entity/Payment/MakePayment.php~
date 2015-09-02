@@ -68,9 +68,19 @@ class MakePayment
     private $operationType;
     
     /**
-	 * @ORM\Column(type="string", columnDefinition="ENUM('in_progress', 'declined', 'completed')", name="operation_state", length=20)
+	 * @ORM\Column(type="string", columnDefinition="ENUM('in-progress', 'declined', 'completed')", name="operation_state", length=20)
 	 */
     private $operationState;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="created_time")
+	 */
+	private $createdTime;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="processed_time")
+	 */
+	private $processedTime;
 		
 	/**
 	 * Get id
@@ -277,7 +287,7 @@ class MakePayment
     public function setOperationType($operationType)
     {
         AssertUtil::inArray(
-            MakePayments::getOperationTypeList(), 
+            MakePayments::getOperationTypesList(), 
             $operationType, 
             "Undefined operation type :: {$operationType}"
         );
@@ -295,6 +305,37 @@ class MakePayment
     public function getOperationType()
     {
         return $this->operationType;
+    }
+    
+
+    /**
+     * Set operationState
+     *
+     * @param string $operationState
+     *
+     * @return MakePayment
+     */
+    public function setOperationState($operationState)
+    {
+        AssertUtil::inArray(
+            MakePayments::getOperationStatesList(), 
+            $operationState, 
+            "Undefined operation state :: {$operationState}"
+        );
+        
+        $this->operationState = $operationState;
+
+        return $this;
+    }
+
+    /**
+     * Get operationState
+     *
+     * @return string
+     */
+    public function getOperationState()
+    {
+        return $this->operationState;
     }
     
 }

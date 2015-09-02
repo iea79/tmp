@@ -20,6 +20,7 @@ final class MakePayments
     
     const OPERATION_PAYMENT = 'payment';
     const OPERATION_ADDITION = 'addition';
+    const OPERATION_INTERNAL_TRANSFER = 'internal-transfer';
     const OPERATION_SHOP_PURCHASE = 'shop-purchase';
     
     const OPERATION_STATE_IN_PROGRESS = 'in-progress';
@@ -30,7 +31,7 @@ final class MakePayments
     {
         return array(
             self::OPERATION_PAYMENT, 
-            self::OPERATION_ADDITION, 
+            self::OPERATION_ADDITION,
             self::OPERATION_SHOP_PURCHASE
         );
     }

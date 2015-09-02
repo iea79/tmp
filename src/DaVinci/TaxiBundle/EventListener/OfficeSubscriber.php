@@ -89,6 +89,8 @@ class OfficeSubscriber implements EventSubscriberInterface
 	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
 	private function prepareMakePayment(TransferOperationEvent $event) {
+        $actual = new \DateTime('now');
+        
 		$makePayment = $event->getMakePayment();
 		$user = $this->securityContext
 					->getToken()
@@ -100,7 +102,11 @@ class OfficeSubscriber implements EventSubscriberInterface
 		$makePayment->setPaymentMethod($paymentMethod);
 		$makePayment->setUser($user);
         $makePayment->setOperationType($event->getOperationType());
+        $makePayment->setOperationState(MakePayments::OPERATION_STATE_COMPLETED);
         $makePayment->setDescription($event->getDescription());
+        $makePayment->setCreatedTime($actual);
+        $makePayment->setProcessedTime($actual);
+        
 		if ($makePayment->getAmount() > 0) {
 			$money = new Money();
 			$money->setCurrency(MakePayments::DEFAULT_CURRENCY);
