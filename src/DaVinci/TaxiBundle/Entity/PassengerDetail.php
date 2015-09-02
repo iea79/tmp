@@ -103,6 +103,7 @@ class PassengerDetail
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
      *		min=1,
+     *      max=999,    
      *		minMessage="The code must be greater then 0"
      * )
 	 */
