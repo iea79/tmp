@@ -147,7 +147,7 @@ services:
         class: DaVinci\TaxiBundle\Services\Informer\MailerInformer
         calls:
             - [setMailer, ["@mailer"]]
-            - [setTemplating, ["@templating"]]
+            - [setTwig, ["@twig"]]
             - [setFrom, [%sender_email%]]
             - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
             - [setImageDir, [%mailer_images_path%]]

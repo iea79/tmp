@@ -16,9 +16,9 @@ class MailerInformer extends AbstractInformer
 	protected $mailer;
     
     /**
-	 * @var
+	 * @var \Twig_Environment
 	 */
-	protected $templating;
+	protected $twig;
     
     /**
      * @var string
@@ -35,9 +35,9 @@ class MailerInformer extends AbstractInformer
 		$this->mailer = $mailer;
 	}
     
-    public function setTemplating($templating)
+    public function setTwig(\Twig_Environment $twig)
     {
-        $this->templating = $templating;
+        $this->twig = $twig;
     }
     
     public function setFrom($from)
@@ -62,7 +62,7 @@ class MailerInformer extends AbstractInformer
             'user' => $user,
             'logoImage' => \Swift_Image::fromPath($this->imageDir . '/logo.png')
         );
-        $template = $this->templating->render(
+        $template = $this->twig->loadTemplate(
             'DaVinciTaxiBundle:Email:general.html.twig'
         );
         
