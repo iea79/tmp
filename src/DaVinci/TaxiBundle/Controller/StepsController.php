@@ -151,7 +151,7 @@ class StepsController extends Controller
 	 */
 	protected function getFullPassengerRequestForUserById(User $user, $id, array $states = array())
 	{
-		return $this->getPassengerRequestRepository()->getFullRequestForUserById(
+        return $this->getPassengerRequestRepository()->getFullRequestForUserById(
             $user, $id, $states
         );
 	}

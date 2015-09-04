@@ -81,7 +81,7 @@ class MakePayment
 	 * @ORM\Column(type="datetimetz", name="processed_time")
 	 */
 	private $processedTime;
-		
+    		
 	/**
 	 * Get id
 	 *
@@ -386,4 +386,5 @@ class MakePayment
     {
         return $this->processedTime;
     }
+    
 }

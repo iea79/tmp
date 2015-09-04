@@ -10,13 +10,13 @@
                         <div class="passenger-info">
                             <div class="wrap-left">
                                 {% 
-                                    if (is_granted('ROLE_TAXIDRIVER') and actualUser is not null and request.driver.id is defined and request.driver.id  == actualUser.id)
-                                    or (is_granted('ROLE_USER') and not is_granted('ROLE_TAXIDRIVER') and request.user.id is defined and request.user.id  == actualUser.id)
+                                    if (is_granted('ROLE_TAXIDRIVER') and actualUser is not null and request.driver.id is defined and request.driver.id == actualUser.id)
+                                    or (is_granted('ROLE_USER') and not is_granted('ROLE_TAXIDRIVER') and request.user.id is defined and request.user.id == actualUser.id)
                                 %}
                                     <dl class="quantity">
                                         <h1 class="labels">{{'Passenger info'|trans}}</h1>
                                         <hr>
-                                        <dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ request.passengerDetail.adult }}), {{'children'|trans}} ({{ request.passengerDetail.children }}), {{'seniors'|trans}} ({{ request.passengerDetail.seniors }})</dd>
+                                        <dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ request.passengerDetail.adult }}), {{ 'children'|trans }} ({{ request.passengerDetail.children }}), {{'seniors'|trans}} ({{ request.passengerDetail.seniors }})</dd>
                                         {% if request.passengerDetail.notMySelf == true %}
                                             <dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
                                         {% else %}

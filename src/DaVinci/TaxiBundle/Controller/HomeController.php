@@ -26,6 +26,7 @@ use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
+use DaVinci\TaxiBundle\Entity\Roles;
 
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
@@ -303,9 +304,9 @@ class HomeController extends StepsController
      * @Route("/approve/request_id/{id}", name="approve_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function approveAction()
+    public function approveAction(Request $request)
     {
-    	$requestId = $this->getRequest()->get('id');
+    	$requestId = $request->get('id');
     	
     	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
@@ -350,15 +351,24 @@ class HomeController extends StepsController
     			'message' => "driver with id #{$driver->getId()} is not chosen for executing an order"
     		));
     	}
-    	
-    	$dispatcher = $this->container->get('event_dispatcher');
+        
+        if ($userCondition) {
+            $initiatedBy = Roles::RECIPIENT_USER;
+        }
+        
+        if ($driverCondition) {
+            $initiatedBy = Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER;
+        }
+        
+        $dispatcher = $this->container->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::APPROVE_REQUEST,
     		new CommonDriverRequestEvent(
     			$passengerRequest,
     			$this->getPassengerRequestRepository(),
     			$driver,
-    			$this->getIndependentDriverRepository()
+    			$this->getIndependentDriverRepository(),
+                $initiatedBy
     		)
     	);
     	
@@ -369,16 +379,9 @@ class HomeController extends StepsController
      * @Route("/decline/driver/request_id/{id}", name="decline_driver", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER')")
      */
-    public function declineDriverAction()
+    public function declineDriverAction(Request $request)
     {
-        if ($this->securityContext->isGranted('ROLE_TAXIDRIVER')) {
-            return new JsonResponse(array(
-    			'status' => 'error', 
-    			'message' => 'action can not be completed'
-    		));
-        }
-        
-    	$requestId = $this->getRequest()->get('id');
+        $requestId = $request->get('id');
     	 
     	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
@@ -388,7 +391,7 @@ class HomeController extends StepsController
     		));
     	}
     	
-    	$driverId = $this->getRequest()->get('driver_id');
+    	$driverId = $request->get('driver_id');
     	$driver = $this->getDirverById($driverId);
     	if (is_null($driver)) {
     		return new JsonResponse(array(
@@ -404,7 +407,8 @@ class HomeController extends StepsController
     			$passengerRequest,
     			$this->getPassengerRequestRepository(),
     			$driver,
-    			$this->getIndependentDriverRepository()
+    			$this->getIndependentDriverRepository(),
+                Roles::RECIPIENT_USER
     		)
     	);
     	
@@ -415,21 +419,14 @@ class HomeController extends StepsController
      * @Route("/cancel/request_id/{id}", name="cancel_request_status")
      * @Security("has_role('ROLE_USER')")
      */
-    public function cancelAction()
+    public function cancelAction(Request $request)
     {
-    	$requestId = $this->getRequest()->get('id');
-        
-        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
-            $route = 'office_driver';
-        }
-        
-        if ($this->get('security.context')->isGranted('ROLE_USER')) {
-            $route = 'office_passenger';
-        }
-    	
-    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	$passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(),
+            $request->get('id')
+        );
     	if (is_null($passengerRequest)) {
-            return $this->redirect($this->generateUrl($route));
+            return $this->redirect($this->generateUrl('office_passenger'));
     	}
     	
     	$dispatcher = $this->get('event_dispatcher');
@@ -438,11 +435,11 @@ class HomeController extends StepsController
     		new CancelRequestEvent(
     			$passengerRequest, 
     			$this->getPassengerRequestRepository(), 
-    			$this->container->get('security.context')
+    			Roles::RECIPIENT_USER
     		)
     	);
     	        
-        return $this->redirect($this->generateUrl($route));
+        return $this->redirect($this->generateUrl('office_passenger'));
     }
         
     public function mainDriverAction() {

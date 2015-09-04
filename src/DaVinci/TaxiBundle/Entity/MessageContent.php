@@ -17,12 +17,7 @@ class MessageContent
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	private $id;
-	
-	/**
-	 * @ORM\Column(type="datetimetz", name="modify_date")
-	 */
-	private $modifyDate;
-	
+		
     /**
 	 * @ORM\Column(type="string", length=255)
 	 */
@@ -49,7 +44,7 @@ class MessageContent
 	private $internalNotification = false;
     
     /**
-     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company')", length=50)
+     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company-driver')", length=50)
      */
     private $recipient;
 	
@@ -61,30 +56,6 @@ class MessageContent
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set modifyDate
-     *
-     * @param \DateTime $modifyDate
-     *
-     * @return MessageContent
-     */
-    public function setModifyDate($modifyDate)
-    {
-        $this->modifyDate = $modifyDate;
-
-        return $this;
-    }
-
-    /**
-     * Get modifyDate
-     *
-     * @return \DateTime
-     */
-    public function getModifyDate()
-    {
-        return $this->modifyDate;
     }
     
     /**

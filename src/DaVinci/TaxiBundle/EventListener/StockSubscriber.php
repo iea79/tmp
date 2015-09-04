@@ -16,7 +16,7 @@ use DaVinci\TaxiBundle\Services\Informer\InformerInterface;
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
-use DaVinci\TaxiBundle\Entity\MessageRecipients;
+use DaVinci\TaxiBundle\Entity\Roles;
 
 class StockSubscriber implements EventSubscriberInterface 
 {
@@ -62,7 +62,7 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		if (
 			PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->securityContext->isGranted('ROLE_USER')
+    		&& Roles::RECIPIENT_USER == $event->getInitiatedBy()
 		) {
 			$passengerRequest->setDriver($driver);
 			$passengerRequest->removeCanceledDrivers($driver);
@@ -78,19 +78,19 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
 		
-        if ($this->securityContext->isGranted('ROLE_USER')) {
+        if ($event->getInitiatedBy() == Roles::RECIPIENT_USER) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::APPROVE_REQUEST,
-                MessageRecipients::RECIPIENT_USER
+                Roles::RECIPIENT_USER
             );
         }
         
-        if ($this->securityContext->isGranted('ROLE_TAXIDRIVER')) {
+        if ($event->getInitiatedBy() == Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER) {
             $this->informer->notify(
                 $passengerRequest->getDriver()->getUser(), 
                 PassengerRequestEvents::APPROVE_REQUEST,
-                MessageRecipients::RECIPIENT_TAXI_INDEPENDENT_DRIVER
+                Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER
             );
         }
     }
@@ -123,11 +123,11 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
         
-        if ($this->securityContext->isGranted('ROLE_USER')) {
+        if ($event->getInitiatedBy() == Roles::RECIPIENT_USER) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
-                MessageRecipients::RECIPIENT_USER
+                Roles::RECIPIENT_USER
             );
         }
 	}
@@ -135,47 +135,50 @@ class StockSubscriber implements EventSubscriberInterface
 	public function onCancelPassengerRequest(CancelRequestEvent $event)
 	{
 		$passengerRequest = $event->getPassengerRequest();
-				
-		try {
-			if (
-				$this->securityContext->isGranted('ROLE_USER')
-				&& PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
-			) {
-				$datetime = new \DateTime('+2 hours');
-				
-				if (0 == $datetime->diff($passengerRequest->getPickUp())->invert) {
+			
+        if (
+            $event->getInitiatedBy() == Roles::RECIPIENT_USER
+            && PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
+        ) {
+            $datetime = new \DateTime('+2 hours');
+
+            if (0 == $datetime->diff($passengerRequest->getPickUp())->invert) {
+                try {
                     $this->processByPassengerRequest(
-                        $passengerRequest, $passengerRequest->getDriver()->getUser()
+                        $passengerRequest, 
+                        $passengerRequest->getDriver()->getUser()
                     );
-				}
-				
-				if (
-					1 == $datetime->diff($passengerRequest->getPickUp())->invert
-					&& Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
-				) {
-					$this->processByUser($passengerRequest->getUser());
-					$this->processByUser($passengerRequest->getDriver()->getUser());
-				}
-			}
-		} catch (RequesterException $exception) {
-			return;
-		}
-				
-		$passengerRequest->cancelState();
-		
-		$repository = $event->getPassengerRequestRepository();
-		$repository->saveAll($passengerRequest);
-        
-        if ($this->securityContext->isGranted('ROLE_USER')) {
+                } catch (RequesterException $exception) {
+                    return;
+                }
+            }
+
+            if (
+                1 == $datetime->diff($passengerRequest->getPickUp())->invert
+                && Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
+            ) {
+                try {
+                    $this->processByUser($passengerRequest->getUser());
+                    $this->processByUser($passengerRequest->getDriver()->getUser());
+                } catch (RequesterException $exception) {
+                    return;
+                }
+            }
+
+            $passengerRequest->cancelState();
+
+            $repository = $event->getPassengerRequestRepository();
+            $repository->saveAll($passengerRequest);
+
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::CANCEL_REQUEST,
-                MessageRecipients::RECIPIENT_USER
+                $event->getInitiatedBy()
             );
         }
-	}
+    }    
 	
-	private function processByPassengerRequest(PassengerRequest $passengerRequest, $recipient)
+    private function processByPassengerRequest(PassengerRequest $passengerRequest, $recipient)
 	{
 		$this->remoteRequester->makePassengerRequestOperation(
 			$passengerRequest, 

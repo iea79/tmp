@@ -1,4 +1,5 @@
 <?php
+
 namespace DaVinci\TaxiBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -6,10 +7,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-use DaVinci\TaxiBundle\Entity\MessageContent;
-use DaVinci\TaxiBundle\Entity\MessageRecipients;
+use DaVinci\TaxiBundle\Entity\Roles;
 use DaVinci\TaxiBundle\Event\SystemEvents;
-
 
 class MessageContentAdmin extends Admin
 {
@@ -19,14 +18,14 @@ class MessageContentAdmin extends Admin
     {
         $formMapper
             ->add('subject')
-            ->add('content', 'ckeditor', array('label' => 'Guide Text'))
+            ->add('content', 'ckeditor', array('label' => 'Content'))
             ->add('mailNotification', 'checkbox', array('label' => 'Mail notification'))
             ->add('internalNotification', 'checkbox', array('label' => 'Internal notification'))
             ->add('literalCode', 'choice', array(
                 'choices' => SystemEvents::getDescriptionEventList()
             ))
             ->add('recipient', 'choice', array(
-                'choices' => MessageRecipients::getDescriptionList()
+                'choices' => Roles::getDescriptionList()
             ));
     }
 
@@ -49,7 +48,7 @@ class MessageContentAdmin extends Admin
             ))
             
             ->add('recipient', 'choice', array(
-                'choices' => MessageRecipients::getDescriptionList()
+                'choices' => Roles::getDescriptionList()
             ))
             ->add('_action', 'actions', array(
                 'actions' => array(
