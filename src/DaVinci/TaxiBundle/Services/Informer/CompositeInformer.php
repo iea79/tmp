@@ -28,8 +28,6 @@ class CompositeInformer extends AbstractInformer
 		foreach ($this->informers as $informer) {
 			$informer->notify($user, $literalCode, $recipient);
 		}
-        
-        $this->process($user, $contentInfo);
 	}
     
     protected function process(User $user, MessageContent $contentInfo)
