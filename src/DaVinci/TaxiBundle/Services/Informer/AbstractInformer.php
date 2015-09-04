@@ -24,7 +24,7 @@ abstract class AbstractInformer implements InformerInterface
     
     public function notify(User $user, $literalCode, $recipient)
     {
-        $contentInfo = $this->prepareContent($literalCode);
+        $contentInfo = $this->prepareContent($literalCode, $recipient);
         if (!$contentInfo) {
             return;
         }
