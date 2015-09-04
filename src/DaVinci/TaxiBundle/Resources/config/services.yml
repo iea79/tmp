@@ -150,6 +150,7 @@ services:
             - [setTemplating, ["@templating"]]
             - [setFrom, [%sender_email%]]
             - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
+            - [setImageDir, [%mailer_images_path%]]
             
     da_vinci_taxi.service.internal_informer:
         class: DaVinci\TaxiBundle\Services\Informer\InternalInformer

@@ -371,6 +371,13 @@ class HomeController extends StepsController
      */
     public function declineDriverAction()
     {
+        if ($this->securityContext->isGranted('ROLE_TAXIDRIVER')) {
+            return new JsonResponse(array(
+    			'status' => 'error', 
+    			'message' => 'action can not be completed'
+    		));
+        }
+        
     	$requestId = $this->getRequest()->get('id');
     	 
     	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);

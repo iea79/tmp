@@ -4,8 +4,9 @@ namespace DaVinci\TaxiBundle\Services\Informer;
 
 use DaVinci\TaxiBundle\Entity\InternalMessageService;
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\MessageContent;
 
-class InternalInformer extends AbstractInformer implements InformerInterface 
+class InternalInformer extends AbstractInformer
 {
 	
 	/**
@@ -13,14 +14,13 @@ class InternalInformer extends AbstractInformer implements InformerInterface
 	 */
 	protected $internalMessageService;
 	
-	public function setInternalMessageService(\DaVinci\TaxiBundle\Entity\InternalMessageService $messageService)
+	public function setInternalMessageService(InternalMessageService $messageService)
 	{
 		$this->internalMessageService = $messageService;
 	}
 	
-	public function notify(\DaVinci\TaxiBundle\Entity\User $user, $literalCode)
+	protected function process(User $user, MessageContent $contentInfo)
 	{
-		$contentInfo = $this->prepareContent($literalCode);
 		if (!$contentInfo->isInternalNotification()) {
 			return;
 		}
@@ -29,7 +29,7 @@ class InternalInformer extends AbstractInformer implements InformerInterface
 		$message
 			->setContent($contentInfo->getContent())
 			->setUser($user)
-			->setCreateDate(new \DateTime());
+			->setCreateDate(new \DateTime('now'));
 		
 		$this->internalMessageService->save($message);
 	}

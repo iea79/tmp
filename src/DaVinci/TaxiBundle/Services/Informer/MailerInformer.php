@@ -3,8 +3,9 @@
 namespace DaVinci\TaxiBundle\Services\Informer;
 
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\MessageContent;
 
-class MailerInformer extends AbstractInformer implements InformerInterface
+class MailerInformer extends AbstractInformer
 {
 	
 	const MAIL_SUBJECT = 'Notification message';
@@ -23,6 +24,11 @@ class MailerInformer extends AbstractInformer implements InformerInterface
      * @var string
      */
     protected $from;
+    
+    /**
+     * @var string
+     */
+    protected $imageDir;
 
     public function setMailer(\Swift_Mailer $mailer)
 	{
@@ -38,32 +44,38 @@ class MailerInformer extends AbstractInformer implements InformerInterface
     {
         $this->from = $from;
     }
+    
+    public function setImageDir($imageDir)
+    {
+        $this->imageDir = $imageDir;
+    }    
 	
-	public function notify(User $user, $literalCode)
+	protected function process(User $user, MessageContent $contentInfo)
 	{
-		$contentInfo = $this->prepareContent($literalCode);
 		if (!$contentInfo->isMailNotification()) {
 			return;
 		}
 		
+        $context = array(
+            'subject' => $contentInfo->getSubject(),
+            'content' => $contentInfo->getContent(),
+            'user' => $user,
+            'logoImage' => \Swift_Image::fromPath($this->imageDir . '/logo.png')
+        );
+        $template = $this->templating->loadTemplate(
+            'DaVinciTaxiBundle:Email:general.html.twig'
+        );
+        
 		$message = \Swift_Message::newInstance()
-			->setSubject(self::MAIL_SUBJECT)
+			->setSubject($template->renderBlock('subject', $context))
 			->setFrom($this->from)
             ->setTo($user->getEmail())
             ->setContentType("text/html")
-			->setBody($this->generateMessageContent($contentInfo));
+			->setBody($template->renderBlock('body_html', $context));
 		
 		$this->mailer->send($message);
 	}
-    
-    private function generateMessageContent(MessageContent $contentInfo)
-    {
-        return $this->templating->render(
-            'DaVinciTaxiBundle:Notifications:email.html.twig',
-            array('contentInfo' => $contentInfo)
-        );
-    }
-	
+    	
 }
 
 ?>

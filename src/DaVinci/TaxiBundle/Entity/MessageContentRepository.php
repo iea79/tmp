@@ -13,9 +13,10 @@ class MessageContentRepository extends \Doctrine\ORM\EntityRepository
 	
 	/**
 	 * @param string $literalCode
+     * @param string $recipient
 	 * @return Ambigous <NULL, \DaVinci\TaxiBundle\Entity\MessageContent>
 	 */
-	public function findByLiteralCode($literalCode)
+	public function findByLiteralCodeAndRecipient($literalCode, $recipient)
 	{
 		$query = $this->_em->createQuery("
 			SELECT
@@ -23,9 +24,13 @@ class MessageContentRepository extends \Doctrine\ORM\EntityRepository
 			FROM
 				DaVinci\TaxiBundle\Entity\MessageContent message
 			WHERE
-				message.literalCode = :literalCode			
+				message.literalCode = :literalCode
+                AND message.recipient = :recipient
 		");
-		$query->setParameter('literalCode', $literalCode);
+		$query->setParameters(array(
+            'literalCode' => $literalCode,
+            'recipient' => $recipient
+        ));
 		
 		return $query->getOneOrNullResult();		
 	}

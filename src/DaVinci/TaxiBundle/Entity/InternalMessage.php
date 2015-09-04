@@ -29,7 +29,7 @@ class InternalMessage
 	private $priority = InternalMessagePriorities::NORMAL;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="text")
 	 */
 	private $content;
 	

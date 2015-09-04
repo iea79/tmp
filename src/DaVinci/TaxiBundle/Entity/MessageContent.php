@@ -23,8 +23,13 @@ class MessageContent
 	 */
 	private $modifyDate;
 	
-	/**
+    /**
 	 * @ORM\Column(type="string", length=255)
+	 */
+	private $subject;
+    
+	/**
+	 * @ORM\Column(type="text")
 	 */
 	private $content;
 	
@@ -42,6 +47,11 @@ class MessageContent
 	 * @ORM\Column(type="boolean", name="internal_notification")
 	 */
 	private $internalNotification = false;
+    
+    /**
+     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company')", length=50)
+     */
+    private $recipient;
 	
     /**
      * Get id
@@ -75,6 +85,30 @@ class MessageContent
     public function getModifyDate()
     {
         return $this->modifyDate;
+    }
+    
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     *
+     * @return MessageContent
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
     }
 
     /**
@@ -149,6 +183,16 @@ class MessageContent
     {
         return $this->mailNotification;
     }
+    
+    /**
+     * Get mailNotification
+     *
+     * @return boolean
+     */
+    public function getMailNotification()
+    {
+        return $this->mailNotification;
+    }
 
     /**
      * Set internalNotification
@@ -174,6 +218,38 @@ class MessageContent
         return $this->internalNotification;
     }
 
-}
+    /**
+     * Get internalNotification
+     *
+     * @return boolean
+     */
+    public function getInternalNotification()
+    {
+        return $this->internalNotification;
+    }
+    
 
-?>
+    /**
+     * Set recipient
+     *
+     * @param string $recipient
+     *
+     * @return MessageContent
+     */
+    public function setRecipient($recipient)
+    {
+        $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    /**
+     * Get recipient
+     *
+     * @return string
+     */
+    public function getRecipient()
+    {
+        return $this->recipient;
+    }
+}
