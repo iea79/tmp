@@ -16,6 +16,7 @@ use DaVinci\TaxiBundle\Services\Informer\InformerInterface;
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\MessageRecipients;
 
 class StockSubscriber implements EventSubscriberInterface 
 {
@@ -61,7 +62,7 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		if (
 			PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->securityContext->isGranted('ROLE_USER')
+    		&& $this->isUser()
 		) {
 			$passengerRequest->setDriver($driver);
 			$passengerRequest->removeCanceledDrivers($driver);
@@ -76,13 +77,27 @@ class StockSubscriber implements EventSubscriberInterface
 				
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
-			
-		$this->informer->notify($driver->getUser(), PassengerRequestEvents::APPROVE_REQUEST);
-	}
+		
+        if ($this->isUser()) {
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::APPROVE_REQUEST,
+                MessageRecipients::RECIPIENT_USER
+            );
+        }
+        
+        if ($this->securityContext->isGranted('ROLE_TAXIDRIVER')) {
+            $this->informer->notify(
+                $passengerRequest->getDriver()->getUser(), 
+                PassengerRequestEvents::APPROVE_REQUEST,
+                MessageRecipients::RECIPIENT_TAXI_INDEPENDENT_DRIVER
+            );
+        }
+    }
 	
 	public function onDeclineDriverPassengerRequest(CommonDriverRequestEvent $event)
 	{
-		$passengerRequest = $event->getPassengerRequest();
+        $passengerRequest = $event->getPassengerRequest();
 		$driver = $event->getDriver();
 	
 		try {
@@ -107,8 +122,14 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
-	
-		$this->informer->notify($driver->getUser(), PassengerRequestEvents::DECLINE_DRIVER_REQUEST);
+        
+        if ($this->isUser()) {
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
+                MessageRecipients::RECIPIENT_USER
+            );
+        }
 	}
 	
 	public function onCancelPassengerRequest(CancelRequestEvent $event)
@@ -117,7 +138,7 @@ class StockSubscriber implements EventSubscriberInterface
 				
 		try {
 			if (
-				$this->securityContext->isGranted('ROLE_USER')
+				$this->isUser()
 				&& PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
 			) {
 				$datetime = new \DateTime('+2 hours');
@@ -142,6 +163,14 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		$repository = $event->getPassengerRequestRepository();
 		$repository->saveAll($passengerRequest);
+        
+        if ($this->isUser()) {
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::CANCEL_REQUEST,
+                MessageRecipients::RECIPIENT_USER
+            );
+        }
 	}
 	
 	private function processByPassengerRequest(PassengerRequest $passengerRequest)
@@ -157,6 +186,14 @@ class StockSubscriber implements EventSubscriberInterface
 			$user, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
 		);
 	}
+    
+    private function isUser()
+    {
+        return (
+            $this->securityContext->isGranted('ROLE_USER')
+            && !$this->securityContext->isGranted('ROLE_TAXIDRIVER')
+        );
+    }    
 	
 }
 
