@@ -53,7 +53,8 @@ class MessageContentAdmin extends Admin
             ))
             ->add('_action', 'actions', array(
                 'actions' => array(
-                    'edit' => array()
+                    'edit' => array(),
+	    			'delete' => array(),
                 )
             ));
     }
