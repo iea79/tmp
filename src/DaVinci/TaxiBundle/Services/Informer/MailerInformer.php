@@ -62,7 +62,7 @@ class MailerInformer extends AbstractInformer
             'user' => $user,
             'logoImage' => \Swift_Image::fromPath($this->imageDir . '/logo.png')
         );
-        $template = $this->templating->loadTemplate(
+        $template = $this->templating->load(
             'DaVinciTaxiBundle:Email:general.html.twig'
         );
         
