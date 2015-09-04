@@ -62,7 +62,7 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		if (
 			PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->isUser()
+    		&& $this->securityContext->isGranted('ROLE_USER')
 		) {
 			$passengerRequest->setDriver($driver);
 			$passengerRequest->removeCanceledDrivers($driver);
@@ -78,7 +78,7 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
 		
-        if ($this->isUser()) {
+        if ($this->securityContext->isGranted('ROLE_USER')) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::APPROVE_REQUEST,
@@ -123,7 +123,7 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
         
-        if ($this->isUser()) {
+        if ($this->securityContext->isGranted('ROLE_USER')) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
@@ -138,13 +138,15 @@ class StockSubscriber implements EventSubscriberInterface
 				
 		try {
 			if (
-				$this->isUser()
+				$this->securityContext->isGranted('ROLE_USER')
 				&& PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
 			) {
 				$datetime = new \DateTime('+2 hours');
 				
 				if (0 == $datetime->diff($passengerRequest->getPickUp())->invert) {
-					$this->processByPassengerRequest($passengerRequest);
+                    $this->processByPassengerRequest(
+                        $passengerRequest, $passengerRequest->getDriver()->getUser()
+                    );
 				}
 				
 				if (
@@ -164,7 +166,7 @@ class StockSubscriber implements EventSubscriberInterface
 		$repository = $event->getPassengerRequestRepository();
 		$repository->saveAll($passengerRequest);
         
-        if ($this->isUser()) {
+        if ($this->securityContext->isGranted('ROLE_USER')) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::CANCEL_REQUEST,
@@ -173,10 +175,12 @@ class StockSubscriber implements EventSubscriberInterface
         }
 	}
 	
-	private function processByPassengerRequest(PassengerRequest $passengerRequest)
+	private function processByPassengerRequest(PassengerRequest $passengerRequest, $recipient)
 	{
 		$this->remoteRequester->makePassengerRequestOperation(
-			$passengerRequest, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
+			$passengerRequest, 
+            RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER,
+            $recipient
 		);
 	}
 	
@@ -187,14 +191,4 @@ class StockSubscriber implements EventSubscriberInterface
 		);
 	}
     
-    private function isUser()
-    {
-        return (
-            $this->securityContext->isGranted('ROLE_USER')
-            && !$this->securityContext->isGranted('ROLE_TAXIDRIVER')
-        );
-    }    
-	
 }
-
-?>
