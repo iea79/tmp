@@ -3,7 +3,7 @@
 {% block title %}Notification message from TaxiMyPrice!{% endblock %}
 
 {% block message_text %}
-	{{ content }}
+    {{ content|raw }}
 {% endblock %}
 
 {% block message_text_after %}
