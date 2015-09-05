@@ -26,7 +26,7 @@ use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
-use DaVinci\TaxiBundle\Entity\Roles;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
@@ -353,11 +353,11 @@ class HomeController extends StepsController
     	}
         
         if ($userCondition) {
-            $initiatedBy = Roles::RECIPIENT_USER;
+            $initiatedBy = Offices::RECIPIENT_USER;
         }
         
         if ($driverCondition) {
-            $initiatedBy = Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER;
+            $initiatedBy = Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER;
         }
         
         $dispatcher = $this->container->get('event_dispatcher');
@@ -408,7 +408,7 @@ class HomeController extends StepsController
     			$this->getPassengerRequestRepository(),
     			$driver,
     			$this->getIndependentDriverRepository(),
-                Roles::RECIPIENT_USER
+                Offices::RECIPIENT_USER
     		)
     	);
     	
@@ -435,7 +435,7 @@ class HomeController extends StepsController
     		new CancelRequestEvent(
     			$passengerRequest, 
     			$this->getPassengerRequestRepository(), 
-    			Roles::RECIPIENT_USER
+                Offices::RECIPIENT_USER
     		)
     	);
     	        
