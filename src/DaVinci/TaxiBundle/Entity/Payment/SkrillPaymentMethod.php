@@ -13,11 +13,17 @@ class SkrillPaymentMethod extends PaymentMethod
 	
 	/**
 	 * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(groups={"flow_makePayment_step2"}, message="skrill.email.blank")
+	 * @Assert\Email(
+	 * 		groups={"flow_makePayment_step2", "edit_passenger_request"},
+     * 		message="The e-mail address {{ value }} that you have entered is not properly formatted."
+     * )
 	 */
 	protected $email;
 	
 	/**
 	 * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(groups={"flow_makePayment_step2"}, message="skrill.subject.blank")
 	 */
 	protected $subject;
 	

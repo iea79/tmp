@@ -24,13 +24,13 @@ class CreditCardPaymentMethod extends PaymentMethod
 		
 	/**
 	 * @ORM\Column(type="string", name="card_number", length=20)
-	 * @Assert\Length(
-	 *      groups={"flow_makePayment_step2"},
-     *      min=15,
-     *      max=20,
-     *      minMessage="Card number must be at least {{ limit }} characters long",
-     * 		maxMessage="Card number cannot be longer than {{ limit }} characters"
-     * )
+     * @Assert\NotBlank(groups={"flow_makePayment_step2"}, message="creditCard.cardNumber.blank")
+     * @Assert\Regex(
+	 *		groups={"flow_makePayment_step2"}, 		
+     *     	pattern="/^[0-9]{16,20}$/",
+     *     	match=true,
+     *     	message="We are unable to verify your credit card number as entered. Please check the number and re-enter."
+     * ) 
 	 */
 	protected $cardNumber;
 	
@@ -51,11 +51,25 @@ class CreditCardPaymentMethod extends PaymentMethod
 		
 	/**
 	 * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(groups={"flow_makePayment_step2"}, message="creditCard.firstname.blank")
+     * @Assert\Regex(
+	 *		groups={"flow_makePayment_step2"}, 		
+     *     	pattern="/^[\w]{2,}$i/",
+     *     	match=true,
+     *     	message="Please enter a minimum of 2 characters for the first name using only letters without accents, spaces, and hyphens"
+     * )
 	 */
 	protected $firstname;
 	
 	/**
 	 * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(groups={"flow_makePayment_step2"}, message="creditCard.lastname.blank")
+     * @Assert\Regex(
+	 *		groups={"flow_makePayment_step2"}, 		
+     *     	pattern="/^[\w]{2,}$i/",
+     *     	match=true,
+     *     	message="Please enter a minimum of 2 characters for the last name using only letters without accents, spaces, and hyphens"
+     * )
 	 */
 	protected $lastname;
 	
