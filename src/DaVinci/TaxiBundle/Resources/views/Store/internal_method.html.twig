@@ -4,8 +4,8 @@
 		<div class="uk-form-label">{{ form_label(form.paymentMethod.accountId, 'Account ID:') }}</div>
 		<div class="uk-form-controls">
 	        {{ form_widget(form.paymentMethod.accountId) }}
-	        <div class="errors">{{ form_errors(form.paymentMethod.accountId) }}</div>
 	        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'PGNet Account ID'|trans }}"></span>
+	        <div class="errors">{{ form_errors(form.paymentMethod.accountId) }}</div>
 	    </div>
 	</div>
 {% endif %}
@@ -21,7 +21,7 @@
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.ownNote) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Additional information about the payment purpose'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
     </div>
 </div>

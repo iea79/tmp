@@ -3,24 +3,24 @@
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.email, 'Email:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.email) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.email) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write your correct E-mail'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.email) }}</div>
     </div>
 </div>
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.subject, 'Subject:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.subject) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.subject) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Payment purpose'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.subject) }}</div>
     </div>
 </div>
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.note, 'Note:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.note) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.note) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Note of the transaction'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.note) }}</div>
     </div>
 </div>
 {#<div class="uk-form-row">
@@ -35,7 +35,7 @@
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own Note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.ownNote) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Additional information about the payment purpose'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
     </div>
 </div>

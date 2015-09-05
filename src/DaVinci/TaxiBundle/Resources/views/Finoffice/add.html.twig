@@ -38,8 +38,8 @@
 					    <div class="uk-form-label">{{ form_label(form.amount, 'Amount:') }}<i class="uk-icon-asterisk"></i></div>
 						<div class="uk-form-controls">
 					        {{ form_widget(form.amount) }}
-					        <div class="errors">{{ form_errors(form.amount) }}</div>
 					        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+                            <div class="errors">{{ form_errors(form.amount) }}</div>
 					    </div>
 					</div>
 		        	{% if paymentMethod == 'CreditCard' %}

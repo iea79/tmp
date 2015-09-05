@@ -5254,6 +5254,7 @@ footer {
     padding: 0;
     font-size: 0.7em;
     width: 100%;
+    clear: both;
 }
 .errors ul {
     list-style: none;
@@ -8623,7 +8624,7 @@ Addcard
 }
 
 .addcard input[type="text"] {
-    width: 86.8%;
+    width: 86.7%;
     color: #3c3d45;
     border: 1px solid #8e9099;
     height: 29px;
@@ -9947,4 +9948,7 @@ Payment window
 }
 .uk-nav.demo {
 	display: none;
+}
+.account_menu i[class*="icon-"] {
+	font-size: 28px;
 }
