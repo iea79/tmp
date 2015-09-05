@@ -2,7 +2,7 @@
 
 namespace DaVinci\TaxiBundle\Entity;
 
-final class Roles
+final class Offices
 {
 	const RECIPIENT_USER = 'user';
     const RECIPIENT_TAXI_INDEPENDENT_DRIVER = 'taxi-independent-driver';

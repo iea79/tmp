@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-use DaVinci\TaxiBundle\Entity\Roles;
+use DaVinci\TaxiBundle\Entity\Offices;
 use DaVinci\TaxiBundle\Event\SystemEvents;
 
 class MessageContentAdmin extends Admin
@@ -25,7 +25,7 @@ class MessageContentAdmin extends Admin
                 'choices' => SystemEvents::getDescriptionEventList()
             ))
             ->add('recipient', 'choice', array(
-                'choices' => Roles::getDescriptionList()
+                'choices' => Offices::getDescriptionList()
             ));
     }
 
@@ -48,7 +48,7 @@ class MessageContentAdmin extends Admin
             ))
             
             ->add('recipient', 'choice', array(
-                'choices' => Roles::getDescriptionList()
+                'choices' => Offices::getDescriptionList()
             ))
             ->add('_action', 'actions', array(
                 'actions' => array(

@@ -30,7 +30,7 @@ class CompositeInformer extends AbstractInformer
 		}
 	}
     
-    protected function process(User $user, MessageContent $contentInfo)
+    protected function process(User $user, MessageContent $contentInfo, $recipient)
     {
         return;
     }    

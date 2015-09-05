@@ -3,6 +3,7 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+use DaVinci\TaxiBundle\Entity\User;
 
 /**
  * @ORM\Entity(repositoryClass="InternalMessageRepository")
@@ -38,7 +39,11 @@ class InternalMessage
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
-	
+    
+    /**
+     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company-driver')", length=50)
+     */
+    private $office;
 
     /**
      * Get id
@@ -129,7 +134,7 @@ class InternalMessage
      *
      * @return InternalMessage
      */
-    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -146,4 +151,28 @@ class InternalMessage
         return $this->user;
     }
 
+
+    /**
+     * Set office
+     *
+     * @param string $office
+     *
+     * @return InternalMessage
+     */
+    public function setOffice($office)
+    {
+        $this->office = $office;
+
+        return $this;
+    }
+
+    /**
+     * Get office
+     *
+     * @return string
+     */
+    public function getOffice()
+    {
+        return $this->office;
+    }
 }

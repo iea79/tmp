@@ -16,7 +16,7 @@ use DaVinci\TaxiBundle\Services\Informer\InformerInterface;
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
-use DaVinci\TaxiBundle\Entity\Roles;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 class StockSubscriber implements EventSubscriberInterface 
 {
@@ -62,7 +62,7 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		if (
 			PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& Roles::RECIPIENT_USER == $event->getInitiatedBy()
+    		&& Offices::RECIPIENT_USER == $event->getInitiatedBy()
 		) {
 			$passengerRequest->setDriver($driver);
 			$passengerRequest->removeCanceledDrivers($driver);
@@ -78,19 +78,19 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
 		
-        if ($event->getInitiatedBy() == Roles::RECIPIENT_USER) {
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_USER) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::APPROVE_REQUEST,
-                Roles::RECIPIENT_USER
+                Offices::RECIPIENT_USER
             );
         }
         
-        if ($event->getInitiatedBy() == Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER) {
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER) {
             $this->informer->notify(
                 $passengerRequest->getDriver()->getUser(), 
                 PassengerRequestEvents::APPROVE_REQUEST,
-                Roles::RECIPIENT_TAXI_INDEPENDENT_DRIVER
+                Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER
             );
         }
     }
@@ -123,11 +123,11 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
         
-        if ($event->getInitiatedBy() == Roles::RECIPIENT_USER) {
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_USER) {
             $this->informer->notify(
                 $passengerRequest->getUser(), 
                 PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
-                Roles::RECIPIENT_USER
+                $event->getInitiatedBy()
             );
         }
 	}
@@ -137,7 +137,7 @@ class StockSubscriber implements EventSubscriberInterface
 		$passengerRequest = $event->getPassengerRequest();
 			
         if (
-            $event->getInitiatedBy() == Roles::RECIPIENT_USER
+            $event->getInitiatedBy() == Offices::RECIPIENT_USER
             && PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
         ) {
             $datetime = new \DateTime('+2 hours');

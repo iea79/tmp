@@ -50,7 +50,7 @@ class MailerInformer extends AbstractInformer
         $this->imageDir = $imageDir;
     }    
 	
-	protected function process(User $user, MessageContent $contentInfo)
+	protected function process(User $user, MessageContent $contentInfo, $recipient)
 	{
 		if (!$contentInfo->isMailNotification()) {
 			return;

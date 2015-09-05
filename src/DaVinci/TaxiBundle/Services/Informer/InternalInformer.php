@@ -19,7 +19,7 @@ class InternalInformer extends AbstractInformer
 		$this->internalMessageService = $messageService;
 	}
 	
-	protected function process(User $user, MessageContent $contentInfo)
+	protected function process(User $user, MessageContent $contentInfo, $recipient)
 	{
 		if (!$contentInfo->isInternalNotification()) {
 			return;
@@ -28,7 +28,8 @@ class InternalInformer extends AbstractInformer
 		$message = $this->internalMessageService->spawnInstance();
 		$message
 			->setContent($contentInfo->getContent())
-			->setUser($user)
+            ->setOffice($recipient)
+            ->setUser($user)
 			->setCreateDate(new \DateTime('now'));
 		
 		$this->internalMessageService->save($message);

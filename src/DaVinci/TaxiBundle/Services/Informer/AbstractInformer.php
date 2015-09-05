@@ -29,11 +29,12 @@ abstract class AbstractInformer implements InformerInterface
             return;
         }
         
-        $this->process($user, $contentInfo);
+        $this->process($user, $contentInfo, $recipient);
     }    
 
     /**
 	 * @param string $literalCode
+     * @param string $recipient
 	 * @return \DaVinci\TaxiBundle\Entity\MessageContent
 	 */
 	protected function prepareContent($literalCode, $recipient)
@@ -47,8 +48,11 @@ abstract class AbstractInformer implements InformerInterface
 		return $this->messageContentService->getByLiteralCodeAndRecipient($literalCode, $recipient);
 	}
     
-    abstract protected function process(User $user, MessageContent $contentInfo);
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+	 * @param \DaVinci\TaxiBundle\Entity\MessageContent $contentInfo
+     * @param string $recipient
+	 */
+    abstract protected function process(User $user, MessageContent $contentInfo, $recipient);
 	
 }
-
-?>
