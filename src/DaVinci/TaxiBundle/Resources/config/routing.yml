@@ -84,8 +84,8 @@ faqs:
     options: { useAsInnerURL: true }
         
 notifications:
-    pattern:  /notifications
-    defaults: { _controller: DaVinciTaxiBundle:Information:notifications }    
+    pattern:  /notifications/{section}
+    defaults: { _controller: DaVinciTaxiBundle:Information:notifications, section: 'all' }    
 
 social:
     pattern:  /social

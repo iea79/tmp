@@ -3,6 +3,8 @@
 namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
+
+use DaVinci\TaxiBundle\Event\SystemEvents;
 use DaVinci\TaxiBundle\Entity\User;
 
 /**
@@ -28,6 +30,16 @@ class InternalMessage
 	 * @ORM\Column(type="string", columnDefinition="ENUM('Low', 'Normal', 'High', 'Urgent', 'Immediate')", length=50)
 	 */
 	private $priority = InternalMessagePriorities::NORMAL;
+    
+    /**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('approve.request', 'decline-driver.request', 'cancel.request')", name="literal_code", length=100)
+	 */
+	private $literalCode;
+    
+    /**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $subject;
 	
 	/**
 	 * @ORM\Column(type="text")
@@ -102,6 +114,59 @@ class InternalMessage
     {
         return $this->priority;
     }
+    
+    /**
+     * Set literalCode
+     *
+     * @param string $literalCode
+     *
+     * @return MessageContent
+     */
+    public function setLiteralCode($literalCode)
+    {
+        $this->literalCode = $literalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get literalCode
+     *
+     * @return string
+     */
+    public function getLiteralCode()
+    {
+        return $this->literalCode;
+    }
+    
+    public function getEventName()
+    {
+        return SystemEvents::getEventByLiteralCode($this->literalCode);
+    }
+    
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     *
+     * @return MessageContent
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
 
     /**
      * Set content
@@ -126,7 +191,7 @@ class InternalMessage
     {
     	return $this->content;
     }
-        
+           
     /**
      * Set user
      *
@@ -175,4 +240,5 @@ class InternalMessage
     {
         return $this->office;
     }
+        
 }

@@ -13,6 +13,7 @@ use DaVinci\TaxiBundle\Entity\UserComment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
@@ -184,9 +185,27 @@ class InformationController extends StepsController
     	return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
     }
 
-    public function notificationsAction()
+    /**
+     * @Route("/notifications/{section}", name="notifications", defaults={"section" = "all"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function notificationsAction($section)
     {
-        return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
+        $role = ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) 
+            ? 'ROLE_TAXIDRIVER'
+            : 'ROLE_USER';
+                
+        $messages = $this->get('da_vinci_taxi.service.internal_message')
+            ->getRepository()
+            ->findBy(array(
+                'user' => $this->get('security.context')->getToken()->getUser(),
+                'office' => Offices::getOfficeByRole($role)
+            ));
+        
+        return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig', array(
+            'messages' => $messages,
+            'number' => count($messages)
+        ));
     }
 
     public function newTicketAction()

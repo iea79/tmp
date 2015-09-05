@@ -27,7 +27,9 @@ class InternalInformer extends AbstractInformer
 				
 		$message = $this->internalMessageService->spawnInstance();
 		$message
+            ->setSubject($contentInfo->getSubject())
 			->setContent($contentInfo->getContent())
+            ->setLiteralCode($contentInfo->getLiteralCode())
             ->setOffice($recipient)
             ->setUser($user)
 			->setCreateDate(new \DateTime('now'));

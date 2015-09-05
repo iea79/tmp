@@ -119,17 +119,17 @@ services:
         calls:
             - [setUserCommentRepository, ["@da_vinci_taxi.repository.user_comment"]]         
             
-    da_vinci_taxi.repository.internal_message_repository:
+    da_vinci_taxi.repository.internal_message:
         class: Doctrine\ORM\EntityRepository
         factory_service: doctrine.orm.entity_manager
         factory_method: getRepository
         arguments:
             - DaVinci\TaxiBundle\Entity\InternalMessage
             
-    da_vinci_taxi.service.internal_message_service:
+    da_vinci_taxi.service.internal_message:
         class: DaVinci\TaxiBundle\Entity\InternalMessageService
         calls:
-            - [setInternalMessageRepository, ["@da_vinci_taxi.repository.internal_message_repository"]] 
+            - [setInternalMessageRepository, ["@da_vinci_taxi.repository.internal_message"]] 
     
     da_vinci_taxi.repository.message_content_repository:
         class: Doctrine\ORM\EntityRepository
@@ -155,7 +155,7 @@ services:
     da_vinci_taxi.service.internal_informer:
         class: DaVinci\TaxiBundle\Services\Informer\InternalInformer
         calls:
-            - [setInternalMessageService, ["@da_vinci_taxi.service.internal_message_service"]]
+            - [setInternalMessageService, ["@da_vinci_taxi.service.internal_message"]]
             - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
             
     da_vinci_taxi.service.composite_informer:

@@ -106,7 +106,6 @@ class MessageContent
         return $this->content;
     }
     
-
     /**
      * Set literalCode
      *
