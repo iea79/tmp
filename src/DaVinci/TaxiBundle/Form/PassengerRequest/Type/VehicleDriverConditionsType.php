@@ -24,7 +24,7 @@ class VehicleDriverConditionsType extends AbstractType
 			->add('body_guard', 'checkbox', array('required' => false))
 			->add('animal_trainer', 'checkbox', array('required' => false))
 			->add('carrier', 'checkbox', array('required' => false))
-			->add('guide', 'checkbox', array('required' => false));
+			->add('guide', 'checkbox', array('required' => false));        
 	}
 	
 	public function setDefaultOptions(OptionsResolverInterface $resolver) 

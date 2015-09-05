@@ -5,6 +5,7 @@ namespace DaVinci\TaxiBundle\Entity;
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ExecutionContextInterface;
+use Symfony\Component\Intl\Intl;
 
 /**
  * @ORM\Entity
@@ -94,7 +95,7 @@ class VehicleDriverConditions
      */
     public function getInterpreterLang()
     {
-        return $this->interpreterLang;
+        return Intl::getLanguageBundle()->getLanguageName($this->interpreterLang);
     }
     
     /**
