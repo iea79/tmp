@@ -13,7 +13,8 @@ class OfficeDriverProfileType extends AbstractType {
      * @param FormBuilderInterface $builder
      * @param array $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options) 
+    {
 
                 $builder
                     /*    ->add('firstname', 'text', array('label' => 'form.firstname', 'translation_domain' => 'FOSUserBundle',
@@ -48,13 +49,13 @@ class OfficeDriverProfileType extends AbstractType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))*/ 
-                        ->add('about','textarea', array(
+                        ->add('about', 'textarea', array(
                             'required' => false
                         ))
                         ->add('user', new OfficeDriversPassengerFormType())
-                        ->add('insuranceAccepted','checkbox', array(
-                                        'required' => true
-                                    ))
+                        ->add('insuranceAccepted', 'checkbox', array(
+                            'required' => true
+                        ))
                         ->add('vehicle', new DriverVehicleType());
 
     }

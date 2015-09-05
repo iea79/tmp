@@ -2,19 +2,18 @@ require(['pages/common'], function ($) {
     require(['jquery.form.min', 'pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler', 'charCount', 'changeOffice'], function () {
 
         function initProfileForm() {
-            
             $('.passenger-profile-form').submit(function (e) {
-                togglePreloader(document.getElementById('Profile'),true);
+                togglePreloader(document.getElementById('Profile'), true);
                 e.preventDefault();
-                var form = $('.passenger-profile-form').ajaxSubmit( function (data) {
-                    if (data == 'success')
+                var form = $('.passenger-profile-form').ajaxSubmit(function(data) {
+                    if (data == 'success') {
                         $.UIkit.modal("#Profile").hide();
-                    else
-                    {
+                    } else {
                         $('#profile-dialog').html(data);
                         initProfileForm();
                     }
-                    togglePreloader(document.getElementById('Profile'),false);
+                    
+                    togglePreloader(document.getElementById('Profile'), false);
                 });
                 
             });
@@ -36,8 +35,7 @@ require(['pages/common'], function ($) {
                 $('.passfield2').attr('pattern', this.value);
             });
 
-                $('#Profile select').styler({'selectSearch':0});
-
+            $('#Profile select').styler({'selectSearch':0});
         }
         
         var ajx;
@@ -48,20 +46,21 @@ require(['pages/common'], function ($) {
                 if($.active > 0){ 
                     ajx.abort();//where ajx is ajax variable
                 }
+                
                 ajx = $.ajax({
-                        url: office_passenger_profile,
-                        dataType: "html",
-                        success: function(data) {
-                          togglePreloader(document.getElementById('Profile'), false);
-                          $("#profile-dialog").html(data);
-                          initProfileForm();
-                        }
-                      });
+                    url: office_passenger_profile,
+                    dataType: "html",
+                    success: function(data) {
+                        togglePreloader(document.getElementById('Profile'), false);
+                        $("#profile-dialog").html(data);
+                        initProfileForm();
+                    }
+                });
             },
             'uk.modal.hide': function () {
                 togglePreloader(document.getElementById('Profile'), false);
                 
-                //TODO: find all username/sirname/photos on  the page
+                // TODO: find all username/sirname/photos on  the page
                 
                 
             }

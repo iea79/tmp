@@ -59,8 +59,8 @@ class OfficeController extends StepsController
      */
     public function officePassengerProfileAciton(Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user)) {
+        $user = $this->get('security.context')->getToken()->getUser();
+        if (is_null($user)) {
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
         }
        
@@ -71,24 +71,25 @@ class OfficeController extends StepsController
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $usr = $form->getData();
-               
+                $updatedUser = $form->getData();
+                
                 $pass = $form['current_password']->getData();
+                
                 // set new password if added
                 if (!empty($pass)) {
-                    $user->setPlainPassword($form['new']->getData());
+                    $updatedUser->setPlainPassword($form['new']->getData());
                 }
-                $this->container->get('fos_user.user_manager')->updateUser($usr);
                 
-                return new \Symfony\Component\HttpFoundation\Response('success', 200);
+                $this->get('fos_user.user_manager')->updateUser($updatedUser);
+                
+                return new Response('success', 200);
             }
         }
-        
-        
+                
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
 				'form' => $form->createView(),
-                'isPasswordExpired' => $isPassExp
+                'isPasswordExpired' => !$user->isPasswordNotExpired()
         	)
         );
     }
