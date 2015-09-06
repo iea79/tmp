@@ -8,7 +8,7 @@
 					        <hr>
 							<dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ passengerRequest.passengerDetail.adult }}), {{'children'|trans}} ({{ passengerRequest.passengerDetail.children }}), {{'seniors'|trans}} ({{ passengerRequest.passengerDetail.seniors }})</dd>
 							{% if passengerRequest.passengerDetail.notMySelf == true %}
-								<dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
+								<dd class="uk-width-1-1">{{"I am making this booking on another\'s behalf."|trans}}</dd>
 							{% else %}
 								<dd class="uk-width-1-1">&nbsp;</dd>	
 							{% endif %}
