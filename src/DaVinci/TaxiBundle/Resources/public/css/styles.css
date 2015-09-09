@@ -5788,6 +5788,7 @@ Step-4
   height: 113px;
   overflow: hidden;
   width: 24%;
+  clear: both;
 }
 .check-order .passenger-info .photo img {
 	margin-right: 4px;
@@ -5796,6 +5797,13 @@ Step-4
 	height: auto;
 	width: 100%;
 	max-width: 100%;
+}
+.change-photo table td {
+	vertical-align: top;
+	padding: 10px 0;
+}
+.change-photo img {
+	max-width: 120px;
 }
 .check-order dd.personal {
 	min-width: 250px;
