@@ -226,7 +226,7 @@
                                             <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Your fare{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
                                                 <div class="questiontooltip"></div>
                                             </th>
-                                            <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
+                                            <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Status of your order{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
                                                 <div class="questiontooltip"></div>
                                             </th>
                                             <th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
@@ -249,17 +249,21 @@
                                                 <td>${{ tariff.getTotalPrice() }}</td>
                                                 <td>
                                                     {% if request.getStateValue() == 'completed' %}
+                                                    	<span>{{ 'completed'|trans }}</span>
                                                         <a data-uk-modal="{target:'#about-driver'}">
-                                                            <i class="mp-icon-taxi uk-text-primary"></i>
+                                                            {#<i class="mp-icon-taxi uk-text-primary"></i>#}
+                                                            <i class="mp-icon-good status-photo">
+                                                            	<img src="{{ asset('bundles/davincitaxi/images/avatar.png') }}" alt="">
+                                                            </i>
                                                         </a>
-                                                        <br />
+                                                        {#<br />
                                                         <span class="uk-text-danger">
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star uk-text-warning"></i>
-                                                        </span>
+                                                        </span>#}
                                                     {% elseif request.getStateValue() == 'rescue' %}
                                                         <a href="#" class="uk-button uk-button-danger rescue">{{ 'Rescue'|trans }}</a>
                                                     {% else %}

@@ -2269,6 +2269,29 @@ office table
 	margin: 3px;
 	display: inline-block;
 }
+.allorder .status-photo {
+	display: inline-table;
+	position: relative;
+	font-size: 18px;
+	background: #FF4D61;
+	color: #fff;
+	width: 26px;
+	height: 26px;
+	overflow: hidden;
+	vertical-align: middle;
+}
+.allorder .status-photo:before {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+.allorder .status-photo img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	min-height: 100%;
+}
 .client-account .historyorder th[class="left-time"] {
 	min-width: 113px;
 	width: 15.7%;
