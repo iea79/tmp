@@ -12,7 +12,7 @@
                     {{ form_errors(form.vehicle.vehicle_class) }}
 				</div>
 			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#baggage'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href=""></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Select additional equipment'|trans}}"></span></span></div>
 			<div class="uk-hidden kids-pats-wrap" id="baggage">
 				<div class="kids-pats-group">
 					<div class="kids-pats-line">
@@ -181,13 +181,13 @@
 						<div class="right-group">
 							<label for="createPassengerRequestStepVehicleInfo_vehicle_options_trailer">
 								<input name="createPassengerRequestStepVehicleInfo[vehicle_options][trailer]" type="checkbox"{% if flow.formData.vehicleOptions.trailer is defined and flow.formData.vehicleOptions.trailer == true %}checked="checked"{% endif %} />
-								<span class="uk-form-controls">{{'trailer'|trans}}</span>
+								<span class="uk-form-controls">{{'trailer'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'top'}" title="{{'Additional wheeled vehicle'|trans}}"</span>
 							</label>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#additional'}"><span class="uk-parent">{{'Additional services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span></div>
+			<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#additional'}"><span class="uk-parent">{{'Additional services'|trans}} <a href=""></a><span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Select additional services'|trans}}"></span></span></div>
 			<div class="kids-pats-group additional uk-hidden kids-pats-wrap" id="additional">
 				<div class="kids-pats-line">
 					<div class="left-group">
