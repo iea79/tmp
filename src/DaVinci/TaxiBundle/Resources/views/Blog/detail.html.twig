@@ -1,6 +1,5 @@
 {# exception for blog route #}
 {% set isblog, reviews, social = true, false, false %}
-        
 {% extends 'DaVinciTaxiBundle:Information:info.html.twig' %}
 
 {% block blog_content %}
@@ -16,8 +15,8 @@
     <div class="buttom-swicher">
         <ul class="uk-width-1-1 uk-width-large-2-3">
             {% for columnItem in columns %}
-            	<li {% if defaultColumn.getId() == columnItem.getId() %}class="uk-active"{% endif %}>
-                	<a href="{{ path('blogs', {'column': columnItem}) }}">{{ columnItem.getTitle() }}</a>
+            	<li {% if columnId == columnItem.getId() %}class="uk-active"{% endif %}>
+                    <a href="{{ path('blogs', {'column': columnItem}) }}">{{ columnItem.getTitle() }}</a>
                 </li>
             {% endfor %}
         </ul>
@@ -25,49 +24,61 @@
     <ul id="blog" class="uk-switcher">
         <li class="uk-active">
             <div class="block-help">
-                <div class="help-content">
-                    {% if defaultColumn %}
-                    {{ defaultColumn.description|raw|nl2br }}
-                    {% endif %}
-                    <div class="uk-grid uk-grid-small top">
-                        {% for entity in commercialEntities %}
-                            {% if loop.index < 4 %}
-                                <div class="uk-panel uk-width-1-3 tarif">
+                {% if post is defined %}
+                    <div class="help-content">
+                        {{ post.body|raw }}
+                        <br/>
+                        <a href="{{ path('blogs', {'column': column}) }}">{{ 'Back'|trans }}</a>
+                    </div>
+                {% else %}
+                    <div class="help-content">
+                        {% if defaultColumn %}
+                            {{ defaultColumn.description|raw|nl2br }}
+                        {% endif %}
+                        <div class="uk-grid uk-grid-small top">
+                            {% for entity in commercialEntities %}
+                                {% if loop.index < 4 %}
+                                    <div class="uk-panel uk-width-1-3 tarif">
+                                        {% thumbnail entity.imagePreview, 'preview' %}
+                                        <a href="{{ path('posts', {'post': entity}) }}">
+                                            <h6>{{ entity.preview|raw }}</h6>
+                                        </a>    
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <p class="empty">{{ 'No commercial posts found.'|trans }}</p>
+                            {% endfor %}
+                        </div>
+                        {% for entity in entities %}
+                            <div class="uk-grid uk-grid-small wide">
+                                <div class="uk-panel uk-width-1-3">
                                     {% thumbnail entity.imagePreview, 'preview' %}
-                                    <h6>{{ entity.preview|raw }}</h6>
                                 </div>
-                            {% endif %}
+                                <div class="uk-panel uk-width-2-3">
+                                    <a href="{{ path('posts', {'post': entity}) }}">{{ entity.title }}</a>
+                                    <h5>{{ entity.publishStartDate|date('F jS, Y') }}</h5>
+                                    <p>{{ entity.preview|raw }}</p>
+                                </div>
+                            </div>
                         {% else %}
-                            <p class="empty">{{ 'No commercial posts found.'|trans }}</p>
+                            <p class="empty">No posts found.</p>
                         {% endfor %}
                     </div>
-                    {% for entity in entities %}
-                        <div class="uk-grid uk-grid-small wide">
-                            <div class="uk-panel uk-width-1-3">
-                                {% thumbnail entity.imagePreview, 'preview' %}
-                            </div>
-                            <div class="uk-panel uk-width-2-3">
-                                <a href="#">{{ entity.title }}</a>
-                                <h5>{{ entity.publishStartDate|date('F jS, Y') }}</h5>
-                                <p>{{ entity.preview|raw }}</p>
-                            </div>
-                        </div>
-                    {% else %}
-                        <p class="empty">No posts found.</p>
-                    {% endfor %}
-                </div>
+                {% endif %}
                 <div class="help-sidebar">
-                    <ul class="uk-nav">
-                        <li class="head"><a href="#">{{'News'|trans}}</a></li>
-                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
-                        <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
-                        <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>
-                        <li><a href="#">{{'Я хочу заказать поездку для моего родственника. Как это сделать?'|trans}}</a></li>
-                        <li><a href="#">{{'Я хочу назначить водителю чаевые. Как это сделать?'|trans}}</a></li>
-                        <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
-                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
-                        <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
-                    </ul>
+                    {% for key,items in others %}
+                        <ul class="uk-nav">
+                            <li class="head">
+                                <a href="#">{{ key|trans }}</a>
+                            </li>
+                            {% for item in items %}
+                                <li>
+                                    <a href="{{ path('posts', {'post': item}) }}">{{ item.title|trans }}</a>
+                                </li>
+                            {% endfor %}                           
+                        </ul>
+                    {% endfor %}
+                    {#
                     <ul class="uk-nav">
                         <li class="head"><a href="#">{{'Savings'|trans}}</a></li>
                         <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
@@ -78,7 +89,6 @@
                         <li><a href="#">{{'Мне необходимо связаться с водителем принявшим мою заявку.'|trans}}</a></li>
                         <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
                     </ul>
-                    {#
                     <ul class="uk-nav demo">
                         <li class="head"><a href="#">{{'Videos'|trans}}</a></li>
                         <li>
@@ -97,7 +107,9 @@
                     </ul>
                     #}
                 </div>
+                {#
                 <button class="uk-button more">MORE <span>(245)</span></button>
+                #}
             </div>
         </li>
     </ul>

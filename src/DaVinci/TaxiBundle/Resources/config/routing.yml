@@ -101,6 +101,11 @@ blogs:
     pattern:  /blogs/{column}
     defaults: { _controller: DaVinciTaxiBundle:Information:blog, column: 'default' }    
     options: { useAsInnerURL: true }        
+    
+posts:
+    pattern:  /posts/{post}
+    defaults: { _controller: DaVinciTaxiBundle:Information:post }    
+    options: { useAsInnerURL: true }    
         
 financial_office_add:
     pattern:  /financial-office/add/{methodCode}

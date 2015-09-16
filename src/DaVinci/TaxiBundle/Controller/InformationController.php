@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 use DaVinci\TaxiBundle\Entity\UserComment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
@@ -34,34 +35,94 @@ class InformationController extends StepsController
 	
 	public function blogAction($column)
 	{
-        $comercialEntities = null;
-        $entities = null;
+    	$dm = $this->get('doctrine_phpcr')->getManager();
+		
+		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
+		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+        
+        $defaultColumn = $columnRepository->findDefault();
+        $columnId = ('default' == $column) 
+            ? $defaultColumn->getId()
+            : unserialize(urldecode($column));
+        $columns = $columnRepository->findActive();
+        
+        $count = 0;
+        $others = array();
+        foreach ($columns as $column) {
+            if ($count > 2) {
+                break;
+            }
+            
+            if ($column->getId() != $columnId) {
+                $others[$column->getTitle()] = $postEntityRepository->findFilteredForColumn(
+                    $column->getId()
+                );
+                                
+                $count++;
+            }            
+        }
+        
+		return $this->render(
+			'DaVinciTaxiBundle:Blog:detail.html.twig',
+			array(
+                'defaultColumn' => $defaultColumn,
+				'columns' => $columns,
+                'columnId' => $columnId,
+                'commercialEntities' => $postEntityRepository->findFilteredForColumn(
+                    $columnId, true
+                ),
+				'entities' => $postEntityRepository->findFilteredForColumn($columnId),
+                'others' => $others
+			)
+		);
+	}
+    
+    public function postAction($post)
+	{        
+        $postId = unserialize(urldecode($post));
         
 		$dm = $this->get('doctrine_phpcr')->getManager();
 		
 		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
-		$columns = $columnRepository->findActive();
-        $defaultColumn = $columnRepository->findDefault();
-		
-        $postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
         
-        $column = ('default' == $column) 
-            ? $defaultColumn
-            : unserialize(urldecode($column));
+        $actualPost = $postEntityRepository->find($postId);
+        if (is_null($actualPost)) {
+            throw new NotFoundHttpException('Undefined post requested');
+        }
         
-    	$contentDocument = $postEntityRepository->find($column);
-        if ($contentDocument) {
-            $comercialEntities = $postEntityRepository->findFilteredForColumn($column, true);
-            $entities = $postEntityRepository->findFilteredForColumn($column);  
-        } 
-		                
+        $columnId = $actualPost->getBlogColumn()->getId();
+        $columns = $columnRepository->findActive();
+        
+        $count = 0;
+        $others = array();
+        foreach ($columns as $column) {
+            if ($count > 2) {
+                break;
+            }
+            
+            if ($column->getId() != $columnId) {
+                $others[$column->getTitle()] = $postEntityRepository->findFilteredForColumn(
+                    $column->getId()
+                );
+                                
+                $count++;
+            }            
+        }
+                		                
 		return $this->render(
 			'DaVinciTaxiBundle:Blog:detail.html.twig',
 			array(
+                'post' => $actualPost,
+                'column' => $actualPost->getBlogColumn(),
+                'columnId' => $columnId,
                 'defaultColumn' => $columnRepository->findDefault(),
-				'columns' => $columns,
-                'commercialEntities' => $comercialEntities,
-				'entities' => $entities				
+				'columns' => $columnRepository->findActive(),
+                'commercialEntities' => $postEntityRepository->findFilteredForColumn(
+                    $columnId, true
+                ),
+				'entities' => $postEntityRepository->findFilteredForColumn($columnId),
+                'others' => $others
 			)
 		);
 	}
