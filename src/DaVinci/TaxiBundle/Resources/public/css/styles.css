@@ -6753,6 +6753,7 @@ Help
     border: none !important;
     margin: 0px 0 31px;
     position: relative;
+    width: 100%;
 }
 .block-help .help-sidebar .uk-nav li {
 	border-bottom: none;
@@ -6913,9 +6914,13 @@ Help
 .block-help .uk-nav li.head {
 	background: #528ed3;
 	font-size: 16px;
-	max-height: 30px;
 	padding: 8px 5.1% 14px !important;
 	font-weight: 700;
+	max-height: 30px;
+}
+.blog .block-help .uk-nav li.head {
+	max-height: none;
+	width: 100%;
 }
 .block-help .uk-nav .head a {
 	color: #fff;
