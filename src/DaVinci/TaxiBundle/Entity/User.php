@@ -179,10 +179,10 @@ class User extends BaseUser
     /**
      * Set language
      *
-     * @param \DaVinci\TaxiBundle\Entity\Language  $lnguage
+     * @param \DaVinci\TaxiBundle\Entity\Language $language
      * @return User
      */
-    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language  $language)
+    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language $language)
     {
         $this->language = $language;
 
@@ -215,52 +215,6 @@ class User extends BaseUser
         return parent::setEmailCanonical($emailCanonical);
     }
 
-    
-//    /**
-//     * Add address
-//     *
-//     * @param \DaVinci\TaxiBundle\Entity\Address $address
-//     * @return User
-//     */
-//    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-//    {
-//        $this->addresses[] = $address;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove address
-//     *
-//     * @param \DaVinci\TaxiBundle\Entity\Address $address
-//     */
-//    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-//    {
-//        $this->addresses->removeElement($address);
-//    }
-//    
-//    /**
-//     * set addresses
-//     *
-//     */
-//    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
-//    {
-//        $this->addresses = $addresses;
-//        foreach ($addresses as $address) {
-//            $address->setUser($this);
-//        }
-//    }
-//
-//    /**
-//     * Get addresses
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getAddresses()
-//    {
-//        return $this->addresses;
-//    }
-    
     /**
      * Set taxiCompany
      *
@@ -433,5 +387,50 @@ class User extends BaseUser
     {
         $this->termsAccepted = (Boolean) $termsAccepted;
     }
+    
+//    /**
+//     * Add address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     * @return User
+//     */
+//    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses[] = $address;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     */
+//    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses->removeElement($address);
+//    }
+//    
+//    /**
+//     * set addresses
+//     *
+//     */
+//    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
+//    {
+//        $this->addresses = $addresses;
+//        foreach ($addresses as $address) {
+//            $address->setUser($this);
+//        }
+//    }
+//
+//    /**
+//     * Get addresses
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getAddresses()
+//    {
+//        return $this->addresses;
+//    }
         
 }

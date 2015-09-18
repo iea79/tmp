@@ -141,7 +141,12 @@ class Language
      */
     public function getSeparatedLanguages()
     {
-    	return implode(', ', $this->languages);	
+        $languages = $this->languages;
+		array_walk($languages, function(&$value) {
+			$value = Intl::getLanguageBundle()->getLanguageName($value);
+		});
+        
+    	return implode(', ', $languages);	
     }
         
     /**
@@ -152,7 +157,7 @@ class Language
     public function getLanguagesNamed()
     {
 
-        return array_map(array(Intl::getLanguageBundle(),"getLanguageName"),$this->languages);
+        return array_map(array(Intl::getLanguageBundle(), "getLanguageName"), $this->languages);
     }
 
     /**

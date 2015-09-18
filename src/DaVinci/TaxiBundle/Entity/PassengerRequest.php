@@ -285,7 +285,7 @@ class PassengerRequest
             return self::NOT_LEFT_TIME;
         }
         
-    	return $difference->format('%a (days) %H:%I:%S');
+    	return $difference->format('%a (days)');
     }
     
     /**
