@@ -7,8 +7,8 @@ fos_user_registration_register:
 
 
 fos_user_registration_confirm:
-    pattern: /register/confirm/{token}
-    defaults: { _controller: FOSUserBundle:Registration:confirm }
+    pattern: /register/confirm/{token}/{requestId}
+    defaults: { _controller: FOSUserBundle:Registration:confirm, requestId: 0 }
     methods:  [GET]
 
 fos_user_registration_confirmed:

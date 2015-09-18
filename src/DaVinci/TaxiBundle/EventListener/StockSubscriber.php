@@ -141,8 +141,9 @@ class StockSubscriber implements EventSubscriberInterface
             && PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
         ) {
             $datetime = new \DateTime('+2 hours');
+            $diff = $datetime->diff($passengerRequest->getPickUp());
 
-            if (0 == $datetime->diff($passengerRequest->getPickUp())->invert) {
+            if (0 == $diff->invert) {
                 try {
                     $this->processByPassengerRequest(
                         $passengerRequest, 
@@ -154,7 +155,7 @@ class StockSubscriber implements EventSubscriberInterface
             }
 
             if (
-                1 == $datetime->diff($passengerRequest->getPickUp())->invert
+                1 == $diff->invert
                 && Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
             ) {
                 try {

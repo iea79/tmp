@@ -23,6 +23,22 @@ class CustomMailer extends BaseMailer
         
         parent::__construct($mailer, $router, $twig, $parameters);
     }
+    
+    public function sendConfirmationEmailMessageCustom(UserInterface $user, $requestId)
+    {
+        $template = $this->parameters['template']['confirmation'];
+        $url = $this->router->generate(
+            'fos_user_registration_confirm', 
+            array('token' => $user->getConfirmationToken(), 'requestId' => $requestId), 
+            true
+        );
+        $context = array(
+            'user' => $user,
+            'confirmationUrl' => $url
+        );
+
+        $this->sendMessage($template, $context, $this->parameters['from_email']['confirmation'], $user->getEmail());
+    }
 
     /**
      * @param string $templateName

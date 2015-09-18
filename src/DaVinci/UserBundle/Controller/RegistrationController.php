@@ -18,14 +18,13 @@ use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 use DaVinci\TaxiBundle\Entity\TaxiCompany;
 use DaVinci\TaxiBundle\Entity\IndependentDriver;
 
-
 class RegistrationController extends BaseController 
 {
 
     /**
      * Receive the confirmation token from user email provider, login the user
      */
-    public function confirmAction($token)
+    public function confirmAction($token, $requestId)
     {
         $user = $this->container->get('fos_user.user_manager')->findUserByConfirmationToken($token);
 
@@ -34,27 +33,35 @@ class RegistrationController extends BaseController
             return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
             // throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
         }
-
+                
         $user->setConfirmationToken(null);
         $user->setEnabled(true);
-        $user->setLastLogin(new \DateTime());
+        $user->setLastLogin(new \DateTime('now'));
 
         $this->container->get('fos_user.user_manager')->updateUser($user);
-        $response = new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
-        
+                
         $message = \Swift_Message::newInstance()
 			->setSubject($this->container->getParameter('confirmation_registration'))
             ->setFrom($this->container->getParameter('sender_email'))
 			->setTo($user->getEmail())
             ->setContentType("text/html")
-			->setBody('Your registration data {{ user.email }} {{ user.password }} are in TaxiMyPrice system! <br><br>
-                       You always can change Your registration data in personal office, in Your profile. <br><br>
-                       Respectfully yours, TaxiMyPrice team. ');
+			->setBody(
+                'Your registration data {{ user.email }} {{ user.password }} are in TaxiMyPrice system! <br><br>
+                You always can change Your registration data in personal office, in Your profile. <br><br>
+                Respectfully yours, TaxiMyPrice team.'
+            );
         
         $this->container
             ->get('mailer')
             ->send($message);
-                
+        
+        $response = new RedirectResponse(
+            $this->container->get('router')->generate(
+                'fos_user_registration_confirmed',
+                array('request_id' => (is_null($requestId)) ? 0 : $requestId),
+                true
+            )
+        );
         $this->authenticateUser($user, $response);
 
         return $response;
@@ -141,14 +148,14 @@ class RegistrationController extends BaseController
         }
         
         $user = $this->container->get('security.context')->getToken()->getUser();
-        
         if ($user instanceof UserInterface) {
             $this->container->get('session')->getFlashBag()->set(
                 'sonata_user_error', 'sonata_user_already_authenticated'
             );
-            $url = $this->container->get('router')->generate('sonata_user_profile_show');
-
-            return new RedirectResponse($url);
+            
+            return new RedirectResponse(
+                $this->container->get('router')->generate('sonata_user_profile_show')
+            );
         }
 
         // $form = $this->container->get('sonata.user.registration.form');
@@ -164,7 +171,8 @@ class RegistrationController extends BaseController
 
         $user = $userManager->createUser();
 
-        $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
+        // must match the flow's service id
+        $flow = $this->container->get('taxi.registration.form.flow'); 
         $flow->bind($user);
 
         $form = $flow->createForm();
@@ -180,8 +188,11 @@ class RegistrationController extends BaseController
                     // form for the next step
                     $form = $flow->createForm();
                 } else {
-                    // flow finished
-                    $flow->reset(); // remove step data from the session
+                    $requestId = $this->container->get('session')->get('request_id');
+                                      
+                    // flow finished, remove step data from the session
+                    $flow->reset(); 
+                                        
                     if ($confirmationEnabled) {
                         $user->setEnabled(false);
                         if (null === $user->getConfirmationToken()) {
@@ -192,14 +203,23 @@ class RegistrationController extends BaseController
 
                         $this->container
                             ->get('fos_user.mailer')
-                            ->sendConfirmationEmailMessage($user);
+                            ->sendConfirmationEmailMessageCustom($user, $requestId);
                     } else {
                         $user->setEnabled(true);
                     }
                     
                     $user->addRole('ROLE_USER');
                     $userManager->updateUser($user);
+                    
+                    $em = $this->container->get('doctrine')->getManager();
+                    $repository = $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
+                    
+                    $passengerRequest = $repository->getFullRequestById($requestId);
+                    $passengerRequest->setUser($user);
+                    $em->flush();
 
+                    $this->container->get('session')->remove('request_id');
+                    
                     $process = true;
                 }
             }
