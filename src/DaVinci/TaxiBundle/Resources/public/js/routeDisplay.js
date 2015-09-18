@@ -19,6 +19,9 @@ define('routeDisplay', ['googleMaps'], function(googleMaps) {
 	        	}
 	        });
 	        
+            if (0 == intervals.length) {
+                return;
+            }
 	        
 	        var origins = new Array();
 	        var destinations = new Array();
