@@ -6,7 +6,7 @@
     {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
     <div class="greentitle"><span>{% trans %}Need money: select professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
     {% if requestId > 0 %}
-        <a href="{{ path('passenger_request_confirm', {'id': requestId}) }}"></a>
+        <a href="{{ path('passenger_request_confirm', {'id': requestId}) }}">{{ 'Confirm last order'|trans }}</a>
     {% endif %}
 </div>
 {% endblock%}
