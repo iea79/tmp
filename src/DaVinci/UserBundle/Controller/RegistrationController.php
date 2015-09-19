@@ -24,7 +24,7 @@ class RegistrationController extends BaseController
     /**
      * Receive the confirmation token from user email provider, login the user
      */
-    public function confirmAction($token, $requestId)
+    public function confirmAction($token)
     {
         $user = $this->container->get('fos_user.user_manager')->findUserByConfirmationToken($token);
 
@@ -54,6 +54,9 @@ class RegistrationController extends BaseController
         $this->container
             ->get('mailer')
             ->send($message);
+        
+        $request = $this->container->get('request');
+        $requestId = $request->get('requestId');
         
         $response = new RedirectResponse(
             $this->container->get('router')->generate(
