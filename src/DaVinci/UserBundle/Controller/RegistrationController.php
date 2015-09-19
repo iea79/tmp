@@ -58,7 +58,7 @@ class RegistrationController extends BaseController
         $response = new RedirectResponse(
             $this->container->get('router')->generate(
                 'fos_user_registration_confirmed',
-                array('request_id' => (is_null($requestId)) ? 0 : $requestId),
+                array('requestId' => (is_null($requestId)) ? 0 : $requestId),
                 true
             )
         );
