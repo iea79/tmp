@@ -26,7 +26,7 @@ class OfficeController extends StepsController
 {
 	
     /**
-     * @Route("/choose-office/{requestId}", name="fos_user_registration_confirmed", defaults={"requestId" = 0)
+     * @Route("/choose-office/{requestId}", name="fos_user_registration_confirmed", defaults={"requestId" = 0})
      * @Method("GET")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_COMPANYDRIVER') or has_role('ROLE_TAXIMANAGER') or has_role('ROLE_TAXICOMPANY')")
      */
