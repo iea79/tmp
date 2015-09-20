@@ -6921,6 +6921,7 @@ Help
 .blog .block-help .uk-nav li.head {
 	max-height: none;
 	width: 100%;
+	box-sizing: border-box;
 }
 .block-help .uk-nav .head a {
 	color: #fff;
