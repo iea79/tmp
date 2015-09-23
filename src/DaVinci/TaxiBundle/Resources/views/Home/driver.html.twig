@@ -41,22 +41,22 @@
 				<li id="6">In order to confirm your account, check your email and click the link in that mail.</li>
 					<img src="{{ asset('bundles/davincitaxi/images/screen-1-6.jpg') }}" alt="">
 			</ol>
-			<button class="uk-button uk-button-danger">{{ 'Register'|trans }}</button>
+			<a href="{{ url('register_independent_driver') }}" class="uk-button uk-button-danger">{{ 'Register'|trans }}</a>
 		</li>
 		<li class="uk-width-1-1">
 			<div class="uk-h3 uk-text-danger">INDEPENDENT DRIVER`S OFFICE REGISTRATION</div>
 			<ol>
 				<li>To get the registration as an Independent Driver log in to your account (or click the confirmation link in your email) and choose the "INDEPENDENT DRIVER`S OFFICE".</li>
 					<img src="{{ asset('bundles/davincitaxi/images/screen-2-1.jpg') }}" alt="">
-				<li>Go through additional registration to get Independent Driver`s Office.</li>
-					<img src="{{ asset('bundles/davincitaxi/images/screen-2-2-1.jpg') }}" alt="">
-				<li>On the next page check all the entered information and click "Complete". Click "Edit"  whether You need to make the necessary changes.</li>
-					<img src="{{ asset('bundles/davincitaxi/images/screen-2-2-2.jpg') }}" alt="">
+				<li>Go through additional registration to get INDEPENDENT DRIVER`S OFFICE.</li>
+					<img src="{{ asset('bundles/davincitaxi/images/screen-2-2.jpg') }}" alt="">
+				<li>On the next page check all the entered information and click "Complete". Click "Edit"  whether you need to make the necessary changes.</li>
+					<img src="{{ asset('bundles/davincitaxi/images/screen-2-3.jpg') }}" alt="">
 				<li>To start using TaxiMyPrice fill in your Profile. <br>Provide your personal information, your photo, photo and information about your car. <br>
 				This would increase passenger`s trust - she/he would know you in person.</li>
-					<img src="{{ asset('bundles/davincitaxi/images/screen-2-2.jpg') }}" alt="">
+					<img src="{{ asset('bundles/davincitaxi/images/screen-2-4.jpg') }}" alt="">
 			</ol>
-			<button class="uk-button uk-button-danger">{{ 'Choose office'|trans }}</button>
+			<a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-danger">{{ 'Choose office'|trans }}</a>
 		</li>
 		<li class="uk-width-1-1">
 			<div class="uk-h3 uk-text-danger">TaxiMyPrice MARKET</div>
@@ -74,7 +74,7 @@
 					<img src="{{ asset('bundles/davincitaxi/images/screen-3-3.jpg') }}" alt="">
 				<li>Orders where you earn equal or less than $100, cost only $3 for you. For orders of more than $100 you pay only $5. Clicking the button you will be forwarded to the payment page.</li>
 			</ol>
-			<button class="uk-button uk-button-danger">{{ 'Choose the best passenger'|trans }}</button>
+			<a href="{{ url('main_driver') }}" class="uk-button uk-button-danger">{{ 'Choose the best passenger'|trans }}</a>
 		</li>
 		<li class="uk-width-1-1">
 			<div class="uk-h3 uk-text-danger">INDEPENDENT DRIVER`S OFFICE</div>
@@ -108,7 +108,11 @@
 				<li>Clicking "MY OFFICE" tab You can switch to the Payment page of the offices. Here you can purchase and activate the desired offices.</li>
 					<img src="{{ asset('bundles/davincitaxi/images/screen-4-6.jpg') }}" alt="">
 			</ol>
-			<button class="uk-button uk-button-danger">{{ "Driver's office"|trans }}</button>
+			{% if is_granted('ROLE_TAXIDRIVER') %}
+				<a href="{{ url('office_driver')}}" class="uk-button uk-button-danger">{{ "Driver's office"|trans }}</a>
+			{% else %}
+				<a href="{{ url('register_independent_driver')}}" class="uk-button uk-button-danger">{{ "Driver's office"|trans }}</a>
+			{% endif %}
 		</li>
 		<li class="uk-width-1-1">
 			<div class="uk-h3 uk-text-danger">FINANCIAL OFFICE</div>
@@ -130,7 +134,7 @@
 				3. Purchase</li>
 					<img src="{{ asset('bundles/davincitaxi/images/screen-5-3.jpg') }}" alt="">
 			</ol>
-			<button class="uk-button uk-button-danger">{{ 'Financial office'|trans }}</button>
+			<a href="{{ url('financial_office_add')}}" class="uk-button uk-button-danger">{{ 'Financial office'|trans }}</a>
 		</li>
 	</ul>
 </div>
