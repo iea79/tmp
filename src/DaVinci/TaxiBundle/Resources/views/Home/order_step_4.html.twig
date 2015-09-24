@@ -74,83 +74,43 @@
 						</div>
 						<div class="other-passenger-details">
 							<div class="order-details">
-							 			{% set foo = false %}
-							 			{% set foo1 = false %}
-									    	{% for childSeat in passengerRequest.vehicleOptions.childSeats %}
-									    		{% if childSeat.childSeatNumber > 0 %}
-													{% set foo = true %}
-									    		{% endif %}	
-									    	{% endfor %}
-									    	{% for petCage in passengerRequest.vehicleOptions.petCages %}
-									    		{% if petCage.petCageNumber > 0 %}
-													{% set foo1 = true %}
-									    		{% endif %}	
-									    	{% endfor %}
-
-
-											{%
-											if passengerRequest.vehicleOptions.cycleRack > 0 
-											or passengerRequest.vehicleOptions.strollerPlace > 0 
-											or passengerRequest.vehicleOptions.roofRack == true
-											or passengerRequest.vehicleOptions.skiRack > 0
-											or passengerRequest.vehicleOptions.wheelChairPlace > 0
-											or passengerRequest.vehicleOptions.trailer == true
-											or foo == true
-											or foo1 == true
-											%}
-											<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
-
-											<div class="kid-pat-bag" id="toggle12">
-											    <dl class="child-pet">
-											    	{% for childSeat in passengerRequest.vehicleOptions.childSeats %}
-											    		{% if childSeat.childSeatNumber > 0 %}
-											    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.getChildSeatTypeName() }})</dd>
-											    		{% endif %}	
-											    	{% endfor %}
-											    	{% for petCage in passengerRequest.vehicleOptions.petCages %}
-											    		{% if petCage.petCageNumber > 0 %}
-											    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.getPetCageTypeName() }})</dd>
-											    		{% endif %}	
-											    	{% endfor %}
-											    </dl>
-			                                    <dl class="rack-left">
-											  	{% if passengerRequest.vehicleOptions.cycleRack > 0 %}
-											  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.cycleRack }}</dd>
-											  	{% endif %}
-											  	{% if passengerRequest.vehicleOptions.strollerPlace > 0 %}	
-											  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.strollerPlace }}</dd>
-											  	{% endif %}	
-											  	{% if passengerRequest.vehicleOptions.roofRack == true %}
-											  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-											  	{% endif %}
-			                                    </dl>
-			                                    <dl class="rack-right">
-											  	{% if passengerRequest.vehicleOptions.skiRack > 0 %}
-											  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.skiRack }}</dd>
-											  	{% endif %}
-											  	{% if passengerRequest.vehicleOptions.wheelChairPlace > 0 %}	
-											  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.wheelChairPlace }}</dd>
-											  	{% endif %}	
-											  	{% if passengerRequest.vehicleOptions.trailer == true %}
-											  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
-											  	{% endif %}
-			                                    </dl>
-											</div>
-		 								{% endif %}
- 								{% 
-	 								if passengerRequest.vehicleServices.wifi == true 
-	 								or passengerRequest.vehicleServices.airConditioner == true
-	 								or passengerRequest.vehicleServices.nonSmokers == true
-	 								or passengerRequest.vehicleServices.gps == true
-	 								or passengerRequest.vehicleServices.sunRoof == true
-	 								or passengerRequest.vehicleServices.firstAidKit == true
-	 								or passengerRequest.vehicleServices.coolDrinks != ''
-	 								or passengerRequest.vehicleServices.snacks != ''
-	 								or passengerRequest.vehicleServices.dvd != ''
-	 								or passengerRequest.vehicleServices.gadgets != ''
-	 								or passengerRequest.vehicleServices.toolsForDisabled != ''
-									or passengerRequest.vehicleServices.disease != ''
- 								%}	 
+								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle12'}"><span class="uk-parent">{{'For kids, pets and baggage'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Talk to driver via Skype about conditions'|trans}}"></span></span></div>
+								<div class="kid-pat-bag" id="toggle12">
+								    <dl class="child-pet">
+								    	{% for childSeat in passengerRequest.vehicleOptions.childSeats %}
+								    		{% if childSeat.childSeatNumber > 0 %}
+								    			<dt>{{'child seat'|trans}}</dt><dd>{{ childSeat.childSeatNumber }} ({{ childSeat.getChildSeatTypeName() }})</dd>
+								    		{% endif %}	
+								    	{% endfor %}
+								    	{% for petCage in passengerRequest.vehicleOptions.petCages %}
+								    		{% if petCage.petCageNumber > 0 %}
+								    			<dt>{{'pet cage'|trans}}</dt><dd>{{ petCage.petCageNumber }} ({{ petCage.getPetCageTypeName() }})</dd>
+								    		{% endif %}	
+								    	{% endfor %}
+								    </dl>
+                                    <dl class="rack-left">
+								  	{% if passengerRequest.vehicleOptions.cycleRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.cycleRack }}</dd>
+								  	{% endif %}
+								  	{% if passengerRequest.vehicleOptions.strollerPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.strollerPlace }}</dd>
+								  	{% endif %}	
+								  	{% if passengerRequest.vehicleOptions.roofRack == true %}
+								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+								  	{% endif %}
+                                    </dl>
+                                    <dl class="rack-right">
+								  	{% if passengerRequest.vehicleOptions.skiRack > 0 %}
+								  		<dt>{{'cycle rack'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.skiRack }}</dd>
+								  	{% endif %}
+								  	{% if passengerRequest.vehicleOptions.wheelChairPlace > 0 %}	
+								  		<dt>{{'place for strollers'|trans}}</dt><dd>{{ passengerRequest.vehicleOptions.wheelChairPlace }}</dd>
+								  	{% endif %}	
+								  	{% if passengerRequest.vehicleOptions.trailer == true %}
+								  		<dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>	
+								  	{% endif %}
+                                    </dl>
+								</div>
 								<div class="uk-button-large uk-button uk-width-1-1 spec-request uk-nav-parent-icon" data-uk-toggle="{target:'#toggle11'}">
                                     <span class="uk-parent">{{'Additional services'|trans}}<a href="#"></a> <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Set price and conditions with driver'|trans}}"></span></span>
                                 </div>							
@@ -205,7 +165,6 @@
 									    {% endif %}
                                     </dl>
 								</div>
-								{% endif %}
                                 {% 
                                     if passengerRequest.vehicleDriverConditions.interpreterLang != ''
                                     or passengerRequest.vehicleDriverConditions.educator == true
