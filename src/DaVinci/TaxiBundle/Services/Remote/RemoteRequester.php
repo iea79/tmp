@@ -331,18 +331,18 @@ class RemoteRequester
     }
     
     private function getParamsFromPassengerRequest(
-        PassengerRequest $request, $opCode, $recipient = null
+        PassengerRequest $request, $opCode, $receiver = null
     ) {
         switch ($opCode) {
     		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
-                if (is_null($recipient)) {
+                if (is_null($receiver)) {
                     throw new \InvalidArgumentException(
                         get_class($this) . ": undefined receiver of transaction"
                     );
                 }
                 
     			$params = array(
-    				'User' => $recipient->getRemoteId(),
+    				'User' => $receiver->getRemoteId(),
     				'Product' => self::GATEWAY_PRODUCT_ID,	
     				'Transaction' => array(
     					'amount' => $request->getTariff()->getPrice(),

@@ -65,8 +65,6 @@ class StepsController extends Controller
 						'id' => $passengerRequest->getId()
 					))
 					: $this->generateUrl('fos_user_security_login');
-                
-                
 				 
 				$flow->reset();
 		

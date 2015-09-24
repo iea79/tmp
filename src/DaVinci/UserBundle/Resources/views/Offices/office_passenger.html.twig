@@ -283,7 +283,7 @@
                                                 <td>
                                                     <div class="edit-close">
                                                         {% if request.getStateValue() == 'before-open' or request.getStateValue() == 'open' %}
-                                                            <a href="{{ path('passenger_request_edit', {'id': request.id})}}" class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
+                                                            <a href="{{ path('passenger_request_edit', {'id': request.id}) }}" class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
                                                             </a>
                                                         {% else %}
                                                             <a class="mp-icon-edit uk-text-warning">

@@ -6921,6 +6921,7 @@ Help
 .blog .block-help .uk-nav li.head {
 	max-height: none;
 	width: 100%;
+	box-sizing: border-box;
 }
 .block-help .uk-nav .head a {
 	color: #fff;
@@ -9987,4 +9988,19 @@ Payment window
 }
 .account_menu i[class*="icon-"] {
 	font-size: 28px;
+}
+
+.drivers_faq .uk-button {
+	font-size: 22px;
+	padding: 10px;
+	width: 100%;
+	max-width: 450px;
+	display: block;
+	margin: 30px auto 0;
+}
+
+.drivers_faq .uk-list {
+	display: inline-block;
+	margin-top: 0;
+	margin-bottom: 20px;
 }
