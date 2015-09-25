@@ -32,13 +32,12 @@
 					<div class="help-content">
 						<div class="buttom-swicher">
 				            <ul class="uk-width-1-1">
-                               <li class="uk-active">
-                                   <a href="#">Category 1</a>
-                               </li>
-                               <li class="">
-                                   <a href="#">Category 1</a>
-                               </li>
-				            </ul>
+                                {% for category in categories %}
+                                    <li class="uk-active">
+                                        <a href="{{ path('guides', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
 				        </div>
 						<ul class="uk-nav only-link">           
                             {% for guideItem in guides %}
@@ -104,6 +103,7 @@
 	                </div>
 				</div>
 			</li>
+            {#
             <li class="uk-active">
 				<div class="block-help">
 					<div class="help-content">
@@ -117,10 +117,8 @@
                                 {% endif %}
                             {% endfor %}
                         </ul>
-				    	{# 
-                        <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> 
-                        #}
-				    	<div class="support">
+				    	<a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> 
+                        <div class="support">
 				    		<span>{{ "If you don't find how to solve problem please answer our support team!"|trans }}</span>
 				    		<a href="#" class="uk-button uk-button-success">
                                 {{ 'GET TMP SUPPORT'|trans }}
@@ -129,6 +127,7 @@
 					</div>
                 </div>
 			</li>
+            #}
 		</ul>
 	</div>
 {% endblock %}

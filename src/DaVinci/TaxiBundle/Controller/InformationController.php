@@ -206,21 +206,40 @@ class InformationController extends StepsController
                     ->getRepository('DaVinciTaxiBundle:FaqEntry')
                     ->findForPassenger($trigger);
         
-        $category = unserialize(urldecode($subCategory));
-        $guides = $dm
-    				->getRepository('DaVinciTaxiBundle:GuidesPage')
-    				->findFiltered($trigger, $category);
-        $otherGuides = $dm
-    				->getRepository('DaVinciTaxiBundle:GuidesPage')
-    				->findFiltered(!$trigger, $category);
-    
+        $defaultCategory = $dm
+                                ->getRepository('DaVinciTaxiBundle:Category')
+                                ->findOneBy(array());
+        
+        $categories = $dm
+                        ->getRepository('DaVinciTaxiBundle:Category')
+                        ->findAll();
+        
+        if (!is_null($defaultCategory)) {
+            $filter = ('default' == $subCategory) 
+                ? $defaultCategory->getId()
+                : unserialize(urldecode($subCategory));
+
+            $guides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findFiltered($trigger, $filter);
+            $otherGuides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findFiltered(!$trigger, $filter);
+        } else {
+            $guides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findForPassenger($trigger);
+            $otherGuides = array();
+        }
+            
     	return $this->render(
             'DaVinciTaxiBundle:Information:guides.html.twig',
             array(
                 'faqs' => $faqs,
                 'guides' => $guides,
                 'category' => $category,
-                'otherGuides' => $otherGuides
+                'otherGuides' => $otherGuides,
+                'categories' => $categories
             )
     	);
     }
