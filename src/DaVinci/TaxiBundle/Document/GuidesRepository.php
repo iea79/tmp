@@ -36,6 +36,12 @@ class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInt
     	);
     }
     
+    public function findForPassenger($trigger = true)
+    {
+    	return $this->findBy(
+    		array('publishable' => true, 'forPassenger' => $trigger), 
+    		array('order' => 'asc')
+    	);
+    }
+        
 }
-
-?>

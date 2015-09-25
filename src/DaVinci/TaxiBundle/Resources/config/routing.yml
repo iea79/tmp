@@ -51,8 +51,8 @@ about:
     options: { useAsInnerURL: true }
         
 help:
-    pattern:  /help
-    defaults: { _controller: DaVinciTaxiBundle:Information:help }    
+    pattern:  /help/{section}
+    defaults: { _controller: DaVinciTaxiBundle:Information:help, section: 'passenger' }    
     options: { useAsInnerURL: true }
         
 view_offices:

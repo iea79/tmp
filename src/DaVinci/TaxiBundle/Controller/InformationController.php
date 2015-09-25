@@ -154,16 +154,18 @@ class InformationController extends StepsController
         );
     }
 
-    public function helpAction()
+    public function helpAction($section)
     {
     	$dm = $this->get('doctrine_phpcr')->getManager();
     	
+        $trigger = ('passenger' == $section);
+        
     	$guides = $dm
     				->getRepository('DaVinciTaxiBundle:GuidesPage')
-    				->findPublished();
+    				->findForPassenger($trigger);
     	$faqs = $dm
 			    	->getRepository('DaVinciTaxiBundle:FaqEntry')
-			    	->findPublished();
+			    	->findForPassenger($trigger);
     	
         return $this->render(
         	'DaVinciTaxiBundle:Information:help.html.twig',
