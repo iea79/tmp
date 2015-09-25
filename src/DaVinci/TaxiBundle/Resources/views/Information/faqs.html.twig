@@ -14,22 +14,28 @@
 				<button class="uk-width-1-1 uk-button"><i class="mp-icon-taxi"></i>{{' Driver help'|trans}}</button>
 			</div>
 		</div>
-			<div class="message">
-				{#<span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}#}
-			</div>
-			<div class="search">
-				<form class="uk-search" data-uk-search>
-				    <input class="uk-search-field" type="search" id="filter" placeholder="Фраза для поиска">
-				</form>
-			</div>
+        <div class="message">
+            {#
+            <span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}
+            #}
+        </div>
+        <div class="search">
+            <form class="uk-search" data-uk-search>
+                <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
+            </form>
+        </div>
 		<ul id="help" class="uk-switcher">
 			<li class="uk-active">
 				<div class="block-help">
 					<div class="help-content">
 						<div class="buttom-swicher">
 				            <ul class="uk-width-1-1">
-                               <li{% if category == 'passenger' %} class="uk-active"{% endif %}><a href="{{ path('faqs') }}">{{ 'For passengers'|trans }}</a></li>
-                               <li{% if category == 'driver' %} class="uk-active"{% endif %}><a href="{{ path('faqs', {'category': 'driver'}) }}">{{ 'For drivers'|trans }}</a></li>
+                               <li{% if category == 'passenger' %} class="uk-active"{% endif %}>
+                                   <a href="{{ path('faqs') }}">{{ 'For passengers'|trans }}</a>
+                               </li>
+                               <li{% if category == 'driver' %} class="uk-active"{% endif %}>
+                                   <a href="{{ path('faqs', {'category': 'driver'}) }}">{{ 'For drivers'|trans }}</a>
+                               </li>
 				            </ul>
 				        </div>
 						<h3>{{'FAQs:'|trans}}</h3>
@@ -47,16 +53,25 @@
 				    	</div>
 					    {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
 				    	<div class="support">
-				    		<span>{{'Can\'t find your answer here? Submit a support request.'|trans}}</span>
-				    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
+				    		<span>{{"Can\'t find your answer here? Submit a support request."|trans}}</span>
+				    		<a href="#" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
 				    	</div>
 					</div>
 					<div class="help-sidebar">
 						<ul class="uk-nav">
-			                <li class="head"><a href="#">{{'Guides'|trans}}</a></li>
-	                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
+			                <li class="head"><a href="{{ path('guides') }}">{{'Guides'|trans}}</a></li>
+                            {% for guide in guides %}
+                                {% if loop.index < 6 %}
+                                    <li>
+                                        <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+	                        <li>
+                                <a class="uk-button uk-button-primary" href="{{ path('guides') }}">{{'more questions'|trans}}</a>
+                            </li>
 	                    </ul>
+                        {#
 						<ul class="uk-nav demo">
 			                <li class="head"><a href="#">Demo</a></li>
 	                        <li>
@@ -73,6 +88,7 @@
 	                        <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
 	                        <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
 	                    </ul>
+                        #}
 	                </div>
 				</div>
 			</li>

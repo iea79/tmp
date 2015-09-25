@@ -171,7 +171,8 @@ class InformationController extends StepsController
         	'DaVinciTaxiBundle:Information:help.html.twig',
         	array(
         		'guides' => $guides,
-        		'faqs' => $faqs	
+        		'faqs' => $faqs,
+                'section' => $section
         	)	
         );
     }
@@ -226,18 +227,21 @@ class InformationController extends StepsController
 
     public function faqsAction($category)
     {
+        $trigger = ($category == 'passenger');
+        
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allFaqs = $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(
-        	array(
-                'published' => true,
-                'forPassenger' => ($category == 'passenger')
-            )
-        );
+        $faqs = $dm
+                    ->getRepository('DaVinciTaxiBundle:FaqEntry')
+                    ->findForPassenger($trigger);
+        $guides = $dm
+    				->getRepository('DaVinciTaxiBundle:GuidesPage')
+    				->findForPassenger($trigger);
             
         return $this->render(
         	'DaVinciTaxiBundle:Information:faqs.html.twig',
 			array(
-                'faqs' => $allFaqs,
+                'faqs' => $faqs,
+                'guides' => $guides,
                 'category' => $category
             )
         );
