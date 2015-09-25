@@ -70,8 +70,8 @@ guide:
     options: { useAsInnerURL: true }
         
 guides:
-    pattern:  /guides
-    defaults: { _controller: DaVinciTaxiBundle:Information:guides }    
+    pattern:  /guides/{category}/{subCategory}
+    defaults: { _controller: DaVinciTaxiBundle:Information:guides, category: 'passenger' }    
     options: { useAsInnerURL: true }
         
 one_help:

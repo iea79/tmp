@@ -156,10 +156,9 @@ class InformationController extends StepsController
 
     public function helpAction($section)
     {
-    	$dm = $this->get('doctrine_phpcr')->getManager();
-    	
         $trigger = ('passenger' == $section);
         
+    	$dm = $this->get('doctrine_phpcr')->getManager();
     	$guides = $dm
     				->getRepository('DaVinciTaxiBundle:GuidesPage')
     				->findForPassenger($trigger);
@@ -198,27 +197,44 @@ class InformationController extends StepsController
          );
     }    
 
-    public function guidesAction()
+    public function guidesAction($category, $subCategory)
     {
-    	$dm = $this->get('doctrine_phpcr')->getManager();
-    	$allGuides = $dm
-            ->getRepository('DaVinciTaxiBundle:GuidesPage')
-            ->findBy(array('publishable' => true));
+    	$trigger = ($category == 'passenger');
+        
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $faqs = $dm
+                    ->getRepository('DaVinciTaxiBundle:FaqEntry')
+                    ->findForPassenger($trigger);
+        
+        $category = unserialize(urldecode($subCategory));
+        $guides = $dm
+    				->getRepository('DaVinciTaxiBundle:GuidesPage')
+    				->findFiltered($trigger, $category);
+        $otherGuides = $dm
+    				->getRepository('DaVinciTaxiBundle:GuidesPage')
+    				->findFiltered(!$trigger, $category);
     
     	return $this->render(
-    			'DaVinciTaxiBundle:Information:guides.html.twig',
-    			array('guides' => $allGuides)
+            'DaVinciTaxiBundle:Information:guides.html.twig',
+            array(
+                'faqs' => $faqs,
+                'guides' => $guides,
+                'category' => $category,
+                'otherGuides' => $otherGuides
+            )
     	);
     }
     
     public function guideAction($contentId)
     {
-    	$contentId = unserialize(urldecode($contentId));
-    	$contentDocument = $this->get('doctrine_phpcr')
-					    		->getManager()    	
+    	$id = unserialize(urldecode($contentId));
+    	$contentDocument = $this->get('doctrine_phpcr')->getManager()    	
 					    		->getRepository('DaVinciTaxiBundle:GuidesPage')
-					    		->find($contentId);
-    	
+					    		->find($id);
+        if (is_null($contentDocument)) {
+            throw new NotFoundHttpException("Undefined guide document identificator #{$id}");
+        }
+        
         return $this->render(
         	'DaVinciTaxiBundle:Information:guide.html.twig',
 			array('page' => $contentDocument)
