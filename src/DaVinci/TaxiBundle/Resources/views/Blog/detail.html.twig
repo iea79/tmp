@@ -26,22 +26,20 @@
             <div class="block-help">
                 {% if post is defined %}
                     <div class="help-content">
+                        <h5>{{ post.title }}</h5>
                         {{ post.body|raw }}
                         <br/>
                         <a href="{{ path('blogs', {'column': column}) }}">{{ 'Back'|trans }}</a>
                     </div>
                 {% else %}
                     <div class="help-content">
-                        {% if defaultColumn %}
-                            {{ defaultColumn.description|raw|nl2br }}
-                        {% endif %}
                         <div class="uk-grid uk-grid-small top">
                             {% for entity in commercialEntities %}
                                 {% if loop.index < 4 %}
                                     <div class="uk-panel uk-width-1-3 tarif">
                                         {% thumbnail entity.imagePreview, 'preview' %}
                                         <a href="{{ path('posts', {'post': entity}) }}">
-                                            <h6>{{ entity.preview|raw }}</h6>
+                                            <h6>{{ entity.title }}</h6>
                                         </a>    
                                     </div>
                                 {% endif %}
@@ -67,16 +65,18 @@
                 {% endif %}
                 <div class="help-sidebar">
                     {% for key,items in others %}
-                        <ul class="uk-nav">
-                            <li class="head">
-                                <a href="#">{{ key|trans }}</a>
-                            </li>
-                            {% for item in items %}
-                                <li>
-                                    <a href="{{ path('posts', {'post': item}) }}">{{ item.title|trans }}</a>
+                        {% if loop.index < 3 %}
+                            <ul class="uk-nav">
+                                <li class="head">
+                                    <a href="#">{{ key|trans }}</a>
                                 </li>
-                            {% endfor %}                           
-                        </ul>
+                                {% for item in items %}
+                                    <li>
+                                        <a href="{{ path('posts', {'post': item}) }}">{{ item.title|trans }}</a>
+                                    </li>
+                                {% endfor %}                           
+                            </ul>
+                        {% endif %}
                     {% endfor %}
                     {#
                     <ul class="uk-nav">
