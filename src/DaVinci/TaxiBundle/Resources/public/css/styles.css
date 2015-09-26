@@ -1218,7 +1218,8 @@ styles of booking step 2  in homepage
 }
 .order-details  .kids-pats-line input[type=checkbox]{
 	display:inline-block;
-	vertical-align:middle;
+	vertical-align:top;
+	margin-top: 2px;
 }
 .order-details  .kids-pats-line .uk-form-controls {
 	width:29.5%;
