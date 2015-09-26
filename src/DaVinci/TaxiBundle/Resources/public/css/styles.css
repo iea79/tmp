@@ -8648,7 +8648,7 @@ Addcard
 }
 
 .addcard .uk-form-label {
-    width: 123px;
+    width: 134px;
     display: inline-block;
     vertical-align: top;
 }
@@ -8697,7 +8697,7 @@ Addcard
 }
 .addcard .uk-button {
     width: 94%;
-    max-width: 470px;
+    max-width: 483px;
     font-size: 24px;
     height: 50px;
     margin: 21px 0 13px;

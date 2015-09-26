@@ -26,7 +26,7 @@
 	        		{{ form_widget(form.paymentMethodCode) }}
 		        	{% if paymentMethod == 'Internal' %}
 		        		<div class="uk-form-row">
-						    <div class="uk-form-label">{{ form_label(form.amount, 'Amount:') }}<i class="uk-icon-asterisk"></i></div>
+						    <div class="uk-form-label">{{ form_label(form.amount, 'Amount $ (USD):') }}<i class="uk-icon-asterisk"></i></div>
 							<div class="uk-form-controls">
 						        {{ form_widget(form.amount) }}
 						        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'The amount of money for a transaction'|trans }}"></span>
