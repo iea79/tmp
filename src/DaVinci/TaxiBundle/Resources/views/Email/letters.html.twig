@@ -3,78 +3,67 @@
 	<title></title>
 </head>
 <body>
-	<table width="100%" cellspacing="0" cellpadding="0" border="0">
-	        <tr>
-	            <td align="center">
-	                <table width="640" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;font-family: Arial, Helvetica, sans-serif;">
-						<tr style="color:#fff;background-color: #528ed4;font-size: 22px;line-height: 24px;">
-							<td style="padding: 15px 14px 9px 18px; vertical-align: top;">
-                                <a href="{{ url('da_vinci_taxi_homepage') }}">
-                                    <img src="http://taximyprice.com/bundles/davincitaxi/images/logo.png" alt="{{ 'Taxi My Price'|trans}}" width="108px" />
-                                </a>
-							</td>
-							<td style="padding: 14px 20px 12px 0; vertical-align: top;">
-								{% block title %}{% endblock %}
-							</td>
-						</tr>
-
-		                    <tr>
-		                    	<td colspan="2" style="padding: 0 12px 0 18px;">
-				                    <table width="100%" cellspacing="0" cellpadding="0" border="0">
-					                    <tr>
-					                        <td colspan="2">
-
-						                {# message statrs #}
-							                {% block message %}
-
-					                        	<h3 style="font-size: 16px;margin: 22px 0 0;">Dear {{ user.username }}</h3>
-					                        	<p style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
-
-								                {# message text statrs #}
-									                {% block message_text %}{% endblock %}</p>
-							                    {# message text end #}
-
-							                    {# button confirm statrs #}
-						                        	{% block button_confirm %}{% endblock %}
-							                    {# button confirm end #}
-
-					                        	<p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Thanks for joining TaxiMyPrice!</p>
-
-					                        	<p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">Sincerely, <br>
-					                        	TaxiMyPrice Team <br>
-												<a href="{{ url('da_vinci_taxi_homepage') }}">{{ url('da_vinci_taxi_homepage') }}</a>
-					                        	</p>
-
-					                        {% endblock %}</p>
-					                    {# message end #}
-
-					                        </td>
-					                    </tr>
-
-			                {# banners statrs #}
-									{% block banner_one %}
-									{% endblock %}
-
-									{% block banner_two %}
-									{% endblock %}
-
-									</table>
-		                    	</td>
-		                    </tr>
-	                    <tr>
-	                        <td colspan="2" style="padding: 24px 0 20px;color: #8d8f98; font-size: 14px;">
-
-							{% block footer %}
-	                        	<p style="margin-bottom: 9px;">This message is an automated reply to your registration request. Please do not reply, the mailbox is not monitored.</p>
-	                        	<p style="margin: 0 0 9px;">If you have any questions, please contact the TaxiMyPrice Team  <a style="color: #528ed4; text-decoration: none;" href="mailto:support@tmp.com">support@tmp.com.</a></p>
-	                        	<p style="margin: 0;">If you believe you have received this email in error, or that an unauthorized person has accessed your account, please delete this email.</p>
-		                    {% endblock %}
-
-	                        </td>
-	                    </tr>
-	                </table>
-	            </td>
-	        </tr>
-	    </table>
-	</body>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+            <td align="center">
+                <table width="640" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;font-family: Arial, Helvetica, sans-serif;">
+                    <tr style="color:#fff;background-color: #528ed4;font-size: 22px;line-height: 24px;">
+                        <td style="padding: 15px 14px 9px 18px; vertical-align: top;">
+                            <a href="{{ url('da_vinci_taxi_homepage') }}">
+                                <img src="{{ logoImage }}" alt="{{ 'TaxiMyPrice company'|trans}}" width="108px" />
+                            </a>
+                        </td>
+                        <td style="padding: 14px 20px 12px 0; vertical-align: top;text-align: left;">
+                            {% block title %}{% endblock %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="padding: 0 12px 0 18px;">
+                            {# message starts #}
+                            {% block message %}
+                                <h3 style="font-size: 16px;margin: 22px 0 0;">Dear, {{ user.firstname }} {{ user.lastname }}.</h3>
+                                <div style="font-size: 14px;line-height: 17px;margin: 7px 0 13px;">
+                                    {# message text starts #}
+                                    {% block message_text %}{% endblock %}
+                                    {# message text ends #}
+                                </div>
+                                <div align="left" style="line-height: 17px;margin: 7px 0 13px;">
+                                    {# button confirm statrs #}
+                                    {% block button_confirm %}{% endblock %}
+                                    {# button confirm ends #}
+                                </div>
+                            {% endblock %}
+                            {# message ends #}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;padding: 0 12px 0 18px;">
+                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">
+                                {# message text starts #}
+                                {% block message_text_after %}
+                                    Thanks for joining TaxiMyPrice!
+                                {% endblock %}
+                                {# message text ends #}
+                            </p>
+                            <p style="font-size: 14px;line-height: 16px;margin: 7px 0 18px;">
+                                Sincerely yours,<br/>TaxiMyPrice Team<br/>
+                                <a href="http://taximyprice.com">taximyprice.com</a>
+                            </p>    
+                        </td>
+                    </tr>    
+                    {% block banner_one %}{% endblock %}
+                    <tr>
+                        <td colspan="2" style="padding: 24px 0 20px;color: #8d8f98; font-size: 14px;">
+                            {% block footer %}
+                                <p style="margin-bottom: 9px;">This message is an automated reply to your registration request. Please do not reply, the mailbox is not monitored.</p>
+                                <p style="margin: 0 0 9px;">If you have any questions, please contact the TaxiMyPrice Team <a style="color: #528ed4; text-decoration: none;" href="mailto:support@taximyprice.com">support@taximyprice.com.</a></p>
+                                <p style="margin: 0;">If you believe you have received this email in error, or that an unauthorized person has accessed your account, please delete this email.</p>
+                            {% endblock %}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
 </html> 

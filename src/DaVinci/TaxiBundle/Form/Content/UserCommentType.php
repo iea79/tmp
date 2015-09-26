@@ -15,6 +15,7 @@ class UserCommentType extends AbstractType {
             ->add('rateLevel', 'choice', array(
                 'choices' => UserComment::getRateList()
             ))
+            ->add('column', 'hidden')
             ->add('text', 'textarea');
 	}
 	

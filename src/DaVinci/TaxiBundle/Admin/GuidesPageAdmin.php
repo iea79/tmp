@@ -41,7 +41,6 @@ class GuidesPageAdmin extends Admin
     	$listMapper
 	    	->add('forPassenger')
 	    	->add('title')
-	    	->add('locale')
 	    	->add('_action', 'actions', array(
     			'actions' => array(
     				'edit' => array(),

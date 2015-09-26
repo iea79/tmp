@@ -42,7 +42,6 @@ class ProfitPageAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
     	$listMapper
-	    	->add('forPassenger')
 	    	->addIdentifier('title')
 	    	->add('locale')
 	    	->add('_action', 'actions', array(
@@ -80,7 +79,7 @@ class ProfitPageAdmin extends Admin
 		    	)
 	    	->end()
 	    	->with('Other',  array('collapsed' => true))
-		    	// ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/profit', 'select_root_node' => '/cms/profit', 'choice_list' => array(), 'select_root_node' => true))
+//              ->add('parentDocument', 'doctrine_phpcr_odm_tree', array('root_node' => '/cms/profit', 'select_root_node' => '/cms/profit', 'choice_list' => array(), 'select_root_node' => true))
 		    	->add('locale')
 	    	->end();
     }

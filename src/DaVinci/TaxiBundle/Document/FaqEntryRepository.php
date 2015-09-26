@@ -27,5 +27,13 @@ class FaqEntryRepository extends BaseDocumentRepository implements RepositoryIdI
 			array('order' => 'asc')
 		);
 	}
+    
+    public function findForPassenger($trigger = true)
+    {
+    	return $this->findBy(
+    		array('published' => true, 'forPassenger' => $trigger), 
+    		array('order' => 'asc')
+    	);
+    }
 		
 }

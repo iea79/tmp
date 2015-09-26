@@ -127,3 +127,21 @@ passengerDetail:
         blank: "Please enter passenger name"   
     email:
         blank: "Please enter email"
+    mobilePhone:
+        blank: "Please enter phone number"
+    picture:
+        blank: "Please download photo"
+        
+creditCard:
+    cardNumber:
+        blank: "Sorry, we did not recognize your credit card number, please enter it again. Credit card have 16 digits and begin with the number 4."
+    firstname:
+        blank: "Please specify the first name."
+    lastname:
+        blank: "Please specify the last name."
+        
+skrill:
+    email:
+        blank: "Please enter your e-mail address."
+    subject:
+        blank: "Please enter subject."       

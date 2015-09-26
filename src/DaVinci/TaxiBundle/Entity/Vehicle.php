@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="vehicle")
  */
-class Vehicle {
+class Vehicle 
+{
 	
 	/**
 	 * @ORM\Id
@@ -21,7 +22,7 @@ class Vehicle {
 	/**
 	 * @ORM\Column(type="string", columnDefinition="ENUM('Economy', 'Compact', 'Midsize', 'Standart', 'Full Size', 'Premium', 'Luxury', 'Other', 'Convertible', 'Van', 'SUV', 'Speciality', 'Pickup')", name="vehicle_class", length=100)
 	 * @Assert\Choice(
-	 * 		groups={"flow_createPassengerRequest_step2"},
+	 * 		groups={"flow_createPassengerRequest_step2", "edit_passenger_request"},
 	 * 		callback="getPossibleChoices",
 	 * 		message="Choose a valid vehicle class"
 	 * )

@@ -16,6 +16,7 @@ use DaVinci\TaxiBundle\Services\Informer\InformerInterface;
 use DaVinci\TaxiBundle\Entity\Tariff;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 class StockSubscriber implements EventSubscriberInterface 
 {
@@ -61,7 +62,7 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		if (
 			PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->securityContext->isGranted('ROLE_USER')
+    		&& Offices::RECIPIENT_USER == $event->getInitiatedBy()
 		) {
 			$passengerRequest->setDriver($driver);
 			$passengerRequest->removeCanceledDrivers($driver);
@@ -76,13 +77,27 @@ class StockSubscriber implements EventSubscriberInterface
 				
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
-			
-		$this->informer->notify($driver->getUser(), PassengerRequestEvents::APPROVE_REQUEST);
-	}
+		
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_USER) {
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::APPROVE_REQUEST,
+                Offices::RECIPIENT_USER
+            );
+        }
+        
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER) {
+            $this->informer->notify(
+                $passengerRequest->getDriver()->getUser(), 
+                PassengerRequestEvents::APPROVE_REQUEST,
+                Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER
+            );
+        }
+    }
 	
 	public function onDeclineDriverPassengerRequest(CommonDriverRequestEvent $event)
 	{
-		$passengerRequest = $event->getPassengerRequest();
+        $passengerRequest = $event->getPassengerRequest();
 		$driver = $event->getDriver();
 	
 		try {
@@ -107,48 +122,69 @@ class StockSubscriber implements EventSubscriberInterface
 		
 		$passengerRequestRepository = $event->getPassengerRequestRepository();
 		$passengerRequestRepository->saveAll($passengerRequest);
-	
-		$this->informer->notify($driver->getUser(), PassengerRequestEvents::DECLINE_DRIVER_REQUEST);
+        
+        if ($event->getInitiatedBy() == Offices::RECIPIENT_USER) {
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
+                $event->getInitiatedBy()
+            );
+        }
 	}
 	
 	public function onCancelPassengerRequest(CancelRequestEvent $event)
 	{
 		$passengerRequest = $event->getPassengerRequest();
-				
-		try {
-			if (
-				$this->securityContext->isGranted('ROLE_USER')
-				&& PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
-			) {
-				$datetime = new \DateTime('+2 hours');
-				
-				if (0 == $datetime->diff($passengerRequest->getPickUp())->invert) {
-					$this->processByPassengerRequest($passengerRequest);
-				}
-				
-				if (
-					1 == $datetime->diff($passengerRequest->getPickUp())->invert
-					&& Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
-				) {
-					$this->processByUser($passengerRequest->getUser());
-					$this->processByUser($passengerRequest->getDriver()->getUser());
-				}
-			}
-		} catch (RequesterException $exception) {
-			return;
-		}
-				
-		$passengerRequest->cancelState();
-		
-		$repository = $event->getPassengerRequestRepository();
-		$repository->saveAll($passengerRequest);
-	}
+			
+        if (
+            $event->getInitiatedBy() == Offices::RECIPIENT_USER
+            && PassengerRequest::STATE_APPROVED_SOLD == $passengerRequest->getState()->getName()
+        ) {
+            $datetime = new \DateTime('+2 hours');
+            $diff = $datetime->diff($passengerRequest->getPickUp());
+
+            if (0 == $diff->invert) {
+                try {
+                    $this->processByPassengerRequest(
+                        $passengerRequest, 
+                        $passengerRequest->getDriver()->getUser()
+                    );
+                } catch (RequesterException $exception) {
+                    return;
+                }
+            }
+
+            if (
+                1 == $diff->invert
+                && Tariff::PAYMENT_METHOD_ESCROW == $passengerRequest->getTariff()->getPricePaymentMethod()
+            ) {
+                try {
+                    $this->processByUser($passengerRequest->getUser());
+                    $this->processByUser($passengerRequest->getDriver()->getUser());
+                } catch (RequesterException $exception) {
+                    return;
+                }
+            }
+
+            $passengerRequest->cancelState();
+
+            $repository = $event->getPassengerRequestRepository();
+            $repository->saveAll($passengerRequest);
+
+            $this->informer->notify(
+                $passengerRequest->getUser(), 
+                PassengerRequestEvents::CANCEL_REQUEST,
+                $event->getInitiatedBy()
+            );
+        }
+    }    
 	
-	private function processByPassengerRequest(PassengerRequest $passengerRequest)
+    private function processByPassengerRequest(PassengerRequest $passengerRequest, $recipient)
 	{
 		$this->remoteRequester->makePassengerRequestOperation(
 			$passengerRequest, 
-			RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
+            RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER,
+            $recipient
 		);
 	}
 	
@@ -158,7 +194,5 @@ class StockSubscriber implements EventSubscriberInterface
 			$user, RemoteRequester::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER
 		);
 	}
-	
+    
 }
-
-?>

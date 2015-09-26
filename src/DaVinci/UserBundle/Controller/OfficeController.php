@@ -26,13 +26,16 @@ class OfficeController extends StepsController
 {
 	
     /**
-     * @Route("/choose-office", name="fos_user_registration_confirmed")
+     * @Route("/choose-office/{requestId}", name="fos_user_registration_confirmed", defaults={"requestId" = 0})
      * @Method("GET")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER') or has_role('ROLE_COMPANYDRIVER') or has_role('ROLE_TAXIMANAGER') or has_role('ROLE_TAXICOMPANY')")
      */
-    public function office_chooseAction()
+    public function officeChooseAction($requestId)
     {
-        return $this->render('DaVinciUserBundle:Offices:office_choose.html.twig');
+        return $this->render(
+            'DaVinciUserBundle:Offices:office_choose.html.twig',
+            array('requestId' => $requestId)
+        );
     }
     
     /**
@@ -57,10 +60,10 @@ class OfficeController extends StepsController
      * @Route("/office-passenger-profile", name="office_passenger_profile")
      * @Security("has_role('ROLE_USER')")
      */
-    public function office_passenger_profileAciton(Request $request)
+    public function officePassengerProfileAciton(Request $request)
     {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user)) {
+        $user = $this->get('security.context')->getToken()->getUser();
+        if (is_null($user)) {
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
         }
        
@@ -71,24 +74,25 @@ class OfficeController extends StepsController
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                $usr = $form->getData();
-               
+                $updatedUser = $form->getData();
+                
                 $pass = $form['current_password']->getData();
+                
                 // set new password if added
                 if (!empty($pass)) {
-                    $user->setPlainPassword($form['new']->getData());
+                    $updatedUser->setPlainPassword($form['new']->getData());
                 }
-                $this->container->get('fos_user.user_manager')->updateUser($usr);
                 
-                return new \Symfony\Component\HttpFoundation\Response('success', 200);
+                $this->get('fos_user.user_manager')->updateUser($updatedUser);
+                
+                return new Response('success', 200);
             }
         }
-        
-        
+                
         return $this->container->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_passenger_profile_edit_form.html.twig', array(
 				'form' => $form->createView(),
-                'isPasswordExpired' => $isPassExp
+                'isPasswordExpired' => !$user->isPasswordNotExpired()
         	)
         );
     }
@@ -157,7 +161,7 @@ class OfficeController extends StepsController
             }
 
             $user = $this->get('security.context')->getToken()->getUser();
-            if (null === $user || !is_object($user)) {
+            if (is_null($user) || !is_object($user)) {
                 throw new NotFoundHttpException(sprintf('There is empty user, try login'));
             }
 
@@ -194,21 +198,27 @@ class OfficeController extends StepsController
             throw new AccessDeniedException('You have to be logged in as a driver');
         }
         
+        $user = $this->get('security.context')->getToken()->getUser();
+        
         $driverRepository = $this
         	->get('doctrine')
         	->getManager()
         	->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
         
-        $driver = $driverRepository->findOneByUserId(
-        	$this->get('security.context')->getToken()->getUser()->getId()
-        );
+        $driver = $driverRepository->findOneByUserId($user->getId());
         
         return $this->get('templating')->renderResponse(
         	'DaVinciUserBundle:Offices:office_driver.html.twig',
         	array(
-        		'openRequests' => $this->getStockRequests(),
+        		'openRequests' => $this->getStockRequests(array(
+                    PassengerRequest::STATE_OPEN,
+                    PassengerRequest::STATE_PENDING,
+                    PassengerRequest::STATE_APPROVED_SOLD,
+                    PassengerRequest::STATE_SOLD
+                )),
                 'vehicleClasses' => VehicleClasses::getFilterChoices(),
            		'driver' => $driver,
+                'user' => $user,
                 'method' => $method
         	)
         );        
@@ -218,7 +228,7 @@ class OfficeController extends StepsController
      * @Route("/block-profile", name="block_profile")
      * @Security("has_role('ROLE_USER')")
      */
-    public function block_profileAction()
+    public function blockProfileAction()
     {
         return $this->render('DaVinciUserBundle:Offices:block_profile.html.twig');
     }
@@ -227,7 +237,7 @@ class OfficeController extends StepsController
      * @Route("/filter-table", name="filter_table")
      * @Security("has_role('ROLE_USER')")
      */   
-    public function filter_tableAction()
+    public function filterTableAction()
     {
         return $this->render('DaVinciUserBundle:Home:filter_table.html.twig');
     }

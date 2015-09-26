@@ -31,7 +31,7 @@ class AddCityFieldSubscriber implements EventSubscriberInterface {
             'property' => 'city',
             'query_builder' => function (EntityRepository $repository) use ($country) {
                 if ($country == NULL)
-                    $countyr = '';
+                    $country = '';
 
                 if (is_numeric($country)) {
                     $result= $repository->createQueryBuilder('c')

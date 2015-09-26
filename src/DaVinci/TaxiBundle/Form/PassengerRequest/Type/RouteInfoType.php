@@ -6,9 +6,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class RouteInfoType extends AbstractType {
+class RouteInfoType extends AbstractType 
+{
 	
-	public function buildForm(FormBuilderInterface $builder, array $options) {
+	public function buildForm(FormBuilderInterface $builder, array $options) 
+    {
 		$builder
 			->add('distance', 'hidden')
 			->add('duration', 'hidden')

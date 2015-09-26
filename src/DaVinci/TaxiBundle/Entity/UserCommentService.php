@@ -20,10 +20,10 @@ class UserCommentService
 		$this->repository = $repository;
 	}
 	
-	public function create(UserComment $comment, User $user, $column)
+	public function create(UserComment $comment, User $user)
 	{
 		$comment->setState(UserComment::STATUS_MODERATE);
-        $comment->setTypeByColumn($column);
+        $comment->setTypeByColumn();
         $comment->setUser($user);
         
         $this->save($comment);

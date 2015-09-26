@@ -31,7 +31,7 @@
         </a>
         <span class="back"></span>
     </li>
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 4 %}last uk-active{% else %}last{% endif %}">
+    <li class="{% if app.request.get('_route') == 'passenger_request_confirm' %}last uk-active{% else %}last{% endif %}">
         <a href="#">
             <div class="arrow_box">
                 <span class="on">4<i class="uk-icon-check-circle"></i></span>

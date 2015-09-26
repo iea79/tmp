@@ -4,7 +4,11 @@ namespace DaVinci\TaxiBundle\Entity\Payment;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+
 use DaVinci\TaxiBundle\Entity\Money;
+use DaVinci\TaxiBundle\Entity\User;
+
+use DaVinci\TaxiBundle\Utils\Assert as AssertUtil;
 
 /**
  * @ORM\Entity(repositoryClass="MakePaymentRepository")
@@ -57,7 +61,27 @@ class MakePayment
 	 * @ORM\Column(type="string")
 	 */
 	private $description;
-		
+    
+    /**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('payment', 'addition', 'shop-purchase')", name="operation_type", length=20)
+	 */
+    private $operationType;
+    
+    /**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('in-progress', 'declined', 'completed')", name="operation_state", length=20)
+	 */
+    private $operationState;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="created_time")
+	 */
+	private $createdTime;
+    
+    /**
+	 * @ORM\Column(type="datetimetz", name="processed_time")
+	 */
+	private $processedTime;
+    		
 	/**
 	 * Get id
 	 *
@@ -200,7 +224,7 @@ class MakePayment
      *
      * @return MakePayment
      */
-    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -251,6 +275,116 @@ class MakePayment
     public function getDescription()
     {
         return $this->description;
+    }
+    
+    /**
+     * Set operationType
+     *
+     * @param string $operationType
+     *
+     * @return MakePayment
+     */
+    public function setOperationType($operationType)
+    {
+        AssertUtil::inArray(
+            MakePayments::getOperationTypesList(), 
+            $operationType, 
+            "Undefined operation type :: {$operationType}"
+        );
+            	
+    	$this->operationType = $operationType;
+
+        return $this;
+    }
+
+    /**
+     * Get operationType
+     *
+     * @return string
+     */
+    public function getOperationType()
+    {
+        return $this->operationType;
+    }
+    
+
+    /**
+     * Set operationState
+     *
+     * @param string $operationState
+     *
+     * @return MakePayment
+     */
+    public function setOperationState($operationState)
+    {
+        AssertUtil::inArray(
+            MakePayments::getOperationStatesList(), 
+            $operationState, 
+            "Undefined operation state :: {$operationState}"
+        );
+        
+        $this->operationState = $operationState;
+
+        return $this;
+    }
+
+    /**
+     * Get operationState
+     *
+     * @return string
+     */
+    public function getOperationState()
+    {
+        return $this->operationState;
+    }
+    
+
+    /**
+     * Set createdTime
+     *
+     * @param \DateTime $createdTime
+     *
+     * @return MakePayment
+     */
+    public function setCreatedTime($createdTime)
+    {
+        $this->createdTime = $createdTime;
+
+        return $this;
+    }
+
+    /**
+     * Get createdTime
+     *
+     * @return \DateTime
+     */
+    public function getCreatedTime()
+    {
+        return $this->createdTime;
+    }
+
+    /**
+     * Set processedTime
+     *
+     * @param \DateTime $processedTime
+     *
+     * @return MakePayment
+     */
+    public function setProcessedTime($processedTime)
+    {
+        $this->processedTime = $processedTime;
+
+        return $this;
+    }
+
+    /**
+     * Get processedTime
+     *
+     * @return \DateTime
+     */
+    public function getProcessedTime()
+    {
+        return $this->processedTime;
     }
     
 }

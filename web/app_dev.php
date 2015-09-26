@@ -13,13 +13,14 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
     || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
     || !(in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1'
         , '81.198.90.13' //dima
-        , '217.118.83.187' //Evgeny Ivanov
+        , '62.16.43.150' //Evgeny Ivanov
         , '89.209.11.134' //vasya
         , '185.43.248.214' //aleksey
         , '109.68.173.20' //evgeniy voronov
         , '95.111.150.84' //Darya
         , '37.133.94.73' //Evgeny April
         , '89.252.8.95' //Yuriy Martynchik
+        , '77.52.123.202' //Yuriy Martynchik(second)
         , '2.135.194.139' //Elena Ilyna
         , 'fe80::1', '::1')) || php_sapi_name() === 'cli-server') ) && !getenv("C9_PROJECT")
 ) {

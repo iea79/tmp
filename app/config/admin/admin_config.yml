@@ -1,4 +1,13 @@
 services:
+    davinci.taxi.admin.messagecontent:
+        class: DaVinci\TaxiBundle\Admin\MessageContentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Content's messages" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\MessageContent
+            - SonataAdminBundle:CRUD
+            
     davinci.taxi.admin.comment:
         class: DaVinci\TaxiBundle\Admin\UserCommentAdmin
         tags:

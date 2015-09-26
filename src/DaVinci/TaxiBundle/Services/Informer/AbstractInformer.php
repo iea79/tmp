@@ -2,11 +2,14 @@
 
 namespace DaVinci\TaxiBundle\Services\Informer;
 
+use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\MessageContent;
 use DaVinci\TaxiBundle\Entity\MessageContentService;
+
 use DaVinci\TaxiBundle\Utils\Assert;
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 
-abstract class AbstractInformer 
+abstract class AbstractInformer implements InformerInterface
 {
 	
 	/**
@@ -18,12 +21,23 @@ abstract class AbstractInformer
 	{
 		$this->messageContentService = $messageContentService;
 	}
-	
-	/**
-	 * @param unknown $literalCode
-	 * @return Ambigous <\DaVinci\TaxiBundle\Entity\MessageContent, NULL>
+    
+    public function notify(User $user, $literalCode, $recipient)
+    {
+        $contentInfo = $this->prepareContent($literalCode, $recipient);
+        if (!$contentInfo) {
+            return;
+        }
+        
+        $this->process($user, $contentInfo, $recipient);
+    }    
+
+    /**
+	 * @param string $literalCode
+     * @param string $recipient
+	 * @return \DaVinci\TaxiBundle\Entity\MessageContent
 	 */
-	protected function prepareContent($literalCode)
+	protected function prepareContent($literalCode, $recipient)
 	{
 		Assert::inArray(
 			PassengerRequestEvents::getEventList(), 
@@ -31,9 +45,14 @@ abstract class AbstractInformer
 			get_class($this) . ": event literal code doesn't exist #{$literalCode}"	
 		);
 		
-		return $this->messageContentService->getByCode($literalCode);
+		return $this->messageContentService->getByLiteralCodeAndRecipient($literalCode, $recipient);
 	}
+    
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+	 * @param \DaVinci\TaxiBundle\Entity\MessageContent $contentInfo
+     * @param string $recipient
+	 */
+    abstract protected function process(User $user, MessageContent $contentInfo, $recipient);
 	
 }
-
-?>

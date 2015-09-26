@@ -70,6 +70,7 @@ sonata_admin:
                     - davinci.taxi.admin.blogcolumn
                     - davinci.taxi.admin.comment
                     - davinci.taxi.admin.seoparams
+                    - davinci.taxi.admin.messagecontent
 
             sonata.admin.group.administration:
                 label:           sonata_administration

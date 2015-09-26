@@ -37,17 +37,16 @@
     <body class="{% block theme %}default{% endblock %}">
         <div class="wrap-content">
             {% block header %}
-
                 <header  class="header-wrapper">
                     <div class="header-top">
                         <div class="header-top-in">
                             <nav class="nav-head">
-                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">
+                                <a href="{{ url('da_vinci_taxi_homepage') }}" class="logo">    
                                     <img src="{{ asset('bundles/davincitaxi/images/logo.png') }}" alt="{{ 'Taxi My Price'|trans}}">
                                 </a>
                                 <ul class="main-menu uk-navbar-content uk-navbar-center">
                                     <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
-                                    <li><a href="#">{{ 'Driver'|trans }}</a></li>
+                                    <li><a href="{{ url('driver') }}">{{ 'Driver'|trans }}</a></li>
                                     <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
                                 </ul>
                                 <ul class="sigin"> 
@@ -216,41 +215,53 @@
                     <ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav="{multiple:false}">
                         <li><div class="offcanvas-haed">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %} 
-                                    {{ 'Hello!'|trans}} 
+                                    <span class="uk-text-contrast">{{ 'Hello'|trans}}, {{ app.user.firstname }} {{ app.user.lastname }} !</span>
                                 {% else %} 
-                                    <a href="{{ url('fos_user_security_login') }}">{{ 'Sing Up '|trans}}<i class="uk-icon-sign-in"></i></a>
+                                    <a class="uk-text-contrast" href="{{ url('fos_user_security_login') }}"><span class="uk-text-contrast">{{ 'Log In/Sign Up'|trans}} <i class="uk-icon-sign-in"></span></i></a>
                                 {% endif %}
                             </div></li>
-                        
-                        <li class="uk-parent"><a href="#">Your passanger</a>
+                        <li class="uk-parent"><a href="#">You passenger</a>
                             <ul class="uk-nav-sub">
-                                <li><a href="">Book</a></li>
-                                <li><a href="{{ url('profit') }}">Profit</a></li>
-                                <li><a href="{{ url('help') }}">Help</a></li>
+                                <li><a href="{{ url('da_vinci_taxi_homepage')}}">{{ 'Book'|trans }}</a></li>
+                                {% if is_granted('ROLE_USER') %}
+                                    <li><a href="{{ url('office_passenger')}}">{{ 'Office'|trans }}</a></li>
+                                {% endif %}
+                                <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
+                                <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>
 
                             </ul>
                         </li>
-                        <li class="uk-parent"><a href="#">Your driver</a>
+                        <li class="uk-parent"><a href="#">You driver</a>
                             <ul class="uk-nav-sub">
-                                <li><a href="">TMP market</a></li>
-                                <li><a href="{{ url('profit') }}">Profit</a></li>
-                                <li><a href="{{ url('help') }}">Help</a></li>                   
+                                <li><a href="{{ url('da_vinci_taxi_homepage')}}">TMP market</a></li>
+                                {% if is_granted('ROLE_TAXIDRIVER') %}
+                                    <li><a href="{{ url('office_driver')}}">{{ 'Office'|trans }}</a></li>
+                                {% endif %}
+                                <li><a href="{{ url('driver') }}">{{' Driver'|trans}}</a></li>
+                                <li><a href="{{ url('profit') }}">{{ 'Profit'|trans }}</a></li>
+                                <li><a href="{{ url('help') }}">{{ 'Help'|trans }}</a></li>                   
 
                             </ul>
                         </li>
+                        {#
                         <li class="uk-parent"><a href="#">Store</a>
                             <ul class="uk-nav-sub">
-                                <li><a href="">For passanger</a></li>
+                                <li><a href="">For passenger</a></li>
                                 <li><a href="">For driver</a></li>
                                 <li><a href="">General</a></li>
                                 <li><a href="{{ url('help') }}">Help</a></li>                   
 
                             </ul>
                         </li>
-                        <li class="uk-active"><a href="{{ url('about') }}">About TMP</a></li>
-                        <li class="uk-active"><a href="">TMP agreements</a></li>
-                        <li class="uk-active"><a href="">Media</a></li>
-                        <li class="uk-active"><a href="">Log out <i class="mp-icon-logout"></i></a></li>
+                        #}
+                        <li class="uk-active"><a href="{{ url('about') }}">{{' About TMP '|trans}}</a></li>
+                        <li class="uk-active"><a href="">{{' Privacy Policy '|trans}}</a></li>
+                        {#
+                        <li class="uk-active"><a href="">Social Networks</a></li>
+                        #}
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <li class="uk-active"><a href="{{ url('fos_user_security_logout') }}">{{' Log out '|trans}} <i class="mp-icon-logout"></i></a></li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>

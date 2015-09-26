@@ -21,18 +21,25 @@ class TransferOperationEvent extends Event
 	protected $makePaymentRepository;
 	
 	/**
-	 * @var description
+	 * @var string
 	 */
 	protected $description;
+    
+    /**
+	 * @var string
+	 */
+	protected $operationType;
 	
 	public function __construct(
 		MakePayment $makePayment,
 		MakePaymentRepository $makePaymentRepository,
-		$description
+		$description,
+        $operationType
 	) {
 		$this->makePayment = $makePayment;
 		$this->makePaymentRepository = $makePaymentRepository;
-		$this->description = $description; 		
+		$this->description = $description;
+        $this->operationType = $operationType;
 	}
 	
 	/**
@@ -51,10 +58,21 @@ class TransferOperationEvent extends Event
 		return $this->makePaymentRepository;
 	}
 	
+    /**
+     * return string
+     */
 	public function getDescription()
 	{
 		return $this->description;
 	}
+    
+    /**
+     * return string
+     */
+    public function getOperationType()
+    {
+        return $this->operationType;
+    }    
 	
 }
 

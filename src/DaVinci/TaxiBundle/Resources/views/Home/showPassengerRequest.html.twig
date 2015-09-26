@@ -1,46 +1,51 @@
-{% macro showRequest(request, name) %}
+{% macro showRequest(request, actualUser, name) %}
     {# Modal window #}
     <div id="route_{{ name }}_{{ request.id }}" class="uk-modal pop-up route-modal">
         <div class="uk-modal-dialog">
             <a class="uk-modal-close uk-close"></a>
-            <div class="popup-head">{{ request.routePoints[0].place }} - {% for point in request.routePoints %}{% if loop.index > 1 %}{{ point.place }}{% endif %}{% endfor %}</div>
+            <div class="popup-head">{{ request.routePoints[0].place }}{% for point in request.routePoints %}{% if loop.index > 1 %} - {{ point.place }}{% endif %}{% endfor %}</div>
             <div class="order-step-four">
                 <div id="steps" class="order-details-over">
                     <div class="check-order">
                         <div class="passenger-info">
                             <div class="wrap-left">
-                                <dl class="quantity">
-                                    <h1 class="labels">{{'Passenger info'|trans}}</h1>
-                                    <hr>
-                                    <dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ request.passengerDetail.adult }}), {{'children'|trans}} ({{ request.passengerDetail.children }}), {{'seniors'|trans}} ({{ request.passengerDetail.seniors }})</dd>
-                                    {% if request.passengerDetail.notMySelf == true %}
-                                        <dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
-                                    {% else %}
-                                        <dd class="uk-hidden">&nbsp;</dd>	
-                                    {% endif %}
-                                    {% if request.passengerDetail.picture.path is defined %}
-                                        <dt class="photo">
-                                            <img src="{{ request.passengerDetail.picture.path|imagine_filter('passenger_avatar') }}" height="{{ request.passengerDetail.picture.height }}" width="{{ request.passengerDetail.picture.width }}" />
-                                        </dt>
-                                    {% endif %}	
-                                    <dd class="personal">
-                                        <dl>
-                                            <dt>{{'Name'|trans}}:</dt><dd>{{ request.passengerDetail.name }}</dd>
-                                            <dt>{{'E-mail'|trans}}:</dt><dd>{{ request.passengerDetail.email }}</dd>
-                                            {% if request.passengerDetail.skype != '' %}
-                                                <dt>{{'Skype'|trans}}:</dt><dd>{{ request.passengerDetail.skype }}</dd>
-                                            {% endif %}	
-                                            <dt>{{'Mobile'|trans}}:</dt><dd>+{{ request.passengerDetail.mobileCode }} {{ request.passengerDetail.mobilePhone }}</dd>
-                                            {% if request.passengerDetail.mobileHasWifi == true or request.passengerDetail.mobileHasWhatsapp == true %}
-                                                <dt>{{'Your mobile have'|trans}}:</dt><dd>{% if request.passengerDetail.mobileHasWifi %}wi-fi{% endif %}&nbsp;{% if request.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
-                                            {% endif %}	
-                                        </dl>
-                                    </dd>
-                                    {% if request.passengerDetail.about != '' %}
-                                        <dt class="about">{{'About passenger'|trans}}</dt>
-                                        <dd class="about">{{ request.passengerDetail.about }}</dd>
-                                    {% endif %}
-                                </dl>
+                                {% 
+                                    if (is_granted('ROLE_TAXIDRIVER') and actualUser is not null and request.driver.id is defined and request.driver.id == actualUser.id)
+                                    or (is_granted('ROLE_USER') and not is_granted('ROLE_TAXIDRIVER') and request.user.id is defined and request.user.id == actualUser.id)
+                                %}
+                                    <dl class="quantity">
+                                        <h1 class="labels">{{'Passenger info'|trans}}</h1>
+                                        <hr>
+                                        <dt>{{'Quantity'|trans}}:</dt><dd>{{'Adults'|trans}} ({{ request.passengerDetail.adult }}), {{ 'children'|trans }} ({{ request.passengerDetail.children }}), {{'seniors'|trans}} ({{ request.passengerDetail.seniors }})</dd>
+                                        {% if request.passengerDetail.notMySelf == true %}
+                                            <dd class="uk-width-1-1">{{"I am making this booking on anofer\'s behalf."|trans}}</dd>
+                                        {% else %}
+                                            <dd class="uk-hidden">&nbsp;</dd>	
+                                        {% endif %}
+                                        {% if request.passengerDetail.picture.path is defined %}
+                                            <dt class="photo">
+                                                <img src="{{ request.passengerDetail.picture.path|imagine_filter('passenger_avatar') }}" height="{{ request.passengerDetail.picture.height }}" width="{{ request.passengerDetail.picture.width }}" />
+                                            </dt>
+                                        {% endif %}	
+                                        <dd class="personal">
+                                            <dl>
+                                                <dt>{{'Name'|trans}}:</dt><dd>{{ request.passengerDetail.name }}</dd>
+                                                <dt>{{'E-mail'|trans}}:</dt><dd>{{ request.passengerDetail.email }}</dd>
+                                                {% if request.passengerDetail.skype != '' %}
+                                                    <dt>{{'Skype'|trans}}:</dt><dd>{{ request.passengerDetail.skype }}</dd>
+                                                {% endif %}	
+                                                <dt>{{'Mobile'|trans}}:</dt><dd>+{{ request.passengerDetail.mobileCode }} {{ request.passengerDetail.mobilePhone }}</dd>
+                                                {% if request.passengerDetail.mobileHasWifi == true or request.passengerDetail.mobileHasWhatsapp == true %}
+                                                    <dt>{{'Your mobile have'|trans}}:</dt><dd>{% if request.passengerDetail.mobileHasWifi %}wi-fi{% endif %}&nbsp;{% if request.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
+                                                {% endif %}	
+                                            </dl>
+                                        </dd>
+                                        {% if request.passengerDetail.about != '' %}
+                                            <dt class="about">{{'About passenger'|trans}}</dt>
+                                            <dd class="about">{{ request.passengerDetail.about }}</dd>
+                                        {% endif %}
+                                    </dl>
+                                {% endif %}    
                                 <div class="tariff">
                                 <h1 class="labels">{{'Fare'|trans}}</h1>
                                 <hr>
@@ -120,7 +125,7 @@
                                                 <dt>{{'place for strollers'|trans}}</dt><dd>{{ request.vehicleOptions.wheelChairPlace }}</dd>
                                             {% endif %} 
                                             {% if request.vehicleOptions.trailer == true %}
-                                                <dt>{{'roof rack'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>    
+                                                <dt>{{'trailer'|trans}}</dt><dd><i class="uk-icon-check"></i></dd>    
                                             {% endif %}
                                           </dl>
                                         </div>
@@ -221,7 +226,7 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="disloc bottom">
                 <div id="calculate_route">
                     <div id="route_result">
                         <div>
@@ -237,9 +242,11 @@
                 </div>
                 <div id="map-canvas" style="height: 500px;"></div>
             </div>
-            <div class="confirmation uk-margin-top">
-                <button class="uk-button uk-button-danger uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Buy</button>
-            </div>
+            {% if is_granted('ROLE_TAXIDRIVER') and actualUser is not null and not request.isDriverInList(actualUser.id) %}
+                <div class="confirmation uk-margin-top">
+                    <button class="uk-button uk-button-danger uk-width-1-1 uk-width-small-1-2 uk-width-medium-1-3">Buy</button>
+                </div>
+            {% endif %}    
         </div>
     </div>
 {% endmacro %}

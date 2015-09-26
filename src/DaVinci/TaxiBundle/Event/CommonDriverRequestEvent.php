@@ -32,23 +32,32 @@ class CommonDriverRequestEvent extends Event
 	 * @var \DaVinci\TaxiBundle\Entity\IndependentDriverRepository
 	 */
 	protected $driverRepository;
-		
-	/**
+    
+    /**
+     * @var string
+     */
+    protected $initiatedBy;
+
+
+    /**
 	 * @param PassengerRequest $request
 	 * @param PassengerRequestRepository $requestRepository
 	 * @param IndependentDriver $driver
 	 * @param IndependentDriverRepository $driverRepository
+     * @param string $initiatedBy
 	 */
 	public function __construct(
 		PassengerRequest $request, 
 		PassengerRequestRepository $requestRepository,
 		IndependentDriver $driver,
-		IndependentDriverRepository $driverRepository
+		IndependentDriverRepository $driverRepository,
+        $initiatedBy
 	) {
 		$this->passengerRequest = $request;
 		$this->passengerRequestRepository = $requestRepository;
 		$this->driver = $driver;
 		$this->driverRepository = $driverRepository;
+        $this->initiatedBy = $initiatedBy;
 	}
 	
 	/**
@@ -82,6 +91,14 @@ class CommonDriverRequestEvent extends Event
 	{
 		return $this->driverRepository;
 	}
+    
+    /**
+     * @return string
+     */
+    public function getInitiatedBy() 
+    {
+        return $this->initiatedBy;
+    }
 		
 }
 

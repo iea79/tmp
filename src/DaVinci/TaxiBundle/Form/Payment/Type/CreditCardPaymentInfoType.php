@@ -15,9 +15,7 @@ class CreditCardPaymentInfoType extends AbstractType
 	{
 		$builder
 			->add('paymentMethodCode', 'hidden')
-			->add('amount', 'number', array(
-				'mapped' => false
-			))
+			->add('amount', 'number')
 			->add('paymentMethod', new CreditCardType());
 	}
 	

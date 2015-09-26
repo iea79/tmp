@@ -1,0 +1,14 @@
+{{ form_widget(form.edit_passenger_request) }}
+{% include 'DaVinciTaxiBundle:Home:editBlock1.html.twig' %}
+{% include 'DaVinciTaxiBundle:Home:editBlock2.html.twig' %}
+{% include 'DaVinciTaxiBundle:Home:editBlock3.html.twig' %}
+<div class="craue_formflow_buttons">
+    <div class="uk-grid uk-grid-small uk-grid-width-medium-1-2 uk-grid-width-1-1">
+	    <div>
+		    <button id="cancel_edit_passenger_request_button" class="uk-button uk-button-warning uk-width-1-1" value="{{ url('passenger_request_confirm', {'id': passengerRequest.id}) }}">Cancel</button>
+	    </div>
+	    <div>
+		    <button id="confirm_edit_passenger_request_button" class="uk-button uk-button-danger uk-width-1-1">Confirm</button>
+	    </div>
+	</div>
+</div>

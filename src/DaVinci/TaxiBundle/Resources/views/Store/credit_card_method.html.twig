@@ -7,32 +7,32 @@
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.firstname, 'First name:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.firstname) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.firstname) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct First name'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.firstname) }}</div>
     </div>
 </div>
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.lastname, 'Last name:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.lastname) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.lastname) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct Last name'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.lastname) }}</div>
     </div>
 </div>
 <div class="uk-form-row">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.cardNumber, 'Card number:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.cardNumber) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.cardNumber) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Please enter a valid credit or debit card number'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.cardNumber) }}</div>
     </div>
 </div>
 <div class="uk-form-row cwcvc">
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.secretSalt, 'CVV/CVC:') }}<i class="uk-icon-asterisk"></i></div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.secretSalt) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.secretSalt) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Please enter a valid 3- or 4-digit security code (CVV)'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.secretSalt) }}</div>
     </div>
 </div>
 <div class="uk-form-row year">
@@ -53,14 +53,14 @@
     <div class="uk-form-label">{{ form_label(form.paymentMethod.address, 'Address:') }}</div>
     <div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.address) }}
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Your Address'|trans }}"></span>
     </div>
 </div>
 <div class="uk-form-row zipcode">
     <div class="uk-form-label">{{ form_label(form.paymentMethod.zipCode, 'Zip code:') }}</div>
     <div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.zipCode) }}
-        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Write correct information'|trans }}"></span>
+        <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Zip Code of Your Address'|trans }}"></span>
     </div>
 </div>
 {#<div class="uk-form-row">
@@ -75,7 +75,7 @@
 	<div class="uk-form-label">{{ form_label(form.paymentMethod.ownNote, 'Own note:') }}</div>
 	<div class="uk-form-controls">
         {{ form_widget(form.paymentMethod.ownNote) }}
-        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
         <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{ 'Additional information about the payment purpose'|trans }}"></span>
+        <div class="errors">{{ form_errors(form.paymentMethod.ownNote) }}</div>
     </div>
 </div>

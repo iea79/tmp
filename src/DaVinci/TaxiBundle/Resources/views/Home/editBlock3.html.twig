@@ -1,0 +1,196 @@
+	<input type="hidden" id="editPassengerRequest_tariff_market_price" name="editPassengerRequest[tariff][market_price]" value="{{ marketPrice }}" />
+	<input type="hidden" id="editPassengerRequest_tariff_market_tips" name="editPassengerRequest[tariff][market_tips]" value="{{ marketTips }}" />
+	<div class="wrap-left">
+		 <div class="order-details-over">
+			<h1>{{'Fare'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
+			<div class="order-details">
+				<p class="note">
+					<span>{{'Note!'|trans}}</span> {{'Increase interest in his warrant'|trans}}
+				</p>
+				<div class="pers-data">
+					<div class="tarif-line">
+						<div class="tarif-line-group first">
+							<label for="editPassengerRequest_tariff_price_type" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Price'|trans}}<i class="uk-icon-asterisk"></i></span>
+							</label>		
+							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="1" />
+							<span class="recommend"> {{'Market'|trans}} ${{ marketPrice }}</span>
+						</div>
+						<div class="tarif-line-group second">
+							<input type="radio" id="editPassengerRequest_tariff_price_type" name="editPassengerRequest[tariff][price_type]" value="0" checked="checked" />
+							<label class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Your'|trans}}</span>
+							</label>
+							<span class="overinput">
+								<span class="dollar">$</span>
+								<input id="editPassengerRequest_tariff_your_price" name="editPassengerRequest[tariff][your_price]" type="text" placeholder="0" value="{{ passengerRequest.tariff.price }}" />
+							</span>
+						</div>
+						<div class="tarif-line-group third">
+							<label for="editPassengerRequest_tariff_price_payment_method" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Payment'|trans}}:</span>
+							</label>
+							<div class="choose-lang">
+								{{ form_widget(form.tariff.price_payment_method) }}
+							</div>
+						</div>
+					</div>
+					<div class="tarif-line">
+						<div class="tarif-line-group first">
+							<label for="editPassengerRequest_tariff_tips_type" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Tips'|trans}}<i class="uk-icon-asterisk"></i></span>
+							</label>
+							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="1" /> 
+							<span class="recommend">{{'Market'|trans}} ${{ marketTips }}</span>
+						</div>
+						<div class="tarif-line-group second">
+							<input type="radio" id="editPassengerRequest_tariff_tips_type" name="editPassengerRequest[tariff][tips_type]" value="0" checked="checked" /> 
+							<label class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Your'|trans}}</span>
+							</label>
+							<span class="overinput">
+								<span class="dollar">$</span>
+								<input id="editPassengerRequest_tariff_your_tips" name="editPassengerRequest[tariff][your_tips]" type="text" placeholder="0" value="{{ passengerRequest.tariff.tips }}" />
+							</span>
+						</div>
+						<div class="tarif-line-group third">
+							<label for="editPassengerRequest_tariff_payment_method" class="tarif-line-adapt-wrap">
+								<span class="uk-form-controls">{{'Payment'|trans}}:</span>
+							</label>
+							<div class="choose-lang">
+								{{ form_widget(form.tariff.tips_payment_method) }}
+							</div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="order-details-over">
+			<h1 class="pass-info">{{'Passenger info'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'The information we’ll need to know is as follows'|trans}}"></span></h1>
+			<div class="order-details">
+				<p class="quantity-header">{{'Quantity'|trans}}<i class="uk-icon-asterisk"></i></p>
+				<div class="quantity-over">
+					<div class="tarif-line">
+						<div class="tarif-line-group">
+							<div>
+								<label for="editPassengerRequest_passenger_detail_adult">{{'Adults'|trans}}</label>
+								<div class="spinner">
+									<input id="editPassengerRequest_passenger_detail_adult" name="editPassengerRequest[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="{% if passengerRequest.passengerDetail.adult > 1 %}{{ passengerRequest.passengerDetail.adult }}{% else %}1{% endif %}">
+									<span class="plus uk-icon-caret-up"></span>
+									<span class="minus uk-icon-caret-down"></span>
+								</div>
+							</div>
+						</div>
+						<div class="tarif-line-group center-group">
+							<div>
+								<label for="editPassengerRequest_passenger_detail_children">{{'Children'|trans}}</label>
+								<div class="spinner">
+									<input class="limited" id="editPassengerRequest_passenger_detail_children" name="editPassengerRequest[passenger_detail][children]" type="text" step="1" min="0" max="10" value="{{ passengerRequest.passengerDetail.children }}" />
+									<span class="plus uk-icon-caret-up"></span>
+									<span class="minus uk-icon-caret-down"></span>
+								</div>
+							</div>
+						</div>
+						<div class="tarif-line-group right-group">
+							<div>
+								<label for="editPassengerRequest_passenger_detail_seniors">{{'Seniors'|trans}}</label>
+								<div class="spinner">
+									<input class="limited" id="editPassengerRequest_passenger_detail_seniors" name="editPassengerRequest[passenger_detail][seniors]" type="text" step="1" min="0" max="10" value="{{ passengerRequest.passengerDetail.seniors }}" />
+									<span class="plus uk-icon-caret-up"></span>
+									<span class="minus uk-icon-caret-down"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="contactpassenger">
+					<div class="nottravel">
+						<label for="editPassengerRequest_passenger_detail_not_my_self">
+							<input id="editPassengerRequest_passenger_detail_not_my_self" name="editPassengerRequest[passenger_detail][not_my_self]" type="checkbox"{% if passengerRequest.passengerDetail.notMySelf is defined and passengerRequest.passengerDetail.notMySelf == true %} checked="checked"{% endif %} />
+							<span class="book-for-another">{{"I'm making this booking on another's behalf"|trans}}.</span>
+							<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Make reservation for others'|trans}}"></span>
+						</label>
+					</div>
+					<div class="another-wrap opder_personal_info">
+						<div class="pers-data">
+							<div class="left">
+								<label for="editPassengerRequest_passenger_detail_name">{{'Name'|trans}}:<i class="uk-icon-asterisk"></i></label>
+							</div> 
+							<div class="right">
+								{{ form_widget(form.passenger_detail.name, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Write your First and Last name!'|trans}}"></span>
+							</div>
+						</div>
+						<div class="pers-data">
+							<div class="left">
+								<label>Photo:<i class="uk-icon-asterisk"></i></label>
+							</div> 
+							<div class="right">
+								<div class="uk-form-file">
+									<button class="uk-button uk-button-primary">Add image</button>
+									{{ form_widget(form.passenger_detail.picture, {'attr': {'placeholder': 'Add image', 'class': 'change-photo'}}) }}
+									<p class="photo">file formats: JPG, PNG, GIF, BMP (up to 2mb)</p>
+								</div>
+							</div>
+						</div>
+						<div class="pers-data">
+							<div class="left">
+								<label for="editPassengerRequest_passenger_detail_email">E-mail:<i class="uk-icon-asterisk"></i></label>
+							</div>
+							<div class="right">
+								{{ form_widget(form.passenger_detail.email, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Your email address'|trans}}"></span>
+							</div>
+						</div>
+						<div class="pers-data">
+							<div class="left">
+								<label for="editPassengerRequest_passenger_detail_skype">Skype:</label>
+							</div>
+							<div class="right">
+								{{ form_widget(form.passenger_detail.skype, {'attr': {'placeholder': 'Not completed'}}) }}
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'Your Skype name'|trans}}"></span>
+							</div>
+						</div> 
+						<div class="pers-data">
+							<div class="left">
+								<label>{{'Mobile'|trans}}<i class="uk-icon-asterisk"></i></label>
+							</div>
+							<div class="right forphoneinput">
+								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'tabindex':'5', 'class':'mobile-phone'}}) }}
+								{{ form_widget(form.passenger_detail.mobile_code, {'attr': {'placeholder': '1', 'class':'mobile-code'}}) }}
+								<span>+</span> 
+								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'777-777-7777'|trans}}"></span>
+							</div>
+						</div> 
+						<div class="pers-data"><div class="left">
+								<span class="uk-form-controls">{{'Your mobile has'|trans}}:</span>
+							</div>
+							<div class="right">
+								<label for="editPassengerRequest_passenger_detail_mobile_has_wifi">
+									<input id="editPassengerRequest_passenger_detail_mobile_has_wifi" name="editPassengerRequest[passenger_detail][mobile_has_wifi]" type="checkbox"{% if passengerRequest.passengerDetail.mobileHasWifi is defined and passengerRequest.passengerDetail.mobileHasWifi == true %} checked="checked"{% endif %} />
+									<span class="uk-form-controls">&nbsp;&nbsp;wi-fi <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Any kind of connection'|trans}}"></span>
+									</span>
+								</label>
+								<label for="editPassengerRequest_passenger_detail_mobile_has_whatsapp" class="right-group">
+									<input id="editPassengerRequest_passenger_detail_mobile_has_whatsapp" name="editPassengerRequest[passenger_detail][mobile_has_whatsapp]" type="checkbox"{% if passengerRequest.passengerDetail.mobileHasWhatsapp is defined and passengerRequest.passengerDetail.mobileHasWhatsapp == true %} checked="checked"{% endif %} />
+									<span>
+										<span class="uk-form-controls">&nbsp;&nbsp;whatsapp <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Free communication program'|trans}}"></span></span>
+									</span>
+								</label>
+							</div>
+						</div>
+						<div class="about-passenger">
+							<p>{{'About passenger'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{'Describe the passenger. Help driver to recognize you'|trans}}"></span></p>
+							{{ form_widget(form.passenger_detail.about, {'attr': {'placeholder': '25 years old tall lady, wearing green coat and red hat',  'class': 'charcount', 'maxlength' : "200"}}) }}
+							<h6 class="precounter">{{'symbols left:'|trans}}</h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+
+		
+
+
+

@@ -6,9 +6,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class VehicleInfoType extends AbstractType {
+class VehicleInfoType extends AbstractType 
+{
 	
-	public function buildForm(FormBuilderInterface $builder, array $options) {
+	public function buildForm(FormBuilderInterface $builder, array $options) 
+    {
 		$builder
 			->add('vehicle', new VehicleType())
 			->add('vehicle_options', new VehicleOptionsType())
@@ -16,7 +18,8 @@ class VehicleInfoType extends AbstractType {
 			->add('vehicle_driver_conditions', new VehicleDriverConditionsType());
 	}
 	
-	public function setDefaultOptions(OptionsResolverInterface $resolver) {
+	public function setDefaultOptions(OptionsResolverInterface $resolver) 
+    {
 		$resolver->setDefaults(array(
 			'data_class' =>	'DaVinci\TaxiBundle\Entity\PassengerRequest',
 			'validation_groups' => array('flow_createPassengerRequest_step2'),
@@ -24,7 +27,8 @@ class VehicleInfoType extends AbstractType {
 		));
 	}
 	
-	public function getName() {
+	public function getName() 
+    {
 		return 'createPassengerRequestStepVehicleInfo';
 	}
 	

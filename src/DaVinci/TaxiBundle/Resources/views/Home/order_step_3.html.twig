@@ -1,5 +1,5 @@
-	<input type="hidden" id="createPassengerRequestStepPassengerInfo[tariff][market_price]" name="createPassengerRequestStepPassengerInfo[tariff][market_price]" value="{{ marketPrice }}" />
-	<input type="hidden" id="createPassengerRequestStepPassengerInfo[tariff][market_tips]" name="createPassengerRequestStepPassengerInfo[tariff][market_tips]" value="{{ marketTips }}" />
+	<input type="hidden" id="createPassengerRequestStepPassengerInfo_tariff_market_price" name="createPassengerRequestStepPassengerInfo[tariff][market_price]" value="{{ marketPrice }}" />
+	<input type="hidden" id="createPassengerRequestStepPassengerInfo_tariff_market_tips" name="createPassengerRequestStepPassengerInfo[tariff][market_tips]" value="{{ marketTips }}" />
 	<div class="wrap-left">
 		 <div class="order-details-over">
 			<h1>{{'Fare'|trans}} <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}"  data-uk-tooltip="{pos:'right'}" title="{{'Write your taxi fare'|trans}}"></span></h1>
@@ -13,17 +13,17 @@
 							<label for="createPassengerRequestStepPassengerInfo_tariff_price_type" class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Price'|trans}}<i class="uk-icon-asterisk"></i></span>
 							</label>		
-							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][price_type]" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" value="1"{% if flow.formData.tariff.priceType is defined and flow.formData.tariff.priceType == 1 %} checked="checked"{% endif %} />
+							<input type="radio" id="createPassengerRequestStepPassengerInfo_tariff_price_type" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" value="1"{% if flow.formData.tariff.priceType is defined and flow.formData.tariff.priceType == 1 %} checked="checked"{% endif %} />
 							<span class="recommend"> {{'Market'|trans}} ${{ marketPrice }}</span>
 						</div>
 						<div class="tarif-line-group second">
-							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][price_type]" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" value="0"{% if flow.formData.tariff.priceType is defined and flow.formData.tariff.priceType == 0 %} checked="checked"{% endif %} />
+							<input type="radio" id="createPassengerRequestStepPassengerInfo_tariff_price_type" name="createPassengerRequestStepPassengerInfo[tariff][price_type]" value="0"{% if flow.formData.tariff.priceType is defined and flow.formData.tariff.priceType == 0 %} checked="checked"{% endif %} />
 							<label class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
-								<input id="createPassengerRequestStepPassengerInfo[tariff][your_price]" name="createPassengerRequestStepPassengerInfo[tariff][your_price]" type="text" placeholder="0" value="{% if flow.formData.tariff.yourPrice is defined and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}0{% endif %}" />
+								<input id="createPassengerRequestStepPassengerInfo_tariff_your_price" name="createPassengerRequestStepPassengerInfo[tariff][your_price]" type="text" placeholder="0" value="{% if flow.formData.tariff.yourPrice is defined and flow.formData.tariff.yourPrice > 0 %}{{ flow.formData.tariff.yourPrice }}{% else %}0{% endif %}" />
 							</span>
 						</div>
 						<div class="tarif-line-group third">
@@ -40,17 +40,17 @@
 							<label for="createPassengerRequestStepPassengerInfo_tariff_tips_type" class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Tips'|trans}}<i class="uk-icon-asterisk"></i></span>
 							</label>
-							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][tips_type]" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" value="1"{% if flow.formData.tariff.tipsType is defined and flow.formData.tariff.tipsType == 1 %} checked="checked"{% endif %} /> 
+							<input type="radio" id="createPassengerRequestStepPassengerInfo_tariff_tips_type" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" value="1"{% if flow.formData.tariff.tipsType is defined and flow.formData.tariff.tipsType == 1 %} checked="checked"{% endif %} /> 
 							<span class="recommend">{{'Market'|trans}} ${{ marketTips }}</span>
 						</div>
 						<div class="tarif-line-group second">
-							<input type="radio" id="createPassengerRequestStepPassengerInfo[tariff][tips_type]" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" value="0"{% if flow.formData.tariff.tipsType is defined and flow.formData.tariff.tipsType == 0 %} checked="checked"{% endif %} /> 
+							<input type="radio" id="createPassengerRequestStepPassengerInfo_tariff_tips_type" name="createPassengerRequestStepPassengerInfo[tariff][tips_type]" value="0"{% if flow.formData.tariff.tipsType is defined and flow.formData.tariff.tipsType == 0 %} checked="checked"{% endif %} /> 
 							<label class="tarif-line-adapt-wrap">
 								<span class="uk-form-controls">{{'Your'|trans}}</span>
 							</label>
 							<span class="overinput">
 								<span class="dollar">$</span>
-								<input id="createPassengerRequestStepPassengerInfo[tariff][your_tips]" name="createPassengerRequestStepPassengerInfo[tariff][your_tips]" type="text" placeholder="0" value="{% if flow.formData.tariff.yourPrice is defined and flow.formData.tariff.yourTips > 0 %}{{ flow.formData.tariff.yourTips }}{% else %}0{% endif %}" />
+								<input id="createPassengerRequestStepPassengerInfo_tariff_your_tips" name="createPassengerRequestStepPassengerInfo[tariff][your_tips]" type="text" placeholder="0" value="{% if flow.formData.tariff.yourPrice is defined and flow.formData.tariff.yourTips > 0 %}{{ flow.formData.tariff.yourTips }}{% else %}0{% endif %}" />
 							</span>
 						</div>
 						<div class="tarif-line-group third">
@@ -75,7 +75,7 @@
 							<div>
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_adult">{{'Adults'|trans}}</label>
 								<div class="spinner">
-									<input id="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" name="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="{% if flow.formData.passengerDetail.adult > 1 %}{{ flow.formData.passengerDetail.adult }}{% else %}1{% endif %}">
+									<input id="createPassengerRequestStepPassengerInfo_passenger_detail_adult" name="createPassengerRequestStepPassengerInfo[passenger_detail][adult]" type="text" step="1" min="0" max="10" value="{% if flow.formData.passengerDetail.adult > 1 %}{{ flow.formData.passengerDetail.adult }}{% else %}1{% endif %}">
 									<span class="plus uk-icon-caret-up"></span>
 									<span class="minus uk-icon-caret-down"></span>
 								</div>
@@ -85,7 +85,7 @@
 							<div>
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_children">{{'Children'|trans}}</label>
 								<div class="spinner">
-									<input class="limited" id="createPassengerRequestStepPassengerInfo[passenger_detail][children]" name="createPassengerRequestStepPassengerInfo[passenger_detail][children]" type="text" step="1" min="0" max="10" value="{{ flow.formData.passengerDetail.children }}" />
+									<input class="limited" id="createPassengerRequestStepPassengerInfo_passenger_detail_children" name="createPassengerRequestStepPassengerInfo[passenger_detail][children]" type="text" step="1" min="0" max="10" value="{{ flow.formData.passengerDetail.children }}" />
 									<span class="plus uk-icon-caret-up"></span>
 									<span class="minus uk-icon-caret-down"></span>
 								</div>
@@ -95,7 +95,7 @@
 							<div>
 								<label for="createPassengerRequestStepPassengerInfo_passenger_detail_seniors">{{'Seniors'|trans}}</label>
 								<div class="spinner">
-									<input class="limited" id="createPassengerRequestStepPassengerInfo[passenger_detail][seniors]" name="createPassengerRequestStepPassengerInfo[passenger_detail][seniors]" type="text" step="1" min="0" max="10" value="{{ flow.formData.passengerDetail.seniors }}" />
+									<input class="limited" id="createPassengerRequestStepPassengerInfo_passenger_detail_seniors" name="createPassengerRequestStepPassengerInfo[passenger_detail][seniors]" type="text" step="1" min="0" max="10" value="{{ flow.formData.passengerDetail.seniors }}" />
 									<span class="plus uk-icon-caret-up"></span>
 									<span class="minus uk-icon-caret-down"></span>
 								</div>
@@ -186,11 +186,6 @@
 						</div>
 					</div>
 				</div>
-
-<!--div class="uk-button-group uk-width-1-1">
-	a href="#" class="uk-button uk-button-warning float_left">&lt; Back</a>
-	<a href="#" class="uk-button uk-button-danger float_right">Submit &gt;</a
-</div-->
 			</div>
 		</div>
     </div>

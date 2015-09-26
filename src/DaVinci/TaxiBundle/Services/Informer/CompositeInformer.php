@@ -3,8 +3,9 @@
 namespace DaVinci\TaxiBundle\Services\Informer;
 
 use DaVinci\TaxiBundle\Entity\User;
+use DaVinci\TaxiBundle\Entity\MessageContent;
 
-class CompositeInformer extends AbstractInformer implements InformerInterface
+class CompositeInformer extends AbstractInformer
 {
 	
 	/**
@@ -22,12 +23,17 @@ class CompositeInformer extends AbstractInformer implements InformerInterface
 		unset($this->informers[get_class($informer)]);
 	}
 	
-	public function notify(\DaVinci\TaxiBundle\Entity\User $user, $literalCode)
+	public function notify(User $user, $literalCode, $recipient)
 	{
 		foreach ($this->informers as $informer) {
-			$informer->notify($user, $literalCode);
+			$informer->notify($user, $literalCode, $recipient);
 		}
 	}
+    
+    protected function process(User $user, MessageContent $contentInfo, $recipient)
+    {
+        return;
+    }    
 	
 }
 

@@ -1,4 +1,6 @@
-<div class="message"><a href="#" class="mp-icon-trash"></a>{#<span>Внимание! </span>Информационная строка #}</div>
+    <div class="message">
+        <a href="#" class="mp-icon-trash"></a>{#<span>Внимание! </span>Информационная строка #}
+    </div>
 	<table class="uk-table">
 		<thead>
 			<tr>
@@ -11,41 +13,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>1</td>
-				<td>TMP All Orders</td>
-				<td class="uk-text-bold"><a href="#" data-uk-toggle="{target:'#message'}">Продлите свой офис водителя!</a></td>
-				<td>Александр, напоминаем вам, что через 5 дней истекает ...</td>
-				<td>11 OKT 14</td>
-			</tr>
-			<tr id="message" class="uk-hidden notifmessage"><td colspan="6">{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK. Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и ...'|trans}}</td></tr>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>2</td>
-				<td>TMP Order Status</td>
-				<td><a href="#" data-uk-toggle="{target:'#message1'}">Продлите свой офис водителя!</a></td>
-				<td>Александр, напоминаем вам, что через 5 дней истекает ...</td>
-				<td>11 OKT 14</td>
-			</tr>
-			<tr id="message1" class="uk-hidden notifmessage"><td colspan="6">{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK. Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и ...'|trans}}</td></tr>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>3</td>
-				<td>TMP Payments</td>
-				<td><a href="#" data-uk-toggle="{target:'#message2'}">Продлите свой офис водителя!</a></td>
-				<td>Александр, напоминаем вам, что через 5 дней истекает ...</td>
-				<td>11 OKT 14</td>
-			</tr>
-			<tr id="message2" class="uk-hidden notifmessage"><td colspan="6">{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK. Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и ...'|trans}}</td></tr>
-			<tr>
-				<td><input type="checkbox"></td>
-				<td>4</td>
-				<td>My Wallet</td>
-				<td><a href="#" data-uk-toggle="{target:'#message3'}">Продлите свой офис водителя!</a></td>
-				<td>Александр, напоминаем вам, что через 5 дней истекает ...</td>
-				<td>11 OKT 14</td>
-			</tr>
-			<tr id="message3" class="uk-hidden notifmessage"><td colspan="6">{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK. Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и ...'|trans}}</td></tr>
+            {% for message in messages %}
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>{{ message.id }}</td>
+                    <td>{{ message.getEventName() }}</td>
+                    <td class="uk-text-bold">
+                        <a href="#" data-uk-toggle="{target:'#message'}">{{ message.subject|raw }}</a>
+                    </td>
+                    <td>{{ message.content|raw }}</td>
+                    <td>{{ message.createDate()|date('d M Y') }}</td>
+                </tr>
+            {% else %}    
+                <tr class="empty-fillter-table">
+                    <td colspan="6">{{ 'Messages not found'|trans }}</td>
+                </tr>    
+            {% endfor %}			
 		</tbody>
 	</table>

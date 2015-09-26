@@ -115,10 +115,10 @@
 													<tr>
 															<th>#</th>
 															<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{ 'TMP ID'|trans }}
-																<div class="questiontooltip">?</div>
+																<div class="questiontooltip"></div>
 															</th>
 															<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check open orders{% endtrans %}">{{ 'My orders'|trans }}
-																<div class="questiontooltip">?</div>
+																<div class="questiontooltip"></div>
 															</th>
 													</tr>
 											</thead>
@@ -137,7 +137,7 @@
 																<div class="passanger-pay">
 																	<div class="y-no">
 																		<button onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
-																		<button onclick="" class="uk-button">{{ 'Edit'|trans }}</button>
+																		<button onclick="location.href='{{ path('passenger_request_edit', {'id': request.id}) }}'" class="uk-button">{{ 'Edit'|trans }}</button>
 																	</div>
 																</div>
 															{% else %}
@@ -195,7 +195,7 @@
 														</td>
 													</tr>
                                                     {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                                    {{ showRequest(request, 'passenger_open') }}
+                                                    {{ showRequest(request, user, 'passenger_open') }}
 												{% endfor %}
 											</tbody>
 										</table>
@@ -215,25 +215,25 @@
                                         <tr>
                                             <th>#</th>
                                             <th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{ 'TMP ID'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
                                             <th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Date and time of exact trip{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Date/Time'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
                                             <th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{ 'Route'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
                                             <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Your fare{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Price'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
-                                            <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check bought deals{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                            <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Status of your order{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Status'|trans }}
+                                                <div class="questiontooltip"></div>
                                             </th>
                                             <th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till your arrival{% endtrans %}"><span class="filter"></span><a class="sort" href="#"><i class="mp-icon-arrow-up"></i><i class="mp-icon-arrow-down uk-text-primary"></i></a>{{ 'Left time'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
                                             <th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Edit trip details{% endtrans %}">{{ 'Edit'|trans }}
-                                                <div class="questiontooltip">?</div>
+                                                <div class="questiontooltip"></div>
                                             </th>
                                         </tr>
                                     </thead>
@@ -249,17 +249,21 @@
                                                 <td>${{ tariff.getTotalPrice() }}</td>
                                                 <td>
                                                     {% if request.getStateValue() == 'completed' %}
+                                                    	<span>{{ 'completed'|trans }}</span>
                                                         <a data-uk-modal="{target:'#about-driver'}">
-                                                            <i class="mp-icon-taxi uk-text-primary"></i>
+                                                            {#<i class="mp-icon-taxi uk-text-primary"></i>#}
+                                                            <i class="mp-icon-good status-photo">
+                                                            	<img src="{{ asset('bundles/davincitaxi/images/avatar.png') }}" alt="">
+                                                            </i>
                                                         </a>
-                                                        <br />
+                                                        {#<br />
                                                         <span class="uk-text-danger">
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star"></i>
                                                             <i class="mp-icon-star uk-text-warning"></i>
-                                                        </span>
+                                                        </span>#}
                                                     {% elseif request.getStateValue() == 'rescue' %}
                                                         <a href="#" class="uk-button uk-button-danger rescue">{{ 'Rescue'|trans }}</a>
                                                     {% else %}
@@ -278,8 +282,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="edit-close">
-                                                        {% if request.getStateValue() == 'open' %}
-                                                            <a href="#route_request_edit_{{ request.id }}" data-uk-modal class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
+                                                        {% if request.getStateValue() == 'before-open' or request.getStateValue() == 'open' %}
+                                                            <a href="{{ path('passenger_request_edit', {'id': request.id}) }}" class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
                                                             </a>
                                                         {% else %}
                                                             <a class="mp-icon-edit uk-text-warning">
@@ -296,8 +300,7 @@
                                                 </td>
                                             </tr>
                                             {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
-                                            {{ showRequest(request, 'passenger_all') }}
-                                            {{ showRequest(request, 'request_edit') }}
+                                            {{ showRequest(request, user, 'passenger_all') }}
                                         {% endfor %}
                                     </tbody>
                                 </table>

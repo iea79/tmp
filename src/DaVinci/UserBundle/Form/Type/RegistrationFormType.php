@@ -31,6 +31,7 @@ class RegistrationFormType extends BaseType {
                             'invalid_message' => 'fos_user.password.mismatch',
                         ));
                 break;
+            
             case 2:
                        $builder->add('terms', 'checkbox', array('property_path' => 'termsAccepted'));
                 break;
