@@ -1,0 +1,165 @@
+# Group
+group:
+    edit:
+        submit: Update group
+    show:
+        name: Group name
+    new:
+        submit: Create group
+    flash:
+        updated: The group has been updated
+        created: The group has been created
+        deleted: The group has been deleted
+
+"Invalid CSRF token": Invalid CSRF token. Please reload.
+
+# Security
+"Bad credentials": Invalid username or password
+"Login or Register": Login or Register
+
+security:
+    login:
+        emailmobile: "mobile or email address"
+        username: "username"
+        password: "password"
+        remember_me: Remember me
+        submit: Log in
+
+# Profile
+profile:
+    show:
+        username: Username
+        email: Email
+    edit:
+        submit: Update
+    flash:
+        updated: The profile has been updated
+
+# Password change
+change_password:
+    submit: Change password
+    flash:
+        success: The password has been changed
+
+# Registration
+registration:
+    check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account.
+    confirmed: Congratulations %username%, your account is now activated.
+    back: Back to the originating page.
+    submit: Complete registration
+    flash:
+        user_created: The user has been created successfully
+    email:
+        subject: Welcome %username%!
+        message: |
+            Hello %username%!
+
+            To finish activating your account - please visit %confirmationUrl%
+
+            Regards,
+            the TaxiMyPrice team.
+
+# Password resetting
+resetting:
+    password_already_requested: The password for this user has already been requested within the last 24 hours.
+    check_email: An email has been sent to %email%. It contains a link you must click to reset your password.
+    request:
+        invalid_username: Phone or email address "%username%" does not exist.
+        username: "email address"
+        submit: Reset password
+    reset:
+        submit: Change password
+    flash:
+        success: The password has been reset successfully
+    email:
+        subject: Reset Password
+        message: |
+            Hello %username%!
+
+            To reset your password - please visit %confirmationUrl%
+
+            Regards,
+            the TaxiMyPrice Team.
+
+# Global strings
+layout:
+    logout: Logout
+    login: Login
+    register: Register
+    logged_in_as: Logged in as %username%
+
+
+# Form field labels
+form:
+    group_name: "Group name"
+    username: "Username"
+    email: "E-mail"
+    current_password: "Current password"
+    password: "Password"
+    password_confirmation: "Confirm password"
+    new_password: "New password"
+    new_password_confirmation: "Verification"
+    dateOfBirth: "Birthday"
+    phone: "Phone"
+    skype: "Skype"
+    male: "Male"
+    female: "Female"
+    choosegender: "Choose your gender"
+    firstname: "First name"
+    lastname: "Last name"
+    gender: "Gender"
+    contactinfo: "Contact info"
+    signininfo: "Sign in info"
+    generalinfo: "General info"
+    gotonextstep: "Next step >"
+    iagreetotem: "I have read and agree to the <a href='%url%'>Terms and Conditions</a> and the <a href='%url%'>Privacy Policy</a>."
+    back: < Back
+    create_account: "Create Account"
+    finish: Complete
+    edit: Edit
+    
+    #office
+    old_password: "Old password"
+    
+
+    #registration
+    register.company: "Taxi Company: Manager Offie"
+    register.check: "Please check all details"
+    register.independent: "Independent Driver: Professional Offie"
+    register.company: "Taxi Company: Business Offie"
+    register.companydriver: "Taxi Company: Driver Offie"
+    
+    #independent driver
+    country: "Country"
+    city: "City"
+    english: "English"
+    other_language: "Other languages"
+    driving_experience: "Driving experience"
+    skype: "Skype"
+    phone_number: "Mobile number"
+    
+    #company
+    name_company: "Name of company"
+    company_country: "Country of registration"
+    company_city: "City of registration"
+    company_address: "Address of registration"
+    number_cars: "Number of cars"
+    mobile: "Mobile"
+    internet: "internet"
+    
+    
+    
+    please_select: "Please select..."
+    
+    loading: "loading..."
+    select_country_first: "select a country first"
+    
+    select_maker_first: "select a brand first"
+    
+fos_user:    
+    firstname:
+        latin: English/Latin characters only
+    lastname:
+        latin: English/Latin characters only
+    terms:
+        not_blank: "You should accept terms first"

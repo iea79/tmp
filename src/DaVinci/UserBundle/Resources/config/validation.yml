@@ -1,0 +1,244 @@
+DaVinci\TaxiBundle\Entity\Driver:
+    properties:
+        street:
+            - Length:
+                max: 200
+                maxMessage: independent.about.long
+                
+DaVinci\TaxiBundle\Entity\Address:
+    properties:
+        countrycity:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1", "flow_taxi_independent_driver_registration_step1"]
+                message: address.city.blank
+        street:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: address.street.blank
+            - Length:
+                max: 255
+                maxMessage: company.name.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+
+DaVinci\TaxiBundle\Entity\Language:
+   properties:
+        level:
+            - NotBlank:
+                groups: ["flow_taxi_independent_driver_registration_step1"]
+                message: language.level.blank
+    
+#DaVinci\TaxiBundle\Entity\IndependentDriver:
+#    properties:
+#        address:
+#            - Valid: ~
+#        user:
+#            - Valid: ~
+#        vehicle:
+#            - Valid: ~
+#        experience:
+#            - NotBlank:
+#                groups: ["flow_taxi_independent_driver_registration_step1"]
+#                message: independent.experience.blank
+#        phones:
+#            - Collection:
+#                fields:
+#                    phone:
+#                        - NotBlank:
+#                            groups: [ "flow_taxi_independent_driver_registration_step1"]
+#                            message: phones.phone.blank
+#                allowMissingFields: false         
+#        insuranceAccepted:
+#            - NotBlank: 
+#                message: independent.insurance.true
+#            - 'True': 
+#                message: independent.insurance.true
+#        about:
+#            - Length:
+#                max: 200
+#                maxMessage: independent.about.max
+                    
+DaVinci\TaxiBundle\Entity\DriverVehicle:
+    properties:
+        year:
+            - NotBlank:
+                message: vehicle.year.blank
+        make:
+            - NotBlank:
+                message: vehicle.make.blank
+        model:
+            - NotBlank:
+                message: vehicle.model.blank                
+        color:
+            - NotBlank:
+                message: vehicle.color.blank          
+        plate:
+            - NotBlank:
+                message: vehicle.plate.blank          
+        vehicleClass:
+            - NotBlank:
+                message: vehicle.vehicleClass.blank          
+        seats:
+            - NotBlank:
+                message: vehicle.seats.blank     
+        luggages:
+            - NotBlank:
+                message: vehicle.luggages.blank            
+        doors:
+            - NotBlank:
+                message: vehicle.doors.blank     
+        about:
+            - Length:
+                max: 200
+                maxMessage: vehicle.about.max   
+                
+
+DaVinci\TaxiBundle\Entity\TaxiCompany:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+             fields: name
+             errorPath: name 
+             message: company.name.already_used
+             groups: [ "flow_taxi_company_registration_step1", "DaVinciProfile" ]
+    properties:
+        address:
+            - Valid: ~
+        name:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: company.name.blank
+            - Length:
+                max: 255
+                maxMessage: company.name.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+        cars_amount:
+            - NotBlank: 
+                groups: [ "flow_taxi_company_registration_step1"]
+                message: company.cars.blank
+            - Choice: 
+                choices: [5, 10, 15, 20, 30, 40]
+                message:  company.cars.valid
+                groups: [ "flow_taxi_company_registration_step1" ]
+        skype:
+            - Length:
+                max: 255
+                maxMessage: company.skype.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+        phones:
+            - Collection:
+                fields:
+                    phone:
+                        - NotBlank:
+                            groups: [ "flow_taxi_company_registration_step1"]
+                            message: phones.phone.blank
+                allowMissingFields: false
+                                 
+DaVinci\TaxiBundle\Entity\User:
+    properties:
+        termsAccepted:
+            - 'True': 
+                groups: [ "flow_taxi_user_registration_step2"]
+                message: fos_user.terms.not_blank
+        firstname:   
+            - NotBlank: 
+                groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
+                message: fos_user.firstname.not_blank
+            - Length:
+                min: 1
+                minMessage: fos_user.firstname.short
+                max: 255
+                maxMessage: fos_user.firstname.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+            - Regex:
+                pattern: "/^[a-z ]+$/i"
+                htmlPattern: "^[a-zA-Z ]+$"
+                message: fos_user.firstname.latin
+                groups: [ "flow_taxi_user_registration_step1" ]
+        lastname:   
+            - NotBlank: 
+                groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile"]
+                message: fos_user.lastname.not_blank
+            - Length:
+                min: 1
+                minMessage: fos_user.lastname.short
+                max: 255
+                maxMessage: fos_user.lastname.long
+                groups: [ "flow_taxi_user_registration_step1" ]
+            - Regex:
+                pattern: "/^[a-z ]+$/i"
+                htmlPattern: "^[a-zA-Z ]+$"
+                message: fos_user.lastname.latin
+                groups: [ "flow_taxi_user_registration_step1" ]
+        email:
+            - Email:
+                message: fos_user.email.invalid
+                #checkMX: true - some gliches, shoold test
+                groups: [ "flow_taxi_user_registration_step1", "Profile" ]
+            - NotBlank: 
+                message: fos_user.email.blank
+                groups: [ "flow_taxi_user_registration_step1", "Profile" ]
+            - Length:
+                min: 2
+                minMessage: fos_user.email.short
+                max: 254
+                maxMessage: fos_user.email.long
+                groups: [ "flow_taxi_user_registration_step1" , "Profile"]
+        language: 
+            - Valid: ~
+       # gender:
+       #     - Choice: 
+       #         choices: [0, 1]
+       #         message:  fos_user.gender.valid
+       #         groups: [ "flow_taxi_user_registration_step1" ]
+
+            
+# Note: We still want to validate the email
+# See FOSUserBundle/Resources/config/validation/orm.xml to understand
+# the UniqueEntity constraint that was originally applied to both
+# username and email fields
+#
+# As you can see, we are only applying the UniqueEntity constraint to 
+# the email field and not the username field.
+FOS\UserBundle\Model\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+             fields: email
+             errorPath: email 
+             message: fos_user.email.already_used
+             groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile", "CheckEmail" ]
+
+    properties:
+        plainPassword:
+            - NotBlank:
+                message: fos_user.password.blank
+                groups: [ "flow_taxi_user_registration_step1", "ResetPassword", "ChangePassword" ]
+            - Length:
+                min: 3
+                minMessage: fos_user.password.short
+                groups: [ "flow_taxi_user_registration_step1", "DaVinciProfile", "ResetPassword", "ChangePassword"]
+
+FOS\UserBundle\Model\Group:
+    properties:
+        name:
+            - NotBlank:
+                message: fos_user.group.blank
+                groups: [ "DaVinciRegistration" ]
+            - Length:
+                min: 2
+                minMessage: fos_user.group.short
+                max: 255
+                maxMessage: fos_user.group.long
+                groups: [ "DaVinciRegistration" ]
+
+
+FOS\UserBundle\Propel\Group:
+    properties:
+        name:
+            - NotBlank:
+                message: fos_user.group.blank
+                groups: [ "DaVinciRegistration" ]
+            - Length:
+                min: 2
+                minMessage: fos_user.group.short
+                max: 255
+                maxMessage: fos_user.group.long
+                groups: [ "DaVinciRegistration" ]

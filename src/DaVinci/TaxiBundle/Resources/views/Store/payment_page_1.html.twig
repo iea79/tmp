@@ -1,0 +1,56 @@
+{# Payment step 1 #}
+	<div class="uk-active">
+{# Internal Payment Method #}
+		<div class="pay-balance">
+			<h4>{{'TMP payments:'|trans}}</h4>
+			{% for method in internalMethods %}
+				<div class="private">
+					<input type="radio" name="makePaymentStepMethod[paymentMethodCode]" id="makePaymentStepMethod[paymentMethodCode]" {% if loop.index == 1 %}checked="checked"{% endif %} value="1_{{ loop.index }}" /> {{ method }} {{'Balance'|trans}}<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{{ method }} {{'Balance'|trans}}"></span>
+				</div>
+			{% endfor %}
+		</div>
+{# Credit Card Payments #}
+		<div class="card-pay">
+			<h4>{{'Card payments:'|trans}}</h4>
+			<div class="uk-grid uk-grid-small">
+				{% for method in creditCardMethods %}
+					<div class="uk-panel uk-width-medium-1-5 uk-width-small-1-3 uk-width-1-2">
+						<input type="radio" name="makePaymentStepMethod[paymentMethodCode]" id="makePaymentStepMethod[paymentMethodCode]" value="2_{{ loop.index }}" />
+						{% if method == 'Visa' %}
+							<img src="{{ asset('bundles/davincitaxi/images/visa.png') }}" alt="" />
+							<span>Visa</span>
+						{% elseif method == 'Master Card' %}
+							<img src="{{ asset('bundles/davincitaxi/images/mcard.png') }}" alt="" />
+							<span>Master Card</span>
+						{% elseif method == 'Diners Club' %}
+							<img src="{{ asset('bundles/davincitaxi/images/dclub.png') }}" alt="" />
+							<span>Diners Club</span>
+						{% elseif method == 'American Express' %}
+							<img src="{{ asset('bundles/davincitaxi/images/amerexp.png') }}" alt="" />
+							<span>American Express</span>			
+						{% endif %}	
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+{# External Payment System Payments #}
+		<div class="i-pay">
+			<h4>{{'e-Payments:'|trans}}</h4>
+			<div class="uk-grid uk-grid-small">
+				{% for otherMethod in paymentMethods %}
+					{% if loop.index > 2 %}
+						<div class="uk-panel uk-width-medium-1-5 uk-width-small-1-3 uk-width-1-2">
+							<input type="radio" name="makePaymentStepMethod[paymentMethodCode]" id="makePaymentStepMethod[paymentMethodCode]"" value="{{ loop.index }}" />
+							{% if otherMethod == 'PayPal' %}
+								<img src="{{ asset('bundles/davincitaxi/images/paypal.png') }}" alt="" />
+								<span>PayPal</span>
+							{% elseif otherMethod == 'Skrill' %}
+								<img src="{{ asset('bundles/davincitaxi/images/skrill.png') }}" alt="" />
+								<span>Skrill</span>			
+							{% endif %}
+						</div>
+					{% endif %}	
+				{% endfor %}
+			</div>
+		</div>
+	</div>

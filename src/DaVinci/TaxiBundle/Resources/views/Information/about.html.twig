@@ -1,0 +1,93 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'about' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+	    <h4>{{ 'About TaxiMyPrice' |trans }}</h4>
+	    	<div class="buttom-swicher" data-uk-sticky>
+	            <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
+                    {% for at in all_tabs %}
+                        <li {% if loop.first %} class="uk-active" {% endif %}><a href="#{{ at.title|slugify }}">{{ at.title }}</a></li>
+                    {% endfor %}
+	            </ul>
+	        </div>
+{% endblock%}
+{% block body %}
+{# ======= About ========= #}
+<div class="whitebg shadow-main">
+    {% for at in all_tabs %}
+    <div class="empty">
+        <div id="{{ at.title|slugify }}" class="anchor" ></div>
+		<div class="info-block">
+            <div class="info-block passenger">
+                {% if at.textToLeft %}
+                  <div class="text">
+                      {{ at.textBlock|raw }}
+                  </div>
+                {% endif %}
+                <div class="video {% if not at.textToLeft %} top {% endif %}">
+                    <div class="videoWrapper">
+                        {% media at.youtubeLink, 'small' %}
+                    </div>
+                    {% if at.buttonText %}
+                    <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                    {% endif %}
+                </div>
+                {% if not at.textToLeft %}
+                    <div class="text">
+                      {{ at.textBlock|raw }}
+                    </div>
+                {% endif %}
+                {% if not at.textToLeft %}
+                    <div class="video bottom">
+                        <div class="videoWrapper">
+                            {% media at.youtubeLink, 'small' %}
+                        </div>
+                        {% if at.buttonText %}
+                        <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+                {% if at.comments.count %}
+                    <div class="otziv">
+                        <div class="rate-review">
+                            {% for c in at.comments %}
+                                <div class="uk-width-1-1">
+                                    <div class="uk-width-1-1 uk-text-primary name">{{ c.authorName }}</div>
+                                    <div class="uk-width-1-1 rate">
+                                        {% for i in 1..5 %}
+                                            <a><i class="mp-icon-star {% if i <= c.value %}uk-text-danger{% else %}uk-text-warning{% endif %}"></i></a>
+                                        {% endfor %}
+                                        / {{ c.date|localizeddate('medium', 'none', app.request.locale) }}
+                                    </div>
+                                    <div class="uk-width-1-1 review">
+                                        {{ c.message }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>  
+                {% endif %} 
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+	<div class="contact-buttons uk-grid uk-grid-small">
+		<a href="#" class="uk-button uk-button-primary">{{ 'Press' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'Social media' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'YouTube' |trans }}</a>
+		<a href="#" class="uk-button uk-button-primary">{{ 'Customers' |trans }}</a>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/pageinfo/about.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}

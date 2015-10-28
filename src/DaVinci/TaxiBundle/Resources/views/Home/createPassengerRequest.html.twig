@@ -1,0 +1,38 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %} {% endblock %}
+{% block body %}
+
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    <div class="home">
+        <div class="tabtaxi">
+            <ul class="uk-tab uk-tab-grid">
+                <li class="uk-width-1-2 current blue-drive">
+                    <a href="#" class="child"><span>{{ 'Book your trip'|trans }}</span></a>
+                </li>
+                <li class="uk-width-1-2 red-drive">
+                    <a href="{{ url('main_driver') }}" class="child"><span>{{ 'Choose the best passenger'|trans }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="steps-1-2-3">
+            {% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
+            {% if newRequestId is defined and newRequestId != false %}
+            	<div>{{ 'Last created order is'|trans }}: <a href="{{ path('passenger_request_payment', {'id': newRequestId}) }}">{{ newRequestId }}</a></div>
+            {% endif %}
+            {% include 'DaVinciTaxiBundle:Home:showSteps.html.twig' %}
+			{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
+		<div class="clear"></div>
+        </div>
+        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	{% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/main.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}

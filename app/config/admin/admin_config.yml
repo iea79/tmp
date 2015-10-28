@@ -1,0 +1,94 @@
+services:
+    davinci.taxi.admin.comment:
+        class: DaVinci\TaxiBundle\Admin\UserCommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Review's Comments" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\UserComment
+            - SonataAdminBundle:CRUD        
+        
+    davinci.taxi.admin.countrycity:
+        class: DaVinci\TaxiBundle\Admin\CountryCityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: sonata_countries }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\Admin\CountryCity
+            - SonataAdminBundle:CRUD
+            
+    davinci.taxi.admin.profitpage:
+        class: DaVinci\TaxiBundle\Admin\ProfitPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Profit page tabs" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\ProfitPage
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/profit']]     
+            
+    davinci.taxi.admin.aboutpage:
+        class: DaVinci\TaxiBundle\Admin\AboutPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "About page tabs" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\AboutPage
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/about']]     
+            
+    davinci.taxi.admin.faqentry:
+        class: DaVinci\TaxiBundle\Admin\FaqEntryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "FAQs" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\FaqEntry
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/faq']]     
+            
+    davinci.taxi.admin.guidepage:
+        class: DaVinci\TaxiBundle\Admin\GuidesPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Guides" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\GuidesPage
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/guides']]  
+
+    davinci.taxi.admin.videoguidepage:
+        class: DaVinci\TaxiBundle\Admin\VideoGuidesPageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Video Guides" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\VideoGuidesPage
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/videoguides']]
+            
+    davinci.taxi.admin.category:
+        class: DaVinci\TaxiBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Categories" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\Category
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/category']]          
+            

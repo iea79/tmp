@@ -1,0 +1,129 @@
+independent:
+    experience:
+        blank: Please select how many years Drivers Licence
+    about:
+        long: "[-Inf,Inf]The username is too long"
+    insurance:
+        true: "You must accept insurance"
+    about:
+        max: "About maximum size is 200 characters"
+        
+vehicle:
+    year:
+        blank: Choose a valid year
+    make:
+        blank: Choose a valid brand
+    model:
+        blank: Choose a valid model
+    color:
+        blank: Choose a valid color
+    plate:
+        blank: Please enter a number plate
+    vehicleClass:
+        blank: Choose a valid vehicleClass    
+    seats:
+        blank: Choose a valid seats    
+    luggages:
+        blank: Choose a valid luggages            
+    doors:
+        blank: Choose a valid doors
+    about:
+        max: "About maximum size is 200 characters"
+
+language:
+    level:
+        blank: English level is required 
+        
+company:
+    name:
+        already_used: The company name is already used
+        blank: Company Name is required
+        long: The name is to long
+    cars:
+        blank: Please chose number of cars
+        valid: Choose a valid cars amount.
+    skype:
+        long: Entered skype is too long
+
+phones:
+    phone:
+        blank: Mobile number is required
+     
+address: 
+    country:
+        blank: Country is required
+    city:
+        blank: City is required
+    street:
+        blank: Address is required
+
+fos_user:
+    username:
+        already_used: The username is already used
+        blank: Please enter a username
+        short: "[-Inf,Inf]The username is too short"
+        long: "[-Inf,Inf]The username is too long"
+    email:
+        already_used: The email is already used
+        blank: Please enter an email
+        short: "[-Inf,Inf]The email is too short"
+        long: "[-Inf,Inf]The email is too long"
+        invalid: The email is not valid
+    password:
+        blank: Please enter a password
+        short: "[-Inf,Inf]The password is too short"
+        mismatch: The entered passwords don't match
+    new_password:
+        blank: Please enter a new password
+        short: "[-Inf,Inf]The new password is too short"
+    current_password:
+        invalid: The entered password is invalid
+    group:
+        blank: Please enter a name
+        short: "[-Inf,Inf]The name is too short"
+        long: "[-Inf,Inf]The name is too long"
+    terms:
+        not_blank: "You should accept Terms and Conditions"
+    firstname:
+        not_blank: "Please enter first name"
+        short: "[-Inf,Inf]The name is too short"
+        long: "[-Inf,Inf]The name is too long"
+        latin: English/Latin characters only
+    lastname:
+        not_blank: "Please enter last name"
+        short: "[-Inf,Inf]The last name is too short"
+        long: "[-Inf,Inf]The last name is too long"
+        latin: English/Latin characters only
+    gender:
+        valid: "Choose a valid gender."
+
+passengerRequest:
+    pickUpTime:
+        blank: "Please enter pick up time"
+        wrongFormat: "Pick up time has wrong format"
+    pickUpDate:
+        blank: "Please enter pick up date"
+        wrongFormat: "Pick up date has wrong format"
+    returnTime:
+        wrongFormat: "Return time has wrong format"
+    returnDate:
+        wrongFormat: "Return date has wrong format"
+ 
+routePoint:
+    place:
+        blank: "Destination point is empty"
+        
+vehicle:
+    vehicleClass:
+        unexpectedTypeClass: "Vehicle class is undefined"
+
+vehicleChildSeat:
+    childSeatType:
+        unexpectedType: "Child seat type is undefined"
+        wrongNumber: "The number of seats must be integer"
+
+passengerDetail:
+    name:
+        blank: "Please enter passenger name"   
+    email:
+        blank: "Please enter email"

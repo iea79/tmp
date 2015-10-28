@@ -1,0 +1,10 @@
+DaVinci\TaxiBundle\Document\GuidesPage:
+    uri_schema: /guides/{title}
+    token_providers:
+        title: [content_method, { method: getTitle }] # slugify is true by default
+        
+        
+DaVinci\TaxiBundle\Document\VideoGuidesPage:
+    uri_schema: /video-guides/{title}
+    token_providers:
+        title: [content_method, { method: getTitle }]

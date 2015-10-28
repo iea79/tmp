@@ -1,0 +1,105 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'financial-office' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# ======= Swicher button ========= #}
+<div class="client-account">
+	<div class="shadow-main whitebg company-panel">
+		<div class="uk-grid uk-grid-small client-panel-list block-help">
+		{# block1 #}
+			<div class="clientid">
+				<a class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile'}">My profile</a>
+				<dl>
+					<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
+					<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+				</dl>
+			</div>
+		{# block2 #}
+			<div class="offices-block">
+				<div class="button-choose">
+					<div class="choose-office select-group">
+						<label>Office:</label>
+						<select>
+							<option class="active-office">Office passenger</option>
+							<option>Taxi company manager</option>
+						</select>
+						<button class="uk-button uk-button-success">Switch</button>
+					</div>
+					<div class="buttons-office">
+						<a class="uk-button uk-button-primary">My office</a>
+					</div>
+				</div>
+				<div class="message">
+					<div class="text">
+						<span>Внимание!</span>17 Mar 2015 заканчивается срок действия мембершипа “Оптимальный”
+					</div>
+					<a class="uk-button uk-button-danger">Extend</a>
+				</div>
+			</div>
+		{# block3 #}
+			<div class="money-block">
+				<div class="history">
+					<span>History:</span>
+					<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
+					<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
+					<a class="uk-button uk-button-primary">TMP</a>
+				</div>
+				<div class="balance">
+					<span>Balance:</span>
+					<a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
+					<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
+					<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
+				</div>
+				<div class="money">
+					<dl>
+						<dt>Main:</dt>
+						<dd>$0.00</dd>
+					</dl>
+					<dl>
+						<dt>Business:</dt>
+						<dd>$0.00</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{# ======= Fin office ========= #}
+<div class="shadow-main">
+	<div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
+		<div class="uk-panel uk-width-1-4{% if action == 'add' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_add') }}"'>$ {{ 'Add'|trans }}</button>
+		</div>
+		<div class="uk-panel uk-width-1-4{% if action == 'withdraw' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_withdraw') }}"'>$ {{'Withdraw'|trans}}</button>
+		</div>
+		<div class="uk-panel uk-width-1-4{% if action == 'transfer' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_transfer') }}"'>$ {{'Transfer'|trans}}</button>
+		</div>
+		<div class="uk-panel uk-width-1-4{% if action == 'history' %} uk-active{% endif %}">
+			<button class="uk-width-1-1 uk-button" onclick='location.href = "{{ path('financial_office_history') }}"'>$ {{'History'|trans}}</button>
+		</div>
+	</div>
+	<div class="whitebg">
+		<div class="message">
+			<span>Attention!</span> Information.
+		</div>
+		<ul id="finoffice" class="uk-switcher">
+			<li class="uk-active">
+				{% if action == 'add' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:add.html.twig' %}
+				{% elseif action == 'withdraw' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:withdraw.html.twig' %}
+				{% elseif action == 'transfer' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:transfer.html.twig' %}
+				{% elseif action == 'history' %}
+					{% include 'DaVinciTaxiBundle:Finoffice:history.html.twig' %}
+				{% endif %}	
+			</li>
+		</ul>
+	</div>
+</div>
+
+{% endblock %}

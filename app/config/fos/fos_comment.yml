@@ -1,0 +1,35 @@
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: Application\Sonata\CommentBundle\Entity\Comment
+            thread: Application\Sonata\CommentBundle\Entity\Thread
+    form:
+        comment:
+            type: sonata_comment_comment
+
+#sonata_comment:
+#    manager_type: orm # can be 'orm' or 'mongodb'
+#    class:
+#        comment: Application\Sonata\commentBundle\Entity\Comment # This is an optional value
+#        thread: Application\Sonata\commentBundle\Entity\Thread  # This is an optional value
+
+
+doctrine_phpcr:
+    odm:
+        document_managers:
+            default:  
+                mappings:
+                    ApplicationSonataCommentBundle:
+                        prefix: Application\Sonata\CommentBundle\PHPCR    
+
+
+services:
+   davinci.admin.fakecomment:
+      class: Application\Sonata\CommentBundle\Admin\PHPCR\FakeCommentAdmin
+      tags:
+          - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Fake comments", show_in_dashboard: false  }
+      arguments: [~, Application\Sonata\CommentBundle\PHPCR\FakeComment, ~]
+      calls:
+          - [ setTranslationDomain, [FakeCommentAdmin]]
+          - [ setLabelTranslatorStrategy, [@sonata.admin.label.strategy.underscore]]  

@@ -1,0 +1,367 @@
+parameters:
+    # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    
+    # FriendOfSymfony Bundles
+    - { resource: fos/fos_comment.yml }
+    - { resource: fos/fos_rest.yml }
+    - { resource: fos/fos_user.yml }
+    # - { resource: fos/fos_elastica.yml }
+    
+    # Mopa Bootstrap
+    # - { resource: mopa/mopa_bootstrap.yml }
+
+    # Knp Paginator
+    - { resource: knp/knp_paginator.yml }
+    
+    # Sonata Core Bundles
+    - { resource: sonata/sonata_block.yml }
+    - { resource: sonata/sonata_formatter.yml }
+    - { resource: sonata/sonata_cache.yml }
+    - { resource: sonata/sonata_seo.yml }
+    - { resource: sonata/sonata_timeline.yml }
+    - { resource: sonata/sonata_intl.yml }
+    - { resource: sonata/sonata_core.yml }
+        
+    - { resource: sonata/sonata_translation.yml }
+        
+   # Sonata Feature Bundles
+    - { resource: sonata/sonata_media.yml }    
+    - { resource: sonata/sonata_admin.yml }
+    - { resource: sonata/sonata_classification.yml }    
+   # - { resource: sonata/sonata_news.yml }
+    - { resource: sonata/sonata_user.yml }
+    - { resource: sonata/sonata_notification.yml }
+      
+   # Sonata e-commerce bundles
+   # - { resource: sonata/sonata_price.yml }
+   # - { resource: sonata/sonata_order.yml }
+   # - { resource: sonata/sonata_payment.yml }
+   # - { resource: sonata/sonata_product.yml }
+   # - { resource: sonata/sonata_invoice.yml }
+   # - { resource: sonata/sonata_delivery.yml }
+   # - { resource: sonata/sonata_customer.yml }
+   # - { resource: sonata/sonata_basket.yml }
+
+    - { resource: admin/admin_config.yml }
+    - { resource: image/image.yml }
+    
+   # - { resource: @ApplicationSonataProductBundle/Resources/config/product.yml }
+    - { resource: requirejs/require_js.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: "%locale%" }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enabled: true, enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+        save_path:           %kernel.root_dir%/cache/sessions
+    fragments:       ~
+    http_method_override: true
+    default_locale: %locale%
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    
+    base_template_class: Sonata\CacheBundle\Twig\TwigTemplate14
+
+    form:
+        resources:
+           # - 'SonataFormatterBundle:Form:formatter.html.twig'
+           # - 'ApplicationSonataMediaBundle:Form:media_widgets.html.twig'
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
+
+    exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'
+
+services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+            - { name: twig.extension }
+                
+# Assetic Configuration
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    # bundles:        [ DaVinciTaxiBundle, FOSUserBundle, HearsayRequireJSBundle ]
+    # java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        # closure:
+        #     jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        # yui_css:
+        #     jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   "%database_driver%"
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # path:     "%database_path%"
+        types:
+           json: Sonata\Doctrine\Types\JsonType
+        mapping_types:
+            enum:       string 
+    orm:
+        #auto_generate_proxy_classes: %kernel.debug%
+        default_entity_manager: default
+
+
+        #meta_cache_driver: apc
+        #query_cache_driver: apc    
+        #result_cache_driver: apc    
+
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings: 
+                    DaVinciTaxiBundle: ~
+                    DaVinciUserBundle: ~   
+                filters:
+                    oneLocale:
+                        class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
+                        enabled: true           
+                dql:
+                    string_functions:
+                        replace: DaVinci\TaxiBundle\DQL\replaceFunction
+
+# gliches with cmf routing
+
+# jms_i18n_routing:
+#     default_locale: en
+#     locales: %locales%
+#     strategy: prefix_except_default
+
+a2lix_i18n_doctrine:
+    manager_registry: doctrine
+
+a2lix_translation_form:
+    locales: %locales%      # [1]
+    required_locales: [en]      # [2]
+    manager_registry: doctrine      # [3]
+    templating: "A2lixTranslationFormBundle::default.html.twig"      # [4]
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+    sender_address: "info@taximyprice.com"
+
+jms_security_extra:
+    secure_all_services: false
+
+jms_serializer:
+    metadata:
+        directories:
+            - { path: %kernel.root_dir%/../vendor/sonata-project/user-bundle/Sonata/UserBundle/Resources/config/serializer/FOSUserBundle, namespace_prefix: 'FOS\UserBundle' }
+
+knp_menu:
+    twig:
+        template: DaVinciTaxiBundle:Menu:knp_menu.html.twig
+
+nelmio_api_doc: ~
+
+sensio_framework_extra:
+    view:    { annotations: false }
+    router:  { annotations: true }
+    request: { converters:  true }
+
+
+parameters:
+    api_caller.options:
+        timeout: 90  # maximum transport + execution duration of the call in sec.
+        ssl_verifypeer: false  # to stop cURL from verifying the peer's certificate.
+#       useragent: "TaxiMyPrice Caller"  # contents of the "User-Agent: " header.
+        followlocation: true  # to follow any "Location: " header that the server sends.
+#       sslversion: 3  # set to 3 to avoid any bugs that relate to automatic version selection.
+        fresh_connect: false  # set to true to force full reconnect every call.
+
+
+
+# Symfony CMF
+# overriding blog bundle service
+# services:
+#    blog_controller_custom : 
+#        class: Application\Cmf\BlogBundle\Controller\BlogController
+#        argumets:
+#            - templating
+#            - security.context
+#            - { id: fos_rest.view_handler, on-invalid: ignore }
+#            - cmf_blog.blog_repository
+#            - cmf_blog.post_repository
+#            - { id: knp_paginator, on-invalid: ignore }
+#            - %cmf_blog.pagination.posts_per_page%
+
+
+cmf_core:
+    multilang:
+        locales: %locales%
+    persistence:
+        phpcr:
+            enabled: true
+cmf_routing:
+    chain:
+        routers_by_id:
+            router.default: 200
+            cmf_routing.dynamic_router: 100
+    dynamic:
+        enabled: true
+        route_collection_limit: 10
+
+        controllers_by_type:
+            demo_type: davinci_content.controller:typeAction
+                
+        controllers_by_class:
+            Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute: cmf_routing.redirect_controller:redirectAction
+            DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
+            DaVinci\TaxiBundle\Document\VideoGuidesPage: DaVinciTaxiBundle:Information:video
+#            Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
+#            Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
+
+#        templates_by_class:
+#            Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
+#            Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
+
+        persistence:
+            phpcr:
+                route_basepath: /cms/routes
+                enabled: true
+                use_sonata_admin: auto    
+
+cmf_routing_auto:
+    persistence:
+        phpcr:
+            enabled: true
+
+cmf_create:
+    editor_base_path: /bundles/cmfcreate/vendor/ckeditor/
+
+
+# cmf_blog:
+#    sonata_admin: true
+#    pagination:
+#        posts_per_page: 5
+#    persistence:
+#        phpcr:
+#            blog_basepath: /cms/blog
+#            class:
+#                blog_admin: Application\Cmf\BlogBundle\Admin\BlogAdmin # Optional
+#                post_admin: Application\Cmf\BlogBundle\Admin\PostAdmin # Optional
+#                blog: Application\Cmf\BlogBundle\Document\Blog
+#                post: Application\Cmf\BlogBundle\Document\Post
+
+#    object_mapper_service_id: cmf_create.persistence.orm.object_mapper
+
+# services:
+#    cmf_create.persistence.orm.object_mapper:
+#        class: Midgard\CreatePHP\Mapper\DoctrineOrmMapper
+#        arguments:
+#            - "%cmf_create.map%"
+#            - "@doctrine"
+
+doctrine_cache:
+    providers:
+        phpcr_meta:
+            type: file_system
+        phpcr_nodes:
+            type: file_system
+
+doctrine_phpcr:
+    session:
+        backend:
+            type: doctrinedbal
+            # connection: default
+            
+            caches:
+                meta: doctrine_cache.providers.phpcr_meta
+                nodes: doctrine_cache.providers.phpcr_nodes
+        workspace: default
+        username: %phpcr_user%
+        password: %phpcr_pass%    
+    odm:
+        default_document_manager: default
+        auto_generate_proxy_classes: "%kernel.debug%"
+        document_managers:
+            default:    
+                session: default
+                auto_mapping: true    
+                mappings:
+                    DaVinciTaxiBundle:
+                        prefix: DaVinci\TaxiBundle\Document\
+#                   ApplicationCmfBlogBundle: ~
+#                   CmfBlogBundle: ~
+                    ApplicationSonataCommentBundle: 
+                        prefix: Application\Sonata\CommentBundle\PHPCR\FakeComment
+                    CmfSeoBundle: ~
+                    
+
+# alternative locales to look up if a document is not translated
+        locales:
+            en: 
+                - ru
+            ru: 
+                - en    
+
+liip_search:
+    restrict_by_language: true
+            
+cmf_seo:
+    title: TaxiMyPrice - %%content_title%%
+    description: TaxiMyPrice - %%content_description%%    
+    alternate_locale: ~
+        
+    persistence:
+        phpcr: true
+            
+cmf_search:
+    persistence:
+        phpcr:
+            search_fields:
+                title: title
+                summary: body
+                
+lunetics_locale:
+    strict_mode: true
+    guessing_order:
+        - router
+        - cookie
+        - browser
+    allowed_locales: %locales%
+    
+
+fm_elfinder:
+    locale: %locale%
+    editor: ckeditor
+    connector:
+        roots:
+            media:
+                driver: cmf_media.adapter.elfinder.phpcr_driver
+                path: %cmf_media.persistence.phpcr.media_basepath%
+                upload_allow: ['all']
+                upload_max_size: 2M

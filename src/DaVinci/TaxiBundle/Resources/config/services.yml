@@ -1,0 +1,231 @@
+services:
+    davinci.utils.url:
+        class: DaVinci\TaxiBundle\Utils\Url
+        arguments: [@service_container]
+
+    davinci_content.controller:
+        class: DaVinci\TaxiBundle\Controller\ContentController
+        parent: "cmf_content.controller"    
+    
+    davinci_locale.locale_listener:
+        class: DaVinci\TaxiBundle\EventListener\LocaleListener
+        arguments: ["%kernel.default_locale%"]
+        tags:
+            - { name: kernel.event_subscriber }
+    
+    da_vinci_taxi.subscriber.stock_subscriber:
+        class: DaVinci\TaxiBundle\EventListener\StockSubscriber
+        arguments: ["@da_vinci_taxi.service.remote_requester", "@da_vinci_taxi.service.composite_informer", "@security.context"]
+        tags:
+            - { name: kernel.event_subscriber }
+            
+    da_vinci_taxi.subscriber.office_subscriber:
+        class: DaVinci\TaxiBundle\EventListener\OfficeSubscriber
+        arguments: ["@da_vinci_taxi.service.remote_requester", "@da_vinci_taxi.service.composite_informer", "@security.context"]
+        tags:
+            - { name: kernel.event_subscriber }                
+    
+    da_vinci_taxi.service.passenger_request_service:
+        class: DaVinci\TaxiBundle\Entity\PassengerRequestService
+
+    da_vinci_taxi.service.make_payment_service:
+        class: DaVinci\TaxiBundle\Entity\Payment\MakePaymentService
+
+    da_vinci_taxi.repository.travel_coefficient:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\TravelCoefficient
+            
+    da_vinci_taxi.service.travel_coefficient:
+        class: DaVinci\TaxiBundle\Entity\TravelCoefficientService
+        calls:
+            - [setTravelCoefficientRepository, ["@da_vinci_taxi.repository.travel_coefficient"]]
+
+    da_vinci_taxi.service.calculation_service:
+        class: DaVinci\TaxiBundle\Services\Calculation
+        calls:
+            - [setTravelCoefficientService, ["@da_vinci_taxi.service.travel_coefficient"]]
+    
+    da_vinci_taxi.service.http_requester:
+        class: DaVinci\TaxiBundle\Services\Remote\HttpRequest        
+        
+    da_vinci_taxi.service.remote_requester:
+        class: DaVinci\TaxiBundle\Services\Remote\RemoteRequester
+        arguments: ["@api_caller", "@da_vinci_taxi.service.http_requester"]
+        
+    da_vinci_taxi.command.cancel_expired_requests:
+        class: DaVinci\TaxiBundle\Command\CancelExpiredRequestsCommand
+        tags:
+            -  { name: console.command }
+            
+    da_vinci_taxi.repository.internal_message_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\InternalMessage
+            
+    da_vinci_taxi.service.internal_message_service:
+        class: DaVinci\TaxiBundle\Entity\InternalMessageService
+        calls:
+            - [setInternalMessageRepository, ["@da_vinci_taxi.repository.internal_message_repository"]] 
+    
+    da_vinci_taxi.repository.message_content_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - DaVinci\TaxiBundle\Entity\MessageContent
+            
+    da_vinci_taxi.service.message_content_service:
+        class: DaVinci\TaxiBundle\Entity\MessageContentService
+        calls:
+            - [setMessageContentRepository, ["@da_vinci_taxi.repository.message_content_repository"]]
+            
+    da_vinci_taxi.service.mail_informer:
+        class: DaVinci\TaxiBundle\Services\Informer\MailerInformer
+        calls:
+            - [setMailer, ["@mailer"]]
+            - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
+            
+    da_vinci_taxi.service.internal_informer:
+        class: DaVinci\TaxiBundle\Services\Informer\InternalInformer
+        calls:
+            - [setInternalMessageService, ["@da_vinci_taxi.service.internal_message_service"]]
+            - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
+            
+    da_vinci_taxi.service.composite_informer:
+        class: DaVinci\TaxiBundle\Services\Informer\CompositeInformer
+        calls:
+            - [setMessageContentService, ["@da_vinci_taxi.service.message_content_service"]]
+            - [add, ["@da_vinci_taxi.service.internal_informer"]]
+            - [add, ["@da_vinci_taxi.service.mail_informer"]]                
+                                                    
+#menu---------------------------------------------------------------------------
+    taxi.menu_builder:
+        class: DaVinci\TaxiBundle\Menu\Breadcrumbs
+        arguments: ["@knp_menu.factory"]
+
+
+    taxi.menu.breadcrumb:
+        class: Knp\Menu\MenuItem
+        factory_service: taxi.menu_builder # the menu builder service above
+        factory_method: createBreadcrumbMenu # the method name to generate the menu
+        arguments: ["@request"]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: breadcrumb } # The alias is used in the template
+            
+
+#registration services----------------------------------------------------------
+
+# passenger
+    taxi.registration.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: taxi_user_registration }
+    taxi.registration.form.flow:
+        class: DaVinci\UserBundle\Form\CreateUserFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.form.type ] ]
+ 
+# company driver
+    taxi.registration.company.driver.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationCompanyDriverFormType
+        tags:
+            - { name: form.type, alias: taxi_company_driver_registration }
+    
+    taxi.registration.company.driver.form.flow:
+        class: DaVinci\UserBundle\Form\CreateCompanyDriverFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.company.driver.form.type ] ]       
+# company
+    taxi.registration.company.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationCompanyFormType
+        arguments: [@session]
+        tags:
+            - { name: form.type, alias: taxi_company_registration }
+    
+    taxi.registration.company.form.flow:
+        class: DaVinci\UserBundle\Form\CreateCompanyFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.company.form.type ] ]     
+
+# independent driver
+    taxi.registration.independent.driver.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationIndependentDriverFormType
+        tags:
+            - { name: form.type, alias: taxi_independent_driver_registration }
+    
+    taxi.registration.independent.driver.form.flow:
+        class: DaVinci\UserBundle\Form\CreateIndependentDriverFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.independent.driver.form.type ] ]    
+
+ # manager
+    taxi.registration.manager.form.type:
+        class: DaVinci\UserBundle\Form\Type\RegistrationMagnagerFormType
+        tags:
+            - { name: form.type, alias: taxi_manager_registration }
+    
+    taxi.registration.manager.form.flow:
+        class: DaVinci\UserBundle\Form\CreateManagerFlow
+        parent: craue.form.flow
+        scope: request
+        calls:
+             - [ setFormType, [ @taxi.registration.manager.form.type ] ]    
+ 
+# login with email or phone
+    phoneemail_user_provider:
+        class: DaVinci\UserBundle\Security\PhoneEmailProvider
+        public: false
+        arguments: [@fos_user.user_manager] 
+        
+    custom_user_manager:
+        class: DaVinci\UserBundle\Model\CustomUserManager
+        arguments: [@security.encoder_factory, @fos_user.util.username_canonicalizer, @fos_user.util.email_canonicalizer, @fos_user.entity_manager, %fos_user.model.user.class%]
+       
+# passenger request handler
+    taxi.passengerRequest.form.flow:
+        class: DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow
+        parent: craue.form.flow
+        scope: request
+        
+# payment process handler
+    taxi.makePayment.form.flow:
+        class: DaVinci\TaxiBundle\Form\Payment\MakePaymentFlow
+        parent: craue.form.flow
+        scope: request        
+
+# passenger request custom validator
+#    taxi.passengerRequest.validator.route_info:
+#        class: DaVinci\TaxiBundle\Validator\Constraints\RouteInfoValidator
+#        tags:
+#            - { name: validator.constraint_validator, alias: route_info }
+        
+        
+# PaymentGlobalNetwork---------------------------------------------------------
+#     paygnet:
+#         class:     DaVinci\TaxiBundle\Services\Remote\RemoteRequester
+#         arguments: ["@api_caller"]      
+      
+# PHPCR PAGES NODES INITIALIZER
+# php app/console doctrine:phpcr:repository:init
+    davinci_taxi.phpcr.initializer:
+        class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
+        arguments:
+            - Pages initializer
+            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake", "/cms/guides", "/cms/videoguides", "/cms/category"]
+        tags:
+            - { name: doctrine_phpcr.initializer }

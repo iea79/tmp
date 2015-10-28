@@ -1,0 +1,36 @@
+<div id="route" class="uk-modal pop-up">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="pop-up route uk-grid uk-grid-small uk-width-1-1">
+            <div>
+                <div class="yourdrivers">
+                    <a href="#" class="mp-icon-edit"></a>
+                </div>
+                <h5>USA: {{ 'Даллас'|trans }} - USA: {{ 'Оклахома-сити'|trans }}</h5>
+                <div class="utooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Enter Name of organization{% endtrans %}"></div>
+                <dl class="myid">
+                    <dt>{{ 'Order ID:'|trans }}</dt><dd>211212121221</dd>
+                </dl>
+                <dl class="uk-width-1-1">
+                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> {{ 'From:'|trans }}</span></dt><dd class="big">{{ 'Russia'|trans }}, {{ 'Moscow'|trans }}, {{ 'Lenina street'|trans }}, {{ 'building'|trans }} # 12</dd>
+                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> {{ 'To:'|trans }}</span></dt><dd class="big">{{ 'Ukraine'|trans }}, {{ 'Lvov'|trans }}, {{ 'Knazevskaja street'|trans }}, {{ 'building'|trans }} # 173</dd>
+                    <dt>{{ 'Pickup:'|trans }}</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd>
+                    <dt>{{ 'Return:'|trans }}</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd>
+                    <dt>{{ 'Passengers:'|trans }}</dt><dd>{{ 'Adults'|trans }}(2), {{ 'Kids'|trans }}(1), {{ 'Seniors'|trans }}(0)</dd>
+                    <dt>{{ 'Vehicle class:'|trans }}</dt><dd>{{ 'Economy'|trans }}</dd>
+                    <dt>{{ 'Language:'|trans }}</dt><dd>{{ 'Russian'|trans }}</dd>
+                    <dt>{{ 'Car special requests:'|trans }}</dt><dd>{{ 'Child seat'|trans }} (0 - 12 {{ 'months'|trans }}), wi-fi {{ 'connection'|trans }}</dd>
+                    <dt class="fullsize">{{ 'Special requirement of passenger:'|trans }} </dt>
+                    <dd class="fullsize">{{ 'To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
+							                            72 hours prior to departure. A medical clearance is only valid for the flight(s) and date(s) specified in
+							                            the MEDIF. Granted medical clearance is only valid in normal circumstances. If a serious deterioration of
+							                            the medical condition took place in between the time of medical clearance and the actual flight, a new
+							                            clearance must be requested.'|trans }}</dd>
+                    <dt>{{ "Passenger's price:"|trans }}</dt><dd>$260</dd>
+                    <dt class="last">{{ 'Tips:'|trans }}</dt><dd class="last">$10</dd>
+                </dl>
+            </div>
+            <img class="uk-width-1-1" alt="" src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">
+        </div>
+    </div>
+</div>

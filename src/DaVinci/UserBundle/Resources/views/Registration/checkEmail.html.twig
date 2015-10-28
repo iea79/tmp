@@ -1,0 +1,44 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block theme 'register' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block fos_user_content %}
+
+	<div class="wrapper-content">
+		<div class="content checkmail">
+			<div class="uk-width-5-1 float_left">
+				<h3>{{ 'Please check your email to activate your account!'|trans }} </h3>
+				<p>{{ 'A confirmation email has been sent to you, it may take a few minutes.'|trans }}</p>
+				<p>{{ 'Follow the directions to complete registration.'|trans }}</p>
+			</div>
+			<div class="uk-width-5-2 float_right" id="resend_email">
+				<div><a href="#">{{ "Didn't get your verification email?"|trans }}</a></div>
+				<div><a href="#">{{ 'Used the wrong email address?'|trans }}</a></div>
+			</div>
+			<div class="clear"></div>
+
+		</div>
+		<div class="content usedemail">
+		{% if user.email and form.vars.valid %}{{ 'registration.check_email'|trans({'%email%': user.email}, 'FOSUserBundle') }}{% endif %}
+		</div>
+        {% for flashMessage in app.session.flashbag.get('change_email_message') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
+        
+        <div id = "change_email_block" class="changemail" style="{% if form.vars.valid %}display:none{% endif %}">
+            {{ form(form) }}
+        </div>
+	</div>
+
+{% endblock fos_user_content %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/register/check.email.js'
+    %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+    {% endjavascripts %}
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block theme 'register' %}
+
+    {% block title %}
+        {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% if flow.getCurrentStepNumber() == 1 %}
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            {{ 'Create an account'|trans}}
+        </div>
+
+    {% elseif flow.getCurrentStepNumber() == 2 %}
+
+        <div class="wrapper-content title">
+            <div class="clear"></div>
+            <span>{{ 'Please check all details'|trans}}</span>
+        </div>
+    {% endif %}
+{% endblock%}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}
+
+
+{% form_theme form _self %}
+{% block form_errors  %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+        <ul class="errors">
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/register/register.passenger.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
+

@@ -1,0 +1,55 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+<div class="whitebg shadow-main payment home">
+{# Price block #}
+	{% set tariff = passengerRequest.getTariff() %}
+	<div class="price">
+		<p>{{'Subtotal:'|trans}} <span>${{ tariff.getTotalPrice() }}</span></p>
+		<p>{{'Service commission:'|trans}} <span>$0.10</span></p>
+		<p>Taxes and fees: <span>$0.00</span></p>
+		<h2>{{'Total cost:'|trans}} <span>${{ tariff.getTotalPrice() + 0.10 + 0.00 }}</span></h2>
+	</div>
+{# Payment block #}						
+	<div>
+		<div class="payment-swicher steps-1-2-3">
+			<ul class="chois">
+				<li class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}first uk-active{% else %}first{% endif %}">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}} </span>{{'method'|trans}}</span>
+	                    </div>
+	                    <span class="arrow"></span>
+	                    <span class="middle"></span>
+	                </a>
+	            </li>
+	            <li class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}last uk-active{% else %}last{% endif %}">
+	                <a href="#">
+	                    <div class="arrow_box">
+	                        <span class="hide"> <span class="exclude">{{'Payment'|trans}}  </span>info</span>
+	                    </div>
+	                </a>
+	                <span class="back"></span>
+	            </li>
+			</ul>
+		</div>
+	
+		<div id="sale_steps">
+			<form novalidate action="{{ path('passenger_request_payment', {'id': passengerRequest.id}) }}" {{ form_enctype(form) }} method="POST">
+        		<input name="flow_{{ flow.getName() }}_step" type="hidden" value="{{ flow.getCurrentStepNumber() }}" />
+        		<div class="errors for-steps">{{ form_errors(form) }}</div>
+        		        		
+        		{% if flow.getCurrentStepNumber() == 1 %}
+			        {% include 'DaVinciTaxiBundle:Store:payment_page_1.html.twig' %}
+			    {% elseif flow.getCurrentStepNumber() == 2 %}
+			    	{% include 'DaVinciTaxiBundle:Store:payment_page_2.html.twig' %}
+			    {% endif %}
+			    
+			    {% include 'CraueFormFlowBundle:FormFlow:buttons.html.twig' %}
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}	

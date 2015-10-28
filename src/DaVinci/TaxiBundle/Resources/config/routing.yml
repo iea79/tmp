@@ -1,0 +1,133 @@
+da_vinci_taxi_homepage:
+    resource: "@DaVinciTaxiBundle/Controller"
+    type: annotation
+
+passenger_request_payment:
+    pattern: /payment/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:payment }
+    methods:  [GET, POST]
+    options: { useAsInnerURL: false }
+    
+approve_request_status:
+    pattern: /approve/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:approve }
+    options: { useAsInnerURL: false }
+    
+cancel_request_status:
+    pattern: /cancel/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:cancel }
+    options: { useAsInnerURL: false }
+    
+decline_driver:
+    pattern: /decline/driver/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:declineDriver }
+    options: { useAsInnerURL: false }                
+    
+main_driver:
+    pattern:  /main-driver
+    defaults: { _controller: DaVinciTaxiBundle:Home:main_driver }  
+    options: { useAsInnerURL: true } 
+    
+profit:
+    pattern:  /profit
+    defaults: { _controller: DaVinciTaxiBundle:Information:profit }    
+    options: { useAsInnerURL: true }
+        
+about:
+    pattern:  /about
+    defaults: { _controller: DaVinciTaxiBundle:Information:about }    
+    options: { useAsInnerURL: true }
+        
+help:
+    pattern:  /help
+    defaults: { _controller: DaVinciTaxiBundle:Information:help }    
+    options: { useAsInnerURL: true }
+        
+view_offices:
+    pattern:  /view-offices
+    defaults: { _controller: DaVinciTaxiBundle:Information:viewOffices }    
+        
+video_guides:
+    pattern:  /video-guides
+    defaults: { _controller: DaVinciTaxiBundle:Information:videoGuides }    
+    options: { useAsInnerURL: true }
+
+guide:
+    pattern:  /guide/{contentId}
+    defaults: { _controller: DaVinciTaxiBundle:Information:guide, contentId: 'default' }    
+    options: { useAsInnerURL: true }
+        
+guides:
+    pattern:  /guides
+    defaults: { _controller: DaVinciTaxiBundle:Information:guides }    
+    options: { useAsInnerURL: true }
+        
+one_help:
+    pattern:  /one-help
+    defaults: { _controller: DaVinciTaxiBundle:Information:oneHelp }   
+
+faq:
+    pattern:  /faq/{contentId}
+    defaults: { _controller: DaVinciTaxiBundle:Information:faq, contentId: 'default' }    
+    options: { useAsInnerURL: true }
+    
+faqs:
+    pattern:  /faqs
+    defaults: { _controller: DaVinciTaxiBundle:Information:faqs }    
+    options: { useAsInnerURL: true }
+        
+notifications:
+    pattern:  /notifications
+    defaults: { _controller: DaVinciTaxiBundle:Information:notifications }    
+
+social:
+    pattern:  /social
+    defaults: { _controller: DaVinciTaxiBundle:Information:social }    
+    options: { useAsInnerURL: true }
+
+reviews:
+    pattern:  /reviews
+    defaults: { _controller: DaVinciTaxiBundle:Information:reviews }    
+    options: { useAsInnerURL: true }
+
+# blogs:
+#    pattern:  /blogs
+#    defaults: { _controller: ApplicationCmfBlogBundle:Information:blog }    
+#    options: { useAsInnerURL: true }        
+        
+financial_office_add:
+    pattern:  /financial-office/add/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeAdd, methodCode: '2_1' }
+    
+financial_office_withdraw:
+    pattern:  /financial-office/withdraw/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeWithdraw, methodCode: 'credit-card' }
+    
+financial_office_transfer:
+    pattern:  /financial-office/transfer/{methodCode}
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeTransfer, methodCode: '1_1' }
+    
+financial_office_history:
+    pattern:  /financial-office/history
+    defaults: { _controller: DaVinciTaxiBundle:Information:financialOfficeHistory }    
+        
+store:
+    pattern:  /store
+    defaults: { _controller: DaVinciTaxiBundle:Information:store }    
+    options: { useAsInnerURL: true }
+
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'
+
+sale_page:
+    pattern:  /sale-page
+    defaults: { _controller: DaVinciTaxiBundle:Information:sale_page }    
+
+letter_confirm:
+    pattern:  /letter-confirm
+    defaults: { _controller: DaVinciTaxiBundle:Information:letter_confirm }    
+
+new_ticket:
+    pattern:  /new-ticket
+    defaults: { _controller: DaVinciTaxiBundle:Information:newTicket }    

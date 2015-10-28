@@ -1,0 +1,49 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %} {% endblock %}
+{% block body %}
+
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    <div  class="home">
+        <div class="tabtaxi">
+            <ul class="uk-tab uk-tab-grid">
+                <li class="uk-width-1-2 current blue-drive">
+
+                    <a href="#" class="child"><span>{{ 'Book your trip'|trans }}</span></a>
+
+
+                </li>
+                <li class="uk-width-1-2 red-drive">
+                    <a href="{{ url('main_driver') }}" class="child"><span>{{ 'Choose the best passenger'|trans }}</span></a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="steps-1-2-3">
+            <div id="steps" class="uk-switcher ">
+                <div>
+                    {% include 'DaVinciTaxiBundle:Home:order_step_1.html.twig' %}
+                </div>
+                <div>
+                    {% include 'DaVinciTaxiBundle:Home:order_step_2.html.twig' %}
+                </div>
+                <div>
+                    {% include 'DaVinciTaxiBundle:Home:order_step_3.html.twig' %}
+                </div>
+            </div>
+			{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
+		<div class="clear"></div>
+        </div>
+        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+ {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/main.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
+

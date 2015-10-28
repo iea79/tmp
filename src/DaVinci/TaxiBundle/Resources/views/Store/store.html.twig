@@ -1,0 +1,160 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'store' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+{# ======= Swicher button ========= #}
+{# ======= Store pages ========= #}
+<div class="shadow-main">
+	<div class="button-swicher red-button uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#store'}">
+		<div class="uk-panel uk-width-1-3">
+			<button class="uk-width-1-1 uk-button"><i class="mp-icon-person"></i>{{ 'Passenger store'|trans }}</button>
+		</div>
+		<div class="uk-panel uk-width-1-3">
+			<button class="uk-width-1-1 uk-button"><i class="mp-icon-taxi"></i>{{'Driver store'|trans}}</button>
+		</div>
+		<div class="uk-panel uk-width-1-3">
+			<button class="uk-width-1-1 uk-button">{{'Taxi company store'|trans}}</button>
+		</div>
+	</div>
+	<div class="whitebg">
+		<div class="message">
+			<span>Внимание!</span> Текстовая информация.
+		</div>
+		<ul id="store" class="uk-switcher">
+			<li class="uk-active">
+			   	<div class="buttom-swicher">
+			        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#passenger-store'}">
+			            <li class="uk-active"><a href="#">{{ 'Membership' |trans }}</a></li>
+			            <li><a href="#">{{ 'Deals' |trans }}</a></li>
+			            <li><a href="#">{{ '3 category' |trans }}</a></li>
+			        </ul>
+			    </div>
+			    <ul id="passenger-store" class="uk-switcher content-padding">
+			        <li class="uk-active">
+			        	<div class="uk-grid uk-grid-small">
+			        		<div class="uk-panel uk-width-1-1 uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2">
+			        			<div class="sales-box">
+				        			<h2 class="uk-text-danger uk-text-bold">Optimal</h2>
+				        			<ul class="mp-check">
+									  	<li>Open customer's listing</li>
+									  	<li>Zero taxi commission</li>
+									  	<li>Promotion in many countries</li>
+									  	<li>More good customers</li>
+									  	<li>Free US bank sub-account</li>
+									</ul>
+									<a href="#" class="uk-button uk-button-primary">More</a>
+									<h5>$9.00 / month</h5>
+									<div class="uk-form-controls">
+									    <select>
+									        <option value="">1 month</option>
+									        <option value="">3 month</option>
+									        <option value="">6 month</option>
+									        <option value="">12 month</option>
+									    </select>
+									</div>
+				        			<h2 class="uk-text-danger uk-text-bold solid">$23.00</h2>
+				        			<p>Your sale: $4.00</p>
+				        			<a class="uk-button uk-button-danger buy">Buy</a>
+			        			</div>
+			        		</div>
+			        		<div class="uk-panel uk-width-1-1 uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2">
+			        			<div class="sales-box">
+				        			<h2 class="uk-text-danger uk-text-bold">Professional</h2>
+				        			<ul class="mp-check">
+									  	<li>Open customer's listing</li>
+									  	<li>Zero taxi commission</li>
+									  	<li>Promotion in many countries</li>
+									  	<li>More good customers</li>
+									  	<li>Free US bank sub-account</li>
+									</ul>
+									<a href="#" class="uk-button uk-button-primary">More</a>
+									<h5>$12.00 / month</h5>
+									<div class="uk-form-controls">
+									    <select>
+									        <option value="">1 month</option>
+									        <option value="">3 month</option>
+									        <option value="">6 month</option>
+									        <option value="">12 month</option>
+									    </select>
+									</div>
+				        			<h2 class="uk-text-danger uk-text-bold solid">$30.00</h2>
+				        			<p>Your sale: $6.00</p>
+				        			<a class="uk-button uk-button-danger buy">Buy</a>
+				        			</div>
+			        		</div>
+			        		<div class="uk-panel uk-width-1-1 uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2">
+			        			<div class="sales-box">
+				        			<h2 class="uk-text-danger uk-text-bold">Optimal</h2>
+				        			<ul class="mp-check">
+									  	<li>Open customer's listing</li>
+									  	<li>Zero taxi commission</li>
+									  	<li>Promotion in many countries</li>
+									  	<li>More good customers</li>
+									  	<li>Free US bank sub-account</li>
+									</ul>
+									<a href="#" class="uk-button uk-button-primary">More</a>
+									<h5>$9.00 / month</h5>
+									<div class="uk-form-controls">
+									    <select>
+									        <option value="">1 month</option>
+									        <option value="">3 month</option>
+									        <option value="">6 month</option>
+									        <option value="">12 month</option>
+									    </select>
+									</div>
+				        			<h2 class="uk-text-danger uk-text-bold solid">$23.00</h2>
+				        			<p>Your sale: $4.00</p>
+				        			<a class="uk-button uk-button-danger buy">Buy</a>
+			        			</div>
+			        		</div>
+			        		<div class="uk-panel uk-width-1-1 uk-width-large-1-4 uk-width-medium-1-3 uk-width-small-1-2">
+			        			<div class="sales-box">
+				        			<h2 class="uk-text-danger uk-text-bold">Optimal</h2>
+				        			<ul class="mp-check">
+									  	<li>Open customer's listing</li>
+									  	<li>Zero taxi commission</li>
+									  	<li>Promotion in many countries</li>
+									  	<li>More good customers</li>
+									  	<li>Free US bank sub-account</li>
+									</ul>
+									<a href="#" class="uk-button uk-button-primary">More</a>
+									<h5>$9.00 / month</h5>
+									<div class="uk-form-controls">
+									    <select>
+									        <option value="">1 month</option>
+									        <option value="">3 month</option>
+									        <option value="">6 month</option>
+									        <option value="">12 month</option>
+									    </select>
+									</div>
+				        			<h2 class="uk-text-danger uk-text-bold solid">$23.00</h2>
+				        			<p>Your sale: $4.00</p>
+				        			<a class="uk-button uk-button-danger buy">Buy</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </li>
+			        <li>
+			        	
+			        </li>
+			        <li>
+			        	
+			        </li>
+			    </ul>
+			</li>
+			<li>
+
+			</li>
+			<li>
+
+			</li>
+		</ul>
+
+
+
+	</div>
+</div>
+
+{% endblock %}

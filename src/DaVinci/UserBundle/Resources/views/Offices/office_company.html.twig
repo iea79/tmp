@@ -1,0 +1,586 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'office-company' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+<div class="client-account">
+	<div class="shadow-main whitebg company-panel">
+		<div class="uk-grid uk-grid-small client-panel-list block-help">
+		{# block1 #}
+			<div class="clientid">
+				<a class="uk-button uk-button-primary">My profile</a>
+				<dl>
+					<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
+					<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+				</dl>
+			</div>
+		{# block2 #}
+			<div class="offices-block">
+				<div class="button-choose">
+					<div class="choose-office select-group">
+						<label>Office:</label>
+						<select>
+							<option class="active-office">Taxi company</option>
+							<option>Taxi company manager</option>
+						</select>
+						<button class="uk-button uk-button-success">Swich</button>
+					</div>
+					<div class="buttons-office">
+						<a class="uk-button uk-button-primary">Me offices</a>
+						<a class="uk-button uk-button-primary">TC offices</a>
+					</div>
+				</div>
+				<div class="message">
+					<div class="text">
+						<span>Внимание!</span>17 Mar 2015 заканчивается срок действия мембершипа “Оптимальный”
+					</div>
+					<a class="uk-button uk-button-danger">Extend</a>
+				</div>
+			</div>
+		{# block3 #}
+			<div class="money-block">
+				<div class="history">
+					<span>History:</span>
+					<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
+					<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
+					<a class="uk-button uk-button-primary">TMP</a>
+				</div>
+				<div class="balance">
+					<span>Balance:</span>
+					<a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
+					<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
+					<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
+					<a class="uk-button uk-button-primary">Escrow</a>
+				</div>
+				<div class="money">
+					<dl>
+						<dt>Main:</dt>
+						<dd>$0.00</dd>
+					</dl>
+					<dl>
+						<dt>Business:</dt>
+						<dd>$0.00</dd>
+					</dl>
+					<dl class="uk-text-danger">
+						<dt class="uk-text-danger">TMP:</dt>
+						<dd>$0.00</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="shadow-main">
+{# ========= swicher table =========== #}
+		<div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-office'}">
+			<div class="uk-panel uk-width-1-4 uk-active">
+				<button class="uk-width-1-1">{{'Find order'|trans}}</button>
+			</div>
+			<div class="uk-panel uk-width-1-4">
+				<button class="uk-width-1-1">{{ 'Open orders'|trans }}</button>
+			</div>
+			<div class="uk-panel uk-width-1-4">
+				<button class="uk-width-1-1">{{'Control room'|trans}}</button>
+			</div>
+			<div class="uk-panel uk-width-1-4">
+				<button class="uk-width-1-1">{{'All orders'|trans}}</button>
+			</div>
+		</div>
+{# ========= swicher table ============ #}
+		<ul id="tab-office" class="uk-switcher whitebg">
+			{# Find order #}
+			<li class="uk-active">
+				<div class="message">
+					<span>Напоминание: </span>информация
+				</div>
+				{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+			</li>
+			{# Open order #}
+			<li class="open-order wihitebg">
+				<div class="message">
+					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>
+					<div class="search-fillter">
+						<span>Your workers activation code: </span>dasde24321dfsad
+					</div>
+					<form class="uk-search" data-uk-search>
+					    <input class="uk-search-field" type="search" placeholder="Enter name or personal ID">
+					</form>
+					<div class="daterange">
+						<div id="widget">
+							<div id="widgetField" class="uk-form-icon-flip">
+								<input type="text" name="datarange" maxlength="23" value="" placeholder="02 Mar 14 - 03 Mar 14"/>
+								<a href="#">&#58896;</a>
+							</div>
+							<div id="widgetCalendar">
+							</div>
+						</div>
+					</div>
+				</div>
+				<table class="uk-table thead-gray">
+					<thead>
+						<th>#</th>
+						<th>{{'TMP ID'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Map'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Get paid'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Earn ($)'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Tips ($)'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Manager'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Status'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Driver'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>121213</td>
+							<td>
+								<a href="#">
+									{{'Moskow center'|trans}} -<br>
+									{{'Moskow aeroport'|trans}}
+								</a>
+							</td>
+							<td>{{'cash'|trans}}</td>
+							<td>55.00</td>
+							<td>1.50</td>
+							<td>
+								<a href="#">
+									Denis Stepanov
+								</a>
+							</td>
+							<td>{{'You lucky!'|trans}}</td>
+							<td>
+								<a href="#">
+									Oleg Boiko
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>121213</td>
+							<td>
+								<a href="#">
+									{{'Moskow center'|trans}} -<br>
+									{{'Moskow aeroport'|trans}}
+								</a>
+							</td>
+							<td>{{'cash'|trans}}</td>
+							<td>55.00</td>
+							<td>1.50</td>
+							<td>
+								<a href="#">
+									Denis Stepanov
+								</a>
+							</td>
+							<td>{{'pending'|trans}}</td>
+							<td>
+								<a href="#" class="uk-button uk-button-success">
+									{{'Choose'|trans}}
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>121213</td>
+							<td>
+								<a href="#">
+									{{'Moskow center'|trans}} -<br>
+									{{'Moskow aeroport'|trans}}
+								</a>
+							</td>
+							<td>{{'cash'|trans}}</td>
+							<td>55.00</td>
+							<td>1.50</td>
+							<td>
+								<a href="#">
+									Denis Stepanov
+								</a>
+							</td>
+							<td>{{'Sorry, try next time...'|trans}}</td>
+							<td>
+								<a href="#" class="uk-button uk-button-success">
+									{{'Choose'|trans}}
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+			{# Control room #}
+			<li class="control-room wihitebg">
+				<div class="message">
+					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div> 
+				</div>
+			   	<div class="buttom-swicher">
+			        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#control_room'}">
+			            <li class="uk-active"><a href="#">{{ 'Owner' |trans }}</a></li>
+			            <li><a href="#">{{ 'Managers' |trans }}</a></li>
+			            <li><a href="#">{{ 'Drivers' |trans }}</a></li>
+			        </ul>
+			    </div>
+				<ul id="control_room" class="uk-switcher">
+					{# Owner #}
+					<li class="uk-active">
+						<div class="message">
+							<div class="search-fillter">
+								<span>Your workers activation code: </span>dasde24321dfsad
+							</div>
+							<div class="daterange">
+								<div id="widget">
+									<div id="widgetField" class="uk-form-icon-flip">
+										<input type="text" name="datarange" maxlength="23" value="" placeholder="02 Mar 14 - 03 Mar 14"/>
+										<a href="#">&#58896;</a>
+									</div>
+									<div id="widgetCalendar">
+									</div>
+								</div>
+							</div>
+						</div>
+						<table class="uk-table thead-gray">
+							<thead>
+								<th>{{ 'Managers' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Drivers' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Deals' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Payment' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Profit ($)' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+								<th>{{ 'Costs ($)' |trans }}
+									<div class="questiontooltip">?</div>
+								</th>
+							</thead>
+							<tbody>
+								<tr>
+									<td>5</td>
+									<td>20</td>
+									<td>120</td>
+									<td>144</td>
+									<td>1,199.00</td>
+									<td>15.00</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					{# Manager #}
+					<li>
+						<div class="message">
+							<div class="search-fillter">
+								<span>Your workers activation code: </span>dasde24321dfsad
+							</div>
+							<form class="uk-search" data-uk-search>
+							    <input class="uk-search-field" type="search" placeholder="Enter name or personal ID">
+							</form>
+							<div class="daterange">
+								<div id="widget">
+									<div id="widgetField" class="uk-form-icon-flip">
+										<input type="text" name="datarange" maxlength="23" value="" placeholder="02 Mar 14 - 03 Mar 14"/>
+										<a href="#">&#58896;</a>
+									</div>
+									<div id="widgetCalendar">
+									</div>
+								</div>
+							</div>
+						</div>
+						<table class="uk-table thead-gray">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>{{'Personal ID'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Manager name'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Balance ($)'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Deals'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Profit ($)'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Costs ($)'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Actions'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>1,255.00</td>
+									<td>2</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>
+										<a class="uk-button uk-button-primary">
+											{{'Setting powers'|trans}}
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>1,255.00</td>
+									<td>2</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>
+										<a class="uk-button uk-button-primary">
+											{{'Setting powers'|trans}}
+										</a>
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>1,255.00</td>
+									<td>2</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>
+										<a class="uk-button uk-button-primary">
+											{{'Setting powers'|trans}}
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+					{# Drivers #}
+					<li>
+						<div class="message">
+							<div class="search-fillter">
+								<span>Your workers activation code: </span>dasde24321dfsad
+							</div>
+							<form class="uk-search" data-uk-search>
+							    <input class="uk-search-field" type="search" placeholder="Enter name or personal ID">
+							</form>
+							<div class="daterange">
+								<div id="widget">
+									<div id="widgetField" class="uk-form-icon-flip">
+										<input type="text" name="datarange" maxlength="23" value="" placeholder="02 Mar 14 - 03 Mar 14"/>
+										<a href="#">&#58896;</a>
+									</div>
+									<div id="widgetCalendar">
+									</div>
+								</div>
+							</div>
+						</div>
+						<table class="uk-table thead-gray">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>{{'Personal ID'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Driver name'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Profit ($)'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Tips ($)'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+									<th>{{'Deals'|trans}}
+										<div class="questiontooltip">?</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>12133</td>
+									<td>
+										<a href="#">
+											{{'Maxim Galkin'|trans}}
+										</a>
+									</td>
+									<td>255.00</td>
+									<td>3.00</td>
+									<td>2</td>
+								</tr>
+							</tbody>
+						</table>
+					</li>
+				</ul>
+			</li>
+			{# All order #}
+			<li class="all-order wihitebg">
+				<div class="message">
+					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>
+					<div class="search-fillter">
+						<span>Your workers activation code: </span>dasde24321dfsad
+					</div>
+					<form class="uk-search" data-uk-search>
+					    <input class="uk-search-field" type="search" placeholder="Enter name or personal ID">
+					</form>
+					<div class="daterange">
+						<div id="widget">
+							<div id="widgetField" class="uk-form-icon-flip">
+								<input type="text" name="datarange" maxlength="23" value="" placeholder="02 Mar 14 - 03 Mar 14"/>
+								<a href="#">&#58896;</a>
+							</div>
+							<div id="widgetCalendar">
+							</div>
+						</div>
+					</div>
+				</div>
+				<table class="uk-table thead-gray">
+					<thead>
+						<th>#</th>
+						<th>{{'TMP ID'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th><a href="" class="mp-icon-arrow-up"></a>{{'Date and time'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Route'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th><a href="" class="mp-icon-arrow-up"></a>{{'Price'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th><a href="" class="mp-icon-arrow-up"></a>{{'Payment'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th><a href="" class="mp-icon-arrow-up"></a>{{'Status'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+						<th>{{'Refuse'|trans}}
+							<div class="questiontooltip">?</div>
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>0223240234</td>
+							<td>02 MAR 14 18:00<br>
+								<span class="uk-text-danger">68:45:32</span>
+							</td>
+							<td>
+								<a href="#">{{'USA: Даллас'|trans}} -<br> {{'USA: Оклахома-сити'|trans}}</a>
+							</td>
+							<td>$783.85</td>
+							<td>{{'escrow'|trans}}</td>
+							<td>{{'pending'|trans}}</td>
+							<td>
+								<a href="" class="mp-icon-closed uk-text-danger"></a>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>0223240234</td>
+							<td>02 MAR 14 18:00<br>
+								<span class="uk-text-danger">68:45:32</span>
+							</td>
+							<td>
+								<a href="#">{{'USA: Даллас'|trans}} -<br> {{'USA: Оклахома-сити'|trans}}</a>
+							</td>
+							<td>$783.85</td>
+							<td>{{'cash'|trans}}</td>
+							<td>
+								<a class="avatar" data-uk-modal="{target:'#about-driver'}">
+									<img src="/bundles/davincitaxi/images/avatar.png" alt="">
+								</a>
+								{{'solid'|trans}}
+							</td>
+							<td>
+								<a href="" class="mp-icon-closed uk-text-danger"></a>
+							</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>0223240234</td>
+							<td>02 MAR 14 18:00<br>
+								<span class="uk-text-danger">68:45:32</span>
+							</td>
+							<td>
+								<a href="#">{{'USA: Даллас'|trans}} -<br> {{'USA: Оклахома-сити'|trans}}</a>
+							</td>
+							<td>$783.85</td>
+							<td>{{'cash'|trans}}</td>
+							<td>
+								<a class="avatar" data-uk-modal="{target:'#about-driver'}">
+									<img src="/bundles/davincitaxi/images/avatar.png" alt="">
+								</a>
+								{{'solid'|trans}}
+							</td>
+							<td>
+								<a href="" class="mp-icon-closed uk-text-danger"></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>				
+			</li>
+		</ul>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="wrapper-content">
+	<div class="content register chang_pass">
+		<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="authorizat uk-form-horizontal fos_user_resetting_reset">
+			<h3>{{ 'Enter new password'|trans}}</h3>
+		    {{ form_widget(form) }}
+		    <div>
+		        <input class="uk-button-success uk-button" type="submit" value="{{ 'resetting.reset.submit'|trans }}" />
+		    </div>
+		</form>
+	</div>
+</div>

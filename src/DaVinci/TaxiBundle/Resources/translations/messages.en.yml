@@ -1,0 +1,13 @@
+ROLE_USER: User
+ROLE_TAXIDRIVER:  Independed driver
+ROLE_COMPANYDRIVER: Company driver
+ROLE_TAXIMANAGER: Company manager
+ROLE_TAXICOMPANY: Taxi company
+
+sonata_countries: Countries
+
+
+
+
+
+admin.countrycity: Choose country

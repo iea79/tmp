@@ -1,0 +1,54 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{% endblock%}
+{% block fos_user_content %}
+<div class="wrapper-content">
+    <div class="content register">
+        <form class="uk-form uk-form-horizontal authorizat" action="{{ path("fos_user_security_check") }}" method="post">
+            <fieldset>
+                <h3>{{ 'Login or Register'|trans}}</h3>
+    			{% if error %}
+    			<ul class="errors top">
+    				<li>{{ error|trans }}</li>
+    			</ul>
+    			{% endif %}
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                <label class="uk-form-row">
+    				<input class="uk-width-1-1" type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.emailmobile'|trans }}" autofocus/>
+    			</label>
+                <label class="uk-form-row">
+    				<input class="uk-width-1-1" type="password" id="password" maxlength= '32' name="_password" required="required" placeholder ="{{ 'security.login.password'|trans }}" />
+    			</label>
+                <p class="blue"><a href="{{ path('fos_user_resetting_request') }}">{{ 'Forgot your password?'|trans }}</a></p>
+    			
+    			<button class="uk-button nextbutt uk-width-1-1" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
+                
+    			<!--input class="uk-button nextbutt" type="submit" id="_submit" name="_submit" value="" /-->
+                <!--/td>
+                <th>or</th>
+                <td-->
+    			<button class="uk-button nextbutt btn-red uk-width-1-1" onclick="location.href = '{{ path("fos_user_registration_register") }}';return false;">{{'Sign Up'|trans}}</button>
+
+                {#input type="button" class="uk-button float_left nextbutt btn-red" onclick="location.href = '{{ path("fos_user_registration_register") }}';" value="Sign Up">
+                 <a class="loginfb" href="#"></a>
+                    <a class="logintw" href="#"></a>
+                <h3>Sign in with</h3>
+    			<p>Don't have an account yet</p> #}
+            </fieldset>
+        </form>
+        <!--/td>
+        </tr>
+    </table-->
+    </div>
+</div>
+{% endblock fos_user_content %}
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/without_js.js'
+    %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+    {% endjavascripts %}
+{% endblock %}

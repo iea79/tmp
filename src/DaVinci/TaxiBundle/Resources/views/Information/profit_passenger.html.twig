@@ -1,0 +1,39 @@
+<div class="whitebg">
+    <div class="message"><span class="uk-text-danger">{{ 'Внимание'|trans }}! </span>{{ 'Не забывайте подтвердит вашу готовность выполнить заказ'|trans }}!</div>
+
+    <div class="profit-passenger">
+        <div class="buttom-swicher">
+            <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#profpassenger'}">
+                {% for dt in passenger_tabs %}
+                    <li {% if loop.first %}class="uk-active" {% endif %}><a href="#">{{ dt.title }}</a></li>
+                    {% endfor %}
+            </ul>
+        </div>
+        <ul id="profpassenger" class="uk-switcher">
+            {% for dt in passenger_tabs %}
+
+                <li class="uk-active">
+                    <div class="content">
+                        <div class="left">
+                            {{ dt.block1|raw }}
+                        </div>
+                        <div class="center">
+                            <h3 class="uk-button-danger">
+                                <i class="mp-icon-good"></i>
+                                <span>{{ dt.block2Title }}</span>
+                            </h3>
+                            {{ dt.block2|raw }}
+                        </div>
+                        <div class="right">
+                            <div class="videoWrapper">
+                                {% media dt.youtubeLink, 'small' %}
+                            </div>
+                            <a href="{{ url('da_vinci_taxi_homepage') }}" class="book-ride uk-button uk-button-success">Book ride now!</a>
+                        </div>
+                    </div>
+                </li>
+
+            {% endfor %} 
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'information' %}
+    {% block title %}
+        {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% endblock%}
+    {% block body %}
+        
+        <div class="shadow-main">
+            <div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
+                <div class="uk-panel uk-width-1-3 {% if social %}uk-active{% endif %}">
+                    <a href="{% if not social %}{{ url('social') }}{% else %}#{% endif %}">
+                        {{'Social networks'|trans}}
+                    </a>
+                </div>
+                <div class="uk-panel uk-width-1-3 {% if reviews %}uk-active{% endif %}">
+                    <a href="{% if not reviews %}{{ url('reviews') }}{% else %}#{% endif %}">
+                        {{'Reviews'|trans}}
+                    </a>
+                </div>
+                <div class="uk-panel uk-width-1-3 {% if isblog %}uk-active{% endif %}">
+                    <a href="#">
+                        {{'Blog'|trans}}
+                    </a>
+                </div>
+            </div>    
+
+            <div class="whitebg">
+                {% if social %}
+                    {% include 'DaVinciTaxiBundle:Information:social.html.twig' %}
+                {% elseif reviews %}
+                    {% include 'DaVinciTaxiBundle:Information:reviews.html.twig' %}
+                {% elseif isblog %}
+                    {% block blog_content %}{% endblock %}
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block javascripts %}
+        {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/information.js'
+        %}
+
+        {{ require_js_initialize({ 'main' : asset_url })}}
+
+        {% endjavascripts %}
+    {% endblock %}
+

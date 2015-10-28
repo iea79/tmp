@@ -1,0 +1,154 @@
+﻿	<div class="table-over">
+		<table class="serv responsive">
+			<tr>
+				<th class="tab-h1" data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Select vehicle{% endtrans %}">Type <div class="questiontooltip">?</div></th>
+				<th class="daterange" data-uk-tooltip="{pos:'top'}" title="{% trans %}Select date and time{% endtrans %}">Date/Time <div class="questiontooltip">?</div></th>
+				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">Route <div class="questiontooltip">?</div></th>
+				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Set your price (fare){% endtrans %}">Price <div class="questiontooltip" >?</div></th>
+				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Increase your rating{% endtrans %}">Tips <div class="questiontooltip">?</div></th>
+				<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Payment method{% endtrans %}">PM <div class="questiontooltip" >?</div></th>
+				<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check bought deals{% endtrans %}">Status <div class="questiontooltip" >?</div></th>
+				{% if is_granted("ROLE_TAXIDRIVER") %}<th class="tab-h2">Buy</th>{% endif %}
+			</tr>
+			<tr class="under-head">
+				<td class="auto-tip">
+					<div class="car">
+						<select>
+							<option class="mp-icon-taxi"></option>
+							<option>{{'Economy'|trans}}</option>
+							<option>{{'Compact'|trans}}</option>
+							<option>{{'Midsize'|trans}}</option>
+							<option>{{'Standart'|trans}}</option>
+							<option>{{'Full Size'|trans}}</option>
+							<option>{{'Premium'|trans}}</option>
+							<option>{{'Luxury'|trans}}</option>
+							<option>{{'Other'|trans}}</option>
+							<option>{{'Convertible'|trans}}</option>
+							<option>{{'Van'|trans}}</option>
+							<option>{{'SUV'|trans}}</option>
+							<option>{{'Speciality'|trans}}</option>
+							<option>{{'Pickup'|trans}}</option>
+						</select>
+					</div>
+				</td>
+				<td class="daterange">
+					<div class="uk-form-icon">
+						<input type="text" placeholder="02/12/15-26/12/15">
+					    <i class="mp-icon-calendar"></i>
+					</div>
+				</td>
+				<td class="destinations_list">
+					<div class="uk-form-icon">
+						<input type="text" name="destination" placeholder="for example, Russia, Moscow" />
+						<i class="mp-icon-nord-star"></i>
+					</div>
+				</td>
+				<td class="price">
+					<div class="ov-lt short-cont">
+						<button class="sort uk-button-link aligment arr">
+							<i class="mp-icon-arrow-up uk-text-dark"></i>
+							<i class="mp-icon-arrow-down"></i>
+						</button>
+						<div class="aligment fit-in">
+							<select>
+								<option value="1">$10-$50</option>
+								<option value="2">$50-$100</option>
+								<option value="3">$100-$150</option>
+								<option value="3">$150-$200</option>
+								<option value="4">$200+</option>
+							</select>
+						</div>
+					</div>
+				</td>
+				<td class="price">
+					<div class="ov-lt short-cont">
+						<button class="sort uk-button-link aligment arr">
+							<i class="mp-icon-arrow-up uk-text-dark"></i>
+							<i class="mp-icon-arrow-down"></i>
+						</button>
+						<div class="aligment fit-in">
+							<select>
+								<option value="1">$1-$5</option>
+								<option value="2">$5-$10</option>
+								<option value="3">$10-$15</option>
+								<option value="3">$15-$20</option>
+								<option value="4">$20+</option>
+							</select>
+						</div>
+					</div>
+				</td>
+				<!--td class="trust">
+					<div class="ov-trust">
+						<select class="">
+							<option value="1">All</option>
+							<option class="iconed-drop" value="2">&#58901;</option>
+							<option class="iconed-drop" value="3">&#58901; &#58901;</option>
+							<option class="iconed-drop" value="4">&#58900;</option>
+						</select>
+					</div>
+				</td-->
+				<td class="price">
+					<!--button class="sort uk-button-link arr single-butt">
+						<i class="mp-icon-arrow-up uk-text-dark"></i>
+						<i class="mp-icon-arrow-down"></i>
+					</button-->
+					<select>
+                        <option value="1">All</option>
+                        <option value="2">escow</option>
+                        <option value="3">cash</option>
+                    </select>
+				</td>
+				<td class="status">
+                    <select>
+                        <option value="1">All</option>
+                        <option value="2">Open</option>
+                        <option value="3">Pending</option>
+                        <option value="4">Closed</option>
+                        <option value="5">Canceled</option>
+                        <option value="6">All happy</option>
+                    </select>
+					<div class="questiontooltip">
+                   		<a class="tooltip" href="#"><span class="que">?</span><span class="tooltip">Mobile internet</span></a>
+                  	</div>	
+				</td>
+				{% if is_granted("ROLE_TAXIDRIVER") %}
+					<td>
+						<div class="ov-lt fixed-column">
+							<div class="aligment bascket-opt">
+								<select>
+									<option value="1">Short sale</option>
+									<option value="3">Other</option>
+								</select>
+							</div>
+							<button class="cancell-filters uk-button-link  aligment" >	
+								<i class="mp-icon-closed uk-text-danger"></i>
+							</button>
+						</div>
+					</td>
+				{% endif %}	
+			</tr>
+			{% if openRequests is defined %}
+				{% for request in openRequests %}
+	            	{% set tariff = request.getTariff() %}
+	            	{% set pickUp = request.getPickUp() %}
+	            	<tr class="table-cont">
+						<td><span class="blue-bg">{{ loop.index }}</span></td>
+						<td>{{ pickUp.format('d') }} <strong>{{ pickUp.format('M') }}</strong> {{ pickUp.format('y') }}<br/> {{ pickUp.format('H:i') }}</td>
+						<td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+						<td>${{ tariff.getPrice() }}</td>
+						<td>${{ tariff.getTips() }}</td>
+						<!--td><i class="mp-icon-trust uk-text-primary"></i></td-->
+						<td><span class="escro">{{ tariff.getPricePaymentMethod() }}</span></td>
+						<td>{{ request.getStateValue() }}</td>
+						{% if is_granted("ROLE_TAXIDRIVER") and driver is defined and (request.stateValue == 'open' or request.stateValue == 'pending') %}
+							<td>
+								<button class="uk-button-success uk-button" onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'">
+									<i class="mp-icon-basket"></i>{{ request.getPickUpLeft() }}
+								</button>
+							</td>
+						{% endif %}
+					</tr>
+	            {% endfor %}
+	    	{% endif %}
+		</table>
+	</div>

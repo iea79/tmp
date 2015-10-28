@@ -1,0 +1,14 @@
+{# Payment step 2 #}
+<input type="hidden" name="makePaymentStepPaymentInfo[paymentMethodCode]" id="makePaymentStepPaymentInfo[paymentMethodCode]" value="{{ flow.formData.paymentMethodCode }}" />
+<div class="addcard">
+	{% if paymentMethod == 'CreditCard' %}
+		{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
+	{% elseif paymentMethod == 'PayPal' %}
+		{% include 'DaVinciTaxiBundle:Store:credit_card_method.html.twig' %}
+	{% elseif paymentMethod == 'Skrill' %}
+		{% include 'DaVinciTaxiBundle:Store:skrill_method.html.twig' %}
+	{% elseif paymentMethod == 'Internal' %}
+		{% include 'DaVinciTaxiBundle:Store:internal_method.html.twig' %} 	 
+    {% endif %}
+</div>
+		

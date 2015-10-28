@@ -1,0 +1,93 @@
+da_vinci_taxi_homepage:
+    pattern:  /
+    defaults: { _controller: DaVinciTaxiBundle:Home:index }
+    options: { useAsInnerURL: true }    
+    
+# offices, registrations
+userbundle:
+    resource: '@DaVinciUserBundle/Resources/config/routing.yml'
+    
+taxibundle:
+    resource: '@DaVinciTaxiBundle/Resources/config/routing.yml'
+    #options: { useAsInnerURL: true } - to set for all routes in file
+
+gallery:
+    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+    prefix: /media/gallery
+
+media:
+    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+    prefix: /media
+        
+sonata_media_pixlr:
+    resource: '@SonataMediaBundle/Resources/config/routing/pixlr.xml'
+    prefix: /admin/media
+        
+# admin panel
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+# admin_davinci_taxi_comment_create:
+#    resource: FOS\CommentBundle\Controller\ThreadController
+#    name_prefix: admin_davinci_taxi_
+
+
+fos_user_group:
+    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
+    prefix: /group
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+fos_comment_api:
+    type: rest
+    resource: "@FOSCommentBundle/Resources/config/routing.yml"
+    prefix: /api
+    defaults: { _format: html }
+        
+sonata_user:
+    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
+    prefix: /admin
+    
+# news:
+#    resource: '@SonataNewsBundle/Resources/config/routing/news.xml'
+#    prefix: /news
+    
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+    
+liip_search:
+    resource: "@CmfSearchBundle/Resources/config/routing/phpcr/search.xml"
+    
+create:
+    resource: "@CmfCreateBundle/Resources/config/routing/rest.xml"
+
+create_image:
+    resource: "@CmfCreateBundle/Resources/config/routing/image.xml"    
+
+# symfony_cmf:
+#    resource: @CmfCreateBundle/Resources/config/routing/rest_no_locale.xml    
+    
+block_cache:
+    resource: "@CmfBlockBundle/Resources/config/routing/cache.xml"
+    prefix: /
+
+cmf_media_file:
+    resource: "@CmfMediaBundle/Resources/config/routing/file.xml"
+
+cmf_media_image:
+    resource: "@CmfMediaBundle/Resources/config/routing/image.xml"
+
+elfinder:
+     resource: "@FMElfinderBundle/Resources/config/routing.yml"
+     
+cmf_tree:
+    resource: .
+    type: 'cmf_tree'
