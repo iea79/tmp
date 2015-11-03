@@ -1,0 +1,10 @@
+{% block subject %}
+    {% if requestId is defined %}
+        {{ subjectContent|trans({'%requestId%': requestId})|raw }}
+    {% else %}
+        {{ subjectContent|raw }}
+    {% endif %}    
+{% endblock %}
+{% block body_html %}
+    {% include 'DaVinciTaxiBundle:Email:notification_pattern.html.twig' %}
+{% endblock %}

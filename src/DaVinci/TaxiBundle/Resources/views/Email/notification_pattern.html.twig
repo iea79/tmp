@@ -1,0 +1,15 @@
+{% extends 'DaVinciTaxiBundle:Email:notification.html.twig' %}
+
+{% block title %}Notification message from TaxiMyPrice!{% endblock %}
+
+{% block message_text %}
+    {{ content|raw }}
+{% endblock %}
+
+{% block message_text_after %}
+	Respectfully yours, TaxiMyPrice team.
+{% endblock %}
+
+{% block banner_one %}
+	{% include 'DaVinciTaxiBundle:Email:banner_one.html.twig' %}
+{% endblock %}

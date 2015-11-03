@@ -1,0 +1,52 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+{% endblock %}
+{% block body %}
+    <div class="home">
+        <div class="tabtaxi">
+            <ul class="uk-tab uk-tab-grid">
+                <li class="uk-width-1-2 current blue-drive">
+                    <a href="#" class="child"><span>{{ 'Book your trip'|trans }}</span></a>
+                </li>
+                <li class="uk-width-1-2 red-drive">
+                    <a href="{{ url('main_driver') }}" class="child"><span>{{ 'Choose the best passenger'|trans }}</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="steps-1-2-3">
+            {% include 'DaVinciTaxiBundle:Home:buttonsStepsForOrder.html.twig' %}
+            <div id="steps">
+                {% set currentRoute = app.request.get('_route') %}
+                <form id="main_passenger_request_form" novalidate action="{{ path(currentRoute, {'id': id}) }}" {{ form_enctype(form) }} method="POST">
+                    <div class="errors for-steps">{{ form_errors(form) }}</div>
+                    <div>
+                        {% include 'DaVinciTaxiBundle:Home:editBlock1.html.twig' %}
+                        {% include 'DaVinciTaxiBundle:Home:editBlock2.html.twig' %}
+                        {% include 'DaVinciTaxiBundle:Home:editBlock3.html.twig' %}
+                        <div class="craue_formflow_buttons">
+                            <div class="uk-grid uk-grid-small uk-grid-width-medium-1-2 uk-grid-width-1-1">
+                                <div>
+                                    <button class="uk-button uk-button-danger uk-width-1-1">Confirm</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+			{% include 'DaVinciTaxiBundle:Home:map_block.html.twig' %}
+            <div class="clear"></div>
+        </div>
+        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+	{% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/main.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
