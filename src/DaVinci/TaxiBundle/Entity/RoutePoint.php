@@ -4,13 +4,13 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\ExecutionContextInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="route_point")
  */
-class RoutePoint {
+class RoutePoint 
+{
 	
 	/**
 	 * @ORM\Id
@@ -38,7 +38,7 @@ class RoutePoint {
 	 * @ORM\Column(type="string", length=255, nullable=true)
 	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="routePoint.place.blank")
 	 * @Assert\Length(
-	 *      groups={"flow_createPassengerRequest_step1"},
+	 *      groups={"flow_createPassengerRequest_step1", "edit_passenger_request"},
      *      min=2,
      *      max=100,
      *      minMessage="Destination point must be at least {{ limit }} characters long",

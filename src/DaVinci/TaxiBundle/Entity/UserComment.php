@@ -5,8 +5,10 @@ namespace DaVinci\TaxiBundle\Entity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping AS ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="UserCommentRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class UserComment
@@ -24,7 +26,17 @@ class UserComment
      */
     const TYPE_PASSENGER 	= 0;
     const TYPE_DRIVER    	= 1;
-    const TYPE_TAXI_COMPANY = 2;    
+    const TYPE_TAXI_COMPANY = 2;
+    
+    const FOR_PASSENGER = 'passengers';
+    const FOR_DRIVERS = 'drivers';
+    const FOR_COMPANIES = 'companies';
+    
+    const RATE_FIRST = 1;
+    const RATE_SECOND = 2;
+    const RATE_THIRD = 3;
+    const RATE_FOURTH = 4;
+    const RATE_FIFTH = 5;
     
     /**
      * @ORM\Id
@@ -32,9 +44,10 @@ class UserComment
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
+    
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(groups={"user_comment"}, message="userComment.blank")
      */
     protected $text;
     
@@ -73,9 +86,23 @@ class UserComment
      */
     protected $previousState = 0;
     
+    /**
+     * @ORM\Column(type="integer", name="rate_level")
+     * @Assert\Range(
+     *      groups={"user_comment"}, 
+     *      min=1,
+     * 		max=5,
+     *      minMessage="Rate have to be more or equal {{ limit }}",
+     *      maxMessage="Rate have to be less or equal {{ limit }}"
+     * )
+     */
+    protected $rateLevel = 0;
+    
+    protected $column;
+
     public function __construct()
     {
-        $this->createdAt = new \DateTime();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -233,12 +260,93 @@ class UserComment
         return $this->user;
     }
     
-    public static function getTypeList()
+    /**
+     * Set rateLevel
+     *
+     * @param integer $rateLevel
+     *
+     * @return UserComment
+     */
+    public function setRateLevel($rateLevel)
+    {
+        $this->rateLevel = $rateLevel;
+
+        return $this;
+    }
+
+    /**
+     * Get rateLevel
+     *
+     * @return integer
+     */
+    public function getRateLevel()
+    {
+        return $this->rateLevel;
+    }
+    
+    /**
+     * Set column
+     *
+     * @param string $column
+     *
+     * @return UserComment
+     */
+    public function setColumn($column)
+    {
+        $this->column = $column;
+
+        return $this;
+    }
+
+    /**
+     * Get column
+     *
+     * @return string
+     */
+    public function getColumn()
+    {
+        return $this->column;
+    }
+    
+    public function setTypeByColumn()
+    {
+        $columnList = self::getTypeColumns();
+        
+        if (!in_array($this->column, $columnList)) {
+            throw new \InvalidArgumentException(get_class($this) . ": undefined review column #{$column}");
+        }
+        
+        $this->type = array_search($this->column, $columnList);
+        
+        return $this;
+    }
+    
+    static public function getTypeByColumn($column)
+    {
+        $columnList = self::getTypeColumns();
+        
+        if (!in_array($column, $columnList)) {
+            throw new \InvalidArgumentException(get_class($this) . ": undefined review column #{$column}");
+        }
+        
+        return array_search($column, $columnList);
+    }
+        
+    public static function getTypeColumnList()
     {
     	return array(
-    		self::TYPE_PASSENGER => 'from passenger',
-    		self::TYPE_DRIVER    => 'from driver',
-    		self::TYPE_TAXI_COMPANY  => 'from taxi compan'
+    		self::FOR_PASSENGER => 'From passengers',
+    		self::FOR_DRIVERS => 'From drivers',
+    		self::FOR_COMPANIES => 'From taxi companies'
+    	);
+    }
+    
+    public static function getTypeColumns()
+    {
+    	return array(
+    		self::TYPE_PASSENGER => self::FOR_PASSENGER,
+    		self::TYPE_DRIVER => self::FOR_DRIVERS,
+    		self::TYPE_TAXI_COMPANY => self::FOR_COMPANIES
     	);
     }
     
@@ -250,9 +358,9 @@ class UserComment
     public static function getStateList()
     {
     	return array(
-    		self::STATUS_VALID    => 'valid',
-    		self::STATUS_INVALID  => 'invalid',
-    		self::STATUS_MODERATE => 'moderate',
+    		self::STATUS_VALID    => 'Valid',
+    		self::STATUS_INVALID  => 'Invalid',
+    		self::STATUS_MODERATE => 'Moderate',
     	);
     }
     
@@ -264,12 +372,34 @@ class UserComment
     public function getStateLabel()
     {
     	$list = self::getStateList();
+        $state = $this->getState();
     
-    	return isset($list[$this->getState()])
-	    	? $list[$this->getState()]
+    	return isset($list[$state])
+	    	? $list[$state]
 	    	: null;
     }
     
+    static public function getRateList()
+    {
+        return array(
+            self::RATE_FIRST => '1 star',
+            self::RATE_SECOND => '2 stars',
+            self::RATE_THIRD => '3 stars',
+            self::RATE_FOURTH => '4 stars',
+            self::RATE_FIFTH => '5 stars'
+        );
+    }
+    
+    public function getRateLabel()
+    {
+    	$list = self::getRates();
+        $rate = $this->getRateLevel();
+    
+    	return isset($list[$rate])
+	    	? $list[$rate]
+	    	: null;
+    }
+        
     /**
      * @return string
      */

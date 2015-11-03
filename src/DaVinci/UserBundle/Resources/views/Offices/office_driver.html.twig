@@ -1,8 +1,8 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'office-driver' %}
-{% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
-{% endblock %}
+    {% block title %}
+        {% include 'DaVinciTaxiBundle:Banners:banner4.html.twig' %}
+    {% endblock %}
 {% block body %}
 {# ========= Account start ============= #}
 <div class="client-account">
@@ -10,10 +10,10 @@
 			<div class="uk-grid uk-grid-small client-panel-list block-help">
 			{# block1 #}
 				<div class="clientid">
-					<a class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
+                    <a id="open-profile-button" class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
 					<dl>
-						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">7687796059</dd>
-						<dt>{{' Name:'|trans}}</dt><dd class="data">Boris Ivanov</dd>
+						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ driver.user.id }}</dd>
+						<dt>{{'Name:'|trans}}</dt><dd class="data">{{ driver.user.firstname }} {{ driver.user.lastname }}</dd>
 					</dl>
 				</div>
 			{# block2 #}
@@ -21,11 +21,11 @@
 					<div class="button-choose">
 						<div class="choose-office select-group">
 							<label>{{'Office:'|trans}}</label>
-							<select>
-								<option class="active-office">{{'Office passenger'|trans}}</option>
-								<option>{{'Independent driver'|trans}}</option>
-							</select>
-							<button class="uk-button uk-button-success">{{'Switch'|trans}}</button>
+                            <select id="switch_office">
+                                <option value="{{ path('office_passenger') }}">{{ 'Office Passenger'|trans }}</option>
+                                <option value="{{ path('office_driver') }}" class="active-office" selected="selected">{{ 'Office Independent driver'|trans }}</option>
+                            </select>
+                        	<button id="activate_switch_office" class="uk-button uk-button-success">{{'Switch'|trans}}</button>
 						</div>
 						<div class="buttons-office">
 							<a class="uk-button uk-button-primary">{{'My office'|trans}}</a>
@@ -42,9 +42,9 @@
 				<div class="money-block">
 					<div class="history">
 						<span>{{'History:'|trans}}</span>
+						<a class="uk-button uk-button-primary">TMP</a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
 						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
-						<a class="uk-button uk-button-primary">{{'TMP'|trans}}</a>
 					</div>
 					<div class="balance">
 						<span>{{'Balance:'|trans}}</span>
@@ -69,204 +69,181 @@
 <div class="wrapper-content">
     <div class="shadow-main">
 {# ======= Swicher button ========= #}
-            <div class="button-swicher uk-grid uk-grid-small uk-width-1-1" data-uk-switcher="{connect:'#tab-content'}">
-	            <div class="uk-panel uk-width-1-3 uk-active">
-				    <button class="uk-width-1-1">{{'Find orders'|trans}}</button>
+            <div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
+	            <div class="uk-panel uk-width-1-3{% if method == 'find' %} uk-active{% endif %}">
+				    <button class="uk-width-1-1" onclick='location.href = "{{ path('office_driver', {'method': 'find'}) }}"'>{{'Find orders'|trans}}</button>
 			    </div>
-			    <div class="uk-panel uk-width-1-3">
-				    <button class="uk-width-1-1">{{'Open orders'|trans}}</button>
+			    <div class="uk-panel uk-width-1-3{% if method == 'open' %} uk-active{% endif %}">
+				    <button class="uk-width-1-1" onclick='location.href = "{{ path('office_driver', {'method': 'open'}) }}"'>{{'Open orders'|trans}}</button>
 			 	</div>
-			    <div class="uk-panel uk-width-1-3">
-				    <button class="uk-width-1-1">{{'Order history'|trans}}</button>
+			    <div class="uk-panel uk-width-1-3{% if method == 'history' %} uk-active{% endif %}">
+				    <button class="uk-width-1-1" onclick='location.href = "{{ path('office_driver', {'method': 'history'}) }}"'>{{'Order history'|trans}}</button>
 				</div>
 			</div>
 {# ======= independent-driver table ========= #}
             <ul id="tab-content" class="uk-switcher">
-                    <li class="uk-active">
-                            <div class="whitebg findorder">
-								<div class="message">
-									<span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}}
-								</div>
-							        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
-								<div class="clear"></div>
-                            </div>
-                    </li>
-                    <li>
-                            <div class="whitebg openorder">
-                                    <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
-                                    <table class="uk-table responsive allorder">
-                                        <thead>
-                                                <tr>
-                                                        <th>#</th>
-														<th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
-															<div class="questiontooltip">?</div>
-														<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Time left'|trans}}
-															<div class="questiontooltip">?</div>
-														<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
-															<div class="questiontooltip">?</div>
-														<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Tips'|trans}}
-															<div class="questiontooltip">?</div>	
-														<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pending orders{% endtrans %}" data-cached-title="{% trans %}Pending orders{% endtrans %}">{{'Route'|trans}}
-															<div class="questiontooltip">?</div>
-														<th><span class="filter" data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Check your deals{% endtrans %}"></span>{{'Status'|trans}}
-															<div class="questiontooltip">?</div>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-                                        	{% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold' or request.stateValue == 'approved-sold') %}
-                                        		{% set tariff = request.getTariff() %}
-                                            	<tr>
-                                            		<td>{{ loop.index }}</td>
-                                            		<td class="timesent">{{ request.id }}</td>
-                                            		<td>{{ request.getPickUpLeft() }}</td>
-                                            		<td>${{ tariff.getPrice() }}</td>
-                                            		<td>${{ tariff.getTips() }}</td>
-                                            		<td>
-                                            			<span>
-                                            				<a data-uk-modal="{target:'#route'}">
-                                            				{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}
-                                            				</a>
-                                            			</span>
-                                            		</td>
-                                                    <td>
-                                                    	{% set requestDriver = request.driver %}
-                                                    	{% if request.stateValue == 'pending' and request.isDriverInList(driver.id) == true %}
-                                                			<div class="order-status">
-                                                        		<span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
-                                                        		<span><br>+ </span>
-                                                        		<span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-                                                        		<span><br>+ </span>
-                                                        		<span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
-                                                        		<span><br>= </span>
-                                                        		<span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
-                                                        	</div>	
-                                                    	{% elseif (request.stateValue == 'sold' or request.stateValue == 'approved-sold') and requestDriver is not null and driver.id != requestDriver.id %}
-                                                    		<a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
-                                                        {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
-                                                        	<a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
-                                                        {% elseif request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
-                                                        	{{'Deal confirmed'|trans}}
-                                                    	{% endif %}	
-                                                    </td>
-                                            	</tr>
-                                            {% endfor %}
-                            			</tbody>
-                                    </table>
-                                    
-                         </div>
-                    </li>
-                    <li>
+                <li{% if method == 'find' %} class="uk-active"{% endif %}>
+                    <div class="whitebg findorder">
+                        <div class="message">
+                            {# <span class="uk-text-danger">{{'Attention!'|trans}}</span> {{'Do not forget to confirm your ability to process an order!'|trans}} #}
+                        </div> 
+                            {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+                        <div class="clear"></div>
+                    </div>
+                </li>
+                <li{% if method == 'open' %} class="uk-active"{% endif %}>
+                    <div class="whitebg openorder">
+                        <div class="message">
+                            {# <span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}#}
+                        </div>
+                        <table class="uk-table responsive allorder">
+                            <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th data-uk-tooltip="{pos:'top-left'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
+                                            <div class="questiontooltip"></div>
+                                        <th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}" data-cached-title="{% trans %}Till passenger's arrival{% endtrans %}"><span class="filter"></span>{{'Time left'|trans}}
+                                            <div class="questiontooltip"></div>
+                                        <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}" data-cached-title="{% trans %}Price set by passenger{% endtrans %}"><span class="filter"></span>{{'Price'|trans}}
+                                            <div class="questiontooltip"></div>
+                                        <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Passenger`s gratitude{% endtrans %}"><span class="filter"></span>{{'Tips'|trans}}
+                                            <div class="questiontooltip"></div>	
+                                        <th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/Drop off location{% endtrans %}">{{'Route'|trans}}
+                                            <div class="questiontooltip"></div>
+                                        <th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}Deal Status{% endtrans %}">
+                                            <span class="filter"></span>{{'Status'|trans}}
+                                            <div class="questiontooltip"></div>
+                                    </tr>
+                            </thead>
+                            <tbody>
+                                {% for request in openRequests if (request.stateValue == 'pending' or request.stateValue == 'sold' or request.stateValue == 'approved-sold') %}
+                                    {% set tariff = request.getTariff() %}
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td class="timesent">{{ request.id }}</td>
+                                        <td>{{ request.getPickUpLeft() }}</td>
+                                        <td>${{ tariff.getPrice() }}</td>
+                                        <td>${{ tariff.getTips() }}</td>
+                                        <td>
+                                            <a href="#route_open_{{ request.id }}" data-uk-modal>
+                                                {% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            {% set requestDriver = request.driver %}
+                                            {% if request.stateValue == 'pending' and request.isDriverInList(driver.id) == true %}
+                                                <div class="order-status">
+                                                    <span class="uk-text-success">{{"I\'m"|trans}}<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}That's you!{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                    <span><br>+ </span>
+                                                    <span class="uk-text-danger">3<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver has membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                    <span><br>+ </span>
+                                                    <span class="uk-text-warning">2<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Driver hasn't membership{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                    <span><br>= </span>
+                                                    <span class="uk-text-primary">6<br /><i data-uk-tooltip="{pos:'bottom'}" title="{% trans %}All drivers{% endtrans %}" class="mp-icon-taxi"></i></span>
+                                                </div>	
+                                            {% elseif (request.stateValue == 'sold' or request.stateValue == 'approved-sold') and requestDriver is not null and driver.id != requestDriver.id %}
+                                                <a class="uk-text-warning">{{'Sorry, try next time...'|trans}}</a>
+                                            {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                <a class="uk-text-danger">{{'YES! Luck is yours!'|trans}}</a>
+                                            {% elseif request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                {{'Deal confirmed'|trans}}
+                                            {% endif %}	
+                                        </td>
+                                    </tr>
+                                    {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                                    {{ showRequest(request, driver, 'open') }}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="7">{{ 'Orders not found'|trans }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li{% if method == 'history' %} class="uk-active"{% endif %}>
                     <div class="whitebg historyorder">
-                       <div class="message"><span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}}</div>
-                                    <table class="uk-table responsive allorder">
-                                                    <thead>
-                                                            <tr>
-                                                                    <th>#</th>
-																	<th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}">{{'Date/Time'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{'Route'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}">{{'Price'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check your deals{% endtrans %}">{{'Status'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">{{'Left time'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-																	<th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}You can cancel deal{% endtrans %}">{{'Refuse'|trans}}
-																		<div class="questiontooltip">?</div>
-																	</th>
-                                                            </tr>
-                                                    </thead>
-                                             <tbody>
-                                             	{% for request in openRequests if (request.isDriverInList(driver.id) == true) %}
-                                             		{% set tariff = request.getTariff() %}
-	            									{% set pickUp = request.getPickUp() %}
-	            									{% set requestDriver = request.driver %}
-                                                   	<tr>
-                                                        <td>{{ loop.index }}</td>
-                                                        <td class="timesent">{{ request.id }}</td>
-                                                        <td class="timesent">{{ pickUp.format('d') }} <span class="month">{{ pickUp.format('M') }}</span> {{ pickUp.format('y') }}<br/><span class="timehere">{{ pickUp.format('H:s') }}</span></td>
-                                                        <td><a data-uk-modal="{target:'#route'}">{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
-                                                        <td>${{ tariff.getTotalPrice() }}</td>
-                                                        <td id="request_status_{{ request.id }}">{% if request.stateValue == 'approved-sold' %}{{'sold'|trans}}{% else %}{{'on confirmation'|trans}}{% endif %}</td>
-                                                        <td>
-                                                        	{% if request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
-                                                        		{{'Deal confirmed'|trans}}
-                                                        	{% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
-                                                        		<a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
-                                                        	{% else %}
-                                                        		{{ request.getPickUpLeft() }}	
-                                                        	{% endif %}
-                                                        </td>
-                                                        <td>
-                                                            <div>
-                                                            	<a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Cancel{% endtrans %}" class="mp-icon-closed uk-text-danger decline-deal" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">
-																</a>
-                                                            </div>
-                                                        </td>
-                                                	</tr>
-												{% endfor %}                                                    
-                                    		</tbody>
-                                    </table>
-                    	</div>
-                    </li>
+                        <div class="message">
+                           {# <span class="uk-text-danger">{{'Attention!'|trans}} </span>{{'Choose driver by yourself!'|trans}} #}
+                        </div>
+                        <table class="uk-table responsive allorder">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th data-uk-tooltip="{pos:'top'}" title="{% trans %}Order ID on site{% endtrans %}">{{'TMP ID'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th class="date-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up time{% endtrans %}">{{'Date/Time'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th class="route" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pick-up/drop off location{% endtrans %}">{{'Route'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th class="price" data-uk-tooltip="{pos:'top'}" title="{% trans %}Price set by passenger{% endtrans %}">{{'Price'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th class="status" data-uk-tooltip="{pos:'top'}" title="{% trans %}Check your deals{% endtrans %}">{{'Status'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th class="left-time" data-uk-tooltip="{pos:'top'}" title="{% trans %}Till passenger's arrival{% endtrans %}">{{'Left time'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                    <th data-uk-tooltip="{pos:'top-right'}" title="{% trans %}You can cancel deal{% endtrans %}">{{'Refuse'|trans}}
+                                        <div class="questiontooltip"></div>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for request in openRequests if (request.isDriverInList(driver.id) == true) %}
+                                    {% set tariff = request.getTariff() %}
+                                    {% set pickUp = request.getPickUp() %}
+                                    {% set requestDriver = request.driver %}
+                                    <tr>
+                                        <td>{{ loop.index }}</td>
+                                        <td class="timesent">{{ request.id }}</td>
+                                        <td class="timesent">{{ pickUp.format('d') }} <span class="month">{{ pickUp.format('M') }}</span> {{ pickUp.format('y') }}<br/><span class="timehere">{{ pickUp.format('H:s') }}</span></td>
+                                        <td><a href="#route_history_{{ request.id }}" data-uk-modal>{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>
+                                        <td>${{ tariff.getTotalPrice() }}</td>
+                                        <td id="request_status_{{ request.id }}">{% if request.stateValue == 'approved-sold' %}{{'sold'|trans}}{% else %}{{'on confirmation'|trans}}{% endif %}</td>
+                                        <td>
+                                            {% if request.stateValue == 'approved-sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                {{'Deal confirmed'|trans}}
+                                            {% elseif request.stateValue == 'sold' and requestDriver is not null and driver.id == requestDriver.id %}
+                                                <a id="confirm_{{ request.id }}" class="uk-button uk-button-success confirm-deal" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{'Confirm deal'|trans}}</a>
+                                            {% else %}
+                                                {{ request.getPickUpLeft() }}	
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <a data-uk-tooltip="{pos:'bottom'}" title="{% trans %}Decline{% endtrans %}" class="mp-icon-closed uk-text-danger decline-deal" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}"></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
+                                    {{ showRequest(request, driver, 'history') }}
+                                {% else %}
+                                    <tr>
+                                        <td colspan="8">{{ 'Orders not found'|trans }}</td>
+                                    </tr>    
+                                {% endfor %}                                                    
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
             </ul>
+        </div>
     </div>
-</div>
 {# ========= Independent-driver table end ========= #}
 </div>
-{# ========= rout ========= #}
-            <div id="route" class="uk-modal pop-up">
-                    <div class="uk-modal-dialog">
-                        <a class="uk-modal-close uk-close"></a>
-                            <div class="pop-up route uk-grid uk-grid-small uk-width-1-1">
-                                    <div>
-			                              <div class="yourdrivers">
-			                                    <a href="#" class="mp-icon-edit"></a>
-			                              </div>
-                                          <h5>{{ 'USA: Даллас'|trans }} - {{ 'USA: Оклахома-сити'|trans }}</h5>
-											<div class="utooltip" data-uk-tooltip="{pos:'right'}" title="{% trans %}Enter Name of organization{% endtrans %}"></div>
-                                            <dl class="uk-width-1-1">
-		                                                    <dt class="myid">{{ 'Order ID:'|trans }}</dt><dd class="myid">211212121221</dd>
-                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-a"></i> {{ 'From:'|trans }}</span></dt><dd class="big">{{ 'Russia'|trans }}, {{ 'Moscow'|trans }}, {{ 'Lenina street'|trans }}, {{ 'building'|trans }} # 12</dd>
-                                                    <dt class="big"><span class="uk-form-label uk-width-1-5 title"><i class="mp-icon-point-b"></i> {{ 'To:'|trans }}</span></dt><dd class="big">{{ 'Ukraine'|trans }}, {{ 'Lvov'|trans }}, {{ 'Knazevskaja street'|trans }}, {{ 'building'|trans }} # 173</dd>
-                                                    <dt>{{ 'Pickup:'|trans }}</dt><dd><span class="date">06.02.2014 </span><span>11:30:00</span></dd>
-                                                    <dt>{{ 'Return:'|trans }}</dt><dd><span class="date">13.02.2014 </span><span>12:00:00</span></dd>
-                                                    <dt>{{ 'Passengers:'|trans }}</dt><dd>{{ 'Adults'|trans }}(2), {{ 'Kids'|trans }}(1), {{ 'Seniors'|trans }}(0)</dd>
-                                                    <dt>{{ 'Vehicle class:'|trans }}</dt><dd>{{ 'Economy'|trans }}</dd>
-                                                    <dt>{{ 'Language:'|trans }}</dt><dd>{{ 'Russian'|trans }}</dd>
-                                                    <dt>{{ 'Car special requests:'|trans }}</dt><dd>{{ 'Child seat'|trans }} (0 - 12 {{ 'months'|trans }}), wi-fi {{ 'connection'|trans }}</dd>
-                                                    <dt class="fullsize">{{ 'Special requirement of passenger:'|trans }} </dt>
-                                                    <dd class="fullsize">{{ 'To have sufficient time for proper arrangements we require the MEDIF form to be submitted no less than
-							                            72 hours prior to departure. A medical clearance is only valid for the flight(s) and date(s) specified in
-							                            the MEDIF. Granted medical clearance is only valid in normal circumstances. If a serious deterioration of
-							                            the medical condition took place in between the time of medical clearance and the actual flight, a new
-							                            clearance must be requested.'|trans }}</dd>
-                                                    <dt>{{ "Passenger\'s price:"|trans }}</dt><dd>$260</dd>
-                                                    <dt>{{ 'Tips:'|trans }}</dt><dd>$10</dd>
-                                            </dl>
-                                    </div>
-                                <img class="uk-width-1-1 uk-margin-top" src="{{ asset('bundles/davincitaxi/images/map-popup.png') }}">
-                            </div>
-                    </div>
-            </div>
 
 {# ========= profile ========= #}
 <script>
-    
     var is_filled = '{{ app.user.independentDriver.insuranceAccepted }}';
     var office_passenger_profile = '{{ url('office_driver_profile') }}';
 </script>
 <div id="Profile" class="uk-modal pop-up driver-office">
-    <div class="uk-modal-dialog driver" id="profile-dialog"  data-uk-observe>
+    <div class="uk-modal-dialog driver" id="profile-dialog" data-uk-observe>
     </div>
 </div>
 {% endblock %}

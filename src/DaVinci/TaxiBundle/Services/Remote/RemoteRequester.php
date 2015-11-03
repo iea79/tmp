@@ -34,7 +34,7 @@ class RemoteRequester
 	
 	const OPERATION_FINISHED_SUCCESSFULLY = 0;
 	        
-    const GATEWAY_HOST = 'http://payment.mmastarter.com';
+    const GATEWAY_HOST = 'http://paygnet.taximyprice.com';
     const GATEWAY_PRODUCT_ID = 3;
     
     const PAYMENT_URI = '/gateway/payment';
@@ -65,9 +65,9 @@ class RemoteRequester
     	$this->proxyProcess($makePayment, $opCode);
     }
     
-    public function makePassengerRequestOperation(PassengerRequest $request, $opCode)
+    public function makePassengerRequestOperation(PassengerRequest $request, $opCode, $receiver = null)
     {
-    	$this->proxyProcess($request, $opCode);
+    	$this->proxyProcess($request, $opCode, $receiver);
     }
     
     public function makeUserOperation(User $user, $opCode)
@@ -75,29 +75,31 @@ class RemoteRequester
     	$this->proxyProcess($user, $opCode);
     }
     
-    private function proxyProcess($requestData, $opCode) 
+    private function proxyProcess($requestData, $opCode, $receiver = null) 
     {
     	if (!$this->remoteEnable) {
     		return;
     	}
     	
     	if (!$this->checkOpCode($opCode)) {
-    		throw new InvalidTypeException(get_class($this) . ": unsupported operation code #{$opCode}");
+    		throw new InvalidTypeException(
+                get_class($this) . ": unsupported operation code #{$opCode}"
+            );
     	}
     	
     	if ($this->useApiCaller) {
-    		$this->process($requestData, $opCode);
+    		$this->process($requestData, $opCode, $receiver);
     		return;
     	}
     	
-    	$this->httpProcess($requestData, $opCode);
+    	$this->httpProcess($requestData, $opCode, $receiver);
     }
     
-    private function process($requestData, $opCode)
+    private function process($requestData, $opCode, $receiver = null)
     {
     	$call = new HttpPostJson(
     		$this->getOperationURL($opCode), 
-    		$this->prepareRequest($requestData, $opCode)
+    		$this->prepareRequest($requestData, $opCode, $receiver)
     	);
     	
     	$this->apiCaller->call($call);
@@ -116,7 +118,7 @@ class RemoteRequester
     	}
     }
     
-    private function httpProcess($requestData, $opCode)
+    private function httpProcess($requestData, $opCode, $receiver = null)
     {
     	$this->httpRequester->setOptions(array(
     		CURLOPT_HEADER => 1,
@@ -124,9 +126,9 @@ class RemoteRequester
     	));
     	$this->httpRequester->setMethod(HttpRequest::METHOD_POST);
     	$this->httpRequester->setJsonRequest(
-    		$this->prepareRequest($requestData, $opCode)
+    		$this->prepareRequest($requestData, $opCode, $receiver)
     	);
-    	 
+    	
     	$response = $this->httpRequester->execute($this->getOperationURL($opCode));
     	if ($response->hasError()) {
     		throw new RequesterException($response->getError());
@@ -155,20 +157,33 @@ class RemoteRequester
     	));
     }
     
-    private function prepareRequest($requestData, $opCode)
+    private function prepareRequest($requestData, $opCode, $receiver = null)
     {
     	$params = array();
     	
     	$className = get_class($requestData);
-    	$methodName = 'getParamsFrom' . substr($className, strrpos($className, '\\') + 1);
+        $requestName = substr($className, strrpos($className, '\\') + 1);
+        
+    	$methodName = 'getParamsFrom' . $requestName;
     	if (!method_exists($this, $methodName)) {
-    		throw InvalidTypeException(get_class($this) . ": unsupported method name #{$methodName}");
+    		throw new InvalidTypeException(
+                get_class($this) . ": unsupported method name #{$methodName}"
+            );
     	}
+        
+        if ($requestName == 'MakePayment' || $requestName == 'PassengerRequest') {
+            return array_merge(
+                $this->$methodName($requestData, $opCode, $receiver),
+                array('Opcode' => $opCode)
+            );
+        }
     	    	    	
-    	return array_merge(
-    		$this->$methodName($requestData, $opCode),
-    		array('Opcode' => $opCode)
-    	);
+    	if ($requestName == 'User') {
+            return array_merge(
+                $this->$methodName($requestData, $opCode),
+                array('Opcode' => $opCode)
+            );
+        }
     }
     
     /**
@@ -177,7 +192,7 @@ class RemoteRequester
      * 
      * @return array
      */
-    private function getParamsFromMakePayment(MakePayment $makePayment, $opCode)
+    private function getParamsFromMakePayment(MakePayment $makePayment, $opCode, $receiver = null)
     {
     	switch ($opCode) {
     		case self::OPCODE_PAY_PAL_DIRECT_PAYMENT: {
@@ -197,14 +212,14 @@ class RemoteRequester
     					'state' => 'CA',
     					'zipCode' => $paymentMethod->getZipCode(),
     					'country' => 'US',
-    					'externalUserId' => $makePayment->getUser()->getId()
+                        'externalUserId' => $makePayment->getUser()->getRemoteId()
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
     					'currency' => $makePayment->getTotalPrice()->getCurrency(),
-    					'custom1' => '7.41',
-    					'custom2' => '0.03',
-    					'custom3' => '0.03'
+    					'custom1' => '0.00',
+    					'custom2' => '0.00',
+    					'custom3' => '0.00'
     				),
     				'Product' => self::GATEWAY_PRODUCT_ID
     			);
@@ -219,7 +234,7 @@ class RemoteRequester
     					'email' => $paymentMethod->getEmail(),
     					'subject' => $paymentMethod->getSubject(),
     					'note' => $paymentMethod->getNote(),
-    					'externalUserId' => $makePayment->getUser()->getId()
+                        'externalUserId' => $makePayment->getUser()->getRemoteId()
     				),
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
@@ -278,9 +293,9 @@ class RemoteRequester
     				'Transaction' => array(
     					'amount' => $makePayment->getTotalPrice()->getAmount(),
     					'currency' => $makePayment->getTotalPrice()->getCurrency(),
-    					'custom1' => '7.41',
-    					'custom2' => '0.03',
-    					'custom3' => '0.03'
+    					'custom1' => '0.00',
+    					'custom2' => '0.00',
+    					'custom3' => '0.00'
     				),
     				'User' => $makePayment->getUser()->getRemoteId()
     			);
@@ -315,15 +330,22 @@ class RemoteRequester
     	return $params;
     }
     
-    private function getParamsFromPassengerRequest(PassengerRequest $request, $opCode)
-    {
-    	switch ($opCode) {
+    private function getParamsFromPassengerRequest(
+        PassengerRequest $request, $opCode, $receiver = null
+    ) {
+        switch ($opCode) {
     		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
+                if (is_null($receiver)) {
+                    throw new \InvalidArgumentException(
+                        get_class($this) . ": undefined receiver of transaction"
+                    );
+                }
+                
     			$params = array(
-    				'User' => $request->getUser()->getRemoteId(),
+    				'User' => $receiver->getRemoteId(),
     				'Product' => self::GATEWAY_PRODUCT_ID,	
     				'Transaction' => array(
-    					'amount' => MakePayments::DEFAULT_REQUEST_PRICE,
+    					'amount' => $request->getTariff()->getPrice(),
     					'currency' => MakePayments::DEFAULT_CURRENCY
     				),
     			);
@@ -341,7 +363,7 @@ class RemoteRequester
     
     private function getParamsFromUser(User $user, $opCode)
     {
-    	switch ($opCode) {
+        switch ($opCode) {
     		case self::OPCODE_CREATE_USER_ACCOUNT: {
     			$params = array(
     				'User' => array(
@@ -351,19 +373,7 @@ class RemoteRequester
     			);
     			break;
     		}
-    		
-    		case self::OPCODE_INTERNAL_TRANSFER_MERCHANT_TO_USER: {
-    			$params = array(
-    				'User' => $user->getRemoteId(),
-    				'Product' => self::GATEWAY_PRODUCT_ID,
-    				'Transaction' => array(
-    					'amount' => MakePayments::DEFAULT_REQUEST_PRICE,
-    					'currency' => MakePayments::DEFAULT_CURRENCY
-    				),
-    			);
-    			break;
-    		}
-    		    		        
+                		    		        
     		default: {
     			$params = array();
     			break;

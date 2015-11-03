@@ -7,7 +7,8 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 /**
  * @PHPCR\Document(referenceable=true)
  */
-class FakeComment  {
+class FakeComment 
+{
 
     /**
      * @PHPCR\Id(strategy="auto")

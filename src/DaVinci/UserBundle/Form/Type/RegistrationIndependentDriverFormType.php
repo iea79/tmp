@@ -28,11 +28,12 @@ class RegistrationIndependentDriverFormType extends BaseType {
                             'label' => 'form.english',
                             'translation_domain' => 'FOSUserBundle'
                         ))
-                        ->add('phones','collection',array(
+                        ->add('phones', 'collection', array(
                                 'type'         => new PhoneType(),
                                 'allow_add'    => true,
                                 'error_bubbling' => false,
-                                'cascade_validation' => true));
+                                'cascade_validation' => true
+                        ));
                 break;
             case 2:
 

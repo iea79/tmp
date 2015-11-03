@@ -19,7 +19,7 @@ final class VehicleClasses
 	const POS_CLASS_SUV = 11;
 	const POS_CLASS_SPECIALITY = 12;
 	const POS_CLASS_PICKUP = 13;
-	
+    	
 	const CLASS_DEFAULT = 'Not chosen';
 	const CLASS_ECONOMY = 'Economy';
 	const CLASS_COMPACT = 'Compact';
@@ -34,11 +34,20 @@ final class VehicleClasses
 	const CLASS_SUV = 'SUV';
 	const CLASS_SPECIALITY = 'Speciality';
 	const CLASS_PICKUP = 'Pickup';
+    const CLASS_ALL = 'All';
 	
 	public static function getChoices()
 	{
 		return array_merge(
 			array(self::POS_DEFAULT => self::CLASS_DEFAULT),
+			self::getPossibleChoices()
+		);
+	}
+    
+    public static function getFilterChoices()
+	{
+		return array_merge(
+			array(self::POS_DEFAULT => self::CLASS_ALL),
 			self::getPossibleChoices()
 		);
 	}

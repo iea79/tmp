@@ -1,5 +1,8 @@
 parameters:
     # cmf_blog.blog_controller.class: Application\Cmf\BlogBundle\Controller\BlogController
+    sender_email: info@taximyprice.com
+    confirmation_registration: Confirmation Registration on TaxiMyPrice
+
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
@@ -171,7 +174,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-    sender_address: "info@taximyprice.com"
+    sender_address: "%sender_email%"
 
 jms_security_extra:
     secure_all_services: false
@@ -225,11 +228,13 @@ cmf_core:
     persistence:
         phpcr:
             enabled: true
+            
 cmf_routing:
     chain:
         routers_by_id:
             router.default: 200
             cmf_routing.dynamic_router: 100
+            
     dynamic:
         enabled: true
         route_collection_limit: 10
@@ -241,12 +246,12 @@ cmf_routing:
             Symfony\Cmf\Bundle\RoutingBundle\Doctrine\Phpcr\RedirectRoute: cmf_routing.redirect_controller:redirectAction
             DaVinci\TaxiBundle\Document\GuidesPage: DaVinciTaxiBundle:Information:guide
             DaVinci\TaxiBundle\Document\VideoGuidesPage: DaVinciTaxiBundle:Information:video
-#            Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
-#            Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
+#           Application\Cmf\BlogBundle\Document\Blog: cmf_blog.blog_controller:detailAction
+#           Application\Cmf\BlogBundle\Document\Post: cmf_blog.blog_controller:viewPostAction
 
-#        templates_by_class:
-#            Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
-#            Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
+#       templates_by_class:
+#           Application\Cmf\BlogBundle\Document\Blog: ApplicationCmfBlogBundle:Blog:detail.html.twig
+#           Application\Cmf\BlogBundle\Document\Post: ApplicationCmfBlogBundle:Post:detail.html.twig
 
         persistence:
             phpcr:

@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping AS ORM;
  * @ORM\Entity
  * @ORM\Table(name="vehicle_services")
  */
-class VehicleServices {
+class VehicleServices 
+{
 	
 	/**
 	 * @ORM\Id

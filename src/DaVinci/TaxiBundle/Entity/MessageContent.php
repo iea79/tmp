@@ -17,14 +17,14 @@ class MessageContent
 	 * @ORM\GeneratedValue(strategy="AUTO")
 	 */
 	private $id;
-	
-	/**
-	 * @ORM\Column(type="datetimetz", name="modify_date")
-	 */
-	private $modifyDate;
-	
-	/**
+		
+    /**
 	 * @ORM\Column(type="string", length=255)
+	 */
+	private $subject;
+    
+	/**
+	 * @ORM\Column(type="text")
 	 */
 	private $content;
 	
@@ -42,6 +42,11 @@ class MessageContent
 	 * @ORM\Column(type="boolean", name="internal_notification")
 	 */
 	private $internalNotification = false;
+    
+    /**
+     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company-driver')", length=50)
+     */
+    private $recipient;
 	
     /**
      * Get id
@@ -52,29 +57,29 @@ class MessageContent
     {
         return $this->id;
     }
-
+    
     /**
-     * Set modifyDate
+     * Set subject
      *
-     * @param \DateTime $modifyDate
+     * @param string $subject
      *
      * @return MessageContent
      */
-    public function setModifyDate($modifyDate)
+    public function setSubject($subject)
     {
-        $this->modifyDate = $modifyDate;
+        $this->subject = $subject;
 
         return $this;
     }
 
     /**
-     * Get modifyDate
+     * Get subject
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getModifyDate()
+    public function getSubject()
     {
-        return $this->modifyDate;
+        return $this->subject;
     }
 
     /**
@@ -101,7 +106,6 @@ class MessageContent
         return $this->content;
     }
     
-
     /**
      * Set literalCode
      *
@@ -149,6 +153,16 @@ class MessageContent
     {
         return $this->mailNotification;
     }
+    
+    /**
+     * Get mailNotification
+     *
+     * @return boolean
+     */
+    public function getMailNotification()
+    {
+        return $this->mailNotification;
+    }
 
     /**
      * Set internalNotification
@@ -174,6 +188,38 @@ class MessageContent
         return $this->internalNotification;
     }
 
-}
+    /**
+     * Get internalNotification
+     *
+     * @return boolean
+     */
+    public function getInternalNotification()
+    {
+        return $this->internalNotification;
+    }
+    
 
-?>
+    /**
+     * Set recipient
+     *
+     * @param string $recipient
+     *
+     * @return MessageContent
+     */
+    public function setRecipient($recipient)
+    {
+        $this->recipient = $recipient;
+
+        return $this;
+    }
+
+    /**
+     * Get recipient
+     *
+     * @return string
+     */
+    public function getRecipient()
+    {
+        return $this->recipient;
+    }
+}

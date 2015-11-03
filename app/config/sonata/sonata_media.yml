@@ -44,7 +44,7 @@ sonata_media:
 
             formats:
                 abstract: { width: 150, quality: 95}
-                small:     { width: 280, quality: 100}
+                small:    { width: 280, quality: 100}
 
         videoguides:
             providers:
@@ -63,7 +63,7 @@ sonata_media:
                 - sonata.media.provider.image
 
             formats:
-                preview:   { width: 238, quality: 100}
+                preview:   { width: 238, height: 133, quality: 100}
                 small:     { width: 200, quality: 100}
                 large:     { width: 600, quality: 100}
         news:
@@ -141,7 +141,7 @@ sonata_media:
 
     resizer:
         simple:
-#            mode:  outbound
+#           mode:  outbound
             mode:  inset
 
 #
@@ -221,15 +221,13 @@ sonata_media:
 
 
 # Enable Doctrine to map the provided entities
-#doctrine:
+# doctrine:
 #    orm:
 #        entity_managers:
 #           default:
 #                mappings:
 #                    SonataMediaBundle: ~
 #                    ApplicationSonataMediaBundle: ~
-
-
 
 doctrine_phpcr:
     odm:
@@ -242,7 +240,6 @@ doctrine_phpcr:
 
 
 services:
-       
     sonata.media.admin.media:
         class: %sonata.media.admin.media.class%
         arguments: 

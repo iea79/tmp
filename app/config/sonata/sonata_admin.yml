@@ -60,13 +60,17 @@ sonata_admin:
                 items:
                     - sonata.media.admin.media
 #                   - sonata.media.admin.gallery
+                    - davinci.taxi.admin.category
                     - davinci.taxi.admin.profitpage    
                     - davinci.taxi.admin.aboutpage       
                     - davinci.taxi.admin.faqentry   
                     - davinci.taxi.admin.guidepage   
                     - davinci.taxi.admin.videoguidepage     
+                    - davinci.taxi.admin.post
+                    - davinci.taxi.admin.blogcolumn
                     - davinci.taxi.admin.comment
-                    - davinci.taxi.admin.category
+                    - davinci.taxi.admin.seoparams
+                    - davinci.taxi.admin.messagecontent
 
             sonata.admin.group.administration:
                 label:           sonata_administration

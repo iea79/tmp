@@ -63,7 +63,10 @@ class Category implements TranslatableInterface
     
     	return $this;
     }
+        
+    public function __toString()
+    {
+    	return urlencode(serialize($this->id));
+    }
     
 }
-
-?>

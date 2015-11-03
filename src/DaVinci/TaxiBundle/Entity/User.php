@@ -99,64 +99,7 @@ class User extends BaseUser
         
 //        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
-    //override fosuser function
-    public function setPlainPassword($password)
-    {
-        parent::setPlainPassword($password);
         
-        $this->setPasswordUpdatedAt();
-    }
-    
-    //override fosuser function
-    public function setPassword($password)
-    {
-        parent::setPassword($password);
-        
-        $this->setPasswordUpdatedAt();
-    }
-    
-    public function isPasswordNotExpired($expTime = false)
-    {
-        if(!$expTime) $expTime = $this->timeToUpdatePassword;
-
-        return $this->passwordUpdatedAt instanceof \DateTime &&
-               $this->passwordUpdatedAt->getTimestamp() + $expTime > time();
-    }
-    
-    public function setPasswordUpdatedAt($passwordUpdatedAt = false)
-    {        
-        if(!$passwordUpdatedAt)
-            $this->passwordUpdatedAt = new \DateTime();
-        else
-            $this->passwordUpdatedAt = $passwordUpdatedAt;
-    }
-
-    public function getPasswordUpdatedAt()
-    {
-        $this->passwordUpdatedAt;
-    }
-    
-    public function setFirstname($firstname)
-    {
-        $this->firstname = ucwords(strtolower($firstname));
-    }
-
-    public function setLastname($lastname)
-    {
-        $this->lastname = ucwords(strtolower($lastname));
-    }
-    
-    public function getTermsAccepted()
-    {
-        return $this->termsAccepted;
-    }
-
-    public function setTermsAccepted($termsAccepted)
-    {
-        $this->termsAccepted = (Boolean) $termsAccepted;
-    }
-    
     /**
      * Get id
      *
@@ -236,10 +179,10 @@ class User extends BaseUser
     /**
      * Set language
      *
-     * @param \DaVinci\TaxiBundle\Entity\Language  $lnguage
+     * @param \DaVinci\TaxiBundle\Entity\Language $language
      * @return User
      */
-    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language  $language)
+    public function setLanguage(\DaVinci\TaxiBundle\Entity\Language $language)
     {
         $this->language = $language;
 
@@ -272,52 +215,6 @@ class User extends BaseUser
         return parent::setEmailCanonical($emailCanonical);
     }
 
-    
-//    /**
-//     * Add address
-//     *
-//     * @param \DaVinci\TaxiBundle\Entity\Address $address
-//     * @return User
-//     */
-//    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-//    {
-//        $this->addresses[] = $address;
-//
-//        return $this;
-//    }
-//
-//    /**
-//     * Remove address
-//     *
-//     * @param \DaVinci\TaxiBundle\Entity\Address $address
-//     */
-//    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
-//    {
-//        $this->addresses->removeElement($address);
-//    }
-//    
-//    /**
-//     * set addresses
-//     *
-//     */
-//    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
-//    {
-//        $this->addresses = $addresses;
-//        foreach ($addresses as $address) {
-//            $address->setUser($this);
-//        }
-//    }
-//
-//    /**
-//     * Get addresses
-//     *
-//     * @return \Doctrine\Common\Collections\Collection
-//     */
-//    public function getAddresses()
-//    {
-//        return $this->addresses;
-//    }
-    
     /**
      * Set taxiCompany
      *
@@ -432,5 +329,108 @@ class User extends BaseUser
     {
     	return $this->remoteId;
     }
+        
+    // override fosuser function
+    public function setPlainPassword($password)
+    {
+        parent::setPlainPassword($password);
+        $this->setPasswordUpdatedAt();
+    }
     
+    // override fosuser function
+    public function setPassword($password)
+    {
+        parent::setPassword($password);
+        $this->setPasswordUpdatedAt();
+    }
+    
+    public function isPasswordNotExpired($expTime = false)
+    {
+        if (!$expTime) {
+            $expTime = $this->timeToUpdatePassword;
+        }
+
+        return (
+            $this->passwordUpdatedAt instanceof \DateTime 
+            && $this->passwordUpdatedAt->getTimestamp() + $expTime > time()
+        );
+    }
+    
+    public function setPasswordUpdatedAt($passwordUpdatedAt = false)
+    {        
+        $this->passwordUpdatedAt = (!$passwordUpdatedAt)
+            ? new \DateTime()
+            : $passwordUpdatedAt;
+    }
+
+    public function getPasswordUpdatedAt()
+    {
+        $this->passwordUpdatedAt;
+    }
+    
+    public function setFirstname($firstname)
+    {
+        $this->firstname = ucwords(strtolower($firstname));
+    }
+
+    public function setLastname($lastname)
+    {
+        $this->lastname = ucwords(strtolower($lastname));
+    }
+    
+    public function getTermsAccepted()
+    {
+        return $this->termsAccepted;
+    }
+
+    public function setTermsAccepted($termsAccepted)
+    {
+        $this->termsAccepted = (Boolean) $termsAccepted;
+    }
+    
+//    /**
+//     * Add address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     * @return User
+//     */
+//    public function addAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses[] = $address;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Remove address
+//     *
+//     * @param \DaVinci\TaxiBundle\Entity\Address $address
+//     */
+//    public function removeAddress(\DaVinci\TaxiBundle\Entity\Address $address)
+//    {
+//        $this->addresses->removeElement($address);
+//    }
+//    
+//    /**
+//     * set addresses
+//     *
+//     */
+//    public function setAddresses(\Doctrine\Common\Collections\Collection $addresses)
+//    {
+//        $this->addresses = $addresses;
+//        foreach ($addresses as $address) {
+//            $address->setUser($this);
+//        }
+//    }
+//
+//    /**
+//     * Get addresses
+//     *
+//     * @return \Doctrine\Common\Collections\Collection
+//     */
+//    public function getAddresses()
+//    {
+//        return $this->addresses;
+//    }
+        
 }

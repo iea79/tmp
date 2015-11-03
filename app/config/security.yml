@@ -1,5 +1,6 @@
 parameters:
     security.acl.permission.map.class: Sonata\AdminBundle\Security\Acl\Permission\AdminPermissionMap
+
 security:
     acl:
         connection: default
@@ -48,14 +49,15 @@ security:
         main:
             pattern: ^/
             form_login:
-                provider: chain_provider
-                csrf_provider: form.csrf_provider
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                failure_path:   null
-             #   always_use_default_target_path: false
-             #   default_target_path:            /
+                provider:        chain_provider
+                csrf_provider:   form.csrf_provider
+                login_path:      /login
+                use_forward:     false
+                check_path:      /login_check
+                success_handler: da_vinci_taxi.component.authentication.handler.login_success_handler
+                failure_path:    null
+            #   always_use_default_target_path: false
+            #   default_target_path:            /
             logout: true
             anonymous:  true
             context: user

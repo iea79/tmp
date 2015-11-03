@@ -4,6 +4,9 @@ namespace DaVinci\TaxiBundle\Entity;
 
 use Doctrine\ORM\Mapping AS ORM;
 
+use DaVinci\TaxiBundle\Event\SystemEvents;
+use DaVinci\TaxiBundle\Entity\User;
+
 /**
  * @ORM\Entity(repositoryClass="InternalMessageRepository")
  * @ORM\Table(name="internal_message")
@@ -27,9 +30,19 @@ class InternalMessage
 	 * @ORM\Column(type="string", columnDefinition="ENUM('Low', 'Normal', 'High', 'Urgent', 'Immediate')", length=50)
 	 */
 	private $priority = InternalMessagePriorities::NORMAL;
+    
+    /**
+	 * @ORM\Column(type="string", columnDefinition="ENUM('approve.request', 'decline-driver.request', 'cancel.request')", name="literal_code", length=100)
+	 */
+	private $literalCode;
+    
+    /**
+	 * @ORM\Column(type="string", length=255)
+	 */
+	private $subject;
 	
 	/**
-	 * @ORM\Column(type="string", length=255)
+	 * @ORM\Column(type="text")
 	 */
 	private $content;
 	
@@ -38,7 +51,11 @@ class InternalMessage
 	 * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
 	 */
 	private $user;
-	
+    
+    /**
+     * @ORM\Column(type="string", columnDefinition="ENUM('user', 'taxi-independent-driver', 'taxi-company-driver')", length=50)
+     */
+    private $office;
 
     /**
      * Get id
@@ -97,6 +114,59 @@ class InternalMessage
     {
         return $this->priority;
     }
+    
+    /**
+     * Set literalCode
+     *
+     * @param string $literalCode
+     *
+     * @return MessageContent
+     */
+    public function setLiteralCode($literalCode)
+    {
+        $this->literalCode = $literalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get literalCode
+     *
+     * @return string
+     */
+    public function getLiteralCode()
+    {
+        return $this->literalCode;
+    }
+    
+    public function getEventName()
+    {
+        return SystemEvents::getEventByLiteralCode($this->literalCode);
+    }
+    
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     *
+     * @return MessageContent
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
 
     /**
      * Set content
@@ -121,7 +191,7 @@ class InternalMessage
     {
     	return $this->content;
     }
-        
+           
     /**
      * Set user
      *
@@ -129,7 +199,7 @@ class InternalMessage
      *
      * @return InternalMessage
      */
-    public function setUser(\DaVinci\TaxiBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -146,4 +216,29 @@ class InternalMessage
         return $this->user;
     }
 
+
+    /**
+     * Set office
+     *
+     * @param string $office
+     *
+     * @return InternalMessage
+     */
+    public function setOffice($office)
+    {
+        $this->office = $office;
+
+        return $this;
+    }
+
+    /**
+     * Get office
+     *
+     * @return string
+     */
+    public function getOffice()
+    {
+        return $this->office;
+    }
+        
 }

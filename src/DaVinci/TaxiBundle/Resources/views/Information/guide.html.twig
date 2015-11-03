@@ -1,7 +1,7 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'one-helps' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 {% endblock%}
 
 {% block body %}
@@ -16,7 +16,7 @@
 			</div>
 		</div>
 			<div class="message">
-				<span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}
+				{#<span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}#}
 			</div>
 			<div class="search">
 				<form class="uk-search" data-uk-search>
@@ -29,22 +29,23 @@
 				<div class="block-help">
 					<div class="help-content">
 						<div class="one-help">
-                                                <h3>{{ page.title }}</h3>
-                                               {{ page.body|raw }}
-							{#<h3>{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</h3>
+                        	<h3>{{ page.title }}</h3>
+                            {{ page.body|raw }}
+							{#
+								<h3>{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</h3>
 								<p>{{'Итак, вы хотите начать прользоваться TaxiMyPrice, тогда вам нужно пройти 3 простих шага регистрации и заполнения данных. Весь процесс займет всего 3 минуты и не требует специальных знаний или навыков. Для удобства вы можете посмотреть обучающее видео или воспользоваться текстовой инструкцией.'|trans}}</p>
-		                        	<div class="videoWrapper">
-										<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=0;showinfo=0;autoplay=0;vq=hd720"></iframe>
-									</div>
-										<h2>1. {{'Зарегистрируйтесь бесплатно.'|trans}}</h2>
-											<p>{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK.'|trans}}</p>
-											<img src="{{ asset('bundles/davincitaxi/images/screen-login.png') }}" alt="">
-											<p>{{'Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и нажмите FINISH. После регистрации на ваш e-mail будет выслано письмо с подтверждением. Для завершения регистрации пройдите по ссылке, которую мы вам вышлем в письме.'|trans}}</p>
-										<img src="{{ asset('bundles/davincitaxi/images/form.png') }}" alt="">
-                                        #}
-				    	</div>
+			                    <div class="videoWrapper">
+									<iframe width="420" height="315" src="//www.youtube.com/embed/LGfRfYz1VYA?rel=0;controls=0;showinfo=0;autoplay=0;vq=hd720"></iframe>
+								</div>
+								<h2>1. {{'Зарегистрируйтесь бесплатно.'|trans}}</h2>
+								<p>{{'Зарегистрируйтесь бесплатно. Весь процесс регистрации предельно простой и займёт у вас несколько минут. Выберите пункт РЕГИСТРАЦИЯ или перейдите по ссылке LINK.'|trans}}</p>
+								<img src="{{ asset('bundles/davincitaxi/images/screen-login.png') }}" alt="">
+								<p>{{'Введите ваши имя, адрес электронной почты, выберите пароль и нажмите CREATE ACOUNT. Проверьте правильность введённых данных данных и нажмите FINISH. После регистрации на ваш e-mail будет выслано письмо с подтверждением. Для завершения регистрации пройдите по ссылке, которую мы вам вышлем в письме.'|trans}}</p>
+								<img src="{{ asset('bundles/davincitaxi/images/form.png') }}" alt="">
+                            #}
+				    		</div>
 					    	<div class="support">
-					    		<span>{{'Если вам не удалось решить проблему, то задайте вопрос в службу поддержки!'|trans}}</span>
+					    		<span>{{'Can\'t find your answer here? Submit a support request.'|trans}}</span>
 					    		<a href="" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
 					    	</div>
 					</div>
@@ -60,7 +61,7 @@
 	                        <li><a class="uk-button uk-button-primary" href="#">{{'more questions'|trans}}</a></li>
 	                    </ul>
 						<ul class="uk-nav">
-			                <li class="head"><a href="#">{{'Giudes'|trans}}</a></li>
+			                <li class="head"><a href="#">{{'Guides'|trans}}</a></li>
 	                        <li><a href="#">{{'Как начать пользоваться сервисом Taxi My Price?'|trans}}</a></li>
 	                        <li><a href="#">{{'Я забыл свой пароль и хочу его восстановить'|trans}}</a></li>
 	                        <li><a href="#">{{'Я хочу назначить цену на поездку но не знаю как'|trans}}</a></li>

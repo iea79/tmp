@@ -1,6 +1,12 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+	{% if flow.getCurrentStepNumber() == 1 %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+    {% elseif flow.getCurrentStepNumber() == 2 %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner4.html.twig' %}
+	{% else %}
+	    {% include 'DaVinciTaxiBundle:Banners:banner6.html.twig' %}
+    {% endif %}
 {% endblock%}
 {% block body %}
 <div class="whitebg shadow-main payment home">

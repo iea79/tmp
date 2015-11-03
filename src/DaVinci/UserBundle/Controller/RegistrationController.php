@@ -2,19 +2,24 @@
 
 namespace DaVinci\UserBundle\Controller;
 
-#use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+// use Sonata\UserBundle\Controller\RegistrationFOSUser1Controller as BaseController;
+
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use DaVinci\TaxiBundle\Entity\TaxiCompany;
-use DaVinci\TaxiBundle\Entity\IndependentDriver;
+
 use DaVinci\TaxiBundle\Services\Remote\RemoteRequester;
 
-class RegistrationController extends BaseController {
+use DaVinci\TaxiBundle\Entity\TaxiCompany;
+use DaVinci\TaxiBundle\Entity\IndependentDriver;
+
+class RegistrationController extends BaseController 
+{
 
     /**
      * Receive the confirmation token from user email provider, login the user
@@ -24,17 +29,42 @@ class RegistrationController extends BaseController {
         $user = $this->container->get('fos_user.user_manager')->findUserByConfirmationToken($token);
 
         if (null === $user) {
-            //TODO: add message page/notification
+            // TODO: add message page/notification
             return new RedirectResponse($this->container->get('router')->generate('fos_user_security_login'));
-            //throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
+            // throw new NotFoundHttpException(sprintf('The user with confirmation token "%s" does not exist', $token));
         }
-
+                
         $user->setConfirmationToken(null);
         $user->setEnabled(true);
-        $user->setLastLogin(new \DateTime());
+        $user->setLastLogin(new \DateTime('now'));
 
         $this->container->get('fos_user.user_manager')->updateUser($user);
-        $response = new RedirectResponse($this->container->get('router')->generate('fos_user_registration_confirmed'));
+                
+        $message = \Swift_Message::newInstance()
+			->setSubject($this->container->getParameter('confirmation_registration'))
+            ->setFrom($this->container->getParameter('sender_email'))
+			->setTo($user->getEmail())
+            ->setContentType("text/html")
+			->setBody(
+                'Your registration data {{ user.email }} {{ user.password }} are in TaxiMyPrice system! <br><br>
+                You always can change Your registration data in personal office, in Your profile. <br><br>
+                Respectfully yours, TaxiMyPrice team.'
+            );
+        
+        $this->container
+            ->get('mailer')
+            ->send($message);
+        
+        $request = $this->container->get('request');
+        $requestId = $request->get('requestId');
+        
+        $response = new RedirectResponse(
+            $this->container->get('router')->generate(
+                'fos_user_registration_confirmed',
+                array('requestId' => (is_null($requestId)) ? 0 : $requestId),
+                true
+            )
+        );
         $this->authenticateUser($user, $response);
 
         return $response;
@@ -43,126 +73,172 @@ class RegistrationController extends BaseController {
     /**
      * Tell the user to check his email provider
      */
-    public function checkEmailAction() {
-        //some shit code to not change main logic
+    public function checkEmailAction() 
+    {
+        // some shit code to not change main logic
         $email = $this->container->get('session')->get('fos_user_send_confirmation_email/email');
 
-        if (empty($email))
+        if (empty($email)) {
             throw new NotFoundHttpException(sprintf('There is empty check email, try register'));
+        }    
 
-
-        $new_email = $email;
+        $newEmail = $email;
         $request = $this->container->get('request');
-        $post_data = $request->request->all();
-        if (isset($post_data['form']))
-            $new_email = $post_data['form']['email'];
+        $postData = $request->request->all();
+        if (isset($postData['form'])) {
+            $newEmail = $postData['form']['email'];
+        }
 
-        //$this->container->get('session')->remove('fos_user_send_confirmation_email/email');
+        // $this->container->get('session')->remove('fos_user_send_confirmation_email/email');
         $user = $this->container->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
             throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
         }
 
-        $form = $this->container->get('form.factory')->createBuilder('form', $user,array('validation_groups'=>'CheckEmail'))
-                ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
-                ->add('save', 'submit', array('label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'))
-                ->getForm();
+        $form = $this->container->get('form.factory')
+            ->createBuilder(
+                'form', $user, array('validation_groups' => 'CheckEmail')
+            )
+            ->add('email', 'email', array(
+                'label' => 'form.email', 'translation_domain' => 'FOSUserBundle'
+            ))
+            ->add('save', 'submit', array(
+                'label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'
+            ))
+            ->getForm();
 
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             // perform some action, such as saving the task to the database
 
             $this->container->get('fos_user.user_manager')->updateUser($user);
             $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
-            $this->container->get('session')->set('fos_user_send_confirmation_email/email', $new_email);
+            $this->container->get('session')->set('fos_user_send_confirmation_email/email', $newEmail);
 
-            $form = $this->container->get('form.factory')->createBuilder('form', $user)
-                    ->add('email', 'email', array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle', 'data' => $new_email))
-                    ->add('save', 'submit', array('label' => 'Change and Resend', 'translation_domain' => 'FOSUserBundle'))
-                    ->getForm();
+            $form = $this->container->get('form.factory')
+                ->createBuilder('form', $user)
+                ->add('email', 'email', array(
+                    'label' => 'form.email', 
+                    'translation_domain' => 'FOSUserBundle', 
+                    'data' => $newEmail
+                ))
+                ->add('save', 'submit', array(
+                    'label' => 'Change and Resend', 
+                    'translation_domain' => 'FOSUserBundle'
+                ))
+                ->getForm();
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), array(
-                    'user' => $user,
-                    'form' => $form->createView(),
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:checkEmail.html.' . $this->getEngine(), 
+            array(
+                'user' => $user,
+                'form' => $form->createView(),
+            )
+        );
     }
 
     /**
      * fosuser register standard route /register
      */
-    public function registerAction() {
+    public function registerAction() 
+    {
+        if ($this->container->get('security.context')->isGranted('ROLE_USER')) {
+            return new RedirectResponse(
+                $this->container->get('router')->generate('office_passenger')
+            );
+        }
+        
         $user = $this->container->get('security.context')->getToken()->getUser();
-
         if ($user instanceof UserInterface) {
-            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
-            $url = $this->container->get('router')->generate('sonata_user_profile_show');
-
-            return new RedirectResponse($url);
+            $this->container->get('session')->getFlashBag()->set(
+                'sonata_user_error', 'sonata_user_already_authenticated'
+            );
+            
+            return new RedirectResponse(
+                $this->container->get('router')->generate('sonata_user_profile_show')
+            );
         }
 
-        //$form = $this->container->get('sonata.user.registration.form');
-        //$formHandler = $this->container->get('sonata.user.registration.form.handler');
+        // $form = $this->container->get('sonata.user.registration.form');
+        // $formHandler = $this->container->get('sonata.user.registration.form.handler');
         // $formHandler = $this->container->get('fos_user.registration.form.handler');
 
+        $confirmationEnabled = $this->container->getParameter(
+            'fos_user.registration.confirmation.enabled'
+        );
 
-
-        $confirmationEnabled = $this->container->getParameter('fos_user.registration.confirmation.enabled');
-
-        ////// form handler moved here to use craue flow bundle
+        // form handler moved here to use craue flow bundle
         $userManager = $this->container->get('fos_user.user_manager');
 
         $user = $userManager->createUser();
 
-        $flow = $this->container->get('taxi.registration.form.flow'); // must match the flow's service id
-
+        // must match the flow's service id
+        $flow = $this->container->get('taxi.registration.form.flow'); 
         $flow->bind($user);
+
         $form = $flow->createForm();
 
         $process = false;
         $request = $this->container->get('request');
         if ($request->isMethod('POST')) {
-            //$form->bind($request);
+            // $form->bind($request);
             if ($flow->isValid($form)) {
-
                 $flow->saveCurrentStepData($form);
 
                 if ($flow->nextStep()) {
                     // form for the next step
                     $form = $flow->createForm();
                 } else {
-                    // flow finished
-                    $flow->reset(); // remove step data from the session
+                    $requestId = $this->container->get('session')->get('request_id');
+                                      
+                    // flow finished, remove step data from the session
+                    $flow->reset(); 
+                                        
                     if ($confirmationEnabled) {
                         $user->setEnabled(false);
                         if (null === $user->getConfirmationToken()) {
-                            $user->setConfirmationToken($this->container->get('fos_user.util.token_generator')->generateToken());
+                            $user->setConfirmationToken(
+                                $this->container->get('fos_user.util.token_generator')->generateToken()
+                            );
                         }
 
-                        $this->container->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
+                        $this->container
+                            ->get('fos_user.mailer')
+                            ->sendConfirmationEmailMessageCustom($user, $requestId);
                     } else {
                         $user->setEnabled(true);
                     }
+                    
                     $user->addRole('ROLE_USER');
-
                     $userManager->updateUser($user);
+                    
+                    $em = $this->container->get('doctrine')->getManager();
+                    $repository = $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
+                    
+                    $passengerRequest = $repository->getFullRequestById($requestId);
+                    $passengerRequest->setUser($user);
+                    $em->flush();
 
+                    $this->container->get('session')->remove('request_id');
+                    
                     $process = true;
                 }
             }
         }
 
-
         if ($process) {
-
             $user = $form->getData();
 
             $authUser = false;
             if ($confirmationEnabled) {
-                $this->container->get('session')->set('fos_user_send_confirmation_email/email', $user->getEmail());
-                $url = $this->container->get('router')->generate('fos_user_registration_check_email');
+                $this->container->get('session')->set(
+                    'fos_user_send_confirmation_email/email', $user->getEmail()
+                );
+                $url = $this->container
+                    ->get('router')
+                    ->generate('fos_user_registration_check_email');
             } else {
                 $authUser = true;
                 $route = $this->container->get('session')->get('sonata_basket_delivery_redirect');
@@ -178,12 +254,11 @@ class RegistrationController extends BaseController {
             $this->setFlash('fos_user_success', 'registration.flash.user_created');
 
             $response = new RedirectResponse($url);
-
             if ($authUser) {
                 $this->authenticateUser($user, $response);
             }
 
-            // send to payment global network system
+            // send request to payment global network system
             $this->container->get('da_vinci_taxi.service.remote_requester')->makeUserOperation(
             	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
         	);
@@ -192,20 +267,27 @@ class RegistrationController extends BaseController {
         }
 
 
-        if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber())
-            $this->container->get('session')->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
+        if ($flow->getCurrentStepNumber() == $flow->getFirstStepNumber()) {
+            $this
+                ->container
+                ->get('session')
+                ->set('sonata_user_redirect_url', $this->container->get('request')->headers->get('referer'));
+        }    
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register.html.' . $this->getEngine(), array(
-                    'form' => $form->createView(),
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register.html.' . $this->getEngine(), 
+            array(
+                'form' => $form->createView(),
+                'flow' => $flow,
+            )
+        );
     }
 
     /**
      * @Route("/register-company", name="register_company") 
      * @Security("has_role('ROLE_USER')")
      */
-    public function register_companyAction() {
+    public function registerCompanyAction() {
 
         if ($this->container->get('security.context')->isGranted('ROLE_TAXICOMPANY')) {
             return new RedirectResponse($this->container->get('router')->generate('office_company'));
@@ -251,80 +333,82 @@ class RegistrationController extends BaseController {
         }
 
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_company.html.twig', array(
-                    'form' => $form->createView(),
-                    'user' => $user,
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register_company.html.twig', 
+            array(
+                'form' => $form->createView(),
+                'user' => $user,
+                'flow' => $flow,
+            )
+        );
     }
 
     /**
      * @Route("/register-independent-driver", name="register_independent_driver") 
      * @Security("has_role('ROLE_USER')")
      */
-    public function register_independent_driverAction() {
+    public function registerIndependentDriverAction() {
         if ($this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
             return new RedirectResponse($this->container->get('router')->generate('office_driver'));
         }
 
         $user = $this->container->get('security.context')->getToken()->getUser();
-        if (empty($user))
+        if (empty($user)) {
             throw new NotFoundHttpException(sprintf('There is empty user, try login'));
-
+        }
 
         $formData = new IndependentDriver();
-
+        $formData->setUser($user);
         $formData->setAddress(new \DaVinci\TaxiBundle\Entity\Address());
         $formData->addPhone(new \DaVinci\TaxiBundle\Entity\Phone()); 
-        if($user->getLanguage() == NULL){
+        if (is_null($user->getLanguage())){
             $user->setLanguage(new \DaVinci\TaxiBundle\Entity\Language());
         }
-        $formData->setUser($user);
-        
-        $flow = $this->container->get('taxi.registration.independent.driver.form.flow'); // must match the flow's service id
-
+                
+        // must match the flow's service id
+        $flow = $this->container->get('taxi.registration.independent.driver.form.flow'); 
         $flow->bind($formData);
-        $form = $flow->createForm();
 
         $process = false;
         $request = $this->container->get('request');
-        if ($request->isMethod('POST')) {
-            //$form->bind($request);
-            if ($flow->isValid($form)) {
+        
+        $form = $flow->createForm();
+        if ($request->isMethod('POST') && $flow->isValid($form)) {
+            $flow->saveCurrentStepData($form);
+            
+            if ($flow->nextStep()) {
+                // form for the next step
+                $form = $flow->createForm();
+            } else {
+                $em = $this->container->get('doctrine')->getManager();
+                $driverRepository = $em->getRepository(
+                    'DaVinci\TaxiBundle\Entity\IndependentDriver'
+                );
+                $driverRepository->saveAll($formData);
+                                
+                $user->addRole('ROLE_TAXIDRIVER');
+                $this->container->get('fos_user.user_manager')->updateUser($user);
 
-                $flow->saveCurrentStepData($form);
+                $response = new RedirectResponse(
+                    $this->container->get('router')->generate('office_driver')
+                );
+                $this->authenticateUser($user, $response);
+                
+                // remove step data from the session
+                $flow->reset(); 
 
-                if ($flow->nextStep()) {
-                    // form for the next step
-                    $form = $flow->createForm();
-                } else {
-
-                    
-
-                    $em = $this->container->get('doctrine')->getManager();
-                    
-                    $em->merge($formData);
-                    $em->flush();
-
-                    $flow->reset(); // remove step data from the session
-                    
-                    $user->addRole('ROLE_TAXIDRIVER');
-                    $this->container->get('fos_user.user_manager')->updateUser($user);
-                    
-                    $url = $this->container->get('router')->generate('office_driver');
-
-                    $response = new RedirectResponse($url);
-					$this->authenticateUser($user, $response);
-					return $response;
-                }
+                return $response;
             }
         }
 
-        return $this->container->get('templating')->renderResponse('FOSUserBundle:Registration:register_independent_driver.html.twig', array(
-                    'form' => $form->createView(),
-                    'user' => $user,
-                    'flow' => $flow,
-        ));
+        return $this->container->get('templating')->renderResponse(
+            'FOSUserBundle:Registration:register_independent_driver.html.twig', 
+            array(
+                'form' => $form->createView(),
+                'user' => $user,
+                'flow' => $flow,
+            )
+        );
     }
 
     /**

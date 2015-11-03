@@ -1,8 +1,11 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-{% block title %} {% endblock %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+{% endblock %}
+
 {% block body %}
 
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
     <div  class="home">
         <div class="tabtaxi">
             <ul class="uk-tab uk-tab-grid">

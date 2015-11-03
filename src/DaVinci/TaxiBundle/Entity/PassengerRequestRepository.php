@@ -2,8 +2,9 @@
 
 namespace DaVinci\TaxiBundle\Entity;
 
-use Doctrine;
 use Doctrine\ORM\EntityRepository;
+
+use DaVinci\TaxiBundle\Entity\User;
 
 /**
  * PassengerRequestRepository
@@ -15,7 +16,7 @@ class PassengerRequestRepository extends EntityRepository
 {
 	
 	const DEFAULT_INTERVAL_HOURS = 24;
-	const DEFAULT_LIMIT_ROWS = 15;
+	const DEFAULT_LIMIT_ROWS = 20;
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
@@ -43,37 +44,30 @@ class PassengerRequestRepository extends EntityRepository
 	 */
 	public function getFullRequestById($id)
 	{
-		$query = $this->_em->createQuery("
-			SELECT
-				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
-			FROM
-				DaVinci\TaxiBundle\Entity\PassengerRequest req
-			JOIN
-				req.routePoints points
-			JOIN
-				req.vehicle vehicle
-			JOIN
-				req.passengerDetail detail
-			JOIN
-				req.tariff tariff		
-			LEFT JOIN
-				req.vehicleOptions options
-			LEFT JOIN
-				options.childSeats seats
-			LEFT JOIN
-				options.petCages cages		
-			LEFT JOIN
-				req.vehicleServices services
-			LEFT JOIN
-				req.vehicleDriverConditions	conditions
-			LEFT JOIN
-				req.user user
-			LEFT JOIN
-				req.driver driver					
-			WHERE
-				req.id = :requestId
-		");
+		$query = $this->getFullQuery();
 		$query->setParameters(array('requestId' => $id));
+		
+		return $query->getOneOrNullResult();
+	}
+    
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @param integer $id
+     * @param array $states
+	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest $request
+	 */
+	public function getFullRequestForUserById(User $user, $id, array $states = array())
+	{
+        $params = array('requestId' => $id, 'requestUser' => $user);
+        $where = array('user = :requestUser');
+        
+        if (count($states)) {
+            $params['stateValues'] = $states;
+            $where[] = 'req.stateValue IN (:stateValues)';
+        }
+        
+		$query = $this->getFullQuery($where);
+		$query->setParameters($params);
 		
 		return $query->getOneOrNullResult();
 	}
@@ -209,7 +203,7 @@ class PassengerRequestRepository extends EntityRepository
 				req.pickUp > :availablePeriod
 				AND req.stateValue IN (:stateValues)
 			ORDER BY
-				req.id DESC						
+				req.pickUp ASC						
 		");
 		$query->setParameter(
 			'availablePeriod',
@@ -221,7 +215,54 @@ class PassengerRequestRepository extends EntityRepository
 
 		$result = $query->getResult();
 		foreach ($result as $key => $item) {
-			if ($item->getPossibleDrivers()->count() > PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
+			if ($item->getPossibleDrivers()->count() >= PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
+				unset($result[$key]);
+				continue;
+			}
+		}
+															
+		return $result;
+	}
+    
+    /**
+	 * @param array $states
+	 *
+	 * @return array
+	 */
+	public function getDriverActualRequestsByStates(IndependentDriver $driver, array $states)
+	{
+		$query = $this->_em->createQuery("
+			SELECT
+				req
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+            JOIN
+                req.vehicle veh
+			JOIN
+				req.routePoints points
+			JOIN
+				req.tariff tariff
+			LEFT JOIN
+				req.possibleDrivers possibleDrivers		
+			WHERE
+				req.pickUp > :availablePeriod
+				AND req.stateValue IN (:stateValues)
+                AND veh.vehicleClass = :vehicleClass
+			ORDER BY
+				req.pickUp ASC						
+		");
+		$query->setParameter(
+			'availablePeriod',
+			PassengerRequest::getAvailablePickUp(), 
+			\Doctrine\DBAL\Types\Type::DATETIMETZ
+		);
+		$query->setParameter('stateValues', $states);
+        $query->setParameter('vehicleClass', $driver->getVehicle()->getVehicleClass());
+		$query->setMaxResults(self::DEFAULT_LIMIT_ROWS);
+
+		$result = $query->getResult();
+		foreach ($result as $key => $item) {
+			if ($item->getPossibleDrivers()->count() >= PassengerRequest::POSSIBLE_DRIVERS_PER_REQUEST) {
 				unset($result[$key]);
 				continue;
 			}
@@ -257,6 +298,46 @@ class PassengerRequestRepository extends EntityRepository
 		
 		return $query->getResult();
 	}
+    
+    private function getFullQuery(array $where = array())
+    {
+        $default = array('req.id = :requestId');
+        $whereClause = implode(
+            " AND ", 
+            (count($where)) ? array_merge($default, $where) : $default
+        );
+                        
+        return $this->_em->createQuery("
+			SELECT
+				req, points, vehicle, tariff, detail, options, seats, cages, services, conditions, user, driver
+			FROM
+				DaVinci\TaxiBundle\Entity\PassengerRequest req
+			JOIN
+				req.routePoints points
+			JOIN
+				req.vehicle vehicle
+			JOIN
+				req.passengerDetail detail
+			JOIN
+				req.tariff tariff		
+			LEFT JOIN
+				req.vehicleOptions options
+			LEFT JOIN
+				options.childSeats seats
+			LEFT JOIN
+				options.petCages cages		
+			LEFT JOIN
+				req.vehicleServices services
+			LEFT JOIN
+				req.vehicleDriverConditions	conditions
+			LEFT JOIN
+				req.user user
+			LEFT JOIN
+				req.driver driver					
+			WHERE
+				{$whereClause}
+		");
+    }    
 	
 	/**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request

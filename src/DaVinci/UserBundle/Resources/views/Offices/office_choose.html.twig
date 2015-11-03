@@ -1,41 +1,45 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
 {% block theme 'register' %}
 {% block title %}
-    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+    {% include 'DaVinciTaxiBundle:Banners:banner4.html.twig' %}
 <div class="wrapper-content title officepagetitle">
-
-{% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
-<div class="greentitle"><span>{% trans %}Need money: select professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
+    {% trans %}Congratulations! Your {% endtrans %}<img src="{{ asset('bundles/davincitaxi/images/present.png') }}" alt="" /> {% trans  with {'%url%': url('office_passenger') }  %}<a href="%url%" class="gobutt">Passenger’s office</a>{% endtrans %}
+    <div class="greentitle"><span>{% trans %}Need money: select professional office!{% endtrans %} <img src="{{ asset('bundles/davincitaxi/images/return.png') }}" alt="" /></span></div>
+    {% if requestId > 0 %}
+        <a href="{{ path('passenger_request_confirm', {'id': requestId}) }}">{{ 'Confirm last order'|trans }}</a>
+    {% endif %}
 </div>
 {% endblock%}
 
 {% block body %}
 
 
-<div class="align_center">
-	
-	<div class="blockoffice">
-	    <div class="officetitle">{% trans %}Independent Driver{% endtrans %}</div>
-	    <div class="officecomment">{% trans %}*You make money working for owner{% endtrans %}</div>
-	    <ul>
-	        <li>{% trans %}Access to the order's list{% endtrans %}</li>
-	        <li class="odd">{% trans %}Manage finansial streams{% endtrans %}</li>
-        	<li>{% trans %}2 offices - our gift{% endtrans %}</li>
-	    </ul>
-	    <a class="officemore" href="#">{% trans %}More{% endtrans %}</a>
-	    <a class="trial" href="register-independent-driver">{% trans %}Free Trial{% endtrans %}</a>
+<div class="align_center blocks-choose uk-grid uk-grid-small" data-uk-grid-match="{target:'.blockoffice'}">
+	<div>
+		<div class="blockoffice">
+		    <div class="officetitle">{% trans %}Independent Driver{% endtrans %}</div>
+		    <div class="officecomment">{% trans %}*You make money working for owner{% endtrans %}</div>
+		    <ul>
+		        <li>{% trans %}Access to the order's list{% endtrans %}</li>
+		        <li class="odd">{% trans %}Manage finansial streams{% endtrans %}</li>
+	        	<li>{% trans %}2 offices - our gift{% endtrans %}</li>
+		    </ul>
+		    {#<a class="officemore" href="#">{% trans %}More{% endtrans %}</a>#}
+		    <a class="trial" href="register-independent-driver">{% trans %}Free Trial{% endtrans %}</a>
+		</div>
 	</div>
-
-	<div class="blockoffice">
-	    <div class="officetitle">{% trans %}Taxi Company{% endtrans %}</div>
-	    <div class="officecomment">{% trans %}*You get profit from country visitors{% endtrans %}</div>
-	    <ul>
-	        <li>{% trans %}Tools for making money{% endtrans %}</li>
-	        <li class="odd">{% trans %}Management of daily operations{% endtrans %}</li>
-	        <li>{% trans %}Promotion for international passengers{% endtrans %}</li>
-	    </ul>
-	    <a class="officemore" href="#">{% trans %}More{% endtrans %}</a>
-		<a class="trial tcompany" href="#makechoice" data-uk-modal>{% trans %}Free Trial{% endtrans %}</a>
+	<div>
+		<div class="blockoffice">
+		    <div class="officetitle">{% trans %}Taxi Company{% endtrans %}</div>
+		    <div class="officecomment">{% trans %}*You get profit from country visitors{% endtrans %}</div>
+		    <ul>
+		        <li>{% trans %}Tools for making money{% endtrans %}</li>
+		        <li class="odd">{% trans %}Management of daily operations{% endtrans %}</li>
+		        <li>{% trans %}Promotion for international passengers{% endtrans %}</li>
+		    </ul>
+		    {#<a class="officemore" href="#">{% trans %}More{% endtrans %}</a>#}
+			<a class="trial tcompany" href="#makechoice" data-uk-modal>{% trans %}Free Trial{% endtrans %}</a>
+		</div>
 	</div>
 
 <div id="makechoice" class="uk-modal">

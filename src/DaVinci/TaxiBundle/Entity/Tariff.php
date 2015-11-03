@@ -9,7 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity
  * @ORM\Table(name="tariff")
  */
-class Tariff {
+class Tariff 
+{
 	
 	const MAIN_PAYMENT = 'price';
 	const TIPS_PAYMENT = 'tips';

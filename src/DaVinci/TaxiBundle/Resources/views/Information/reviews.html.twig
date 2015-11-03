@@ -1,16 +1,19 @@
 <div class="message">
-    <span>Внимание!</span> Текстовая информация.
+    {#<span>Внимание!</span> Текстовая информация.#}
 </div>
 <div class="reviews">
    	<div class="buttom-swicher">
-        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#reviews'}">
-            <li class="uk-active"><a href="#">{{ 'Stories' |trans }}</a></li>
-            <li><a href="#">{{ 'From passengers' |trans }}</a></li>
-            <li><a href="#">{{ 'From drivers' |trans }}</a></li>
-            <li><a href="#">{{ 'From taxi company' |trans }}</a></li>
+        <ul class="uk-width-1-1 uk-width-large-2-3">
+            {# <li class="uk-active"><a href="#">{{ 'Stories' |trans }}</a></li> #}
+            {% for key,column in reviewColumns %}
+                <li{% if reviewColumn == key %} class="uk-active"{% endif %}>
+                    <a href="{{ path('reviews', {'reviewColumn': key}) }}">{{ column|trans }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </div>
-    <ul id="reviews" class="uk-switcher">
+    <ul id="reviews">
+        {#
         <li class="uk-active">
             <div class="stories">
                 <div class="first">
@@ -40,233 +43,75 @@
                 <button class="uk-button more">MORE <span>(245)</span></button>
             </div>
         </li>
-        <li>{# from passengers #}
-            <div class="block-help">
+        <li> 
+        #}
+        <div class="block-help">
+            {% for item in items %}
                 <div class="chat">
-                        <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
+                    <div class="messagechat">
+                        <div class="topchat">
+                            <div class="avatar"></div>
+                            {% if item.user is defined %}
+                                <a class="name">{% if item.user.firstname is defined %}{{ item.user.firstname }}{% endif %} {% if item.user.lastname is defined %}{{ item.user.lastname }}{% endif %}</a>
+                            {% endif %}
+                            <div class="rating">
+                                {% if item.rateLevel < 5 %}
+                                    {% for count in item.rateLevel..4 %}
+                                        <span>☆</span>
+                                    {% endfor %}
+                                {% endif %}    
+                                {% for count in 1..item.rateLevel %}
+                                    <span class="active">☆</span>
+                                {% endfor %}
                             </div>
+                            <span>({{ item.createdAt|date('d M y H:i A') }})</span>
+                            <div class="textchat">{{ item.text }}</div>
                         </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
+                    </div>
                 </div>
-                    <button class="uk-button more">MORE <span>(245)</span></button>
-                <div class="new">
-                    <h3>New review</h3>
-                    
-                    {% if is_granted('ROLE_USER') %}
-                        <p>{{'Please leave your review'|trans}}</p>
-                        <dl class="fullsize">
-                            <dt>{{'Text review'|trans}}:</dt>
-                            <dd>
-                                <textarea id="passenger_review_text" class="charcount" cols="30" rows="10"></textarea>
-                                <h6 class="precounter">{{'symbols left'|trans}}:</h6>
-                            </dd>
-                        </dl>
-                        <a href="#" class="uk-button uk-button-success send" id="passenger_review_send">{{'Send Review'|trans}}</a>
+            {% endfor %}
+            {# <button class="uk-button more">MORE <span>(245)</span></button> #}
+            <div class="new">
+                <h3>New review</h3>
+                {% 
+                    if is_granted('ROLE_USER') and reviewColumn == 'passengers' 
+                    or is_granted('ROLE_TAXIDRIVER') and reviewColumn == 'drivers' 
+                    or is_granted('ROLE_TAXICOMPANY') and reviewColumn == 'companies' 
+                %}
+                    {% if created == true %}
+                        <p>{{ 'Review has been sent'|trans }}</p>
                     {% else %}
-                        <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}</p>
-                    {% endif %}
-                </div>
+                        {% set currentRoute = app.request.get('_route') %}
+                        <form novalidate action="{{ path(currentRoute) }}" {{ form_enctype(form) }} method="POST">
+                            <input type="hidden" id="userComment_column" name="userComment[column]" value="{{ reviewColumn }}" />
+                            <div class="errors for-steps">{{ form_errors(form) }}</div>
+                            {#<p>{{'Please leave your review'|trans}}</p>#}
+                            <dl class="fullsize">
+                                <dt>{#{'Rate level'|trans}}:#}</dt>
+                                <dd>
+                                    <div class="rating">
+                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span class="active">☆</span>
+                                    </div>
+                                    {{ form_errors(form.rateLevel) }}
+                                    {{ form_widget(form.rateLevel) }}
+                                </dd>
+                                <dt>{#{'Text review'|trans}}:#}</dt>
+                                <dd>
+                                    {{ form_errors(form.text) }} 
+                                    {{ form_widget(form.text, {'attr':{'maxlength':'200','class':'charcount'} }) }} 
+                                    <h6 class="precounter">{{'symbols left'|trans}}:</h6>
+                                </dd>
+                            </dl>
+                            <button class="uk-button uk-button-danger">{{'Send Review'|trans}}</button>
+                        </form>
+                    {% endif %}    
+                {% else %}
+                    <p>{{'Please %login% to write review.'|trans({'%login%': '<a href="'~url('fos_user_security_login')~'">login</a>'})|raw}}<br/>
+                    {{ 'Or change your account.'|trans }}</p>
+                {% endif %}
             </div>
-        </li>
-        <li> {# from drivers #}
-            <div class="block-help">
-                <div class="chat">
-                        <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                </div>
-                    <button class="uk-button more">MORE <span>(245)</span></button>
-                <div class="new">
-                    <h3>New review</h3>
-                    <p>Please leave your review</p>
-                        <dl class="first">
-                            <dt>Select the person:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                            <dt>Select type review:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                            <dt>Rating:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                        </dl>
-                        <dl class="fullsize">
-                            <dt>Text review:</dt>
-                            <dd>
-                                <textarea name="" class="charcount" cols="30" rows="10"></textarea>
-                                <h6 class="precounter">symbols left:</h6>
-                            </dd>
-                        </dl>
-                        <a href="" class="uk-button uk-button-success send">Send Review</a>
-                </div>
-            </div>
-        </li>
-        <li>{# for taxi company #}
-            <div class="block-help">
-                <div class="chat">
-                        <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                         <div class="messagechat">
-                            <div class="avatar"><img src="/bundles/davincitaxi/images/avatar.png" alt="" width="26" height="26"></div>
-                                <div class="topchat">
-                                    <a class="name">Дима Ковпак</a>
-                                    <span>(11 MAR 14   04:41 PM)</span>
-                                    <div class="textchat">
-                                        Хочу сказать огромное спасибо TaxiMyPrice! Пользовался данным сервисом впервые, сделал заявку за 2 недели до дня отезда, уже через час на заявку откликнулись 4 водителя, все показались одинаково хорошими потому выбирал по автомобилю. За 20 минут до отезда автомобиль уже стоял во дворе, водитель помог загрузить вещи, усадил детей и собаку. На место отдыха добрались без проблем. Вышло почти в 2 раза дешевле чем когда заказывали обычное такси, а главное на мою цену сразу же нашлись водители. Через неделю будем возвращаться этим же способом. Кто еще не решился на использование TaxiMyPrice - рекомендую!
-                                    </div>
-                            </div>
-                        </div>
-                </div>
-                    <button class="uk-button more">MORE <span>(245)</span></button>
-                <div class="new">
-                    <h3>New review</h3>
-                    <p>Please leave your review</p>
-                        <dl class="first">
-                            <dt>Select the person:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                            <dt>Select type review:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                            <dt>Rating:</dt>
-                            <dd>
-                                <select>
-                                    <option value="">passenger</option>
-                                    <option value="">driver</option>
-                                </select>
-                            </dd>
-                        </dl>
-                        <dl class="fullsize">
-                            <dt>Text review:</dt>
-                            <dd>
-                                <textarea name="" class="charcount" cols="30" rows="10"></textarea>
-                                <h6 class="precounter">symbols left:</h6>
-                            </dd>
-                        </dl>
-                        <a href="" class="uk-button uk-button-success send">Send Review</a>
-                </div>
-            </div>
-        </li>
+        </div>
+        <!-- </li> -->
+         
     </ul>
 </div>

@@ -2,6 +2,7 @@
 
 namespace DaVinci\TaxiBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -20,10 +21,12 @@ use DaVinci\TaxiBundle\Entity\Payment\CreditCardPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\InternalPaymentMethod;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 
+use DaVinci\TaxiBundle\Entity\VehicleClasses;
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
 use DaVinci\TaxiBundle\Entity\PassengerRequestService;
 use DaVinci\TaxiBundle\Entity\IndependentDriverRepository;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 use DaVinci\TaxiBundle\Event\PassengerRequestEvents;
 use DaVinci\TaxiBundle\Event\CancelRequestEvent;
@@ -31,25 +34,24 @@ use DaVinci\TaxiBundle\Event\CommonDriverRequestEvent;
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
 
+use DaVinci\TaxiBundle\Form\PassengerRequest\Type\ConfirmationInfoType;
+
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
 
-class HomeController extends StepsController {
-	
-    public function indexAction() {
-    	$result = $this->showSteps();
+class HomeController extends StepsController 
+{
+    
+    public function indexAction() 
+    {
+        $result = $this->showSteps();
     	if (is_array($result)) {
-    		$allStockRequests = $this->getPassengerRequestRepository()->getActualRequestsByStates(
-				array(
-					PassengerRequest::STATE_OPEN,
-					PassengerRequest::STATE_PENDING,
-					PassengerRequest::STATE_SOLD,
-					PassengerRequest::STATE_APPROVED_SOLD
-    			)
-    		);
-    		
-    		return $this->render(
+            return $this->render(
     			'DaVinciTaxiBundle:Home:createPassengerRequest.html.twig',
-    			array_merge($result, array('openRequests' => $allStockRequests))
+    			array_merge($result, array(
+                    'openRequests' => $this->getStockRequests(),
+                    'vehicleClasses' => VehicleClasses::getFilterChoices(),
+                    'user' => $this->getActualUser()
+                ))
     		);
     	} else {
     		return $this->redirect($result);
@@ -57,11 +59,134 @@ class HomeController extends StepsController {
     }
     
     /**
+     * @Route("/confirm/request_id/{id}", name="passenger_request_confirm")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function confirmRequestAction(Request $request, $id)
+    {
+        $passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(), 
+            $id,
+            array(PassengerRequest::STATE_BEFORE_OPEN)
+        );
+        
+        $confirmParams = $request->get('confirmationInfo');
+        $editParams = $request->get('editPassengerRequest');
+                
+        $params = ($editParams) ? $editParams : $confirmParams; 
+                
+        $isConfirmAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
+        );
+        if ($isConfirmAction) {
+            return $this->redirect($this->generateUrl(
+                'passenger_request_payment', 
+                array('id' => $passengerRequest->getId())
+            ));
+        }
+        
+        $isShowEditAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE
+        );
+        $isConfirmEditAction = (
+            isset($params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM])
+            && $params[ConfirmationInfoType::EDIT_PASSENGER_REQUEST_PARAM] == ConfirmationInfoType::EDIT_PASSENGER_REQUEST_CONFIRM
+        );
+               
+        $form = $this->createForm(
+            ($isShowEditAction || $isConfirmEditAction) 
+                ? 'editPassengerRequest' 
+                : 'confirmationInfo',
+            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
+        );
+        
+        if ($isConfirmEditAction) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $this->getPassengerRequestService()->updateRequest(
+                    $passengerRequest, $form->getData()
+                );
+                $this->savePassengerRequest($passengerRequest);
+
+                return $this->redirect($this->generateUrl(
+                    'passenger_request_confirm', 
+                    array('id' => $passengerRequest->getId())
+                ));
+            }
+        }
+                               
+        return $this->render(
+            'DaVinciTaxiBundle:Home:confirmPassengerRequest.html.twig',
+            array(
+                'id' => $id,
+                'form' => $form->createView(),
+                'user' => $this->getActualUser(),
+                'passengerRequest' => $passengerRequest,
+                'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
+                'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices(),
+                'editPassengerRequest' => ($isShowEditAction || $isConfirmEditAction) 
+                    ? ConfirmationInfoType::EDIT_PASSENGER_REQUEST_INITIALIZE 
+                    : ConfirmationInfoType::CONFIRM_PASSENGER_REQUEST
+            )
+        );            
+    }
+    
+    /**
+     * @Route("/edit/request_id/{id}", name="passenger_request_edit")
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function editRequestAction(Request $request, $id)
+    {
+        $passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(), 
+            $id,
+            array(PassengerRequest::STATE_BEFORE_OPEN, PassengerRequest::STATE_OPEN)
+        );
+                       
+        $form = $this->createForm(
+            'editPassengerRequest',
+            $this->getPassengerRequestService()->generateFilledRequest($passengerRequest)
+        );
+                
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $this->getPassengerRequestService()->updateRequest(
+                $passengerRequest, $form->getData()
+            );
+            $this->savePassengerRequest($passengerRequest);
+
+            return $this->redirect($this->generateUrl(
+                'office_passenger', 
+                array('method' => self::ACTION_SHOW_ALL_ORDERS)
+            ));
+        }
+        
+        return $this->render(
+            'DaVinciTaxiBundle:Home:editOpenPassengerRequest.html.twig',
+            array(
+                'id' => $id,
+                'form' => $form->createView(),
+                'user' => $this->getActualUser(),
+                'passengerRequest' => $passengerRequest,
+                'marketPrice' => $this->getCalculationService()->getMarketPrice($passengerRequest),
+                'marketTips' => $this->getCalculationService()->getMarketTips($passengerRequest),
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices()
+            )
+        );            
+    }
+    
+    /**
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function paymentAction() {
-    	$passengerRequest = $this->getPassengerRequestWithDriversById($this->getRequest()->get('id'));
+    public function paymentAction($id) 
+    {
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($id);
     	if (is_null($passengerRequest)) {
     		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
     	}
@@ -74,7 +199,7 @@ class HomeController extends StepsController {
     	
     	$operationCode = MakePayments::CODE_SUCCESS;
     	
-    	$flow = $this->container->get('taxi.makePayment.form.flow');
+    	$flow = $this->get('taxi.makePayment.form.flow');
     	$flow->bind($makePayment);
     	    	    	
     	$form = $flow->createForm();
@@ -84,7 +209,7 @@ class HomeController extends StepsController {
     		if ($flow->nextStep()) {
     			$form = $flow->createForm();
     		} else {
-    			$user = $this->container->get('security.context')
+    			$user = $this->get('security.context')
 	    			->getToken()
 	    			->getUser();
     			$driver = null;
@@ -115,23 +240,25 @@ class HomeController extends StepsController {
     			}
 
 	    		try {	
-	    			$dispatcher = $this->container->get('event_dispatcher');
+	    			$dispatcher = $this->get('event_dispatcher');
 	    			$dispatcher->dispatch(
 	    				FinancialOfficeEvents::OPERATION_SALE,
 	    				new TransferOperationEvent(
 							$makePayment,
 	    					$this->getMakePaymentRepository(),
-	    					$passengerRequest->getFullRoute()	
+	    					$passengerRequest->getFullRoute(),
+                            MakePayments::OPERATION_PAYMENT
 	    				)
 	    			);
 	    			
 	    			if (!is_null($driver)) {
-	    				$this->saveDriver($driver);
+                        $this->getIndependentDriverRepository()->persist($driver);
 	    			}
 	    			$this->updatePassengerRequest($passengerRequest);
-	    			
-	    			$this->getRequest()->getSession()->remove('request_id');
-	    			
+                    
+                    $em = $this->get('doctrine')->getManager();
+                    $em->flush();
+	    				    			
 	    			$flow->reset();
 	    			return $this->redirect($this->getAfterPaymentUrl());
     			} catch (RequesterException $exception) {
@@ -177,9 +304,9 @@ class HomeController extends StepsController {
      * @Route("/approve/request_id/{id}", name="approve_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    public function approveAction()
+    public function approveAction(Request $request)
     {
-    	$requestId = $this->getRequest()->get('id');
+    	$requestId = $request->get('id');
     	
     	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
@@ -191,11 +318,11 @@ class HomeController extends StepsController {
     	
     	$userCondition = (
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
+    		&& $this->get('security.context')->isGranted('ROLE_USER')
     	);
     	$driverCondition = (
     		PassengerRequest::STATE_SOLD == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     	
     	if (!$userCondition && !$driverCondition) {
@@ -224,15 +351,24 @@ class HomeController extends StepsController {
     			'message' => "driver with id #{$driver->getId()} is not chosen for executing an order"
     		));
     	}
-    	
-    	$dispatcher = $this->container->get('event_dispatcher');
+        
+        if ($userCondition) {
+            $initiatedBy = Offices::RECIPIENT_USER;
+        }
+        
+        if ($driverCondition) {
+            $initiatedBy = Offices::RECIPIENT_TAXI_INDEPENDENT_DRIVER;
+        }
+        
+        $dispatcher = $this->container->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::APPROVE_REQUEST,
     		new CommonDriverRequestEvent(
     			$passengerRequest,
     			$this->getPassengerRequestRepository(),
     			$driver,
-    			$this->getIndependentDriverRepository()
+    			$this->getIndependentDriverRepository(),
+                $initiatedBy
     		)
     	);
     	
@@ -243,9 +379,9 @@ class HomeController extends StepsController {
      * @Route("/decline/driver/request_id/{id}", name="decline_driver", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
      * @Security("has_role('ROLE_USER')")
      */
-    public function declineDriverAction()
+    public function declineDriverAction(Request $request)
     {
-    	$requestId = $this->getRequest()->get('id');
+        $requestId = $request->get('id');
     	 
     	$passengerRequest = $this->getPassengerRequestWithDriversById($requestId);
     	if (is_null($passengerRequest)) {
@@ -255,7 +391,7 @@ class HomeController extends StepsController {
     		));
     	}
     	
-    	$driverId = $this->getRequest()->get('driver_id');
+    	$driverId = $request->get('driver_id');
     	$driver = $this->getDirverById($driverId);
     	if (is_null($driver)) {
     		return new JsonResponse(array(
@@ -264,14 +400,15 @@ class HomeController extends StepsController {
     		));
     	}
     	    	
-    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher = $this->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::DECLINE_DRIVER_REQUEST,
     		new CommonDriverRequestEvent(
     			$passengerRequest,
     			$this->getPassengerRequestRepository(),
     			$driver,
-    			$this->getIndependentDriverRepository()
+    			$this->getIndependentDriverRepository(),
+                Offices::RECIPIENT_USER
     		)
     	);
     	
@@ -279,36 +416,45 @@ class HomeController extends StepsController {
     }
     
     /**
-     * @Route("/cancel/request_id/{id}", name="cancel_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")
-     * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
+     * @Route("/cancel/request_id/{id}", name="cancel_request_status")
+     * @Security("has_role('ROLE_USER')")
      */
-    public function cancelAction()
+    public function cancelAction(Request $request)
     {
-    	$requestId = $this->getRequest()->get('id');
-    	
-    	$passengerRequest = $this->getPassengerRequestById($requestId);
+    	$passengerRequest = $this->getFullPassengerRequestForUserById(
+            $this->get('security.context')->getToken()->getUser(),
+            $request->get('id')
+        );
     	if (is_null($passengerRequest)) {
-    		return new JsonResponse(array(
-    			'status' => 'error', 
-    			'message' => 'undefined request id #' . $requestId
-    		));
+            return $this->redirect($this->generateUrl('office_passenger'));
     	}
     	
-    	$dispatcher = $this->container->get('event_dispatcher');
+    	$dispatcher = $this->get('event_dispatcher');
     	$dispatcher->dispatch(
     		PassengerRequestEvents::CANCEL_REQUEST,
     		new CancelRequestEvent(
     			$passengerRequest, 
     			$this->getPassengerRequestRepository(), 
-    			$this->container->get('security.context')
+                Offices::RECIPIENT_USER
     		)
     	);
-    	
-    	return new JsonResponse(array('status' => 'ok', 'message' => 'completed'));
+    	        
+        return $this->redirect($this->generateUrl('office_passenger'));
     }
         
-    public function main_driverAction() {
-        return $this->render('DaVinciTaxiBundle:Home:main_driver.html.twig');
+    public function mainDriverAction() {
+        return $this->render(
+            'DaVinciTaxiBundle:Home:main_driver.html.twig',
+            array(
+                'openRequests' => $this->getStockRequests(),
+                'vehicleClasses' => VehicleClasses::getFilterChoices()
+            )
+        );
+    }
+    
+    public function driverAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:driver.html.twig');
     }
     
     /**
@@ -318,33 +464,6 @@ class HomeController extends StepsController {
     {
     	$makePaymentService = $this->getMakePaymentService();
     	return $makePaymentService->createConfigured($this->getRequest());
-    }
-    
-    /**
-     * @param integer $driverId
-     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
-     */
-    private function getDirverById($driverId)
-    {
-    	return $this->getIndependentDriverRepository()->find($driverId);
-    }
-    
-    /**
-     * @param integer $userId
-     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
-     */
-    private function getDirverByUserId($userId)
-    {
-    	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
-    }
-    
-    /**
-     * @param \DaVinci\TaxiBundle\Entity\GeneralDriver $driver
-     * @return void
-     */
-    private function saveDriver(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
-    {
-    	$this->getIndependentDriverRepository()->save($driver);
     }
     
     private function getAfterPaymentUrl()
@@ -386,7 +505,7 @@ class HomeController extends StepsController {
     {
     	return (
     		PassengerRequest::STATE_BEFORE_OPEN == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_USER')
+    		&& $this->get('security.context')->isGranted('ROLE_USER')
     	);
     }
     
@@ -398,7 +517,7 @@ class HomeController extends StepsController {
     {
     	return (
     		PassengerRequest::STATE_OPEN == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
     
@@ -410,8 +529,8 @@ class HomeController extends StepsController {
     {
     	return (
     		PassengerRequest::STATE_PENDING == $passengerRequest->getStateValue()
-    		&& $this->container->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+    		&& $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
     	);
     }
-                
+
 }

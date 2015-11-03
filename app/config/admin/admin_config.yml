@@ -1,4 +1,13 @@
 services:
+    davinci.taxi.admin.messagecontent:
+        class: DaVinci\TaxiBundle\Admin\MessageContentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Content's messages" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\MessageContent
+            - SonataAdminBundle:CRUD
+            
     davinci.taxi.admin.comment:
         class: DaVinci\TaxiBundle\Admin\UserCommentAdmin
         tags:
@@ -6,6 +15,15 @@ services:
         arguments:
             - null
             - DaVinci\TaxiBundle\Entity\UserComment
+            - SonataAdminBundle:CRUD
+            
+    davinci.taxi.admin.seoparams:
+        class: DaVinci\TaxiBundle\Admin\SeoParamsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: sonata.admin.group.content, label: "Seo params" }
+        arguments:
+            - null
+            - DaVinci\TaxiBundle\Entity\Seo\Params
             - SonataAdminBundle:CRUD        
         
     davinci.taxi.admin.countrycity:
@@ -20,7 +38,7 @@ services:
     davinci.taxi.admin.profitpage:
         class: DaVinci\TaxiBundle\Admin\ProfitPageAdmin
         tags:
-            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Profit page tabs" }
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Profit Page tabs" }
         arguments:
             - ''
             - DaVinci\TaxiBundle\Document\ProfitPage
@@ -32,7 +50,7 @@ services:
     davinci.taxi.admin.aboutpage:
         class: DaVinci\TaxiBundle\Admin\AboutPageAdmin
         tags:
-            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "About page tabs" }
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "About Page tabs" }
         arguments:
             - ''
             - DaVinci\TaxiBundle\Document\AboutPage
@@ -90,5 +108,31 @@ services:
         calls:
             - [setTranslationDomain, ['']] 
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
-            - [setRootPath, ['/cms/category']]          
+            - [setRootPath, ['/cms/category']] 
+            
+    davinci.taxi.admin.blogcolumn:
+        class: DaVinci\TaxiBundle\Admin\BlogColumnAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Blog Columns" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\BlogColumn
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/blog-columns']]
+            
+    davinci.taxi.admin.post:
+        class: DaVinci\TaxiBundle\Admin\PostEntityAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Blog Posts" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\PostEntity
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/post-entities']]                         
             

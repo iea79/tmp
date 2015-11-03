@@ -16,8 +16,15 @@ final class PassengerRequestEvents
 			self::DECLINE_DRIVER_REQUEST,
 			self::CANCEL_REQUEST		
 		);
-	} 
+	}
+    
+    static public function getDescriptionEventList()
+    {
+        return array(
+			self::APPROVE_REQUEST => 'Approve request',
+			self::DECLINE_DRIVER_REQUEST => 'Decline driver by user',
+			self::CANCEL_REQUEST => 'Cancel request by user'		
+		);
+    }    
 		
 }
-
-?>

@@ -8,7 +8,8 @@ use Doctrine\ORM\Mapping AS ORM;
  * @ORM\Entity
  * @ORM\Table(name="vehicle_pet_cage")
  */
-class VehiclePetCage {
+class VehiclePetCage 
+{
 	
 	const POS_PET_CAGE_SMALL = 1;
 	const POS_PET_CAGE_MIDDLE = 2;

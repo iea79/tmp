@@ -8,14 +8,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+use DaVinci\TaxiBundle\Entity\UserComment;
 use DaVinci\TaxiBundle\Entity\Payment\MakePayments;
 use DaVinci\TaxiBundle\Entity\Payment\MakePaymentService;
 use DaVinci\TaxiBundle\Entity\Payment\PaymentMethod;
+use DaVinci\TaxiBundle\Entity\Offices;
 
 use DaVinci\TaxiBundle\Event\FinancialOfficeEvents;
 use DaVinci\TaxiBundle\Event\TransferOperationEvent;
+
 use DaVinci\TaxiBundle\Services\Remote\RequesterException;
+use DaVinci\TaxiBundle\Utils\Assert;
 
 class InformationController extends StepsController 
 {
@@ -26,6 +31,100 @@ class InformationController extends StepsController
 	public function viewOfficesAction()
 	{
 		return $this->render('DaVinciTaxiBundle:Information:view_offices.html.twig');
+	}
+	
+	public function blogAction($column)
+	{
+    	$dm = $this->get('doctrine_phpcr')->getManager();
+		
+		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
+		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+        
+        $defaultColumn = $columnRepository->findDefault();
+        $columnId = ('default' == $column) 
+            ? $defaultColumn->getId()
+            : unserialize(urldecode($column));
+        $columns = $columnRepository->findActive();
+        
+        $count = 0;
+        $others = array();
+        foreach ($columns as $column) {
+            if ($count > 2) {
+                break;
+            }
+            
+            if ($column->getId() != $columnId) {
+                $others[$column->getTitle()] = $postEntityRepository->findFilteredForColumn(
+                    $column->getId()
+                );
+                                
+                $count++;
+            }            
+        }
+        
+		return $this->render(
+			'DaVinciTaxiBundle:Blog:detail.html.twig',
+			array(
+                'defaultColumn' => $defaultColumn,
+				'columns' => $columns,
+                'columnId' => $columnId,
+                'commercialEntities' => $postEntityRepository->findFilteredForColumn(
+                    $columnId, true
+                ),
+				'entities' => $postEntityRepository->findFilteredForColumn($columnId),
+                'others' => $others
+			)
+		);
+	}
+    
+    public function postAction($post)
+	{        
+        $postId = unserialize(urldecode($post));
+        
+		$dm = $this->get('doctrine_phpcr')->getManager();
+		
+		$columnRepository = $dm->getRepository('DaVinciTaxiBundle:BlogColumn');
+		$postEntityRepository = $dm->getRepository('DaVinciTaxiBundle:PostEntity');
+        
+        $actualPost = $postEntityRepository->find($postId);
+        if (is_null($actualPost)) {
+            throw new NotFoundHttpException('Undefined post requested');
+        }
+        
+        $columnId = $actualPost->getBlogColumn()->getId();
+        $columns = $columnRepository->findActive();
+        
+        $count = 0;
+        $others = array();
+        foreach ($columns as $column) {
+            if ($count > 2) {
+                break;
+            }
+            
+            if ($column->getId() != $columnId) {
+                $others[$column->getTitle()] = $postEntityRepository->findFilteredForColumn(
+                    $column->getId()
+                );
+                                
+                $count++;
+            }            
+        }
+                		                
+		return $this->render(
+			'DaVinciTaxiBundle:Blog:detail.html.twig',
+			array(
+                'post' => $actualPost,
+                'column' => $actualPost->getBlogColumn(),
+                'columnId' => $columnId,
+                'defaultColumn' => $columnRepository->findDefault(),
+				'columns' => $columnRepository->findActive(),
+                'commercialEntities' => $postEntityRepository->findFilteredForColumn(
+                    $columnId, true
+                ),
+				'entities' => $postEntityRepository->findFilteredForColumn($columnId),
+                'others' => $others
+			)
+		);
 	}
 	
     public function profitAction()
@@ -55,22 +154,24 @@ class InformationController extends StepsController
         );
     }
 
-    public function helpAction()
+    public function helpAction($section)
     {
+        $trigger = ('passenger' == $section);
+        
     	$dm = $this->get('doctrine_phpcr')->getManager();
-    	
     	$guides = $dm
     				->getRepository('DaVinciTaxiBundle:GuidesPage')
-    				->findPublished();
+    				->findForPassenger($trigger);
     	$faqs = $dm
 			    	->getRepository('DaVinciTaxiBundle:FaqEntry')
-			    	->findPublished();
+			    	->findForPassenger($trigger);
     	
         return $this->render(
         	'DaVinciTaxiBundle:Information:help.html.twig',
         	array(
         		'guides' => $guides,
-        		'faqs' => $faqs	
+        		'faqs' => $faqs,
+                'section' => $section
         	)	
         );
     }
@@ -95,69 +196,118 @@ class InformationController extends StepsController
          	array('page' => $contentDocument)
          );
     }    
+
+    public function guidesAction($category, $subCategory)
+    {
+    	$trigger = ($category == 'passenger');
         
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $faqs = $dm
+                    ->getRepository('DaVinciTaxiBundle:FaqEntry')
+                    ->findForPassenger($trigger);
+        
+        $defaultCategory = $dm
+                                ->getRepository('DaVinciTaxiBundle:Category')
+                                ->findOneBy(array());
+        
+        $categories = $dm
+                        ->getRepository('DaVinciTaxiBundle:Category')
+                        ->findAll();
+        
+        if (!is_null($defaultCategory)) {
+            $filter = ('default' == $subCategory) 
+                ? $defaultCategory->getId()
+                : unserialize(urldecode($subCategory));
+
+            $guides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findFiltered($trigger, $filter);
+            $otherGuides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findFiltered(!$trigger, $filter);
+        } else {
+            $guides = $dm
+                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                        ->findForPassenger($trigger);
+            $otherGuides = array();
+        }
+            
+    	return $this->render(
+            'DaVinciTaxiBundle:Information:guides.html.twig',
+            array(
+                'faqs' => $faqs,
+                'guides' => $guides,
+                'category' => $category,
+                'otherGuides' => $otherGuides,
+                'categories' => $categories
+            )
+    	);
+    }
+    
     public function guideAction($contentId)
     {
-    	$contentId = unserialize(urldecode($contentId));
-    	$contentDocument = $this->get('doctrine_phpcr')
-					    		->getManager()    	
+    	$id = unserialize(urldecode($contentId));
+    	$contentDocument = $this->get('doctrine_phpcr')->getManager()    	
 					    		->getRepository('DaVinciTaxiBundle:GuidesPage')
-					    		->find($contentId);
-    	
+					    		->find($id);
+        if (is_null($contentDocument)) {
+            throw new NotFoundHttpException("Undefined guide document identificator #{$id}");
+        }
+        
         return $this->render(
         	'DaVinciTaxiBundle:Information:guide.html.twig',
 			array('page' => $contentDocument)
         );
     }
-    
-    public function guidesAction()
+
+    public function faqsAction($category)
     {
+        $trigger = ($category == 'passenger');
+        
         $dm = $this->get('doctrine_phpcr')->getManager();
-        $allGuides = $dm
-        				->getRepository('DaVinciTaxiBundle:GuidesPage')
-        				->findBy(array('publishable' => true));
+        $faqs = $dm
+                    ->getRepository('DaVinciTaxiBundle:FaqEntry')
+                    ->findForPassenger($trigger);
+        $guides = $dm
+    				->getRepository('DaVinciTaxiBundle:GuidesPage')
+    				->findForPassenger($trigger);
             
         return $this->render(
-        	'DaVinciTaxiBundle:Information:guides.html.twig',
-			array('guides' => $allGuides)
+        	'DaVinciTaxiBundle:Information:faqs.html.twig',
+			array(
+                'faqs' => $faqs,
+                'guides' => $guides,
+                'category' => $category
+            )
         );
     }
-
+    
     public function oneHelpAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
+    	return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
     }
 
-    public function faqAction($contentId)
+    /**
+     * @Route("/notifications/{section}", name="notifications", defaults={"section" = "all"})
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function notificationsAction($section)
     {
-    	$contentId = unserialize(urldecode($contentId));
-    	$contentDocument = $this->get('doctrine_phpcr')
-	    	->getManager()
-	    	->getRepository('DaVinciTaxiBundle:FaqEntry')
-	    	->find($contentId);
-    	 
-    	return $this->render(
-    		'DaVinciTaxiBundle:Information:guide.html.twig',
-    		array('page' => $contentDocument)
-    	);
-    }
-    
-    public function faqsAction()
-    {
-        $dm = $this->get('doctrine_phpcr')->getManager();
-        $allFaqs = $dm->getRepository('DaVinciTaxiBundle:FaqEntry')->findBy(
-        	array('published' => true)
-        );
-            
-        return $this->render(
-        	'DaVinciTaxiBundle:Information:FAQs.html.twig',
-			array('faqs' => $allFaqs)
-        );
-    }
-
-    public function notificationsAction()
-    {
-        return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig');
+        $role = ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) 
+            ? 'ROLE_TAXIDRIVER'
+            : 'ROLE_USER';
+                
+        $messages = $this->get('da_vinci_taxi.service.internal_message')
+            ->getRepository()
+            ->findBy(array(
+                'user' => $this->get('security.context')->getToken()->getUser(),
+                'office' => Offices::getOfficeByRole($role)
+            ));
+        
+        return $this->render('DaVinciTaxiBundle:Notifications:notifications.html.twig', array(
+            'messages' => $messages,
+            'number' => count($messages)
+        ));
     }
 
     public function newTicketAction()
@@ -170,21 +320,58 @@ class InformationController extends StepsController
 		return $this->render(
         	'DaVinciTaxiBundle:Information:info.html.twig',
         	array(
+                'reviews' => false,
         		'social' => true,
-        		'reviews' => false,
         		'isblog' => false
         	)
         );
     }
     
-    public function reviewsAction()
+    /**
+     * @Route("/reviews/{reviewColumn}", name="reviews", defaults={"reviewColumn" = "passengers"})
+     */
+    public function reviewsAction(Request $request, $reviewColumn)
     {
+        $userCommentService = $this->get('da_vinci_taxi.service.user_comment');
+        
+        $form = $this->createForm('userComment');
+        $form->handleRequest($request);
+                
+        $created = false;
+        if ($form->isValid() && $request->isMethod('POST')) {
+            $user = $this->get('security.context')->getToken()->getUser();
+            if (is_null($user)) {
+                return $this->redirect($this->generateUrl('fos_user_security_login'));
+            }
+            
+            $comment = $form->getData();
+            
+            if (
+                $this->get('security.context')->isGranted('ROLE_USER')
+                && $comment->getColumn() == UserComment::FOR_PASSENGER
+                || $this->get('security.context')->isGranted('ROLE_TAXIDRIVER')
+                && $comment->getColumn() == UserComment::FOR_DRIVERS
+                || $this->get('security.context')->isGranted('ROLE_TAXICOMPANY')
+                && $comment->getColumn() == UserComment::FOR_COMPANIES
+            ) {
+                $userCommentService->create($comment, $user);
+                $created = true;
+            } else {
+                $this->createAccessDeniedException("You don't have rights");
+            }
+        }
+        
         return $this->render(
         	'DaVinciTaxiBundle:Information:info.html.twig',
             array(
             	'reviews' => true,
                 'social' => false,
-                'isblog' => false
+                'isblog' => false,
+                'reviewColumn' => $reviewColumn,
+                'reviewColumns' => UserComment::getTypeColumnList(),
+                'form' => $form->createView(),
+                'created' => $created,
+                'items' => $userCommentService->getValidByColumn($reviewColumn)
         	)
         );
     }
@@ -223,15 +410,31 @@ class InformationController extends StepsController
     }
     
     /**
-     * @Route("/financial-office/history", name="financial_office_history")
+     * @Route("/financial-office/history/{section}", name="financial_office_history", defaults={"section" = "payment"})
      * @Security("has_role('ROLE_USER')")
      */
-    public function financialOfficeHistoryAction()
+    public function financialOfficeHistoryAction($section)
     {
+        Assert::inArray(
+            MakePayments::getOperationTypesList(), 
+            $section, 
+            "Undefined history section #{$section}"
+        );
+        
+        $operations = $this
+            ->get('da_vinci_taxi.service.make_payment_service')
+            ->getRepository()
+            ->findBy(array(
+                'user' => $this->get('security.context')->getToken()->getUser(),
+                'operationType' => $section
+            ));
+      
     	return $this->render(
     		'DaVinciTaxiBundle:Finoffice:financial_office.html.twig',
     		array(
-    			'action' => 'history'
+    			'action' => 'history',
+                'section' => $section,
+                'operations' => $operations
     		)	
     	);
     }
@@ -253,7 +456,7 @@ class InformationController extends StepsController
     
     private function showOffice($action, Request $request, $methodCode)
     {
-       	$makePaymentService = $this->getMakePaymentService();
+        $makePaymentService = $this->getMakePaymentService();
     	$makePayment = $makePaymentService->createConfigured($request);
     	
     	$form = $this->createForm(
@@ -269,6 +472,12 @@ class InformationController extends StepsController
     	$filter = (self::ACTION_OFFICE_ADD == $action) 
     		? PaymentMethod::POS_INTERNAL_PAYMENT_METHOD
     		: 0;
+        
+        $methods = MakePaymentService::generateMethods($filter);
+        
+        Assert::indexIsSet(
+            $methods, $methodCode, "Undefined method code #{$methodCode}"
+        );
     	    	
     	$form->handleRequest($request);
     	if ($form->isValid()) {
@@ -279,7 +488,8 @@ class InformationController extends StepsController
 	    			new TransferOperationEvent(
 	    				$form->getData(),
 	    				$this->getMakePaymentRepository(),
-	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT	
+	    				MakePayments::DEFAULT_DESCRIPTION_SETTLE_ACCCOUNT,
+                        MakePayments::OPERATION_ADDITION
 	    			)
 	    		);
 	    		
@@ -298,7 +508,7 @@ class InformationController extends StepsController
     				'paymentMethod' => $makePayment->getPaymentMethod()->getType(),
     				'subType' => $makePayment->getPaymentMethod()->getSubTypeName(),
     				'methodCode' => $methodCode,
-    				'methods' => MakePaymentService::generateMethods($filter)    						
+    				'methods' => $methods
     			),
     			$result	
     		)	 

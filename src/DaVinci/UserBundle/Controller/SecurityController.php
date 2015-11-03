@@ -5,9 +5,11 @@ namespace DaVinci\UserBundle\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use \FOS\UserBundle\Controller\SecurityController as BaseController;
 
-class SecurityController extends BaseController {
+class SecurityController extends BaseController 
+{
 
-    protected function renderLogin(array $data) {
+    protected function renderLogin(array $data) 
+    {
         if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
             return new RedirectResponse($this->container->get('router')->generate('da_vinci_taxi_homepage'));
         }

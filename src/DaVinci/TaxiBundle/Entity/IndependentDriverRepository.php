@@ -13,6 +13,28 @@ use Doctrine;
  */
 class IndependentDriverRepository extends EntityRepository 
 {
+    
+    public function persist(\DaVinci\TaxiBundle\Entity\IndependentDriver $driver)
+	{
+		$this->_em->persist($driver);
+    }
+    
+    public function saveAll(\DaVinci\TaxiBundle\Entity\IndependentDriver $driver)
+	{
+        $this->_em->persist($driver);
+        $this->_em->persist($driver->getAddress());
+        foreach ($driver->getPhones() as $phone) {
+            $this->_em->persist($phone);
+        }
+               
+		$this->_em->flush();
+	}
+        
+    public function save(\DaVinci\TaxiBundle\Entity\IndependentDriver $driver)
+	{
+		$this->_em->persist($driver);
+		$this->_em->flush();
+	}
 	
 	/**
 	 * @param integer $userId
@@ -33,12 +55,4 @@ class IndependentDriverRepository extends EntityRepository
 		return $query->getOneOrNullResult();
 	}
 	
-	public function save(\DaVinci\TaxiBundle\Entity\GeneralDriver $driver)
-	{
-		$this->_em->persist($driver);
-		$this->_em->flush();
-	}
-	
 }
-
-?>

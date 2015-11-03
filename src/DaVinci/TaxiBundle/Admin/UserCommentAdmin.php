@@ -11,17 +11,20 @@ class UserCommentAdmin extends Admin
 {
     
     // Fields to be shown on create/edit forms
-    protected function configureFormFields(FormMapper $formMapper)
+    public function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->add('text')
             ->add('user', 'sonata_type_model_list')
-            ->add('type', 'choice', 
-                    array('choices'   => UserComment::getTypeList())
-                    )
-            ->add('state', 'choice', 
-                    array('choices'   => UserComment::getStateList())
-                    );
+            ->add('rateLevel', 'choice', array(
+                'choices' => UserComment::getRateList()
+            ))
+            ->add('type', 'choice', array(
+                'choices' => UserComment::getTypeColumns()
+            ))
+            ->add('state', 'choice', array(
+                'choices' => UserComment::getStateList()
+            ));
     }
 
     // Fields to be shown on filter forms
@@ -30,27 +33,26 @@ class UserCommentAdmin extends Admin
         $datagridMapper
             ->add('type')
             ->add('text')
-            ->add('state')
-        ;
+            ->add('state');
     }
 
     // Fields to be shown on lists
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('type', 'choice',
-                    array('choices'   => UserComment::getTypeList())
-                    )
-            ->add('text')
-            ->add('state','choice',
-                   array('choices'   => UserComment::getStateList()))
-                ->add('_action', 'actions', array(
-                'actions' => array(
-             //     'view' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
-                )
+            ->add('type', 'choice', array(
+                'choices' => UserComment::getTypeColumns()
             ))
-        ;
+            ->add('text')
+            ->add('state', 'choice', array(
+                'choices' => UserComment::getStateList()
+            ))
+            ->add('_action', 'actions', array(
+                'actions' => array(
+            //      'view' => array(),
+                    'edit' => array(),
+                    'delete' => array()
+                )
+            ));
     }
 }

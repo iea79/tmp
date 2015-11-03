@@ -10,11 +10,13 @@ use DaVinci\TaxiBundle\Validator\Constraints as DaVinciAssert;
 /**
  * @ORM\Entity(repositoryClass="PassengerRequestRepository")
  * @ORM\Table(name="passenger_request")
- * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1"})
- * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3"})
+ * @DaVinciAssert\RouteInfo(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"})
+ * @DaVinciAssert\Tariff(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"})
  */
 class PassengerRequest 
 {
+    
+    const REQUEST_TIMEZONE = 'Europe/Moscow';
 	
 	const STATE_BEFORE_OPEN = 'before-open'; 
 	const STATE_OPEN = 'open';
@@ -31,6 +33,8 @@ class PassengerRequest
 	const AVAILABLE_PICKUP_PERIOD = 12;
 	const POSSIBLE_DRIVERS_PER_REQUEST = 5;
 	const CANCELATION_PERIOD = 2;
+    
+    const NOT_LEFT_TIME = '00:00:00';
 	
 	/**
 	 * @ORM\Id
@@ -51,15 +55,15 @@ class PassengerRequest
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.blank")
-	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpTime.wrongFormat")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpTime.blank")
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpTime.wrongFormat")
 	 */
 	private $pickUpTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.blank")
-	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.pickUpDate.wrongFormat")
+	 * @Assert\NotBlank(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpDate.blank")
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.pickUpDate.wrongFormat")
 	 */
 	private $pickUpDate;
 	
@@ -70,13 +74,13 @@ class PassengerRequest
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Time(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnTime.wrongFormat")
+	 * @Assert\Time(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.returnTime.wrongFormat")
 	 */
 	private $returnTime;
 	
 	/**
 	 * @var \DateTime
-	 * @Assert\Date(groups={"flow_createPassengerRequest_step1"}, message="passengerRequest.returnDate.wrongFormat")
+	 * @Assert\Date(groups={"flow_createPassengerRequest_step1", "edit_passenger_request"}, message="passengerRequest.returnDate.wrongFormat")
 	 */
 	private $returnDate;
 	
@@ -139,6 +143,7 @@ class PassengerRequest
 
 	/**
 	 * @ORM\OneToOne(targetEntity="VehicleDriverConditions", mappedBy="passengerRequest")
+     * @Assert\Valid()
 	 */
 	private $vehicleDriverConditions;
 	
@@ -198,6 +203,18 @@ class PassengerRequest
     /**
      * Get id
      *
+     * @param integer $id
+     * @return PassengerRequest
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
+    
+    /**
+     * Get id
+     *
      * @return integer 
      */
     public function getId()
@@ -237,6 +254,9 @@ class PassengerRequest
     public function setPickUp($pickUp)
     {
         $this->pickUp = $pickUp;
+        
+        $this->setPickUpTime($pickUp);
+        $this->setPickUpDate($pickUp);
 
         return $this;
     }
@@ -254,9 +274,18 @@ class PassengerRequest
     public function getPickUpLeft()
     {
     	$now = new \DateTime('now');
-    	return $now
-    		->diff($this->pickUp)
-    		->format('%a (days) %H:%I:%S');
+        $now->setTimezone(new \DateTimeZone(self::REQUEST_TIMEZONE));
+        
+        $difference = $now->diff($this->pickUp);
+        if (0 == $difference->format('%d')) {
+            return $difference->format('%H:%I:%S');
+        }
+        
+        if (1 == $difference->invert) {
+            return self::NOT_LEFT_TIME;
+        }
+        
+    	return $difference->format('%a (days)');
     }
     
     /**
@@ -279,7 +308,7 @@ class PassengerRequest
      */
     public function getPickUpTime()
     {
-    	return $this->pickUpTime;
+        return $this->pickUpTime;
     }
     
     /**
@@ -315,6 +344,9 @@ class PassengerRequest
     {
         $this->return = $return;
 
+        $this->setReturnTime($return);
+        $this->setReturnDate($return);
+        
         return $this;
     }
 
@@ -902,7 +934,8 @@ class PassengerRequest
     		self::STATE_OPEN,
     		self::STATE_PENDING,
     		self::STATE_SOLD,
-    		self::STATE_APPROVED_SOLD,	
+    		self::STATE_APPROVED_SOLD,
+            self::STATE_FINALLY_APPROVED,
     		self::STATE_RESCUE,
     		self::STATE_RESCUE_PENDING,
     		self::STATE_RESCUE_CLOSED,

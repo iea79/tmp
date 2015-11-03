@@ -3,6 +3,9 @@
 namespace DaVinci\TaxiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+
+use DaVinci\TaxiBundle\Entity\User;
 
 use DaVinci\TaxiBundle\Entity\PassengerRequest;
 use DaVinci\TaxiBundle\Entity\PassengerRequestRepository;
@@ -16,49 +19,49 @@ use DaVinci\TaxiBundle\Form\PassengerRequest\CreatePassengerRequestFlow;
 
 class StepsController extends Controller 
 {
+    
+    use SeoTrait;
 	
 	const ACTION_BOOK_TRIP = 'book-trip';
 	const ACTION_SHOW_OPEN_ORDERS = 'open-orders';
 	const ACTION_SHOW_ALL_ORDERS = 'all-orders';
-	
-	protected function showSteps()
+    
+    public function render($view, array $parameters = array(), Response $response = null) {
+        if (!is_null($this->getParams())) {
+            $parameters['seoParams'] = $this->getParams();
+        }
+        
+        return parent::render($view, $parameters, $response);
+    }
+    
+    protected function showSteps()
 	{
-		$sessionRequestId = $this->getRequest()->getSession()->get('request_id');
-		$passengerRequest = $this->generatePassengerRequest();
-		 
-		$flow = $this->container->get('taxi.passengerRequest.form.flow');
+        $passengerRequest = $this
+                                ->getPassengerRequestService()
+                                ->generateRequest();
+        
+        $flow = $this->get('taxi.passengerRequest.form.flow');
 		$flow->bind($passengerRequest);
-				
-		if (null !== $sessionRequestId) {
-			$entity = $this->getFullPassengerRequestById($sessionRequestId);
-			
-			if (null !== $entity) {
-				$passengerRequest = $entity;
-			}
-		}
-		
-		$form = $flow->createForm();
-		if ($flow->isValid($form)) {
-			if (CreatePassengerRequestFlow::STEP_LAST - 1 == $flow->getCurrentStepNumber()) {
-				$this->savePassengerRequest($passengerRequest);
-				$this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
-			}
+                		
+        $form = $flow->createForm();
+        if ($flow->isValid($form)) {
 			$flow->saveCurrentStepData($form);
 		
 			if ($flow->nextStep()) {
 				$form = $flow->createForm();
 			} else {
-				$isUser = $this->container->get('security.context')->isGranted('ROLE_USER');
+				$isUser = $this->get('security.context')->isGranted('ROLE_USER');
 				if ($isUser) {
 					$passengerRequest->setUser(
-						$this->container->get('security.context')->getToken()->getUser()
+						$this->get('security.context')->getToken()->getUser()
 					);
 				}
 				
 				$this->savePassengerRequest($passengerRequest);
+                $this->getRequest()->getSession()->set('request_id', $passengerRequest->getId());
 								 
 				$url = ($isUser)
-					? $this->generateUrl('passenger_request_payment', array(
+					? $this->generateUrl('passenger_request_confirm', array(
 						'id' => $passengerRequest->getId()
 					))
 					: $this->generateUrl('fos_user_security_login');
@@ -71,26 +74,38 @@ class StepsController extends Controller
 		
 		$data = array(
 			'form' => $form->createView(),
-			'flow' => $flow
+			'flow' => $flow,
+            'passengerRequest' => $passengerRequest
 		);
 		
-		if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_THIRD) {
+		if ($flow->getCurrentStepNumber() == CreatePassengerRequestFlow::STEP_LAST) {
 			$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
 			$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
 		}
 		 
 		return $data;
 	}
-	
-	/**
-	 * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
-	 */
-	protected function generatePassengerRequest()
-	{
-		return $this->getPassengerRequestService()->generateRequest();
-	}
-	
-	/**
+    
+    protected function getActualUser()
+    {
+        $user = null;
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $driverRepository = $this
+                ->get('doctrine')
+                ->getManager()
+                ->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
+
+            $user = $driverRepository->findOneByUserId(
+                $this->get('security.context')->getToken()->getUser()->getId()
+            );                
+        } else if ($this->get('security.context')->isGranted('ROLE_USER')) {
+            $user = $this->get('security.context')->getToken()->getUser();
+        }
+        
+        return $user;
+    }    
+
+    /**
 	 * @param \DaVinci\TaxiBundle\Entity\PassengerRequest $request
 	 * @return void
 	 */
@@ -125,6 +140,19 @@ class StepsController extends Controller
 	{
 		return $this->getPassengerRequestRepository()->getFullRequestById($id);
 	}
+    
+    /**
+	 * @param \DaVinci\TaxiBundle\Entity\User $user
+     * @param integer $id
+     * @param array $states
+     * @return \DaVinci\TaxiBundle\Entity\PassengerRequest
+	 */
+	protected function getFullPassengerRequestForUserById(User $user, $id, array $states = array())
+	{
+        return $this->getPassengerRequestRepository()->getFullRequestForUserById(
+            $user, $id, $states
+        );
+	}
 	
 	/**
 	 * @param integer $id
@@ -140,7 +168,7 @@ class StepsController extends Controller
 	 */
 	protected function getPassengerRequestService()
 	{
-		return $this->container->get('da_vinci_taxi.service.passenger_request_service');
+		return $this->get('da_vinci_taxi.service.passenger_request_service');
 	}
 	
 	/**
@@ -148,7 +176,7 @@ class StepsController extends Controller
 	 */
 	protected function getPassengerRequestRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\PassengerRequest');
 	}
 	
@@ -157,7 +185,7 @@ class StepsController extends Controller
 	 */
 	protected function getMakePaymentService()
 	{
-		return $this->container->get('da_vinci_taxi.service.make_payment_service');
+		return $this->get('da_vinci_taxi.service.make_payment_service');
 	}
 	
 	/**
@@ -165,7 +193,7 @@ class StepsController extends Controller
 	 */
 	protected function getMakePaymentRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\Payment\MakePayment');
 	}
 	
@@ -174,7 +202,7 @@ class StepsController extends Controller
 	 */
 	protected function getIndependentDriverRepository()
 	{
-		$em = $this->container->get('doctrine')->getManager();
+		$em = $this->get('doctrine')->getManager();
 		return $em->getRepository('DaVinci\TaxiBundle\Entity\IndependentDriver');
 	}
 		
@@ -183,8 +211,57 @@ class StepsController extends Controller
 	 */
 	protected function getCalculationService()
 	{
-		return $this->container->get('da_vinci_taxi.service.calculation_service');
+		return $this->get('da_vinci_taxi.service.calculation_service');
 	}
+    
+    /**
+     * @param integer $driverId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    protected function getDirverById($driverId)
+    {
+    	return $this->getIndependentDriverRepository()->find($driverId);
+    }
+    
+    /**
+     * @param integer $userId
+     * @return \DaVinci\TaxiBundle\Entity\GeneralDriver
+     */
+    protected function getDirverByUserId($userId)
+    {
+    	return $this->getIndependentDriverRepository()->findOneByUserId($userId);
+    }
+        
+    /**
+     * @return array
+     */
+    protected function getStockRequests(array $states = array())
+    {
+        if (!count($states)) {
+            $states = array(
+                PassengerRequest::STATE_OPEN,
+                PassengerRequest::STATE_PENDING,
+                PassengerRequest::STATE_SOLD
+            );
+        }
+        
+        if ($this->get('security.context')->isGranted('ROLE_TAXIDRIVER')) {
+            $user = $this->get('security.context')
+                ->getToken()
+                ->getUser();
+
+            $driver = $this->getDirverByUserId($user->getId());
+            if ($driver && !is_null($driver->getVehicle())) {
+                return $this
+                    ->getPassengerRequestRepository()
+                    ->getDriverActualRequestsByStates($driver, $states);
+            }           
+        } 
+            
+        return $this
+                    ->getPassengerRequestRepository()
+                    ->getActualRequestsByStates($states);
+    }    
 		
 }
 

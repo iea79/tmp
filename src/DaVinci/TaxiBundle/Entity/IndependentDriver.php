@@ -59,7 +59,8 @@ class IndependentDriver extends GeneralDriver
      *
      * @return DriverVehicle 
      */
-    function getVehicle() {
+    public function getVehicle() 
+    {
         return $this->vehicle;
     }
 
@@ -69,7 +70,8 @@ class IndependentDriver extends GeneralDriver
      * @param DriverVehicle $vehicle
      * @return Driver
      */
-    public function setVehicle($vehicle) {
+    public function setVehicle($vehicle) 
+    {
         $this->vehicle = $vehicle;
         $this->vehicle->setDriver($this);
         
@@ -168,8 +170,8 @@ class IndependentDriver extends GeneralDriver
     static public function getDriverExperienceOptions()
     {
     	return array(
-    			self::LESS_THAN_4 => 'less than 4 years',
-    			self::MORE_THAN_4 => 'more than 4 years'
+    		self::LESS_THAN_4 => 'less than 4 years',
+    		self::MORE_THAN_4 => 'more than 4 years'
     	);
     }
         

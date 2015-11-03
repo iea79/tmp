@@ -1,4 +1,3 @@
-// Карта для различных страниц
 define('googleMaps', ['gmaps'], function(gmaps) {
     var GoogleMaps = function() {
 
@@ -22,10 +21,10 @@ define('googleMaps', ['gmaps'], function(gmaps) {
         var duration;
 
         var markers = new Array();
-
-        this.initialize = function() {
+        
+        this.initialize = function(mapId) {
             map = new gmaps.Map(
-            	document.getElementById('map-canvas'),
+            	document.getElementById(mapId),
             	mapOptions
             );
 
@@ -124,6 +123,8 @@ define('googleMaps', ['gmaps'], function(gmaps) {
                 var distanceInKm = results[0].distance.value / 1000;
                 var distanceInMile = distanceInKm * 0.621;
                 var mins = results[0].duration.value / 60;
+                
+                var prefix = this.getPrefix();
 
                 $('#distance_route').html(
                 	distanceInKm.toFixed(1) + ' km / '
@@ -133,10 +134,10 @@ define('googleMaps', ['gmaps'], function(gmaps) {
                 	mins.toFixed(1) + ' mins'
                 );
 
-                $('#createPassengerRequestRouteInfo_distance').attr(
+                $('#' + prefix + '_distance').attr(
                 	'value', results[0].distance.value
                 );
-                $('#createPassengerRequestRouteInfo_duration').attr(
+                $('#' + prefix + '_duration').attr(
                 	'value', results[0].duration.value
                 );
             }
@@ -166,6 +167,11 @@ define('googleMaps', ['gmaps'], function(gmaps) {
                 var distanceInMile = distanceInKm * 0.621;
                 var mins = duration / 60;
                 
+                var prefix = (
+                    $("#createPassengerRequestRouteInfo_routePoints_0_place").length
+                    || $("#createPassengerRequestRouteInfo_routePoints_1_place").length
+                ) ? 'createPassengerRequestRouteInfo' : 'editPassengerRequest';
+                
                 $('#distance_route').html(
                 	distanceInKm.toFixed(1) + ' km / '
                 	+ distanceInMile.toFixed(1) + ' mi'
@@ -174,12 +180,23 @@ define('googleMaps', ['gmaps'], function(gmaps) {
                 	mins.toFixed(1) + ' mins'
                 );
 
-                $('#createPassengerRequestRouteInfo_distance').attr(
-                	'value', distance
+                $('#' + prefix + '_distance').attr(
+                	'value', results[0].distance.value
                 );
-                $('#createPassengerRequestRouteInfo_duration').attr(
-                	'value', duration
+                $('#' + prefix + '_duration').attr(
+                	'value', results[0].duration.value
                 );
+            }
+        }
+        
+        this.getPrefix = function() {
+            if (
+                $("#createPassengerRequestRouteInfo_routePoints_0_place").length
+                || $("#createPassengerRequestRouteInfo_routePoints_1_place").length
+            ) {
+                return 'createPassengerRequestRouteInfo';                
+            } else {
+                return 'editPassengerRequest';
             }
         }
     };

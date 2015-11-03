@@ -2,6 +2,8 @@
 
 namespace DaVinci\TaxiBundle\Entity\Payment;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class MakePaymentService 
 {
 	
@@ -9,8 +11,26 @@ class MakePaymentService
 	const SERVICE_NAMESPACE_TYPE = "DaVinci\TaxiBundle\Form\Payment\Type\\";
 
 	protected static $methods;
-	
-	/**
+    
+    /**
+     * @var DaVinci\TaxiBundle\Entity\Payment\MakePaymentRepository
+     */
+    protected $repository;
+    
+    public function __construct(MakePaymentRepository $repository) 
+    {
+        $this->repository = $repository;
+    }
+    
+    /**
+     * @return DaVinci\TaxiBundle\Entity\Payment\MakePaymentRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }    
+
+    /**
 	 * @return \DaVinci\TaxiBundle\Entity\Payment\MakePayment
 	 */
 	public function create(array $params = null)
@@ -18,7 +38,7 @@ class MakePaymentService
 		return new MakePayment();
 	}
 	
-	public function createConfigured(\Symfony\Component\HttpFoundation\Request $request)
+	public function createConfigured(Request $request)
 	{
 		$makePayment = $this->create();
 		
@@ -31,7 +51,7 @@ class MakePaymentService
 		return $makePayment;
 	}
 	
-	public static function createPaymentMethodFormType(\Symfony\Component\HttpFoundation\Request $request)
+	public static function createPaymentMethodFormType(Request $request)
 	{
 		$methodCode = self::getMethodCodeFromRequest($request);
 		if ($methodCode) {
@@ -121,7 +141,7 @@ class MakePaymentService
 		return $object;
 	}
 	
-	static private function getMethodCodeFromRequest(\Symfony\Component\HttpFoundation\Request $request)
+	static private function getMethodCodeFromRequest(Request $request)
 	{
 		$methodCode = $request->get('methodCode');
 		if ($methodCode) {

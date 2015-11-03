@@ -24,12 +24,13 @@ class MessageContentService
 	}
 	
 	/**
-	 * @param unknown $literalCode
-	 * @return Ambigous <NULL, \DaVinci\TaxiBundle\Entity\MessageContent>
+	 * @param string $literalCode
+     * @param string $recipient
+	 * @return \DaVinci\TaxiBundle\Entity\MessageContent
 	 */
-	public function getByCode($literalCode)
+	public function getByLiteralCodeAndRecipient($literalCode, $recipient)
 	{
-		return $this->repository->findByLiteralCode($literalCode);
+		return $this->repository->findByLiteralCodeAndRecipient($literalCode, $recipient);
 	}
 	
 	/**

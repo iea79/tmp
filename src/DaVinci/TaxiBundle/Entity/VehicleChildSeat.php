@@ -9,7 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Entity
  * @ORM\Table(name="vehicle_child_seat")
  */
-class VehicleChildSeat {
+class VehicleChildSeat 
+{
 	
 	const POS_CHILD_SEAT_SMALL = 1;
 	const POS_CHILD_SEAT_MIDDLE_SMALL = 2;

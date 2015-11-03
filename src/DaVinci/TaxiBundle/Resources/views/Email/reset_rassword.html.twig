@@ -1,12 +1,16 @@
 {% extends 'DaVinciTaxiBundle:Email:letters.html.twig' %}
 
 
-{% block title %}Reset you password{% endblock %}
+{% block title %}Changing of TaxiMyPrice password!{% endblock %}
 
 {% block message_text %}
-	To reset your password, click here:
+	Сlick button to reset Your password!
 {% endblock %}
 
 {% block button_confirm %}
-	<a style="width: 277px; background-color: #27bf2e; color: #fff; text-decoration: none;font-size: 20px; padding: 10px 10px 8px; display: block; border-radius: 3px;text-align: center;margin-bottom: 13px;" href="{{ confirmationUrl }}">Reset password</a>
+	<a style="width: 320px; background-color: #27bf2e; color: #fff; text-decoration: none;font-size: 19px; padding: 10px 10px 8px; display: block; border-radius: 3px;text-align: center;margin-bottom: 13px;" href="{{ confirmationUrl }}">Changing of TaxiMyPrice password!</a>
+{% endblock %}
+
+{% block message_text_after %}
+    Best wishes, TaxiMyPrice team!
 {% endblock %}

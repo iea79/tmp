@@ -3,15 +3,15 @@
 {% block theme 'register' %}
 
     {% block title %}
-        {% include 'DaVinciTaxiBundle::banner.html.twig' %}
     {% if flow.getCurrentStepNumber() == 1 %}
+        {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
         <div class="wrapper-content title">
             <div class="clear"></div>
             {{ 'Create an account'|trans}}
         </div>
 
     {% elseif flow.getCurrentStepNumber() == 2 %}
-
+        {% include 'DaVinciTaxiBundle:Banners:banner2.html.twig' %}
         <div class="wrapper-content title">
             <div class="clear"></div>
             <span>{{ 'Please check all details'|trans}}</span>

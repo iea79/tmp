@@ -8,10 +8,13 @@ use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Intl\Intl;
 
-class VehicleDriverConditionsType extends AbstractType {
+class VehicleDriverConditionsType extends AbstractType 
+{
 	
-	public function buildForm(FormBuilderInterface $builder, array $options) {
+	public function buildForm(FormBuilderInterface $builder, array $options) 
+    {
 		$builder
+            ->add('need_interpreter', 'checkbox', array('required' => false))
 			->add('interpreter_lang', 'choice', array(
 				'choices' => Intl::getLanguageBundle()->getLanguageNames(),	
 				'required' => false
@@ -21,19 +24,19 @@ class VehicleDriverConditionsType extends AbstractType {
 			->add('body_guard', 'checkbox', array('required' => false))
 			->add('animal_trainer', 'checkbox', array('required' => false))
 			->add('carrier', 'checkbox', array('required' => false))
-			->add('guide', 'checkbox', array('required' => false));
+			->add('guide', 'checkbox', array('required' => false));        
 	}
 	
-	public function setDefaultOptions(OptionsResolverInterface $resolver) {
+	public function setDefaultOptions(OptionsResolverInterface $resolver) 
+    {
 		$resolver->setDefaults(array(
 			'data_class' => 'DaVinci\TaxiBundle\Entity\VehicleDriverConditions',
 		));
 	}
 	
-	public function getName() {
+	public function getName() 
+    {
 		return 'vehicleDriverConditions';
 	}
 	
 }
-
-?>

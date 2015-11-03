@@ -17,8 +17,17 @@ class InternalMessageService
 	{
 		$this->repository = $repository;
 	}
-	
-	public function spawnInstance()
+    
+    /**
+     * 
+     * @return InternalMessageRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }    
+
+    public function spawnInstance()
 	{
 		return new InternalMessage();
 	}

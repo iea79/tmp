@@ -41,9 +41,9 @@
 			<div class="money-block">
 				<div class="history">
 					<span>History:</span>
+					<a class="uk-button uk-button-primary">TMP</a>
 					<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
 					<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
-					<a class="uk-button uk-button-primary">TMP</a>
 				</div>
 				<div class="balance">
 					<span>Balance:</span>
@@ -91,14 +91,14 @@
 			{# Find order #}
 			<li class="uk-active">
 				<div class="message">
-					<span>Напоминание: </span>информация
+					{#<span>Напоминание: </span>информация#}
 				</div>
 				{% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
 			</li>
 			{# Open order #}
 			<li class="open-order wihitebg">
 				<div class="message">
-					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>
+					<div class="uk-width-1-1">{#<span>Напоминание: </span>информация #}</div>
 					<div class="search-fillter">
 						<span>Your workers activation code: </span>dasde24321dfsad
 					</div>
@@ -120,28 +120,28 @@
 					<thead>
 						<th>#</th>
 						<th>{{'TMP ID'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Map'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Get paid'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Earn ($)'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Tips ($)'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Manager'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Status'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Driver'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 					</thead>
 					<tbody>
@@ -223,7 +223,7 @@
 			{# Control room #}
 			<li class="control-room wihitebg">
 				<div class="message">
-					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div> 
+					<div class="uk-width-1-1">{#<span>Напоминание: </span>информация #}</div> 
 				</div>
 			   	<div class="buttom-swicher">
 			        <ul class="uk-width-1-1 uk-width-large-2-3" data-uk-switcher="{connect:'#control_room'}">
@@ -253,25 +253,25 @@
 						<table class="uk-table thead-gray">
 							<thead>
 								<th>{{ 'My ID' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'My name' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'Balance ($)' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'Budget ($)' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'Deals' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'Profit ($)' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 								<th>{{ 'Costs ($)' |trans }}
-									<div class="questiontooltip">?</div>
+									<div class="questiontooltip"></div>
 								</th>
 							</thead>
 							<tbody>
@@ -312,25 +312,25 @@
 								<tr>
 									<th>#</th>
 									<th>{{'Personal ID'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Manager name'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Balance ($)'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Deals'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Profit ($)'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Costs ($)'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Actions'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 								</tr>
 							</thead>
@@ -417,19 +417,19 @@
 								<tr>
 									<th>#</th>
 									<th>{{'Personal ID'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Driver name'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Profit ($)'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Tips ($)'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 									<th>{{'Deals'|trans}}
-										<div class="questiontooltip">?</div>
+										<div class="questiontooltip"></div>
 									</th>
 								</tr>
 							</thead>
@@ -478,7 +478,7 @@
 			{# All order #}
 			<li class="all-order wihitebg">
 				<div class="message">
-					<div class="uk-width-1-1"><span>Напоминание: </span>информация</div>
+					<div class="uk-width-1-1">{#<span>Напоминание: </span>информация #}</div>
 					<div class="search-fillter">
 						<span>Your workers activation code: </span>dasde24321dfsad
 					</div>
@@ -500,25 +500,25 @@
 					<thead>
 						<th>#</th>
 						<th>{{'TMP ID'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th><a href="" class="mp-icon-arrow-up"></a>{{'Date and time'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Route'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th><a href="" class="mp-icon-arrow-up"></a>{{'Price'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th><a href="" class="mp-icon-arrow-up"></a>{{'Payment'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th><a href="" class="mp-icon-arrow-up"></a>{{'Status'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 						<th>{{'Refuse'|trans}}
-							<div class="questiontooltip">?</div>
+							<div class="questiontooltip"></div>
 						</th>
 					</thead>
 					<tbody>
