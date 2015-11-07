@@ -1,0 +1,76 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'privacy' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+<div class="shadow-main whitebg">
+
+    <div class="block-help">
+
+        <h3 class="privacy__title">Privacy Policy</h3>
+
+        <!-- begin left__sidebar -->
+        <ul class="uk-nav uk-nav-parent-icon left__sidebar" data-uk-nav="{multiple:true}">
+            <!-- <li class="left__sidebar_title">Sidebar title</li> -->
+            <li class="uk-parent left__sidebar_list">
+                <a href="#" class="left__sidebar_headline">Hedline 1</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                    <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                </ul>
+            </li>
+            <li class="uk-parent left__sidebar_list">
+                <a href="#" class="left__sidebar_headline">Hedline 2</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                    <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                </ul>
+            </li>
+            <li class="uk-parent left__sidebar_list">
+                <a href="#" class="left__sidebar_headline">Hedline 3</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                    <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                </ul>
+            </li>
+            <li class="uk-parent left__sidebar_list">
+                <a href="#" class="left__sidebar_headline">Hedline 4</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                    <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- end left__sidebar -->
+
+        <!-- begin privacy__content -->
+        <div class="privacy__content">
+
+            <div class="search">
+                <form class="uk-search" data-uk-search="">
+                    <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
+                </form>
+            </div>
+
+            <h4 class="privacy__title">Hedline 1</h4>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil illo laboriosam, voluptatem deserunt hic at dolore blanditiis quo quisquam tempore officia fugiat reiciendis in sequi repudiandae et quia, rem ea!</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil illo laboriosam, voluptatem deserunt hic at dolore blanditiis quo quisquam tempore officia fugiat reiciendis in sequi repudiandae et quia, rem ea! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae ipsa sunt beatae unde quisquam error, maiores. Eius, rem, odio. Ullam commodi et perferendis voluptatem dolor modi, quod fuga vitae quaerat.</p>
+
+            <img src="{{ asset('bundles/davincitaxi/images/screen-1-4.jpg') }}" alt="">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil illo laboriosam, voluptatem deserunt hic at dolore blanditiis quo quisquam tempore officia fugiat reiciendis in sequi repudiandae et quia, rem ea!</p>
+
+        </div>
+        <!-- end privacy__content -->
+
+    </div>
+
+</div>
+
+{% endblock %}
+

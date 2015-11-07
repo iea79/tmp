@@ -6877,7 +6877,8 @@ Help
 }
 .main-content .block-help {
 	padding: 20px 2% 20px 2%;
-	width: 96%;
+	box-sizing: border-box;
+	width: 100%;
 	display: inline-block;
 
 }
@@ -10004,3 +10005,76 @@ Payment window
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+
+
+/* privacy */
+.privacy {
+}
+
+.privacy__title {
+	margin-bottom: 15px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid #8D8F98;
+}
+
+.privacy__content {
+	overflow: hidden;
+	padding-left: 20px;
+}
+
+.privacy__content .privacy__title {
+	border: none;
+	color: #ff4d61;
+}
+
+.privacy__content .search {
+	margin: 0;
+}
+
+
+
+/* Left sidebar */
+.left__sidebar {
+	max-width: 200px;
+	float: left;
+	width: 100%;
+}
+
+.left__sidebar:after,
+.left__sidebar_list:after {
+	content: "";
+	width: 100%;
+	height: 1px;
+	display: table;
+	clear: both;
+}
+
+.left__sidebar_title {
+	font-weight: 600;
+}
+
+.left__sidebar_list {
+}
+
+.left__sidebar_link {
+	width: 100% !important;
+	color: #444;
+}
+
+.left__sidebar_list:nth-child(n+2) {
+	margin-top: 6px;
+}
+
+.left__sidebar_headline {
+	background-color: #528ed3;
+	color: #FFF !important;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 20px 10px 15px !important;
+	box-sizing: border-box;
+	width: 100% !important;
+}
+
+
+
+

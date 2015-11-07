@@ -147,3 +147,8 @@ new_ticket:
 driver:
     pattern:  /driver
     defaults: { _controller: DaVinciTaxiBundle:Home:driver }    
+
+privacy:
+    pattern:  /privacy
+    defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
+    # options: { useAsInnerURL: true }

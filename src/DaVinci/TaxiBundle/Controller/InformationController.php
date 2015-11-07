@@ -284,7 +284,12 @@ class InformationController extends StepsController
     
     public function oneHelpAction()
     {
-    	return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
+        return $this->render('DaVinciTaxiBundle:Information:one_help.html.twig');
+    }
+
+    public function privacyAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Information:privacy.html.twig');
     }
 
     /**
