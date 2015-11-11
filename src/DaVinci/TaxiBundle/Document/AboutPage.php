@@ -8,9 +8,16 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
 use Application\Sonata\CommentBundle\PHPCR\FakeComment as FakeComment;
 
+// Vs ->
 /**
- * @PHPCR\Document(translator="attribute", repositoryClass="AboutRepository")
+ * @PHPCR\Document
  */
+// <- Ve
+
+/**
+ * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="AboutRepository")
+ */
+
 class AboutPage implements TranslatableInterface
 {
 	

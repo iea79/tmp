@@ -7,9 +7,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
-class FaqEntryAdmin extends Admin
-{
-        
+class FaqEntryAdmin extends Admin{
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper

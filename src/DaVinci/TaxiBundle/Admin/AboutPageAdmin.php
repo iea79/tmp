@@ -2,6 +2,8 @@
 
 namespace DaVinci\TaxiBundle\Admin;
 
+
+
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -21,11 +23,7 @@ class AboutPageAdmin extends Admin
 		  		<li>Many cars are equiped for kids, disabled people, pets etc... </li>
 			</ul>";
 	
-	public function getExportFormats()
-	{
-		return array();
-	}
-	
+
 	public function prePersist($document)
 	{
 		$parent = $this->getModelManager()->find(null, '/cms/about');
@@ -104,6 +102,11 @@ class AboutPageAdmin extends Admin
             ->with('Other', array('collapsed' => true))
             	->add('locale')
     		->end();
+    }
+ 
+    public function getExportFormats()
+    {
+        return array();
     }
         
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
