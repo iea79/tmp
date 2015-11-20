@@ -8,7 +8,7 @@ use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableIn
 /**
  * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="FaqEntryRepository")
  */
-class FaqEntry implements TranslatableInterface
+class FaqEntry implements translatableinterface
 {
 	
     use ContentTrait;
