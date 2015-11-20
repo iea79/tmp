@@ -15,6 +15,7 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
         , '81.198.90.13' //dima
         , '62.16.43.150' //Evgeny Ivanov
         , '89.209.11.134' //vasya
+        , '80.91.187.228' //vasya work
         , '185.43.248.214' //aleksey
         , '109.68.173.20' //evgeniy voronov
         , '95.111.150.84' //Darya
@@ -24,8 +25,9 @@ if ((isset($_SERVER['HTTP_CLIENT_IP'])
         , '2.135.194.139' //Elena Ilyna
         , 'fe80::1', '::1')) || php_sapi_name() === 'cli-server') ) && !getenv("C9_PROJECT")
 ) {
+    echo $_SERVER['REMOTE_ADDR'];
     header('HTTP/1.0 403 Forbidden');
-    exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
+    exit('You are not allowed to access this file///. Check '.basename(__FILE__).' for more information.');
 }
 
 $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
