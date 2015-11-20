@@ -2,12 +2,11 @@
 
 namespace DaVinci\TaxiBundle\Admin;
 
-
-
-use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\DoctrinePHPCRAdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+
 
 class AboutPageAdmin extends Admin
 {
@@ -24,12 +23,6 @@ class AboutPageAdmin extends Admin
 			</ul>";
 	
 
-	public function prePersist($document)
-	{
-		$parent = $this->getModelManager()->find(null, '/cms/about');
-		$document->setParentDocument($parent);
-	}
-	
     public function getNewInstance()
     {
         // load some standart markup data
@@ -42,14 +35,14 @@ class AboutPageAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        	->addIdentifier('title')
-        	->add('locale')
-        	->add('_action', 'actions', array(
-				'actions' => array(
-					'edit' => array(),
-					'delete' => array() 
-				) 
-			));
+            ->addIdentifier('title')
+            ->add('locale')
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'edit' => array(),
+                    'delete' => array()
+                )
+            ));
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -103,7 +96,13 @@ class AboutPageAdmin extends Admin
             	->add('locale')
     		->end();
     }
- 
+
+    public function prePersist($document)
+    {
+        $parent = $this->getModelManager()->find(null, '/cms/about');
+        $document->setParentDocument($parent);
+    }
+    
     public function getExportFormats()
     {
         return array();
