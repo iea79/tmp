@@ -17,7 +17,7 @@
     {% for at in all_tabs %}
     <div class="empty">
         <div id="{{ at.title|slugify }}" class="anchor" ></div>
-		<div class="info-block">
+        <div class="info-block">
             <div class="info-block passenger">
                 {% if at.textToLeft %}
                   <div class="text">
@@ -29,7 +29,7 @@
                         {% media at.youtubeLink, 'small' %}
                     </div>
                     {% if at.buttonText %}
-                    <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                    <a href=""><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
                     {% endif %}
                 </div>
                 {% if not at.textToLeft %}
@@ -43,30 +43,10 @@
                             {% media at.youtubeLink, 'small' %}
                         </div>
                         {% if at.buttonText %}
-                        <a href="{{ url(at.buttonLink) }}"><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
+                        <a href=""><button class="book-ride uk-button uk-button-success">{{ at.buttonText }}</button></a>
                         {% endif %}
                     </div>
                 {% endif %}
-                {% if at.comments.count %}
-                    <div class="otziv">
-                        <div class="rate-review">
-                            {% for c in at.comments %}
-                                <div class="uk-width-1-1">
-                                    <div class="uk-width-1-1 uk-text-primary name">{{ c.authorName }}</div>
-                                    <div class="uk-width-1-1 rate">
-                                        {% for i in 1..5 %}
-                                            <a><i class="mp-icon-star {% if i <= c.value %}uk-text-danger{% else %}uk-text-warning{% endif %}"></i></a>
-                                        {% endfor %}
-                                        / {{ c.date|localizeddate('medium', 'none', app.request.locale) }}
-                                    </div>
-                                    <div class="uk-width-1-1 review">
-                                        {{ c.message }}
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>  
-                {% endif %} 
             </div>
         </div>
     </div>

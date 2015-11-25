@@ -303,6 +303,6 @@ services:
         class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
         arguments:
             - Pages initializer
-            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake", "/cms/guides", "/cms/videoguides", "/cms/category", "/cms/post-entities", "/cms/blog-columns"]
+            - ["/cms/profit", "/cms/about", "/cms/faq", "/cms/comments/fake", "/cms/guides", "/cms/videoguides", "/cms/category", "/cms/post-entities", "/cms/blog-columns", "/cms/halk"]
         tags:
             - { name: doctrine_phpcr.initializer }

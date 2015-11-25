@@ -8,11 +8,6 @@ use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
 use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
 use Application\Sonata\CommentBundle\PHPCR\FakeComment as FakeComment;
 
-// Vs ->
-/**
- * @PHPCR\Document
- */
-// <- Ve
 
 /**
  * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="AboutRepository")
@@ -32,7 +27,7 @@ class AboutPage implements TranslatableInterface
      * @PHPCR\String(translated=true)
      */
     protected $title;
-    
+
     /**
      * @PHPCR\Boolean()
      */
@@ -42,54 +37,21 @@ class AboutPage implements TranslatableInterface
      * @PHPCR\String(translated=true)
      */
     protected $textBlock;
-    
-    /**
-     * @PHPCR\ReferenceMany(targetDocument="Application\Sonata\CommentBundle\PHPCR\FakeComment", strategy="hard", cascade="persist")
-     */
-    protected $comments;  
-    
+
     /**
      * @PHPCR\String(translated=true)
      */
     protected $buttonText;      
-    
-    /**
-     * @PHPCR\String()
-     */
-    protected $buttonLink;     
-    
+
     /**
      * @PHPCR\ReferenceOne(targetDocument="Application\Sonata\MediaBundle\PHPCR\Media", strategy="weak")
      */
-    protected $youtubeLink;  
-    
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-    }
+    protected $youtubeLink;
     
     public function getId() {
         return $this->id;
     }
 
-    public function getComments() {
-        return $this->comments;
-    }
-       
-    public function removeComment(FakeComment $comment)
-    {
-        $this->comments->removeElement($comment);
-    }
-    
-    public function addComment(FakeComment $comment)
-    {
-        if (!is_null($this->comments) && !$this->comments->contains($comment)) {
-            $this->comments->add($comment);
-        }
-
-        return $this;
-    }
-        
     public function getTitle() {
         return $this->title;
     }
@@ -104,10 +66,6 @@ class AboutPage implements TranslatableInterface
 
     public function getButtonText() {
         return $this->buttonText;
-    }
-
-    public function getButtonLink() {
-        return $this->buttonLink;
     }
 
     public function getYoutubeLink() {
@@ -130,14 +88,10 @@ class AboutPage implements TranslatableInterface
         $this->buttonText = $buttonText;
     }
 
-    public function setButtonLink($buttonLink) {
-        $this->buttonLink = $buttonLink;
-    }
-
     public function setYoutubeLink($youtubeLink) {
         $this->youtubeLink = $youtubeLink;
     }
-        
+
     public function _toString()
     {
         return $this->title;

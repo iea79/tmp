@@ -76,30 +76,30 @@ sonata_media:
                 abstract: { width: 150, quality: 95}
                 wide:     { width: 420, quality: 100}
 
-        sonata_collection:
-            providers:
-              - sonata.media.provider.image
+        # sonata_collection:
+        #     providers:
+        #       - sonata.media.provider.image
 
-            formats:
-                preview: { width: 100, quality: 100}
-                wide:    { width: 820, quality: 100}
+        #     formats:
+        #         preview: { width: 100, quality: 100}
+        #         wide:    { width: 820, quality: 100}
 
-        sonata_category:
-            providers:
-              - sonata.media.provider.image
+        # sonata_category:
+        #     providers:
+        #       - sonata.media.provider.image
 
-            formats:
-                preview: { width: 100, quality: 100}
-                wide:    { width: 820, quality: 100}
+        #     formats:
+        #         preview: { width: 100, quality: 100}
+        #         wide:    { width: 820, quality: 100}
 
-        sonata_product:
-            providers:
-                - sonata.media.provider.image
+        # sonata_product:
+        #     providers:
+        #         - sonata.media.provider.image
 
-            formats:
-                preview:   { width: 100, quality: 100}
-                small:     { width: 300, quality: 100}
-                large:     { width: 750, quality: 100}
+        #     formats:
+        #         preview:   { width: 100, quality: 100}
+        #         small:     { width: 300, quality: 100}
+        #         large:     { width: 750, quality: 100}
 
     cdn:
         # define the public base url for the uploaded media

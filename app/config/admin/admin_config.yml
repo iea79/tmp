@@ -136,3 +136,29 @@ services:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/post-entities']]                         
             
+    davinci.taxi.admin.blogcolumn:
+        class: DaVinci\TaxiBundle\Admin\BlogColumnAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Blog Columns" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\BlogColumn
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/blog-columns']]
+            
+    davinci.taxi.admin.privacy:
+        class: DaVinci\TaxiBundle\Admin\PrivacyAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Privacy" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\Privacy
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setTranslationDomain, ['']] 
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/privacy']]
+            
