@@ -151,4 +151,4 @@ driver:
 privacy:
     pattern:  /privacy
     defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
-    # options: { useAsInnerURL: true }
+    options: { useAsInnerURL: true }
