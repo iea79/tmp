@@ -48,7 +48,7 @@ profit:
 about:
     pattern:  /about
     defaults: { _controller: DaVinciTaxiBundle:Information:about }    
-    options: { useAsInnerURL: true }
+    #options: { useAsInnerURL: true }
         
 help:
     pattern:  /help/{section}
@@ -151,4 +151,4 @@ driver:
 privacy:
     pattern:  /privacy
     defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
-    options: { useAsInnerURL: true }
+    #options: { useAsInnerURL: true }

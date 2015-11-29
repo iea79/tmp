@@ -289,7 +289,13 @@ class InformationController extends StepsController
 
     public function privacyAction()
     {
-        return $this->render('DaVinciTaxiBundle:Information:privacy.html.twig');
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allTabs = $dm->getRepository('DaVinciTaxiBundle:Privacy')->findAll();
+        
+        return $this->render(
+            'DaVinciTaxiBundle:Information:privacy.html.twig',
+            array('all_tabs' => $allTabs)
+        );
     }
 
     /**
