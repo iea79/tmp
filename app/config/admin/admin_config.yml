@@ -158,7 +158,6 @@ services:
             - DaVinci\TaxiBundle\Document\Privacy
             - SonataAdminBundle:CRUD
         calls:
-            - [setTranslationDomain, ['']] 
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/privacy']]
             
