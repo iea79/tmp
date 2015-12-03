@@ -15,9 +15,11 @@
         <!-- begin left__sidebar -->
         <ul class="uk-nav uk-nav-parent-icon left__sidebar" data-uk-nav="{multiple:true}">
                 {% for at in all_tabs %}
-                <li {% if loop.first %} class="uk-parent left__sidebar_list" {% endif %}>
-                    <a href="#{{ at.title|slugify }}" class="left__sidebar_headline">{{ at.title }}</a>
-                </li>
+                <div class="search_res">
+                    <li {% if loop.first %} class="uk-parent left__sidebar_list" {% endif %}>
+                        <a href="#{{ at.title|slugify }}" class="left__sidebar_headline">{{ at.title }}</a>
+                    </li>
+                </div>
                 {% endfor %}
 <!--             <li class="uk-parent left__sidebar_list">
                 <a href="#" class="left__sidebar_headline">Hedline 2</a>
@@ -51,16 +53,15 @@
                 <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
             </form>
         </div>
-                    <div class="privacy">
                         {% for at in all_tabs %}
-                        
-                        <h4 id="{{ at.title|slugify }}" class="privacy__title">{{ at.title }}</h4>
+                        <div class="search_res">
+                            <h4 id="{{ at.title|slugify }}" class="privacy__title">{{ at.title }}</h4>
                             <div class="text">
                                   {{ at.textBlock|raw }}
                             </div>
+                        </div>
 
                         {% endfor %}
-                    </div>
 
         </div>
         <!-- end privacy__content -->
