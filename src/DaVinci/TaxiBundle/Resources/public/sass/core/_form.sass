@@ -1,0 +1,140 @@
+.form
+	display: block
+	&:after
+		content: ''
+		display: table
+		clear: both
+	&.form-horizontal
+		.form-label
+			float: left
+			padding: 6px 5px 6px 0
+			display: block
+		.form-field-wrapper
+			width: 100%
+			overflow: hidden
+
+.form-label
+	
+		
+.select-field
+	height: 29px
+	padding: 0 0px
+	+border-radius($form-field-border-radius)
+	+background-clip(padding-box)
+	background-color: $contrast-bg
+	font-size: $font-size-normal
+
+
+.input-field
+	height: 29px
+	border: 1px solid #8d8f99
+	padding: 0 10px
+	+border-radius($form-field-border-radius)
+	+background-clip(padding-box)
+	background-color: $contrast-bg
+	font-size: $font-size-normal	
+
+.btn
+	display: inline-block
+	+border-radius($btn-border-radius)
+	+background-clip(padding-box)
+	vertical-align: middle
+	text-decoration: none
+	text-align: center
+	border: none
+	outline: none
+	line-height: 1em
+	min-height: 30px
+	font-size: 14px
+	padding: 2px 10px
+	background-color: $contrast-bg
+	color: $main-color
+	&:hover,&:focus
+		background-color: #f5f5f5
+		outline: none
+		text-decoration: none
+	&:active,&.uk-active
+		background-color: #dddddd
+		color: #3c3d45
+
+.btn-primary
+	background-color: $primary-bg
+	color: $contrast-color
+	&:hover,&:focus
+		background-color: #35b3ee
+	&:active,&.uk-active
+		background-color: #0091ca
+
+.btn-success
+	background-color: $sucess-bg
+	color: $contrast-color
+	&:hover,&:focus
+		background-color: #2eda36
+	&:active,&.uk-active
+		background-color: #219d27
+
+.btn-danger
+	background-color: $danger-bg
+	color: $contrast-color
+	&:hover,&:focus
+		background-color: #e4354f
+		color: $contrast-color
+	&:active,&.uk-active
+		background-color: #c91032
+		color: $contrast-color
+
+.btn:disabled
+	background-color: #f5f5f5
+	color: #8d8f98
+
+.btn-link
+	border-color: transparent
+	background: none
+	color: #528ed3
+	&:hover,&:focus,&:active,&.uk-active,&:disabled
+		border-color: transparent
+		background: none
+	&:hover,&:focus,&:active,&.uk-active
+		color: #005599
+		text-decoration: underline
+	&:disabled
+		color: #8d8f98
+	&:focus
+		outline: 1px dotted
+
+.btn-mini
+	min-height: 20px
+	padding: 0 6px
+	line-height: 20px
+	font-size: 11px
+
+.btn-small
+	min-height: 25px
+	padding: 0 10px
+	line-height: 25px
+	font-size: 12px
+
+.btn-large
+	min-height: 40px
+	padding: 5px 15px
+	line-height: 40px
+	font-size: 22px
+
+.btn-group
+	display: inline-block
+	vertical-align: middle
+	position: relative
+	font-size: 0.001px
+	white-space: nowrap
+
+.btn-group > *
+	display: inline-block
+
+.btn-group .btn
+	vertical-align: top
+
+.btn-dropdown
+	display: inline-block
+	vertical-align: middle
+	position: relative
+

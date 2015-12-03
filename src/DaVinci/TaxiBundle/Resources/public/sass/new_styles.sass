@@ -1,0 +1,22 @@
+@import mixin/_mixin
+
+@import compass/css3
+@import mixin/_variables
+@import core/_width
+@import core/_grid
+@import core/_modal
+@import core/_form
+@import core/_tmp-icon
+@import pages/step-swicher
+@import pages/first-step
+
+// Main style
+.row
+	&+.row
+		margin-top: 6px
+	&:after
+		content: ""
+		display: table
+		clear: both
+
+@import pages/_responsive
