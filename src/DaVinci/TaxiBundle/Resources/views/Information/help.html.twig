@@ -53,9 +53,11 @@
 				                <li class="head"><a href="{{ path('guides') }}">How-to guides</a></li>
 				                {% for guide in guides %}
 				                	{% if loop.index < 9 %}
-                                        <li>
-                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                        </li>
+										{% if "now"|date("y/m/d") > guide.PublishStartDate|date("y/m/d") and "now"|date("y/m/d") < guide.PublishEndDate|date("y/m/d")%}
+	                                        <li>
+	                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+	                                        </li>
+                                        {% endif %}
                                     {% endif %}    
 				                {% endfor %}
 		                        <li>
