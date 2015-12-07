@@ -12,13 +12,8 @@
 /composer.phar
 /web/css/
 /web/js/
-<<<<<<< HEAD
 !web/.htaccess
 !web/.passwords
-=======
-/web/.htaccess
-/web/.passwords
->>>>>>> ca5cee2ff2611da6cd9eef60b8642968413a61ec
 /web/photo/
 /web/media/
 /web/uploads/
