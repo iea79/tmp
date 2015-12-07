@@ -12,8 +12,8 @@
 /composer.phar
 /web/css/
 /web/js/
-/web/.htpasswd
 /web/.htaccess
+/web/.passwords
 /web/photo/
 /web/media/
 /web/uploads/
