@@ -152,13 +152,12 @@ services:
     davinci.taxi.admin.privacy:
         class: DaVinci\TaxiBundle\Admin\PrivacyAdmin
         tags:
-            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Privacy" }
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Privacy Policy" }
         arguments:
             - ''
             - DaVinci\TaxiBundle\Document\Privacy
             - SonataAdminBundle:CRUD
         calls:
-            - [setTranslationDomain, ['']] 
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/privacy']]
             

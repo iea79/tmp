@@ -79,8 +79,7 @@ $grid-divider-border-width: 1px
     margin: 0
     padding: 0
     list-style: none
-    .row + .row
-        margin-top: 1px
+
 
 .grid:before,
 .grid:after 
@@ -307,13 +306,6 @@ $grid-divider-border-width: 1px
     width: 16.666% 
 .grid-width-1-10 > *  
     width: 10% 
-
-.grid-width-asinc
-    & > div:nth-child(even)
-        width: 23%
-    & > div:nth-child(odd)
-        width: 27%
-     
 
 /* Phone landscape and bigger */
 @media (min-width: $breakpoint-small) 

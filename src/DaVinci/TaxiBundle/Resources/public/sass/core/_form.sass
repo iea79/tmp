@@ -5,58 +5,26 @@
 		display: table
 		clear: both
 	&.form-horizontal
+		.form-label
+			float: left
+			padding: 6px 5px 6px 0
+			display: block
+		.form-field-wrapper
+			width: 100%
+			overflow: hidden
 
-.form-field-group
-	display: -ms-flexbox
-	display: -webkit-flex
-	display: flex
-	+flex-wrap(nowrap)
-	+align-items(stretch)
-	margin: 0
-	padding: 0
-	list-style: none
-
-.number-choose-field,.number-choose-field+.chzn-container
-	width: 47px
-	max-width: 47px
-	&+*,&+*+*
-		margin-left: 5px
-
-// Label
-[class*='_label-field']
-	overflow: hidden
-	display: inline-block
-	padding: 5px 0
-	&+[class*='_form-field']
-		float: right
-	&+.form-field-group
-		width: 67.5%
-
-.form-field-group:after
-	content: ''
-	display: table
-	clear: both
-
-[class*='_form-field']
-	float: left
+.form-label
 	
-// Select		
+		
 .select-field
 	height: 29px
-	padding: 0 10px
+	padding: 0 0px
 	+border-radius($form-field-border-radius)
 	+background-clip(padding-box)
 	background-color: $contrast-bg
 	font-size: $font-size-normal
 
-.chzn-container-single 
-	.chzn-single
-		border: 1px solid #8d8f99
-		@include border-radius(3px)
-		@include background-clip(padding-box)
-		background-color: #fff
 
-// Input
 .input-field
 	height: 29px
 	border: 1px solid #8d8f99
@@ -66,73 +34,6 @@
 	background-color: $contrast-bg
 	font-size: $font-size-normal	
 
-// input type radio and checkbox
-input[type="checkbox"],input[type="radio"]
-	position: absolute
-	left: -9999px
-
-input[type="checkbox"],input[type="radio"]
-	&+label
-		white-space: nowrap
-		line-height: 1
-		&:before
-			content: ''
-			font-family: FontAwesome
-			position: relative
-			display: inline-block
-			vertical-align: baseline
-			width: 10px
-			height: 10px
-			font-size: 14px
-			color: $primary-color
-			text-align: center
-			line-height: 12px
-			margin: 0
-			border: 1px solid $contrast-color
-			box-shadow: 0 0 0 1px $warning-color,inset 2px 2px 4px $warning-color
-			cursor: pointer
-		span
-			margin-left: 5px
-			display: inline-block
-			vertical-align: top
-			font-size: 16px
-			white-space: normal
-			color: $muted-color
-
-input[type="radio"]
-	&+label:before
-		vertical-align: middle
-		+border-radius(50%)
-		font-size: 9px
-		line-height: 8px
-		width: 8px
-		height: 8px
-
-input[type="checkbox"]:checked
-	&+label:before
-		content: "\f00c"
-
-input[type="radio"]:checked
-	&+label:before
-		content: "\f111"
-
-.textarea-field
-	border: 1px solid #8d8f99
-	padding: 5px 10px
-	min-height: 65px
-	+border-radius($form-field-border-radius)
-	+background-clip(padding-box)
-	background-color: $contrast-bg
-	font-size: $font-size-normal	
-
-.textarea-counter
-	color: $muted-color
-	font-size: 12px
-	.count
-		font-size: 14px
-
-
-// Buttons
 .btn
 	display: inline-block
 	+border-radius($btn-border-radius)
@@ -152,7 +53,7 @@ input[type="radio"]:checked
 		background-color: #f5f5f5
 		outline: none
 		text-decoration: none
-	&:active,&.active
+	&:active,&.uk-active
 		background-color: #dddddd
 		color: #3c3d45
 
@@ -161,7 +62,7 @@ input[type="radio"]:checked
 	color: $contrast-color
 	&:hover,&:focus
 		background-color: #35b3ee
-	&:active,&.active
+	&:active,&.uk-active
 		background-color: #0091ca
 
 .btn-success
@@ -169,7 +70,7 @@ input[type="radio"]:checked
 	color: $contrast-color
 	&:hover,&:focus
 		background-color: #2eda36
-	&:active,&.active
+	&:active,&.uk-active
 		background-color: #219d27
 
 .btn-danger
@@ -178,29 +79,9 @@ input[type="radio"]:checked
 	&:hover,&:focus
 		background-color: #e4354f
 		color: $contrast-color
-	&:active,&.active
+	&:active,&.uk-active
 		background-color: #c91032
 		color: $contrast-color
-
-.btn-muted
-	border: 1px solid #e7e7e7
-	@include border-radius(3px)
-	@include background-clip(padding-box)
-	background-color: $muted-bg
-	&:hover,&:focus
-	&:active,&.active
-
-.btn-warning
-	background-color: #8d8f98
-	color: #ffffff
-
-.btn-warning:hover,.btn-warning:focus 
-	background-color: #9b9da7
-	color: #ffffff
-
-.btn-warning:active,.btn-warning.active 
-	background-color: #7e8088
-	color: #ffffff
 
 .btn:disabled
 	background-color: #f5f5f5
@@ -210,10 +91,10 @@ input[type="radio"]:checked
 	border-color: transparent
 	background: none
 	color: #528ed3
-	&:hover,&:focus,&:active,&.active,&:disabled
+	&:hover,&:focus,&:active,&.uk-active,&:disabled
 		border-color: transparent
 		background: none
-	&:hover,&:focus,&:active,&.active
+	&:hover,&:focus,&:active,&.uk-active
 		color: #005599
 		text-decoration: underline
 	&:disabled
@@ -238,11 +119,6 @@ input[type="radio"]:checked
 	padding: 5px 15px
 	line-height: 40px
 	font-size: 22px
-
-.btn-title
-	text-align: left
-	padding-left: 20px
-	font-size: 16px
 
 .btn-group
 	display: inline-block

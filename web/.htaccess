@@ -1,16 +1,11 @@
-# Use the front controller as index file. It serves as a fallback solution when
-# every other rewrite/redirect fails (e.g. in an aliased environment without
-# mod_rewrite). Additionally, this reduces the matching process for the
-# start page (path "/") because otherwise Apache will apply the rewriting rules
-# to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
 DirectoryIndex app.php
 
-<IfDefine __DEV__>
-AuthType Basic   
-AuthName "Private zone. Only for administrator!" 
-AuthUserFile  /var/www/taximyprice/web/.htpasswd   
-require valid-user
-</IfDefine>
+AuthType Basic
+AuthName "Access is Denied. Enter password"
+AuthUserFile /var/www/taximyprice_new/web/.passwords
+<Limit GET POST>
+Require valid-user
+</Limit>
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
