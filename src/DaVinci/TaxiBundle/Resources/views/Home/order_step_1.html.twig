@@ -1,6 +1,30 @@
 <div class="destination">
     {{ form_widget(form.distance) }}
     {{ form_widget(form.duration) }}
+    {# новые селекты для выбора страны и города #}
+    <div class="row">
+        <label class="country_label-field" for="">My country:</label>
+        <div class="contry_form-field">
+            <select class="select-field" name="" id="selD6Q" style="display: none;">
+                <option value=""></option>
+                <option value="">Russia</option>
+                <option value="">Canada</option>
+                <option value="">United State</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <label class="city_label-field" for="">My city:</label>
+        <div class="city_form-field">
+            <select class="select-field" name="" id="selD6Q" style="display: none;">
+                <option value=""></option>
+                <option value="">Russia</option>
+                <option value="">Canada</option>
+                <option value="">United State</option>
+            </select>
+        </div>
+    </div>
+    {# новые селекты для выбора страны и города #}
     <div class="desticlone">
         {% for routePoints in form.routePoints %}
             <div class="form-block-wrap{% if loop.index > 2 %} new-point-icon{% endif %}">	
