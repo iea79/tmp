@@ -1,7 +1,7 @@
-.step-swicher
+.step-swicher 
 	background: $danger-bg
 	overflow: hidden
-	margin-bottom: 20px
+	margin-bottom: 13px
 	padding-top: 1px
 	padding-bottom: 1px
 
@@ -14,16 +14,20 @@
 	color: $main-color
 	font-size: 16px
 	text-decoration: none !important
-	cursor: default
 	+box-sizing(border-box)
-	&:hover
-		color: $main-color
 	&.active
 		background: $danger-bg
 		color: $contrast-color
 		.step-swicher-number
 			background: #fff
 			color: $danger-color
+	&.step-swicher-sucess
+		.step-swicher-number
+			font-size: 0
+			&:before
+				content: "\f00c"
+				font-family: "FontAwesome"
+				font-size: 20px
 
 .step-swicher-number
 	width: 32px
@@ -35,7 +39,7 @@
 	vertical-align: middle
 	background: $danger-bg
 	border-radius: 50%
-	padding: 6px 10px
+	padding: 6px 2px
 	color: #fff
 	margin-right: 5px
 	+box-sizing(border-box)
@@ -126,6 +130,9 @@
 				top: -7px
 
 
+// Old template
 
+.step-swicher
+	margin-bottom: 0
 
 

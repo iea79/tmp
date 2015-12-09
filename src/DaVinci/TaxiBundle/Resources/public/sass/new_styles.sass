@@ -1,22 +1,36 @@
-@import mixin/_mixin
-
+// Compass addons
+// ==========================================================
 @import compass/css3
+
+// Mixins and variables
+// ==========================================================
+@import mixin/_mixin
 @import mixin/_variables
+
+// Core style
+// ==========================================================
+@import core/_base
 @import core/_width
 @import core/_grid
 @import core/_modal
 @import core/_form
+@import core/_row
+@import core/_text
+@import core/_title
+@import core/_boxes
+@import core/_table
 @import core/_tmp-icon
-@import pages/step-swicher
-@import pages/first-step
 
-// Main style
-.row
-	&+.row
-		margin-top: 6px
-	&:after
-		content: ""
-		display: table
-		clear: both
+// Pages syles
+// ==========================================================
+@import pages/_step-swicher
+@import pages/order_steps/_first-step
+@import pages/order_steps/_second-step
 
+// Component styles
+// ==========================================================
+
+
+// Responsive styles
+// ==========================================================
 @import pages/_responsive

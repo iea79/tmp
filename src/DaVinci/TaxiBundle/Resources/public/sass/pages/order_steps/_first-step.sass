@@ -1,3 +1,13 @@
+@import compass/css3
+// Color
+$main-color:                                     #3c3d45 !default
+$primary-color:									 #3399ff !default
+$success-color:									 #2eda36 !default
+$danger-color:									 #ff4d61 !default
+$warning-color:									 #8d8f98 !default
+$muted-color:									 #8B8C90 !default
+$contrast-color:								 #fff !default
+
 .first-step-order
 	width: 39%
 
@@ -79,6 +89,39 @@
 	+box-sizing(border-box)
 
 .route-map
+
+
+
+
+// Old template for first step
+.contry_form-field,.city_form-field
+	width: 61%
+	.select-field
+		padding: 0
+
+.country_label-field,.city_label-field
+	font-size: 18px
+	color: $danger-color
+	font-weight: bold
+
+.desticlone
+	margin-top: 5px
+
+
+@media (max-width: 360px)
+	.desticlone
+		margin-top: 10px
+	.destination,.desticlone
+		.row,.form-block-wrap
+			padding-left: 0
+			padding-right: 0
+			margin-left: 0 !important
+			margin-right: 0 !important
+	.contry_form-field,.city_form-field
+		width: 100%
+		float: none
+		
+
 
 
 

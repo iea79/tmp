@@ -1,0 +1,103 @@
+// Name:            Text
+// Description:     Collection of useful text utility classes to style your content
+//
+// Component:       `txt-*`
+//
+// ========================================================================
+
+
+// Size modifiers
+// ===========================================================================
+.txt-xsmall
+    font-size: $font-size-xsmall
+    line-height: $line-height-small
+
+.txt-small
+    font-size: $font-size-small
+    line-height: $line-height-normal
+
+.txt-large
+    font-size: $font-size-large
+    line-height: $line-height-large
+
+
+// Weight modifiers
+// ========================================================================== 
+.txt-bold 
+    font-weight: bold !important
+
+.txt-normal 
+    font-weight: normal !important
+
+
+// Color modifiers
+// ========================================================================== 
+.txt-muted 
+    color: $muted-color !important 
+.txt-primary 
+    color: $primary-color !important 
+.txt-success 
+    color: $success-color !important 
+.txt-warning 
+    color: $warning-color !important 
+.txt-danger 
+    color: $danger-color !important 
+.txt-contrast 
+    color: $contrast-color !important 
+
+
+// Alignment modifiers
+// ==========================================================================
+.txt-left 
+    text-align: left !important 
+.txt-right 
+    text-align: right !important 
+.txt-center 
+    text-align: center !important 
+.txt-justify 
+    text-align: justify !important 
+
+.txt-top 
+    vertical-align: top !important 
+.txt-middle 
+    vertical-align: middle !important 
+.txt-bottom 
+    vertical-align: bottom !important 
+
+// Only tablets portrait and smaller
+@media (max-width: $breakpoint-medium-max)
+    .txt-center-medium 
+        text-align: center !important 
+    .txt-left-medium 
+        text-align: left !important 
+
+
+
+// Phone landscape and smaller
+@media (max-width: $breakpoint-small-max)
+    .txt-center-small 
+        text-align: center !important 
+    .txt-left-small 
+        text-align: left !important 
+
+
+// Wrap modifiers
+// ==========================================================================
+
+// Prevent text from wrapping onto multiple lines
+.txt-nowrap 
+    white-space: nowrap 
+
+// Prevent text from wrapping onto multiple lines, and truncate with an ellipsis
+.txt-truncate
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+
+// Break strings if their length exceeds the width of their container
+.txt-break
+    word-wrap: break-word
+    +hyphens(auto)
+
+
