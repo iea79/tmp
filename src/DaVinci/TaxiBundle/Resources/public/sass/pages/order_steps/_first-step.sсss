@@ -1,0 +1,149 @@
+.first-step-order {
+	width: 39%
+}
+
+.first-step-order-wrap {
+	background-color: #4185f3;
+	width: 100%;
+	padding: 20px;
+	+box-sizing(border-box);
+	.first-step-country-sity {
+		.form-label {
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 5px 0 0;
+			float: none;
+			color: #fff;
+			width: 29%;
+		}
+
+		.first-step-order-select-field {
+			width: 69.8%;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+	.btn {
+		margin-top: 15px;
+		font-size: 16px;
+		font-weight: bold;
+	}
+}
+
+.first-step-adress {
+	margin-top: 11px;
+	margin-bottom: 15px;
+	.row {
+		display: table;
+		width: 100%;
+	}
+		&+.row {
+			margin-top: 13px;
+		}
+	[class*='mp-icon-point'] {
+		display: table-cell;
+		width: 31px;
+		font-size: 22px;
+		color: #fff;
+		vertical-align: middle;
+		padding-bottom: 0 !important;
+	}
+	.form-field-wrapper {
+		display: table-cell;
+		vertical-align: middle;
+		.input-field {
+			width: 100%;
+			color: $contrast-color;
+			@include border-radius(0px);
+			background-color: transparent;
+			border: none;
+			border-bottom: 1px solid $contrast-color;
+		}
+	}
+}
+
+.first-step-time-date {
+	padding: 20px 20px 10px;
+	.first-step-time-legend {
+		width: 24%;
+		font-weight: bold;
+		font-size: 16px;
+		padding-top: 27px;
+		margin-bottom: 5px;
+	}
+	.first-step-date {
+		width: 30%;
+		margin-bottom: 5px;
+	}
+	.first-step-time {
+		width: 46%;
+		margin-bottom: 5px;
+	}
+		.first-step-time-format {
+			width: 45%;
+		}
+			.chzn-container {
+				width: 100%;
+			}
+		.first-step-timepicker {
+			width: 55%;
+		}
+	.btn {
+		margin-top: 23px;
+	}
+}
+
+.first-step-map {
+	width: 61%;
+}
+
+.route-map {
+}
+
+
+// Old template for first step
+.contry_form-field,.city_form-field {
+	width: 61%;
+	.select-field {
+		padding: 0;
+	}
+}
+
+.country_label-field,.city_label-field {
+	font-size: 18px;
+	color: $danger-color;
+	font-weight: bold;
+}
+
+.desticlone {
+	margin-top: 5px;
+}
+
+
+@media (max-width: 360px) {
+	.desticlone {
+		margin-top: 10px;
+	}
+	.destination,.desticlone {
+		.row,.form-block-wrap {
+			padding-left: 0;
+			padding-right: 0;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+	.contry_form-field,.city_form-field {
+		width: 100%;
+		float: none;
+	}
+}
+
+
+// Old template
+
+.select-field {
+	padding: 0;
+}
+
+
