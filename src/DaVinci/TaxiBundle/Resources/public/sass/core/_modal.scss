@@ -43,9 +43,9 @@
 	transform: translateY(-100px);
 	-webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
 	transition: opacity 0.3s linear, transform 0.3s ease-out;
-	@import border-radius(2px);
-	@import background-clip(padding-box);
-	@import box-shadow(0 0 59px rgba(0,0,0,.43));
+	@include border-radius(2px);
+	@include background-clip(padding-box);
+	@include box-shadow(0 0 59px rgba(0,0,0,.43));
 	text-align: center;
 }
 

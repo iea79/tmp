@@ -1,0 +1,31 @@
+/* Compass stile */
+@import 'compass/css3';
+
+/* Mixins and variables */
+@import 'mixin/mixin';
+@import 'mixin/variables';
+
+/* Base styles */
+@import 'core/base';
+@import 'core/width';
+@import 'core/grid';
+@import 'core/modal';
+@import 'core/form';
+@import 'core/row';
+@import 'core/text';
+@import 'core/title';
+@import 'core/boxes';
+@import 'core/table';
+@import 'core/tmp-icon';
+
+/* Pages styles */
+@import 'pages/step-swicher';
+@import 'pages/privacy/privacy';
+@import 'pages/order_steps/first-step';
+@import 'pages/order_steps/second-step';
+@import 'pages/order_steps/three-step';
+
+
+/* Responsive styles */
+@import 'pages/responsive';
+

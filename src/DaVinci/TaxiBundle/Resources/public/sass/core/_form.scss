@@ -13,8 +13,8 @@
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	@import flex-wrap(nowrap);
-	@import align-items(stretch);
+	@include flex-wrap(nowrap);
+	@include align-items(stretch);
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -55,8 +55,8 @@
 .select-field {
 	height: 29px;
 	padding: 0 10px;
-	+border-radius($form-field-border-radius);
-	+background-clip(padding-box);
+	@include border-radius($form-field-border-radius);
+	@include background-clip(padding-box);
 	background-color: $contrast-bg;
 	font-size: $font-size-normal;
 }
@@ -75,8 +75,8 @@
 	height: 29px;
 	border: 1px solid #8d8f99;
 	padding: 0 10px;
-	+border-radius($form-field-border-radius);
-	+background-clip(padding-box);
+	@include border-radius($form-field-border-radius);
+	@include background-clip(padding-box);
 	background-color: $contrast-bg;
 	font-size: $font-size-normal;
 }
@@ -122,7 +122,7 @@ input[type="checkbox"],input[type="radio"] {
 input[type="radio"] {
 	&+label:before {
 		vertical-align: middle;
-		@import border-radius(50%);
+		@include border-radius(50%);
 		font-size: 9px;
 		line-height: 8px;
 		width: 8px;
@@ -146,8 +146,8 @@ input[type="radio"]:checked {
 	border: 1px solid #8d8f99;
 	padding: 5px 10px;
 	min-height: 65px;
-	@import border-radius($form-field-border-radius);
-	@import background-clip(padding-box);
+	@include border-radius($form-field-border-radius);
+	@include background-clip(padding-box);
 	background-color: $contrast-bg;
 	font-size: $font-size-normal;
 }
@@ -163,8 +163,8 @@ input[type="radio"]:checked {
 // Buttons
 .btn {
 	display: inline-block;
-	@import border-radius($btn-border-radius);
-	@import background-clip(padding-box);
+	@include border-radius($btn-border-radius);
+	@include background-clip(padding-box);
 	vertical-align: middle;
 	text-decoration: none;
 	text-align: center;

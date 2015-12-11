@@ -1,5 +1,5 @@
 
-@include font-face('icontaxi', font-files('icontaxi.eot','icontaxi.woff','icontaxi.ttf','icontaxi.svg')) 
+@include font-face('icontaxi', font-files('icontaxi.eot','icontaxi.woff','icontaxi.ttf','icontaxi.svg'));
 
 [class^="mp-icon-"], [class*="mp-icon-"] {
 	font-family: 'icontaxi';
@@ -172,9 +172,9 @@
 	font-family: $font-family-main !important;
 	background: $primary-bg;
 	color: $contrast-color;
-	@import box-sizing(border-box);
-	@import border-radius(50%);
-	@import transition(all 0.3s);
+	@include box-sizing(border-box);
+	@include border-radius(50%);
+	@include transition(all 0.3s);
 	cursor: pointer;
 	&:hover {
 		opacity: 0.8;

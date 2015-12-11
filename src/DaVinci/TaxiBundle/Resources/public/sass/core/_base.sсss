@@ -1,3 +1,0 @@
-div, li, ul, ol, li, label {
-	@import box-sizing(border-box);
-}

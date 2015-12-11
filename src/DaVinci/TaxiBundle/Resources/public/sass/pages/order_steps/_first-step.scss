@@ -6,7 +6,7 @@
 	background-color: #4185f3;
 	width: 100%;
 	padding: 20px;
-	+box-sizing(border-box);
+	@include box-sizing(border-box);
 	.first-step-country-sity {
 		.form-label {
 			display: inline-block;
@@ -140,10 +140,6 @@
 }
 
 
-// Old template
 
-.select-field {
-	padding: 0;
-}
 
 

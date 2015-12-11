@@ -122,6 +122,6 @@
 // Break strings if their length exceeds the width of their container
 .txt-break {
     word-wrap: break-word;
-    @import hyphens(auto);
+    @include hyphens(auto);
 }
 

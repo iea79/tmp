@@ -48,6 +48,7 @@
 	padding: 6px 2px;
 	color: #fff;
 	margin-right: 5px;
+	@include box-sizing(border-box); 
 }
 
 .first-step,.second-step,.three-step,.four-step {

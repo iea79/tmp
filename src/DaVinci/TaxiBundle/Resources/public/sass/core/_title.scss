@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: $title-font-weight;
     color: $main-color;
     text-transform: $title-text-transform;
-    @import box-sizing(border-box);
+    @include box-sizing(border-box);
 }
 
 // Margins
