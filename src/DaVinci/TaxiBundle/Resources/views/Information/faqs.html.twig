@@ -43,9 +43,9 @@
                         <div class="buttom-swicher">
                             <ul class="uk-width-1-1">
                                 {% if category == 'passenger' %}
-                                    {% for category in faqs %}
+                                    {% for category in categories %}
                                         <li class="uk-active">
-                                            <a href="{{ path('faqs', {'category': 'passenger', 'subCategory': category}) }}">{{ category.[1] }}</a>
+                                        	<a href="{{ path('faqs', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
