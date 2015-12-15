@@ -1,11 +1,11 @@
-/* Compass stile */
+// Compass stile
 @import 'compass/css3';
 
-/* Mixins and variables */
+// Mixins and variables
 @import 'mixin/mixin';
 @import 'mixin/variables';
 
-/* Base styles */
+// Base styles 
 @import 'core/base';
 @import 'core/width';
 @import 'core/grid';
@@ -18,7 +18,7 @@
 @import 'core/table';
 @import 'core/tmp-icon';
 
-/* Pages styles */
+// Pages styles
 @import 'pages/step-swicher';
 @import 'pages/privacy/privacy';
 @import 'pages/order_steps/first-step';
@@ -26,6 +26,25 @@
 @import 'pages/order_steps/three-step';
 
 
-/* Responsive styles */
+// Responsive styles
 @import 'pages/responsive';
+
+// Edit bug for old styles
+
+.block-help .uk-nav li.head {
+	max-height: none;
+}
+
+.main-content .search {
+	height: auto;
+	padding: 15px 20px 15px 21px;
+	@extend %clear_all;
+}
+
+.block-help .uk-nav li.btn__more {
+	position: absolute;
+}
+
+
+
 

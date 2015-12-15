@@ -73,6 +73,9 @@ h6, .h6 {
     line-height: 1;
     margin-top: 0;
     padding-bottom: 7px;
+    &.not-line {
+        border-bottom: none;
+    }
 }
 
 

@@ -7,17 +7,36 @@ ul, ol, li {
 //
 
 .order-step3 {
-	.title-bottom-line {
-		border-bottom: none;
-	}
+	margin-top: 15px;
+	@extend %clear_a;
+	@extend %btn_for_steps;
 }
 
 .tariff-box {
-	overflow: hidden;
+	float: left;
+	width: 70%;
 }
+
+.tariff-box-price {
+	.row {
+		padding: 5px 0px;
+		&>* {
+			display: inline-block;
+			float: left;
+			&:first-child {
+				width: 29%;
+			}
+		}
+	}
+	.tariff-box-price-head {
+	}
+}
+
+
 
 .pay-info-box {
 	float: right;
+	width: 30%;
 }
 
 

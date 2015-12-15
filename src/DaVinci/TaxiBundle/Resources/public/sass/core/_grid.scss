@@ -302,7 +302,7 @@ $grid-divider-border-width: 1px ;
 /* Even grid cell widths
  ========================================================================== */
 
-[class*='grid-width'] > * {
+[class*='grid-width']:not([class*="uk-grid"]) > * {
     box-sizing: border-box;
     width: 100%;
 }
