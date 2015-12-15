@@ -7,6 +7,8 @@ use Doctrine\ODM\PHPCR\DocumentRepository as BaseDocumentRepository;
 class FaqEntryRepository extends BaseDocumentRepository implements RepositoryIdInterface
 {
 
+	const PREFIX = 'faq-';
+
 	/**
 	 * Generate a document id
 	 *
@@ -34,6 +36,21 @@ class FaqEntryRepository extends BaseDocumentRepository implements RepositoryIdI
     		array('published' => true, 'forPassenger' => $trigger), 
     		array('order' => 'asc')
     	);
+    }
+
+    public function findFiltered($trigger = true, $category)
+    {
+        $filtered = array();
+        
+    	$faqs = $this->findForPassenger($trigger);
+        
+        foreach ($faqs as $key => $faq) {
+            if ($faq->getCategory()->getId() == $category) {
+                $filtered[$key] = $faq;
+            }            
+        }
+        
+        return $filtered;
     }
 		
 }

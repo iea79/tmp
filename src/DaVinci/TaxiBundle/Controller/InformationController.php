@@ -260,24 +260,36 @@ class InformationController extends StepsController
         );
     }
 
+
+
     public function faqsAction($category)
     {
         $trigger = ($category == 'passenger');
-        
         $dm = $this->get('doctrine_phpcr')->getManager();
+
+                    
+        $guides = $dm
+                    ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                    ->findForPassenger($trigger);
         $faqs = $dm
                     ->getRepository('DaVinciTaxiBundle:FaqEntry')
                     ->findForPassenger($trigger);
-        $guides = $dm
-    				->getRepository('DaVinciTaxiBundle:GuidesPage')
-    				->findForPassenger($trigger);
-            
+
+        $defaultCategory = $dm
+                                ->getRepository('DaVinciTaxiBundle:Category')
+                                ->findOneBy(array());
+        
+        $categories = $dm
+                        ->getRepository('DaVinciTaxiBundle:Category')
+                        ->findAll();
+
         return $this->render(
         	'DaVinciTaxiBundle:Information:faqs.html.twig',
-			array(
+            array(
                 'faqs' => $faqs,
                 'guides' => $guides,
-                'category' => $category
+                'category' => $category,
+                'categories' => $categories
             )
         );
     }

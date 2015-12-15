@@ -26,9 +26,9 @@ class FaqEntryAdmin extends Admin{
     {
     	$formMapper
         	->with('General')
-            	->add('question', 'text', array('label' => 'Question'))
-                ->add('answer', 'ckeditor', array('label' => 'Answer'))
                 ->add('forPassenger', 'checkbox', array('label' => 'For passengers'))
+                ->add('question', 'text', array('label' => 'Question'))
+                ->add('answer', 'ckeditor', array('label' => 'Answer'))
                 ->add('published', 'checkbox', array('label' => 'Is published'))
                 ->add('order', 'number', array('label' => 'Order', 'data' => 0))
                 ->add('category', 'sonata_type_model_list')

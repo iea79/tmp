@@ -20,156 +20,68 @@
                 </button>
 			</div>
 		</div>
-        <div class="message">
+        {# <div class="message"> #}
             {#<span>Внимание!</span> Не забывайте подтвердить вашу готовность выполнить заказ.#}
-        </div>
+        {# </div> #}
         <div class="search">
             <form class="uk-search" data-uk-search>
-                <input class="uk-search-field" type="search" placeholder="Фраза для поиска">
+                <input class="uk-search-field" type="search" id="filter" placeholder="Search text">
             </form>
         </div>
+
 		<ul id="help" class="uk-switcher">
-			{# === Passenger === #}
 			<li class="uk-active">
 				<div class="block-help">
 					<div class="help-content uk-grid uk-grid-width-medium-1-2" data-uk-grid-match={target:'.uk-nav'}>
 						<div>
 							<ul class="uk-nav top-faq">
 				                <li class="head"><a href="{{ path('faqs') }}">Top FAQs</a></li>
-				                {% for faq in faqs %}
-                                    {% if loop.index < 9 %}
-                                        <li>
-                                            <a href="{{ path('faqs') }}#{{ faq }}">{{ faq.question }}</a>
-                                        </li>
-                                    {% endif %}
-				                {% endfor %}
+					                {% for faq in faqs %}
+	                                    {% if loop.index < 9 %}
+				                			<div class="search_res">
+		                                        <li>
+		                                            <a href="{{ path('faqs') }}#{{ faq }}">{{ faq.question[:63] }}</a>
+		                                        </li>
+				            				</div>
+	                                    {% endif %}
+					                {% endfor %}
 		                        <li>
-		                        	<a class="uk-button uk-button-primary" href="{{ path('faqs') }}">more questions</a>
+		                        	<a class="uk-button uk-button-primary" href="{{ path('faqs') }}">more</a>
 		                        </li>
 		                    </ul>
 		                </div>
 		                <div>
 							<ul class="uk-nav guides">
 				                <li class="head"><a href="{{ path('guides') }}">How-to guides</a></li>
-				                {% for guide in guides %}
-				                	{% if loop.index < 9 %}
-                                        <li>
-                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                        </li>
-                                    {% endif %}    
-				                {% endfor %}
+					                {% for guide in guides %}
+					                	{% if loop.index < 9 %}
+											{% if "now"|date("y/m/d") > guide.PublishStartDate|date("y/m/d") and "now"|date("y/m/d") < guide.PublishEndDate|date("y/m/d")%}
+				               					 <div class="search_res">
+			                                        <li>
+			                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title[:63] }}</a>
+			                                        </li>
+					            				</div>
+	                                        {% endif %}
+	                                    {% endif %}    
+					                {% endfor %}
 		                        <li>
-		                        	<a class="uk-button uk-button-primary" href="{{ path('guides') }}">more GUIDES</a>
+		                        	<a class="uk-button uk-button-primary" href="{{ path('guides') }}">more</a>
 		                        </li>
 		                    </ul>
 		                </div>
 					</div>
-					{#
-                    <div class="help-sidebar">
-						<ul class="uk-nav demo">
-			                <li class="head"><a href="#">Demo</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-	                        </li>
-	                        <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
-	                    </ul>
-	                </div>
-                    #}
 				</div>
 			</li>
-            {#
-			<li>
-				<div class="block-help">
-					<div class="help-content uk-grid uk-grid-width-medium-1-2" data-uk-grid-match={target:'.uk-nav'}>
-						<div>
-							<ul class="uk-nav top-faq">
-				                <li class="head"><a href="#">Top FAQs</a></li>
-		                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-		                        <li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-		                        <li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-		                        <li><a href="#">Я хочу назначить цену на поездку но не знаю как</a></li>
-		                        <li><a href="#">Я хочу заказать поездку для моего родственника. Как это сделать?</a></li>
-		                        <li><a href="#">Я хочу назначить водителю чаевые. Как это сделать?</a></li>
-		                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку</a></li>
-		                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-		                        <li><a class="uk-button uk-button-primary" href="#">more questions</a></li>
-		                    </ul>
-		                </div>
-		                <div>
-							<ul class="uk-nav guides">
-				                <li class="head"><a href="#">How-to guides</a></li>
-		                        <li><a href="#">Как начать пользоваться сервисом Taxi My Price?</a></li>
-		                        <li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-		                        <li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-		                        <li><a href="#">Я хочу назначить цену на поездку но не знаю как</a></li>
-		                        <li><a href="#">Я хочу заказать поездку для моего родственника. Как это сделать?</a></li>
-		                        <li><a href="#">Я хочу назначить водителю чаевые. Как это сделать?</a></li>
-		                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку.</a></li>
-		                        <li><a href="#">Мне необходимо связаться с водителем принявшим мою заявку.</a></li>
-		                        <li><a class="uk-button uk-button-primary" href="#">more GUIDES</a></li>
-		                    </ul>
-		                </div>
-					</div>
-					<div class="help-sidebar">
-						<ul class="uk-nav demo">
-			                <li class="head"><a href="#">Demo</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-	                        </li>
-	                        <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
-	                    </ul>
-	                </div>
-	                <div class="topic-faq">
-	                    <h2>Browse all FAQs by topic...</h2>
-		                    <ul class="uk-list">
-		                    	<li class="head">Setting Up Your Account</li>
-		                    	<li><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-		                    	<li><a href="#">Я попытался, но не смог зарегистрироваться на сайте TAXI MY PRICE</a></li>
-		                    	<li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-		                    	<li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-		                    </ul>
-		                    <ul class="uk-list">
-		                    	<li class="head">Prices and Payments</li>
-		                    	<li><a href="#">Я хочу назначить цену на поездку но не знаю как</a></li>
-		                    	<li><a href="#">Я хочу заказать поездку для моего родственника. Как это сделать?</a></li>
-		                    	<li><a href="#">Я хочу назначить водителю чаевые. Как это сделать?</a></li>
-		                    </ul>
-		                    <ul class="uk-list">
-		                    	<li class="head">Category #3</li>
-		                    	<li><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-		                    	<li><a href="#">Я попытался, но не смог зарегистрироваться на сайте TAXI MY PRICE</a></li>
-		                    	<li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-		                    	<li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-		                    </ul>
-		                    <ul class="uk-list">
-		                    	<li class="head">Category #4</li>
-		                    	<li><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-		                    	<li><a href="#">Я попытался, но не смог зарегистрироваться на сайте TAXI MY PRICE</a></li>
-		                    	<li><a href="#">Нужно ли подтверждать номер мобильного телефона?</a></li>
-		                    	<li><a href="#">Я забыл свой пароль и хочу его восстановить</a></li>
-		                    </ul>
-	                    </div>
-                    </div>
-			</li>
-            #}
 		</ul>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/help/help.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
 {% endblock %}

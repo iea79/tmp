@@ -12,10 +12,11 @@
 /composer.phar
 /web/css/
 /web/js/
-/web/.htpasswd
 /web/.htaccess
+/web/.passwords
 /web/photo/
 /web/media/
 /web/uploads/
 /web/assetic/
 /src/DaVinci/TaxiBundle/Resources/public/.sass-cache
+/.project
