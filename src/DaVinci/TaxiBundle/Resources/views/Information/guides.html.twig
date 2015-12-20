@@ -36,14 +36,14 @@
                             <ul class="uk-width-1-1">
                                 {% if category == 'passenger' %}
                                     {% for category in categories %}
-                                        <li class="uk-active">
+                                        <li {% if loop.first %}class="uk-active" {% endif %}>
                                             <a href="{{ path('guides', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
                                 {% if category == 'driver' %}
                                     {% for category in categories %}
-                                        <li class="uk-active">
+                                        <li {% if loop.first %}class="uk-active" {% endif %}>
                                             <a href="{{ path('guides', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
