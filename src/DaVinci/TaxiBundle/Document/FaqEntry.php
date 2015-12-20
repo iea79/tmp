@@ -3,8 +3,12 @@
 namespace DaVinci\TaxiBundle\Document;
 
 use Doctrine\ODM\PHPCR\Mapping\Annotations as PHPCR;
-use Sonata\TranslationBundle\Model\Phpcr\TranslatableInterface as TranslatableInterface;
 
+use Symfony\Cmf\Bundle\CoreBundle\Translatable\TranslatableInterface;
+use Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishTimePeriodInterface;
+use Symfony\Cmf\Bundle\CoreBundle\PublishWorkflow\PublishableInterface;
+use Symfony\Cmf\Bundle\SeoBundle\SeoAwareInterface;
+use Symfony\Cmf\Component\Routing\RouteReferrersReadInterface;
 /**
  * @PHPCR\Document(referenceable=true, translator="attribute", repositoryClass="FaqEntryRepository")
  */

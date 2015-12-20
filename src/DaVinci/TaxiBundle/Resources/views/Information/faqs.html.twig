@@ -38,24 +38,33 @@
 			<li class="uk-active">
 				<div class="block-help">
 					<div class="help-content">
-
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Home</a></li>
+  <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Profile</a></li>
+  <li class="disabled"><a>Disabled</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+  <div class="tab-pane fade active in" id="home">
+    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+  </div>
+</div>
 {# ================== Category ================== #}
                         <div class="buttom-swicher">
                             <ul class="uk-width-1-1">
                                 {% if category == 'passenger' %}
                                     {% for category in categories %}
                                         <li class="uk-active">
-                                        	<a href="{{ path('faqs', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
+                                            <a href="#{{ category.title }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
-{#                                 {% if category == 'driver' %}
+                                {% if category == 'driver' %}
                                     {% for category in categories %}
                                         <li class="uk-active">
                                             <a href="{{ path('faqs', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
-                                {% endif %}   #}                                  
+                                {% endif %}                                    
                             </ul>
                         </div>
 {# ================= Guides ===================== #}
@@ -63,13 +72,18 @@
 						<h3>{{'FAQs:'|trans}}</h3>
 						<div class="faqs">
 							<ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                {% for faq in faqs %}
-                                    <li class="uk-parent">
-                                        <a href="#">{{ faq.question }}</a>
-                                        <ul class="uk-nav-sub">
-                                            <li>{{ faq.answer|raw }}</li>
-                                        </ul>
-                                    </li>
+                                {% for category in categories %}
+                                    {{ category.title }}
+                                        {% for faq in faqs %}
+                                            {% if category.title ==  faq.category.title%}
+                                                <li class="uk-parent">
+                                                    <a href="#">{{ faq.question }} - {{ faq.category.title }}</a>
+                                                    <ul class="uk-nav-sub">
+                                                        <li>{{ faq.answer|raw }}</li>
+                                                    </ul>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}                                
                                 {% endfor %}
 							</ul>
 				    	</div>
@@ -93,24 +107,6 @@
                                 <a class="uk-button uk-button-primary" href="{{ path('guides') }}">{{'more questions'|trans}}</a>
                             </li>
 	                    </ul>
-                        {#
-						<ul class="uk-nav demo">
-			                <li class="head"><a href="#">Demo</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video1.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-							</li>
-	                        <li class="link"><a href="#">Как начать пользоваться сервисом Taxi My Price</a></li>
-	                        <li>
-	                        	<a href="#" class="preview-video">
-									<img src="{{ asset('bundles/davincitaxi/images/video2.jpg') }}" alt="{{ ''|trans}}" />
-								</a>
-	                        </li>
-	                        <li class="link"><a href="#">Как настроить профиль пассажира в Taxi My Price</a></li>
-	                        <li><a class="uk-button uk-button-primary" href="#">more demo</a></li>
-	                    </ul>
-                        #}
 	                </div>
 				</div>
 			</li>

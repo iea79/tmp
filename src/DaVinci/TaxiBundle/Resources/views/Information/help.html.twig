@@ -40,7 +40,7 @@
 	                                    {% if loop.index < 9 %}
 				                			<div class="search_res">
 		                                        <li>
-		                                            <a href="{{ path('faqs') }}#{{ faq }}">{{ faq.question[:63] }}</a>
+		                                            <a href="{{ path('faqs') }}#{{ faq }}">{{ faq.question }}</a>
 		                                        </li>
 				            				</div>
 	                                    {% endif %}
@@ -58,7 +58,7 @@
 											{% if "now"|date("y/m/d") > guide.PublishStartDate|date("y/m/d") and "now"|date("y/m/d") < guide.PublishEndDate|date("y/m/d")%}
 				               					 <div class="search_res">
 			                                        <li>
-			                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title[:63] }}</a>
+			                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
 			                                        </li>
 					            				</div>
 	                                        {% endif %}
