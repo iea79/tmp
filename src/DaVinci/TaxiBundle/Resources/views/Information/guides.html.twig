@@ -33,8 +33,11 @@
                     <div class="help-content">
 {# ================== Category ================== #}
                         <div class="buttom-swicher">
-                            <ul class="uk-width-1-1">
-                                {% if category == 'passenger' %}
+                            <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
+                                <li class="uk-active"><a href="#">Categoty 1</a></li>
+                                <li class=""><a href="#">Categoty 2</a></li>
+                                <li class=""><a href="#">Categoty 3</a></li>
+                                {#% if category == 'passenger' %}
                                     {% for category in categories %}
                                         <li class="uk-active">
                                             <a href="{{ path('guides', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
@@ -47,16 +50,38 @@
                                             <a href="{{ path('guides', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
-                                {% endif %}                                    
+                                {% endif %#}                                    
                             </ul>
                         </div>
 {# ================= Guides ===================== #}
-                        <ul class="uk-nav">           
-                            {% for guide in guides %}
-                                <li>
-                                    <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                </li> 
-                            {% endfor %}
+                        <ul id="my-id" class="uk-switcher">
+                            <li>
+                                <ul class="uk-nav">           
+                                    {% for guide in guides %}
+                                        <li>
+                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                        </li> 
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="uk-nav">           
+                                    {% for guide in guides %}
+                                        <li>
+                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                        </li> 
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="uk-nav">           
+                                    {% for guide in guides %}
+                                        <li>
+                                            <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                        </li> 
+                                    {% endfor %}
+                                </ul>
+                            </li>
                         </ul>
                         <div class="support">
                             <span>{{ "Can't find your answer here? Submit a support request."|trans }}</span>

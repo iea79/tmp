@@ -41,15 +41,18 @@
 
 {# ================== Category ================== #}
                         <div class="buttom-swicher">
-                            <ul class="uk-width-1-1">
-                                {% if category == 'passenger' %}
+                            <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
+                                <li class="uk-active"><a href="#">Categoty 1</a></li>
+                                <li class=""><a href="#">Categoty 2</a></li>
+                                <li class=""><a href="#">Categoty 3</a></li>
+                            {#    {% if category == 'passenger' %}
                                     {% for category in categories %}
                                         <li class="uk-active">
                                         	<a href="{{ path('faqs', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
-{#                                 {% if category == 'driver' %}
+                                 {% if category == 'driver' %}
                                     {% for category in categories %}
                                         <li class="uk-active">
                                             <a href="{{ path('faqs', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
@@ -62,16 +65,44 @@
 
 						<h3>{{'FAQs:'|trans}}</h3>
 						<div class="faqs">
-							<ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                {% for faq in faqs %}
-                                    <li class="uk-parent">
-                                        <a href="#">{{ faq.question }}</a>
-                                        <ul class="uk-nav-sub">
-                                            <li>{{ faq.answer|raw }}</li>
-                                        </ul>
-                                    </li>
-                                {% endfor %}
-							</ul>
+                        <ul id="my-id" class="uk-switcher">
+                            <li>
+                                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                    {% for faq in faqs %}
+                                        <li class="uk-parent">
+                                            <a href="#">{{ faq.question }}</a>
+                                            <ul class="uk-nav-sub">
+                                                <li>{{ faq.answer|raw }}</li>
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                    {% for faq in faqs %}
+                                        <li class="uk-parent">
+                                            <a href="#">{{ faq.question }}</a>
+                                            <ul class="uk-nav-sub">
+                                                <li>{{ faq.answer|raw }}</li>
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li>
+                                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                    {% for faq in faqs %}
+                                        <li class="uk-parent">
+                                            <a href="#">{{ faq.question }}</a>
+                                            <ul class="uk-nav-sub">
+                                                <li>{{ faq.answer|raw }}</li>
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
 				    	</div>
 					    {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
 				    	<div class="support">
