@@ -30,20 +30,7 @@
 @import 'pages/responsive';
 
 // Edit bug for old styles
-
-.block-help .uk-nav li.head {
-	max-height: none;
-}
-
-.main-content .search {
-	height: auto;
-	padding: 15px 20px 15px 21px;
-	@extend %clear_all;
-}
-
-.block-help .uk-nav li.btn__more {
-	position: absolute;
-}
+@import 'fix_old_styles';
 
 
 
