@@ -1,5 +1,6 @@
 .first-step-order {
-	width: 39%
+	width: 39%;
+	margin-top: 15px;
 }
 
 .first-step-order-wrap {
@@ -96,6 +97,7 @@
 
 .first-step-map {
 	width: 61%;
+	margin-top: 15px;
 }
 
 .route-map {
@@ -120,7 +122,45 @@
 	margin-top: 5px;
 }
 
+@media (max-width: 960px) {
+	.first-step-order{
+		width: 45%;
+	}
+	.first-step-map {
+		width: 55%;
+	}
+}
 
+@media (max-width: 760px) {
+	.first-step-order{
+		width: 100%;
+	}
+	.first-step-map {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.first-step-order-wrap .first-step-country-sity .first-step-order-select-field {
+		width: 100%;
+		margin-top: 5px;
+	}
+	.first-step-time-date .first-step-time-legend {
+		width: 100%;
+	}
+	.first-step-time-date .first-step-date {
+		width: 40%;
+	}
+	.first-step-time-date .first-step-time {
+		width: 60%;
+	}
+	.first-step-map {
+	}
+}
+
+
+
+// Old style
 @media (max-width: 360px) {
 	.desticlone {
 		margin-top: 10px;

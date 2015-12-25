@@ -8,6 +8,14 @@ ul, ol, li {
 	list-style: none;
 }
 
+.check-list {
+	&:before {
+		content: "\f00c";
+		font-family: FontAwesome;
+		color: $muted-color;
+	}
+}
+
 a,.link {
 	text-decoration: none;
 	&:hover {

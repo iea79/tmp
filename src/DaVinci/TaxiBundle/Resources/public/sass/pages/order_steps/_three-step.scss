@@ -12,31 +12,217 @@ ul, ol, li {
 	@extend %btn_for_steps;
 }
 
-.tariff-box {
+.order-step-content {
 	float: left;
-	width: 70%;
-}
+	width: 58%;
+	.title-bottom-line {
+		margin-bottom: 10px;
+	}
+	.tariff-box-price {
+		margin-bottom: 12px;
+		.row.btn-muted {
+			color: $danger-color;
+			padding: 3px 0;
+			&>:first-child {
+				color: transparent;
+			}
+			&>* {
+				padding-left: 15px;
+			}
+		}
+		.row {
+			padding: 0;
+			border-bottom: 1px solid #e0dfdf;
+			&>* {
+				@include box-sizing(border-box);
+				float: left;
+				display: block;
+				&:first-child {
+					width: 21%;
+				}
+				&:nth-child(2) {
+					width: 25%;
+				}
+				&:nth-child(3) {
+					width: 25%;
+				}
+				&:nth-child(4) {
+					width: 29%;
+				}
+				.choose-price_label-field {
+					padding: 4px 0;
+				}
+				.choose-price_form-field {
+					width: 50%;
+					margin-right: 33%;
+					input {
+						max-width: 100%;
+					}
+				}
+				.select-field {}
+				}
+				input[type="radio"] {
+					margin-right: 6px;
+				}
+			}
+		.row:not(.btn-muted) {
+			// margin-left: -15px;
+			&>* {
+				padding-left: 15px;
+				&:first-child {
+					margin-top: 5px;
+					padding-left: 0;
+				}
+				&:nth-child(2) {
+					margin-top: 5px;
+					label:before {
+						margin-right: 8px;
+						vertical-align: initial;
+					}
+				}
+				&:nth-child(3) {
+					margin-top: 1px;
+				}
+			}
+		}
+		.tariff-box-price-head {
+		}
+	}
+	.choose-price-info {
+		margin-bottom: 21px;
+	}
 
-.tariff-box-price {
-	.row {
-		padding: 5px 0px;
-		&>* {
-			display: inline-block;
-			float: left;
-			&:first-child {
-				width: 29%;
+.passenger-info {
+	input[type="checkbox"]+label:before {
+		margin-right: 8px;
+	}
+	.passenger-info-quantity {
+		.grid__wrapper {
+			.grid__item {
+				.quantity_label-field {}
+				.quantity_form-field {}
 			}
 		}
 	}
-	.tariff-box-price-head {
+	.passenger-info-making {
+		margin-top: 21px;
+		margin-bottom: 16px;
+	}
+	.passenger-info-view {
+		padding-bottom: 10px;
+		@extend %clear_all;
+		.add-photo {
+			width: 36%;
+			float: left;
+			padding-right: 20px;
+			padding-bottom: 15px;
+			@extend %clear_a;
+			.img-wrapper {
+				overflow: hidden;
+				position: relative;
+				padding-bottom: 104%;
+				border: 1px solid #e7e7e7;
+				background-color: #f5f5f5;
+				@include border-radius(3px);
+				img {
+					position: absolute;
+					width: 100%;
+					min-height: 100%;
+				}
+			}
+			.img-wrapper-subtitle {
+				margin: 4px 0 15px;
+				font-size: $font-size-xsmall;
+				color: $muted-color;
+			}
+		}
+		.passenger-info-fields {
+			width: 64%;
+			float: left;
+			@extend %clear_a;
+			.passenger-first-name_label-field {}
+			[class*='_form-field'] {
+				width: 75%;
+				.input-field {
+					width: 100%;
+				}
+			}
+			.passenger-phone_form-field {
+				.chzn-container {
+					max-width: 90px;
+					margin-left: 0;
+					.chzn-single {
+						padding-left: 6px;
+						font-size: 14px;
+					}
+				}
+			}
+			.passenger-info-mobile-have {
+				span {
+					padding-right: 20px;
+					display: inline-block;
+				}
+				label {
+					padding-left: 12%;
+				}
+			}
+		}
+	}
+	.passenger-about {
+		padding-bottom: 26px;
+		display: inline-block;
+		width: 100%;
+		@extend %clear_b;	
+		.textarea-field {}
+		.textarea-counter {}
 	}
 }
+
+}
+
 
 
 
 .pay-info-box {
 	float: right;
-	width: 30%;
+	width: 39%;
+	padding-bottom: 20px;
+	.pay-driver,.pay-tmp,.final-pay {
+		padding: 23px 20px;
+		table {
+			width: 100%;
+			tr {
+				td {
+					padding-bottom: 10px;
+				}
+				&>:last-child {
+					text-align: right;
+				}
+			}
+		}
+	}
+	.pay-driver {
+		background: #ffffcd;
+		margin-bottom: 15px;
+	}
+	.pay-info-title {
+		color: $danger-color;
+		font-size: 20px;
+		font-weight: bold;
+		margin-bottom: 19px;
+	}
+	.pay-info-total {
+		font-size: 20px;
+		font-weight: bold;
+	}
+	.pay-tmp {
+		background: #e8f6ff;
+		margin-bottom: 15px;
+	}
+	.final-pay {
+		background: #ffefe8;
+		.pay-info-total {
+			color: $danger-color;
+		}
+	}
 }
-
-

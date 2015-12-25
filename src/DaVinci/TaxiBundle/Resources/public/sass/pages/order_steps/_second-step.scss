@@ -24,13 +24,13 @@
         th {
             text-align: center;
             font-weight: normal;
-        }
             &:first-of-type {
-                width: 32px;
+                width: 33px;
             }
             [class*="icon"] {
                 font-size: 16px;
             }
+        }
     [class*="icon-"] {
         color: $danger-color;
     }
@@ -46,6 +46,8 @@
     margin-bottom: 14px;
     .btn-title {
         margin-bottom: 15px;
+        width: 100%;
+        max-width: none;
     }
 }
 
@@ -119,6 +121,4 @@
         margin-bottom: 5px;
     }
 }
-
-
 

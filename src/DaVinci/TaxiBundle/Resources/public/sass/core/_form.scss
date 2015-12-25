@@ -82,12 +82,12 @@
 }
 
 // input type radio and checkbox
-input[type="checkbox"],input[type="radio"] {
+input.checkbox,input.radio {
 	position: absolute;
 	left: -9999px;
 }
 
-input[type="checkbox"],input[type="radio"] {
+input.checkbox,input.radio {
 	&+label {
 		white-space: nowrap;
 		line-height: 1;
@@ -111,8 +111,8 @@ input[type="checkbox"],input[type="radio"] {
 		span {
 			margin-left: 5px;
 			display: inline-block;
-			vertical-align: top;
-			font-size: 16px;
+			vertical-align: baseline;
+			font-size: 15px;
 			white-space: normal;
 			color: $muted-color;
 		}
