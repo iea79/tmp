@@ -33,54 +33,37 @@
                 <input class="uk-search-field" type="search" id="filter" placeholder="Search text">
             </form>
         </div>
-
 		<ul id="help" class="uk-switcher">
 			<li class="uk-active">
 				<div class="block-help">
 					<div class="help-content">
 
-<ul class="uk-subnav uk-subnav-pill" data-uk-switcher="{connect:'#my-id'}">
-                                {% if category == 'passenger' %}
-                                    {% for category in categories %}
-                                        <li {% if loop.first %} class="uk-active" {% endif %}>
-                                            <a href="">{{ category.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if category == 'driver' %}
-                                    {% for category in categories %}
-                                        <li {% if loop.first %}class="uk-active" {% endif %}>
-                                            <a href="">{{ category.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-</ul>
-
-<ul id="my-id" class="uk-switcher">
-    <li>...1</li>
-    <li>...2</li>
-    <li>...3</li>
-</ul>
-
 {# ================== Category ================== #}
-                        <div class="buttom-swicher">
-                            <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
+ <div class="buttom-swicher">
+<!-- This is the container of the toggling elements -->
+<ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
                                 {% if category == 'passenger' %}
                                     {% for category in categories %}
-                                        <li {% if loop.first %} class="uk-active" {% endif %}>
-                                            <a href="#{{ path('faqs', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
+                                        <li>
+                                            <a href="">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
                                 {% if category == 'driver' %}
                                     {% for category in categories %}
-                                        <li {% if loop.first %}class="uk-active" {% endif %}>
-                                            <a href="#{{ path('faqs', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
+                                        <li>
+                                            <a href="">{{ category.title }}</a>
                                         </li>
                                     {% endfor %}
                                 {% endif %}
-                            </ul>
-                        </div>
+</ul>
+</div>
+<!-- This is the container of the content items -->
+<ul id="my-id" class="uk-switcher">
+    <li>...3</li>
+    <li>...2</li>
+    <li>...1</li>
+</ul>
 {# ================= Guides ===================== #}
 
 						<h3>{{'FAQs:'|trans}}</h3>
