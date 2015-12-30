@@ -32,32 +32,45 @@
                 <div class="block-help">
                     <div class="help-content">
 {# ================== Category ================== #}
-                        <div class="buttom-swicher">
-                            <ul class="uk-width-1-1">
-                                {% if category == 'passenger' %}
-                                    {% for category in categories %}
-                                        <li {% if loop.first %}class="uk-active" {% endif %}>
-                                            <a href="{{ path('guides', {'category': 'passenger', 'subCategory': category}) }}">{{ category.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if category == 'driver' %}
-                                    {% for category in categories %}
-                                        <li {% if loop.first %}class="uk-active" {% endif %}>
-                                            <a href="{{ path('guides', {'category': 'driver', 'subCategory': category}) }}">{{ category.title }}</a>
-                                        </li>
-                                    {% endfor %}
-                                {% endif %}                                    
-                            </ul>
-                        </div>
+<div class="buttom-swicher">
+    <!-- This is the container of the toggling elements -->
+    <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
+        {% if category == 'passenger' %}
+            {% for category in categories %}
+                <li>
+                    <a href="">{{ category.title }}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+        {% if category == 'driver' %}
+            {% for category in categories %}
+                <li>
+                    <a href="">{{ category.title }}</a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+</div>
 {# ================= Guides ===================== #}
-                        <ul class="uk-nav">           
-                            {% for guide in guides %}
+<div>
+    <ul id="my-id" class="uk-switcher">
+        {% for category in categories %}
+            <li>
+                {% set k = category %}
+                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                    {% for guide in guides %}
+                        {% if k == guide.category %}
                                 <li>
                                     <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                </li> 
-                            {% endfor %}
-                        </ul>
+                                </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
                         <div class="support">
                             <span>{{ "Can't find your answer here? Submit a support request."|trans }}</span>
                             <a href="" class="uk-button uk-button-success">{{ 'GET TMP SUPPORT'|trans }}</a>
