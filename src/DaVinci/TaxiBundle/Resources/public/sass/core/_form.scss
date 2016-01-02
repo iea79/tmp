@@ -119,7 +119,7 @@ input.checkbox,input.radio {
 	}
 }
 
-input[type="radio"] {
+input.radio {
 	&+label:before {
 		vertical-align: middle;
 		@include border-radius(50%);
@@ -130,13 +130,13 @@ input[type="radio"] {
 	}
 }
 
-input[type="checkbox"]:checked {
+input.checkbox:checked {
 	&+label:before {
 		content: "\f00c";
 	}
 }
 
-input[type="radio"]:checked {
+input.radio:checked {
 	&+label:before {
 		content: "\f111";
 	}
