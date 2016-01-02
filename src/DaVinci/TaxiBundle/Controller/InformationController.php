@@ -262,7 +262,7 @@ class InformationController extends StepsController
 
 
 
-    public function faqsAction($category)
+    public function faqsAction($category, $subCategory)
     {
         $trigger = ($category == 'passenger');
         $dm = $this->get('doctrine_phpcr')->getManager();
