@@ -226,3 +226,142 @@ ul, ol, li {
 		}
 	}
 }
+
+// Responsive ============================================================================
+
+@media (max-width: 960px) {
+    .order-step3 {
+    }
+    .order-step-content {
+    	width: 100%;
+    }
+    .pay-info-box {
+    	width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .order-step3 {
+    }
+}
+
+@media (max-width: 620px) {
+    .order-step3 {
+    	.order-step-content {
+    		.tariff-box-price {
+    			.row{
+    				&>*{
+    					&:first-child {
+    						width: 16%;
+    					}
+    					&:nth-child(2) {
+    						width: 29%;
+    					}
+    					&:nth-child(3) {
+    						width: 29%;
+    					}
+    					&:last-child {
+    						width: 25%;
+    					}
+    				}
+    			}
+    		}
+	    	.passenger-info-view {
+	    		.add-photo {
+		    		width: 100%;
+		    		padding-right: 0;
+		    		text-align: center;
+		    		.img-wrapper {
+		    			max-width: 320px;
+		    			width: 100%;
+		    			display: inline-block;
+		    			padding-bottom: 74%;
+		    		}
+	    		}
+	    		.passenger-first-name_label-field {
+	    			padding-bottom: 0;
+	    		}
+		    	[class*='_label-field']+[class*='_form-field'] {
+		    		// float: none;
+		    		// width: 100%;
+		    	}
+		    	.passenger-info-fields {
+		    		width: 100%;
+		    		margin-bottom: 20px;
+		    	}
+	    	}
+    	}
+    }
+}
+
+@media (max-width: 480px) {
+    .order-step3 {
+    	.order-step-content {
+    		.title-bottom-line.not-line {
+			    border-bottom: 1px solid;
+    		}
+    		.tariff-box-price {
+    			.row{
+    				&>*{
+    					&:first-child {
+    						width: 100%;
+    					}
+    					&:nth-child(n+2) {
+    						padding-left: 4px;
+    					}
+    					&:nth-child(2) {
+    						width: 33%;
+    					}
+    					&:nth-child(3) {
+    						width: 33%;
+    					}
+    					&:last-child {
+    						width: 34%;
+    					}
+    				}
+    				&.btn-muted {
+    					&>* {
+	    					&:first-child {
+	    						display: none;
+	    					}
+	    					&:nth-child(n+2) {
+	    						padding-left: 4px;
+	    					}
+	    					&:nth-child(2) {
+	    						width: 33%;
+	    					}
+	    					&:nth-child(3) {
+	    						width: 33%;
+	    					}
+	    					&:last-child {
+	    						width: 34%;
+	    					}
+    					}
+    					.mp-icon-quest-circle {
+    						display: none;
+    					}
+    				}
+    			}
+    		}
+    		.passenger-info-quantity {
+    			.grid__wrapper {
+    				width: 100%;
+    				max-width: 320px;
+    			}
+    		}
+	    	.passenger-info-view {
+	    		.add-photo {
+		    		.img-wrapper {
+		    		}
+	    		}
+	    		.passenger-first-name_label-field {
+	    		}
+		    	[class*='_label-field']+[class*='_form-field'] {
+		    		float: none;
+		    		width: 100%;
+		    	}
+	    	}
+    	}
+    }
+}
+

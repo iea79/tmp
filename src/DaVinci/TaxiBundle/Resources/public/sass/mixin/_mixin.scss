@@ -39,7 +39,16 @@
             max-width: 230px;
             margin-left: 3px;
             margin-right: 3px;
-        }
+		    @media (max-width: 760px) {
+		    	max-width: 200px;
+		    }
+		    @media (max-width: 480px) {
+		    	max-width: none;
+		    	&:first-child {
+		    		margin-bottom: 5px;
+		    	}
+		    }
+		}
     }
 }
 
