@@ -59,25 +59,27 @@
                         </div>
 
                         {# ================= FAQs ===================== #}
-                        <ul id="my-id" class="uk-switcher">
-                            {% for category in categories %}
-                                <li>
-                                    {% set k = category %}
-                                    <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                        {% for faq in faqs %}
-                                            {% if k == faq.category %}
-                                                <li class="uk-parent">
-                                                    <a href="#">{{ faq.question }}</a>
-                                                    <ul class="uk-nav-sub">
-                                                        <li>{{ faq.answer|raw }}</li>
-                                                    </ul>
-                                                </li>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                            {% endfor %}
-                        </ul>
+                            <ul id="my-id" class="uk-switcher">
+                                {% for category in categories %}
+                                    <li>
+                        <div class="search_res">
+                                        {% set k = category %}
+                                        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                            {% for faq in faqs %}
+                                                {% if k == faq.category %}
+                                                    <li class="uk-parent">
+                                                        <a href="#">{{ faq.question }}</a>
+                                                        <ul class="uk-nav-sub">
+                                                            <li>{{ faq.answer|raw }}</li>
+                                                        </ul>
+                                                    </li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
                         <div class="support">
                             <span>{{"Can\'t find your answer here? Submit a support request."|trans}}</span>
