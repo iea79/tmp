@@ -1,0 +1,64 @@
+// Order steps =======================================================================
+.cars-class .uk-button {
+	left: 1.5%;
+}
+
+.order-details-over .pass-info {
+    margin: 5px 0 5px 0px;
+}
+
+// Helps =============================================================================
+.block-help .uk-nav li.head {
+	max-height: none;
+}
+
+.main-content .search {
+	height: auto;
+	padding: 15px 20px 15px 21px;
+	@extend %clear_all;
+}
+
+.instructions .block-help .uk-nav {
+	float: none;
+	margin-bottom: 15px;
+}
+
+.block-help .uk-nav li.btn__more {
+	position: absolute;
+}
+
+.main-help-page .block-help .help-content div {
+    width: 50%;
+}
+
+
+.main-content .search {
+	margin-top: 15px;
+}
+
+.help.faq-list .block-help .uk-nav {
+	border: none;
+	padding-bottom: 15px;
+}
+
+.faq-list .block-help .uk-nav li {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.faq-list .block-help .uk-nav > li > a {
+	padding-right: 20px;
+	position: relative;
+	display: block;
+}
+
+.uk-nav-parent-icon > .uk-parent > a:after {
+	margin-right: -20px;
+	float: none;
+	position: absolute;
+	right: 20px;
+	top: 5px;
+}
+
+
+

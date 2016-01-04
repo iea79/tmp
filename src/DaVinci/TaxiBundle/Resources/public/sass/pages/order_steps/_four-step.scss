@@ -1,0 +1,103 @@
+.order-step-four {
+	margin-top: 15px;
+	@extend %clear_a;
+	@extend %btn_for_steps;
+	.passenger-info {
+		margin-top: 20px;
+		.passenger-info-fields {
+			padding-top: 5px;
+			.row {
+				&+.row {
+					margin-top: 10px;
+				}
+				&:last-child {
+					&>* {
+						min-width: 25%;
+						display: inline-block;
+						&:before {
+							margin-right: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.edit-link {
+	font-size: 14px;
+	font-weight: normal;
+	float: right;
+	padding-top: 6px;
+}
+
+.four-step-route {
+	position: relative;
+	padding-right: 100px;
+	padding-bottom: 20px;
+	margin-top: 14px;
+	.uk-icon-map-marker {
+		position: absolute;
+		top: 3px;
+		right: 0px;
+		text-decoration: none;
+		font-size: 13px;
+		&:before {
+			padding-right: 5px;
+			text-decoration: none;
+		}
+	}
+	.row {
+		margin: 0 0 6px;
+		&:nth-child(n+4) {
+			margin-top: 18px;
+		}
+	}
+}
+
+.four-step-vehicle {
+	.btn-title {
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	[class*="mp-icon"] {
+		color: $danger-color;
+		padding-right: 32px;
+		font-size: 16px;
+		padding-left: 4px;
+	}
+	.vehicle-class {
+		margin-top: 14px;
+		&>* {
+			display: inline-block;
+			&:first-child {
+				width: 24%;
+			}
+		}
+	}
+	.grid__item {
+		margin-bottom: 10px;
+	}
+	.four-step-kids-bag-parts {
+		margin-top: 0px;
+		margin-bottom: -9px;
+	}
+	.four-step-service {
+		margin-bottom: -8px;
+	}
+	.four-step-conditions {
+		margin-bottom: 12px;
+	}
+}
+
+.four-step-tariff {
+	.grid {
+		max-width: 382px;
+		margin-top: 16px;
+		margin-bottom: 15px;
+		.grid__wrapper {
+			margin-bottom: 10px;
+		}
+	}
+}
+

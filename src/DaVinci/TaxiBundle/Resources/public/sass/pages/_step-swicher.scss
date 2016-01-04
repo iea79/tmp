@@ -1,0 +1,174 @@
+.step-swicher {
+	background: $danger-bg;
+	overflow: hidden;
+	margin-bottom: 13px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+}
+
+.step-swicher-item {
+	float: left;
+	display: block;
+	width: 25%;
+	background-color: $contrast-color;
+	padding: 10px 15px;
+	color: $main-color;
+	font-size: 16px;
+	text-decoration: none !important;
+	&.active {
+		background: $danger-bg;
+		color: $contrast-color;
+		.step-swicher-number {
+			background: #fff;
+			color: $danger-color;
+		}
+	}
+	&.step-swicher-sucess {
+		.step-swicher-number {
+			font-size: 0;
+			&:before {
+				content: "\f00c";
+				font-family: "FontAwesome";
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.step-swicher-number {
+	width: 32px;
+	height: 32px;
+	font-size: 20px;
+	font-style: normal;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	background: $danger-bg;
+	border-radius: 50%;
+	padding: 6px 2px;
+	color: #fff;
+	margin-right: 5px;
+	@include box-sizing(border-box); 
+}
+
+.first-step,.second-step,.three-step,.four-step {
+	position: relative;
+	&:before,&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+	}
+	&:before {
+		border: 26px solid $contrast-color;
+		border-left: 16px solid transparent;
+		border-right: 1px solid #fff;
+		left: -17px ;
+	}
+	&:after {
+		border: 26px solid $danger-color;
+		border-left: 16px solid $contrast-color ;
+		right: -24px;
+	}
+	&.active {
+		&:before {
+			border: 26px solid transparent;
+			border-left: 16px solid $contrast-color ;
+			left: -24px;
+		}
+		&:after {
+			border: 26px solid $contrast-color;
+			border-left: 16px solid $danger-color;
+			right: -14px;
+		}
+	}
+}
+
+.first-step {
+	padding-left: 5%;
+	&:before {
+		border: none;
+	}
+	&.active {
+		&:before {
+			border: none;
+		}
+	}
+}
+
+.second-step {
+	padding-left: 3%;
+}
+
+.three-step {
+	padding-left: 5%;
+}
+
+.four-step {
+	padding-left: 6%;
+	&:after {
+		border: none;
+	}
+	&.active {
+		&:after {
+			border: none;
+		}
+	}
+}
+
+@media (max-width: 870px) {
+	.step-swicher-item {
+		span {
+			display: none;
+		}
+	}
+}
+
+@media (max-width: $breakpoint-medium) {
+	.first-step,.second-step,.three-step,.four-step	{
+		padding-left: 2%;
+	}
+}
+
+
+@media (max-width: 650px) {
+	.step-swicher-item {
+		padding: 12px 15px 12px 0px;
+		text-align: center;
+		width: auto;
+		font-size: 0;
+		width: 15%;
+		&.active {
+			width: 55%;
+			font-size: 16px;
+		}
+	}
+	.step-swicher-number {
+		width: 28px;
+		height: 28px;
+		font-size: 18px;
+		padding: 4px 5px;
+	}
+}
+
+@media (max-width: 400px) {
+	.step-swicher-item {
+		padding: 5px;
+		display: none;
+		&.active {
+			display: block;
+			width: 100%;
+			&:before,&:after {
+				top: -7px;
+			}
+		}
+	}
+}
+
+
+// Old template
+
+.step-swicher {
+	margin-bottom: 0;
+}
+
+

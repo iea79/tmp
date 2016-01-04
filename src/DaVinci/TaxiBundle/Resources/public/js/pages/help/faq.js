@@ -3,9 +3,10 @@ require(["pages/common"], function ($) {
             $('#filter').keyup(function () {
 
                     var rex = new RegExp($(this).val(), 'i');
-                    $('.faqs li').hide();
-                    $('.faqs li').filter(function () {
-                        return rex.test($(this).find('a').text()) || rex.test($(this).find('li').text());
+                    $(' .search_res').hide();
+                    $(' .search_res').filter(function () {
+                        return rex.test($(this).find('h4').text()) || rex.test($(this).find('a').text()) || rex.test($(this).find('.text').text()) || rex.test($(this).find('.search_res').text());
+                        
                     }).show();
 
             })
@@ -13,5 +14,3 @@ require(["pages/common"], function ($) {
             
    togglePreloader(document.body, false);
 });
-
-

@@ -180,7 +180,7 @@ class HomeController extends StepsController
         );            
     }
     
-    /**
+    /**#V
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */

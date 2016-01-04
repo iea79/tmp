@@ -2,7 +2,7 @@
 {% block theme 'instructions' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
-{% endblock%}
+{% endblock %}
 {% block body %}
 {# ======= Swicher button ========= #}
         <div class="button-swicher uk-grid uk-grid-small uk-width-1-1">
@@ -23,7 +23,7 @@
 {# ============= Search ===================== #}
         <div class="search">
             <form class="uk-search" data-uk-search>
-                <input class="uk-search-field" type="search" id="filter" placeholder="Search text">
+                <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
             </form>
         </div>
 
@@ -56,16 +56,18 @@
     <ul id="my-id" class="uk-switcher">
         {% for category in categories %}
             <li>
-                {% set k = category %}
-                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                    {% for guide in guides %}
-                        {% if k == guide.category %}
-                                <li>
-                                    <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                    {% set k = category %}
+                    <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                        {% for guide in guides %}
+                <div class="search_res">
+                            {% if k == guide.category %}
+                                    <li>
+                                        <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                    </li>
+                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
             </li>
         {% endfor %}
     </ul>
