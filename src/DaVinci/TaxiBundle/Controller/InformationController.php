@@ -199,13 +199,17 @@ class InformationController extends StepsController
 
     public function guidesAction($category, $subCategory)
     {
-    	$trigger = ($category == 'passenger');
-        
+        $trigger = ($category == 'passenger');
         $dm = $this->get('doctrine_phpcr')->getManager();
+
+                    
+        $guides = $dm
+                    ->getRepository('DaVinciTaxiBundle:GuidesPage')
+                    ->findForPassenger($trigger);
         $faqs = $dm
                     ->getRepository('DaVinciTaxiBundle:FaqEntry')
                     ->findForPassenger($trigger);
-        
+
         $defaultCategory = $dm
                                 ->getRepository('DaVinciTaxiBundle:Category')
                                 ->findOneBy(array());
@@ -213,35 +217,16 @@ class InformationController extends StepsController
         $categories = $dm
                         ->getRepository('DaVinciTaxiBundle:Category')
                         ->findAll();
-        
-        if (!is_null($defaultCategory)) {
-            $filter = ('default' == $subCategory) 
-                ? $defaultCategory->getId()
-                : unserialize(urldecode($subCategory));
 
-            $guides = $dm
-                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
-                        ->findFiltered($trigger, $filter);
-            $otherGuides = $dm
-                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
-                        ->findFiltered(!$trigger, $filter);
-        } else {
-            $guides = $dm
-                        ->getRepository('DaVinciTaxiBundle:GuidesPage')
-                        ->findForPassenger($trigger);
-            $otherGuides = array();
-        }
-            
-    	return $this->render(
+        return $this->render(
             'DaVinciTaxiBundle:Information:guides.html.twig',
             array(
                 'faqs' => $faqs,
                 'guides' => $guides,
                 'category' => $category,
-                'otherGuides' => $otherGuides,
                 'categories' => $categories
             )
-    	);
+        );
     }
     
     public function guideAction($contentId)
