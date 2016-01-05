@@ -6,7 +6,7 @@ use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @author Mykola Sedletskyi <icevita@gmail.com>
+ * @author Mykola Sedletskyi <icevita@gmail.com>#v
  */
 
 /**

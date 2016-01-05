@@ -2,7 +2,7 @@
 {% block theme 'help' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
-{% endblock%}
+{% endblock %}
 {% block body %}
 {# ======= Swicher button ========= #}
     <div class="shadow-main whitebg">
@@ -31,7 +31,7 @@
 {# ============= Search ===================== #}
         <div class="search">
             <form class="uk-search" data-uk-search>
-                <input class="uk-search-field" type="search" id="filter" placeholder="Search text">
+                <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
             </form>
         </div>
         <ul id="help" class="uk-switcher">

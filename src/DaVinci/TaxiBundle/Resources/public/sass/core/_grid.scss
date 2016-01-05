@@ -1,0 +1,581 @@
+// Name:            Grid
+// Description:     Provides a responsive, fluid and nestable grid
+//
+// Component:       `grid`
+//                  `width-*`
+//                  `push-*`
+//                  `pull-*`
+//
+// Modifiers:       `grid-collapse`
+//                  `grid-small`
+//                  `grid-medium`
+//                  `grid-divider`
+//                  `grid-margin`
+//                  `grid-match`
+//                  `grid-width-*`
+//
+// Uses:            Panel: `panel`
+//
+// Used by:         Dropdown
+//
+// Markup:
+//
+// <!-- grid -->
+// <div class="grid">
+//     <div class="width-1-2"></div>
+//     <div class="width-1-2"></div>
+// </div>
+//
+// <!-- grid-divider -->
+// <div class="grid grid-divider">
+//     <div class="width-1-2"></div>
+//     <div class="width-1-2"></div>
+// </div>
+// <hr class="grid-divider">
+// <div class="grid grid-divider">
+//     <div class="width-1-2"></div>
+//     <div class="width-1-2"></div>
+// </div>
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+$breakpoint-xlarge: 1240px;
+$breakpoint-large: 960px;
+$breakpoint-medium: 760px;
+$breakpoint-small: 480px;
+
+$grid-gutter-horizontal: 25px ;
+$grid-gutter-vertical: 25px; 
+
+$grid-gutter-large-horizontal: 35px ;
+$grid-gutter-large-vertical: 35px; 
+
+$grid-gutter-small-horizontal: 10px ;
+$grid-gutter-small-vertical: 10px ;
+
+$grid-divider-border: #ddd ;
+$grid-divider-border-width: 1px ;
+
+// Grid styles
+// ========================================================================
+
+[class*='grid-'] {
+    @include box-sizing(border-box);
+    &>*{
+        @include box-sizing(border-box);
+    }
+}
+
+.grid {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    .row + .row {
+        margin-top: 1px;
+    }
+}
+
+.grid:before,
+.grid:after {
+    content: "";
+    display: block;
+    overflow: hidden;
+}
+
+.grid:after  {
+    clear: both;
+}
+
+.grid > * {
+    -ms-flex: none;
+    -webkit-flex: none;
+    flex: none;
+    margin: 0;
+    float: left;
+}
+
+.grid > * > :last-child {
+    margin-bottom: 0;
+}
+
+/* Horizontal */
+.grid {
+    margin-left: -$grid-gutter-horizontal;
+}
+.grid > * {
+    padding-left: $grid-gutter-horizontal;
+}
+
+/* Vertical */
+.grid + .grid,
+.grid-margin,
+.grid > * > .panel + .panel  {
+    margin-top: $grid-gutter-vertical;
+}
+
+/* Large screen and bigger */
+// @media (min-width: $breakpoint-xlarge)
+
+//     /* Horizontal */
+//     .grid  
+//         margin-left: -$grid-gutter-large-horizontal 
+//     .grid > *  
+//         padding-left: $grid-gutter-large-horizontal 
+
+//     /* Vertical */
+//     .grid + .grid,
+//     .grid-margin,
+//     .grid > * > .panel + .panel  
+//         margin-top: $grid-gutter-large-vertical 
+
+
+
+/*
+ * Collapse gutter
+ */
+
+/* Horizontal */
+.grid-collapse  {
+    margin-left: 0; 
+}
+.grid-collapse > * { 
+    padding-left: 0;
+}
+
+/* Vertical */
+.grid-collapse + .grid-collapse,
+.grid-collapse > .grid-margin,
+.grid-collapse > * > .panel + .panel {
+    margin-top: 0;
+}
+
+/*
+ * Small gutter
+ */
+
+/* Horizontal */
+.grid-small {
+    margin-left: -$grid-gutter-small-horizontal;
+}
+.grid-small > * {
+    padding-left: $grid-gutter-small-horizontal;
+}
+
+/* Vertical */
+.grid-small + .grid-small,
+.grid-small > .grid-margin,
+.grid-small > * > .panel + .panel {
+    margin-top: $grid-gutter-small-vertical;
+}
+
+/*
+ * Medium gutter
+ */
+
+/* Horizontal */
+.grid-medium {
+    margin-left: -$grid-gutter-horizontal;
+}
+.grid-medium > * {
+    padding-left: $grid-gutter-horizontal;
+}
+
+/* Vertical */
+.grid-medium + .grid-medium,
+.grid-medium > .grid-margin,
+.grid-medium > * > .panel + .panel {
+    margin-top: $grid-gutter-vertical;
+}
+
+
+/* Modifier: `grid-divider`
+ ========================================================================== */
+
+/*
+ * Horizontal divider
+ * Only works with the default gutter. Does not work with gutter collapse, small or large.
+ * Does not work with `push-*`, `pull-*` and not if the columns float into the next row.
+ */
+
+.grid-divider:not(:empty) {
+    margin-left: -$grid-gutter-horizontal;
+    margin-right: -$grid-gutter-horizontal;
+}
+
+.grid-divider > * {
+    padding-left: $grid-gutter-horizontal;
+    padding-right: $grid-gutter-horizontal;
+}
+
+.grid-divider > [class*='width-1-']:not(.width-1-1):nth-child(n+2),
+.grid-divider > [class*='width-2-']:nth-child(n+2),
+.grid-divider > [class*='width-3-']:nth-child(n+2),
+.grid-divider > [class*='width-4-']:nth-child(n+2),
+.grid-divider > [class*='width-5-']:nth-child(n+2),
+.grid-divider > [class*='width-6-']:nth-child(n+2),
+.grid-divider > [class*='width-7-']:nth-child(n+2),
+.grid-divider > [class*='width-8-']:nth-child(n+2),
+.grid-divider > [class*='width-9-']:nth-child(n+2) {
+    border-left: $grid-divider-border-width solid $grid-divider-border;
+}
+
+/* Tablet and bigger */
+@media (min-width: $breakpoint-medium) {
+    .grid-divider > [class*='width-medium-']:not(.width-medium-1-1):nth-child(n+2) {
+        border-left: $grid-divider-border-width solid $grid-divider-border;
+    }
+}
+
+/* Desktop and bigger */
+@media (min-width: $breakpoint-large) {
+    .grid-divider > [class*='width-large-']:not(.width-large-1-1):nth-child(n+2) {
+        border-left: $grid-divider-border-width solid $grid-divider-border;
+    }
+}
+
+/* Large screen and bigger */
+@media (min-width: $breakpoint-xlarge) {
+    .grid-divider:not(:empty) {
+        margin-left: -$grid-gutter-large-horizontal;
+        margin-right: -$grid-gutter-large-horizontal;
+    }
+
+    .grid-divider > * {
+        padding-left: $grid-gutter-large-horizontal;
+        padding-right: $grid-gutter-large-horizontal;
+    }
+
+    .grid-divider:empty {
+        margin-top: $grid-gutter-large-vertical;
+        margin-bottom: $grid-gutter-large-vertical;
+    }
+}
+
+
+
+/*
+ * Vertical divider
+ */
+
+.grid-divider:empty {
+    margin-top: $grid-gutter-vertical;
+    margin-bottom: $grid-gutter-vertical;
+    border-top: $grid-divider-border-width solid $grid-divider-border;
+}
+
+/* Match panels in grids
+ ========================================================================== */
+
+/*
+ * 1. Behave like a block element
+ */
+
+.grid-match > * {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.grid-match > * > * {
+    -ms-flex: none;
+    -webkit-flex: none;
+    flex: none;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+
+/* Even grid cell widths
+ ========================================================================== */
+
+[class*='grid-width'] > * {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.grid-width-1-2 > * {
+    width: 50%;
+}
+.grid-width-1-3 > * {
+    width: 33.333%;
+}
+.grid-width-1-4 > * {
+    width: 25%;
+}
+.grid-width-1-5 > * {
+    width: 20%;
+}
+.grid-width-1-6 > * {
+    width: 16.666%;
+}
+.grid-width-1-10 > * {
+    width: 10%;
+}
+
+.grid-width-asinc {
+    & > div:nth-child(even) {
+        width: 23%;
+    }
+    & > div:nth-child(odd) {
+        width: 27%;
+    }
+}
+     
+
+/* Phone landscape and bigger */
+@media (min-width: $breakpoint-small) {
+    .grid-width-small-1-2 > * {
+        width: 50%;
+    }
+    .grid-width-small-1-3 > * {
+        width: 33.333%;
+    }
+    .grid-width-small-1-4 > * {
+        width: 25%;
+    }
+    .grid-width-small-1-5 > * {
+        width: 20%;
+    }
+    .grid-width-small-1-6 > * {
+        width: 16.666%;
+    }
+    .grid-width-small-1-10 > * {
+        width: 10%;
+    }
+}
+
+
+/* Tablet and bigger */
+@media (min-width: $breakpoint-medium) {
+    .grid-width-medium-1-2 > * {
+        width: 50%;
+    }
+    .grid-width-medium-1-3 > * {
+        width: 33.333%;
+    }
+    .grid-width-medium-1-4 > * {
+        width: 25%;
+    }
+    .grid-width-medium-1-5 > * {
+        width: 20%;
+    }
+    .grid-width-medium-1-6 > * {
+        width: 16.666%;
+    }
+    .grid-width-medium-1-10 > * {
+        width: 10%;
+    }
+}
+
+
+
+/* Desktop and bigger */
+@media (min-width: $breakpoint-large) {
+    .grid-width-large-1-2 > * {
+        width: 50%;
+    }
+    .grid-width-large-1-3 > * {
+        width: 33.333%;
+    }
+    .grid-width-large-1-4 > * {
+        width: 25%;
+    }
+    .grid-width-large-1-5 > * {
+        width: 20%;
+    }
+    .grid-width-large-1-6 > * {
+        width: 16.666%;
+    }
+    .grid-width-large-1-10 > * {
+        width: 10%;
+    }
+}
+
+
+
+/* Large screen and bigger */
+@media (min-width: $breakpoint-xlarge) {
+    .grid-width-xlarge-1-2 > * {
+        width: 50%;
+    }
+    .grid-width-xlarge-1-3 > * {
+        width: 33.333%;
+    }
+    .grid-width-xlarge-1-4 > * {
+        width: 25%;
+    }
+    .grid-width-xlarge-1-5 > * {
+        width: 20%;
+    }
+    .grid-width-xlarge-1-6 > * {
+        width: 16.666%;
+    }
+    .grid-width-xlarge-1-10 > * {
+        width: 10%;
+    }
+}
+
+
+
+
+/* Sub-object: `push-*` and `pull-*`
+ ========================================================================== */
+
+/* Tablet and bigger */
+@media (min-width: $breakpoint-medium) {
+
+    [class*='push-'],
+    [class*='pull-'] {
+        position: relative; 
+    }
+
+    /* Halves */
+    .push-1-2,
+    .push-2-4,
+    .push-3-6,
+    .push-5-10 {
+        left: 50% ;
+    }
+
+    /* Thirds */
+    .push-1-3,
+    .push-2-6 {
+        left: 33.333%; 
+    }
+    .push-2-3,
+    .push-4-6 {
+        left: 66.666%; 
+    }
+
+    /* Quarters */
+    .push-1-4 {
+        left: 25%; 
+    }
+    .push-3-4 {
+        left: 75%; 
+    }
+
+    /* Fifths */
+    .push-1-5,
+    .push-2-10 {
+        left: 20% ;
+    }
+    .push-2-5,
+    .push-4-10 {
+        left: 40% ;
+    }
+    .push-3-5,
+    .push-6-10 {
+        left: 60% ;
+    }
+    .push-4-5,
+    .push-8-10 {
+        left: 80% ;
+    }
+
+    /* Sixths */
+    .push-1-6 {
+        left: 16.666%; 
+    }
+    .push-5-6 {
+        left: 83.333%; 
+    }
+
+    /* Tenths */
+    .push-1-10 {
+        left: 10% ;
+    }
+    .push-3-10 {
+        left: 30% ;
+    }
+    .push-7-10 {
+        left: 70% ;
+    }
+    .push-9-10 {
+        left: 90% ;
+    }
+
+    /*
+     * Pull
+     */
+
+    /* Halves */
+    .pull-1-2,
+    .pull-2-4,
+    .pull-3-6,
+    .pull-5-10 {
+        left: -50%;
+    } 
+
+    /* Thirds */
+    .pull-1-3,
+    .pull-2-6 {
+        left: -33.333%;
+    }
+    .pull-2-3,
+    .pull-4-6 {
+        left: -66.666%;
+    }
+
+    /* Quarters */
+    .pull-1-4 {
+        left: -25%;
+    }
+    .pull-3-4 {
+        left: -75%;
+    }
+
+    /* Fifths */
+    .pull-1-5,
+    .pull-2-10 {
+        left: -20%;
+    }
+    .pull-2-5,
+    .pull-4-10 {
+        left: -40%;
+    }
+    .pull-3-5,
+    .pull-6-10 {
+        left: -60%;
+    }
+    .pull-4-5,
+    .pull-8-10 {
+        left: -80%;
+    }
+
+    /* Sixths */
+    .pull-1-6 {
+        left: -16.666%;
+    }
+    .pull-5-6 {
+        left: -83.333%;
+    }
+
+    /* Tenths */
+    .pull-1-10 {
+        left: -10%;
+    }
+    .pull-3-10 {
+        left: -30%;
+    }
+    .pull-7-10 {
+        left: -70%;
+    }
+    .pull-9-10 {
+        left: -90%;
+    }
+}
