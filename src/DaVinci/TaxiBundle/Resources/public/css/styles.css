@@ -61,148 +61,6 @@ body * {
 		  zoom: 1; /* ie 6/7 */
 		}
 /*======================================== our icons styles ==================================*/
-.mp-icon-dollar:before {
-	content: "\e621";
-}
-.mp-icon-dollar-circle:before {
-	content: "\e622";
-}
-.mp-icon-dollar-refresh:before {
-	content: "\e623";
-}
-.mp-icon-zoom:before {
-	content: "\e600";
-}
-.mp-icon-good:before {
-	content: "\e601";
-}
-.mp-icon-taxi:before {
-	content: "\e602";
-}
-.mp-icon-person:before {
-	content: "\e603";
-}
-.mp-icon-message:before {
-	content: "\e604";
-}
-.mp-icon-gift:before {
-	content: "\e605";
-}
-.mp-icon-door:before {
-	content: "\e606";
-}
-.mp-icon-circle:before {
-	content: "\e607";
-}
-.mp-icon-edit:before {
-	content: "\e608";
-}
-.mp-icon-closed:before {
-	content: "\e609";
-}
-.mp-icon-logout:before {
-	content: "\e60a";
-}
-.mp-icon-point-a:before {
-	content: "\e60b";
-}
-.mp-icon-point-b:before {
-	content: "\e60c";
-}
-.mp-icon-star:before {
-	content: "\e60d";
-}
-.mp-icon-arrow-right:before {
-	content: "\e60e";
-}
-.mp-icon-bug:before {
-	content: "\e60f";
-}
-.mp-icon-calendar:before {
-	content: "\e610";
-}
-.mp-icon-clock:before {
-	content: "\e611";
-}
-.mp-icon-nord-star:before {
-	content: "\e612";
-}
-.mp-icon-basket:before {
-	content: "\e613";
-}
-.mp-icon-trust-invert:before {
-	content: "\e614";
-}
-.mp-icon-trust:before {
-	content: "\e615";
-}
-.mp-icon-arrow-down:before {
-	content: "\e616";
-}
-.mp-icon-arrow-up:before {
-	content: "\e617";
-}
-.mp-icon-child-seat:before {
-	content: "\e618";
-}
-.mp-icon-direction:before {
-	content: "\e619";
-}
-.mp-icon-pet:before {
-	content: "\e61a";
-}
-.mp-icon-point-plus:before {
-	content: "\e61b";
-}
-.mp-icon-timer:before {
-	content: "\e61c";
-}
-.mp-icon-calculate:before {
-	content: "\e61d";
-}
-.mp-icon-cab:before {
-	content: "\e61e";
-}
-.mp-icon-trash:before {
-	content: "\e61f";
-}
-.mp-icon-clip:before {
-	content: "\e620";
-}
-.mp-icon-spinner8:before {
-	content: "\e981";
-}
-.uk-icon-asterisk {
-	color: #FF4D61;
-	font-size: 6px !important;
-	vertical-align: top !important;
-}
-
-/*==============================    end of icons   ========================================*/
-/*========================font icontaxi for disign Evgeny=======================*/
-@font-face {
-	font-family: 'icontaxi';
-	src:url('../fonts/icontaxi.eot');
-	src:url('../fonts/icontaxi.eot') format('embedded-opentype'),
-		url('../fonts/icontaxi.woff') format('woff'),
-		url('../fonts/icontaxi.ttf') format('truetype'),
-		url('../fonts/icontaxi.svg') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-[class^="mp-icon-"], [class*="mp-icon-"] {
-	font-family: 'icontaxi';
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	speak: none;
-}
-a[class*="mp-icon-"],a i[class*="mp-icon-"] {
-    text-decoration: none !important;
-}
 /*=================   iconed select  ===========================*/
 .iconed-drop .jq-selectbox__select,li.iconed-drop,.iconed-drop {
 	font-family: 'icontaxi';
@@ -5342,7 +5200,6 @@ footer {
 .officepagetitle .greentitle span img {margin:0; position: relative; top: 5px;}
 .register .uk-button-group {    
     margin-top: 20px;
-    margin-bottom: 20px;
 }
 .wrapper-content .register form.authorizat {
     margin: 0 auto;
@@ -5563,7 +5420,7 @@ body.register .main-content{
 .register .uk-form-horizontal .uk-width-4-10 {width: 25.8%;}
 .register .uk-form-horizontal .uk-width-6-10 {width: 74%;}
 .register .uk-form-horizontal .uk-width-1-0 {width: 100%;}
-.register .uk-form-horizontal .uk-width-1-1 {width: 95%;}
+.register .uk-form-horizontal .uk-width-1-1 {width: 94%;}
 .register .uk-form-horizontal select.uk-width-1-1 {width: 100%;}
 .register .uk-form-horizontal .addlangline select.uk-width-1-1 {width: 95%;}
 @media (max-width: 767px) {
@@ -5591,7 +5448,8 @@ body.register .main-content{
     padding: 5px 15px;
 }
 .register .changemail .btn:hover {  background: #89baf3;}
-.register .uk-form-horizontal .checkregister {margin-top: 28px;}
+.register .uk-form-horizontal .checkregister {
+	margin-top: 0;}
 .register .uk-form-horizontal .checkregister  .uk-form-row  {
     margin-top: 5px;
     margin-bottom: 6px;
@@ -5615,6 +5473,7 @@ body.register .main-content{
     -webkit-appearance: none;
     outline: 0;
     background: transparent;
+    position: static;
 }
 .driver-office .uk-modal-dialog input[type="checkbox"] {
     display: inline-block !important;
@@ -6935,7 +6794,6 @@ Help
 }
 .block-help .uk-nav li a {
 	line-height: 16px;
-	width: 89.8%;
 }
 .help .block-help .uk-nav {
     border: 1px solid #d0d0d0;
@@ -7799,7 +7657,7 @@ Notifications button in main menu
 
 .notif-button {
     background: #f5f5f5;
-    width: 13.9%;
+    width: 15%;
     /* margin-left: -2.7%; */
     color: #3399ff;
     padding: 5px 0.6% 4px;
@@ -10018,7 +9876,8 @@ Payment window
 }
 
 .privacy__content {
-	overflow: hidden;
+	display: table-cell;
+	vertical-align: top;
 	padding-left: 20px;
 }
 
@@ -10035,8 +9894,12 @@ Payment window
 
 /* Left sidebar */
 .left__sidebar {
-	max-width: 200px;
-	float: left;
+	width: 200px;
+	display: table-cell;
+	vertical-align: top;
+}
+
+.left__sidebar .uk-sticky-placeholder {
 	width: 100%;
 }
 
@@ -10049,11 +9912,21 @@ Payment window
 	clear: both;
 }
 
+.left__sidebar .uk-nav {
+	width: 100%;
+}
+
+.privacy .block-help .uk-nav li:not(:first-child),
+.privacy .block-help .uk-nav li:last-child {
+	margin-top: 2px;
+}
+
 .left__sidebar_title {
 	font-weight: 600;
 }
 
 .left__sidebar_list {
+	display: block;
 }
 
 .left__sidebar_link {

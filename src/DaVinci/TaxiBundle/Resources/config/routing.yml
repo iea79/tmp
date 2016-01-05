@@ -157,3 +157,7 @@ privacy:
     pattern:  /privacy
     defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
     #options: { useAsInnerURL: true }
+
+order_step_1_new:
+    pattern:  /order-step-one-new
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1_new }    
