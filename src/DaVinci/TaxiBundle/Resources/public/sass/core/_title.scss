@@ -1,0 +1,90 @@
+// Headings
+// ========================================================================== 
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    margin: 0 0 $title-margin-vertical 0;
+    font-family:  $title-font-family;
+    font-weight: $title-font-weight;
+    color: $main-color;
+    text-transform: $title-text-transform;
+    @include box-sizing(border-box);
+}
+
+// Margins
+// ========================================================================== 
+* + h1,
+* + h2,
+* + h3,
+* + h4,
+* + h5,
+* + h6,  
+* + .h1,
+* + .h2,
+* + .h3,
+* + .h4,
+* + .h5,
+* + .h6 {
+    margin-top: $title-margin-top;
+    line-height: $line-height-large;
+}
+
+// Sizes
+h1, .h1 {
+    font-size: $h1-font-size;
+}
+
+
+h2, .h2 {
+    font-size: $h2-font-size;
+}
+
+
+h3, .h3 {
+    font-size: $h3-font-size;
+}
+
+
+h4, .h4 {
+    font-size: $h4-font-size;
+}
+
+
+h5, .h5 {
+    font-size: $h5-font-size;
+}
+
+
+h6, .h6 {
+    font-size: $h6-font-size;
+}
+
+
+// Other titles
+// ========================================================================== 
+
+// Title white line
+.title-bottom-top-line {
+}
+
+.title-bottom-line {
+    @extend .h3;
+    color: $danger-color;
+    border-bottom: 1px solid;
+    line-height: 1;
+    margin-top: 0;
+    padding-bottom: 7px;
+    &.not-line {
+        border-bottom: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+div, li, ul, ol, li, label {
+	@include box-sizing(border-box); 
+}
+
+ul, ol, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.check-list {
+	&:before {
+		content: "\f00c";
+		font-family: FontAwesome;
+		color: $muted-color;
+	}
+}
+
+a,.link {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+

@@ -78,9 +78,14 @@ one_help:
     pattern:  /one-help
     defaults: { _controller: DaVinciTaxiBundle:Information:oneHelp }   
 
+faq:
+    pattern:  /faq/{contentId}
+    defaults: { _controller: DaVinciTaxiBundle:Information:faq, contentId: 'default' }    
+    options: { useAsInnerURL: true }
+        
 faqs:
-    pattern:  /faqs/{category}
-    defaults: { _controller: DaVinciTaxiBundle:Information:faqs, category: 'passenger' }    
+    pattern:  /faqs/{category}/{subCategory}
+    defaults: { _controller: DaVinciTaxiBundle:Information:faqs, category: 'passenger', subCategory: 'default' }
     options: { useAsInnerURL: true }
         
 notifications:
@@ -152,3 +157,7 @@ privacy:
     pattern:  /privacy
     defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
     #options: { useAsInnerURL: true }
+
+order_step_1_new:
+    pattern:  /order-step-one-new
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1_new }    

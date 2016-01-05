@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
+
+
 class GuidesPageAdmin extends Admin 
 {
 
@@ -40,7 +42,9 @@ class GuidesPageAdmin extends Admin
     {
     	$listMapper
 	    	->add('forPassenger')
-	    	->add('title')
+            ->add('title')
+            ->add('PublishStartDate', 'date')
+            ->add('PublishEndDate', 'date')
 	    	->add('_action', 'actions', array(
     			'actions' => array(
     				'edit' => array(),

@@ -1,44 +1,6 @@
-<ul class="chois">
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}first uk-active{% else %}first mp-sucess{% endif %}">
-        <a href="#">
-            <div class="arrow_box">
-                <span class="on">1<i class="uk-icon-check-circle"></i></span>
-                <span class="hide"> <span class="exclude">Select </span>route</span>
-            </div>
-            <span class="arrow"></span>
-            <span class="middle"></span>
-        </a>
-    </li>
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}other second uk-active{% else %}other second{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 2 %} mp-sucess{% endif %}">
-        <a href="#">
-            <div class="arrow_box">
-                <span class="on">2<i class="uk-icon-check-circle"></i></span>
-                <span class="hide"> Select <span class="exclude">vehicle </span>type</span>
-            </div>
-            <span class="arrow"> </span>
-            <span class="middle"> </span>
-        </a>
-        <span class="back"></span>
-    </li>
-    <li class="{% if flow is defined and flow.getCurrentStepNumber() == 3 %}other second uk-active{% else %}other second{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 3 %} mp-sucess{% endif %}">
-        <a href="#">
-            <div class="arrow_box">
-                <span class="on">3<i class="uk-icon-check-circle"></i></span>
-                <span class="hide"> Select price <span class="exclude"></span></span>
-            </div>
-            <span class="arrow"> </span>
-            <span class="middle"> </span>
-        </a>
-        <span class="back"></span>
-    </li>
-    <li class="{% if app.request.get('_route') == 'passenger_request_confirm' %}last uk-active{% else %}last{% endif %}">
-        <a href="#">
-            <div class="arrow_box">
-                <span class="on">4<i class="uk-icon-check-circle"></i></span>
-                <span class="hide"> Confirm <span class="exclude"></span></span>
-            </div>
-            <span class="arrow"></span>
-        </a>
-        <span class="back"></span>
-    </li>
-</ul>
+<div class="step-swicher">
+    <div class="{% if flow is defined and flow.getCurrentStepNumber() == 1 %}step-swicher-item first-step active{% else %}step-swicher-item first-step{% endif %}"><i class="step-swicher-number">1</i>Select route</div>
+    <div class="{% if flow is defined and flow.getCurrentStepNumber() == 2 %}step-swicher-item second-step active{% else %}step-swicher-item second-step{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 2 %} mp-sucess{% endif %}"><i class="step-swicher-number">2</i>Select <span>vehicle </span>type</div>
+    <div class="{% if flow is defined and flow.getCurrentStepNumber() == 3 %}step-swicher-item three-step active{% else %}step-swicher-item three-step{% endif %}{% if flow is defined and flow.getCurrentStepNumber() > 3 %} mp-sucess{% endif %}"><i class="step-swicher-number">3</i>Select price</div>
+    <div class="{% if app.request.get('_route') == 'passenger_request_confirm' %}step-swicher-item four-step active{% else %}step-swicher-item four-step{% endif %}"><i class="step-swicher-number">4</i>Confirm</div>
+</div>

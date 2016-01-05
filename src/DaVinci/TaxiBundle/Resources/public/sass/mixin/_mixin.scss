@@ -1,0 +1,54 @@
+// Clear after float 
+// Just add -> @extend %clear...
+%clear_a {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+%clear_b {
+	&:before {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+%clear_all {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	&:before {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+
+// Order steps mixins
+%btn_for_steps {
+    .btn-prev-next {
+        margin-top: 24px;
+        @extend %clear_all;
+        .btn {
+            max-width: 230px;
+            margin-left: 3px;
+            margin-right: 3px;
+		    @media (max-width: 760px) {
+		    	max-width: 200px;
+		    }
+		    @media (max-width: 480px) {
+		    	max-width: none;
+		    	&:first-child {
+		    		margin-bottom: 5px;
+		    	}
+		    }
+		}
+    }
+}
+

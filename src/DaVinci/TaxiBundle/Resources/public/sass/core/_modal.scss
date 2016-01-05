@@ -1,0 +1,183 @@
+// Variables modal
+// ========================================================================
+.uk-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: $modal-z-index;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	background: $modal-background;
+	opacity: 0;
+	-webkit-transition: opacity 0.15s linear;
+	transition: opacity 0.15s linear;
+	touch-action: cross-slide-y pinch-zoom double-tap-zoom;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+}
+
+.uk-modal.uk-open {
+	opacity: 1 ;
+}
+
+.uk-modal-page,
+.uk-modal-page body {
+	overflow: hidden ;
+}
+
+.uk-modal-dialog {
+	position: relative;
+	box-sizing: border-box;
+	margin: $modal-dialog-margin-vertical auto;
+	padding: $modal-dialog-padding;
+	width: $modal-dialog-width;
+	max-width: 100%;
+	max-width: unquote("calc(100% - 20px)");
+	background: $modal-dialog-background  image-url('sucess_bg.jpg') center no-repeat;
+	background-size: cover;
+	opacity: 0;
+	-webkit-transform: translateY(-100px);
+	transform: translateY(-100px);
+	-webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease-out;
+	transition: opacity 0.3s linear, transform 0.3s ease-out;
+	@include border-radius(2px);
+	@include background-clip(padding-box);
+	@include box-shadow(0 0 59px rgba(0,0,0,.43));
+	text-align: center;
+}
+
+@media (max-width: $breakpoint-small) {
+	.uk-modal-dialog {
+		width: auto;
+		margin: 10px auto;
+	}
+}
+
+.uk-open .uk-modal-dialog {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.uk-modal-dialog > :not([class*='uk-modal-']):last-child {
+	margin-bottom: 0;
+}
+
+.uk-modal-dialog > .uk-close:first-child {
+	margin: -10px -10px 0 0;
+	float: right;
+}
+
+.uk-modal-dialog > .uk-close:first-child + :not([class*='uk-modal-']) {
+	margin-top: 0;
+}
+
+.uk-modal-dialog-lightbox {
+	margin: 15px auto;
+	padding: 0;
+	max-width: 95%;
+	max-width: unquote("calc(100% - 30px)");
+}
+
+.uk-modal-dialog-lightbox > .uk-close:first-child {
+	position: absolute;
+	top: -12px;
+	right: -12px;
+	margin: 0;
+	float: none;
+}
+
+@media (max-width: $breakpoint-small) {
+	.uk-modal-dialog-lightbox > .uk-close:first-child {
+		top: -7px;
+		right: -7px;
+	}
+}
+    
+
+.uk-modal-dialog-blank {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+	-webkit-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+}
+
+.uk-modal-dialog-blank > .uk-close:first-child {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1;
+	margin: 0;
+	float: none;
+}
+
+@media (min-width: $breakpoint-medium) {
+	.uk-modal-dialog-large {
+		width: $modal-dialog-large-width;
+	}
+}
+
+@media (min-width: $breakpoint-xlarge) {
+	.uk-modal-dialog-large {
+		width: $modal-dialog-large-width-large;
+	}
+}
+
+.uk-modal-header {
+	margin-bottom: $modal-header-margin-bottom;
+}
+
+.uk-modal-footer {
+	margin-top: $modal-footer-margin-top;
+}
+
+.uk-modal-header  > :last-child,
+.uk-modal-footer  > :last-child {
+	margin-bottom: 0;
+}
+
+.uk-modal-caption {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: (-$modal-dialog-padding);
+	margin-bottom: $modal-caption-margin-bottom;
+	color: $modal-caption-color;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.uk-modal-spinner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	font-size: 25px;
+	color: $muted-color;
+}
+
+.uk-modal-spinner:after {
+	content: "\f110";
+	font-family: FontAwesome;
+	-webkit-animation: uk-rotate 2s infinite linear;
+	animation: uk-rotate 2s infinite linear;
+}
+
+.title-modal {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+
+.rezult-modal {
+	font-size: 22px;
+	max-width: 90%;
+	margin: 0 auto;
+}

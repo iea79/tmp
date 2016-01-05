@@ -533,4 +533,12 @@ class HomeController extends StepsController
     	);
     }
 
+    /**
+    * New steps for orers template
+    */
+    public function order_step_1_newAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:order_step_1_new.html.twig');
+    }
+
 }

@@ -1,0 +1,130 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div  class="home">
+        <div class="tabtaxi">
+            <ul class="uk-tab uk-tab-grid">
+                <li class="uk-width-1-2 current blue-drive">
+
+                    <a href="#" class="child"><span>{{ 'Book your trip'|trans }}</span></a>
+
+
+                </li>
+                <li class="uk-width-1-2 red-drive">
+                    <a href="{{ url('main_driver') }}" class="child"><span>{{ 'Choose the best passenger'|trans }}</span></a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="steps-1-2-3">
+            <div id="">   <!-- !!!!!!!!!!!!!!!! Убрать id="steps" и class="uk-swicher" !!!!!!!!!!!!!!-->
+
+	        <!-- begin Steps 1,2,3,4 -->
+	            <div class="step-swicher">
+	            	<a href="#" class="step-swicher-item first-step active"><i class="step-swicher-number">1</i>Select route</a>
+	            	<a href="#" class="step-swicher-item second-step"><i class="step-swicher-number">2</i>Select <span>vehicle </span>type</a>
+	            	<a href="#" class="step-swicher-item three-step"><i class="step-swicher-number">3</i>Select price</a>
+	            	<a href="#" class="step-swicher-item four-step"><i class="step-swicher-number">4</i>Confirm</a>
+				</div>
+	        <!-- end Steps 1,2,3,4 -->  <!-- !!!!!!!!!!!!! Уже прикрутил !!!!!!!!!!!!! -->
+
+			{# begin new step 1 #} <!-- !!!!!!!!!!!!!!!!!!!!! Новый код - начало !!!!!!!!!!!!!!!!!!! -->
+				<div class="grid grid-collapse">
+					<div class="first-step-order form form-horizontal">
+						<div class="first-step-order-wrap">
+							<div class="first-step-country-sity">
+								<div class="row">
+									<label class="form-label" for="">My country:</label>
+									<div class="first-step-order-select-field">
+										<select class="select-field" name="" id="">
+											<option value=""></option>
+											<option value="">Russia</option>
+											<option value="">Canada</option>
+											<option value="">United State</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<label class="form-label" for="">My city:</label>
+									<div class="first-step-order-select-field">
+										<select class="select-field" name="" id="">
+											<option value=""></option>
+											<option value="">Moscow</option>
+											<option value="">St. Petersburg</option>
+											<option value=""></option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="first-step-adress">
+								<div class="row">
+									<label class="mp-icon-point-a form-label" for=""></label>
+									<div class="form-field-wrapper">
+										<input class="input-field" type="text">
+									</div>
+								</div>
+								<div class="row">
+									<label class="mp-icon-point-b form-label" for=""></label>
+									<div class="form-field-wrapper">
+										<input class="input-field first-step-input" type="text">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<button class="btn width-1-1">Another destination</button>
+							</div>
+						</div>
+						<div class="first-step-time-date">
+							<div class="grid grid-medium">
+								<div class="first-step-time-legend">
+									<legend>Pick-up:</legend>
+								</div>
+								<div class="first-step-date">
+									<label for="">Date:</label>
+									<input class="input-field width-1-1" type="text" placeholder="mm/dd/yy">
+								</div>
+								<div class="first-step-time">
+									<div class="grid grid-small">
+										<div class="first-step-time-format">
+											<label for="">Format:</label>
+											<select class="select-field width-1-1" name="" id="">
+												<option value="">1</option>
+												<option value="">2</option>
+												<option value="">3</option>
+											</select>
+										</div>
+										<div class="first-step-timepicker">
+											<label for="">Time:</label>
+											<select class="select-field width-1-1" name="" id="">
+												<option value="">11:00</option>
+												<option value="">11:30</option>
+												<option value="">12:00</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="btn btn-danger btn-large width-1-1">Next ></button>
+						</div>
+					</div>
+
+					{# begin Map #} <!-- !!!!!!!!!!!!!!!!!!!!!!!!!! Карта будет только на лавной видна !!!!!!!!!!!!!!! -->
+					<div class="first-step-map">
+						<div class="route-map">
+							<img src="images/map.png" alt="">
+						</div>
+					</div>
+					{# end Map #}
+
+				</div>
+			{# end new step 1 #}
+
+            </div>
+        </div>
+        {% include 'DaVinciTaxiBundle:Home:filter_table.html.twig' %}
+    </div>
+{% endblock %}
