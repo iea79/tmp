@@ -19,3 +19,4 @@
 /web/uploads/
 /web/assetic/
 /.project
+/src/DaVinci/TaxiBundle/Resources/public/.sass-cache
