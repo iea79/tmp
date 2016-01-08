@@ -63,21 +63,21 @@
                             <ul id="my-id" class="uk-switcher">
                                 {% for category in categories %}
                                     <li>
-                                            {% set k = category %}
-                                            <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                                {% for faq in faqs %}
-                                                    {% if k == faq.category %}
-                                                            {# <div class="search_res"> #}
-                                                        <li class="uk-parent search_res">
-                                                                <a href="#">{{ faq.question }}</a>
-                                                                <ul class="uk-nav-sub">
-                                                                    <li>{{ faq.answer|raw }}</li>
-                                                                </ul>
-                                                        </li>
-                                                            {# </div> #}
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </ul>
+                                        <div class="search_res">
+                                                        {% set k = category %}
+                                                        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                                            {% for faq in faqs %}
+                                                                {% if k == faq.category %}
+                                                                    <li class="uk-parent">
+                                                                        <a href="#">{{ faq.question }}</a>
+                                                                        <ul class="uk-nav-sub">
+                                                                            <li>{{ faq.answer|raw }}</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </ul>
+                                        </div>
                                     </li>
                                 {% endfor %}
                             </ul>

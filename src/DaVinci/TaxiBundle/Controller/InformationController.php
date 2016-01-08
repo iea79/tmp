@@ -197,6 +197,53 @@ class InformationController extends StepsController
          );
     }    
 
+    // public function guidesAction($category, $subCategory)
+    // {
+    // 	$trigger = ($category == 'passenger');
+        
+    //     $dm = $this->get('doctrine_phpcr')->getManager();
+    //     $faqs = $dm
+    //                 ->getRepository('DaVinciTaxiBundle:FaqEntry')
+    //                 ->findForPassenger($trigger);
+        
+    //     $defaultCategory = $dm
+    //                             ->getRepository('DaVinciTaxiBundle:Category')
+    //                             ->findOneBy(array());
+        
+    //     $categories = $dm
+    //                     ->getRepository('DaVinciTaxiBundle:Category')
+    //                     ->findAll();
+        
+    //     if (!is_null($defaultCategory)) {
+    //         $filter = ('default' == $subCategory) 
+    //             ? $defaultCategory->getId()
+    //             : unserialize(urldecode($subCategory));
+
+    //         $guides = $dm
+    //                     ->getRepository('DaVinciTaxiBundle:GuidesPage')
+    //                     ->findFiltered($trigger, $filter);
+    //         $otherGuides = $dm
+    //                     ->getRepository('DaVinciTaxiBundle:GuidesPage')
+    //                     ->findFiltered(!$trigger, $filter);
+    //     } else {
+    //         $guides = $dm
+    //                     ->getRepository('DaVinciTaxiBundle:GuidesPage')
+    //                     ->findForPassenger($trigger);
+    //         $otherGuides = array();
+    //     }
+            
+    // 	return $this->render(
+    //         'DaVinciTaxiBundle:Information:guides.html.twig',
+    //         array(
+    //             'faqs' => $faqs,
+    //             'guides' => $guides,
+    //             'category' => $category,
+    //             'otherGuides' => $otherGuides,
+    //             'categories' => $categories
+    //         )
+    // 	);
+    // }
+
     public function guidesAction($category, $subCategory)
     {
         $trigger = ($category == 'passenger');
@@ -228,7 +275,6 @@ class InformationController extends StepsController
             )
         );
     }
-    
     public function guideAction($contentId)
     {
     	$id = unserialize(urldecode($contentId));

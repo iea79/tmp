@@ -1,5 +1,5 @@
 {% extends 'DaVinciTaxiBundle::base.html.twig' %}
-{% block theme 'instructions' %}
+{% block theme 'help faq-list' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
 {% endblock %}
@@ -9,16 +9,22 @@
             <div class="uk-panel uk-width-1-2{% if category == 'passenger' %} uk-active{% endif %}">
                 <button class="uk-width-1-1 uk-button" onclick="location.href = '{{ path('guides', {'category': 'passenger'}) }}'">
                     <i class="mp-icon-person"></i>
-                    {{ 'Passenger help'|trans }}
+                    {{ 'Passenger'|trans }}
                 </button>
             </div>
             <div class="uk-panel uk-width-1-2{% if category == 'driver' %} uk-active{% endif %}">
                 <button class="uk-width-1-1 uk-button" onclick="location.href = '{{ path('guides', {'category': 'driver'}) }}'">
                     <i class="mp-icon-taxi"></i>
-                    {{ 'Driver help'|trans}}
+                    {{ 'Driver'|trans}}
                 </button>
             </div>
         </div>
+
+        {# <div class="message"> #}
+            {#
+            <span class="uk-text-danger">{{'Внимание!'|trans}}</span> {{'Не забывайте подтвердить вашу готовность выполнить заказ.'|trans}}
+            #}
+        {# </div> #}
 
 {# ============= Search ===================== #}
         <div class="search">
@@ -26,70 +32,73 @@
                 <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
             </form>
         </div>
-
         <ul id="help" class="uk-switcher">
             <li class="uk-active">
                 <div class="block-help">
                     <div class="help-content">
-{# ================== Category ================== #}
-<div class="buttom-swicher">
-    <!-- This is the container of the toggling elements -->
-    <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
-        {% if category == 'passenger' %}
-            {% for category in categories %}
-                <li>
-                    <a href="">{{ category.title }}</a>
-                </li>
-            {% endfor %}
-        {% endif %}
-        {% if category == 'driver' %}
-            {% for category in categories %}
-                <li>
-                    <a href="">{{ category.title }}</a>
-                </li>
-            {% endfor %}
-        {% endif %}
-    </ul>
-</div>
-{# ================= Guides ===================== #}
-<div>
-    <ul id="my-id" class="uk-switcher">
-        {% for category in categories %}
-            <li>
-                    {% set k = category %}
-                    <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                        {% for guide in guides %}
-                            {% if k == guide.category %}
-                                    <li class="search_res">
-                                        <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
-                                    </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
-{# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
+                        {# ================== Category ================== #}
+                        <div class="buttom-swicher">
+                            <!-- This is the container of the toggling elements -->
+                            <ul class="uk-width-1-1" data-uk-switcher="{connect:'#my-id'}">
+                                {% if category == 'passenger' %}
+                                    {% for category in categories %}
+                                        <li>
+                                            <a href="">{{ category.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if category == 'driver' %}
+                                    {% for category in categories %}
+                                        <li>
+                                            <a href="">{{ category.title }}</a>
+                                        </li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </div>
+
+                        {# ================= Guides ===================== #}
+                        <ul id="my-id" class="uk-switcher">
+                            {% for category in categories %}
+                                <li>
+                                    {% set k = category %}
+                                    <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                        {% for guide in guides %}
+                                            {% if k == guide.category %}
+                                                    <li>
+                                                        <a href="{{ path('guide', {'contentId': guide}) }}">{{ guide.title }}</a>
+                                                    </li>
+{#                                                 <li class="uk-parent">
+                                                    <a href="#">{{ guide.question }}</a>
+                                                    <ul class="uk-nav-sub">
+                                                        <li>{{ faq.answer|raw }}</li>
+                                                    </ul>
+                                                </li> #}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {# <a href="" class="uk-button uk-width-1-1 see-all">{{'See all '|trans}}(28)</a> #}
                         <div class="support">
-                            <span>{{ "Can't find your answer here? Submit a support request."|trans }}</span>
-                            <a href="" class="uk-button uk-button-success">{{ 'GET TMP SUPPORT'|trans }}</a>
+                            <span>{{"Can\'t find your answer here? Submit a support request."|trans}}</span>
+                            <a href="#" class="uk-button uk-button-success">{{'GET TMP SUPPORT'|trans}}</a>
                         </div>
                     </div>
+
                     <div class="help-sidebar">
                         <ul class="uk-nav">
-                            <li class="head">
-                                <a href="{{ path('faqs') }}">{{ 'FAQs'|trans }}</a>
-                            </li>
+                            <li class="head"><a href="{{ path('faqs') }}">{{'FAQs'|trans}}</a></li>
                             {% for faq in faqs %}
                                 {% if loop.index < 6 %}
                                     <li>
-                                        <a href="{{ path('faqs') }}#{{ faq }}">{{ faq.question }}</a>
+                                        <a href="{{ path('faqs') }}">{{ faq.question }}</a>
                                     </li>
                                 {% endif %}
                             {% endfor %}
                             <li>
-                                <a class="uk-button uk-button-primary" href="{{ path('faqs') }}">{{ 'more questions'|trans }}</a>
+                                <a class="uk-button uk-button-primary" href="{{ path('faqs') }}">{{'more questions'|trans}}</a>
                             </li>
                         </ul>
                     </div>
@@ -101,10 +110,10 @@
 
 {% block javascripts %}
     {% javascripts filter='?requirejs'
-    '@DaVinciTaxiBundle/Resources/public/js/pages/help/guides.js'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/help/faq.js'
     %}
 
     {{ require_js_initialize({ 'main' : asset_url })}}
 
     {% endjavascripts %}
-{% endblock %}
+{% endblock %} 

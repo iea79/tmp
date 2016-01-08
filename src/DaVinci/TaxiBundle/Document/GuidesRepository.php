@@ -15,17 +15,24 @@ class GuidesRepository extends BaseDocumentRepository implements RepositoryIdInt
      * @param object $document
      * @return string
      */
+    // public function generateId($document, $parent = null)
+    // {
+    // 	if (!$document->getTitle()) {
+    // 		$sluged = self::PREFIX . date('j-m-y-h-i-s');
+    // 	} else {
+    // 		$sluged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
+    // 	}
+    	
+    // 	return '/cms' 
+				// . '/' . $parent 
+				// . '/' . $sluged;
+    // }
+
     public function generateId($document, $parent = null)
     {
-    	if (!$document->getTitle()) {
-    		$sluged = self::PREFIX . date('j-m-y-h-i-s');
-    	} else {
-    		$sluged = \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
-    	}
-    	
-    	return '/cms' 
-				. '/' . $parent 
-				. '/' . $sluged;
+        return '/cms'
+            . '/' . $parent
+            . '/' . \Cocur\Slugify\Slugify::create()->slugify($document->getTitle());
     }
     
     public function findPublished()
