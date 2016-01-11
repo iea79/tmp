@@ -106,7 +106,22 @@
 
 
 						<!-- Begin Line terms  -->
-                        <label class="uk-form-row term">{{ form_widget(form.terms)}} {{'form.iagreetotem'|trans({'%url%': '#'})|raw}}</label>
+                        <label class="uk-form-row term">{{ form_widget(form.terms)}} I have read and agree to the <a href='#TaC' data-uk-modal>Terms and Conditions</a> and the <a href='#PP' data-uk-modal>Privacy Policy</a>.</label>
+                            <div id="TaC" class="uk-modal">
+                                <div class="uk-modal-dialog">
+                                    <a href="" class="uk-modal-close uk-close"></a>
+                                    <h1>Headline</h1>
+                                    <p>Terms and Conditions.</p>
+                                </div>
+                            </div>                            
+                            <div id="PP" class="uk-modal">
+                                <div class="uk-modal-dialog">
+                                    <a href="" class="uk-modal-close uk-close"></a>
+                                    <h1>Headline</h1>
+                                    <p>Privacy Policy.</p>
+                                </div>
+                            </div>                        
+{#                         <label class="uk-form-row term">{{ form_widget(form.terms)}} {{'form.iagreetotem'|trans({'%url%': '#'})|raw}}</label> #}
                         {{form_errors(form.terms)}}
 						<!-- End  Line terms  -->
 
