@@ -160,4 +160,15 @@ services:
         calls:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/privacy']]
-            
+
+    davinci.taxi.admin.terms:
+        class: DaVinci\TaxiBundle\Admin\TermsAdmin
+        tags:
+            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Terms and Conditions" }
+        arguments:
+            - ''
+            - DaVinci\TaxiBundle\Document\Terms
+            - SonataAdminBundle:CRUD
+        calls:
+            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
+            - [setRootPath, ['/cms/terms']]            
