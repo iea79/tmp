@@ -1,4 +1,13 @@
-// Order steps =======================================================================
+// Universal styles
+.uk-text-contrast {
+	color: #fff;
+}
+
+.mp-spinner {
+	height: 100%;
+}
+
+// Order steps ==============================================================================
 .cars-class .uk-button {
 	left: 1.5%;
 }
@@ -7,7 +16,20 @@
     margin: 5px 0 5px 0px;
 }
 
-// Helps =============================================================================
+.destination .inputs .time .jq-selectbox__dropdown > ul {
+	max-height: 200px;
+	overflow: auto;
+}
+
+.destination .inputs .check-box input[type="checkbox"] {
+	vertical-align: middle;;
+}
+
+.destination .form-block-wrap.last {
+	display: none;
+}
+
+// Helps ====================================================================================
 .block-help .uk-nav li.head {
 	max-height: none;
 }
@@ -52,6 +74,27 @@
 	display: block;
 }
 
+.faq-list .block-help .uk-nav li .uk-nav-sub > li {
+	border: none;
+	margin: 0;
+	ol,ul {
+		li {
+			border: none;
+			padding: 5px;
+			margin: 0;
+		}
+	}
+	ol {
+		counter-reset: li;
+		li:before {
+			counter-increment: li;
+			// content: counter(li) '.';
+			margin-right: 5px;
+		}
+	}
+
+}
+
 .uk-nav-parent-icon > .uk-parent > a:after {
 	margin-right: -20px;
 	float: none;
@@ -60,7 +103,7 @@
 	top: 5px;
 }
 
-// Register =============================================================================
+// Register ==================================================================================
 
 .blockoffice ul {
 	margin-bottom: 26px;
@@ -81,7 +124,7 @@
 }
 
 
-// Banners =============================================================================
+// Banners ===================================================================================
 .wrapper-content.banner {
 	margin-top: 17px;
 }
@@ -190,4 +233,60 @@
 	.button-add {
 		max-width: 200px;
 	}
+}
+
+.pop-up .profile a.uk-form-password-toggle {
+	position: absolute;
+}
+
+.popup-head {
+	box-sizing: content-box;
+}
+
+.passenger .pop-up .profile {
+	width: 75%;
+}
+
+
+// Profit ===================================================================================
+.profit li .content .center ol {
+	margin-left: 0;
+	padding-left: 3%;
+}
+
+
+
+
+// Client panel =============================================================================
+.company-panel .uk-grid {
+	@extend %clear_a;
+}
+.client-account .clientid dl {
+	min-height: 52px;
+}
+.client-account .history {
+	width: 24%;
+	padding-right: 0;
+}
+@media (max-width: 999px){
+	.client-account .history {
+	    width: auto;
+	}
+}
+.client-account .offices-block .message {
+	margin: 0;
+	padding: 10px 0 8px;
+}
+
+.client-account .offices-block .message .uk-button {
+	margin-top: 0;
+}
+
+// Offcanvas ================================================================================
+.uk-nav-offcanvas > li > a {
+	position: relative;
+}
+
+.uk-nav-offcanvas ul.uk-nav-sub {
+	box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.4);
 }
