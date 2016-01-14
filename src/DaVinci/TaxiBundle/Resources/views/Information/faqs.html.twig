@@ -2,7 +2,8 @@
 {% block theme 'help faq-list' %}
 {% block title %}
     {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
-{% endblock%}
+{% endblock %}
+
 {% block body %}
 {# ======= Swicher button ========= #}
     <div class="shadow-main whitebg">
@@ -62,21 +63,21 @@
                             <ul id="my-id" class="uk-switcher">
                                 {% for category in categories %}
                                     <li>
-                        <div class="search_res">
-                                        {% set k = category %}
-                                        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
-                                            {% for faq in faqs %}
-                                                {% if k == faq.category %}
-                                                    <li class="uk-parent">
-                                                        <a href="#">{{ faq.question }}</a>
-                                                        <ul class="uk-nav-sub">
-                                                            <li>{{ faq.answer|raw }}</li>
+                                        <div class="search_res">
+                                                        {% set k = category %}
+                                                        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}">
+                                                            {% for faq in faqs %}
+                                                                {% if k == faq.category %}
+                                                                    <li class="uk-parent">
+                                                                        <a href="#">{{ faq.question }}</a>
+                                                                        <ul class="uk-nav-sub">
+                                                                            <li>{{ faq.answer|raw }}</li>
+                                                                        </ul>
+                                                                    </li>
+                                                                {% endif %}
+                                                            {% endfor %}
                                                         </ul>
-                                                    </li>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                        </div>
+                                        </div>
                                     </li>
                                 {% endfor %}
                             </ul>

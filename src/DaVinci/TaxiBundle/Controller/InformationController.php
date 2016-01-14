@@ -341,6 +341,17 @@ class InformationController extends StepsController
         );
     }
 
+    public function termsAction()
+    {
+        $dm = $this->get('doctrine_phpcr')->getManager();
+        $allTabs = $dm->getRepository('DaVinciTaxiBundle:Terms')->findAll();
+        
+        return $this->render(
+            'DaVinciTaxiBundle:Information:terms.html.twig',
+            array('all_tabs' => $allTabs)
+        );
+    }
+
     /**
      * @Route("/notifications/{section}", name="notifications", defaults={"section" = "all"})
      * @Security("has_role('ROLE_USER')")

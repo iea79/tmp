@@ -1,0 +1,83 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block theme 'terms' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle:Banners:banner1.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+<div class="shadow-main whitebg">
+
+    <div class="block-help">
+
+        <h3 class="privacy__title">{{ 'Terms and Conditions' |trans }}</h3>
+
+        {# begin left__sidebar #}
+        <div class="left__sidebar">
+            <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}"  data-uk-sticky="{boundary: true}">
+                    {% for at in all_tabs %}
+                        <li class="uk-parent left__sidebar_list search_res">
+                            <a href="#{{ at.title|slugify }}" class="left__sidebar_headline">{{ at.title }}</a>
+                        </li>
+                    {% endfor %}
+            {#  <li class="uk-parent left__sidebar_list">
+                    <a href="#" class="left__sidebar_headline">Hedline 2</a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                        <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                    </ul>
+                </li>
+                <li class="uk-parent left__sidebar_list">
+                    <a href="#" class="left__sidebar_headline">Hedline 3</a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                        <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                    </ul>
+                </li>
+                <li class="uk-parent left__sidebar_list">
+                    <a href="#" class="left__sidebar_headline">Hedline 4</a>
+                    <ul class="uk-nav-sub">
+                        <li><a href="#" class="left__sidebar_link">Item 1</a></li>
+                        <li><a href="#" class="left__sidebar_link">Item 2</a></li>
+                    </ul>
+                </li> #}
+            </ul>
+        </div>
+        {# end left__sidebar #}
+
+        {# begin privacy__content #}
+        <div class="privacy__content"> 
+
+        <div class="search">
+            <form class="uk-search" data-uk-search>
+                <input class="uk-search-field" type="search" id="filter" placeholder="{{ 'Search'|trans }}">
+            </form>
+        </div>
+
+        {% for at in all_tabs %}
+        <div class="search_res">
+            <h4 id="{{ at.title|slugify }}" class="privacy__title">{{ at.title }}</h4>
+            <div class="text">
+                  {{ at.textBlock|raw }}
+            </div>
+        </div>
+        {% endfor %}
+
+        </div>
+        {# end privacy__content #}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/help/privacy.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
