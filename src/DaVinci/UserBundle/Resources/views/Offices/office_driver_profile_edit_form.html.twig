@@ -1,104 +1,7 @@
-{# <a class="uk-modal-close uk-close"></a> #}
-{{ form_start(form, {'action': path('office_driver_profile'), 'attr': {'class': 'uk-form driver-profile-form'}}) }}
+<a class="uk-modal-close uk-close"></a>
 <div class="popup-head">{{'Edit your profile'|trans}}</div>
-<div class="uk-grid uk-grid-small driver-profile">
-    <div class="block-foto-rate">
-        <div class="uk-grid uk-grid-small">
-            <div class="block-foto">
-                <div class="clientreviews">
-                    <div class="photo">
-                        {% if app.user.independentDriver.vehicle is not null and app.user.independentDriver.vehicle.photo.path is defined %}
-                            <img src="{{ app.user.independentDriver.vehicle.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" id="avatar-image"/>
-                        {% else %}
-                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
-                        {% endif %}
-                    </div>
-                    {#<div class="rate">
-                        <p>{{'Rate this driver'|trans}}</p>
-                        <p>
-                            <a><i class="mp-icon-star uk-text-danger"></i></a>
-                            <a><i class="mp-icon-star uk-text-danger"></i></a>
-                            <a><i class="mp-icon-star uk-text-danger"></i></a>
-                            <a><i class="mp-icon-star uk-text-danger"></i></a>
-                            <a><i class="mp-icon-star uk-text-warning"></i></a>
-                        </p>
-                        <p><i class="mp-icon-person uk-text-warning"></i>217</p>
-                    </div>#}
-                </div>
-                <div class="uk-form-file uk-width-1-1">
-                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
-                    <input type="file">
-                </div>
-            </div>
-            {#
-            <div class="block-rate">
-                <div class="rate-review">
-                    <div class="uk-grid uk-grid-small uk-margin-small">
-                        <div class="uk-width-1-1 uk-margin-small">
-                            <div class="uk-width-1-1 uk-text-primary name">{{ app.user.firstname }} {{ app.user.lastname }}</div>
-                            <div class="uk-width-1-1 rate">
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-warning"></i></a>
-                                / 09.01.2014
-                            </div>
-                            <div class="uk-width-1-1 review">
-                                {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
-                            </div>
-                        </div>
-                        <div class="uk-width-1-1 uk-margin-small">
-                            <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
-                            <div class="uk-width-1-1 rate">
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                <a><i class="mp-icon-star uk-text-warning"></i></a>
-                                / 09.01.2014
-                            </div>
-                            <div class="uk-width-1-1 review">
-                                {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
-                            </div>
-                        </div>
-                        <div class="uk-hidden" id="review">
-                            <div class="uk-width-1-1 uk-margin-small">
-                                <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
-                                <div class="uk-width-1-1 rate">
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-warning"></i></a>
-                                    / 09.01.2014
-                                </div>
-                                <div class="uk-width-1-1 review">
-                                    {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
-                                </div>
-                            </div>
-                            <div class="uk-width-1-1 uk-margin-small">
-                                <div class="uk-width-1-1 uk-text-primary name">{{'Александр'|trans}} {{'Иванов'|trans}}</div>
-                                <div class="uk-width-1-1 rate">
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-danger"></i></a>
-                                    <a><i class="mp-icon-star uk-text-warning"></i></a>
-                                    / 09.01.2014
-                                </div>
-                                <div class="uk-width-1-1 review">
-                                    {{'Выполненной поездкой остались очень довольны. Как результатом так и процессом. Надеемся на дальнейшее сотрудничество.'|trans}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-width-1-1"><a class="uk-button button-add uk-margin-small-bottom"  data-uk-toggle="{target:'#review'}">{{'See all'|trans}} <font class="uk-text-warning">(28)</font></a></div>
-            </div>
-            #}
-        </div>
-    </div>
+{{ form_start(form, {'action': path('office_driver_profile'), 'attr': {'class': 'uk-form driver-profile-form'}}) }}
+<div class="driver-profile">
     <div class="profile form-change select-group">
         <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
             <li class="uk-parent">
@@ -106,6 +9,25 @@
                     <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
                 </a>
                 <ul class="uk-nav-sub">
+                    <div class="block-foto-rate">
+                        <div class="uk-grid uk-grid-small">
+                            <div class="block-foto">
+                                <div class="clientreviews">
+                                    <div class="photo">
+                                        {% if app.user.photo.path is defined %}
+                                            <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" id="avatar-image" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
+                                        {% else %}
+                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="uk-form-file uk-width-1-1">
+                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <li>
                         <div class="personal-info">
                             <dl class="uk-width-1-1 uk-margin-bottom">
@@ -229,6 +151,26 @@
                     <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
                 </a>
                 <ul class="uk-nav-sub">
+                    <div class="block-foto-rate">
+                        <div class="uk-grid uk-grid-small">
+                            <div class="block-foto">
+                                <div class="clientreviews">
+                                    <div class="photo">
+                                        {% if app.user.independentDriver.vehicle is not null and app.user.independentDriver.vehicle.photo.path is defined %}
+                                            <img src="{{ app.user.independentDriver.vehicle.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" id="avatar-image"/>
+                                        {% else %}
+                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="uk-form-file uk-width-1-1">
+                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Car Photo'|trans }}</button>
+                                    {{ form_widget(form.vehicle.photo, {'attr':{'tabindex':'24'} }) }}
+                                    {{ form_errors(form.vehicle.photo) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <li>
                         <div class="car-info">
                             <dl>
@@ -286,7 +228,7 @@
                                         </div>
                                     </div>
                                 </dd></dt>
-                                <dt> Photo: </dt>
+                                {#<dt> Photo: </dt>
                                 <dd>
                                     <div class="uk-margin-small-bottom uk-margin-small-top">
                                         <div class="uk-form-file uk-width-1-1 uk-float-left">
@@ -295,7 +237,7 @@
                                              {{ form_errors(form.vehicle.photo) }}
                                         </div>
                                     </div>
-                                </dd>
+                                </dd>#}
                                 <dt class="example">{{'Short description:'|trans}}<br><a href="#" id="about_vehicle_example">{{'example'|trans}}</a></dt>
                                 <dd>
                                     {% set example_vehicle = 'The goal of the about:me page is to give you a more interesting view of statistics about your browser usage. The current version includes graphs that illustrate trends in your browsing.'|trans %}
@@ -313,18 +255,43 @@
                 </ul>
             </li>
         </ul>
-        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+        {#<ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
             <li class="uk-parent uk-active">
-                <a class="popup-head uk-button inbox" href="#">{{'Insurance'|trans}}
+                <a class="popup-head uk-button inbox" href="#">{{'My licenses'|trans}}
                     <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Getting the right cover is essential{% endtrans %}"></span>
                 </a>
                 <ul class="uk-nav-sub">
                     <li>
                         <div class="insurance">
-                            {{ form_widget(form.insuranceAccepted,
+                            <!-- { form_widget(form.insuranceAccepted,
                             {'attr':{'tabindex':'26','class': 'uk-float-left uk-margin-small-right'}}) }}
                             {{ form_errors(form.insuranceAccepted) }}
-                            {{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans}}
+                            {{'You or/as any of other passengers are automatically insured during the transportation. Insurance plan covers all body injures.'|trans} -->
+                            <div class="uk-form-row">
+                                <div class="photo-licens">
+                                    <a href="#" class="mp-icon-closed"></a>
+                                    <img src="{{ asset('bundles/davincitaxi/images/profile-photo2x.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="uk-form-row">
+                                <div class="uk-form-file uk-width-1-1">
+                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Photo'|trans }}</button>
+                                    <input type="file">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>#}
+        <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+            <li class="uk-parent uk-active">
+                <a class="popup-head uk-button inbox" href="#">{{'Reviews'|trans}}
+                    <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Reviews about driver{% endtrans %}"></span>
+                </a>
+                <ul class="uk-nav-sub">
+                    <li>
+                        <div class="Reviews">
                         </div>
                     </li>
                 </ul>

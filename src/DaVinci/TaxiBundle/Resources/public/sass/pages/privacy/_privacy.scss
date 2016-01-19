@@ -1,14 +1,39 @@
-.privacy__content {
-	.search {
-		height: 60px;
-		padding-top: 13px;
-		margin-bottom: 15px;
+.privacy {
+	.left__sidebar {
+		// max-width: 200px;
+		// width: 100%;
+		position: relative;
+		overflow: hidden;
+		@extend %clear_a;
+	}
+	.privacy__content {
+		display: table-cell;
+		vertical-align: top;
+		padding-left: 20px;
+		.privacy__title {
+			margin-bottom: 15px;
+			padding-bottom: 4px;
+			border-bottom: 1px solid #8D8F98;
+			border: none;
+			color: #ff4d61;
+		}
+		.search {
+			height: 60px;
+			padding-top: 13px;
+			margin: 0;
+			margin-bottom: 15px;
+		}
 	}
 }
 
-.left__sidebar {
-	max-width: 200px;
-	float: left;
-	width: 100%;
-	position: relative;
+@media (max-width: 600px) {
+	.privacy {
+		.left__sidebar {
+			display: none;
+		}
+		.privacy__content {
+			display: block;
+			padding-left: 0;
+		}
+	}
 }

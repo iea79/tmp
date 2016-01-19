@@ -1,4 +1,13 @@
-// Order steps =======================================================================
+// Universal styles
+.uk-text-contrast {
+	color: #fff;
+}
+
+.mp-spinner {
+	height: 100%;
+}
+
+// Order steps ==============================================================================
 .cars-class .uk-button {
 	left: 1.5%;
 }
@@ -7,7 +16,20 @@
     margin: 5px 0 5px 0px;
 }
 
-// Helps =============================================================================
+.destination .inputs .time .jq-selectbox__dropdown > ul {
+	max-height: 200px;
+	overflow: auto;
+}
+
+.destination .inputs .check-box input[type="checkbox"] {
+	vertical-align: middle;;
+}
+
+.destination .form-block-wrap.last {
+	display: none;
+}
+
+// Helps ====================================================================================
 .block-help .uk-nav li.head {
 	max-height: none;
 }
@@ -52,6 +74,27 @@
 	display: block;
 }
 
+.faq-list .block-help .uk-nav li .uk-nav-sub > li {
+	border: none;
+	margin: 0;
+	ol,ul {
+		li {
+			border: none;
+			padding: 5px;
+			margin: 0;
+		}
+	}
+	ol {
+		counter-reset: li;
+		li:before {
+			counter-increment: li;
+			// content: counter(li) '.';
+			margin-right: 5px;
+		}
+	}
+
+}
+
 .uk-nav-parent-icon > .uk-parent > a:after {
 	margin-right: -20px;
 	float: none;
@@ -60,5 +103,188 @@
 	top: 5px;
 }
 
+// Register ==================================================================================
+
+.blockoffice ul {
+	margin-bottom: 26px;
+	min-height: 110px;
+	box-sizing: border-box;
+}
+
+.blockoffice li {
+	margin: 0;
+	width: 100%;
+	font-size: 13px;
+	line-height: 1;
+}
+
+.register .uk-form-horizontal .uk-width-1-1 {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 
 
+// Banners ===================================================================================
+.wrapper-content.banner {
+	margin-top: 17px;
+}
+
+
+// Pop-up driver =============================================================================
+.pop-up .profile a {
+	position: relative;
+}
+
+.driver-office .uk-modal-dialog > .popup-head {
+	box-sizing: content-box;;
+}
+
+.block-foto-rate {
+	float: left;
+}
+
+.block-foto-rate + * {
+	overflow: hidden;
+	text-align: left;
+	display: block;
+}
+
+.pop-up .profile .example a {
+	@extend %clear_all;
+	display: inline-block;
+}
+
+@media (max-width: 710px) {
+	.profile.form-change .block-foto-rate {
+		padding-right: 15px;
+	    width: 30%;
+	    margin-right: 0px;
+	}
+	.pop-up .block-foto {
+	    width: 100%;
+	    text-align: left;
+	    .uk-form-file {
+	    	max-width: 160px;
+	    }
+	}
+	.block-foto-rate + * {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.pop-up .profile.form-change .block-foto-rate {
+		float: none;
+		width: auto;
+	}
+	.pop-up .form-change .personal-info {
+		width: 100%;
+	}
+	.driver-office .profile.form-change dt {
+		width: 100%;
+	}
+}
+
+.pop-up .form-change {
+	dt,dd {
+		text-align: left;
+		line-height: 1;
+	}
+}
+
+.pop-up .profile.form-change {
+	width: 100%;
+	margin-left: 1%;
+	box-sizing: border-box;
+}
+
+.pop-up .button-add {
+	line-height: 1.2;
+	padding: 7px 15px 8px;
+}
+
+.pop-up .form-change .insurance {
+	text-align: left;
+	display: block;
+	.photo-licens {
+		position: relative;
+		width: 120px;
+		padding-bottom: 130px;
+		overflow: hidden;
+		display: inline-block;
+		border: 3px solid #ebebeb;
+		border-radius: 5px;
+		img {
+			position: absolute;
+			width: 100%;
+			min-height: 100%;
+			z-index: -1;
+		}
+		.mp-icon-closed {
+			position: absolute;
+			right: 1px;
+			z-index: 1;
+			color: #ff4d61;
+			width: 15px;
+			height: 15px;
+			display: block;
+			top: 1px;
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	.button-add {
+		max-width: 200px;
+	}
+}
+
+.pop-up .profile a.uk-form-password-toggle {
+	position: absolute;
+}
+
+.popup-head {
+	box-sizing: content-box;
+}
+
+
+// Profit ===================================================================================
+.profit li .content .center ol {
+	margin-left: 0;
+	padding-left: 3%;
+}
+
+
+// Client panel =============================================================================
+.company-panel .uk-grid {
+	@extend %clear_a;
+}
+.client-account .clientid dl {
+	min-height: 52px;
+}
+.client-account .history {
+	width: 24%;
+	padding-right: 0;
+}
+@media (max-width: 999px){
+	.client-account .history {
+	    width: auto;
+	}
+}
+.client-account .offices-block .message {
+	margin: 0;
+	padding: 10px 0 8px;
+}
+
+.client-account .offices-block .message .uk-button {
+	margin-top: 0;
+}
+
+// Offcanvas ================================================================================
+.uk-nav-offcanvas > li > a {
+	position: relative;
+}
+
+.uk-nav-offcanvas ul.uk-nav-sub {
+	box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.4);
+}

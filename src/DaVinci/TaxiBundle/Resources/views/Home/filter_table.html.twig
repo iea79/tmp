@@ -120,7 +120,7 @@
                         {% set pickUp = request.getPickUp() %}
                         {% set vehicle = request.getVehicle() %}
                         <tr class="table-cont">
-                            <td><span class="blue-bg">${{ vehicle.vehicle_class() }}</span></td>
+                            <td><span class="blue-bg">${#{ vehicle.vehicle_class() }#}</span></td>
                             <!-- <td><span class="blue-bg">{{ loop.index }}</span></td> -->
                             <td><strong>{{ pickUp.format('d M Y') }}</strong><br/> {{ pickUp.format('H:i') }}</td>
                             <td><a href="#route_filter_{{ request.id }}" data-uk-modal>{% for routePoint in request.routePoints %} {{ routePoint.place }}{% if not loop.last %} <i class="mp-icon-arrow-right"></i> {% endif %}{% endfor %}</a></td>

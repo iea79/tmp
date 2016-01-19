@@ -274,7 +274,7 @@ class InformationController extends StepsController
                 'categories' => $categories
             )
         );
-    }
+    }   
     public function guideAction($contentId)
     {
     	$id = unserialize(urldecode($contentId));

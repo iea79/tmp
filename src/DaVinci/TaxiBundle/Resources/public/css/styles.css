@@ -781,7 +781,7 @@ home
 	font-weight: bold;
 	overflow: hidden;
 	position: relative;
-	top: -25px;
+	top: -40px;
 	z-index: -1;
 	white-space: nowrap;
 	margin-bottom: 0;;
@@ -2377,6 +2377,9 @@ style dropdown block
     overflow: hidden;
 	margin-bottom: 0 !important;
 }
+.driver-top img {
+	max-width: 48px;
+}
 .driver-top div {
     float: left;
 }
@@ -2385,6 +2388,9 @@ style dropdown block
 }
 .driver-top .vehicle {
     width: 37%;
+}
+.driver-top .vehicle img {
+    max-width: 118px;
 }
 .passanger-pay .y-no {
 	width: 100%;
@@ -2521,10 +2527,10 @@ style dropdown block
 		 background-color:#c91032 !important;
 		 color: #fff !important;
     }
-    .y-no button:last-child {
+    .y-no button:last-of-type {
 		 background-color:#8d8f98 !important;
     }
-    .y-no button:last-child:focus, .y-no button:last-child:hover {
+    .y-no button:last-of-type:focus, .y-no button:last-of-type:hover {
 		 background-color:#adafa8 !important;
 		 color: #fff !important;
     }
@@ -3091,8 +3097,14 @@ footer {
 	margin-top: 1px;
 }
 .passenger .pop-up .profile {
-	width: 71%;
-	padding-left: 16px;
+	width: 100%;
+	padding-left: 0px;
+}
+.passenger .pop-up .profile .popup-head.inbox {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 @media (max-width:710px) {
 	.passenger .pop-up .profile {
@@ -3237,7 +3249,7 @@ footer {
 }
 .pop-up .form-change .myid dt,
 .pop-up .form-change .myid dd {
-    margin-top: 10px;
+    margin-top: 14px;
     margin-bottom: -6px;
 }
 .pop-up .driver-profile {
@@ -3291,8 +3303,7 @@ footer {
 }
 /* === pop-up form-view === */
 .profile.form-view {
-    padding-left: 16px !important;
-    width: 71%;
+    width: 100%;
 }
 @media (max-width: 710px) {
 	.profile.form-view {
@@ -3431,7 +3442,7 @@ footer {
 	padding-bottom: 3px !important;
 }
 .pop-up .form-change .car-info {
-	margin-top: 7px;
+	margin-top: 14px;
 	margin-bottom: 0 !important;
 	display: inline-block;
 }
@@ -3663,6 +3674,9 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile dd {
 	width: 67%;
 }
+.pop-up .profile .jq-selectbox__select {
+	padding-left: 9px;
+}
 @media (max-width: 550px) {
 	.pop-up .profile dt {
 		width: 99%;
@@ -3747,6 +3761,9 @@ i.quest {
 	font-size:14px;
 	text-decoration: underline;
 	margin-bottom: 5px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 .pop-up .profile a:hover {
 	text-decoration: none;
@@ -3758,6 +3775,11 @@ i.quest {
 }
 .pop-up .profile .example-active{
     color:red;
+}
+.pop-up.route-modal .uk-modal-dialog .order-step-four,
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info {
+	text-align: left;
+	margin-top: 0px;
 }
 /* Dropdown for choice class auto */
 .class-auto {
@@ -3821,6 +3843,8 @@ i.quest {
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;
+    margin-top: 15px;
+    margin-right: 10px;
 }
 @media (max-width: 710px) {
 	.pop-up .block-foto-rate {
@@ -6376,7 +6400,7 @@ About
 	display: inline-block;
 	min-height: 50px;
 	width: 100%;
-	font-size: 24px;
+	font-size: 23px;
 	font-weight: 700;
 }
 .about h4 {
@@ -7749,7 +7773,7 @@ Notifications button in main menu
 	width: 42px;
 }
 .main-content .social .buttom-swicher li:nth-child(n+2) {
-	padding: 5px 0 5px 20px;
+	padding: 5px 0;
 	width: 45px;
 }
 .main-content .social .facebook,.main-content .social .twitter,.main-content .social .google,.main-content .social .youtube,.main-content .social .facebook {
@@ -7758,18 +7782,16 @@ Notifications button in main menu
 	padding: 0;
 	color: #fff !important;
 	font-size: 12px;
+	display: inline-block;
 }
 .main-content .social .google {
-	font-size: 10px;
+	font-size: 9px;
 	background: #ec6851 !important;
 	padding-top: 1px;
 }
 .main-content .social .youtube {
 	background: #eb2e1d !important;
 	margin-left: 0;
-}
-.main-content .social .youtube i {
-    -moz-box-sizing: border-box;
 }
 .main-content .social .youtube i:before {
 	font-family: FontAwesome;
@@ -7789,7 +7811,7 @@ Social page
     padding-left: 2%;
 }
 .social .soc-block {
-    width: 48%;
+    width: 50%;
     margin: 13px 0 7px;
 }
 .social .soc-block .text {
@@ -9815,6 +9837,14 @@ Payment window
 
 .driver-faq ol {
 	padding-left: 2%;
+	counter-reset: li;
+}
+
+.driver-faq ol li:before {
+	counter-increment: li;
+	content: counter(li) '.';
+	margin-right: 5px;
+	margin-left: -2%;
 }
 
 .driver-faq ol + p {
@@ -9865,30 +9895,6 @@ Payment window
 }
 
 
-/* privacy */
-.privacy {
-}
-
-.privacy__title {
-	margin-bottom: 15px;
-	padding-bottom: 4px;
-	border-bottom: 1px solid #8D8F98;
-}
-
-.privacy__content {
-	display: table-cell;
-	vertical-align: top;
-	padding-left: 20px;
-}
-
-.privacy__content .privacy__title {
-	border: none;
-	color: #ff4d61;
-}
-
-.privacy__content .search {
-	margin: 0;
-}
 
 
 
