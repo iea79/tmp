@@ -103,7 +103,20 @@
                         </ul>
                     </li>
                 </ul>
-                <a class="uk-button uk-button-primary button-skype" data-uk-tooltip="{pos:'right'}" title="{% trans %}Pay to get driver's contacts{% endtrans %}">{{ 'Skype + Phone'|trans }}</a>
+                <ul class="uk-nav uk-nav-parent-icon" data-uk-nav>
+                    <li class="uk-parent">
+                        <a class="popup-head uk-button inbox" href="#">{{ 'Driver contacts'|trans }}
+                            <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}All passengers can enjoy cover in  the event of an accident or accident related incidents{% endtrans %}"></span>
+                        </a>
+                        <ul class="uk-nav-sub">
+                            <li>
+                                <dl class="uk-width-1-1 contact-driver">
+                                    <dt></dt>
+                                </dl>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
