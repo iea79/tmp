@@ -156,7 +156,10 @@ driver:
 privacy:
     pattern:  /privacy
     defaults: { _controller: DaVinciTaxiBundle:Information:privacy }    
-    #options: { useAsInnerURL: true }
+
+terms:
+    pattern:  /terms
+    defaults: { _controller: DaVinciTaxiBundle:Information:terms }    
 
 order_step_1_new:
     pattern:  /order-step-one-new

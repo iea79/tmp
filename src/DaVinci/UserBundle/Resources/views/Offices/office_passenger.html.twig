@@ -142,13 +142,13 @@
 																	</div>
 																</div>
 															{% else %}
-																<button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}">
+																{# <button class="uk-button driverlist" data-uk-toggle="{target:'#driver-list{{ loop.index }}'}">
 																	<b>{{ 'List of drivers: '|trans }}{{ request.getPossibleDriversNumber() }}</b>
 																	<span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span>
-																</button>
+																</button> #}
 																<button class="uk-button driverlist"{% if request.getPossibleDriversNumber() == 0 %} disabled {% endif %}data-uk-toggle="{target:'#driver-list{{ loop.index }}'}">
 																	<b>{{ 'Drivers list: '|trans }}{{ request.getPossibleDriversNumber() }}</b>
-																	<span>{{ 'Hide drivers list: 1, 2,...'|trans }}</span>
+																	<span>{{ 'Hide drivers list'|trans }}</span>
 																</button>
 																<div class="hidden-driverinfo uk-panel uk-panel-box uk-hidden" id="driver-list{{ loop.index }}">
 																	{% for driver in request.getPossibleDrivers() %}
@@ -176,7 +176,7 @@
 																					</div>
 																					<div class="y-no">
 																						{% if request.stateValue == 'pending' %}
-																							<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'yes'|trans }}</button>
+																						<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'yes'|trans }}</button>
 																						{% endif %}	
 																						<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'no'|trans }}</button>
 																						<div id="result_{{ request.id }}"></div>

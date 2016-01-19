@@ -1,29 +1,29 @@
 <a class="uk-modal-close uk-close"></a>
 {{ form_start(form, {'action': path('office_passenger_profile'),'attr': {'class': 'uk-form passenger-profile-form'}}) }}
 <div class="popup-head">{{ 'Begin you profile'|trans }}</div>
-<div class="pop-up uk-grid uk-grid-small">
-    <div class="block-foto-rate">
-        <div class="clientreviews">
-            <div class="photo">
-                {% if app.user.photo.path is defined %}
-                    <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" id="avatar-image" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
-                {% else %}
-                    <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
-                {% endif %}
-            </div>
-            <div class="uk-form-file uk-width-1-1">
-                <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
-                {{ form_widget(form.photo) }}
-                {{ form_errors(form.photo) }}
-            </div>
-        </div>
-    </div>
+<div class="pop-up">
     <div class="profile">
         <button  class="popup-head uk-button inbox">
             {{ 'Personal information'|trans }}
             <span class="uk-icon-question-circle" data-uk-tooltip="{pos:'right'}" title="{% trans %}Write correct information{% endtrans %}"></span>
         </button>
-        <dl class="uk-width-1-1 uk-margin-bottom">
+        <div class="block-foto-rate">
+            <div class="clientreviews">
+                <div class="photo">
+                    {% if app.user.photo.path is defined %}
+                        <img src="{{ app.user.photo.path|imagine_filter('profile_avatar') }}" id="avatar-image" alt="{% if app.user %}{{ app.user.firstname }} {{ app.user.lastname }}{% endif %}" />
+                    {% else %}
+                        <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                    {% endif %}
+                </div>
+                <div class="uk-form-file uk-width-1-1">
+                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
+                    {{ form_widget(form.photo) }}
+                    {{ form_errors(form.photo) }}
+                </div>
+            </div>
+        </div>
+        <dl class="uk-margin-bottom">
             {{ form_errors(form) }}
             <div class="myid">
                 <dt>{{ 'My ID:'|trans }}</dt><dd>{{ app.user.id }} </dd><br />

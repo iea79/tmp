@@ -781,7 +781,7 @@ home
 	font-weight: bold;
 	overflow: hidden;
 	position: relative;
-	top: -25px;
+	top: -40px;
 	z-index: -1;
 	white-space: nowrap;
 	margin-bottom: 0;;
@@ -2377,6 +2377,9 @@ style dropdown block
     overflow: hidden;
 	margin-bottom: 0 !important;
 }
+.driver-top img {
+	max-width: 48px;
+}
 .driver-top div {
     float: left;
 }
@@ -2385,6 +2388,9 @@ style dropdown block
 }
 .driver-top .vehicle {
     width: 37%;
+}
+.driver-top .vehicle img {
+    max-width: 118px;
 }
 .passanger-pay .y-no {
 	width: 100%;
@@ -2521,10 +2527,10 @@ style dropdown block
 		 background-color:#c91032 !important;
 		 color: #fff !important;
     }
-    .y-no button:last-child {
+    .y-no button:last-of-type {
 		 background-color:#8d8f98 !important;
     }
-    .y-no button:last-child:focus, .y-no button:last-child:hover {
+    .y-no button:last-of-type:focus, .y-no button:last-of-type:hover {
 		 background-color:#adafa8 !important;
 		 color: #fff !important;
     }
@@ -3091,8 +3097,14 @@ footer {
 	margin-top: 1px;
 }
 .passenger .pop-up .profile {
-	width: 71%;
-	padding-left: 16px;
+	width: 100%;
+	padding-left: 0px;
+}
+.passenger .pop-up .profile .popup-head.inbox {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 @media (max-width:710px) {
 	.passenger .pop-up .profile {
@@ -3237,7 +3249,7 @@ footer {
 }
 .pop-up .form-change .myid dt,
 .pop-up .form-change .myid dd {
-    margin-top: 10px;
+    margin-top: 14px;
     margin-bottom: -6px;
 }
 .pop-up .driver-profile {
@@ -3291,8 +3303,7 @@ footer {
 }
 /* === pop-up form-view === */
 .profile.form-view {
-    padding-left: 16px !important;
-    width: 71%;
+    width: 100%;
 }
 @media (max-width: 710px) {
 	.profile.form-view {
@@ -3431,7 +3442,7 @@ footer {
 	padding-bottom: 3px !important;
 }
 .pop-up .form-change .car-info {
-	margin-top: 7px;
+	margin-top: 14px;
 	margin-bottom: 0 !important;
 	display: inline-block;
 }
@@ -3663,6 +3674,9 @@ div.pop-up.uk-grid.uk-grid-small {
 .pop-up .profile dd {
 	width: 67%;
 }
+.pop-up .profile .jq-selectbox__select {
+	padding-left: 9px;
+}
 @media (max-width: 550px) {
 	.pop-up .profile dt {
 		width: 99%;
@@ -3829,6 +3843,8 @@ i.quest {
 /*=========================Client foto====================*/
 .pop-up .block-foto-rate {
 	width: 25%;
+    margin-top: 15px;
+    margin-right: 10px;
 }
 @media (max-width: 710px) {
 	.pop-up .block-foto-rate {
