@@ -20,20 +20,20 @@ class TermsRepository extends BaseDocumentRepository implements RepositoryIdInte
 			. '/' . \Cocur\Slugify\Slugify::create()->slugify($document->getQuestion());
 	}
 	
-	public function findPublished()
-	{
-		return $this->findBy(
-			array('published' => true),
-			array('order' => 'asc')
-		);
-	}
+	// public function findPublished()
+	// {
+	// 	return $this->findBy(
+	// 		array('published' => true),
+	// 		array('order' => 'asc')
+	// 	);
+	// }
     
-    public function findForPassenger($trigger = true)
-    {
-    	return $this->findBy(
-    		array('published' => true, 'forPassenger' => $trigger), 
-    		array('order' => 'asc')
-    	);
-    }
+ //    public function findForPassenger($trigger = true)
+ //    {
+ //    	return $this->findBy(
+ //    		array('published' => true, 'forPassenger' => $trigger), 
+ //    		array('order' => 'asc')
+ //    	);
+ //    }
 		
 }
