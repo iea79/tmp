@@ -776,30 +776,86 @@ home
 	display: table;
 	clear: both;
 }
-.route-modal .popup-head {
-	text-overflow: ellipsis;
-	font-weight: bold;
-	overflow: hidden;
-	position: relative;
-	top: -40px;
-	z-index: -1;
-	white-space: nowrap;
-	margin-bottom: 0;;
+.route-modal .route__id {
+	text-align: left;
+	font-size: 18px;	
+}
+.route-modal .route__id span {
+	color: #528ED3;
+}
+.pop-up.route-modal #steps {
+	width: 100%;
+	padding: 7px;
+	border: 1px solid #ddd;
+	margin-top: 10px;
 }
 .pop-up.route-modal .uk-modal-dialog {
-	width: 1000px !important;
+	/*width: 1000px !important;*/
+	width: 650px !important;
+	/*width: 1000px !important;*/
+	padding: 15px 10px;
 }
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info {
+	padding-top: 0px;
+}
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info:after,
 .route-modal .route-map:before {
 	content: '';
 	display: table;
 	clear: both;
 }
-.route-modal .order-details .spec-request {
+.pop-up.route-modal .check-order h1.labels {
+	font-size: 16px;
+}
+.pop-up.route-modal h1.labels + hr {
+	margin: 0px 0 5px !important;
+}
+.pop-up.route-modal .check-order dl,
+.pop-up.route-modal .check-order .passenger-info .tariff dl, 
+.pop-up.route-modal .check-order .passenger-info .tariff dl {
+	display: block;
+	float: left;
+	width: 50%;
+	margin: 0;
+}
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info .wrap-left > div {
+	margin-bottom: 10px;
+}
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info .wrap-left > div:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.pop-up.route-modal .check-order .route-info {
+	margin-bottom: 6px;
+}
+.pop-up.route-modal .order-details .spec-request {
 	background-color: #f5f5f5 !important;
 	cursor: default;
 }
-.route-modal .check-order .personal dt,
-.route-modal .check-order .personal dd {
+.pop-up.route-modal .check-order dl dt,
+.pop-up.route-modal .check-order dl dd,
+.pop-up.route-modal .check-order .passenger-info .tariff dl dd, 
+.pop-up.route-modal .check-order .passenger-info .tariff dl dt,
+.pop-up.route-modal .check-order .passenger-info .vechicle dl dt,
+.pop-up.route-modal .check-order .passenger-info .vechicle dl dd {
+	margin-bottom: 3px !important;
+	font-size: 14px;
+	width: initial !important;
+	line-height: 1.3;
+	vertical-align: baseline;
+}
+.pop-up.route-modal .check-order .passenger-info .vechicle dl dt {
+	line-height: 1.4;
+}
+.pop-up.route-modal .check-order .passenger-info .tariff {
+	margin-bottom: 10px;
+}
+.pop-up.route-modal .check-order .passenger-info .vechicle dl i {
+	font-size: 14px;
+}
+.pop-up.route-modal .check-order .passenger-info .vechicle {
+	margin-bottom: 15px;
 }
 .route-modal .order-details-over.disloc {
 	padding-top: 0;
@@ -2572,7 +2628,7 @@ footer {
 		
 	}
 		.footer-top .footer-in .add-nav {
-			width: 50%;
+			width: 52%;
 			float:left;
 		}
 			.footer-top .footer-in .add-nav ul {
@@ -3092,6 +3148,11 @@ footer {
 /* === Main pop-up style === */
 .pop-up .uk-modal-dialog {
 	width: 690px !important;
+}
+.pop-up .uk-modal-dialog>.uk-close:first-child {
+	position: absolute;
+	top: 20px;
+	right: 20px;
 }
 .uk-modal-dialog.passenger {
 	margin-top: 1px;
