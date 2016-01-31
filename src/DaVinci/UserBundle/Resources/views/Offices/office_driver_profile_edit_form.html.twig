@@ -24,6 +24,8 @@
                                 <div class="uk-form-file uk-width-1-1">
                                     <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
                                     <input type="file">
+                                    {#{ form_widget(form.photo) }}
+                                    {{ form_errors(form.photo) } Добавление фото. Брал из офиса пасажира, здесь не работает#}
                                 </div>
                             </div>
                         </div>

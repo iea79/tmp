@@ -530,7 +530,7 @@ off canvas menu
 	min-height: 100%;
 	height: auto !important;
 	overflow: hidden;
-	min-width: 320px;
+	min-width: 305px;
 }
 .main-content {
 	max-width: 1000px;
@@ -797,6 +797,7 @@ home
 }
 .pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info {
 	padding-top: 0px;
+	padding-bottom: 0;
 }
 .pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info:after,
 .route-modal .route-map:before {
@@ -812,7 +813,9 @@ home
 }
 .pop-up.route-modal .check-order dl,
 .pop-up.route-modal .check-order .passenger-info .tariff dl, 
-.pop-up.route-modal .check-order .passenger-info .tariff dl {
+.pop-up.route-modal .check-order .passenger-info .tariff dl,
+.pop-up.route-modal .check-order .passenger-info .vechicle dl,
+.pop-up.route-modal .order-details .dl  {
 	display: block;
 	float: left;
 	width: 50%;
@@ -821,7 +824,8 @@ home
 .pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info .wrap-left > div {
 	margin-bottom: 10px;
 }
-.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info .wrap-left > div:after {
+.pop-up.route-modal .uk-modal-dialog .order-step-four .passenger-info .wrap-left > div:after,
+.pop-up.route-modal .order-details:after {
 	content: '';
 	display: table;
 	clear: both;
@@ -831,19 +835,48 @@ home
 }
 .pop-up.route-modal .order-details .spec-request {
 	background-color: #f5f5f5 !important;
-	cursor: default;
+	position: relative;
 }
 .pop-up.route-modal .check-order dl dt,
 .pop-up.route-modal .check-order dl dd,
 .pop-up.route-modal .check-order .passenger-info .tariff dl dd, 
 .pop-up.route-modal .check-order .passenger-info .tariff dl dt,
 .pop-up.route-modal .check-order .passenger-info .vechicle dl dt,
-.pop-up.route-modal .check-order .passenger-info .vechicle dl dd {
+.pop-up.route-modal .check-order .passenger-info .vechicle dl dd,
+.pop-up.route-modal .order-details .dt,
+.pop-up.route-modal .order-details .dd {
 	margin-bottom: 3px !important;
 	font-size: 14px;
 	width: initial !important;
 	line-height: 1.3;
 	vertical-align: baseline;
+}
+.pop-up.route-modal .check-order .uk-icon-check {
+	margin-left: 0;
+	margin-right: 10px;
+	vertical-align: baseline;
+}
+.pop-up.route-modal ul.uk-nav-sub:after,
+.pop-up.route-modal .check-order dl:after {
+	content: '';
+	display: table;
+	clear: both;
+}
+.pop-up.route-modal .order-details .spec-request {
+	position: relative;
+	min-height: 24px;
+	line-height: 24px;
+}
+.pop-up.route-modal .order-details .spec-request + div > ul {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.pop-up.route-modal .order-details .more-details .message,
+.pop-up.route-modal .message {
+	margin-top: 0;
+	margin-bottom: 8px;
+	font-size: 15px;
+	padding: 0;
 }
 .pop-up.route-modal .check-order .passenger-info .vechicle dl dt {
 	line-height: 1.4;
@@ -862,10 +895,63 @@ home
 	width: 50%;
 	float: right;
 }
+.pop-up.route-modal #calculate_route {
+	margin-top: 10px;
+}
 @media (max-width: 760px) {
 	.route-modal .order-details-over.disloc {
 		float: none !important;
 		width: 100% !important;
+	}
+}
+.pop-up.route-modal .photo {
+	width: 200px;
+	float: left;
+	margin-right: 10px;
+}
+.pop-up.route-modal .personal {
+	overflow: hidden;
+}
+.pop-up.route-modal .personal dl {
+	width: 100%;
+}
+.pop-up.route-modal .personal dt {
+	padding-right: 5px;
+}
+@media (max-width: 480px) {
+	.pop-up.route-modal .order-details .spec-request {
+		font-size: 14px;
+	}
+	.pop-up.route-modal .check-order .uk-icon-check {
+		font-size: 16px;
+	}
+	.pop-up.route-modal .check-order dl,
+	.pop-up.route-modal .check-order .passenger-info .tariff dl, 
+	.pop-up.route-modal .check-order .passenger-info .vechicle dl {
+		width: 100%;
+	}
+	.pop-up.route-modal .photo {
+		margin-bottom: 10px;
+	}
+	.pop-up.route-modal .personal {
+		width: 100%;
+		overflow: auto;
+		margin-top: 10px;
+	}
+	.pop-up.route-modal #route_result > div {
+		margin-top: 5px;
+	}
+	.pop-up.route-modal #route_result > div > * {
+		vertical-align: middle;
+		padding-right: 5px;
+	}
+	.pop-up.route-modal #route_result i {
+		padding-left: 0;
+		font-size: 16px;
+	}
+	.pop-up.route-modal #route_result span {
+		font-size: 14px;
+		line-height: 1;
 	}
 }
 .route-modal .disloc.bottom {
@@ -2546,6 +2632,7 @@ style dropdown block
 		 font-weight: bold;
 		 line-height: 16px;
 		 margin-bottom: 8px;
+		 text-transform: capitalize;
     }
     .vehicle span {
 		 color: #3c3d45;
