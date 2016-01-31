@@ -35,7 +35,7 @@ class TermsAdmin extends Admin{
     
     public function prePersist($document)
     {
-        $parent = $this->getModelManager()->find(null, '/cms/ter');
+        $parent = $this->getModelManager()->find(null, '/cms/terms');
         $document->setParentDocument($parent);
     }
 

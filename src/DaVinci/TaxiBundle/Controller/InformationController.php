@@ -339,6 +339,7 @@ class InformationController extends StepsController
             'DaVinciTaxiBundle:Information:privacy.html.twig',
             array('all_tabs' => $allTabs)
         );
+
     }
 
     public function termsAction()
