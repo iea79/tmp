@@ -20,7 +20,7 @@ class payGnetAPIcaller
     const TRANSFER_FUNDS = 4;
     const DEPOSITE_FUNDS = 5;
     
-    const baseURL = 'http://payment.mmastarter.com';
+    const baseURL = 'http://payment.taximyprice.dev';
     
     // make payment
     const paymentURI = '/gateway/payment';

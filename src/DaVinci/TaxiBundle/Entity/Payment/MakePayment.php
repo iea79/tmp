@@ -39,7 +39,7 @@ class MakePayment
 	/**
 	 * @ORM\Column(type="float")
 	 */
-	private $amount = 0.00;
+	private $amount = 1000.00;
 	
 	/**
 	 * @ORM\Column(type="string", length=3)
