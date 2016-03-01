@@ -6,66 +6,9 @@
 {% block body %}
 {# ========= Account start ============= #}
 <div class="client-account">
-		<div class="shadow-main whitebg company-panel">
-			<div class="uk-grid uk-grid-small client-panel-list block-help">
-			{# block1 #}
-				<div class="clientid">
-                    <a id="open-profile-button" class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
-					<dl>
-						<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ driver.user.id }}</dd>
-						<dt>{{'Name:'|trans}}</dt><dd class="data">{{ driver.user.firstname }} {{ driver.user.lastname }}</dd>
-					</dl>
-				</div>
-			{# block2 #}
-				<div class="offices-block">
-					<div class="button-choose">
-						<div class="choose-office select-group">
-							<label>{{'Office:'|trans}}</label>
-                            <select id="switch_office">
-                                <option value="{{ path('office_passenger') }}">{{ 'Office Passenger'|trans }}</option>
-                                <option value="{{ path('office_driver') }}" class="active-office" selected="selected">{{ 'Office Independent driver'|trans }}</option>
-                            </select>
-                        	<button id="activate_switch_office" class="uk-button uk-button-success">{{'Switch'|trans}}</button>
-						</div>
-						<div class="buttons-office">
-                            <a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-success">Get new office</a>
-							<a class="uk-button uk-button-primary">{{'My office'|trans}}</a>
-						</div>
-					</div>
-					<div class="message">
-						<div class="text">
-							<span>{{'Внимание!'|trans}}</span>17 Mar 2015 заканчивается срок действия мембершипа “Оптимальный”
-						</div>
-						<a class="uk-button uk-button-danger">{{'Extend'|trans}}</a>
-					</div>
-				</div>
-			{# block3 #}
-				<div class="money-block">
-					<div class="history">
-						<span>{{'History:'|trans}}</span>
-						<a class="uk-button uk-button-primary">TMP</a>
-						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
-						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
-					</div>
-					<div class="balance">
-						<span>{{'Balance:'|trans}}</span>
-						<a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
-						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
-						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
-					</div>
-					<div class="money">
-						<dl>
-							<dt>{{'Main:'|trans}}</dt>
-							<dd>$0.00</dd>
-						</dl>
-						<dl>
-							<dt>{{'Business:'|trans}}</dt>
-							<dd>$0.00</dd>
-						</dl>
-					</div>
-				</div>
-			</div>
-		</div>
+
+    {% include 'DaVinciUserBundle:Offices:account_financial_panel.html.twig' %}
+
 {# ======= Independent-driver table ========= #}
 <div class="wrapper-content">
     <div class="shadow-main">
