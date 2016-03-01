@@ -89,6 +89,11 @@ class User extends BaseUser
      * @ORM\Column(type="integer", name="remote_id", nullable=true)
      */
     protected $remoteId;
+
+    /**
+     * @ORM\Column(type="decimal", name="fakemoney", nullable=true)
+     */
+    protected $fakeMoney;
     
     /**
      * Constructor
@@ -329,7 +334,30 @@ class User extends BaseUser
     {
     	return $this->remoteId;
     }
+
+    /**
+     * Set fakeMoney
+     * 
+     * @param int $fakeMoney
+     * @return \DaVinci\TaxiBundle\Entity\User
+     */
+    public function setfakeMoney($fakeMoney)
+    {
+        $this->fakeMoney = $fakeMoney;
         
+        return $this;
+    }
+    
+    /**
+     * Get fakeMoney
+     * 
+     * @return int
+     */
+    public function getfakeMoney()
+    {
+        return $this->fakeMoney;
+    }  
+          
     // override fosuser function
     public function setPlainPassword($password)
     {

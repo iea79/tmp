@@ -90,6 +90,14 @@ class UserAdmin extends SonataUserAdmin {
 						->end()
 					->end()
             ;
+
+            $formMapper
+                    ->tab('Payment')
+                        ->with('Fake Money')
+							->add('fakeMoney', null, array('required' => false,'label' => 'Count'))
+                        ->end()
+                    ->end()
+            ;
         }
 
         $formMapper
