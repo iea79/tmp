@@ -10,11 +10,18 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
  * @ORM\Entity
  * @FileStore\Uploadable
  */
+
 class User extends BaseUser
 {
-	
-    private $timeToUpdatePassword = 7889231; //3 months
+
+    public $curentMoney = '100000.00';     // Current Money in business - must reales from DB
+
+    private function getBisnesMoney()
+    {
+
+    }
     
+    private $timeToUpdatePassword = 7889231; //3 months
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -341,10 +348,16 @@ class User extends BaseUser
      * @param int $fakeMoney
      * @return \DaVinci\TaxiBundle\Entity\User
      */
-    public function setfakeMoney($fakeMoney)
+    public function setFakeMoney($fakeMoney)
     {
+        $bisnesMoney = $this->curentMoney;
+        $afterOperationMoney = $bisnesMoney - $fakeMoney;  // Money after operation
+
+        /*#V******************
+        kod to    update DB after operation
+        ********************/
+
         $this->fakeMoney = $fakeMoney;
-        
         return $this;
     }
     
@@ -353,7 +366,7 @@ class User extends BaseUser
      * 
      * @return int
      */
-    public function getfakeMoney()
+    public function getFakeMoney()
     {
         return $this->fakeMoney;
     }  
@@ -462,3 +475,4 @@ class User extends BaseUser
 //    }
         
 }
+

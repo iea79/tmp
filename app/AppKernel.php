@@ -98,6 +98,17 @@ class AppKernel extends Kernel
             new Symfony\Cmf\Bundle\SearchBundle\CmfSearchBundle(),
             new Symfony\Cmf\Bundle\MediaBundle\CmfMediaBundle(),
             new FM\ElfinderBundle\FMElfinderBundle(),
+
+            //E-Commerce
+            // new Sonata\CustomerBundle\SonataCustomerBundle(),
+            // new Sonata\ProductBundle\SonataProductBundle(),
+            // new Sonata\BasketBundle\SonataBasketBundle(),
+            // new Sonata\OrderBundle\SonataOrderBundle(),
+            // new Sonata\InvoiceBundle\SonataInvoiceBundle(),
+            // new Sonata\MediaBundle\SonataMediaBundle(),
+            // new Sonata\DeliveryBundle\SonataDeliveryBundle(),
+            // new Sonata\PaymentBundle\SonataPaymentBundle(),
+            // new Sonata\PriceBundle\SonataPriceBundle(),
             
             new Symfony\Cmf\Bundle\RoutingAutoBundle\CmfRoutingAutoBundle,
             

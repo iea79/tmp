@@ -5,6 +5,10 @@ namespace DaVinci\UserBundle\Model;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\UserBundle\Admin\Model\UserAdmin as SonataUserAdmin;
 
+/**
+* 
+*/
+
 class UserAdmin extends SonataUserAdmin {
 
     /**
@@ -93,9 +97,14 @@ class UserAdmin extends SonataUserAdmin {
 
             $formMapper
                     ->tab('Payment')
-                        ->with('Fake Money')
+                        ->with('Fake Money', array('class' => 'col-md-6'))
 							->add('fakeMoney', null, array('required' => false,'label' => 'Count'))
+
                         ->end()
+                        ->with('Bisnes Money', array('class' => 'col-md-6'))
+
+                        ->end()
+
                     ->end()
             ;
         }
