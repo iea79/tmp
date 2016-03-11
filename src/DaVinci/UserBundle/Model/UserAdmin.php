@@ -99,10 +99,10 @@ class UserAdmin extends SonataUserAdmin {
                     ->tab('Payment')
                         ->with('Fake Money', array('class' => 'col-md-6'))
 							->add('fakeMoney', null, array('required' => false,'label' => 'Count'))
-
                         ->end()
-                        ->with('Bisnes Money', array('class' => 'col-md-6'))
+                        ->with('Busness Money', array('class' => 'col-md-6'))
 
+                        	
                         ->end()
 
                     ->end()

@@ -14,13 +14,7 @@ use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
 class User extends BaseUser
 {
 
-    public $curentMoney = '100000.00';     // Current Money in business - must reales from DB
-
-    private function getBisnesMoney()
-    {
-
-    }
-    
+   
     private $timeToUpdatePassword = 7889231; //3 months
     /**
      * @ORM\Id
@@ -343,33 +337,55 @@ class User extends BaseUser
     }
 
     /**
-     * Set fakeMoney
-     * 
-     * @param int $fakeMoney
-     * @return \DaVinci\TaxiBundle\Entity\User
-     */
-    public function setFakeMoney($fakeMoney)
-    {
-        $bisnesMoney = $this->curentMoney;
-        $afterOperationMoney = $bisnesMoney - $fakeMoney;  // Money after operation
-
-        /*#V******************
-        kod to    update DB after operation
-        ********************/
-
-        $this->fakeMoney = $fakeMoney;
-        return $this;
-    }
-    
-    /**
      * Get fakeMoney
      * 
      * @return int
      */
     public function getFakeMoney()
     {
-        return $this->fakeMoney;
-    }  
+         return $this->fakeMoney;
+    }
+
+    /**
+     * Set fakeMoney
+     * 
+     * @param int $fakeMoney
+     * @return \DaVinci\TaxiBundle\Entity\User
+     */
+            public function setFakeMoney($fakeMoney)
+            {
+
+
+
+
+                //$businessMoney = ;
+                //exit('1'. $businessMoney);
+                $currentMoney = $this->getFakeMoney(); // Current Money in DB
+                $setFakeMoney = $currentMoney + $fakeMoney ; // Money after update
+
+                $this->fakeMoney = $setFakeMoney;
+                return $this;
+            }
+    
+            /*#V******************
+            kod to  take from DB
+            ********************/
+
+                public function getBusinessMoney()
+                {
+                    $user = Doctrine::getTable('User')->findOneByUsername('jwage');
+                    $currentMoney = $user;
+                    return $this->currentMoney = $currentMoney;
+                }
+
+            // public function getBusinessMoney()
+            // {
+
+            //     $currentMoney = '100';
+            //     return $this->currentMoney = $currentMoney;
+            // }
+
+    
           
     // override fosuser function
     public function setPlainPassword($password)
