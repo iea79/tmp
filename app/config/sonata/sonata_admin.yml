@@ -82,6 +82,13 @@ sonata_admin:
                     - sonata.user.admin.group
                     - sonata.notification.admin.message   
                     - davinci.taxi.admin.countrycity
+
+            sonata.admin.group.payment:
+                label:           Payment
+                label_catalogue: DaVinciTaxiBundle
+                items:
+                    - davinci.taxi.payment.sendmoney
+#                   - sonata.media.admin.gallery
             
 #           simplecms:
 #               label: Simple CMS
