@@ -2,11 +2,23 @@ da_vinci_taxi_homepage:
     resource: "@DaVinciTaxiBundle/Controller"
     type: annotation
 
-passenger_request_payment:
-    pattern: /payment/request_id/{id}
-    defaults: { _controller: DaVinciTaxiBundle:Home:payment }
-    methods:  [GET, POST]
-    options: { useAsInnerURL: false }
+#================================start payment===========================
+payment_sendmoney:
+    pattern:      admin/payment/sendmoney/
+    defaults:     { _controller: DaVinciTaxiBundle:Payment:sendMoney }
+
+payment_history:
+    pattern:      admin/payment/history/
+    defaults:     { _controller: DaVinciTaxiBundle:Payment:history }
+
+#================================end payment===========================
+
+
+# passenger_request_payment:
+#     pattern: /payment/request_id/{id}
+#     defaults: { _controller: DaVinciTaxiBundle:Home:payment }
+#     methods:  [GET, POST]
+#     options: { useAsInnerURL: false }
 
 passenger_request_confirm:
     pattern: /confirm/request_id/{id}

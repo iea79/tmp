@@ -173,19 +173,4 @@ services:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
             - [setRootPath, ['/cms/terms']]
 
-
-
-#========================PAYMENT=======================================
-
-
-    davinci.taxi.payment.sendmoney:
-        class: DaVinci\TaxiBundle\Payment\SendMoneyAdmin
-        tags:
-            - { name: sonata.admin, manager_type: doctrine_phpcr, group: sonata.admin.group.content, label: "Send Money" }
-        arguments:
-            - ''
-            - DaVinci\TaxiBundle\Document\SendMoney
-            - SonataAdminBundle:CRUD
-        calls:
-            - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
-            - [setRootPath, ['/cms/sendmoney']]                        
+                                
