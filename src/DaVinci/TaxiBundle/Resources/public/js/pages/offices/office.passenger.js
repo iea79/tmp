@@ -27,6 +27,8 @@ require(['pages/common'], function ($) {
             });
             // just for formatting/placeholders/autoformat etc - set in template
             selector.intlTelInput("loadUtils", liphone_utils_path);
+
+            // Add/change passenger photo vol.1
             $("#taxi_passenger_office_profile_photo").change(function () {
                 readURL(this);
             });
@@ -80,12 +82,20 @@ require(['pages/common'], function ($) {
         // Смена класса кнопок Driver list в office passengers //////////////////// 
         var but_txt;
                 
+        // Add/change passenger photo vol.2
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
+                var passImg = $('#avatar-image');
+                var preloadWrapImg = $(passImg).parent('.photo');
 
                 reader.onload = function (e) {
-                    $('#avatar-image').attr('src', e.target.result);
+
+                    preloadWrapImg.addClass('loading_photo');
+                    setTimeout(function() {
+                        preloadWrapImg.removeClass('loading_photo');
+                        $(passImg).attr('src', e.target.result);
+                    }, 1500);
                 };
 
                 reader.readAsDataURL(input.files[0]);

@@ -95,9 +95,11 @@
 																		<div class="driver-over">
 																			<div class="driver-top">
 																					<div class="profile">
-																						<img src="{{ asset('bundles/davincitaxi/images/driverphoto.png') }}" width="48" height="53" alt="profile photo" class="driver-photo"/>
+																						<div class="driver-photo">
+																							<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" width="48" height="53" alt="profile photo"/>
+																						</div>
 																						<span class="name">
-																							<a data-uk-modal="{target:'#about-driver'}">{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
+																							<a href="#about-driver" data-uk-modal>{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
 																						</span>
 																						<br/>
 																						<span class="proffesion uk-text-danger">
@@ -107,9 +109,12 @@
 																						<span class="rate"><i class="mp-icon-person uk-text-warning uk-margin-small-right"></i>214 <i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-danger"></i><i class="mp-icon-star uk-text-warning"></i></span>
 																					</div>
 																					<div class="vehicle">
-																						<img src="{{ asset('bundles/davincitaxi/images/focus.png') }}" width="118" height="75" alt="ford-focus" class="drive-car"/>
+																						<div class="drive-car">
+																							<img src="{{ driverVehicle.photo.path|imagine_filter('profile_avatar') }}" width="118" height="75" alt="ford-focus"/>
+																						</div>
 																						<span class="name">{{ driverVehicle.make }} {{ driverVehicle.model }}</span><br/>
 																						<span><i class="mp-icon-person"></i><b> {{ driverVehicle.seats }} </b><i class="mp-icon-bug"></i><b> {{ driverVehicle.luggages }} </b><i class="mp-icon-door"></i><b> {{ driverVehicle.doors }} </b></span>
+																						{#<span class="vehicle-class">{{ driverVehicle.vehicleClass }}</span>#}
 																					</div>
 																					<div class="y-no">
 																						{% if request.stateValue == 'pending' %}

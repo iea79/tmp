@@ -1,4 +1,4 @@
-require(["pages/common"], function ($) {
+require(["pages/common", "sticky-kit.min"], function ($) {
    
             $('#filter').keyup(function () {
 
@@ -11,6 +11,10 @@ require(["pages/common"], function ($) {
 
             })
             $('#filter').keyup();
+
+            $("#sticky_menu").stick_in_parent({
+            	recalc_every: true
+            });
             
    togglePreloader(document.body, false);
 });

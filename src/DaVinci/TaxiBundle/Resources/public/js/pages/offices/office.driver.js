@@ -76,7 +76,7 @@ require(["pages/common"], function ($) {
 
                 $("#taxi_driver_office_profile_vehicle_make").change(function(){
                     
-                     // ... retrieve the corresponding form.
+                    // ... retrieve the corresponding form.
                     var $form = $(this).closest('form');
                     // Simulate form data, but only include the selected sport value.
                     var data = {};
@@ -106,18 +106,62 @@ require(["pages/common"], function ($) {
                         }
                     });
                 });
+
+                // Add/change driver photo
                 $("#taxi_driver_office_profile_vehicle_photo").change(function () {
-                    readURL(this);
+                    readURLVehicle(this);
+                });
+                
+                // Add/change driver photo
+                $("#taxi_driver_office_profile_user_photo").change(function () {
+                    readURLDriverPhoto(this);
                 });
                 
                 //$('.vehicle-class').styler();
+                // Прелоадер для кнопки и вывод имени загруженного файла при добавлении фото при оформлении поездки - шаг 3
+                $('.button__file__add input').on('change', function() {
+                    realVal = $(this).val();
+                    lastIndex = realVal.lastIndexOf('\\') + 1;
+                    preloadBtn = $(this).parent().parent('.uk-form-file').find('.uk-icon-spin');
+                    rezultLoad = $(this).parent().parent('.uk-form-file').find('.image__add__rezult');
+
+                        if(lastIndex !== -1) {
+                            realVal = realVal.substr(lastIndex);
+                            preloadBtn.show();
+                            setTimeout(function() {
+                                preloadBtn.hide();
+                                rezultLoad.html('Loaded: ' + realVal);
+                            }, 1500);
+                    }
+                });
                 
             }
 
             // show dialog if driver didn't fill additional data
 
+            function editInsuranceAccepted () {
+                var vehiclePlateIndependentDriver = document.getElementById('taxi_driver_office_profile_vehicle_plate');
+                var checkboxInsuranceAccepted = document.getElementById('taxi_driver_office_profile_insuranceAccepted');
+
+                $(vehiclePlateIndependentDriver).on('change', function(){
+                    var vehiclePlateVal = $(this).val().length;
+
+                    if ( vehiclePlateVal <= 2) {
+                        $(checkboxInsuranceAccepted).removeAttr('checked');
+                        // alert('Мало');
+                    } else {
+                        $(checkboxInsuranceAccepted).attr('checked', 'checked');
+                        // alert('Норм');
+                    }
+                    return
+                });
+                
+            }
+
+
             var ajx;
             $('#Profile').on({
+
                 'uk.modal.show': function () {
                     $("#profile-dialog").html('');
                     
@@ -137,8 +181,9 @@ require(["pages/common"], function ($) {
                             if (typeof is_filled != "undefined"  && !is_filled){
                                 // disable cancel if not filled yet
                                 $(".uk-close").remove();
+                                editInsuranceAccepted();
                             }
-                            
+
                             initProfileForm();
                         }
                     });
@@ -147,10 +192,9 @@ require(["pages/common"], function ($) {
                     togglePreloader(document.getElementById('Profile'), false);
 
                     //TODO: find all username/sirname/photos on  the page
-
-
                 }
             });
+
             
             //Выбор цвета авто ////////////////////////
             $(window).bind("load", function () {
@@ -159,12 +203,39 @@ require(["pages/common"], function ($) {
                 });
             });
 
-            function readURL(input) {
+            // Add/change driver photo
+            function readURLDriverPhoto(input) {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
+                    var drImg = $('#avatar-image');
+                    var preloadDriverImg = $(drImg).parent('.photo');
 
                     reader.onload = function (e) {
-                        $('#avatar-image').attr('src', e.target.result);
+                        preloadDriverImg.addClass('loading_photo');
+                        setTimeout(function() {
+                            preloadDriverImg.removeClass('loading_photo');
+                            $(drImg).attr('src', e.target.result);
+                        }, 1500);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+
+            // Add/change driver vehicle photo
+            function readURLVehicle(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    var vDrImg = $('#vechicle-driver-image');
+                    var preloadDriverImg = $(vDrImg).parent('.photo');
+
+                    reader.onload = function (e) {
+                        
+                        preloadDriverImg.addClass('loading_photo');
+                        setTimeout(function() {
+                            preloadDriverImg.removeClass('loading_photo');
+                            $(vDrImg).attr('src', e.target.result);
+                        }, 1500);
                     }
 
                     reader.readAsDataURL(input.files[0]);
@@ -191,7 +262,8 @@ require(["pages/common"], function ($) {
                         
             if (typeof is_filled != "undefined"  && !is_filled) {
                 $("#open-profile-button").click();
-            }
+            };
+
         });
     });
 });

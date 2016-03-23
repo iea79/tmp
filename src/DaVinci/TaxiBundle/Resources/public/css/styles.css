@@ -918,6 +918,11 @@ home
 .pop-up.route-modal .personal dt {
 	padding-right: 5px;
 }
+.pop-up.route-modal .show__route__quantity {
+	width: 100% !important;
+	float: none !important;
+	margin-bottom: 5px !important;
+}
 @media (max-width: 480px) {
 	.pop-up.route-modal .order-details .spec-request {
 		font-size: 14px;
@@ -1546,7 +1551,27 @@ styles of booking step 3  in homepage
 		padding-right:17px;
 	}
 	.order-details .pers-data button {
+		position: relative;
+		text-align: center;
 		width:100%;
+	}
+	.uk-form-file .uk-button {
+		position: relative;
+		text-align: center;
+		width:100%;
+	}
+	.uk-form-file .image__add__rezult {
+		font-size: 12px;
+		padding-left: 10px;
+		color: #ff4d61;
+	}
+	.uk-form-file .uk-button .uk-icon-spin {
+		display: none;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -10px;
+		margin-left: -10px;
 	}
 	.order-details  .pers-data .photo {
 		font-size:9px;
@@ -2520,7 +2545,6 @@ style dropdown block
 	margin-bottom: 0 !important;
 }
 .driver-top img {
-	max-width: 48px;
 }
 .driver-top div {
     float: left;
@@ -2532,7 +2556,6 @@ style dropdown block
     width: 37%;
 }
 .driver-top .vehicle img {
-    max-width: 118px;
 }
 .passanger-pay .y-no {
 	width: 100%;
@@ -2572,13 +2595,30 @@ style dropdown block
 		}
 	}
 .driver-top  img{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	display: block;
+}
+.driver-top .driver-photo,.driver-top .drive-car {
+    position: relative;
+    overflow: hidden;
     float: left;
-    margin-right: 3%;
+    border-radius: 3px;
 }
 .driver-top .driver-photo {
-    width:48px;
     height:53px;
+    width:53px;
+    margin-right: 6px;
 }
+.driver-top .drive-car {
+	width: 96px;
+	height: 53px;
+	margin-right: 10px;
+}
+
 .driver-top .profile .rate {
 	font-size: 14px;
 	line-height: 14px;
@@ -2589,9 +2629,6 @@ style dropdown block
 }
 .driver-top .profile .rate .mp-icon-person {
 	font-size: 12px;
-}
-.driver-top .drive-car {
-	margin-top:-6px;
 }
 .passanger-pay .y-no button {
 	width: 48% !important;
@@ -2613,6 +2650,10 @@ style dropdown block
 }
     .profile .name {
     	color:#528ed3;
+    	line-height:1em;
+    	display:inline-block;
+    	margin:-1px 0 5px 0;
+    	vertical-align:top;
     }
     .profile .proffesion {
 		 font-size:14px;
@@ -2630,10 +2671,13 @@ style dropdown block
     .vehicle .name {
 		 color:#3c3d45;
 		 font-weight: bold;
-		 line-height: 16px;
+		 line-height: 1;
 		 margin-bottom: 8px;
 		 text-transform: capitalize;
+		 display:inline-block;
+		 vertical-align:top;
     }
+    .vehicle .vehicle-class {}
     .vehicle span {
 		 color: #3c3d45;
 		 line-height: 20px;
@@ -2651,7 +2695,6 @@ style dropdown block
 		 margin-right: 1%;
     }
 	.vehicle i.mp-icon-person {
-		margin-left: -2%;
 		font-size: 17px;
 	}
  	.vehicle i.mp-icon-bug {
@@ -3407,6 +3450,9 @@ footer {
 .pop-up .driver-profile .form-change {
     margin-left: 1.7%;
 }
+.pop-up .driver-profile .jq-selectbox__dropdown ul {
+	max-height: 130px;
+}
 .driver-office .uk-modal-dialog>.uk-close:first-child {
     margin: -12px -2px 0 0;
 }
@@ -4055,11 +4101,34 @@ i.quest {
 	width: 100%;
 	line-height: 39px;
 	font-size: 15px;
+	cursor: pointer;
 }
 .pop-up .clientreviews .uk-form-file input[type="file"] {
 	height: 39px;
-	cursor: default;
+	cursor: pointer;
 }
+
+.pop-up .clientreviews .photo {
+	position: relative;
+}
+
+.pop-up .clientreviews .photo .uk-icon-spinner {
+	display: none;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	margin-left: -7px;
+	margin-top: -6px;
+}
+
+.pop-up .clientreviews .photo.loading_photo .uk-icon-spinner {
+	display: inline-block;
+}
+
+.pop-up .clientreviews .photo.loading_photo img {
+	opacity: 0.7;
+}
+
 /*=========================Client rate====================*/
 .pop-up .clientreviews .rate {
 	background:#ebebeb;
@@ -10048,9 +10117,13 @@ Payment window
 
 /* Left sidebar */
 .left__sidebar {
-	width: 200px;
-	display: table-cell;
 	vertical-align: top;
+	display: table-cell;
+	width: 200px;
+}
+
+.left__sitebar .left__sidebar_list {
+	width: 200px;
 }
 
 .left__sidebar .uk-sticky-placeholder {
@@ -10075,6 +10148,15 @@ Payment window
 	margin-top: 2px;
 }
 
+.privacy__title {
+	display: table;
+	width: 100%;
+}
+
+.privacy .privacy__content {
+	width: 100%;
+}
+
 .left__sidebar_title {
 	font-weight: 600;
 }
@@ -10096,10 +10178,11 @@ Payment window
 	background-color: #528ed3;
 	color: #FFF !important;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 14px;
 	padding: 10px 20px 10px 15px !important;
 	box-sizing: border-box;
-	width: 100% !important;
+/*	width: 100% !important;
+*/	width: 200px;
 }
 
 

@@ -5,8 +5,8 @@
                     <a id="open-profile-button" class="uk-button uk-button-primary" data-uk-modal="{target:'#Profile',bgclose:false}">{{'My profile'|trans}}</a>
 					<dl>
 						{% if is_granted('ROLE_USER') %}
-							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ user.id }}</dd>
-							<dt>{{' Name:'|trans}}</dt><dd class="data">{{ user.firstname }} {{ user.lastname }}</dd>
+							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ app.user.id }}</dd>
+							<dt>{{' Name:'|trans}}</dt><dd class="data">{{ app.user.firstname }} {{ app.user.lastname }}</dd>
 						{% elseif is_granted('ROLE_TAXIDRIVER') %}
 							<dt>{{'My ID:'|trans}}</dt><dd class="number-id">{{ driver.user.id }}</dd>
 							<dt>{{'Name:'|trans}}</dt><dd class="data">{{ driver.user.firstname }} {{ driver.user.lastname }}</dd>
@@ -44,20 +44,20 @@
 				<div class="money-block">
 					<div class="history">
 						<span>{{'History:'|trans}}</span>
-						<a class="uk-button uk-button-primary">TMP</a>
-						<a class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
-						<a class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
+						<a href="" class="uk-button uk-button-primary">TMP</a>
+						<a href="" class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
+						<a href="" class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
 					</div>
 					<div class="balance">
 						<span>{{'Balance:'|trans}}</span>
-						<a class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
-						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
-						<a class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
+						<a href="{{ url('financial_office_add') }}" class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
+						<a href="{{ url('financial_office_withdraw') }}" class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
+						<a href="" class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
 					</div>
 					<div class="money">
 						<dl>
 							<dt>{{'Main:'|trans}}</dt>
-							<dd>${{ user.fakemoney }}</dd>
+							<dd>${{ app.user.fakemoney }}</dd>
 						</dl>
 						{#<dl>
 							<dt>{{'Business:'|trans}}</dt>

@@ -3,13 +3,11 @@
 		// max-width: 200px;
 		// width: 100%;
 		position: relative;
-		overflow: hidden;
 		@extend %clear_a;
 	}
 	.privacy__content {
 		display: table-cell;
 		vertical-align: top;
-		padding-left: 20px;
 		.privacy__title {
 			margin-bottom: 15px;
 			padding-bottom: 4px;
@@ -23,6 +21,9 @@
 			margin: 0;
 			margin-bottom: 15px;
 		}
+	}
+	.left__sidebar_list {
+		padding-right: 20px;
 	}
 }
 

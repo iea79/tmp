@@ -14,10 +14,10 @@
 
         {# begin left__sidebar #}
         <div class="left__sidebar">
-            <ul class="uk-nav uk-nav-parent-icon" data-uk-nav="{multiple:true}"  data-uk-sticky="{boundary: true}">
+            <ul id="sticky_menu" class="uk-nav uk-nav-parent-icon"{# data-uk-nav="{multiple:true}"#}>
                     {% for at in all_tabs %}
-                        <li class="uk-parent left__sidebar_list search_res">
-                            <a href="#{{ at.title|slugify }}" class="left__sidebar_headline">{{ at.title }}</a>
+                        <li class="left__sidebar_list search_res">
+                            <a href="#{{ at.title|slugify }}" class="left__sidebar_headline" data-uk-smooth-scroll>{{ at.title }}</a>
                         </li>
                     {% endfor %}
             </ul>

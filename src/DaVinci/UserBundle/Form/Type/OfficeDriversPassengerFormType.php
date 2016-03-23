@@ -35,7 +35,7 @@ class OfficeDriversPassengerFormType extends AbstractType {
                             'empty_value' => 'form.choosegender',
                             'empty_data' => null,
                             'translation_domain' => 'FOSUserBundle'))
-                       // ->add('photo','file', array('required' => false,'data_class'=>null))
+                       ->add('photo','file', array('required' => false,'data_class'=>null))
 ;
     }
     

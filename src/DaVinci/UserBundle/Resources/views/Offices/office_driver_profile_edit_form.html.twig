@@ -19,13 +19,15 @@
                                         {% else %}
                                             <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
                                         {% endif %}
+                                        <div class="uk-icon-spin uk-icon-spinner"></div>
                                     </div>
                                 </div>
                                 <div class="uk-form-file uk-width-1-1">
-                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}</button>
-                                    <input type="file">
-                                    {#{ form_widget(form.photo) }}
-                                    {{ form_errors(form.photo) } Добавление фото. Брал из офиса пасажира, здесь не работает#}
+                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Your Photo'|trans }}<i class="uk-icon-spin uk-icon-spinner"></i></button>
+                                    <input type="file" class="button__file__add">
+                                    <div class="image__add__rezult"></div>
+                                    {{ form_widget(form.user.photo) }}
+                                    {{ form_errors(form.user.photo) }}
                                 </div>
                             </div>
                         </div>
@@ -159,15 +161,17 @@
                                 <div class="clientreviews">
                                     <div class="photo">
                                         {% if app.user.independentDriver.vehicle is not null and app.user.independentDriver.vehicle.photo.path is defined %}
-                                            <img src="{{ app.user.independentDriver.vehicle.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" id="avatar-image"/>
+                                            <img src="{{ app.user.independentDriver.vehicle.photo.path|imagine_filter('profile_avatar') }}" alt="{{'driver:'|trans}}{{ app.user.firstname }} {{ app.user.lastname }}" id="vechicle-driver-image"/>
                                         {% else %}
-                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="avatar-image" >
+                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" id="vechicle-driver-image" >
                                         {% endif %}
+                                        <div class="uk-icon-spin uk-icon-spinner"></div>
                                     </div>
                                 </div>
                                 <div class="uk-form-file uk-width-1-1">
-                                    <button class="uk-button button-add uk-button-primary">{{ 'Add Car Photo'|trans }}</button>
-                                    {{ form_widget(form.vehicle.photo, {'attr':{'tabindex':'24'} }) }}
+                                    <button class="uk-button button-add uk-button-primary button__file__add">{{ 'Add Car Photo'|trans }}<i class="uk-icon-spin uk-icon-spinner"></i></button>
+                                    <div class="image__add__rezult"></div>
+                                    {{ form_widget(form.vehicle.photo, {'attr':{'tabindex':'24','class': 'button__file__add'} }) }}
                                     {{ form_errors(form.vehicle.photo) }}
                                 </div>
                             </div>
@@ -309,6 +313,8 @@
                 </div>
             </div>
         </div>
+        {# Метка с подтверждение заполненности минимальных данных в профиле водителя #}
+        <div class="uk-hidden">{{ form_widget(form.insuranceAccepted,{'attr':{'tabindex':'26','class': 'uk-float-left uk-margin-small-right'}}) }}</div>
     </div>
 </div>
 {{ form_end(form) }}

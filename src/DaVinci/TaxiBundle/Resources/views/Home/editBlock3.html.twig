@@ -127,8 +127,9 @@
 							</div> 
 							<div class="right">
 								<div class="uk-form-file">
-									<button class="uk-button uk-button-primary">Add image</button>
-									{{ form_widget(form.passenger_detail.picture, {'attr': {'placeholder': 'Add image', 'class': 'change-photo'}}) }}
+									<button class="uk-button uk-button-primary">Add image<i class="uk-icon-spin uk-icon-spinner"></i></button>
+									<div class="image__add__rezult"></div>
+									{{ form_widget(form.passenger_detail.picture, {'attr': {'placeholder': 'Add image', 'class': 'change-photo button__file__add'}}) }}
 									<p class="photo">file formats: JPG, PNG, GIF, BMP (up to 2mb)</p>
 								</div>
 							</div>

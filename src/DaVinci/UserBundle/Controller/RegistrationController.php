@@ -228,10 +228,10 @@ class RegistrationController extends BaseController
                 $this->authenticateUser($user, $response);
             }
 
-            // send request to payment global network system
-            $this->container->get('da_vinci_taxi.service.remote_requester')->makeUserOperation(
-            	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
-        	);
+         //    // send request to payment global network system
+         //    $this->container->get('da_vinci_taxi.service.remote_requester')->makeUserOperation(
+         //    	$user, RemoteRequester::OPCODE_CREATE_USER_ACCOUNT
+        	// );
 
             return $response;
         }

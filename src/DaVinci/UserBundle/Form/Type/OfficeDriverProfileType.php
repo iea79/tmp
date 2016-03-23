@@ -55,7 +55,7 @@ class OfficeDriverProfileType extends AbstractType {
                         ->add('user', new OfficeDriversPassengerFormType())
                         ->add('insuranceAccepted', 'checkbox', array(
                             'required' => true
-                        ))
+                        )) //Выводит обязательное поле с чекбоксом во всплывающее окно профиля водителя. Скрин http://joxi.ru/VrwlaGkuKoYqbm
                         ->add('vehicle', new DriverVehicleType());
 
     }
