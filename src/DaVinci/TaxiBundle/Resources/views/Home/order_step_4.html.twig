@@ -24,7 +24,7 @@
 									{% if passengerRequest.passengerDetail.skype != '' %}
 										<dt>{{'Skype'|trans}}:</dt><dd>{{ passengerRequest.passengerDetail.skype }}</dd>
 									{% endif %}	
-									<dt>{{'Mobile'|trans}}:</dt><dd>+{{ passengerRequest.passengerDetail.mobileCode }} {{ passengerRequest.passengerDetail.mobilePhone }}</dd>
+									<dt>{{'Mobile'|trans}}:</dt><dd>{#{ passengerRequest.passengerDetail.mobileCode }#}{{ passengerRequest.passengerDetail.mobilePhone }}</dd>
 									{% if passengerRequest.passengerDetail.mobileHasWifi == true or passengerRequest.passengerDetail.mobileHasWhatsapp == true %}
 										<dt>{{'Your mobile have'|trans}}:</dt><dd>{% if passengerRequest.passengerDetail.mobileHasWifi %}wi-fi<br/>{% endif %}{% if passengerRequest.passengerDetail.mobileHasWhatsapp %}whatsapp{% endif %}</dd>
 									{% endif %}	

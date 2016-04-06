@@ -107,7 +107,7 @@ require(["pages/common"], function ($) {
                     });
                 });
 
-                // Add/change driver photo
+                // Add/change vehicle photo
                 $("#taxi_driver_office_profile_vehicle_photo").change(function () {
                     readURLVehicle(this);
                 });
@@ -116,8 +116,11 @@ require(["pages/common"], function ($) {
                 $("#taxi_driver_office_profile_user_photo").change(function () {
                     readURLDriverPhoto(this);
                 });
+
+                $('#taxi_driver_office_profile_vehicle_seats option[value="0"]').hide().this().parent().parent('jq-selectbox').trigger('refresh');
                 
                 //$('.vehicle-class').styler();
+
                 // Прелоадер для кнопки и вывод имени загруженного файла при добавлении фото при оформлении поездки - шаг 3
                 $('.button__file__add input').on('change', function() {
                     realVal = $(this).val();
@@ -140,20 +143,22 @@ require(["pages/common"], function ($) {
             // show dialog if driver didn't fill additional data
 
             function editInsuranceAccepted () {
-                var vehiclePlateIndependentDriver = document.getElementById('taxi_driver_office_profile_vehicle_plate');
+                var vehicleClassIndependentDriver = document.getElementById('taxi_driver_office_profile_vehicle_vehicleClass');
                 var checkboxInsuranceAccepted = document.getElementById('taxi_driver_office_profile_insuranceAccepted');
 
-                $(vehiclePlateIndependentDriver).on('change', function(){
-                    var vehiclePlateVal = $(this).val().length;
+                $(vehicleClassIndependentDriver).change( function(){
+                    var vehicleClassVal = $(this).val();
 
-                    if ( vehiclePlateVal <= 2) {
+                    if ( vehicleClassVal <= 0) {
                         $(checkboxInsuranceAccepted).removeAttr('checked');
+                        // $(checkboxInsuranceAccepted).attr('checked',false);
                         // alert('Мало');
                     } else {
-                        $(checkboxInsuranceAccepted).attr('checked', 'checked');
+                        // $(checkboxInsuranceAccepted).attr('checked', 'checked');
+                        $(checkboxInsuranceAccepted).attr('checked', true);
                         // alert('Норм');
                     }
-                    return
+                    return true;
                 });
                 
             }
@@ -267,3 +272,4 @@ require(["pages/common"], function ($) {
         });
     });
 });
+

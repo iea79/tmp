@@ -123,7 +123,7 @@
 						</div>
 						<div class="pers-data">
 							<div class="left">
-								<label>Photo:<i class="uk-icon-asterisk"></i></label>
+								<label>Photo:</label>
 							</div> 
 							<div class="right">
 								<div class="uk-form-file">
@@ -157,9 +157,9 @@
 								<label>{{'Mobile'|trans}}<i class="uk-icon-asterisk"></i></label>
 							</div>
 							<div class="right forphoneinput">
-								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'tabindex':'5', 'class':'mobile-phone'}}) }}
-								{{ form_widget(form.passenger_detail.mobile_code, {'attr': {'placeholder': '1', 'class':'mobile-code'}}) }}
-								<span>+</span> 
+								{{ form_widget(form.passenger_detail.mobile_phone, {'attr': {'tabindex':'7', 'class':'mobile__phone', 'placeholder':'+1 301 123-45-67'}}) }}
+								{#{ form_widget(form.passenger_detail.mobile_code, {'attr': {'placeholder': '1', 'class':'mobile-code'}}) }#}
+								
 								<span class="uk-icon-question-circle" data-uk-tooltip="{pos:'left'}" title="{{'777-777-7777'|trans}}"></span>
 							</div>
 						</div> 

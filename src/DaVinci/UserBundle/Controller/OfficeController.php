@@ -260,4 +260,13 @@ class OfficeController extends StepsController
         return $this->render('DaVinciUserBundle:Offices:dispet_table.html.twig');
     }
         
+    /**
+     * @Route("/passnger-request-info", name="passenger_request_info")
+     * @Security("has_role('ROLE_USER')")
+     */      
+    public function showModalRequestAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Home:showPassengerRequest.html.twig');
+    }
+        
 }

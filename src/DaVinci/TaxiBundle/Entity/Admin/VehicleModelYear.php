@@ -242,7 +242,7 @@ class VehicleModelYear
      */
     public static function getSeatsList()
     {
-        return range(1, self::maxSeats);
+        return range(0,self::maxSeats);
     }
 
     /**
@@ -252,7 +252,7 @@ class VehicleModelYear
      */
     public static function getLuggageList()
     {
-        return range(1,self::maxLuggages);
+        return range(0,self::maxLuggages);
     }
     
     /**
@@ -262,7 +262,7 @@ class VehicleModelYear
      */
     public static function getDoorsList()
     {
-        return range(1,self::maxDoors);
+        return range(0,self::maxDoors);
     }
     
     /**

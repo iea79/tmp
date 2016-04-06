@@ -28,6 +28,9 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script>
+        var liphone_utils_path = "{{ asset('bundles/davincitaxi/js/intl-tel-input-master/lib/libphonenumber/build/utils.js') }}";
+    </script>
 	{% javascripts filter='?requirejs'
     '@DaVinciTaxiBundle/Resources/public/js/pages/main.js'
     %}

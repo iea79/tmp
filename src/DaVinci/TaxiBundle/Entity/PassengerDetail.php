@@ -102,7 +102,7 @@ class PassengerDetail
 	 * @ORM\Column(type="integer", name="mobile_code")
 	 * @Assert\Range(
 	 * 		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"},
-     *		min=1,
+     *		min=0,
      *      max=999,    
      *		minMessage="The code must be greater then 0"
      * )
@@ -114,7 +114,7 @@ class PassengerDetail
      * @Assert\NotBlank(groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, message="passengerDetail.mobilePhone.blank")
 	 * @Assert\Regex(
 	 *		groups={"flow_createPassengerRequest_step3", "edit_passenger_request"}, 		
-     *     	pattern="/^[0-9]{10,15}$/",
+     *     	pattern="/^\+[0-9]{9,15}$/",
      *     	match=true,
      *     	message="Your phone number has incorrect format"
      * )

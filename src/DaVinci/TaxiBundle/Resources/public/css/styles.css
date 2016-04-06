@@ -416,8 +416,9 @@ styles of drop down menu
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .myoffice-drop .uk-button {
 	margin-top:15px;
-	font-size:16px;
-	padding:0 5px;
+	font-size:15px;
+	padding:7px 4px;
+	line-height:1;
 }
 .header-wrapper .header-top .uk-button-dropdown .uk-dropdown .uk-nav-header {
 	font-size: 16px;
@@ -2556,6 +2557,9 @@ style dropdown block
     width: 37%;
 }
 .driver-top .vehicle img {
+	height: 100%;
+	width: initial;
+	position: relative;
 }
 .passanger-pay .y-no {
 	width: 100%;
@@ -2599,10 +2603,16 @@ style dropdown block
 	top: 0;
 	left: 0;
 	width: 100%;
-	min-height: 100%;
-	display: block;
+	display: inline-block;
+}
+.driver-top .empty__img {
+	border: 1px solid #EBEBEB;
+	width: 100%;
+	height: 100%;
+	border-radius: 3px;
 }
 .driver-top .driver-photo,.driver-top .drive-car {
+	text-align: center;
     position: relative;
     overflow: hidden;
     float: left;
@@ -8520,6 +8530,10 @@ Litle stars for rate
 	width: 60%;
 }
 
+.order-details .aditional-driver .kids-pats-line.interp .wishes-1 .jq-selectbox .jq-selectbox__dropdown ul {
+	max-height: 300px;
+}
+
 @media (max-width: 370px) {
 	.order-details .aditional-driver .kids-pats-line.interp .wishes-1 {
 		width: 100% !important;
@@ -8643,7 +8657,35 @@ a.textarea-toggle input {
   left: 5px;
   font-size: 16px;
 }
-
+.order-details .right.forphoneinput .mobile__phone {
+}
+.order-details .right.forphoneinput .flag-dropdown .country-list {
+	min-width: 250px;
+    width: auto;
+}
+.order-details .right.forphoneinput .flag-dropdown .country {
+	line-height: 1;
+	padding: 0px 10px;
+}
+.order-details .right.forphoneinput .flag-dropdown .country span {
+	position: static;
+	color: #444;
+	font-size: 12px;
+}
+.order-details .right.forphoneinput .intl-tel-input {
+	width: 91%;
+	float: none !important;
+}
+.order-details .right.forphoneinput .intl-tel-input input {
+	width: 100%;
+}
+.order-details .right.forphoneinput .flag-dropdown .country-list .country-name {
+	font-size: 12px;
+	line-height: 16px;
+}
+.order-details .right.forphoneinput .intl-tel-input .country-list .divider {
+	padding-bottom: 0px;
+	margin-bottom: 0px;}
 .destination .inputs .check-box input[type="checkbox"]{margin: 0 6px 0 0;}
 .destination .inputs .time {
 	width: 64%;
@@ -9115,7 +9157,7 @@ Taxi company styles
 	margin-bottom: 12px;
 }
 .client-panel-list {
-	margin-bottom: -19px;
+	margin-bottom: -10px;
 }
 .company-panel .client-panel-list .uk-grid-small {
 	margin-left: 0;

@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'datatable'], function () {
+    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'intl-tel-input-master/js/intlTelInput', 'datatable'], function () {
         require(['chosenImage.jquery'], function () {
 
             // Добавление доролнительных направлений 
@@ -152,6 +152,32 @@ require(['pages/common'], function ($) {
                     }, 1500);
                 }
             });
+
+            $(".mobile__phone").intlTelInput();
+
+            function init_phone_field(last)
+            {
+                // default is true
+                last = typeof last !== 'undefined' ? last : true;
+                
+                var selector;
+                if (last)
+                    selector = $(".phoneinput:last");
+                else
+                    selector = $(".phoneinput");
+                
+                selector.intlTelInput({
+                    defaultCountry: "auto",
+                    autoFormat: true,
+                    responsiveDropdown: true,
+                });
+                
+                // just for formatting/placeholders/autoformat etc - set in template
+                selector.intlTelInput("loadUtils", liphone_utils_path);
+                selector.width('100%');
+            }
+
+            init_phone_field(false); //init all fields
 
             // remove preloader
             togglePreloader(document.body, false);

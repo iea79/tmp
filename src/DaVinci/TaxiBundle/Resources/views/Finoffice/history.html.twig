@@ -2,16 +2,14 @@
    	<div class="buttom-swicher">
         <ul class="uk-width-1-1 uk-width-large-2-3">
             <li{% if section == 'payment' %} class="uk-active"{% endif %}>
-                <a href="{{ path('financial_office_history', {'section': 'payment'}) }}">{{ 'Transactions' |trans }}</a>
+                <a href="{{ path('financial_office_history', {'section': 'payment'}) }}">{{ 'TMP market' |trans }}</a>
             </li>
             <li{% if section == 'addition' %} class="uk-active"{% endif %}>
-                <a href="{{ path('financial_office_history', {'section': 'addition'}) }}">{{ 'TMP Exchange' |trans }}</a>
+                <a href="{{ path('financial_office_history', {'section': 'addition'}) }}">{{ 'Purchases' |trans }}</a>
             </li>
-            {#
             <li>
-                <a href="#">{{ 'Purchases' |trans }}</a>
+                <a href="#">{{ 'Transactions' |trans }}</a>
             </li>
-            #}
         </ul>
     </div>
         <ul id="fin_history" class="uk-switcher">

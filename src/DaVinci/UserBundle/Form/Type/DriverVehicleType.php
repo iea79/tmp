@@ -50,13 +50,16 @@ class DriverVehicleType extends AbstractType {
                     'translation_domain' => 'FOSUserBundle'
                 ))
                 ->add('seats', 'choice', array(
-                    'choices' => VehicleModelYear::getSeatsList()
+                    'choices' => VehicleModelYear::getSeatsList(),
+                    'empty_value' => null,
                 ))
                 ->add('luggages', 'choice', array(
-                    'choices' => VehicleModelYear::getLuggageList()
+                    'choices' => VehicleModelYear::getLuggageList(),
+                    'empty_value' => null,
                 ))
                 ->add('doors', 'choice', array(
-                    'choices' => VehicleModelYear::getDoorsList()
+                    'choices' => VehicleModelYear::getDoorsList(),
+                    'empty_value' => null,
                 ))
                 ->add('photo', 'file', array('required' => false, 'data_class' => null))
                 ->add('about', 'textarea', array(

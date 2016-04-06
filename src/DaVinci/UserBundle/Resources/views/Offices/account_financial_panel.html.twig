@@ -30,29 +30,33 @@
 						</div>
 						<div class="buttons-office">
                             <a href="{{ url('fos_user_registration_confirmed') }}" class="uk-button uk-button-success">Get new office</a>
-							<a class="uk-button uk-button-primary">{{'My office'|trans}}</a>
+							<a href="{{ url('view_offices') }}" class="uk-button uk-button-primary">{{'My office'|trans}}</a>
 						</div>
 					</div>
 					<div class="message">
 						<div class="text">
 							<span>{{'Внимание!'|trans}}</span>17 Mar 2015 заканчивается срок действия мембершипа “Оптимальный”
 						</div>
-						<a class="uk-button uk-button-danger">{{'Extend'|trans}}</a>
+						<a href="{{ url('store') }}" class="uk-button uk-button-danger">{{'Extend'|trans}}</a>
 					</div>
 				</div>
 			{# block3 #}
 				<div class="money-block">
 					<div class="history">
 						<span>{{'History:'|trans}}</span>
-						<a href="" class="uk-button uk-button-primary">TMP</a>
-						<a href="" class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
-						<a href="" class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
+						{% if is_granted('ROLE_USER') %}
+							<a href="{{ path('office_passenger', {'method': 'all-orders'}) }}" class="uk-button uk-button-primary">TMP</a>
+						{% elseif is_granted('ROLE_TAXIDRIVER') %}
+							<a href="{{ path('office_driver', {'method': 'history-orders'}) }}" class="uk-button uk-button-primary">TMP</a>
+						{% endif %}
+						<a href="{{ url('financial_office_history') }}" class="uk-button uk-button-primary"><i class="mp-icon-basket"></i></a>
+						<a href="{{ url('financial_office_history') }}" class="uk-button uk-button-primary"><i class="mp-icon-dollar-circle"></i></a>
 					</div>
 					<div class="balance">
 						<span>{{'Balance:'|trans}}</span>
 						<a href="{{ url('financial_office_add') }}" class="uk-button uk-button-danger"><span class="uk-icon-long-arrow-right"></span><i class="mp-icon-dollar-circle"></i></a>
 						<a href="{{ url('financial_office_withdraw') }}" class="uk-button uk-button-danger"><i class="mp-icon-dollar-circle"></i><span class="uk-icon-long-arrow-right"></span></a>
-						<a href="" class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
+						<a href="{{ url('financial_office_transfer') }}" class="uk-button uk-button-danger"><i class="mp-icon-dollar-refresh"></i></a>
 					</div>
 					<div class="money">
 						<dl>

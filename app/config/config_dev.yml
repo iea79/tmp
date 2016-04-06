@@ -34,7 +34,10 @@ assetic:
     use_controller: %use_assetic_controller%
 
 swiftmailer:
-    delivery_address: halk2269@gmail.com
+    # delivery_address: halk2269@gmail.com
+    # transport: gmail
+    # username:  busforward@gmail.com
+    # password:  t89028366965
     
     
 hearsay_require_js:    

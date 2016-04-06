@@ -48,7 +48,7 @@
 							<div class="whitebg">
 								<div class="message">{#<span>{{ 'Attention!'|trans }} </span>{{ 'Choose driver by yourself!'|trans }}#}</div>
 									<div class="table-container">
-										<table class="uk-table"><colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>
+										<table class="uk-table">{#<colgroup><col class="number" /> <col class="id-driver" /> <col /></colgroup>#}
 											<thead>
 												<tr>
 													<th>#</th>
@@ -96,10 +96,14 @@
 																			<div class="driver-top">
 																					<div class="profile">
 																						<div class="driver-photo">
+																						{% if driverUser.photo.path is defined %}
 																							<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" width="48" height="53" alt="profile photo"/>
+												                                        {% else %}
+												                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" class="empty__img" id="avatar-image" >
+												                                        {% endif %}
 																						</div>
 																						<span class="name">
-																							<a href="#about-driver" data-uk-modal>{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
+																							<a href="#about-driver_{{ driverUser.id }}" data-uk-modal>{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
 																						</span>
 																						<br/>
 																						<span class="proffesion uk-text-danger">
@@ -110,7 +114,11 @@
 																					</div>
 																					<div class="vehicle">
 																						<div class="drive-car">
+																						{% if driverVehicle.photo.path is defined %}
 																							<img src="{{ driverVehicle.photo.path|imagine_filter('profile_avatar') }}" width="118" height="75" alt="ford-focus"/>
+												                                        {% else %}
+												                                            <img src="{{ asset('bundles/davincitaxi/images/car-empty.png') }}" class="empty__img" id="avatar-image" >
+												                                        {% endif %}
 																						</div>
 																						<span class="name">{{ driverVehicle.make }} {{ driverVehicle.model }}</span><br/>
 																						<span><i class="mp-icon-person"></i><b> {{ driverVehicle.seats }} </b><i class="mp-icon-bug"></i><b> {{ driverVehicle.luggages }} </b><i class="mp-icon-door"></i><b> {{ driverVehicle.doors }} </b></span>
@@ -124,7 +132,8 @@
 																						<div id="result_{{ request.id }}"></div>
 																					</div>
 																			</div>
-																			<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ langs.getSeparatedLanguages() }}</p>
+																			<p class="about"><strong>{{ 'English level:'|trans }}</strong> {{ langs.getLevelNamed() }}</p>
+																			{#<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ langs.getSeparatedLanguages() }}</p>#}
 																			<p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ driver.about }}</p>
 																			{# <div class="call-driver uk-width-1-2 wk-width-small-1-1">
 																				<span>{{ 'Contacts:'|trans }} </span>
@@ -144,6 +153,8 @@
 										</table>
 									</div>
 							</div>
+							{# ========= Modal about-driver ========== #}
+							{% include "FOSUserBundle:Offices:office_passenger_profile_about_driver_dialog.html.twig" %}
 						</li>
 					{% elseif subMethod == 'all-orders' %}
                         <li class="uk-active">
@@ -193,7 +204,7 @@
                                                 <td>
                                                     {% if request.getStateValue() == 'completed' %}
                                                     	<span>{{ 'completed'|trans }}</span>
-                                                        <a data-uk-modal="{target:'#about-driver'}">
+                                                        <a href="#about-driver_{{ driverUser.id }}" data-uk-modal>
                                                             {#<i class="mp-icon-taxi uk-text-primary"></i>#}
                                                             <i class="mp-icon-good status-photo">
                                                             	<img src="{{ asset('bundles/davincitaxi/images/avatar.png') }}" alt="">
@@ -248,7 +259,9 @@
                                     </tbody>
                                 </table>
 							</div>
-						</li>
+							{# ========= Modal about-driver ========== #}
+							{% include "FOSUserBundle:Offices:office_passenger_profile_about_driver_dialog.html.twig" %}
+ 						</li>
 					{% endif %}	
 				</ul>
 			</div>
@@ -268,9 +281,6 @@
 {# ========= rout ========== #}
 {% include "FOSUserBundle:Offices:office_passenger_profile_route_dialog.html.twig" %}
 
-{# ========= about-driver ========== #}
-{% include "FOSUserBundle:Offices:office_passenger_profile_about_driver_dialog.html.twig" %}
- 
 {% endblock %}
 
 {% block javascripts %}
