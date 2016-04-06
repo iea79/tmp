@@ -171,4 +171,6 @@ services:
             - SonataAdminBundle:CRUD
         calls:
             - [setRouteBuilder, ['@sonata.admin.route.path_info_slashes']] 
-            - [setRootPath, ['/cms/terms']]            
+            - [setRootPath, ['/cms/terms']]
+
+                                
