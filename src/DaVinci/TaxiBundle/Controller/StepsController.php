@@ -261,8 +261,14 @@ class StepsController extends Controller
         return $this
                     ->getPassengerRequestRepository()
                     ->getActualRequestsByStates($states);
-    }    
-		
+    }  
+
+    // Payment page steps 
+    public function payPageStepsAction()
+    {
+        return $this->render('DaVinciTaxiBundle:Store:payment_step_page.html.twig');
+    }
+
 }
 
 ?>

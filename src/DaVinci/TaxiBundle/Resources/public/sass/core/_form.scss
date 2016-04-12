@@ -165,6 +165,7 @@ input.radio:checked {
 	display: inline-block;
 	@include border-radius($btn-border-radius);
 	@include background-clip(padding-box);
+	@include box-sizing(border-box);
 	vertical-align: middle;
 	text-decoration: none;
 	text-align: center;
@@ -173,7 +174,7 @@ input.radio:checked {
 	line-height: 1em;
 	min-height: 30px;
 	font-size: 14px;
-	padding: 2px 10px;
+	padding: 3px 10px;
 	background-color: $contrast-bg;
 	color: $main-color;
 	&:hover,&:focus {
@@ -192,9 +193,11 @@ input.radio:checked {
 	color: $contrast-color;
 	&:hover,&:focus {
 		background-color: #35b3ee;
+		color: $contrast-color;
 	}
 	&:active,&.active {
 		background-color: #0091ca;
+		color: $contrast-color;
 	}
 }
 
@@ -203,9 +206,11 @@ input.radio:checked {
 	color: $contrast-color;
 	&:hover,&:focus {
 		background-color: #2eda36;
+		color: $contrast-color;
 	}
 	&:active,&.active {
 		background-color: #219d27;
+		color: $contrast-color;
 	}
 }
 
@@ -223,29 +228,29 @@ input.radio:checked {
 }
 
 .btn-muted {
-	border: 1px solid #e7e7e7;
+	border: 1px solid $muted-color;
 	@include border-radius(3px);
 	@include background-clip(padding-box);
 	background-color: $muted-bg;
 	&:hover,&:focus {
+		background-color: $contrast-bg;
 	}
 	&:active,&.active {
+		background-color: $muted-bg;
 	}
 }
 
 .btn-warning {
 	background-color: #8d8f98;
 	color: #ffffff;
-}
-
-.btn-warning:hover,.btn-warning:focus {
-	background-color: #9b9da7;
-	color: #ffffff;
-}
-
-.btn-warning:active,.btn-warning.active {
-	background-color: #7e8088;
-	color: #ffffff;
+	&:hover,&:focus {
+		background-color: #9b9da7;
+		color: #ffffff;
+	}
+	&:active,&.active {
+		background-color: #7e8088;
+		color: #ffffff;
+	}
 }
 
 .btn:disabled {

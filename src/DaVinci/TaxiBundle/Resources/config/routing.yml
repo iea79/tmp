@@ -175,4 +175,11 @@ terms:
 
 order_step_1_new:
     pattern:  /order-step-one-new
-    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1_new }    
+    defaults: { _controller: DaVinciTaxiBundle:Home:order_step_1_new }
+
+# Payment page    
+payment_step_page:
+    pattern:  /payment-steps
+    defaults: { _controller: DaVinciTaxiBundle:Steps:payPageSteps }    
+
+

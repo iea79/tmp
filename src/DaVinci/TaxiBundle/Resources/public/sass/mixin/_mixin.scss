@@ -29,6 +29,25 @@
 	}
 }
 
+// Animation times
+// Just add @extend %anim...
+%anim_03 {
+	@include transition(all 0.3s linear);
+} 
+
+%anim_02 {
+	@include transition(all 0.2s linear);
+} 
+
+%anim_05 {
+	@include transition(all 0.5s linear);
+} 
+
+%anim_1 {
+	@include transition(all 1.5s linear);
+} 
+
+
 
 // Order steps mixins
 %btn_for_steps {

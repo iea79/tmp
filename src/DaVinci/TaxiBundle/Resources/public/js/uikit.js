@@ -1396,6 +1396,7 @@
                 $this.hide();
 
             }).on("click", function(e) {
+                e.preventDefault();
 
                 var target = $(e.target);
 
@@ -1420,7 +1421,7 @@
             this.resize();
 
             active = this;
-            $html.addClass("uk-modal-page").height(); // force browser engine redraw
+            $('body').addClass("uk-modal-page").height(); // force browser engine redraw
 
             this.element.addClass("uk-open").trigger("uk.modal.show");
 
@@ -1492,7 +1493,7 @@
 
             this.element.hide().removeClass("uk-open");
 
-            $html.removeClass("uk-modal-page").css("margin-" + (UI.langdirection == 'left' ? "left":"right"), "");
+            $('body').removeClass("uk-modal-page").css("margin-" + (UI.langdirection == 'left' ? "left":"right"), "");
 
             if(active===this) active = false;
 

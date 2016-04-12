@@ -19,12 +19,13 @@
 @import 'core/tmp-icon';
 
 // Pages styles
-@import 'pages/step-swicher';
-@import 'pages/privacy/privacy';
 @import 'pages/order_steps/first-step';
 @import 'pages/order_steps/second-step';
 @import 'pages/order_steps/three-step';
 @import 'pages/order_steps/four-step';
+@import 'pages/step-swicher';
+@import 'pages/privacy/privacy';
+@import 'pages/payment/step_one';
 
 
 // Responsive styles

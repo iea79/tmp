@@ -1,0 +1,351 @@
+{% extends 'DaVinciTaxiBundle::base.html.twig' %}
+{% block title %}
+    {% include 'DaVinciTaxiBundle::banner.html.twig' %}
+{% endblock%}
+{% block body %}
+	<div class="shadow-main whitebg payment_step_one">
+		<div class="block-help">
+
+			<div class="pay__head">
+				<div class="pay__title">Payment order ID 90982</div>
+				<div class="choose__role">
+					<span class="choose__role__label">в качестве</span> 
+					<select name="" class="jq_link">
+						<option value="">пассажира</option>
+						<option value="">частного водителя</option>
+						<option value="">такси-компании</option>
+					</select>
+					<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="" data-cached-title="можно изменить роль в виде выборки"></i>
+				</div>
+			</div>
+
+			{# begin pay__page__content #}
+			<div class="pay__page__content">
+			
+			{# Step 1 ================================================== #}
+			<div id="pay_step1" class="pay__steps__wrap">
+
+				<div class="pay__page__content_title">Проверка информации о платеже:</div>
+
+				<div class="pay__order__product">
+					<div class="order__product__row">
+						<div class="order__product__name">
+							<div class="name_item">TMP Booking</div>
+							<div class="name_item">$1</div>
+						</div>
+						<div class="order__product__info">
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Общая стоимость поездки:</div>
+								<div class="info_line_item last">cash</div>
+								<div class="info_line_item second">$100</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Чаевые:</div>
+								<div class="info_line_item last">cash</div>
+								<div class="info_line_item second">$10</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Дата, время:</div>
+								<div class="info_line_item last"></div>
+								<div class="info_line_item second">12.09.16 9:30:00</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Откуда и куда:</div>
+								<div class="info_line_item last"></div>
+								<div class="info_line_item second"><a href="#">Moscow Domodedovo - Moscow Lenina str. 10</a></div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+							
+				<div class="pay__order__discount form">
+					<div class="order__discount__row">
+						<div class="order__discount__label">Скидочный код
+							<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="" data-cached-title="Пояснения по скидкам"></i>
+						</div>
+						<div class="order__discount__field">
+							<input type="text" placeholder="Введите код">
+						</div>
+						<button class="btn btn-primary">Применить</button>
+					</div>
+					<div class="order__discount__row">
+						<div class="order__discount__label">Мембршип</div>
+						<div class="order__discount__field">
+							<input type="text" placeholder="Введите код">
+						</div>
+						<button class="btn btn-primary">Применить</button>
+					</div>
+				</div>
+
+			</div>
+
+			{# Step 2 ==================================================== #}
+			<div id="pay_step2" class="pay__steps__wrap">
+
+				<div class="pay__page__content_title">Вместе с этой услугой заказывают:</div>
+				
+				{# Table line #}
+				<div class="pay__order__list">
+					<div class="order__list__row title__row">
+						<div class="orer__list__cell">
+							<input type="checkbox">
+						</div>
+						<div class="orer__list__cell">Услуга</div>
+						<div class="orer__list__cell">Цена</div>
+						<div class="orer__list__cell">Сумма</div>
+					</div>
+					<div class="order__list__row">
+						<div class="orer__list__cell">
+							<input type="checkbox" checked="">
+						</div>
+						<div class="orer__list__cell">Escrow Booking 
+							<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="" data-cached-title="Размещение заявки на биржу"></i>
+						</div>
+						<div class="orer__list__cell">$0,99/ за 1 заявку Скидка: $0/0%</div>
+						<div class="orer__list__cell">$0,99</div>
+					</div>
+					<div class="order__list__row">
+						<div class="orer__list__cell">
+							<input type="checkbox">
+						</div>
+						<div class="orer__list__cell">Escrow Tips</div>
+						<div class="orer__list__cell">$0,29/ за 1 заявку Скидка: $0/0%</div>
+						<div class="orer__list__cell">$0</div>
+					</div>
+					<div class="order__list__row">
+						<div class="orer__list__cell">
+							<input type="checkbox">
+						</div>
+						<div class="orer__list__cell">Order update</div>
+						<div class="orer__list__cell">$1/ за 1 заявку Скидка: $0/0%</div>
+						<div class="orer__list__cell">$0</div>
+					</div>
+				</div>
+
+			</div>
+
+			{# Step 3 ==================================================== #}
+			<div id="pay_step3" class="pay__steps__wrap">
+
+				<div class="pay__page__content_title">Выбор способа оплаты</div>
+				
+				<div class="pay__method">
+					<div class="pay__method__select">
+						<div class="method__select__row">
+							<input type="radio" name="1" checked>
+							<label for="1">Электронные платежи <i class="uk-icon-paypal"></i></label>
+							<!-- Start form_ecommerce -->
+							<form action="/" class="form_ecommerce horizontal__form active" id="form_ecommerce" method="post">
+							
+								<div class="form__row">
+									<label class="form__label" for="#">E-mail</label>
+							
+									<div class="form__control">
+										<input class="input-field" type="text" id="#" placeholder=""/>
+									</div>
+								</div>
+							
+							</form>
+							<!-- End form_ecommerce -->
+						</div>
+						<div class="method__select__row">
+							<input type="radio" name="1">
+							<label for="1">Кредитные карточки <i class="uk-icon-cc-visa"></i> <i class="uk-icon-cc-mastercard"></i> <i class="uk-icon-cc-diners-club"></i> <i class="uk-icon-cc-amex"></i></label>
+							<!-- Start form_card_pay -->
+							<form action="/" class="form_card_pay horizontal__form" id="form_card_pay" method="post">
+								<div class="form__row">
+									<label class="form__label" for="#">Номер карты</label>
+									<div class="form__control">
+										<input class="input-field" type="text" id="#" placeholder=""/>
+									</div>
+								</div>
+								<div class="form__row">
+									<label class="form__label" for="#">Срок действия</label>
+									<div class="form__control">
+										<input class="input-field" type="text" id="#" placeholder=""/>
+									</div>
+								</div>
+								<div class="form__row">
+									<label class="form__label" for="#">Секретный код</label>
+									<div class="form__control">
+										<input class="input-field" type="text" id="#" placeholder=""/>
+									</div>
+								</div>
+							</form>
+							<!-- End form_card_pay -->
+						</div>
+					</div>
+				</div>
+
+				<div class="pay__confirm__terns">
+					<div class="form_row">
+						<input type="checkbox" required> <label class="form__label" for="">Я соглашаюсь с Terms and Conditions and Privacy Policy</label>
+					</div>
+					<div class="form_row">
+						<input type="checkbox"> <label class="form__label" for="">Я даю разрешение ТМР отправлять мне электронные письма о специальных предложениях, акциях и других событиях на сайте ТМР</label>
+					</div>
+				</div>
+
+			</div>
+
+			{# Step 4 ==================================================== #}
+			<div id="pay_step4" class="pay__steps__wrap">
+
+				<div class="pay__page__content_title">Проверьте правильность информации:</div>
+
+				<div class="pay__order__product">
+					<div class="order__product__row">
+						<div class="order__product__info">
+							<div class="order__product__info_line">
+								<div class="info_line_item first">TMP Booking</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">$1/ за 1 заявку</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Ecrow Booking</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">$0,99/ за 1 заявку</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Ecrow Tips</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">$0</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Order update</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">$0</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Get in Touch</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">$0</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="order__product__row">
+						<div class="order__product__info">
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Способ оплаты:</div>
+								<div class="info_line_item last">
+									<a href="#"><i class="uk-icon-edit"></i> Изменить</a>
+								</div>
+								<div class="info_line_item second">Visa</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Номер карты</div>
+								<div class="info_line_item second">************4567</div>
+							</div>
+							<div class="order__product__info_line">
+								<div class="info_line_item first">Срок действия</div>
+								<div class="info_line_item second">12/16</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+				
+				<div class="pay__order__total">
+					<div class="order__total__row last__row">
+						<div class="order__total__label">Общая сумма</div>
+						<div class="order__total__amount">$1,2</div>
+					</div>
+				</div>
+
+				<div class="pay__order__btn">
+					<button id="open_steps_2" class="btn btn-danger btn__next">Next</button>
+					<button id="open_steps_3" class="btn btn-danger btn__next">Next</button>
+					<button id="open_steps_4" class="btn btn-danger btn__next">Next</button>
+					<button id="pay_steps_btn" class="btn btn-danger btn__next" data-uk-modal="{target:'#confirm_pay'}">Pay</button>
+				</div>
+
+			</div>
+			{# end pay__page__content #}
+
+			{# begin pay__total__info #}
+			<div class="payment__sidebar">
+				<div id="sticky_box" class="pay__total__info">
+					<div class="pay__total__info_row">
+						<div class="pay__total__info_label">TMP Booking</div>
+						<div class="pay__total__info_amount">$1</div>
+					</div>
+					<div class="pay__total__info_row">
+						<div class="pay__total__info_label">TMP application fee
+							<i class="uk-icon-question-circle uk-text-primary" data-uk-tooltip="{pos:'right'}" title="" data-cached-title="Lorem ipsum dolor sit amet, consectetur adipisicing."></i>
+						</div>
+						<div class="pay__total__info_amount">$0,2</div>
+					</div>
+					<div class="pay__total__info_row">
+						<div class="pay__total__info_label">Налоги</div>
+						<div class="pay__total__info_amount">free</div>
+					</div>
+					<div class="pay__total__info_row">
+						<div class="pay__total__info_label"><b>Общая сумма</b></div>
+						<div class="pay__total__info_amount"><b>$1,2</b></div>
+					</div>
+					<div class="pay__total__info_row">
+						<div class="pay__total__info_label"><b>Общая сумма дискаунта</b></div>
+						<div class="pay__total__info_amount"><b>0</b></div>
+					</div>
+
+					<div class="pay__total__info_faq">
+						<a href="#" class="pay__total__info_open_faq">FAQ</a>
+						<ul class="pay__total__info_faq_list">
+							<li class="faq__list__row">
+								<a href="#" class="faq__list__link">Могу ли я отменить покупку после оплаты?</a>
+							</li>
+							<li class="faq__list__row">
+								<a href="#" class="faq__list__link">Каким способом оплаты выгоднее всего расплачиваться?</a>
+							</li>
+							<li class="faq__list__row">
+								<a href="#" class="faq__list__link">Насколько безопасно вводить свои данные при оплате?	</a>
+							</li>
+							<li class="faq__list__row">
+								<a href="#" class="faq__list__link">Могу ли я купить услугу для другого пользователя?</a>
+							</li>
+							<a href="{{ url('help') }}" class="btn btn-primary">Читать больше</a>
+						</ul>
+					</div>
+				</div>
+			</div>
+			{# end pay__total__info #}
+			
+		</div>
+	</div>
+
+<!-- begin modal confirm_pay -->
+<div id="confirm_pay" class="uk-modal confirm_pay">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-alert-large">Подтверждение</div>
+        <div class="form__row">
+        	<button class="uk-button uk-button-primary">No</button>
+        	<button class="uk-button uk-button-danger">Yes</button>
+        </div>
+    </div>
+</div>
+<!-- end modal confirm_pay -->
+{% endblock %}
+
+{% block javascripts %}
+	    {% javascripts filter='?requirejs'
+        '@DaVinciTaxiBundle/Resources/public/js/pages/payment/pay_step.js'
+    %}
+    {{ require_js_initialize({ 'main' : asset_url })}}
+    {% endjavascripts %}
+{% endblock %}

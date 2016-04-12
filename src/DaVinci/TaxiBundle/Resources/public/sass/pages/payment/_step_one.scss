@@ -1,0 +1,467 @@
+// =================================================================================
+// Payment - Step one
+// =================================================================================
+
+// Page styles ========================================================================
+.pay__head {
+	border-bottom: 1px solid $danger-color;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	@extend %clear_a;
+}
+.pay__page__content_title {
+	color: $danger-color;
+	font-weight: 600;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+.pay__page__content {
+	display: table-cell;
+	vertical-align: top;
+	width: 67%;
+}
+.payment__sidebar {
+	display: table-cell;
+	vertical-align: top;
+	width: 33%;
+	padding-left: 15px;
+}
+.pay__title {
+	font-size: 24px;
+	font-weight: 600;
+	display: inline-block;
+	color: $danger-color;
+}
+.choose__role {
+	float: right;
+	&>* {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+	.choose__role__label {
+		color: #444;
+		font-weight: 600;
+	}
+	.jqselect.jq_link {
+		display: inline-block;
+		width: inherit;
+		.jq-selectbox__select {
+			border: none;
+			padding: 0 20px 0 0px;
+			line-height: 1.1;
+			height: auto;
+			&:hover {
+				background-color: transparent;
+				.jq-selectbox__select-text {
+					border-color: transparent;
+				}
+			}
+			.jq-selectbox__select-text {
+				border-bottom: 1px dashed #000;
+				cursor: pointer;
+			}
+			.jq-selectbox__trigger {
+				line-height: 1.1;
+			}
+		}
+		.jq-selectbox__dropdown {
+			width: auto !important;
+		}
+	}
+}
+.uk-icon-question-circle {
+	cursor: pointer;
+}
+.pay__order__list {
+	border-bottom: 1px solid $danger-color;
+	// padding-bottom: 5px;
+	font-size: 14px;
+	margin-bottom: 15px;
+	.order__list__row {
+		&:nth-child(even) {
+			background-color: $muted-bg;
+		}
+		&.title__row {
+			border-bottom: 1px solid $danger-color;
+			// margin-bottom: 5px;
+			background-color: #fff;
+			.orer__list__cell {
+				vertical-align: middle;
+				text-align: center;
+				font-weight: 600;
+				padding: 5px 10px;
+				
+				&:first-child {
+					text-align: left;
+				}
+				&:last-child {
+					text-align: right;
+				}
+			}
+		}
+	}
+	.orer__list__cell {
+		display: inline-block;
+		vertical-align: top;
+		padding: 3px 10px;
+		&:first-child {
+			width: 5%;
+		}
+		&:nth-child(n+2) {
+			width: 37%;
+			text-align: center;
+		}
+		&:last-child {
+			text-align: right;
+			width: 19%;
+		}
+
+	}
+}
+
+.pay__order__product {}
+.order__product__row {}
+.order__product__name {
+	font-weight: 600;
+	width: 100%;
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: $muted-bg;
+	@include border-radius(3px);
+	.name_item {
+		&:first-child {
+			float: left;
+		}
+		&:last-child {
+			float: right;
+		}
+	}
+}
+.order__product__info {
+	max-width: 490px;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.order__product__info_line {
+	display: inline-block;
+	width: 100%;
+	// line-height: 1;
+	border-bottom: 1px dotted $muted-color;
+	&:last-child {
+	}
+	&+.order__product__info_line {
+		margin-top: 9px;
+	}
+	.info_line_item {
+		&.first {
+			float: left;
+			width: 42%;
+			padding-right: 10px;
+		}
+		&.second {
+			overflow: hidden;
+		}
+		&.last {
+			float: right;
+			padding-left: 10px;
+		}
+	}
+}
+
+.pay__order__discount {
+	background-color: $muted-bg;
+	// max-width: 365px;
+	display: inline-block;
+	padding: 10px;
+	@include border-radius(4px);
+	margin-bottom: 15px;
+	.order__discount__row {
+		&+.order__discount__row {
+			margin-top: 5px;
+		}
+		&>* {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	.order__discount__label {
+		width: 140px;
+	}
+	.order__discount__field {
+		input {
+			border: none;
+			outline: none;
+			padding: 3px 5px;
+			width: 97px;
+			&:focus {
+				background-color: $muted-bg;
+			}
+		}
+	}
+	.btn {
+		min-height: 24px;
+	}
+}
+
+.pay__order__total {
+	background-color: $danger-bg-light;
+	text-align: right;
+	font-size: 14px;
+	white-space: nowrap;
+	padding: 10px;
+	width: 100%;
+	display: inline-block;
+	@include border-radius(4px);
+	.order__total__label {
+		margin-right: 15px;
+	}
+	.order__total__amount {
+		width: 70px;
+	}
+	.order__total__row {
+		display: block;
+		width: 100%;
+		&.last__row {
+			font-weight: 600;
+			font-size: 18px;
+		}
+		&>* {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		&+.order__total__row {
+			margin-top: 1px;
+		}
+	}
+}
+
+.pay__order__btn {
+	margin-top: 15px;
+	width: 100%;
+	display: inline-block;
+	.btn {
+		padding: 12px 15px;
+		font-size: 20px;
+		font-weight: 600;
+		width: 49%;
+		min-width: 200px;
+		float: right;
+		text-transform: uppercase;
+		&:not(:last-child) {
+		}
+	}
+	.btn__next {
+	}
+}
+
+.pay__total__info {
+	float: right;
+	max-width: 285px;
+	background-color: $primary-bg-light;
+	padding-top: 10px;
+	@include border-radius(4px);
+	margin-left: 15px;
+}
+.pay__total__info_row {
+	padding: 0 10px;
+	@extend %clear_a;
+	&.main__row {
+		font-weight: 600;
+	}
+	&>* {
+		float: left;
+	}
+	&+.pay__total__info_row {
+		margin-top: 5px;
+	}
+}
+.pay__total__info_label {
+	width: 70%;
+}
+.pay__total__info_amount {
+	width: 30%;
+	text-align: right;
+}
+.pay__total__info_faq {}
+.pay__total__info_open_faq {
+	background-color: $primary-bg;
+	color: $contrast-color;
+	display: block;
+	margin-top: 10px;
+	padding: 5px 10px;
+	text-align: center;
+	font-weight: 600;
+	&:hover {
+		color: $contrast-color;
+		background-color: $primary-bg;
+	}
+}
+.pay__total__info_faq_list {
+	overflow: hidden;
+	position: relative;
+	background-color: #fff;
+	height: 0;
+	opacity: 0;
+	border: 1px solid transparent;
+	@extend %anim_03;
+	&.open {
+		height: auto;
+		opacity: 1;
+		border: 1px solid $muted-bg;
+		padding-bottom: 5px; 
+		@include border-radius(0 0 3px 3px);
+		.faq__list__row {
+			height: auto;
+			padding: 5px 10px;
+		}
+	}
+	.btn {
+		width: 94%;
+		min-height: 24px;
+		padding: 4px 10px;
+		margin: 5px 3%;
+	}
+}
+.faq__list__row {
+	height: 0;
+	padding: 0 10px;
+	overflow: hidden;
+	@extend %anim_03;
+	&:before {
+		content: '?';
+		margin-top: 2px;
+		float: left;
+		height: 12px;
+		width: 12px;
+		background-color: $danger-bg;
+		font-size: 10px;
+		text-align: center;
+		color: #fff;
+		vertical-align: middle;
+		margin-right: 5px;
+		font-weight: 600;
+		line-height: 13px;
+		@include border-radius(50%);
+	}
+}
+.faq__list__link {
+	overflow: hidden;
+	line-height: 14px;
+	display: block;
+}
+
+// Step tree
+.pay__method {
+	margin-bottom: 10px;
+}
+.pay__method__select {}
+.method__select__row {
+	.form_card_pay {
+		margin: 15px 0;
+	}
+	.horizontal__form {
+		margin-top: 10px;
+		height: 0px;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+	    @extend %anim_02;
+	    &>* {
+	    	height: 0;
+	    	overflow: hidden;
+	    	@extend %anim_02;
+	    }
+		&.active {
+			height: auto;
+			padding: 0 0 15px;
+			opacity: 1;
+			// overflow: auto;
+			&>* {
+				height: auto;
+			}
+		}
+		.form__row {
+			@extend %clear_a;
+			&+.form__row {
+				margin-top: 5px;
+			}
+		}
+		.form__label {
+			float: left;
+			width: 150px;
+			padding-top: 5px;
+			color: $muted-color;
+		}
+		.form__control {
+			float: left;
+		}
+	}
+	[class*='uk-icon'] {
+		font-size: 18px;
+		color: $muted-color;
+		text-shadow: 1px 1px 0 #eee;
+		&:first-child {
+			margin-left: 15px;
+		}
+	}
+	label {
+		color: $muted-color;
+		vertical-align: text-bottom;;
+	}
+	input[type="radio"] {
+		&:checked {
+			&+label {
+				color: $main-color;
+				[class*='uk-icon'] {
+					color: $primary-bg;
+				}
+			}
+		}
+	}
+	.input-field {}
+}
+.pay__confirm__terns {
+	margin: 15px 0;
+	padding: 10px 0;
+	border-top: 1px solid $danger-color;
+	border-bottom: 1px solid $danger-color;
+	.form__label {
+		position: relative;
+		color: $muted-color;
+		line-height: 1;
+	}
+	input[type="checkbox"] {
+		vertical-align: baseline;
+		&:checked {
+			&+label {
+				color: $main-color;
+			}
+		}
+	}
+	.form_row {
+		&+.form__row {
+			margin-top: 5px;
+		}
+	}
+}
+
+.pay__steps__wrap {
+	&+.pay__steps__wrap {
+		margin-top: 15px;
+		padding-top: 15px;
+		border-top: 1px solid $muted-bg;
+	}
+}
+
+.pay__steps__wrap:not(#pay_step1) {
+	display: none;
+	&.open {
+		display: block;
+	}
+}
+
+#open_steps_3,#open_steps_4,#pay_steps_btn {
+	display: none;
+}
