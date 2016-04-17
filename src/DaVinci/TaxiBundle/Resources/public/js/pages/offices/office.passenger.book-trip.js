@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'datarange', 'passengerHandler', 'changeOffice'], function () {
+    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler', 'changeOffice'], function () {
 
         function initProfileForm() {
             
@@ -100,5 +100,8 @@ require(['pages/common'], function ($) {
                 
         //remove preloader
         togglePreloader(document.body,false);
+
+        require(["showRouting"], function () {});
+
     });
 });

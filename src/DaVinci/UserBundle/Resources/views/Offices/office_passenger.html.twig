@@ -74,7 +74,7 @@
 															{% if request.stateValue == 'before-open' %}
 																<div class="passanger-pay">
 																	<div class="y-no">
-																		<button onclick="location.href='{{ path('passenger_request_payment', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
+																		<button onclick="location.href='{{ path('payment_step_page', {'id': request.id}) }}'" class="uk-button">{{ 'Pay'|trans }}</button>
 																		<button onclick="location.href='{{ path('passenger_request_edit', {'id': request.id}) }}'" class="uk-button">{{ 'Edit'|trans }}</button>
 																	</div>
 																</div>
@@ -148,6 +148,10 @@
 													</tr>
                                                     {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
                                                     {{ showRequest(request, user, 'passenger_open') }}
+				                                {% else %}
+				                                    <tr>
+				                                        <td colspan="7">{{ 'Orders not found'|trans }}</td>
+				                                    </tr>
 												{% endfor %}
 											</tbody>
 										</table>
@@ -255,6 +259,10 @@
                                             </tr>
                                             {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
                                             {{ showRequest(request, user, 'passenger_all') }}
+		                                {% else %}
+		                                    <tr>
+		                                        <td colspan="8">{{ 'Orders history not found'|trans }}</td>
+		                                    </tr>
                                         {% endfor %}
                                     </tbody>
                                 </table>

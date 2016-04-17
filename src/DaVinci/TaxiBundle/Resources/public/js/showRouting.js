@@ -1,5 +1,7 @@
 // show routing process
 define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, routeDisplay) {
+
+
 	function showRouting() {
 		googleMaps.initialize('map-canvas');
         routeDisplay.load();
@@ -37,6 +39,32 @@ define("showRouting", ["googleMaps", "routeDisplay"], function(googleMaps, route
 	            googleMaps.codeAddress(1, placeTo);
 	        }
 	    });
+	    
+
+	    // One route init map
+	  //   $("[id*='showRouteMap']").one('click', function() {
+	  //   	var parentForm = $(this).closest('.route-modal');
+	  //   	// var mapOneRoute = $(this).closest('.route-modal').find('[id*="map-canvas_"]');
+	  //       var orderPlaceFrom = parentForm.find(".routePoints_0_place").text();
+	  //       var orderPlaceTo = parentForm.find(".routePoints_1_place").text();
+
+	  //       alert(orderPlaceFrom + ' - ' + orderPlaceTo);
+
+	  //       // alert(mapOneRoute.attr("id"));
+
+			// googleMaps.initialize2('map');
+
+	  //       if (orderPlaceFrom != '' && orderPlaceTo != '') {
+	  //           googleMaps.calculateRoute(orderPlaceFrom, orderPlaceTo);
+	  //           googleMaps.calculateDistance(orderPlaceFrom, orderPlaceTo);
+	
+	  //           return;
+	  //       }
+	
+	  //       if (placeTo != '') {
+	  //           googleMaps.codeAddress(1, placeTo);
+	  //       }
+	  //   });
 	    
 	    $('div.add-destination').on('click', function(e) {
 	    	e.preventDefault();

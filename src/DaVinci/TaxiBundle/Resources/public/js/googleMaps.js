@@ -7,7 +7,8 @@ define('googleMaps', ['gmaps'], function(gmaps) {
             panControl: true,
             zoomControl: true,
             scaleControl: true,
-            draggable: false,
+            draggable: true,
+            scrollwheel: false,
             mapTypeId: gmaps.MapTypeId.ROADMAP
         };
 
@@ -24,8 +25,8 @@ define('googleMaps', ['gmaps'], function(gmaps) {
         
         this.initialize = function(mapId) {
             map = new gmaps.Map(
-            	document.getElementById(mapId),
-            	mapOptions
+                document.getElementById(mapId),
+                mapOptions
             );
 
             geoCoder = new gmaps.Geocoder();
@@ -37,6 +38,22 @@ define('googleMaps', ['gmaps'], function(gmaps) {
 
             distanceService = new gmaps.DistanceMatrixService();
         }
+
+        // this.initialize2 = function() {
+        //     map = new gmaps.Map(
+        //         document.getElementById('map'),
+        //         mapOptions
+        //     );
+
+        //     geoCoder = new gmaps.Geocoder();
+
+        //     directionsService = new gmaps.DirectionsService();
+
+        //     directionsDisplay = new gmaps.DirectionsRenderer();
+        //     directionsDisplay.setMap(map);
+
+        //     distanceService = new gmaps.DistanceMatrixService();
+        // }
 
         this.codeAddress = function(key, address) {
             geoCoder.geocode({'address': address}, function(results, status) {
@@ -202,4 +219,6 @@ define('googleMaps', ['gmaps'], function(gmaps) {
     };
     
     return new GoogleMaps();
+
+
 });
