@@ -184,121 +184,121 @@ class HomeController extends StepsController
      * @Route("/payment/request_id/{id}", name="passenger_request_payment")
      * @Security("has_role('ROLE_USER') or has_role('ROLE_TAXIDRIVER')")
      */
-    // public function paymentAction($id) 
-    // {
-    // 	$passengerRequest = $this->getPassengerRequestWithDriversById($id);
-    // 	if (is_null($passengerRequest)) {
-    // 		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
-    // 	}
+    public function paymentAction($id) 
+    {
+    	$passengerRequest = $this->getPassengerRequestWithDriversById($id);
+    	if (is_null($passengerRequest)) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
     	
-    // 	$makePayment = $this->spawnMakePayment();
+    	$makePayment = $this->spawnMakePayment();
     	
-    // 	if (!$this->beforePaymentCheck($passengerRequest)) {
-    // 		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
-    // 	}
+    	if (!$this->beforePaymentCheck($passengerRequest)) {
+    		return $this->redirect($this->generateUrl('da_vinci_taxi_homepage'));
+    	}
     	
-    // 	$operationCode = MakePayments::CODE_SUCCESS;
+    	$operationCode = MakePayments::CODE_SUCCESS;
     	
-    // 	$flow = $this->get('taxi.makePayment.form.flow');
-    // 	$flow->bind($makePayment);
+    	$flow = $this->get('taxi.makePayment.form.flow');
+    	$flow->bind($makePayment);
     	    	    	
-    // 	$form = $flow->createForm();
-    // 	if ($flow->isValid($form)) {
-    // 		$flow->saveCurrentStepData($form);
+    	$form = $flow->createForm();
+    	if ($flow->isValid($form)) {
+    		$flow->saveCurrentStepData($form);
     	
-    // 		if ($flow->nextStep()) {
-    // 			$form = $flow->createForm();
-    // 		} else {
-    // 			$user = $this->get('security.context')
-	   //  			->getToken()
-	   //  			->getUser();
-    // 			$driver = null;
+    		if ($flow->nextStep()) {
+    			$form = $flow->createForm();
+    		} else {
+    			$user = $this->get('security.context')
+	    			->getToken()
+	    			->getUser();
+    			$driver = null;
     			
-    // 			if ($this->isOtherDriverCondition($passengerRequest)) {
-    // 				$driver = $this->getDirverByUserId($user->getId());
+    			if ($this->isOtherDriverCondition($passengerRequest)) {
+    				$driver = $this->getDirverByUserId($user->getId());
     			
-    // 				$passengerRequest->addPossibleDriver($driver);
-    // 				$passengerRequest->removeCanceledDrivers($driver);
+    				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->removeCanceledDrivers($driver);
     				    			
-    // 				$driver->addPossibleRequests($passengerRequest);
-    // 				$driver->removeCanceledRequests($passengerRequest);
-    // 			}
+    				$driver->addPossibleRequests($passengerRequest);
+    				$driver->removeCanceledRequests($passengerRequest);
+    			}
     			
-    // 			if ($this->isFirstDriverCondition($passengerRequest)) {
-    // 				$driver = $this->getDirverByUserId($user->getId());
+    			if ($this->isFirstDriverCondition($passengerRequest)) {
+    				$driver = $this->getDirverByUserId($user->getId());
 
-    // 				$passengerRequest->changeState();
-    // 				$passengerRequest->addPossibleDriver($driver);
-    // 				$passengerRequest->removeCanceledDrivers($driver);
+    				$passengerRequest->changeState();
+    				$passengerRequest->addPossibleDriver($driver);
+    				$passengerRequest->removeCanceledDrivers($driver);
     				    				 
-    // 				$driver->addPossibleRequests($passengerRequest);
-    // 				$driver->removeCanceledRequests($passengerRequest);
-    // 			}
+    				$driver->addPossibleRequests($passengerRequest);
+    				$driver->removeCanceledRequests($passengerRequest);
+    			}
     			
-    // 			if ($this->isUserCondition($passengerRequest)) {
-    // 				$passengerRequest->changeState();
-    // 			}
+    			if ($this->isUserCondition($passengerRequest)) {
+    				$passengerRequest->changeState();
+    			}
 
-	   //  		try {	
-	   //  			$dispatcher = $this->get('event_dispatcher');
-	   //  			$dispatcher->dispatch(
-	   //  				FinancialOfficeEvents::OPERATION_SALE,
-	   //  				new TransferOperationEvent(
-				// 			$makePayment,
-	   //  					$this->getMakePaymentRepository(),
-	   //  					$passengerRequest->getFullRoute(),
-    //                         MakePayments::OPERATION_PAYMENT
-	   //  				)
-	   //  			);
+	    		try {	
+	    			$dispatcher = $this->get('event_dispatcher');
+	    			$dispatcher->dispatch(
+	    				FinancialOfficeEvents::OPERATION_SALE,
+	    				new TransferOperationEvent(
+							$makePayment,
+	    					$this->getMakePaymentRepository(),
+	    					$passengerRequest->getFullRoute(),
+                            MakePayments::OPERATION_PAYMENT
+	    				)
+	    			);
 	    			
-	   //  			if (!is_null($driver)) {
-    //                     $this->getIndependentDriverRepository()->persist($driver);
-	   //  			}
-	   //  			$this->updatePassengerRequest($passengerRequest);
+	    			if (!is_null($driver)) {
+                        $this->getIndependentDriverRepository()->persist($driver);
+	    			}
+	    			$this->updatePassengerRequest($passengerRequest);
                     
-    //                 $em = $this->get('doctrine')->getManager();
-    //                 $em->flush();
+                    $em = $this->get('doctrine')->getManager();
+                    $em->flush();
 	    				    			
-	   //  			$flow->reset();
-	   //  			return $this->redirect($this->getAfterPaymentUrl());
-    // 			} catch (RequesterException $exception) {
-    // 				$operationCode = MakePayments::CODE_FAIL;
-    // 			}
-    // 		}
-    // 	}
+	    			$flow->reset();
+	    			return $this->redirect($this->getAfterPaymentUrl());
+    			} catch (RequesterException $exception) {
+    				$operationCode = MakePayments::CODE_FAIL;
+    			}
+    		}
+    	}
     	
-    // 	$data = array(
-    // 		'form' => $form->createView(),
-    // 		'flow' => $flow,
-    // 		'passengerRequest' => $passengerRequest,
-    // 		'paymentMethods' => PaymentMethod::getTypes(),
- 			// 'internalMethods' => InternalPaymentMethod::getSubTypes(),
-    // 		'creditCardMethods' => CreditCardPaymentMethod::getSubTypes(),
-    // 		'operationCode'	=> $operationCode
-    // 	);
+    	$data = array(
+    		'form' => $form->createView(),
+    		'flow' => $flow,
+    		'passengerRequest' => $passengerRequest,
+    		'paymentMethods' => PaymentMethod::getTypes(),
+ 			'internalMethods' => InternalPaymentMethod::getSubTypes(),
+    		'creditCardMethods' => CreditCardPaymentMethod::getSubTypes(),
+    		'operationCode'	=> $operationCode
+    	);
     	 
-    // 	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {
-    // 		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
-    // 		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
-    // 	}
+    	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_FIRST) {
+    		$data['marketPrice'] = $this->getCalculationService()->getMarketPrice($passengerRequest);
+    		$data['marketTips'] = $this->getCalculationService()->getMarketTips($passengerRequest);
+    	}
     	
-    // 	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_SECOND) {
-    // 		$paymentMethod = $makePayment->getPaymentMethod();
-    // 		$data['paymentMethod'] = $paymentMethod->getType();
+    	if ($flow->getCurrentStepNumber() == MakePaymentFlow::STEP_SECOND) {
+    		$paymentMethod = $makePayment->getPaymentMethod();
+    		$data['paymentMethod'] = $paymentMethod->getType();
     			
-    // 		if (
-    // 			$paymentMethod instanceof CreditCardPaymentMethod
-    // 			|| $paymentMethod instanceof InternalPaymentMethod
-    // 		) {
-    // 			$data['subType'] = $paymentMethod->getSubTypeName();
-    // 		}
-    // 	}
+    		if (
+    			$paymentMethod instanceof CreditCardPaymentMethod
+    			|| $paymentMethod instanceof InternalPaymentMethod
+    		) {
+    			$data['subType'] = $paymentMethod->getSubTypeName();
+    		}
+    	}
 		    	    	 
-    // 	return $this->render(
-    // 		'DaVinciTaxiBundle:Store:payment_page.html.twig',
-    // 		$data
-    // 	);   	
-    // }
+    	return $this->render(
+    		'DaVinciTaxiBundle:Store:payment_page.html.twig',
+    		$data
+    	);   	
+    }
      
     /**
      * @Route("/approve/request_id/{id}", name="approve_request_status", condition="request.headers.get('X-Requested-With') == 'XMLHttpRequest'")

@@ -287,6 +287,17 @@ class DriverVehicle
         return array_search($this->vehicleClass, VehicleClasses::getChoices());
     }
 
+    // Мои пробы - Евгений
+    // /**
+    //  * Get vehicleClassName
+    //  *
+    //  * @return string 
+    //  */
+    // public function getVehicleClassName()
+    // {
+    //     return array_search($this->vehicleClass, VehicleClasses::getChoicesName());
+    // }
+
     /**
      * Set seats
      *

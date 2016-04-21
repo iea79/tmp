@@ -3543,7 +3543,10 @@ footer {
 }
 .pop-up .form-view .about-car dt,
 .pop-up .form-view .about-car dd {
-    line-height: 22px;
+    line-height: 22px;;
+}
+.pop-up .form-view .about-car .capitalize_letter {
+	text-transform: capitalize;
 }
 .pop-up .other .uk-panel {
 	width: 33.33%;

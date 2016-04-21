@@ -14,11 +14,11 @@ payment_history:
 #================================end payment===========================
 
 
-# passenger_request_payment:
-#     pattern: /payment/request_id/{id}
-#     defaults: { _controller: DaVinciTaxiBundle:Home:payment }
-#     methods:  [GET, POST]
-#     options: { useAsInnerURL: false }
+passenger_request_payment:
+    pattern: /payment/request_id/{id}
+    defaults: { _controller: DaVinciTaxiBundle:Home:payment }
+    methods:  [GET, POST]
+    options: { useAsInnerURL: false }
 
 passenger_request_confirm:
     pattern: /confirm/request_id/{id}
