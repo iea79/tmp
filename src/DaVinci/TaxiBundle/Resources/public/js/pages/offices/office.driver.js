@@ -117,7 +117,7 @@ require(["pages/common"], function ($) {
                     readURLDriverPhoto(this);
                 });
 
-                $('#taxi_driver_office_profile_vehicle_seats option[value="0"]').hide().this().parent().parent('jq-selectbox').trigger('refresh');
+                // $('#taxi_driver_office_profile_vehicle_seats option[value="0"]').hide().this().parent().parent('jq-selectbox').trigger('refresh');
                 
                 //$('.vehicle-class').styler();
 

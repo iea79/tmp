@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'intl-tel-input-master/js/intlTelInput', 'datatable', 'showRouteMap'], function () {
+    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'intl-tel-input-master/js/intlTelInput', 'datatable'], function () {
         require(['chosenImage.jquery'], function () {
 
             // Добавление доролнительных направлений 
@@ -36,21 +36,7 @@ require(['pages/common'], function ($) {
                 else
                     targetBlock.hide();
             });
-            
-            // Скрытие и открытие данных для заказа другому человеку на 3-м шаге главной
-            /* This is not applicable so far, but can be used any moment again 
-             
-             $(function(){
-             $('.another-wrap').hide();
-             });
-             $(function(){
-             $('.nottravel input[type=checkbox]').click(function(){
-             var checked = this.checked;
-             if(checked) $('.another-wrap').show();
-             else $('.another-wrap').hide();
-             });z
-             }); */
-            
+                        
             // Ajax request processing            
             
             // accordeon for buttoons in step 2 of homepage

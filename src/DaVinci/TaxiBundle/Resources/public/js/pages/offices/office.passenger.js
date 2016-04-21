@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min', 'pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler', 'charCount', 'changeOffice'], function () {
+    require(['jquery.form.min', 'pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'inputLimit', 'datarange', 'passengerHandler', 'charCount', 'changeOffice', 'showRouteMap'], function () {
 
         function initProfileForm() {
             $('.passenger-profile-form').submit(function (e) {
@@ -104,8 +104,6 @@ require(['pages/common'], function ($) {
                 
         //remove preloader
         togglePreloader(document.body,false);
-
-        require(["showRouteMap"], function () {});
 
     });
 });

@@ -29,17 +29,6 @@ define(['jquery'], function($){
         // remove my account button loading
         $('.autorized').removeClass('loading');
 
-        // var HeaderTop = $('.mp-spinner').offset().top;
-        
-        // $(window).scroll(function(){
-        //         if( $(window).scrollTop() > HeaderTop ) {
-        //                 $('.mp-spinner').addClass('stiky');
-        //         } else {
-        //                 $('.mp-spinner').removeClass('stiky');
-        //         }
-        // });
-
-
         require(['addons/form-select','addons/form-password', 'addons/sticky']);
     });
     
