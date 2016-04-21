@@ -1,7 +1,9 @@
 {% for request in requests %}
     {% for driver in request.getPossibleDrivers() %}
         {% set driverUser = driver.user %}
+        {% set driverAddress = driver.address %}
         {% set driverVehicle = driver.vehicle %}
+        {% set driverVehicleClass = driver.vehicle.getVehicleClass|replace({'0': 'Not chosen', '1': 'Economy', '2': 'Compact', '3': 'Midsize', '4': 'Standart', '5': 'Full Size', '6': 'Premium', '7': 'Luxury', '8': 'Other', '9': 'Convertible', '10': 'Van', '11': 'SUV', '12': 'Speciality', '13': 'Pickup'}) %}
         {% set langs = driverUser.language %}
         <div id="about-driver_{{ driverUser.id }}" class="uk-modal pop-up">
             <div class="uk-modal-dialog">
@@ -48,18 +50,21 @@
                                         <dl class="uk-width-1-1 about-driver">
                                             <dt>{{ 'First Name:'|trans }}</dt><dd>{{ driverUser.firstname }}</dd>
                                             <dt>{{ 'Last Name:'|trans }}</dt><dd>{{ driverUser.lastname }}</dd>
-                                            <dt>{{ 'Country:'|trans }}</dt><dd>{{ 'Russia'|trans }}</dd>
-                                            <dt>{{ 'City:'|trans }}</dt><dd>{{ 'Moscow'|trans }}</dd>
-                                            <dt>{{ 'English:'|trans }}</dt><dd>{{ langs.getLevelNamed() }}</dd>
+                                            <dt>{{ 'Country:'|trans }}</dt><dd>{{ driverAddress.getCountry }}</dd>
+                                            <dt>{{ 'City:'|trans }}</dt><dd>{{ driverAddress.getCountrycity }}</dd>
+                                            <dt>{{ 'English:'|trans }}</dt><dd>{{ langs.getLevelNamed }}</dd>
                                             {% if langs.languages == true %}
                                                 <dt>{{ 'Other language:'|trans }}</dt><dd>{{ langs.getSeparatedLanguages() }}</dd>
                                             {% endif %}
-                                            <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{#{ driverUser.getExperience() }#}</dd>
-                                            <dt>{{ 'Birthday:'|trans }}</dt><dd>{#{ driverUser.birthday }#}</dd>
-                                            <dt>{{ 'Gender:'|trans }}</dt><dd>{#{ app.user.getGenderName }#}</dd>
-                                            {% if app.user.driver.about is defined %}
-                                                <dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ app.user.driver.about }}</dd>
-                                            {% else %}
+                                            <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ driver.getExperienceNamed() }}</dd>
+                                            {#% if app.user.DateOfBirth == true %#}
+                                                <dt>{{ 'Birthday:'|trans }}</dt><dd>{{ app.user.dateofbirth }}</dd>
+                                            {#% endif %#}
+                                            {% if driverUser.gender is not empty %}
+                                                <dt>{{ 'Gender:'|trans }}</dt><dd>{{ driverUser.gender|replace({'0': 'Female', '1': 'Male'}) }}</dd>
+                                            {% endif %}
+                                            {% if driver.getAbout == true %}
+                                                <dt class="moretext">{{ 'About me:'|trans }}</dt><dd class="moretext">{{ driver.getAbout }}</dd>
                                             {% endif %}
                                         </dl>
                                     </li>
@@ -87,18 +92,20 @@
                                     </div>
                                     <li>
                                         <dl class="uk-width-1-1 about-car">
-                                            <dt>{{ 'Brand:'|trans }}</dt><dd>{{ driverVehicle.make }}</dd>
-                                            <dt>{{ 'Model:'|trans }}</dt><dd>{{ driverVehicle.model }}</dd>
+                                            <dt>{{ 'Brand:'|trans }}</dt><dd class="capitalize_letter">{{ driverVehicle.make }}</dd>
+                                            <dt>{{ 'Model:'|trans }}</dt><dd class="capitalize_letter">{{ driverVehicle.model }}</dd>
                                             <dt>{{ 'Year:'|trans }}</dt><dd>{{ driverVehicle.year }}</dd>
-                                            <dt>{{ 'Color:'|trans }}</dt><dd>{{ driverVehicle.color }}</dd>
+                                            <dt>{{ 'Color:'|trans }}</dt><dd class="capitalize_letter">{{ driverVehicle.color }}</dd>
                                             <dt>{{ 'Number plate:'|trans }}</dt><dd>{{ driverVehicle.plate }}</dd>
-                                            <dt>{{ 'Class:'|trans }}</dt><dd>{{ driverVehicle.vehicleClass }}</dd>
+                                            <dt>{{ 'Class:'|trans }}</dt><dd>{{ driverVehicleClass }}</dd>
                                             <dt>{{ 'Other:'|trans }}</dt><dd>
                                                 <div class="other">
                                                     <i class="mp-icon-person uk-text-danger"></i><span> {{ driverVehicle.seats }} </span><i class="mp-icon-bug uk-margin-left uk-text-danger"></i><span> {{ driverVehicle.luggages }} </span><i class="mp-icon-door uk-margin-left uk-text-danger"></i><span> {{ driverVehicle.doors }} </span>
                                                 </div>
                                             </dd>
-                                            <dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ driverVehicle.about }}</dd>
+                                            {% if driverVehicle.about == true %}
+                                                <dt class="moretext">{{ 'Short description:'|trans }}</dt><dd class="moretext">{{ driverVehicle.about }}</dd>
+                                            {% endif %}
                                         </dl>
                                     </li>
                                 </ul>
