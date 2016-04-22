@@ -54,12 +54,12 @@
                                             <dt>{{ 'City:'|trans }}</dt><dd>{{ driverAddress.getCountrycity }}</dd>
                                             <dt>{{ 'English:'|trans }}</dt><dd>{{ langs.getLevelNamed }}</dd>
                                             {% if langs.languages == true %}
-                                                <dt>{{ 'Other language:'|trans }}</dt><dd>{{ langs.getSeparatedLanguages() }}</dd>
+                                                <dt>{{ 'Other language:'|trans }}</dt><dd>{{ langs.getSeparatedLanguages }}</dd>
                                             {% endif %}
-                                            <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ driver.getExperienceNamed() }}</dd>
-                                            {#% if app.user.DateOfBirth == true %#}
-                                                <dt>{{ 'Birthday:'|trans }}</dt><dd>{{ app.user.dateofbirth }}</dd>
-                                            {#% endif %#}
+                                            <dt>{{ 'Driving Experience:'|trans }}</dt><dd>{{ driver.getExperienceNamed }}</dd>
+                                            {% if driverUser.getDateOfBirth is not null %}
+                                                <dt>{{ 'Birthday:'|trans }}</dt><dd>{{ driverUser.getDateOfBirth|date('m/d/y') }}</dd>
+                                            {% endif %}
                                             {% if driverUser.gender is not empty %}
                                                 <dt>{{ 'Gender:'|trans }}</dt><dd>{{ driverUser.gender|replace({'0': 'Female', '1': 'Male'}) }}</dd>
                                             {% endif %}

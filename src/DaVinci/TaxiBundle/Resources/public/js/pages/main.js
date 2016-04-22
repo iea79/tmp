@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'inputLimit', 'intl-tel-input-master/js/intlTelInput', 'datatable'], function () {
+    require(['jquery.spinner', 'jquery.form', 'datarange', 'chosen.jquery', 'pages/table.resize', 'charCount', 'showRouting', 'showRouteMap', 'inputLimit', 'intl-tel-input-master/js/intlTelInput', 'datatable'], function () {
         require(['chosenImage.jquery'], function () {
 
             // Добавление доролнительных направлений 
