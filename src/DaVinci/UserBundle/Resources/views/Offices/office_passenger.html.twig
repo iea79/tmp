@@ -96,11 +96,11 @@
 																			<div class="driver-top">
 																					<div class="profile">
 																						<div class="driver-photo">
-																						{% if driverUser.photo.path is defined %}
-																							<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" width="48" height="53" alt="profile photo"/>
-												                                        {% else %}
-												                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" class="empty__img" id="avatar-image" >
-												                                        {% endif %}
+																							{% if driverUser.photo.path is defined %}
+																								<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" width="48" height="53" alt="profile photo"/>
+													                                        {% else %}
+													                                            <img src="{{ asset('bundles/davincitaxi/images/phptpapparat.png') }}" class="empty__img" id="avatar-image" >
+													                                        {% endif %}
 																						</div>
 																						<span class="name">
 																							<a href="#about-driver_{{ driverUser.id }}" data-uk-modal>{{ driverUser.firstname }} {{ driverUser.lastname }}</a>
@@ -114,11 +114,11 @@
 																					</div>
 																					<div class="vehicle">
 																						<div class="drive-car">
-																						{% if driverVehicle.photo.path is defined %}
-																							<img src="{{ driverVehicle.photo.path|imagine_filter('profile_avatar') }}" width="118" height="75" alt="ford-focus"/>
-												                                        {% else %}
-												                                            <img src="{{ asset('bundles/davincitaxi/images/car-empty.png') }}" class="empty__img" id="avatar-image" >
-												                                        {% endif %}
+																							{% if driverVehicle.photo.path is defined %}
+																								<img src="{{ driverVehicle.photo.path|imagine_filter('profile_avatar') }}" width="118" height="75" alt="ford-focus"/>
+													                                        {% else %}
+													                                            <img src="{{ asset('bundles/davincitaxi/images/car-empty.png') }}" class="empty__img" id="avatar-image" >
+													                                        {% endif %}
 																						</div>
 																						<span class="name">{{ driverVehicle.make }} {{ driverVehicle.model }}</span><br/>
 																						<span><i class="mp-icon-person"></i><b> {{ driverVehicle.seats }} </b><i class="mp-icon-bug"></i><b> {{ driverVehicle.luggages }} </b><i class="mp-icon-door"></i><b> {{ driverVehicle.doors }} </b></span>
@@ -126,7 +126,7 @@
 																					</div>
 																					<div class="y-no">
 																						{% if request.stateValue == 'pending' %}
-																						<button id="approve_driver_{{ request.id }}_{{ driver.id }}" type="button" class="approve-driver uk-button" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'yes'|trans }}</button>
+																						<button type="button" class="approve-driver uk-button" {#value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}"#} data-uk-modal="{target: '#driver_approve_request_{{ driverUser.id }}'}">{{ 'yes'|trans }}</button>
 																						{% endif %}	
 																						<button id="decline_dirver_{{ request.id }}_{{ driver.id }}" type="button" class="decline-driver uk-button" value="0:{{ path('decline_driver', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}">{{ 'no'|trans }}</button>
 																						<div id="result_{{ request.id }}"></div>
@@ -134,13 +134,33 @@
 																			</div>
 																			<p class="about"><strong>{{ 'English level:'|trans }}</strong> {{ langs.getLevelNamed() }}</p>
 																			{#<p class="about"><strong>{{ 'Languages:'|trans }}</strong> {{ langs.getSeparatedLanguages() }}</p>#}
-																			<p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ driver.about }}</p>
+																			{% if driver.about is not null %}
+																				<p class="about"><strong>{{ 'About driver:'|trans }}</strong>{{ driver.about }}</p>
+																			{% endif %}
 																			{# <div class="call-driver uk-width-1-2 wk-width-small-1-1">
 																				<span>{{ 'Contacts:'|trans }} </span>
 																				<a class="uk-button uk-button-primary button-skype" data-uk-tooltip="{pos:'top'}" title="{% trans %}Pay to get driver's contacts{% endtrans %}">{{ 'Skype + Phone'|trans }}</a>
 																			</div> #}
 																		</div>
 																		<div class="clr"></div>	
+
+																		<!-- begin modal driver_approve_request -->
+																		<div id="driver_approve_request_{{ driverUser.id }}" class="uk-modal driver_approve_request info_modal">
+																		    <div class="uk-modal-dialog">
+																		        <a class="uk-modal-close uk-close"></a>
+																		        <div class="uk-h4 uk-text-danger uk-margin">Вы действительно хотите выбрать <b>{{ driverUser.firstname }}</b> <b>{{ driverUser.lastname }}</b> в качестве водителя?</div>
+																		        <div class="uk-grid uk-grid-small">
+																		        	<div class="uk-width-1-2">
+																		        		<button onclick="location.href='{{ path('approve_request_status', {'id': request.id}) }}'" id="approve_driver_{{ request.id }}_{{ driver.id }}" value="0:{{ path('approve_request_status', {'id': request.id}) }}-1:{{ driver.id }}-2:{{ request.id }}" class="uk-button uk-button-success uk-width-1-1">YES</button>
+																		        	</div>
+																		        	<div class="uk-width-1-2">
+																		        		<button class="uk-button uk-button-warning uk-width-1-1 uk-modal-close">NO</button>
+																		        	</div>
+																		        </div>
+																		    </div>
+																		</div>
+																		<!-- end modal driver_approve_request -->
+
 																	{% endfor %}
 																</div>
 															{% endif %}	
@@ -208,12 +228,19 @@
                                                 <td>
                                                     {% if request.getStateValue() == 'completed' %}
                                                     	<span>{{ 'completed'|trans }}</span>
+                                                    	{% for driver in request.getPossibleDrivers() %}
+                                                    	{% set driverUser = driver.user %}
                                                         <a href="#about-driver_{{ driverUser.id }}" data-uk-modal>
                                                             {#<i class="mp-icon-taxi uk-text-primary"></i>#}
-                                                            <i class="mp-icon-good status-photo">
-                                                            	<img src="{{ asset('bundles/davincitaxi/images/avatar.png') }}" alt="">
-                                                            </i>
+															{% if driverUser.photo.path is defined %}
+	                                                            <i class="mp-icon-good status-photo">
+																	<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" alt="{{ driverUser.firstname }} {{ driverUser.lastname }}"/>
+																</i>
+					                                        {% else %}
+	                                                            <i class="mp-icon-good status-photo"></i>
+					                                        {% endif %}
                                                         </a>
+                                                        {% endfor %}
                                                         {#<br />
                                                         <span class="uk-text-danger">
                                                             <i class="mp-icon-star"></i>
@@ -244,14 +271,14 @@
                                                             <a href="{{ path('passenger_request_edit', {'id': request.id}) }}" class="mp-icon-edit uk-text-primary" title="{% trans %}Edit{% endtrans %}">
                                                             </a>
                                                         {% else %}
-                                                            <a class="mp-icon-edit uk-text-warning">
+                                                            <a href="#edit_info" class="mp-icon-edit uk-text-warning" data-uk-modal>
                                                             </a>
                                                         {% endif %}
                                                         {% if request.getStateValue() != 'completed' and request.getStateValue() != 'canceled' %}
-                                                            <a href="{{ path('cancel_request_status', {'id': request.id}) }}" class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}">
+                                                            <a href="#route_cancel{{ request.id }}" class="mp-icon-closed uk-text-danger uk-modal-close" data-uk-tooltip="{pos:'top'}" title="{% trans %}Cancel{% endtrans %}" data-uk-modal>
                                                             </a>
                                                         {% else %}
-                                                            <a class="mp-icon-closed uk-text-warning">
+                                                            <a href="#closed_info" class="mp-icon-closed uk-text-warning" data-uk-modal>
                                                             </a>
                                                         {% endif %}    
                                                     </div>
@@ -259,6 +286,20 @@
                                             </tr>
                                             {% from 'DaVinciTaxiBundle:Home:showPassengerRequest.html.twig' import showRequest %}
                                             {{ showRequest(request, user, 'passenger_all') }}
+
+											<!-- begin modal route_cancel -->
+											<div id="route_cancel{{ request.id }}" class="uk-modal route_cancel info_modal">
+											    <div class="uk-modal-dialog">
+											        <a class="uk-modal-close uk-close"></a>
+											        <div class="uk-h4 uk-text-danger uk-margin">Are you sure to cancel the Order ID{{ request.id }}?</div>
+											        <div class="uk-grid uk-grid-small">
+											        	<div class="uk-width-1-2"><button onclick="location.href='{{ path('cancel_request_status', {'id': request.id}) }}'" class="uk-button uk-button-success uk-width-1-1">YES</button></div>
+											        	<div class="uk-width-1-2"><button class="uk-button uk-button-warning uk-width-1-1 uk-modal-close">NO</button></div>
+											        </div>
+											    </div>
+											</div>
+											<!-- end modal route_cancel -->
+
 		                                {% else %}
 		                                    <tr>
 		                                        <td colspan="8">{{ 'Orders history not found'|trans }}</td>
@@ -270,12 +311,33 @@
 							{# ========= Modal about-driver ========== #}
 							{% include "FOSUserBundle:Offices:office_passenger_profile_about_driver_dialog.html.twig" %}
  						</li>
+
 					{% endif %}	
 				</ul>
 			</div>
 	</div>
 </div>
 {# ========= Table ========= #}
+
+<!-- begin modal edit_info -->
+<div id="edit_info" class="uk-modal edit_info info_modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-h4 uk-text-danger uk-margin">Редактировать заявку можно в статусах "Completed" и "Canceled"</div>
+    	<a href="#" class="uk-button uk-button-warning uk-width-1-1 uk-modal-close">OK</a>
+    </div>
+</div>
+<!-- end modal edit_info -->
+
+<!-- begin modal closed_info -->
+<div id="closed_info" class="uk-modal closed_info info_modal">
+    <div class="uk-modal-dialog">
+        <a class="uk-modal-close uk-close"></a>
+        <div class="uk-h4 uk-text-danger uk-margin">Удалить заявку можно в статусах "Open" и "Before open"</div>
+    	<a href="#" class="uk-button uk-button-warning uk-width-1-1 uk-modal-close">OK</a>
+    </div>
+</div>
+<!-- end modal closed_info -->
 
 {# ========= profile ========= #}
 <script>

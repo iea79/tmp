@@ -1,5 +1,5 @@
 require(['pages/common'], function ($) {
-    require(['jquery.form.min','pages/table.resize', 'intl-tel-input-master/js/intlTelInput', 'showRouting', 'inputLimit', 'datarange', 'passengerHandler', 'changeOffice'], function () {
+    require(['jquery.form.min','pages/table.resize', 'showRouting', 'inputLimit', 'datarange', 'passengerHandler', 'changeOffice', 'intl-tel-input-master/js/intlTelInput'], function () {
 
         function initProfileForm() {
             
@@ -97,6 +97,25 @@ require(['pages/common'], function ($) {
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+            // Прелоадер для кнопки и вывод имени загруженного файла при добавлении фото при оформлении поездки - шаг 3
+            $('.button__file__add input').on('change', function() {
+                realVal = $(this).val();
+                lastIndex = realVal.lastIndexOf('\\') + 1;
+                preloadBtn = $(this).parent().parent('.uk-form-file').find('.uk-icon-spin');
+                rezultLoad = $(this).parent().parent('.uk-form-file').find('.image__add__rezult');
+
+                    if(lastIndex !== -1) {
+                        realVal = realVal.substr(lastIndex);
+                        preloadBtn.show();
+                        setTimeout(function() {
+                            preloadBtn.hide();
+                            rezultLoad.html('Loaded: ' + realVal);
+                    }, 1500);
+                }
+            });
+
+            $(".mobile__phone").intlTelInput();
                 
         //remove preloader
         togglePreloader(document.body,false);

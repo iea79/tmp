@@ -45,3 +45,13 @@
 </div>
 
 {% endblock %}
+
+{% block javascripts %}
+    {% javascripts filter='?requirejs'
+    '@DaVinciTaxiBundle/Resources/public/js/pages/payment/financial.office.js'
+    %}
+
+    {{ require_js_initialize({ 'main' : asset_url })}}
+
+    {% endjavascripts %}
+{% endblock %}
