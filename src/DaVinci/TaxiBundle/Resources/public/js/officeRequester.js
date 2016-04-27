@@ -1,6 +1,7 @@
 define("officeRequester", function() {
 	var OfficeRequester = function() {
-    	var host = 'http://taximyprice.com';
+        var host = 'http://taxi.loc';
+    	// var host = 'http://taximyprice.com';
 		// var host = 'http://taxi-my-price.dev';
 		
     	this.prepareRequest = function(values) {

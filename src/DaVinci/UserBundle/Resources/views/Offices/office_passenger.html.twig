@@ -229,17 +229,17 @@
                                                     {% if request.getStateValue() == 'completed' %}
                                                     	<span>{{ 'completed'|trans }}</span>
                                                     	{% for driver in request.getPossibleDrivers() %}
-                                                    	{% set driverUser = driver.user %}
-                                                        <a href="#about-driver_{{ driverUser.id }}" data-uk-modal>
-                                                            {#<i class="mp-icon-taxi uk-text-primary"></i>#}
-															{% if driverUser.photo.path is defined %}
-	                                                            <i class="mp-icon-good status-photo">
-																	<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" alt="{{ driverUser.firstname }} {{ driverUser.lastname }}"/>
-																</i>
-					                                        {% else %}
-	                                                            <i class="mp-icon-good status-photo"></i>
-					                                        {% endif %}
-                                                        </a>
+	                                                    	{% set driverUser = driver.user %}
+	                                                        <a href="#about-driver_{{ driverUser.id }}" data-uk-modal>
+	                                                            {#<i class="mp-icon-taxi uk-text-primary"></i>#}
+																{% if driverUser.photo.path is defined %}
+		                                                            <i class="mp-icon-good status-photo">
+																		<img src="{{ driverUser.photo.path|imagine_filter('profile_avatar') }}" alt="{{ driverUser.firstname }} {{ driverUser.lastname }}"/>
+																	</i>
+						                                        {% else %}
+		                                                            <i class="mp-icon-good status-photo"></i>
+						                                        {% endif %}
+	                                                        </a>
                                                         {% endfor %}
                                                         {#<br />
                                                         <span class="uk-text-danger">

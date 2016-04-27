@@ -129,7 +129,7 @@ doctrine:
         mapping_types:
             enum:       string 
     orm:
-        #auto_generate_proxy_classes: %kernel.debug%
+        # auto_generate_proxy_classes: %kernel.debug%
         default_entity_manager: default
 
 
@@ -322,7 +322,7 @@ doctrine_phpcr:
     session:
         backend:
             type: doctrinedbal
-            # connection: default
+            connection: default
             
             caches:
                 meta: doctrine_cache.providers.phpcr_meta
@@ -332,7 +332,7 @@ doctrine_phpcr:
         password: %phpcr_pass%    
     odm:
         default_document_manager: default
-        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_generate_proxy_classes: true
         document_managers:
             default:    
                 session: default
